@@ -1,0 +1,8 @@
+name: Intel ISPC Tasksys
+source: https://github.com/ispc/ispc/blob/main/examples/common/tasksys.cpp
+project: https://ispc.github.io
+authors:
+    - Intel
+license: BSD-3-Clause (https://github.com/ispc/ispc/blob/main/LICENSE.txt)
+reasoning: |
+    To support launch, sync and task keywords of ISPC.

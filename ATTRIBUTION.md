@@ -1,0 +1,58 @@
+## [Tabler Icons](https://tabler.io/icons)
+
+* Authors:
+  * Paweł Kuna (https://github.com/codecalm)
+* License: MIT License (https://github.com/tabler/tabler-icons/blob/main/LICENSE)
+* [Source code](https://github.com/tabler/tabler-icons)
+
+Reason of inclusion:  
+Have an easy way to decorate the C++ UI with resolution independent nice icons without the need
+for exporting them as PNG's for all the possible sizes, or without the need to go through
+Unreal's own asset pipeline in the editor.
+## [Compile Time Regular Expression](https://compile-time.re)
+
+* Authors:
+  * Hana Dusíková (https://github.com/hanickadot)
+* License: Apache License 2.0 (https://github.com/hanickadot/compile-time-regular-expressions/blob/main/LICENSE)
+* [Source code](https://github.com/hanickadot/compile-time-regular-expressions)
+
+Reason of inclusion:  
+It can do this:
+
+```C++
+struct FDate { std::string_view year, month, day; };
+
+auto result = ctre::match<R"((?<year>\d{4})/(?<month>\d{1,2})/(?<day>\d{1,2}))">(s);
+return FDate{ result.get<"year">(), result.get<"month">(), result.get<"day">() };
+```
+
+In compile time non-the less! Unreal's own included Regex library pales in comparison.
+
+## [magic_enum](https://github.com/Neargye/magic_enum)
+
+* Authors:
+  * Daniil Goncharov (https://github.com/Neargye)
+* License: MIT (https://github.com/Neargye/magic_enum/blob/master/LICENSE)
+* [Source code](https://github.com/Neargye/magic_enum)
+
+Reason of inclusion:  
+Serialize/deserialize C++ enums in human readable form without the need to use UENUM macros and
+UAT generated headers.
+## [yaml-cpp](https://github.com/jbeder/yaml-cpp)
+
+* Authors:
+  * Jesse Beder (https://github.com/jbeder)
+* License: MIT (https://github.com/jbeder/yaml-cpp/blob/master/LICENSE)
+* [Source code](https://github.com/jbeder/yaml-cpp)
+
+Reason of inclusion:  
+A YAML parser and emitter in C++. Unreal Engine doesn't provide one.
+## [Intel ISPC Tasksys](https://ispc.github.io)
+
+* Authors:
+  * Intel
+* License: BSD-3-Clause (https://github.com/ispc/ispc/blob/main/LICENSE.txt)
+* [Source code](https://github.com/ispc/ispc/blob/main/examples/common/tasksys.cpp)
+
+Reason of inclusion:  
+To support launch, sync and task keywords of ISPC.

@@ -1,0 +1,2 @@
+copy:
+  - { file: "*_Origin.build.cs", procContent: true }

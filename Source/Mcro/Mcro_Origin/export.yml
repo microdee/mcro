@@ -1,0 +1,6 @@
+link:
+  - dir: Private/Mcro
+  - dir: Public/Mcro
+copy:
+  - { file: Mcro_Origin.Build.cs, procContent: true }
+  - { file: Private/Mcro_Origin.cpp, procContent: true }

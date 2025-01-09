@@ -1,0 +1,8 @@
+name: yaml-cpp
+source: https://github.com/jbeder/yaml-cpp
+project: https://github.com/jbeder/yaml-cpp
+authors:
+    - Jesse Beder (https://github.com/jbeder)
+license: MIT (https://github.com/jbeder/yaml-cpp/blob/master/LICENSE)
+reasoning: |
+    A YAML parser and emitter in C++. Unreal Engine doesn't provide one.
