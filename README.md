@@ -29,6 +29,8 @@ A utility proto-plugin for Unreal Engine, easing plugin development with C++ 23.
   - [Plans](#plans)
   - [Legal](#legal)
 
+[Read the full documentation at](https://mcro.de/mcro)  
+*(Note that currently it's also very WIP)*
 
 ## What's a proto-plugin?
 
