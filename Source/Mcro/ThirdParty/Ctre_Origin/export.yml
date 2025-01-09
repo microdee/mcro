@@ -1,6 +1,0 @@
-link:
-  - dir: Include
-  - file: Ctre.tp.yml
-copy:
-  - file: Ctre_Origin.Build.cs
-    procContent: true

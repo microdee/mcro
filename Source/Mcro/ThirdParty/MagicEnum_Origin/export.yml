@@ -1,5 +1,0 @@
-link:
-  - dir: Include
-  - file: MagicEnum.tp.yml
-copy:
-  - { file: MagicEnum_Origin.build.cs, procContent: true }

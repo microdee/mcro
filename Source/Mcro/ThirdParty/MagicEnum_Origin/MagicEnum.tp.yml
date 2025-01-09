@@ -1,9 +1,0 @@
-name: magic_enum
-source: https://github.com/Neargye/magic_enum
-project: https://github.com/Neargye/magic_enum
-authors:
-    - Daniil Goncharov (https://github.com/Neargye)
-license: MIT (https://github.com/Neargye/magic_enum/blob/master/LICENSE)
-reasoning: |
-    Serialize/deserialize C++ enums in human readable form without the need to use UENUM macros and
-    UAT generated headers.
