@@ -92,12 +92,7 @@ namespace Mcro::AssertMacros
 		MCRO_QUIT_BODY(condition, returnOnFailure, __VA_ARGS__)  \
 	}                                                           //
 
-#if UE_BUILD_SHIPPING && defined(MCRO_ASSERT_IGNORE_SHIPPING)
-
-#define ASSERT_CRASH(condition, ...)
-#define ASSERT_QUIT(condition, returnOnFailure, ...)
-
-#elif WITH_EDITOR
+#if WITH_EDITOR
 
 /**
  *	Use this instead of `check` macro if the checked expression shouldn't be ignored in shipping builds. This version will
@@ -153,6 +148,11 @@ namespace Mcro::AssertMacros
 
 /** This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit */
 #define FORCE_QUIT(returnOnFailure, ...) MCRO_QUIT_BODY(Invalid code path, returnOnFailure, __VA_ARGS__)
+
+#elif UE_BUILD_SHIPPING && defined(MCRO_ASSERT_IGNORE_SHIPPING)
+
+#define ASSERT_CRASH(condition, ...)
+#define ASSERT_QUIT(condition, returnOnFailure, ...)
 
 #else
 
