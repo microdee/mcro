@@ -51,20 +51,20 @@ namespace Mcro::AssertMacros
 		PREPROCESSOR_TO_TEXT(condition),                                     \
 		async, important,                                                    \
 		[&](Mcro::Error::IErrorRef const& error) { (error __VA_ARGS__); }    \
-	);
+	);                                                                      //
 
 #define MCRO_ASSERT_CRASH_METHOD                                    \
 	UE_LOG(LogTemp, Fatal,                                          \
 		TEXT("Program cannot continue for the reasons above. (at ") \
 		PREPROCESSOR_TO_TEXT(__FILE__:__LINE__) TEXT(")")           \
-	)
+	)                                                              //
 
 #define MCRO_CRASH_BODY(condition, ...)    \
 	MCRO_ASSERT_SUBMIT_ERROR(              \
 		condition, Crashing, false, false, \
 		__VA_ARGS__                        \
 	)                                      \
-	MCRO_ASSERT_CRASH_METHOD;              \
+	MCRO_ASSERT_CRASH_METHOD;             //
 
 #define MCRO_QUIT_BODY(condition, returnOnFailure, ...) \
 	MCRO_ASSERT_SUBMIT_ERROR(                           \
@@ -78,19 +78,19 @@ namespace Mcro::AssertMacros
 		Mcro::AssertMacros::Detail::StopPie();          \
 		return returnOnFailure;                         \
 	}                                                   \
-	else { MCRO_ASSERT_CRASH_METHOD }                   \
+	else { MCRO_ASSERT_CRASH_METHOD }                  //
 
 #define MCRO_ASSERT_CRASH_COMMON(condition, ...) \
 	if (UNLIKELY(!(condition)))                  \
 	{                                            \
 		MCRO_CRASH_BODY(condition, __VA_ARGS__)  \
-	}
+	}                                           //
 
 #define MCRO_ASSERT_QUIT_COMMON(condition, returnOnFailure, ...) \
 	if (UNLIKELY(!(condition)))                                  \
 	{                                                            \
 		MCRO_QUIT_BODY(condition, returnOnFailure, __VA_ARGS__)  \
-	}
+	}                                                           //
 
 #if UE_BUILD_SHIPPING && defined(MCRO_ASSERT_IGNORE_SHIPPING)
 
