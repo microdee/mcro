@@ -200,10 +200,12 @@ What's up with _Origin suffix everywhere?</h1>
 <h1><a class="anchor" id="autotoc_md7"></a>
 What MCRO can do?</h1>
 <p>Here are some code appetizers without going too deep into their details. The demonstrated features usually can do a lot more than what's shown here.</p>
+<p><em>(symbols in source code are clickable!)</em></p>
 <h2><a class="anchor" id="autotoc_md8"></a>
 Error handling</h2>
-<p>An elegant workflow for dealing with code which has can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.</p>
+<p>An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.</p>
 <div class="fragment"><div class="line"> ++</div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="de/dba/Error_8h.html">Mcro/Error.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d3/d35/CppException_8h.html">Mcro/Error/CppException.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line">FCanFail FK4ADevice::Tick_Sync()</div>
@@ -244,6 +246,7 @@ Error handling</h2>
 <div class="line">}</div>
 <div class="ttc" id="aAssertMacros_8h_html_afa32959b04a99d2f4a56cd141e34a9bd"><div class="ttname"><a href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a></div><div class="ttdeci">#define PROPAGATE_FAIL(expression)</div></div>
 <div class="ttc" id="aCppException_8h_html"><div class="ttname"><a href="d3/d35/CppException_8h.html">CppException.h</a></div></div>
+<div class="ttc" id="aError_8h_html"><div class="ttname"><a href="de/dba/Error_8h.html">Error.h</a></div></div>
 <div class="ttc" id="aError_8h_html_af37be15dc2b5053c9c6f901363b2a756"><div class="ttname"><a href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a></div><div class="ttdeci">#define ASSERT_RETURN(condition)</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00606">Error.h:606</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Error_1_1TCppException_html"><div class="ttname"><a href="db/d63/classMcro_1_1Error_1_1TCppException.html">Mcro::Error::TCppException</a></div><div class="ttdef"><b>Definition</b> <a href="d3/d35/CppException_8h_source.html#l00048">CppException.h:49</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Error_html"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></div><div class="ttdef"><b>Definition</b> <a href="d7/d3f/Error_8Fwd_8h_source.html#l00018">Error.Fwd.h:19</a></div></div>
@@ -583,7 +586,7 @@ Function Traits</h2>
 <p>Make templates dealing with function types more readable and yet more versatile via the <code><a class="el" href="d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></code> namespace. This is the foundation of many intricate teemplates <a class="el" href="d8/d63/namespaceMcro.html">Mcro</a> can offer.</p>
 <p>Constraint/infer template parameters from the signature of an input function. (This is an annotated exempt from <code><a class="el" href="de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></code>)</p>
 <div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d7/d25/FunctionTraits_8h.html">Mcro/FunctionTraits.h</a>&quot;</span> <span class="comment">// it also beings in Concepts</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d7/d25/FunctionTraits_8h.html">Mcro/FunctionTraits.h</a>&quot;</span> <span class="comment">// it also brings in Concepts</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></div>
 <div class="line">{</div>
@@ -737,20 +740,20 @@ ISPC parallel tasks support</h2>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
 Last but not least</h2>
 <ul>
-<li>Dynamic ↔ Native (multicast) delegate interop</li>
-<li>Event multiplexing to virtual function, native event, dynamic event</li>
-<li>Object binding and promises for <code>AsyncTask</code></li>
-<li>Bullet-proof third-party library include guards.</li>
+<li><a class="el" href="d6/d11/AsNative_8h.html">Dynamic ↔ Native (multicast) delegate interop</a></li>
+<li><a class="el" href="df/d7c/EventMultiplex_8h.html">Event multiplexing to virtual function, native event, dynamic event</a></li>
+<li><a class="el" href="dd/d0e/Threading_8h.html">Object binding and promises for <code>AsyncTask</code></a></li>
+<li><a class="el" href="df/d42/Start_8h.html">Bullet-proof third-party library include guards.</a></li>
 <li>Rudimentary rendering utilities</li>
-<li>In-place lambda initializers for both C++ objects and UObjects</li>
-<li>RAII DLL loaders</li>
-<li><code>IObservableModule</code></li>
-<li>Universal API to get subsystems</li>
-<li>Shared object utilities</li>
-<li><code>FTimespan</code> literals</li>
-<li>YAML utilities (via <a href="https://github.com/jbeder/yaml-cpp">yaml-cpp</a>)</li>
+<li><a class="el" href="d1/dd5/Construct_8h.html">In-place lambda initializers</a> for both <a class="el" href="db/d9b/namespaceMcro_1_1SharedObjects.html#af61e42e2a3a1889799e27c8acd037875">C++ objects</a> and <a class="el" href="db/db1/Init_8h.html">UObjects</a></li>
+<li><a class="el" href="d6/dd8/Dll_8h.html">RAII DLL loaders</a></li>
+<li><a class="el" href="dd/dc2/Modules_8h.html"><code>IObservableModule</code></a></li>
+<li><a class="el" href="d7/d78/Subsystems_8h.html">Universal API to get subsystems</a></li>
+<li><a class="el" href="d3/d3e/SharedObjects_8h.html">Shared object utilities</a></li>
+<li><a class="el" href="dc/d41/TimespanLiterals_8h.html"><code>FTimespan</code> literals</a></li>
+<li><a class="el" href="d1/d43/Yaml_8h.html">YAML utilities</a> (via <a href="https://github.com/jbeder/yaml-cpp">yaml-cpp</a>)</li>
 <li>Windows:<ul>
-<li><code>IError</code> wrapper for <code>HRESULT</code> and <code>GetLastError</code> extracting human readable error messages from them.</li>
+<li><a class="el" href="d0/d7b/WindowsError_8h.html"><code>IError</code> wrapper for <code>HRESULT</code> and <code>GetLastError</code></a> extracting human readable error messages from them.</li>
 </ul>
 </li>
 </ul>
