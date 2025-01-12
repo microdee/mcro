@@ -210,37 +210,35 @@ Error handling</h2>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">using namespace </span><a class="code hl_namespace" href="dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a>;</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_define" href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a>(Device.is_valid(),</div>
+<div class="line">    <a class="code hl_define" href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a>(Device.is_valid())</div>
 <div class="line">        -&gt;AsCrashing()</div>
 <div class="line">        -&gt;BreakDebugger()</div>
 <div class="line">        -&gt;WithCppStackTrace()</div>
-<div class="line">        -&gt;Notify(LastError)</div>
-<div class="line">    );</div>
+<div class="line">        -&gt;Notify(LastError);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">try</span></div>
 <div class="line">    {</div>
 <div class="line">        k4a::capture capture;</div>
-<div class="line">        <a class="code hl_define" href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a>(Device.get_capture(&amp;capture), -&gt;Notify(LastError))</div>
+<div class="line">        <a class="code hl_define" href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a>(Device.get_capture(&amp;capture))-&gt;Notify(LastError);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">auto</span> color = capture.get_color_image(); ColorStream-&gt;Active)</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(ColorStream-&gt;Push(color), -&gt;Notify(LastError))</div>
+<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(ColorStream-&gt;Push(color))-&gt;Notify(LastError);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">auto</span> depth = capture.get_depth_image(); DepthStream-&gt;Active)</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(DepthStream-&gt;Push(depth), -&gt;Notify(LastError))</div>
+<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(DepthStream-&gt;Push(depth))-&gt;Notify(LastError);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">auto</span> ir = capture.get_ir_image(); IRStream-&gt;Active)</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(IRStream-&gt;Push(ir), -&gt;Notify(LastError))</div>
+<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(IRStream-&gt;Push(ir))-&gt;Notify(LastError);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">catch</span> (k4a::error <span class="keyword">const</span>&amp; exception)</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> MakeError(IError::Make(<span class="keyword">new</span> <a class="code hl_class" href="db/d63/classMcro_1_1Error_1_1TCppException.html">TCppException</a>(exception))</div>
+<div class="line">        <span class="keywordflow">return</span> IError::Make(<span class="keyword">new</span> <a class="code hl_class" href="db/d63/classMcro_1_1Error_1_1TCppException.html">TCppException</a>(exception))</div>
 <div class="line">            -&gt;AsFatal()-&gt;WithCppStackTrace()-&gt;WithLocation()</div>
-<div class="line">            -&gt;Notify(LastError)</div>
-<div class="line">        );</div>
+<div class="line">            -&gt;Notify(LastError);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f">Success</a>();</div>
 <div class="line">}</div>
