@@ -3,7 +3,7 @@
 <img src="Docs/Images/proto-logo-0.webp" width=400 />
 
 # MCRO
-A utility proto-plugin for Unreal Engine, easing plugin development with C++ 23.
+A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
 
 </div>
 

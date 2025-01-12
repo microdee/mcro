@@ -1,5 +1,7 @@
 # MCRO {#mainpage}
 
+A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
+
 > [!CAUTION]
 > This library is far from being production ready and is not recommended to be used yet at all
 
@@ -114,7 +116,13 @@ struct FObservable
 }
 ```
 
-we can do
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">We can do:</b>
 
 ```C++
 #include "Mcro/Delegates/DelegateFrom.h"
@@ -142,7 +150,11 @@ struct FListener : TSharedFromThis<FListener>
 }
 ```
 
-is equivalent to doing the following with the vanilla Unreal delegates API:
+</li>
+
+<li>
+
+<b class="tab-title">Equivalent vanilla Unreal delegates:</b>
 
 ```C++
 struct FListener : TSharedFromThis<FListener>
@@ -168,6 +180,12 @@ struct FListener : TSharedFromThis<FListener>
     }
 }
 ```
+
+</li>
+
+</ul>
+
+</div>
 
 There's also a dynamic / native (multicast) delegate interop including similar chaining demonstrated here.
 
