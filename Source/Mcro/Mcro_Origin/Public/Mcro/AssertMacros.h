@@ -101,7 +101,7 @@ namespace Mcro::AssertMacros
  *	pointer by reference).
  *	
  *	This macro will attempt to display the error before crashing via the IError type. You can also append extra
- *	information to it like so, or even override preset information like so:
+ *	information to it, or even override preset information like so:
  *	
  *	@code
  *	ASSERT_CRASH(arrayNum > 0,
