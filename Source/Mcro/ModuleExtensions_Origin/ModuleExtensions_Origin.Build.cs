@@ -1,4 +1,4 @@
-/** @noop License Comment
+﻿/** @noop License Comment
  *  @file
  *  @copyright
  *  This Source Code is subject to the terms of the Mozilla Public License, v2.0.
@@ -27,10 +27,10 @@ namespace ModuleExtensions.Origin
 		public string Value = "";
 
 		[XmlAttribute]
-		public string? Platform;
+		public string Platform;
 
 		[XmlAttribute]
-		public string? Config;
+		public string Config;
 	};
 
 	public class RuntimeDependencies

@@ -12,13 +12,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Mcro/Error.Fwd.h"
 #include "Void.h"
 #include "Mcro/Types.h"
 #include "Mcro/Concepts.h"
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Observable.Fwd.h"
-#include "Mcro/Error/ValueOrErrorCopyable.h"
-#include "Mcro/Yaml.h"
+
+#include "Mcro/LibraryIncludes/Start.h"
+#include "yaml-cpp/yaml.h"
+#include "Mcro/LibraryIncludes/End.h"
 
 #include <source_location>
 
@@ -29,41 +32,6 @@ namespace Mcro::Error
 	using namespace Mcro::Types;
 	using namespace Mcro::FunctionTraits;
 	using namespace Mcro::SharedObjects;
-	
-	class IError;
-	class SErrorDisplay;
-	
-	using IErrorRef = TSharedRef<IError>;   /**< Convenience alias for an instance of an error */
-	using IErrorPtr = TSharedPtr<IError>;   /**< Convenience alias for an instance of an error */
-	using IErrorWeakPtr = TWeakPtr<IError>; /**< Convenience alias for an instance of an error */
-
-	/** Concept constraining input type argument T to an IError */
-	template <typename T>
-	concept CError = CDerivedFrom<T, IError>; 
-
-	/** Indicate the severity of an error and at what discretion the caller may treat it. */
-	enum class EErrorSeverity
-	{
-		/** Indicates that an inner error just contains extra context for a real error */
-		ErrorComponent = -1,
-		
-		/** The caller can handle the error and may continue execution, for example errors with telemetry. */
-		Recoverable,
-		
-		/**
-		 *	A sub-program (like PIE) or a thread should abort its entire purpose but it should not crash the entire
-		 *	encompassing application, for example early runtime checks about the correctness of some required configuration.
-		 */
-		Fatal,
-
-		/**
-		 *	The application has arrived to an invalid state from which recovery is impossible, for example access
-		 *	violation errors.
-		 */
-		Crashing
-	};
-
-	using FNamedError = TPair<FString, IErrorRef>;
 
 	/**
 	 *	A base class for a structured error handling and reporting with modular architecture and fluent API.
@@ -87,10 +55,10 @@ namespace Mcro::Error
 	 *	ways without the need to consult an external documentation. It gives the developer total freedom however of what
 	 *	the error can be, so on its own it does not solve the questions of what/when/how.
 	 *	@remarks
-	 *	Using `TValueOrError` with `IError` can be a powerful tool in the developer's arsenal when creating a library.
-	 *	With `IError` a detailed and structured way of communicating errors can be standardized. Without hindering
-	 *	call-site usage `IError` can automate method and format of logging the (many times excessive amount of)
-	 *	information surrounding the error, or decide how it may be presented for the user. 
+	 *	Using `TMaybe` with `IError` can be a powerful tool in the developer's arsenal when creating a library.
+	 *	`IError` can standardize a detailed and structured way of communicating errors without hindering call-site
+	 *	usage. It can also automate the method and the format of logging the (many times excessive amount of)
+	 *	information surrounding an error, or decide how it may be presented for the user.
 	 */
 	class MCRO_API IError : public IHaveType
 	{
@@ -171,6 +139,7 @@ namespace Mcro::Error
 		}
 
 		FORCEINLINE EErrorSeverity                  GetSeverity() const        { return Severity; }
+		FORCEINLINE int32                           GetSeverityInt() const     { return static_cast<int32>(Severity); }
 		FORCEINLINE FString const&                  GetMessage() const         { return Message; }
 		FORCEINLINE FString const&                  GetDetails() const         { return Details; }
 		FORCEINLINE FString const&                  GetCodeContext() const     { return CodeContext; }
@@ -536,84 +505,135 @@ namespace Mcro::Error
 		FUnavailable();
 	};
 
-	/** Convenience alias for TValueOrErrorCopyable accepting an IError */
-	template <CCopyable T>
-	using TMaybe = TValueOrErrorCopyable<T, IErrorRef>;
+	/**
+	 *	A TValueOrError alternative for IError which allows implicit conversion from values and errors (no need for
+	 *	`MakeError` or `MakeValue`) and is boolean testable. It also doesn't have ambiguous state such as TValueOrError
+	 *	has, so a TMaybe will always have either an error or a value, it will never have neither of them or both of them.
+	 */
+	template <CNonVoid T>
+	struct TMaybe
+	{
+		using ValueType = T;
+
+		/**
+		 *	Default initializing a TMaybe while its value is not default initializable, initializes the resulting
+		 *	TMaybe to an erroneous state.
+		 */
+		template <typename = T>
+		requires (!CDefaultInitializable<T>)
+		TMaybe() : Error(IError::Make(new FUnavailable())
+			->WithMessageF(
+				TEXT("TMaybe has been default initialized, but a Value of %s cannot be default initialized"),
+				*TTypeString<T>
+			)
+		) {}
+
+		/** If T is default initializable then the default state of TMaybe will be the default value of T, and not an error */
+		template <CDefaultInitializable = T>
+		TMaybe() : Value(T{}) {}
+		
+		/** Enable copy constructor for T only when T is copy constructable */
+		template <CConvertibleToDecayed<T> From, CCopyConstructible = T>
+		TMaybe(From const& value) : Value(value) {}
+		
+		/** Enable move constructor for T only when T is move constructable */
+		template <CConvertibleToDecayed<T> From, CMoveConstructible = T>
+		TMaybe(From&& value) : Value(Forward<From>(value)) {}
+		
+		/** Enable copy constructor for TMaybe only when T is copy constructable */
+		template <CConvertibleToDecayed<T> From, CCopyConstructible = T>
+		TMaybe(TMaybe<From> const& other) : Value(other.Value) {}
+		
+		/** Enable move constructor for TMaybe only when T is move constructable */
+		template <CConvertibleToDecayed<T> From, CMoveConstructible = T>
+		TMaybe(TMaybe<From>&& other) : Value(MoveTemp(other.Value)) {}
+
+		/** Set this TMaybe to an erroneous state */
+		template <CError ErrorType>
+		TMaybe(TSharedRef<ErrorType> const& error) : Error(error) {}
+
+		bool HasValue() const { return Value.IsSet(); }
+		bool HasError() const { return Error.IsValid(); }
+
+		auto TryGetValue()       -> TOptional<T>&       { return Value; }
+		auto TryGetValue() const -> TOptional<T> const& { return Value; }
+		
+		auto GetValue()       -> T&       { return Value.GetValue(); }
+		auto GetValue() const -> T const& { return Value.GetValue(); }
+
+		auto GetError() const -> IErrorPtr { return Error; }
+
+		operator bool() const { return HasValue(); }
+		
+		operator TValueOrError<T, IErrorPtr>() const
+		{
+			if (HasValue())
+				return MakeValue(Value.GetValue());
+			return MakeError(Error);
+		}
+
+	private:
+		TOptional<T> Value;
+		IErrorPtr Error;
+	};
+
+	/** Indicate that an otherwise void function that it may fail with an `IError`. */
+	using FCanFail = TMaybe<FVoid>;
 
 	/**
-	 *	Indicate that an otherwise void function may fail with an IError. This alias exists to keep consistency for
-	 *	convenience macros which may return with MakeError(...), so a simple IErrorPtr return type may not cut it.
-	 *	Also TValueOrError is truthy on success, whereas IErrorPtr is truthy on failure.
+	 *	Syntactically same as `FCanFail` but for functions which is explicitly used to query some boolean decidable
+	 *	thing, and which can also provide a reason why the queried thing is false. 
 	 */
-	using FCanFail = TValueOrErrorCopyable<FVoid, IErrorRef>;
+	using FTrueOrReason = TMaybe<FVoid>;
 
-	/** Return an FCanFail indicating a success */
-	FORCEINLINE FCanFail Success() { return MakeValue(FVoid()); }
+	/** Return an FCanFail or FTrueOrReason indicating a success or truthy output */
+	FORCEINLINE FCanFail Success() { return FVoid(); }
 }
 
 #define ERROR_LOG(categoryName, verbosity, error)         \
 	UE_LOG(categoryName, verbosity, TEXT("%s"), *((error) \
 		->WithLocation()                                  \
 		->ToString()                                      \
-	))
+	))                                                   //
 
 #define ERROR_CLOG(condition, categoryName, verbosity, error)         \
 	UE_CLOG(condition, categoryName, verbosity, TEXT("%s"), *((error) \
 		->WithLocation()                                              \
 		->ToString()                                                  \
-	))
+	))                                                               //
 
 /** Similar to check() macro, but return an error instead of crashing */
-#define ASSERT_RETURN(condition, ...)                                             \
-	if (UNLIKELY(!(condition)))                                                   \
-		return MakeError(Mcro::Error::IError::Make(new Mcro::Error::FAssertion()) \
-			->WithLocation()                                                      \
-			->AsRecoverable()                                                     \
-			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition))                    \
-			__VA_ARGS__                                                           \
-		);
+#define ASSERT_RETURN(condition)                                        \
+	if (UNLIKELY(!(condition)))                                         \
+		return Mcro::Error::IError::Make(new Mcro::Error::FAssertion()) \
+			->WithLocation()                                            \
+			->AsRecoverable()                                           \
+			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition))         //
 
 /** Denote that a resource which is asked for doesn't exist */
-#define UNAVAILABLE(...)                                                        \
-	return MakeError(Mcro::Error::IError::Make(new Mcro::Error::FUnavailable()) \
-		->WithLocation()                                                        \
-		->AsRecoverable()                                                       \
-		__VA_ARGS__                                                             \
-	);
+#define UNAVAILABLE()                                                 \
+	return Mcro::Error::IError::Make(new Mcro::Error::FUnavailable()) \
+		->WithLocation()                                              \
+		->AsRecoverable()                                            //
 
 /**
  *	If a function returns a TMaybe<V> inside another function which may also return another error use this convenience
  *	macro to propagate the failure. Set a target variable name to store a returned value upon success. Leave type
  *	argument empty for existing variables
  */
-#define PROPAGATE_FAIL_TV(type, var, expression, ...)             \
-	type var = (expression);                                      \
-	if (UNLIKELY(var.HasError())) return MakeError(var.GetError() \
-		->WithLocation()                                          \
-		__VA_ARGS__                                               \
-	); \
+#define PROPAGATE_FAIL_TV(type, var, expression)        \
+	type var = (expression);                            \
+	if (UNLIKELY(var.HasError())) return var.GetError() \
+		->WithLocation()                               //
 
 /**
  *	If a function returns a TMaybe<V> inside another function which may also return another error use this convenience
  *	macro to propagate the failure. Set a local variable to store a returned value upon success.
  */
-#define PROPAGATE_FAIL_V(var, expression, ...) PROPAGATE_FAIL_TV(auto, var, expression, __VA_ARGS__)
+#define PROPAGATE_FAIL_V(var, expression) PROPAGATE_FAIL_TV(auto, var, expression)
 
 /**
  *	If a function returns an FCanFail inside another function which may also return another error use this convenience
  *	macro to propagate the failure. This is only useful with expressions which doesn't return a value upon success.
  */
-#define PROPAGATE_FAIL(expression, ...) { PROPAGATE_FAIL_V(PREPROCESSOR_JOIN(tempResult, __LINE__), expression, __VA_ARGS__) }
-
-/**
- *	If a function returns an IErrorPtr inside another function which may also return another error use this convenience
- *	macro to propagate the failure. This is only useful with expressions which doesn't return a value upon success.
- */
-#define PROPAGATE_ERROR(via, expression, ...)   \
-	{                                           \
-		IErrorPtr result = (expression);        \
-		if (UNLIKELY(result)) return via(result \
-			->WithLocation()                    \
-			__VA_ARGS__                         \
-		);                                      \
-	}
+#define PROPAGATE_FAIL(expression) PROPAGATE_FAIL_V(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)

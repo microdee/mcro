@@ -12,8 +12,6 @@
 #include "Mcro/AssertMacros.h"
 
 #include "Mcro/Error.h"
-#include "Mcro/Error/BlueprintStackTrace.h"
-#include "Mcro/Error/CppStackTrace.h"
 #include "Mcro/Error/ErrorManager.h"
 
 #if WITH_EDITOR
@@ -34,9 +32,9 @@ namespace Mcro::AssertMacros::Detail
 			->WithCodeContext(codeContext)
 			->WithCppStackTrace({}, true, 1)
 			->WithBlueprintStackTrace({}, IsInGameThread());
+		
 		extraSetup(error);
-		auto future = FErrorManager::Get().DisplayError(
-			error,
+		auto future = FErrorManager::Get().DisplayError(error,
 			{ .bAsync = async, .bImportantToRead = important }
 		);
 		if (!async && !IsInGameThread())
@@ -52,11 +50,13 @@ namespace Mcro::AssertMacros::Detail
 
 	void StopPie()
 	{
-		if (IsRunningPIE())
-		{
-			GEditor->RequestEndPlayMap();
-		}
+		if (IsRunningPIE()) GEditor->RequestEndPlayMap();
 	}
+	
+#else
+	
+	bool IsRunningPIE() { return false; }
+	void StopPie() {}
 
 #endif
 }

@@ -24,14 +24,13 @@ namespace Mcro::Windows::COM
 	{
 		HRESULT hr = from->QueryInterface(IID_PPV_ARGS(&to));
 		if (UNLIKELY(hr != S_OK))
-			return MakeError(IError::Make(new FHresultError(hr, fastError))
+			return IError::Make(new FHresultError(hr, fastError))
 				->AsRecoverable()
 				->WithMessageF(
 					TEXT("Object of type %s did not implement %s"),
 					*TTypeString<From>,
 					*TTypeString<To>
-				)
-			);
+				);
 		return Success();
 	}
 	
@@ -46,7 +45,7 @@ namespace Mcro::Windows::COM
 	{
 		TComPtr<To> to;
 		ComCast(from, to, fastError);
-		return MakeValue(MoveTemp(to));
+		return MoveTemp(to);
 	}
 	
 	template <typename From, typename To>
