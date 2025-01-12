@@ -69,9 +69,10 @@ Here are some code appetizers without going too deep into their details. The dem
 
 ### Error handling
 
-An elegant workflow for dealing with code which has can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
+An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
 
 ```C++
+#include "Mcro/Error.h"
 #include "Mcro/Error/CppException.h"
 
 FCanFail FK4ADevice::Tick_Sync()
@@ -456,7 +457,7 @@ Make templates dealing with function types more readable and yet more versatile 
 Constraint/infer template parameters from the signature of an input function. (This is an annotated exempt from `Mcro::UObjects::Init`)
 
 ```C++
-#include "Mcro/FunctionTraits.h" // it also beings in Concepts
+#include "Mcro/FunctionTraits.h" // it also brings in Concepts
 
 namespace Mcro::UObjects::Init
 {

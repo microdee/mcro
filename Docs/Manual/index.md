@@ -44,11 +44,14 @@ When this proto plugin is imported into other plugins, this suffix is used for d
 
 Here are some code appetizers without going too deep into their details. The demonstrated features usually can do a lot more than what's shown here.
 
+*(symbols in source code are clickable!)*
+
 ### Error handling
 
-An elegant workflow for dealing with code which has can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
+An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
 
 ```C++
+#include "Mcro/Error.h"
 #include "Mcro/Error/CppException.h"
 
 FCanFail FK4ADevice::Tick_Sync()
@@ -449,7 +452,7 @@ Make templates dealing with function types more readable and yet more versatile 
 Constraint/infer template parameters from the signature of an input function. (This is an annotated exempt from `Mcro::UObjects::Init`)
 
 ```C++
-#include "Mcro/FunctionTraits.h" // it also beings in Concepts
+#include "Mcro/FunctionTraits.h" // it also brings in Concepts
 
 namespace Mcro::UObjects::Init
 {
@@ -612,20 +615,20 @@ export void MakeLookupUV(
 
 ### Last but not least
 
-* Dynamic ↔ Native (multicast) delegate interop
-* Event multiplexing to virtual function, native event, dynamic event
-* Object binding and promises for `AsyncTask`
-* Bullet-proof third-party library include guards.
+* [Dynamic ↔ Native (multicast) delegate interop](@ref Mcro/Delegates/AsNative.h)
+* [Event multiplexing to virtual function, native event, dynamic event](@ref Mcro/Delegates/EventMultiplex.h)
+* [Object binding and promises for `AsyncTask`](@ref Mcro/Threading.h)
+* [Bullet-proof third-party library include guards.](@ref Mcro/LibraryIncludes/Start.h)
 * Rudimentary rendering utilities
-* In-place lambda initializers for both C++ objects and UObjects
-* RAII DLL loaders
-* `IObservableModule`
-* Universal API to get subsystems
-* Shared object utilities
-* `FTimespan` literals
-* YAML utilities (via [yaml-cpp](https://github.com/jbeder/yaml-cpp))
+* [In-place lambda initializers](@ref Mcro/Construct.h) for both [C++ objects](@ref Mcro::SharedObjects::ConstructShared) and [UObjects](@ref Mcro/UObjects/Init.h)
+* [RAII DLL loaders](@ref Mcro/Dll.h)
+* [`IObservableModule`](@ref Mcro/Modules.h)
+* [Universal API to get subsystems](@ref Mcro/Subsystems.h)
+* [Shared object utilities](@ref Mcro/SharedObjects.h)
+* [`FTimespan` literals](@ref Mcro/TimespanLiterals.h)
+* [YAML utilities](@ref Mcro/Yaml.h) (via [yaml-cpp](https://github.com/jbeder/yaml-cpp))
 * Windows:
-  * `IError` wrapper for `HRESULT` and `GetLastError` extracting human readable error messages from them.
+  * [`IError` wrapper for `HRESULT` and `GetLastError`](@ref McroWindows/Error/WindowsError.h) extracting human readable error messages from them.
 
 ## Legal
 
