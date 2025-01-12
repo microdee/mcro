@@ -1,6 +1,7 @@
 # Doxyfile 1.13.1
 
 # TODO: Set these:
+# CLANG_ASSISTED_PARSING = When database is available
 # CLANG_DATABASE_PATH    = Point it to the Unreal's UBT generated compile_commands.json for VS Code
 # HTML_EXTRA_STYLESHEET  = add extra CSS to fix yellow remarks?
 
@@ -1277,7 +1278,7 @@ VERBATIM_HEADERS       = YES
 # generated with the -Duse_libclang=ON option for CMake.
 # The default value is: NO.
 
-CLANG_ASSISTED_PARSING = YES
+CLANG_ASSISTED_PARSING = NO
 
 # If the CLANG_ASSISTED_PARSING tag is set to YES and the CLANG_ADD_INC_PATHS
 # tag is set to YES then Doxygen will add the directory of each input to the
