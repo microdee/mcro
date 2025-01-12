@@ -18,7 +18,10 @@
 #include "Mcro/Concepts.h"
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Observable.Fwd.h"
-#include "Mcro/Yaml.h"
+
+#include "Mcro/LibraryIncludes/Start.h"
+#include "yaml-cpp/yaml.h"
+#include "Mcro/LibraryIncludes/End.h"
 
 #include <source_location>
 

@@ -30,7 +30,23 @@ namespace Mcro::Error
 
 	/** Concept constraining input type argument T to an IError */
 	template <typename T>
-	concept CError = CDerivedFrom<T, IError>; 
+	concept CError = CDerivedFrom<T, IError>;
+
+	/** Concept constraining input type argument T to be an IErrorRef */
+	template <typename T>
+	concept CErrorRef = CSharedRef<T> && CError<typename T::ElementType>;
+
+	/** Concept constraining input type argument T to be an IErrorPtr */
+	template <typename T>
+	concept CErrorPtr = CSharedPtr<T> && CError<typename T::ElementType>;
+
+	/** Concept constraining input type argument T to be an IErrorPtr */
+	template <typename T>
+	concept CErrorRefOrPtr = CErrorRef<T> || CErrorPtr<T>;
+
+	/** Concept constraining input type argument T to be an IErrorPtr */
+	template <typename T>
+	concept CSharedError = CErrorRefOrPtr<T> || (CWeakPtr<T> && CError<typename T::ElementType>);
 
 	/** Indicate the severity of an error and at what discretion the caller may treat it. */
 	enum class EErrorSeverity
