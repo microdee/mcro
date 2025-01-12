@@ -136,6 +136,7 @@ namespace Mcro::Error
 		}
 
 		FORCEINLINE EErrorSeverity                  GetSeverity() const        { return Severity; }
+		FORCEINLINE int32                           GetSeverityInt() const     { return static_cast<int32>(Severity); }
 		FORCEINLINE FString const&                  GetMessage() const         { return Message; }
 		FORCEINLINE FString const&                  GetDetails() const         { return Details; }
 		FORCEINLINE FString const&                  GetCodeContext() const     { return CodeContext; }
