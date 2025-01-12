@@ -55,37 +55,35 @@ FCanFail FK4ADevice::Tick_Sync()
 {
     using namespace Mcro::Error;
 
-    ASSERT_RETURN(Device.is_valid(),
+    ASSERT_RETURN(Device.is_valid())
         ->AsCrashing()
         ->BreakDebugger()
         ->WithCppStackTrace()
-        ->Notify(LastError)
-    );
+        ->Notify(LastError);
 
     try
     {
         k4a::capture capture;
-        ASSERT_RETURN(Device.get_capture(&capture), ->Notify(LastError))
+        ASSERT_RETURN(Device.get_capture(&capture))->Notify(LastError);
 
         if (auto color = capture.get_color_image(); ColorStream->Active)
         {
-            PROPAGATE_FAIL(ColorStream->Push(color), ->Notify(LastError))
+            PROPAGATE_FAIL(ColorStream->Push(color))->Notify(LastError);
         }
         if (auto depth = capture.get_depth_image(); DepthStream->Active)
         {
-            PROPAGATE_FAIL(DepthStream->Push(depth), ->Notify(LastError))
+            PROPAGATE_FAIL(DepthStream->Push(depth))->Notify(LastError);
         }
         if (auto ir = capture.get_ir_image(); IRStream->Active)
         {
-            PROPAGATE_FAIL(IRStream->Push(ir), ->Notify(LastError))
+            PROPAGATE_FAIL(IRStream->Push(ir))->Notify(LastError);
         }
     }
     catch (k4a::error const& exception)
     {
-        return MakeError(IError::Make(new TCppException(exception))
+        return IError::Make(new TCppException(exception))
             ->AsFatal()->WithCppStackTrace()->WithLocation()
-            ->Notify(LastError)
-        );
+            ->Notify(LastError);
     }
     return Success();
 }
