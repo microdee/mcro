@@ -18,5 +18,7 @@ var Observable_8Fwd_8h =
       [ "AlwaysNotify", "dc/da3/Observable_8Fwd_8h.html#a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04", null ],
       [ "StorePrevious", "dc/da3/Observable_8Fwd_8h.html#a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5", null ],
       [ "ThreadSafeState", "dc/da3/Observable_8Fwd_8h.html#a2fe69b38b2bfee60af6ed91851d3acf1adbd9b3b6bfbc82f155fa7480d9e5a011", null ]
-    ] ]
+    ] ],
+    [ "StatePolicyFor", "dc/da3/Observable_8Fwd_8h.html#ab0ba683d18470b5211fee3302eea7738", null ],
+    [ "TFunction_ArgDecay< Function, 0 >", "dc/da3/Observable_8Fwd_8h.html#a822780667f7d30eacc574fc085ee0a36", null ]
 ];

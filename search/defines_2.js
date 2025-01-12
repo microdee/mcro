@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['hr_5ftry_0',['HR_TRY',['../da/d73/HResultMacros_8h.html#a93466c3be6e50192f7ebe79d0ab8eaea',1,'HResultMacros.h']]],
-  ['hr_5ftry_5ffast_1',['HR_TRY_FAST',['../da/d73/HResultMacros_8h.html#ad9544796f9c44767ff9b6d0e6240bb81',1,'HResultMacros.h']]],
-  ['hr_5ftry_5fraw_2',['HR_TRY_RAW',['../da/d73/HResultMacros_8h.html#a967c0a5681f869b8e48550be3eeffcf7',1,'HResultMacros.h']]],
-  ['hr_5ftry_5fwith_3',['HR_TRY_WITH',['../da/d73/HResultMacros_8h.html#a05b213473e80862bfab54032137c01aa',1,'HResultMacros.h']]]
+  ['finally_0',['FINALLY',['../de/de6/Finally_8h.html#a3c9f61559683179b3d1b596e954df1ad',1,'Finally.h']]],
+  ['force_5fcrash_1',['FORCE_CRASH',['../db/df5/AssertMacros_8h.html#a48dadaaff5de49fb994f03ba43a52852',1,'AssertMacros.h']]],
+  ['force_5fquit_2',['FORCE_QUIT',['../db/df5/AssertMacros_8h.html#a6f8cc493be58e5bfe52ffdfd00db3619',1,'AssertMacros.h']]]
 ];

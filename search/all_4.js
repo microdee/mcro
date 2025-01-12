@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['edisplayerrorresult_0',['EDisplayErrorResult',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347',1,'Mcro::Error::FErrorManager']]],
-  ['eerrorseverity_1',['EErrorSeverity',['../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302c',1,'Mcro::Error']]],
-  ['einvokemode_2',['EInvokeMode',['../df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77',1,'Mcro::Delegates']]],
-  ['end_2eh_3',['End.h',['../d7/ddc/End_8h.html',1,'']]],
-  ['enqueuerendercommand_4',['EnqueueRenderCommand',['../dd/d0e/Threading_8h.html#a15880d57e963640c5e4ad0bbe67c6108',1,'Mcro::Threading::EnqueueRenderCommand(TUniqueFunction&lt; void(FRHICommandListImmediate &amp;)&gt; &amp;&amp;func)'],['../dd/d0e/Threading_8h.html#a36e5cc63741dc707e1b41e844d1381af',1,'Mcro::Threading::EnqueueRenderCommand(const UObject *boundToObject, TUniqueFunction&lt; void(FRHICommandListImmediate &amp;)&gt; &amp;&amp;func)'],['../dd/d0e/Threading_8h.html#abd93dd663c7087cac80785a0d12c8120',1,'Mcro::Threading::EnqueueRenderCommand(const FWeakObjectPtr &amp;boundToObject, TUniqueFunction&lt; void(FRHICommandListImmediate &amp;)&gt; &amp;&amp;func)'],['../dd/d0e/Threading_8h.html#afa66945568ee44137c61ad0bdf5b4403',1,'Mcro::Threading::EnqueueRenderCommand(const Object &amp;boundToObject, TUniqueFunction&lt; void(FRHICommandListImmediate &amp;)&gt; &amp;&amp;func)']]],
-  ['enqueuerenderpromise_5',['EnqueueRenderPromise',['../dd/d0e/Threading_8h.html#a33b860316abdfedc68a4fdf37eba3d65',1,'Mcro::Threading::EnqueueRenderPromise(Function &amp;&amp;func)'],['../dd/d0e/Threading_8h.html#ab7607c3c5f1e966c4c4ce5abd5991816',1,'Mcro::Threading::EnqueueRenderPromise(const Object &amp;boundToObject, Function &amp;&amp;func)'],['../dd/d0e/Threading_8h.html#a7e8d0e23fe97cae3dc48c3f3e9629c52',1,'Mcro::Threading::EnqueueRenderPromise(const Object *boundToObject, Function &amp;&amp;func)']]],
-  ['error_2eh_6',['Error.h',['../de/dba/Error_8h.html',1,'']]],
-  ['errorcode_7',['ErrorCode',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#aa9fb8331b78a89d413ad2094a7b658c4',1,'Mcro::Windows::Error::FLastError']]],
-  ['errorcomponent_8',['ErrorComponent',['../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302ca9a27d6f2df4ced54d3824d01201f55c0',1,'Mcro::Error']]],
-  ['errormanager_2eh_9',['ErrorManager.h',['../d1/db6/ErrorManager_8h.html',1,'']]],
-  ['estatepolicy_10',['EStatePolicy',['../dc/da3/Observable_8Fwd_8h.html#a2fe69b38b2bfee60af6ed91851d3acf1',1,'Mcro::Observable']]],
-  ['eventdelegate_2eh_11',['EventDelegate.h',['../df/d51/EventDelegate_8h.html',1,'']]],
-  ['eventmultiplex_2eh_12',['EventMultiplex.h',['../df/d7c/EventMultiplex_8h.html',1,'']]],
-  ['externalpackage_13',['ExternalPackage',['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a7b3f2efb195c7474558b924f30036c0d',1,'Mcro::UObjects::Init::FConstructObjectParameters']]]
+  ['decayptr_0',['DecayPtr',['../d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89',1,'Mcro::Concepts']]],
+  ['declarative_20syntax_1',['Extending the Slate declarative syntax',['../index.html#autotoc_md16',1,'']]],
+  ['declare_5flog_5fcategory_5fclass_2',['DECLARE_LOG_CATEGORY_CLASS',['../d7/db5/AutoModularFeature_8h.html#a3552c431b59625a5e00f678893ad9344',1,'AutoModularFeature.h']]],
+  ['defaultinvocation_3',['DefaultInvocation',['../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77a79b3d80a7d4a3d62a5c5aba8435665f5',1,'Mcro::Delegates']]],
+  ['defaultpolicyflags_4',['DefaultPolicyFlags',['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a19681f0ec16414a3506b48e9bb4463a6',1,'Mcro::Observable::TState']]],
+  ['delegate_20type_20inferance_5',['Delegate type inferance',['../index.html#autotoc_md9',1,'']]],
+  ['delegatefrom_2eh_6',['DelegateFrom.h',['../d4/dbf/DelegateFrom_8h.html',1,'']]],
+  ['delegatevalueargument_7',['DelegateValueArgument',['../d8/d30/structMcro_1_1Observable_1_1IState.html#ab46ff1a93105af5a6b73122db8aa4b2c',1,'Mcro::Observable::IState']]],
+  ['delegation_8',['Delegation',['../d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html#aa83e91c674743df1c4dd84408a10e11d',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultInvokeMode &gt;::Delegation()'],['../d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html#a7f73c6ebcc7117c7c54afa8bf9ee62a9',1,'Mcro::Delegates::TEventMultiplex&lt; Return(Args...)&gt;::Delegation()'],['../d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html#aab20147ce0863b74f6e9d1514f747a41',1,'Mcro::Delegates::TEventMultiplex&lt; void(Args...)&gt;::Delegation()']]],
+  ['description_9',['Description',['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#a47661ea0b4938bd046379f187c8d243e',1,'Mcro::Windows::Error::FHresultError']]],
+  ['details_10',['Details',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3f1b9bbfe51a265ef7c437099bfc65be',1,'Mcro::Error::IError']]],
+  ['displayed_11',['Displayed',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a0c66cfaba3034182a4fc645ad6cee90d',1,'Mcro::Error::FErrorManager']]],
+  ['displayerror_12',['DisplayError',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#aa694e3494cd197314bcac03a689dc0c6',1,'Mcro::Error::FErrorManager']]],
+  ['dll_2eh_13',['Dll.h',['../d6/dd8/Dll_8h.html',1,'']]],
+  ['do_14',['What MCRO can do?',['../index.html#autotoc_md7',1,'']]],
+  ['dynamicprintf_15',['DynamicPrintf',['../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c',1,'Mcro::Text']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['description_0',['Description',['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#a47661ea0b4938bd046379f187c8d243e',1,'Mcro::Windows::Error::FHresultError']]]
+  ['class_0',['Class',['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a372535e56a77b8423a8b68dba391705f',1,'Mcro::UObjects::Init::FConstructObjectParameters']]],
+  ['codecontext_1',['CodeContext',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a6b9926c4fb28f17ff8e018aaddd90c5a',1,'Mcro::Error::IError']]]
 ];

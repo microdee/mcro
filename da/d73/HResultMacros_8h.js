@@ -1,7 +1,9 @@
 var HResultMacros_8h =
 [
-    [ "HR_TRY", "da/d73/HResultMacros_8h.html#a93466c3be6e50192f7ebe79d0ab8eaea", null ],
-    [ "HR_TRY_FAST", "da/d73/HResultMacros_8h.html#ad9544796f9c44767ff9b6d0e6240bb81", null ],
-    [ "HR_TRY_RAW", "da/d73/HResultMacros_8h.html#a967c0a5681f869b8e48550be3eeffcf7", null ],
-    [ "HR_TRY_WITH", "da/d73/HResultMacros_8h.html#a05b213473e80862bfab54032137c01aa", null ]
+    [ "HR_TRY", "da/d73/HResultMacros_8h.html#a0278b53dedb9e39df3797be07e66a434", null ],
+    [ "HR_TRY_FAST", "da/d73/HResultMacros_8h.html#a6c43b424147496c75e6ab1813f18da86", null ],
+    [ "HR_TRY_RAW", "da/d73/HResultMacros_8h.html#aa230fdcd68090fe0de01d7f5addb7833", null ],
+    [ "HR_TRY_WITH", "da/d73/HResultMacros_8h.html#a8a41141e526b70b5595f95d7d6467984", null ],
+    [ "HR_WITH_STACKTRACE", "da/d73/HResultMacros_8h.html#afdf343e4c2ad9900573afa7b79d111cf", null ],
+    [ "MCRO_TRY_WITH_IMPL", "da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7", null ]
 ];

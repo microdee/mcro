@@ -1,7 +1,7 @@
 var concepts =
 [
-    [ "Mcro", null, [
-      [ "Concepts", null, [
+    [ "Mcro", "d8/d63/namespaceMcro.html", [
+      [ "Concepts", "d2/d09/namespaceMcro_1_1Concepts.html", [
         [ "CSameAs", "db/d6d/conceptMcro_1_1Concepts_1_1CSameAs.html", null ],
         [ "CSameAsDecayed", "dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html", null ],
         [ "CConvertibleTo", "dd/d30/conceptMcro_1_1Concepts_1_1CConvertibleTo.html", null ],
@@ -63,26 +63,30 @@ var concepts =
         [ "CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
         [ "CRange", "d1/d58/conceptMcro_1_1Concepts_1_1CRange.html", null ]
       ] ],
-      [ "Delegates", null, [
+      [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", [
         [ "CDynamicDelegate", "dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html", null ],
         [ "CDynamicMulticastDelegate", "da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html", null ]
       ] ],
       [ "Error", "dd/d58/namespaceMcro_1_1Error.html", [
-        [ "CError", "d7/db4/conceptMcro_1_1Error_1_1CError.html", null ]
+        [ "CError", "d7/db4/conceptMcro_1_1Error_1_1CError.html", null ],
+        [ "CErrorRef", "d6/d5d/conceptMcro_1_1Error_1_1CErrorRef.html", null ],
+        [ "CErrorPtr", "df/d49/conceptMcro_1_1Error_1_1CErrorPtr.html", null ],
+        [ "CErrorRefOrPtr", "db/d24/conceptMcro_1_1Error_1_1CErrorRefOrPtr.html", null ],
+        [ "CSharedError", "d3/d74/conceptMcro_1_1Error_1_1CSharedError.html", null ]
       ] ],
-      [ "FunctionTraits", null, [
+      [ "FunctionTraits", "d5/de0/namespaceMcro_1_1FunctionTraits.html", [
         [ "CFunctorObject", "d7/dba/conceptMcro_1_1FunctionTraits_1_1CFunctorObject.html", null ],
         [ "CFunctionLike", "de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html", null ],
         [ "CFunctionPtr", "d5/d28/conceptMcro_1_1FunctionTraits_1_1CFunctionPtr.html", null ],
         [ "CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ]
       ] ],
-      [ "Observable", null, [
+      [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
         [ "CState", "d7/d0a/conceptMcro_1_1Observable_1_1CState.html", null ],
         [ "CChangeListener", "d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html", null ],
         [ "CChangeNextOnlyListener", "d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html", null ],
         [ "CChangeNextPreviousListener", "d5/d03/conceptMcro_1_1Observable_1_1CChangeNextPreviousListener.html", null ]
       ] ],
-      [ "Rendering", null, [
+      [ "Rendering", "de/dde/namespaceMcro_1_1Rendering.html", [
         [ "Textures", "d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html", [
           [ "CTextureSize", "dd/d24/conceptMcro_1_1Rendering_1_1Textures_1_1CTextureSize.html", null ]
         ] ]
@@ -99,7 +103,7 @@ var concepts =
         [ "CSlotArguments", "d4/db1/conceptMcro_1_1Slate_1_1CSlotArguments.html", null ],
         [ "CWidgetWithSlots", "dc/dd6/conceptMcro_1_1Slate_1_1CWidgetWithSlots.html", null ]
       ] ],
-      [ "Subsystems", null, [
+      [ "Subsystems", "da/d33/namespaceMcro_1_1Subsystems.html", [
         [ "CSubsystem", "d3/d03/conceptMcro_1_1Subsystems_1_1CSubsystem.html", null ],
         [ "CEngineSubsystem", "da/d7d/conceptMcro_1_1Subsystems_1_1CEngineSubsystem.html", null ],
         [ "CGameInstanceSubsystem", "d1/de2/conceptMcro_1_1Subsystems_1_1CGameInstanceSubsystem.html", null ],
@@ -109,7 +113,7 @@ var concepts =
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
         [ "CIsTemplate", "d0/dc6/conceptMcro_1_1Templates_1_1CIsTemplate.html", null ]
       ] ],
-      [ "Text", null, [
+      [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
         [ "CStringView", "d6/ddd/conceptMcro_1_1Text_1_1CStringView.html", null ],
         [ "CStringOrView", "d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html", null ],
         [ "CStringOrViewOrName", "d5/de9/conceptMcro_1_1Text_1_1CStringOrViewOrName.html", null ],
@@ -121,8 +125,8 @@ var concepts =
       [ "Types", "da/d89/namespaceMcro_1_1Types.html", [
         [ "CHasTypeName", "d3/d31/conceptMcro_1_1Types_1_1CHasTypeName.html", null ]
       ] ],
-      [ "UObjects", null, [
-        [ "Init", null, [
+      [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", [
+        [ "Init", "de/d2e/namespaceMcro_1_1UObjects_1_1Init.html", [
           [ "CUObjectInitializable", "d7/df9/conceptMcro_1_1UObjects_1_1Init_1_1CUObjectInitializable.html", null ]
         ] ]
       ] ]

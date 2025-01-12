@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['onchange_0',['OnChange',['../d8/d30/structMcro_1_1Observable_1_1IState.html#a03bb6d35fe39484b87d157facb475977',1,'Mcro::Observable::IState::OnChange(TDelegate&lt; void(TChangeData&lt; T &gt; const &amp;)&gt; onChange, EInvokeMode invokeMode=DefaultInvocation)=0'],['../d8/d30/structMcro_1_1Observable_1_1IState.html#a94ebdff0f0ac4bd2269c253dd7b8cd52',1,'Mcro::Observable::IState::OnChange(Function const &amp;onChange, EInvokeMode invokeMode=DefaultInvocation)'],['../d8/d30/structMcro_1_1Observable_1_1IState.html#accf4c4332db22d40871a292a84e89924',1,'Mcro::Observable::IState::OnChange(Object &amp;&amp;object, Function const &amp;onChange, EInvokeMode invokeMode=DefaultInvocation)'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#af20d748b285a12ca2cab03a77e69b75a',1,'Mcro::Observable::TState::OnChange()']]],
-  ['onshutdown_1',['OnShutdown',['../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#ab40207b4fe5347c863ca52ad8f15f652',1,'Mcro::Modules::TObserveModule']]],
-  ['onstartup_2',['OnStartup',['../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#a3db8b0557652594dbfae7461a91aa998',1,'Mcro::Modules::TObserveModule']]],
-  ['operator_2f_3',['operator/',['../df/df4/namespaceMcro_1_1Slate.html#a4cf77893fe80edc90c4330f8c0cddf84',1,'Mcro::Slate::operator/(Arguments &amp;args, const AttrBlock &amp;attributes)'],['../df/df4/namespaceMcro_1_1Slate.html#a493f220b00d034173a046ee0054b16d0',1,'Mcro::Slate::operator/(Arguments &amp;&amp;args, const AttrBlock &amp;attributes)']]],
-  ['operator_3c_3c_4',['operator&lt;&lt;',['../d1/d43/Yaml_8h.html#ac1d54619c9062439cf8f940c23dcde54',1,'Mcro::Yaml::operator&lt;&lt;(YAML::Emitter &amp;out, String &amp;&amp;v)'],['../d1/d43/Yaml_8h.html#a35b8dd354fe4d3d0723b4b72043daba7',1,'Mcro::Yaml::operator&lt;&lt;(YAML::Emitter &amp;out, Enum v)']]]
+  ['nametoenum_0',['NameToEnum',['../db/d56/namespaceMcro_1_1Enums.html#aee428ccd81616306ac0a3ef3e0666623',1,'Mcro::Enums']]],
+  ['newinit_1',['NewInit',['../de/d2e/namespaceMcro_1_1UObjects_1_1Init.html#adfa8165d9e0cbb73ff1bd19764e63d8b',1,'Mcro::UObjects::Init']]],
+  ['notify_2',['Notify',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3a954e8c0f8607c5849c018aa54042c2',1,'Mcro::Error::IError']]],
+  ['notifystate_3',['NotifyState',['../dd/d8f/classMcro_1_1Error_1_1IError.html#afdb58475ee1982717d0b9c6c1e8400be',1,'Mcro::Error::IError']]]
 ];

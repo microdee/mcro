@@ -1,5 +1,6 @@
 var DelegateFrom_8h =
 [
+    [ "TInferredDelegate", "d4/dbf/DelegateFrom_8h.html#a8e614ab9ae4bddac65e99d0c353bb01b", null ],
     [ "From", "d4/dbf/DelegateFrom_8h.html#a5950733b9fec02e117973ab8355437a2", null ],
     [ "From", "d4/dbf/DelegateFrom_8h.html#a124f953167022ddb5d5818249014c201", null ],
     [ "From", "d4/dbf/DelegateFrom_8h.html#a5f2185c049b80ddb94e04613de3359b2", null ],
@@ -11,5 +12,7 @@ var DelegateFrom_8h =
     [ "From", "d4/dbf/DelegateFrom_8h.html#aad0eab8a0fa4e31ff839d333d0a08757", null ],
     [ "From", "d4/dbf/DelegateFrom_8h.html#a20fe79aee9f0f25935e5d1de110eb801", null ],
     [ "From", "d4/dbf/DelegateFrom_8h.html#adfc4e1d3f6e80dd18e47857a26af0337", null ],
-    [ "From", "d4/dbf/DelegateFrom_8h.html#a2b50e984d5ca9315dace579c915befb6", null ]
+    [ "From", "d4/dbf/DelegateFrom_8h.html#a2b50e984d5ca9315dace579c915befb6", null ],
+    [ "FromDynamicMulticastDelegate", "d4/dbf/DelegateFrom_8h.html#a42ad11090c093e571ea5c009a7605d9c", null ],
+    [ "FromDynamicMulticastDelegate", "d4/dbf/DelegateFrom_8h.html#af7822d9d89ca71d1053fd05a5003652a", null ]
 ];

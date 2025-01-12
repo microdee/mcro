@@ -25,15 +25,40 @@
 var NAVTREE =
 [
   [ "MCRO", "index.html", [
+    [ "What's a proto-plugin?", "index.html#autotoc_md5", null ],
+    [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md6", null ],
+    [ "What MCRO can do?", "index.html#autotoc_md7", [
+      [ "Error handling", "index.html#autotoc_md8", null ],
+      [ "Delegate type inferance", "index.html#autotoc_md9", null ],
+      [ "Advanced TEventDelegate", "index.html#autotoc_md10", null ],
+      [ "TTypeName", "index.html#autotoc_md11", null ],
+      [ "Auto modular features", "index.html#autotoc_md12", null ],
+      [ "Observable TState", "index.html#autotoc_md13", null ],
+      [ "Function Traits", "index.html#autotoc_md14", null ],
+      [ "Concepts", "index.html#autotoc_md15", null ],
+      [ "Extending the Slate declarative syntax", "index.html#autotoc_md16", null ],
+      [ "Text interop", "index.html#autotoc_md17", null ],
+      [ "ISPC parallel tasks support", "index.html#autotoc_md18", null ],
+      [ "Last but not least", "index.html#autotoc_md19", null ]
+    ] ],
+    [ "Legal", "index.html#autotoc_md20", null ],
+    [ "Attribution", "da/dfb/Attribution.html", [
+      [ "Tabler Icons", "da/dfb/Attribution.html#autotoc_md0", null ],
+      [ "Compile Time Regular Expression", "da/dfb/Attribution.html#autotoc_md1", null ],
+      [ "magic_enum", "da/dfb/Attribution.html#autotoc_md2", null ],
+      [ "yaml-cpp", "da/dfb/Attribution.html#autotoc_md3", null ],
+      [ "Intel ISPC Tasksys", "da/dfb/Attribution.html#autotoc_md4", null ]
+    ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Concepts", "concepts.html", "concepts" ],
@@ -42,8 +67,8 @@ var NAVTREE =
       [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
@@ -55,6 +80,7 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -64,8 +90,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d7/d25/FunctionTraits_8h.html#a82df24ef777eab6608b9776e4bebbb84",
-"dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#a47661ea0b4938bd046379f187c8d243e"
+"d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html",
+"d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html#aabc29830f87425c7b3cde11af579f234",
+"d7/d5e/structMcro_1_1Observable_1_1TState.html#a07abf028ecb5f1ff6decd905ef02c9ee",
+"d9/d70/structMcro_1_1Once_1_1FOnce.html#adabb674cd4fae9f2b0d51b03fc99de7a",
+"dc/da3/Observable_8Fwd_8h_source.html",
+"de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

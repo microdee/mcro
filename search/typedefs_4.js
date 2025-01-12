@@ -1,28 +1,6 @@
 var searchData=
 [
-  ['targumentsof_0',['TArgumentsOf',['../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c',1,'Mcro::Slate']]],
-  ['tattributeblock_1',['TAttributeBlock',['../df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323',1,'Mcro::Slate']]],
-  ['tattributeblockcopyable_2',['TAttributeBlockCopyable',['../df/df4/namespaceMcro_1_1Slate.html#ab623f84b4dbfa9d4a035bb30a6c41c1f',1,'Mcro::Slate']]],
-  ['tcomposefrom_3',['TComposeFrom',['../db/d81/namespaceMcro_1_1Tuples.html#a404a27215bb7054785c41d71ec29e83d',1,'Mcro::Tuples']]],
-  ['tdeclarestateptr_4',['TDeclareStatePtr',['../dc/da3/Observable_8Fwd_8h.html#a3b106e67997b005b66b7dd6923e6e72a',1,'Mcro::Observable']]],
-  ['tdeclarestateref_5',['TDeclareStateRef',['../dc/da3/Observable_8Fwd_8h.html#a8b6ab2cf4dec63d29a551a5cb01c3416',1,'Mcro::Observable']]],
-  ['tdynamicmethodptr_6',['TDynamicMethodPtr',['../db/d31/Traits_8h.html#ae79c9ec71f5c756d96d75d002b713a43',1,'Mcro::Delegates']]],
-  ['tdynamicsignature_7',['TDynamicSignature',['../db/d31/Traits_8h.html#a46933d598dfed18f71d53768945f7ca1',1,'Mcro::Delegates']]],
-  ['tfunction_5farg_8',['TFunction_Arg',['../d7/d25/FunctionTraits_8h.html#a03c6b0c1fd4799038c4fc4add5242f1d',1,'Mcro::FunctionTraits']]],
-  ['tfunction_5fargdecay_9',['TFunction_ArgDecay',['../d7/d25/FunctionTraits_8h.html#a82df24ef777eab6608b9776e4bebbb84',1,'Mcro::FunctionTraits']]],
-  ['tfunction_5farguments_10',['TFunction_Arguments',['../d7/d25/FunctionTraits_8h.html#af666b0d3166ba3387e439ec2ceb5ac71',1,'Mcro::FunctionTraits']]],
-  ['tmaybe_11',['TMaybe',['../dd/d58/namespaceMcro_1_1Error.html#ac2efd53b5ce5c699359f5d4ea21fb364',1,'Mcro::Error']]],
-  ['tnative_12',['TNative',['../db/d31/Traits_8h.html#a2a43b0ef75b82f9104675f810ca8236a',1,'Mcro::Delegates']]],
-  ['tnativeevent_13',['TNativeEvent',['../df/d51/EventDelegate_8h.html#a40a24d2c1ef6ce69f341ae398603bfb0',1,'Mcro::Delegates']]],
-  ['tsharedptrfrom_14',['TSharedPtrFrom',['../db/d9b/namespaceMcro_1_1SharedObjects.html#a70296931b08e077b44c9206942a72cda',1,'Mcro::SharedObjects']]],
-  ['tsharedreffrom_15',['TSharedRefFrom',['../db/d9b/namespaceMcro_1_1SharedObjects.html#a521f77e604fbb359028827b60f35ab71',1,'Mcro::SharedObjects']]],
-  ['tskip_16',['TSkip',['../db/d81/namespaceMcro_1_1Tuples.html#a2bc48eaf8b6b85d42cd906fe71db0e83',1,'Mcro::Tuples']]],
-  ['tstateptr_17',['TStatePtr',['../dc/da3/Observable_8Fwd_8h.html#afbebbad188b70cd1231b173ff9e91817',1,'Mcro::Observable']]],
-  ['tstateref_18',['TStateRef',['../dc/da3/Observable_8Fwd_8h.html#a949c8212d711a7a9f93735beb2ec9977',1,'Mcro::Observable']]],
-  ['tstatets_19',['TStateTS',['../dc/da3/Observable_8Fwd_8h.html#af0081e3e627a286a4bedf5a45e5e83b7',1,'Mcro::Observable']]],
-  ['tstateweakptr_20',['TStateWeakPtr',['../dc/da3/Observable_8Fwd_8h.html#a34bb6e75dbcf9bcc85809fed5fe29465',1,'Mcro::Observable']]],
-  ['ttake_21',['TTake',['../db/d81/namespaceMcro_1_1Tuples.html#a26ad914c4d35e206ac5d12cdc185876d',1,'Mcro::Tuples']]],
-  ['ttemplate_5fparams_22',['TTemplate_Params',['../d7/d53/namespaceMcro_1_1Templates.html#a0a7110901e690293584da6a8714b17c5',1,'Mcro::Templates']]],
-  ['ttrimend_23',['TTrimEnd',['../db/d81/namespaceMcro_1_1Tuples.html#a716064a36e27fdc4cff9ba3edb38e6d0',1,'Mcro::Tuples']]],
-  ['tweakptrfrom_24',['TWeakPtrFrom',['../db/d9b/namespaceMcro_1_1SharedObjects.html#a9688d16467e2840873a3a34bd2b251f2',1,'Mcro::SharedObjects']]]
+  ['ierrorptr_0',['IErrorPtr',['../dd/d58/namespaceMcro_1_1Error.html#aa60483e120f555a53fe814b6aafe6721',1,'Mcro::Error']]],
+  ['ierrorref_1',['IErrorRef',['../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6',1,'Mcro::Error']]],
+  ['ierrorweakptr_2',['IErrorWeakPtr',['../dd/d58/namespaceMcro_1_1Error.html#a572528031d545e476b7d13fbf9fa5406',1,'Mcro::Error']]]
 ];

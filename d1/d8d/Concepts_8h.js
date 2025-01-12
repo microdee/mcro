@@ -1,6 +1,6 @@
 var Concepts_8h =
 [
-    [ "Mcro::Concepts::Detail::TExtractClassName< MemberType ClassType::* >", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4.html", null ],
+    [ "Mcro::Concepts::Detail::TExtractClassName< MemberType ClassType::* >", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4.html", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4" ],
     [ "Mcro::Concepts::CSameAs", "db/d6d/conceptMcro_1_1Concepts_1_1CSameAs.html", null ],
     [ "Mcro::Concepts::CSameAsDecayed", "dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html", null ],
     [ "Mcro::Concepts::CConvertibleTo", "dd/d30/conceptMcro_1_1Concepts_1_1CConvertibleTo.html", null ],
@@ -60,5 +60,8 @@ var Concepts_8h =
     [ "Mcro::Concepts::CMemberPointerOf", "dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html", null ],
     [ "Mcro::Concepts::CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],
     [ "Mcro::Concepts::CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
-    [ "Mcro::Concepts::CRange", "d1/d58/conceptMcro_1_1Concepts_1_1CRange.html", null ]
+    [ "Mcro::Concepts::CRange", "d1/d58/conceptMcro_1_1Concepts_1_1CRange.html", null ],
+    [ "MCRO_THIS_TYPE", "d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150", null ],
+    [ "TExtractedClassName", "d1/d8d/Concepts_8h.html#aaf07db52cc9336cd250ac79dd20d97ce", null ],
+    [ "DecayPtr", "d1/d8d/Concepts_8h.html#ad82cfff038438996ec817f8460d25e89", null ]
 ];

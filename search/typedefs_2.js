@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['ierrorptr_0',['IErrorPtr',['../dd/d58/namespaceMcro_1_1Error.html#aa60483e120f555a53fe814b6aafe6721',1,'Mcro::Error']]],
-  ['ierrorref_1',['IErrorRef',['../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6',1,'Mcro::Error']]],
-  ['ierrorweakptr_2',['IErrorWeakPtr',['../dd/d58/namespaceMcro_1_1Error.html#a572528031d545e476b7d13fbf9fa5406',1,'Mcro::Error']]]
+  ['eventsignature_0',['EventSignature',['../d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html#a079e2733ad8cd4c79b4a2ac8aaf95e61',1,'Mcro::Delegates::Detail::TEventMultiplexBase']]]
 ];

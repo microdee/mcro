@@ -1,5 +1,11 @@
 var structMcro_1_1Observable_1_1TState =
 [
+    [ "ReadLockType", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a999976ea0c3e09d0fc5c66fed8e3b165", null ],
+    [ "ReadLockVariant", "d7/d5e/structMcro_1_1Observable_1_1TState.html#ae5fa857970f316d9c82dc04470da9d56", null ],
+    [ "StateBase", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a07abf028ecb5f1ff6decd905ef02c9ee", null ],
+    [ "ThreadSafeSwitch", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a576404890c76dbd6426257a40c14bf2d", null ],
+    [ "WriteLockType", "d7/d5e/structMcro_1_1Observable_1_1TState.html#aafef337ef7aec42f76d118e1ac5424c1", null ],
+    [ "WriteLockVariant", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a4e38b124440253776e48f12ff943c063", null ],
     [ "TState", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a8b849626dd7fb3b177ce0d890ee62037", null ],
     [ "TState", "d7/d5e/structMcro_1_1Observable_1_1TState.html#aff3b601fae5a0d23bed59b0af320a373", null ],
     [ "TState", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a1033cfe49df3fa6f10e4ac4eab683efb", null ],
@@ -17,5 +23,6 @@ var structMcro_1_1Observable_1_1TState =
     [ "Remove", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a468449fabde042cdcf660cb7bcec1ccd", null ],
     [ "RemoveAll", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a244c68ba995d85d3dba064f34ca7f1fe", null ],
     [ "Set", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a2ade9b89f61f7fc37ca5032642bdb3d3", null ],
-    [ "WriteLock", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b", null ]
+    [ "WriteLock", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b", null ],
+    [ "PolicyFlags", "d7/d5e/structMcro_1_1Observable_1_1TState.html#a5f176af480ac6fd6fe582c71879f12a7", null ]
 ];

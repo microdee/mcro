@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['errorcode_0',['ErrorCode',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#aa9fb8331b78a89d413ad2094a7b658c4',1,'Mcro::Windows::Error::FLastError']]],
-  ['externalpackage_1',['ExternalPackage',['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a7b3f2efb195c7474558b924f30036c0d',1,'Mcro::UObjects::Init::FConstructObjectParameters']]]
+  ['defaultpolicyflags_0',['DefaultPolicyFlags',['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a19681f0ec16414a3506b48e9bb4463a6',1,'Mcro::Observable::TState']]],
+  ['description_1',['Description',['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#a47661ea0b4938bd046379f187c8d243e',1,'Mcro::Windows::Error::FHresultError']]],
+  ['details_2',['Details',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3f1b9bbfe51a265ef7c437099bfc65be',1,'Mcro::Error::IError']]]
 ];

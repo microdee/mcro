@@ -72,6 +72,7 @@ var hierarchy =
     [ "Mcro::Construct::TInitializeOnCopy< T >", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", null ],
     [ "Mcro::Construct::TInitializeOnCopy< FCriticalSection >", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", null ],
     [ "Mcro::Construct::TInitializeOnCopy< FRWLock >", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", null ],
+    [ "Mcro::Error::TMaybe< T >", "d2/d94/structMcro_1_1Error_1_1TMaybe.html", null ],
     [ "Mcro::Delegates::TNative_Struct< typename >", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
     [ "Mcro::Delegates::TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", null ],
     [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultSettings >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", null ],
@@ -101,6 +102,5 @@ var hierarchy =
     [ "Mcro::Tuples::TTake_Struct< Count, Tuple >", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", null ],
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],
     [ "Mcro::Rendering::Textures::TTextureSize< SizeType, InFormatType >", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", null ],
-    [ "Mcro::Tuples::TTrimEnd_Struct< Count, Tuple >", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", null ],
-    [ "Mcro::Error::TValueOrErrorCopyable< ValueType, ErrorType >", "d4/db8/structMcro_1_1Error_1_1TValueOrErrorCopyable.html", null ]
+    [ "Mcro::Tuples::TTrimEnd_Struct< Count, Tuple >", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", null ]
 ];

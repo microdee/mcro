@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['systemmessage_0',['SystemMessage',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#ad358f292283c5d39736d10b091d5fa92',1,'Mcro::Windows::Error::FLastError::SystemMessage'],['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#aa5d7fad4cbb353d575cd2bb3d56d34e0',1,'Mcro::Windows::Error::FHresultError::SystemMessage']]]
+  ['onshutdownmodule_0',['OnShutdownModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#abbd7325379d1a0d5c7a9ad9652726e84',1,'Mcro::Modules::IObservableModule::OnShutdownModule'],['../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#aaa9ed8e872af1f8f8bda32185d89d489',1,'Mcro::Modules::TObserveModule::OnShutdownModule']]],
+  ['onstartupmodule_1',['OnStartupModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#aa0a31c60e1806dd15093cdb9e620dcf4',1,'Mcro::Modules::IObservableModule::OnStartupModule'],['../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#ae9232e23d4d60e49c76d02c4fe81c52d',1,'Mcro::Modules::TObserveModule::OnStartupModule']]],
+  ['outer_2',['Outer',['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#aa1d4fd1dafc15b5967ace4e94dba3c90',1,'Mcro::UObjects::Init::FConstructObjectParameters']]]
 ];

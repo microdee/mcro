@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['parent_0',['Parent',['../d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html#a1ef490790214ee6dd0ed4d75ccf22a83',1,'Mcro::Error::FErrorManager::FDisplayErrorArgs']]],
-  ['programid_1',['ProgramID',['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#af901264dc8bf4ff4789588473c366827',1,'Mcro::Windows::Error::FHresultError']]],
-  ['propertyinitcallback_2',['PropertyInitCallback',['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a33dc2531e320ea83c7dc0533dfec77af',1,'Mcro::UObjects::Init::FConstructObjectParameters']]]
+  ['match_0',['Match',['../da/dde/structMcro_1_1Templates_1_1TTemplate.html#af9a8f7bc228c3ad7d3e91e5fea94e327',1,'Mcro::Templates::TTemplate']]],
+  ['match_3c_20template_3c_20params_2e_2e_2e_20_3e_20_3e_1',['Match&lt; Template&lt; Params... &gt; &gt;',['../da/dde/structMcro_1_1Templates_1_1TTemplate.html#aaa213f5c79c6ffa855c61bd76c2fa2fe',1,'Mcro::Templates::TTemplate']]],
+  ['message_2',['Message',['../dd/d8f/classMcro_1_1Error_1_1IError.html#abcda084af69d72b70e977ed118c8ac09',1,'Mcro::Error::IError']]],
+  ['multicast_3',['Multicast',['../d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html#ab4cec54b474c02b0efafc0978069a35d',1,'Mcro::Delegates::Detail::TEventMultiplexBase']]]
 ];
