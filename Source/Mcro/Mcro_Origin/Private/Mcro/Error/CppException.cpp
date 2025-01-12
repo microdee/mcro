@@ -11,6 +11,7 @@
 
 #include "Mcro/Error/CppException.h"
 #include "Mcro/Error/SErrorDisplay.h"
+#include "Mcro/Yaml.h"
 
 namespace Mcro::Error
 {

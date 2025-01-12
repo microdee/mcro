@@ -16,11 +16,14 @@
 #include "Mcro/Error/CppStackTrace.h"
 #include "Mcro/Error/BlueprintStackTrace.h"
 #include "Mcro/Text.h"
+#include "Mcro/Enums.h"
+#include "Mcro/Yaml.h"
 #include <sstream>
 
 namespace Mcro::Error
 {
 	using namespace Mcro::Text;
+	using namespace Mcro::Enums;
 	using namespace Mcro::Yaml;
 	
 	void IError::SerializeInnerErrors(YAML::Emitter& emitter) const
@@ -145,8 +148,7 @@ namespace Mcro::Error
 
 	FStringView IError::GetSeverityString() const
 	{
-		FStdStringView severityStd(magic_enum::enum_name(Severity));
-		return UnrealView(severityStd);
+		return EnumToStringView(Severity);
 	}
 
 	TSharedRef<SErrorDisplay> IError::CreateErrorWidget()

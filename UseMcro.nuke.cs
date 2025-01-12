@@ -7,10 +7,12 @@ using Nuke.Unreal;
 using Serilog;
 using System;
 using Nuke.Cola.FolderComposition;
+using System.Security.Cryptography;
 
 public static class UseMcroGraph
 {
     public static ITargetDefinition McroGraph(this ITargetDefinition target) => target
+        .After<IMcroLicenseRegion>(_ => _.EnsureMcroLicense, _ => _.RenderMcroAttribution)
         .After<IUseYamlCpp>();
 }
 
@@ -27,6 +29,10 @@ public interface IUseMcro : INukeBuild
             {
                 Copy = { new() { Directory = "Slate" }}
             })
+        );
+
+        (pluginFolder / "Source" / "Mcro" / "Ignore.LicenseRegion.txt").WriteAllText(
+            "This file is here so the Nuke.Cola LicenseRegion feature would not modify licenses in this folder"
         );
     }
 }

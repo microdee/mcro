@@ -11,6 +11,7 @@
 
 #include "Mcro/Error/PlainTextComponent.h"
 #include "Mcro/Error/SPlainTextDisplay.h"
+#include "Mcro/Yaml.h"
 
 namespace Mcro::Error
 {

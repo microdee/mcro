@@ -75,7 +75,7 @@ namespace Mcro::Delegates
 	class TEventDelegate<void(Args...), DefaultInvokeMode>
 	{
 	public:
-		using MutexLock = std::conditional_t<DefaultInvokeMode & ThreadSafeEvent, FScopeLock, FVoid>;
+		using MutexLock = std::conditional_t<static_cast<bool>(DefaultInvokeMode & ThreadSafeEvent), FScopeLock, FVoid>;
 		
 		using FunctionSignature = void(Args...);
 		using FDelegate = TDelegate<FunctionSignature, FDefaultDelegateUserPolicy>;
@@ -337,27 +337,27 @@ namespace Mcro::Delegates
 		TMulticastDelegate<void(Args...), FDefaultDelegateUserPolicy> MulticastDelegate;
 	};
 
-	template <typename Signature>
-	using TRetainingEventDelegate = TEventDelegate<Signature, CopyArguments>;
+	template <typename Signature, int32 Flags = 0>
+	using TRetainingEventDelegate = TEventDelegate<Signature, CopyArguments | Flags>;
 
-	template <typename Signature>
-	using TBelatedEventDelegate = TEventDelegate<Signature, BelatedInvoke>;
+	template <typename Signature, int32 Flags = 0>
+	using TBelatedEventDelegate = TEventDelegate<Signature, BelatedInvoke | Flags>;
 
-	template <typename Signature>
-	using TBelatedRetainingEventDelegate = TEventDelegate<Signature, BelatedInvoke | CopyArguments>;
+	template <typename Signature, int32 Flags = 0>
+	using TBelatedRetainingEventDelegate = TEventDelegate<Signature, BelatedInvoke | CopyArguments | Flags>;
 
-	template <typename Signature>
-	using TOneTimeEventDelegate = TEventDelegate<Signature, InvokeOnce>;
+	template <typename Signature, int32 Flags = 0>
+	using TOneTimeEventDelegate = TEventDelegate<Signature, InvokeOnce | Flags>;
 	
-	template <typename Signature>
-	using TOneTimeRetainingEventDelegate = TEventDelegate<Signature, InvokeOnce | CopyArguments>;
+	template <typename Signature, int32 Flags = 0>
+	using TOneTimeRetainingEventDelegate = TEventDelegate<Signature, InvokeOnce | CopyArguments | Flags>;
 
-	template <typename Signature>
-	using TOneTimeBelatedEventDelegate = TEventDelegate<Signature, InvokeOnce | BelatedInvoke>;
+	template <typename Signature, int32 Flags = 0>
+	using TOneTimeBelatedEventDelegate = TEventDelegate<Signature, InvokeOnce | BelatedInvoke | Flags>;
 
-	template <typename Signature>
+	template <typename Signature, int32 Flags = 0>
 	using TOneTimeRetainingBelatedEventDelegate = TEventDelegate<Signature,
-		InvokeOnce | BelatedInvoke | CopyArguments
+		InvokeOnce | BelatedInvoke | CopyArguments | Flags
 	>;
 
 	/** Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */

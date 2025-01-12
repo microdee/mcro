@@ -1,36 +1,13 @@
-<div align="center">
+# MCRO {#mainpage}
 
-<img src="Docs/Images/proto-logo-0.webp" width=400 />
-
-# MCRO
 A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
-
-</div>
 
 > [!CAUTION]
 > This library is far from being production ready and is not recommended to be used yet at all
 
-- [MCRO](#mcro)
-  - [What's a proto-plugin?](#whats-a-proto-plugin)
-  - [What's up with `_Origin` suffix everywhere?](#whats-up-with-_origin-suffix-everywhere)
-  - [What it can do?](#what-it-can-do)
-    - [Error handling](#error-handling)
-    - [Delegate type inferance](#delegate-type-inferance)
-    - [Advanced `TEventDelegate`](#advanced-teventdelegate)
-    - [`TTypeName`](#ttypename)
-    - [Auto modular features](#auto-modular-features)
-    - [Observable `TState`](#observable-tstate)
-    - [Function Traits](#function-traits)
-    - [Concepts](#concepts)
-    - [Extending the Slate declarative syntax](#extending-the-slate-declarative-syntax)
-    - [Text interop](#text-interop)
-    - [ISPC parallel tasks support](#ispc-parallel-tasks-support)
-    - [Last but not least](#last-but-not-least)
-  - [Plans](#plans)
-  - [Legal](#legal)
+[TOC]
 
-[Read the full documentation at](https://mcro.de/mcro)  
-*(Note that currently it's also very WIP)*
+[Find the source code at](https://github.com/microdee/mcro)
 
 ## What's a proto-plugin?
 
@@ -59,11 +36,11 @@ If this seems painful please blame Epic Games who decided to not allow ~~marketp
 
 To use MCRO as its own plugin without the need for Nuke.Unreal, see this repository: **(DOESN'T EXIST YET)**
 
-## What's up with `_Origin` suffix everywhere?
+## What's up with _Origin suffix everywhere?
 
 When this proto plugin is imported into other plugins, this suffix is used for disambiguation, in case the end-user uses multiple pre-compiled plugins depending on MCRO. If this seems annoying please refer to the paragraph earlier.
 
-## What it can do?
+## What MCRO can do?
 
 Here are some code appetizers without going too deep into their details. The demonstrated features usually can do a lot more than what's shown here.
 
@@ -139,7 +116,13 @@ struct FObservable
 }
 ```
 
-we can do
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">We can do:</b>
 
 ```C++
 #include "Mcro/Delegates/DelegateFrom.h"
@@ -167,7 +150,11 @@ struct FListener : TSharedFromThis<FListener>
 }
 ```
 
-is equivalent to doing the following with the vanilla Unreal delegates API:
+</li>
+
+<li>
+
+<b class="tab-title">Equivalent vanilla Unreal delegates:</b>
 
 ```C++
 struct FListener : TSharedFromThis<FListener>
@@ -194,9 +181,15 @@ struct FListener : TSharedFromThis<FListener>
 }
 ```
 
+</li>
+
+</ul>
+
+</div>
+
 There's also a dynamic / native (multicast) delegate interop including similar chaining demonstrated here.
 
-### Advanced `TEventDelegate`
+### Advanced TEventDelegate
 
 Did your thing ever load after an event which your thing depends on, but now you have to somehow detect that the event has already happened and you have to execute your thing manually? With `Mcro::Delegates::TEventDelegate` this situation has a lot less friction:
 
@@ -275,7 +268,7 @@ LoverLevelEvent.Broadcast(42);
 
 Of course the above chaining can be combined with belated~ or one-time invocations. 
 
-### `TTypeName`
+### TTypeName
 
 C++ 20 can do string manipulation in compile time, [including regex](https://github.com/hanickadot/compile-time-regular-expressions). With that, compiler specific "pretty function" macros become a key tool for simple static reflection. Based on that MCRO has `TTypeName`
 
@@ -375,7 +368,7 @@ IProblemSolvingFeature::Get().SolveAllProblems();
 
 Notice how the feature name has never needed to be explicitly specified as a string, because the type name is used under the hood.
 
-### Observable `TState`
+### Observable TState
 
 You have data members of your class, but you also want to notify others about how that's changing?
 
@@ -636,23 +629,9 @@ export void MakeLookupUV(
 * Windows:
   * `IError` wrapper for `HRESULT` and `GetLastError` extracting human readable error messages from them.
 
-## Plans
-
-* [ ] Doxygen generated "nice" documentation 
-* [ ] Supporting common platform specific chores
-  * [ ] Windows
-    * [ ] Common COM / WinRT utilities
-  * [ ] Linux
-  * [ ] Mac
-  * [ ] Android
-  * [ ] iOS / TVOS / VisionOS
-* [ ] Test coverage which can be taken seriously
-* [ ] Graphics utilities
-  * [ ] Shared textures but without the Unreal TextureShare library
-
 ## Legal
 
-[Third-party components used by MCRO](ATTRIBUTION.md)
+[Third-party components used by MCRO](#Attribution)
 
 When using MCRO in a plugin distributed via Fab, these components must be listed upon submission.
 
@@ -668,10 +647,10 @@ Modifying those files or the entire library for commercial purposes is allowed b
 
 Using this library in any product without modifications doesn't limit how that product may be licensed.
 
-[Full text of the license](LICENSE)
+[Full text of the license](https://mozilla.org/MPL/2.0/)
 
 <div align="center">
 
-<img src="Docs/Images/proto-logo-1.webp" width=400 />
+<img src="proto-logo-1.webp" width=400 />
 
 </div>

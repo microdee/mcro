@@ -69,6 +69,7 @@ namespace Mcro::Text
 	MCRO_API FName UnrealNameConvert(std::wstring_view const& stdStr);
 
 	MCRO_API FStdString StdCopy(FStringView const& unrealStr);
+	MCRO_API FStdString StdCopy(FName const& unrealStr);
 	MCRO_API std::string StdConvertUtf8(FStringView const& unrealStr);
 	MCRO_API std::wstring StdConvertWide(FStringView const& unrealStr);
 	

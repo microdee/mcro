@@ -226,7 +226,7 @@ namespace Mcro::Observable
 	struct TState : IState<T>
 	{
 		template <typename ThreadSafeType, typename NaiveType>
-		using ThreadSafeSwitch = std::conditional_t<DefaultPolicy & ThreadSafeState, ThreadSafeType, NaiveType>;
+		using ThreadSafeSwitch = std::conditional_t<static_cast<bool>(DefaultPolicy & ThreadSafeState), ThreadSafeType, NaiveType>;
 		
 		using StateBase = IState<T>;
 
