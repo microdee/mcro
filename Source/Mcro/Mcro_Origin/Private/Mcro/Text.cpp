@@ -77,7 +77,7 @@ namespace Mcro::Text
 	{
 		return FStdStringView(unrealStr.GetData(), unrealStr.Len());
 	}
-	
+
 	std::string_view StdView(const FUtf8StringView& unrealStr)
 	{
 		return std::string_view(
@@ -135,6 +135,11 @@ namespace Mcro::Text
 	FStdString StdCopy(const FStringView& unrealStr)
 	{
 		return FStdString(unrealStr.GetData(), unrealStr.Len());
+	}
+	
+	FStdString StdCopy(FName const& unrealStr)
+	{
+		return StdCopy(unrealStr.ToString());
 	}
 
 	std::string StdConvertUtf8(const FStringView& unrealStr)
