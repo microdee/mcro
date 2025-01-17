@@ -72,7 +72,7 @@ void FMcroAutoModularFeatures_Spec::Define()
 			}
 		});
 
-		LatentIt(TEXT("should be available via TFuture"), 30_ms, [this](FDoneDelegate const& done)
+		LatentIt(TEXT("should be available via TFuture"), 30_mSec, [this](FDoneDelegate const& done)
 		{
 			ITestFeature::GetBelated().Next([this, &done](ITestFeature*)
 			{

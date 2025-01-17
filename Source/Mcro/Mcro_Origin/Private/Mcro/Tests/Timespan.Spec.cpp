@@ -28,12 +28,12 @@ void FMcroTimespan_Spec::Define()
 	{
 		It(TEXT("should produce the same values as Timespan::From functions."), [this]
 		{
-			TestEqual(TEXT("Days"),         30_D,  FTimespan::FromDays(30));
-			TestEqual(TEXT("Hours"),        30_h,  FTimespan::FromHours(30));
-			TestEqual(TEXT("Minutes"),      30_m,  FTimespan::FromMinutes(30));
-			TestEqual(TEXT("Seconds"),      30_s,  FTimespan::FromSeconds(30));
-			TestEqual(TEXT("Milliseconds"), 30_ms, FTimespan::FromMilliseconds(30));
-			TestEqual(TEXT("Microseconds"), 30_us, FTimespan::FromMicroseconds(30));
+			TestEqual(TEXT("Days"),         30_Day,   FTimespan::FromDays(30));
+			TestEqual(TEXT("Hours"),        30_Hour,  FTimespan::FromHours(30));
+			TestEqual(TEXT("Minutes"),      30_Min,   FTimespan::FromMinutes(30));
+			TestEqual(TEXT("Seconds"),      30_Sec,   FTimespan::FromSeconds(30));
+			TestEqual(TEXT("Milliseconds"), 30_mSec,  FTimespan::FromMilliseconds(30));
+			TestEqual(TEXT("Microseconds"), 30_uSec,  FTimespan::FromMicroseconds(30));
 		});
 	});
 }
