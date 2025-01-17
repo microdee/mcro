@@ -148,7 +148,7 @@ namespace Mcro::Delegates
 	struct TNativeMultiplex_Struct
 	{
 		using Type = TEventMultiplex<
-			TSetReturn<Return, TDynamicSignature<Dynamic>>
+			TSetReturnDecay<Return, TDynamicSignature<Dynamic>>
 		>;
 	};
 	

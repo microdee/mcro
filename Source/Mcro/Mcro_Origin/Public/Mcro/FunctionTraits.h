@@ -24,6 +24,7 @@ namespace Mcro::FunctionTraits
 	template <typename T>
 	concept CFunctorObject = requires { &std::decay_t<T>::operator(); };
 
+	/** @internal */
 	namespace Detail
 	{
 		template <typename ReturnIn, typename... Args>
@@ -32,6 +33,7 @@ namespace Mcro::FunctionTraits
 			static constexpr size_t ArgumentCount = sizeof...(Args);
 
 			using Return = ReturnIn;
+			using ReturnDecay = std::decay_t<ReturnIn>;
 
 			/** The input parameters of the function as a tuple type. Types are not decayed. */
 			using Arguments = TTuple<Args...>;
@@ -123,11 +125,14 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsMember = false;
 		static constexpr bool IsConst = false;
 	};
-	
 
-	/** Shorthand for getting a type of a function argument at given position I. */
+	/** Shorthand for getting a tuple representing the function arguments. */
 	template <typename T>
 	using TFunction_Arguments = typename TFunctionTraits<std::decay_t<T>>::Arguments;
+
+	/** Shorthand for getting a tuple representing the decayed function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsDecay = typename TFunctionTraits<std::decay_t<T>>::ArgumentsDecay;
 
 	/** Shorthand for getting a type of a function argument at given position I. */
 	template <typename T, int I>
@@ -144,16 +149,19 @@ namespace Mcro::FunctionTraits
 	using TFunction_Return = typename TFunctionTraits<std::decay_t<T>>::Return;
 
 	template <typename T>
+	using TFunction_ReturnDecay = typename TFunctionTraits<std::decay_t<T>>::Return;
+
+	template <typename T>
 	using TFunction_Signature = typename TFunctionTraits<std::decay_t<T>>::Signature;
 
 	template <typename T>
 	using TFunction_Class = typename TFunctionTraits<std::decay_t<T>>::Class;
 
 	template <typename T>
-	inline constexpr bool TFunction_IsMember = TFunctionTraits<std::decay_t<T>>::IsMember;
+	concept CFunction_IsMember = TFunctionTraits<std::decay_t<T>>::IsMember;
 
 	template <typename T>
-	inline constexpr bool TFunction_IsConst = TFunctionTraits<std::decay_t<T>>::IsConst;
+	concept CFunction_IsConst = TFunctionTraits<std::decay_t<T>>::IsConst;
 	
 	/** A concept accepting any function like entity (function pointer or functor object) */
 	template <typename T>
@@ -163,32 +171,41 @@ namespace Mcro::FunctionTraits
 	concept CFunctionPtr = TFunctionTraits<std::decay_t<T>>::IsPointer;
 
 	template <typename Class, typename Function>
-	concept CHasFunction = TFunction_IsMember<Function>
+	concept CHasFunction = CFunction_IsMember<Function>
 		&& (CDerivedFrom<Class, TFunction_Class<Function>> || CSameAs<Class, TFunction_Class<Function>>)
 	;
 
-	template <typename Return, typename Tuple, size_t... Indices>
-	using TFunctionFromTupleIndices = Return(typename TTupleElement<Indices, Tuple>::Type...);
-
-	template <typename Return, typename Tuple>
-	struct TFunctionFromTuple_Struct
+	namespace Detail
 	{
-		template <size_t... Indices>
-		static consteval TFunctionFromTupleIndices<Return, Tuple, Indices...>* Compose(std::index_sequence<Indices...>&&);
+		template <typename Return, typename Tuple, size_t... Indices>
+		using TFunctionFromTupleIndices = Return(typename TTupleElement<Indices, Tuple>::Type...);
 
-		using Type = std::remove_pointer_t<decltype(
-			Compose(std::make_index_sequence<TTupleArity<Tuple>::Value>{})
-		)>;
-	};
+		template <typename Return, typename Tuple>
+		struct TFunctionFromTuple_Struct
+		{
+			template <size_t... Indices>
+			static consteval TFunctionFromTupleIndices<Return, Tuple, Indices...>* Compose(std::index_sequence<Indices...>&&);
+
+			using Type = std::remove_pointer_t<decltype(
+				Compose(std::make_index_sequence<TTupleArity<Tuple>::Value>{})
+			)>;
+		};
+	}
 
 	template <typename Return, typename Tuple>
-	using TFunctionFromTuple = typename TFunctionFromTuple_Struct<std::decay_t<Return>, std::decay_t<Tuple>>::Type;
+	using TFunctionFromTuple = typename Detail::TFunctionFromTuple_Struct<Return, std::decay_t<Tuple>>::Type;
 
 	template <typename Return, typename DstFunction>
 	using TSetReturn = TFunctionFromTuple<Return, TFunction_Arguments<DstFunction>>;
 
+	template <typename Return, typename DstFunction>
+	using TSetReturnDecay = TFunctionFromTuple<std::decay_t<Return>, TFunction_Arguments<DstFunction>>;
+
 	template <typename SrcFunction, typename DstFunction>
 	using TCopyReturn = TSetReturn<TFunction_Return<SrcFunction>, DstFunction>;
+
+	template <typename SrcFunction, typename DstFunction>
+	using TCopyReturnDecay = TSetReturnDecay<TFunction_ReturnDecay<SrcFunction>, DstFunction>;
 	
 	namespace Detail
 	{

@@ -14,7 +14,7 @@
 /**
  *	@file
  *	Unreal delegates while being great they have the problem that they're pretty verbose to use, as the usage site
- *	requires the developer to spell out the delegate types when they're being bound to something. Mcro::Delegate::From
+ *	requires the developer to spell out the delegate types when they're being bound to something. `Mcro::Delegate::From`
  *	overloads not only infer delegate types from input function, but they also infer how the delegate is being used.
  *	For example take `From(this, &FStuff::MyFunc)` can map to several classic delegate usages depending on the type of
  *	`this`:
@@ -52,7 +52,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateStatic */
 	template <CFunctionLike Function, typename... Captures>
-	requires (!TFunction_IsMember<Function>)
+	requires (!CFunction_IsMember<Function>)
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Function func, const Captures&... captures)
 	{
@@ -96,7 +96,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateRaw */
 	template <CPlainClass Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateRaw(self, func, captures...);
@@ -104,7 +104,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateRaw */
 	template <CPlainClass Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateRaw(self, func, captures...);
@@ -112,7 +112,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateSP */
 	template <CSharedRef Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object& self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
@@ -120,7 +120,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateSP (SharedFromThis) */
 	template <CSharedFromThis Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
@@ -128,7 +128,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateSP (SharedFromThis) */
 	template <CSharedFromThis Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
@@ -136,7 +136,7 @@ namespace Mcro::Delegates
 
 	/** Maps to CreateUObject */
 	template <CUObject Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function>
+	requires CFunction_IsMember<Function>
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
@@ -145,7 +145,7 @@ namespace Mcro::Delegates
 	
 	/** Maps to CreateUObject */
 	template <CUObject Object, CFunctionLike Function, typename... Captures>
-	requires TFunction_IsMember<Function>
+	requires CFunction_IsMember<Function>
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
