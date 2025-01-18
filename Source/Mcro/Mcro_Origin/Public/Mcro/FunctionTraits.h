@@ -216,7 +216,7 @@ namespace Mcro::FunctionTraits
 			std::index_sequence<Sequence...>&&
 		)
 		{
-			return function(Forward<TFunction_Arg<Function, Sequence>>(arguments.template Get<Sequence>())...);
+			return function(arguments.template Get<Sequence>()...);
 		}
 		
 		template<typename Object, typename Function, size_t... Sequence>
@@ -227,7 +227,7 @@ namespace Mcro::FunctionTraits
 			std::index_sequence<Sequence...>&&
 		)
 		{
-			return (object->*function)(Forward<TFunction_Arg<Function, Sequence>>(arguments.template Get<Sequence>())...);
+			return (object->*function)(arguments.template Get<Sequence>()...);
 		}
 	}
 
@@ -257,4 +257,16 @@ namespace Mcro::FunctionTraits
 			std::make_index_sequence<TFunction_ArgCount<Function>>()
 		);
 	}
+
+	/**
+	 *	@brief
+	 *	Tests if a provided class member function pointer instance (not type!) is indeed an instance member method.  
+	 */
+	template <auto FuncPtr>
+	concept CInstanceMethod = requires(
+		TFunction_Class<decltype(FuncPtr)>* instance,
+		TFunction_Arguments<decltype(FuncPtr)> argsTuple
+	) {
+		InvokeWithTuple(instance, FuncPtr, argsTuple);
+	};
 }
