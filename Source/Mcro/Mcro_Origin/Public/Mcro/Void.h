@@ -11,19 +11,19 @@
 
 /**
  *	@file
- *	Use these two structs for dummy types or when it is easier to have explicit return types than dealing with void
- *	specializations in templates
+ *	These two are the most useful types in the arsenal of the C++ developer. Use these for dummy types or when it is
+ *	easier to have explicit return types than dealing with void specializations in templates.
  */
 
 #pragma once
 
-/** This struct may be only used in decltype or templating situations when definition is not required */
+/** @brief This struct may be only used in decltype or templating situations when definition is not required */
 struct FDeclareOnly;
 
-/** This struct may be used for situations where something needs to be returned but it's not meaningful to do so. */
+/** @brief This struct may be used for situations where something needs to be returned but it's not meaningful to do so. */
 struct MCRO_API FVoid
 {
-	/** A constructor which accepts any arguments and does nothing with them */
+	/** @brief A constructor which accepts any arguments and does nothing with them */
 	template <typename... Args>
 	FVoid(Args&&...) {}
 };

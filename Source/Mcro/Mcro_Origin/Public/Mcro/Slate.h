@@ -14,32 +14,35 @@
 #include "CoreMinimal.h"
 #include "Mcro/FunctionTraits.h"
 
-/** Extra functionalities for general Slate programming chores, including enhancements of the Slate declarative syntax */
+/**
+ *	@brief
+ *	Extra functionalities for general Slate programming chores, including enhancements of the Slate declarative syntax
+ */
 namespace Mcro::Slate
 {
 	using namespace Mcro::FunctionTraits;
 
-	/** Constraining given type to a Slate widget */
+	/** @brief Constraining given type to a Slate widget */
 	template <typename T>
 	concept CWidget = CDerivedFrom<T, SWidget>;
 
-	/** Constraining given type to a slot of a widget */
+	/** @brief Constraining given type to a slot of a widget */
 	template <typename T>
 	concept CSlot = CDerivedFrom<T, FSlotBase>;
 
-	/** Constraining given type to either a slot or a widget */
+	/** @brief Constraining given type to either a slot or a widget */
 	template <typename T>
 	concept CWidgetOrSlot = CWidget<T> || CSlot<T>;
 
-	/** Constraining given type to the arguments of either a widget or a slot */
+	/** @brief Constraining given type to the arguments of either a widget or a slot */
 	template <typename T>
 	concept CWidgetOrSlotArguments = CSameAsDecayed<T, typename T::WidgetArgsType>;
 
-	/** Constraining given type to the arguments of a widget  */
+	/** @brief Constraining given type to the arguments of a widget  */
 	template <typename T>
 	concept CWidgetArguments = requires(typename T::WidgetType& t) { t; };
 
-	/** Constraining given type to the arguments of a slot  */
+	/** @brief Constraining given type to the arguments of a slot  */
 	template <typename T>
 	concept CSlotArguments = CDerivedFrom<T, FSlotBase::FSlotArguments>
 		&& requires(T& args)
@@ -48,7 +51,7 @@ namespace Mcro::Slate
 		}
 	;
 
-	/** Constraining given type to a widget which can receive slots */
+	/** @brief Constraining given type to a widget which can receive slots */
 	template <typename T>
 	concept CWidgetWithSlots = requires(typename T::FSlot&)
 	{
@@ -70,11 +73,12 @@ namespace Mcro::Slate
 		using Type = typename T::FSlotArguments;
 	};
 
-	/** Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments) */
+	/** @brief Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments) */
 	template <typename T>
 	using TArgumentsOf = typename TArgumentsOf_S<T>::Type;
 
 	/**
+	 *	@brief
 	 *	Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and returns the
 	 *	same reference but presumably setting some Slate attributes before that. This is useful for modularizing the
 	 *	Slate declarative syntax.
@@ -82,26 +86,27 @@ namespace Mcro::Slate
 	template <CWidgetOrSlot T>
 	using TAttributeBlock = TUniqueFunction<TArgumentsOf<T>&(TArgumentsOf<T>&)>;
 
-	/** Same as TAttributeBlock but allows to make copies of the functor */
+	/** @brief Same as TAttributeBlock but allows to make copies of the functor */
 	template <CWidgetOrSlot T>
 	using TAttributeBlockCopyable = TFunction<TArgumentsOf<T>&(TArgumentsOf<T>&)>;
 
-	/** An attribute block which does nothing */
+	/** @brief An attribute block which does nothing */
 	template <CWidgetOrSlot T>
 	TAttributeBlock<T> InertAttributeBlock = [](TArgumentsOf<T>& args) -> auto& { return args; };
 
 	/**
+	 *	@brief
 	 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit inside
 	 *	the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit
 	 *	mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the
 	 *	flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget
 	 *	composition more comfortable.
 	 *	
-	 *	@tparam Arguments  Right hand side FArguments or FSlotArguments
-	 *	@tparam AttrBlock  The type of the attribute block function
-	 *	@param args        l-value reference right hand side FArguments or FSlotArguments
-	 *	@param attributes  An attribute block function
-	 *	@return            The same reference as args or a new slot if that has been added inside the attribute block
+	 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
+	 *	@tparam  AttrBlock   The type of the attribute block function
+	 *	@param   args        l-value reference right hand side FArguments or FSlotArguments
+	 *	@param   attributes  An attribute block function
+	 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
 	 */
 	template <CWidgetOrSlotArguments Arguments, CFunctionLike AttrBlock>
 	requires (
@@ -114,17 +119,18 @@ namespace Mcro::Slate
 	}
 
 	/**
+	 *	@brief
 	 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit inside
 	 *	the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit
 	 *	mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the
 	 *	flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget
 	 *	composition more comfortable.
 	 *	
-	 *	@tparam Arguments  Right hand side FArguments or FSlotArguments
-	 *	@tparam AttrBlock  The type of the attribute block function
-	 *	@param args        r-value reference right hand side FArguments or FSlotArguments
-	 *	@param attributes  An attribute block function
-	 *	@return            The same reference as args or a new slot if that has been added inside the attribute block
+	 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
+	 *	@tparam  AttrBlock   The type of the attribute block function
+	 *	@param   args        r-value reference right hand side FArguments or FSlotArguments
+	 *	@param   attributes  An attribute block function
+	 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
 	 */
 	template <CWidgetOrSlotArguments Arguments, CFunctionLike AttrBlock>
 	requires (
@@ -137,7 +143,7 @@ namespace Mcro::Slate
 	}
 
 	/**
-	 *	Add multiple slots at the same time with the declarative syntax derived from an input data array.
+	 *	@brief  Add multiple slots at the same time with the declarative syntax derived from an input data array.
 	 *	
 	 *	@code
 	 *	void SMyWidget::Construct(const FArguments& args)
@@ -222,6 +228,7 @@ namespace Mcro::Slate
 		TOptional<OnEmpty> OnEmptyStorage;
 	};
 
+	/** @copydoc TSlots */
 	template <
 		CRange Range,
 		CFunctionLike Transform,
@@ -235,5 +242,6 @@ namespace Mcro::Slate
 		return args;
 	}
 
+	/** @brief Convenience function for typing less when widget visibility depends on a boolean */
 	MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState = EVisibility::Collapsed);
 }

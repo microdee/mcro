@@ -18,9 +18,7 @@
 
 namespace Mcro::Error
 {
-	/**
-	 * An Error component which stores a BP stack trace in its message upon construction
-	 */
+	/** @brief An Error component which stores a BP stack trace in its message upon construction */
 	class MCRO_API FBlueprintStackTrace : public IPlainTextComponent
 	{
 	public:

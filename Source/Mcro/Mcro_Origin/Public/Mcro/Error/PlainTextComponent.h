@@ -16,9 +16,7 @@
 
 namespace Mcro::Error
 {
-	/**
-	 * An error component which displays only its Message, used as simple modular plain text storage
-	 */
+	/** @brief An error component which displays only its Message, used as simple modular plain text storage */
 	class MCRO_API IPlainTextComponent : public IError
 	{
 	protected:

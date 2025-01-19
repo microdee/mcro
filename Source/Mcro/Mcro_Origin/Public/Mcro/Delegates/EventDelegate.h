@@ -13,64 +13,67 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/FunctionTraits.h"
-#include "Mcro/Construct.h"
+#include "Mcro/InitializeOnCopy.h"
 #include "Mcro/Delegates/AsNative.h"
 #include "Mcro/Delegates/DelegateFrom.h"
 
 namespace Mcro::Delegates
 {
 	using namespace Mcro::FunctionTraits;
-	using namespace Mcro::Construct;
+	using namespace Mcro::InitializeOnCopy;
 	
-	/** Settings for the TEventDelegate class, which defines optional behavior when adding a binding to it */
+	/** @brief Settings for the TEventDelegate class, which defines optional behavior when adding a binding to it */
 	enum EInvokeMode
 	{
-		/** The event delegate will act the same as a TMulticastDelegate */
+		/** @brief The event delegate will act the same as a TMulticastDelegate */
 		DefaultInvocation = 0,
 
-		/** The binding will be automatically removed after the next broadcast */
+		/** @brief The binding will be automatically removed after the next broadcast */
 		InvokeOnce = 1 << 0,
 
-		/** The binding will be executed immediately if the delegate has already been broadcasted */
+		/** @brief The binding will be executed immediately if the delegate has already been broadcasted */
 		BelatedInvoke = 1 << 1,
 
 		/**
+		 *	@brief
 		 *	Attempt to copy arguments when storing them for belated invokes, instead of perfect
 		 *	forwarding them. This is only considered from the template argument
 		 */
 		CopyArguments = 1 << 2,
 
-		/** Enable mutex locks around adding/broadcasting delegates. Only considered in DefaultInvokeMode */
+		/** @brief Enable mutex locks around adding/broadcasting delegates. Only considered in DefaultInvokeMode */
 		ThreadSafeEvent = 1 << 3
 	};
 
-	template <typename Function, int32 DefaultInvokeMode = DefaultInvocation>
-	class TEventDelegate;
-
 	/**
-	 *	"Extension" of a common TMulticastDelegate. It allows to define optional "settings" when
-	 *	ad1ding a binding, in order to:
+	 *	@brief
+	 *	"Extension" of a common TMulticastDelegate. It allows to define optional "flags" when adding a binding,
+	 *	in order to:
 	 *	- Remove the binding after the next broadcast
 	 *	- Execute the associated event immediately if the delegate has already been broadcast
 	 *	- Allow comfortable chaining
 	 *	
-	 *	The delegate can be defined with settings that will be applied by default to all bindings
-	 *	(but the behavior can still be changed per-binding if needed).
+	 *	The delegate can be defined with default settings that will be applied by default to all bindings (but the
+	 *	behavior can still be changed per-binding if needed (except thread safety and argument retention mode).
 	 *	
 	 *	Example usage:
 	 *
 	 * @code
 	 *	// The delegate will use default settings (i.e. the behavior will be the same as a TMulticastDelegate by default)
-	 *	using FMyNativeDelegate = TEventDelegate<void(int32 someParam)>;
+	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam)>;
 	 * 
 	 *	// Fire a new binding immediately if the delegate has been already broadcasted
-	 *	using FMyNativeDelegate = TEventDelegate<void(int32 someParam), EInvokeMode::BelatedInvoke>;
+	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam), EInvokeMode::BelatedInvoke>;
 	 *
 	 *	// Fire a new binding immediately if the delegate has been already broadcasted,
 	 *	// AND the binding will be removed after the next broadcast
-	 *	using FMyNativeDelegate = TEventDelegate<void(int32 someParam), EInvokeMode::BelatedInvoke | EInvokeMode::InvokeOnce>;
+	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam), EInvokeMode::BelatedInvoke | EInvokeMode::InvokeOnce>;
 	 *	@endcode 
 	 */
+	template <typename Function, int32 DefaultInvokeMode = DefaultInvocation>
+	class TEventDelegate {};
+
+	/** @copydoc TEventDelegate */
 	template <typename... Args, int32 DefaultInvokeMode>
 	class TEventDelegate<void(Args...), DefaultInvokeMode>
 	{
@@ -104,11 +107,12 @@ namespace Mcro::Delegates
 		}
 
 		/**
+		 *	@brief
 		 *	Create a delegate object which is broadcasting this event. This is useful for chaining
 		 *	events together like so:
-		 *	```
+		 *	@code
 		 *	MyEvent.Add(MyOtherEvent.Delegation(this));
-		 *	```
+		 *	@endcode
 		 *	
 		 *	@param object Optionally bind an object to the event delegation 
 		 */
@@ -119,7 +123,7 @@ namespace Mcro::Delegates
 		};
 
 		/**
-		 *	Adds a new delegate to the event delegate.
+		 *	@brief  Adds a new delegate to the event delegate.
 		 *	
 		 *	@param delegate  The delegate to bind
 		 *	
@@ -136,7 +140,7 @@ namespace Mcro::Delegates
 		}
 		
 		/**
-		 *	Bind multiple delegates at once, useful for initial mandatory bindings  
+		 *	@brief   Bind multiple delegates at once, useful for initial mandatory bindings  
 		 *	@return  This event
 		 */
 		template <CSameAs<FDelegate>... Delegates>
@@ -149,7 +153,7 @@ namespace Mcro::Delegates
 
 		TEventDelegate() {};
 		
-		/** Bind multiple delegates at once, useful for initial mandatory bindings */
+		/** @brief Bind multiple delegates at once, useful for initial mandatory bindings */
 		template <CSameAs<FDelegate>... Delegates>
 		TEventDelegate(Delegates... delegates)
 		{
@@ -157,7 +161,7 @@ namespace Mcro::Delegates
 		}
 
 		/**
-		 *	Adds a new dynamic delegate to this event delegate.
+		 *	@brief  Adds a new dynamic delegate to this event delegate.
 		 *	
 		 *	@param dynamicDelegate  The dynamic delegate to bind
 		 *	
@@ -175,7 +179,7 @@ namespace Mcro::Delegates
 		}
 
 		/**
-		 *	Adds the given dynamic delegate only if it's not already bound to this event delegate.
+		 *	@brief  Adds the given dynamic delegate only if it's not already bound to this event delegate.
 		 *	
 		 *	@param dynamicDelegate  The dynamic delegate to bind
 		 *	
@@ -209,7 +213,7 @@ namespace Mcro::Delegates
 		
 	public:
 		/**
-		 *	Remove the binding associated to the given handle
+		 *	@brief  Remove the binding associated to the given handle
 		 *	
 		 *	@param delegateHandle  Handle of the binding to remove
 		 *	
@@ -222,7 +226,7 @@ namespace Mcro::Delegates
 		}
 
 		/**
-		 *	Remove the binding associated to the dynamic delegate.
+		 *	@brief  Remove the binding associated to the dynamic delegate.
 		 *	
 		 *	@param dynamicDelegate  The dynamic delegate to remove
 		 *	
@@ -240,7 +244,7 @@ namespace Mcro::Delegates
 		}
 
 		/**
-		 *	Removes all binding associated to the given object
+		 *	@brief  Removes all binding associated to the given object
 		 *	
 		 *	@param inUserObject  The object to remove the bindings for
 		 *	
@@ -256,7 +260,7 @@ namespace Mcro::Delegates
 			return MulticastDelegate.RemoveAll(inUserObject);
 		}
 
-		/** Resets all states of this event delegate to their default. */
+		/** @brief Resets all states of this event delegate to their default. */
 		void Reset()
 		{
 			MutexLock lock(&Mutex.Get());
@@ -337,37 +341,44 @@ namespace Mcro::Delegates
 		TMulticastDelegate<void(Args...), FDefaultDelegateUserPolicy> MulticastDelegate;
 	};
 
+	/** @brief Shorthand alias for TEventDelegate which copies arguments to its cache regardless of their qualifiers */
 	template <typename Signature, int32 Flags = 0>
 	using TRetainingEventDelegate = TEventDelegate<Signature, CopyArguments | Flags>;
 
+	/** @brief Shorthand alias for TEventDelegate which broadcasts listeners immediately once they're added */
 	template <typename Signature, int32 Flags = 0>
 	using TBelatedEventDelegate = TEventDelegate<Signature, BelatedInvoke | Flags>;
 
+	/** @brief Shorthand alias for combination of TRetainingEventDelegate and TBelatedEventDelegate */
 	template <typename Signature, int32 Flags = 0>
 	using TBelatedRetainingEventDelegate = TEventDelegate<Signature, BelatedInvoke | CopyArguments | Flags>;
 
+	/** @brief Shorthand alias for TEventDelegate which broadcasts listeners only once and then they're removed */
 	template <typename Signature, int32 Flags = 0>
 	using TOneTimeEventDelegate = TEventDelegate<Signature, InvokeOnce | Flags>;
 	
+	/** @brief Shorthand alias for combination of TRetainingEventDelegate and TOneTimeEventDelegate */
 	template <typename Signature, int32 Flags = 0>
 	using TOneTimeRetainingEventDelegate = TEventDelegate<Signature, InvokeOnce | CopyArguments | Flags>;
 
+	/** @brief Shorthand alias for combination of TBelatedEventDelegate and TOneTimeEventDelegate */
 	template <typename Signature, int32 Flags = 0>
 	using TOneTimeBelatedEventDelegate = TEventDelegate<Signature, InvokeOnce | BelatedInvoke | Flags>;
 
+	/** @brief Collect'em all */
 	template <typename Signature, int32 Flags = 0>
 	using TOneTimeRetainingBelatedEventDelegate = TEventDelegate<Signature,
 		InvokeOnce | BelatedInvoke | CopyArguments | Flags
 	>;
 
-	/** Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */
+	/** @brief Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */
 	template <CDynamicMulticastDelegate Dynamic, int32 DefaultSettings = DefaultInvocation>
 	struct TNativeEvent_Struct
 	{
 		using Type = TEventDelegate<TDynamicSignature<Dynamic>, DefaultSettings>;
 	};
 	
-	/** Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */
+	/** @brief Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */
 	template <typename Dynamic, int32 DefaultSettings = DefaultInvocation>
 	using TNativeEvent = typename TNativeEvent_Struct<Dynamic, DefaultSettings>::Type;
 }

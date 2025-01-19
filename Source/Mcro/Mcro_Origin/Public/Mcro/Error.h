@@ -34,29 +34,28 @@ namespace Mcro::Error
 	using namespace Mcro::SharedObjects;
 
 	/**
-	 *	A base class for a structured error handling and reporting with modular architecture and fluent API.
+	 *	@brief  A base class for a structured error handling and reporting with modular architecture and fluent API.
 	 *	
 	 *	@important
 	 *	Instantiate errors only with `IError::Make(new FMyError())` this ensures the minimal runtime reflection features.
 	 *	
-	 *	@remarks
 	 *	Many times runtime errors are unavoidable and if an API only gives indication of success or failure (let's say in
 	 *	the form of a boolean) that will be quite frustrating for the user to report, as it gives no direction of course
 	 *	what went wrong, how it went wrong, and when it went wrong. Slightly better when the API gives a list of things
 	 *	what can go wrong and return an item from that list when things go wrong. This of course still doesn't allow to
 	 *	provide much of a context for the user.
-	 *	@remarks
+	 *	
 	 *	An 'improvement' to that is using C++ exceptions, however it is not unanimously well received in the community
 	 *	because it can hide the fact that the API can bail on its caller. So when exceptions are enabled one may call
 	 *	every function of an API like if they were walking on a minefield. For this (and a couple more) reasons C++
 	 *	exceptions are disabled by default in Unreal projects and viewed as terrible practice to introduce it ourselves.
-	 *	@remarks
+	 *	
 	 *	Unreal does provide though the `TValueOrError` template which allows API's to indicate that they can fail in some
 	 *	ways without the need to consult an external documentation. It gives the developer total freedom however of what
 	 *	the error can be, so on its own it does not solve the questions of what/when/how.
-	 *	@remarks
-	 *	Using `TMaybe` with `IError` can be a powerful tool in the developer's arsenal when creating a library.
-	 *	`IError` can standardize a detailed and structured way of communicating errors without hindering call-site
+	 *	
+	 *	Using `TMaybe` with IError can be a powerful tool in the developer's arsenal when creating a library.
+	 *	IError can standardize a detailed and structured way of communicating errors without hindering call-site
 	 *	usage. It can also automate the method and the format of logging the (many times excessive amount of)
 	 *	information surrounding an error, or decide how it may be presented for the user.
 	 */
@@ -70,22 +69,23 @@ namespace Mcro::Error
 		FString Details;
 		FString CodeContext;
 
-		/** Override this method if inner errors needs custom way of serialization */
+		/** @brief Override this method if inner errors needs custom way of serialization */
 		virtual void SerializeInnerErrors(YAML::Emitter& emitter) const;
 		
-		/** Override this method if error propagation history needs custom way of serialization */
+		/** @brief Override this method if error propagation history needs custom way of serialization */
 		virtual void SerializeErrorPropagation(YAML::Emitter& emitter) const;
 
-		/** Override this method if inner errors added to current one needs special attention */
+		/** @brief Override this method if inner errors added to current one needs special attention */
 		virtual void AddError(const FString& name, const TSharedRef<IError>& error, const FString& typeOverride = {});
 
-		/** Add extra separate blocks of text in an ad-hoc fashion */
+		/** @brief Add extra separate blocks of text in an ad-hoc fashion */
 		virtual void AddAppendix(const FString& name, const FString& text, const FString& type = TEXT("Appendix"));
 
 		void AddCppStackTrace(const FString& name, int32 numAdditionalStackFramesToIgnore, bool fastWalk);
 		void AddBlueprintStackTrace(const FString& name);
 
 		/**
+		 * 	@brief
 		 *	Override this method if direct members should be serialized differently or extra members are added by
 		 *	derived errors.
 		 */
@@ -101,35 +101,39 @@ namespace Mcro::Error
 		FORCEINLINE decltype(InnerErrors)::TRangedForConstIterator end()   const { return InnerErrors.end(); }
 		
 		/**
-		 *	This is an empty function so any `IError` can fulfill `CSharedInitializeable` without needing extra
+		 * 	@brief
+		 *	This is an empty function so any IError can fulfill CSharedInitializeable without needing extra
 		 *	attention in derived classes. Simply hide this function with overloads in derived classes if they need
-		 *	to use TSharedFromThis for initioalization
+		 *	to use TSharedFromThis for initialization
 		 */
 		void Initialize() {};
 
 		/**
+		 * 	@brief
 		 *	Override this function to change the method how this error is entirely serialized into a YAML format
+		 *	
 		 *	@param emitter  the YAML node into which the data of this error needs to be appended to
 		 *	@param isRoot   true when the top level error is being serialized
 		 */
 		virtual void SerializeYaml(YAML::Emitter& emitter, bool isRoot) const;
 
-		/** Render this error as a string using the YAML representation */
+		/** @brief Render this error as a string using the YAML representation */
 		FString ToString() const;
 
-		/** Render this error as a std::string using the YAML representation */
+		/** @brief Render this error as a std::string using the YAML representation */
 		std::string ToStringUtf8() const;
 		
 		/**
-		 *	To ensure automatic type reflection use IError::Make instead of manually constructing error objects
+		 *	@brief  To ensure automatic type reflection use IError::Make instead of manually constructing error objects
+		 *	
 		 *	@code
 		 *	IError::Make(new FMyError(myConstructorArgs), myInitializerArgs);
 		 *	@endcode
-		 *	@tparam T        Type of new error
-		 *	@tparam Args     Arguments for the new error initializer.
-		 *	@param newError  Pass the new object in as `new FMyError(...)`
-		 *	@param args      Arguments for the new error initializer.
-		 *	@return 
+		 *	
+		 *	@tparam T         Type of new error
+		 *	@tparam Args      Arguments for the new error initializer.
+		 *	@param  newError  Pass the new object in as `new FMyError(...)`
+		 *	@param  args      Arguments for the new error initializer.
 		 */
 		template <CError T, typename... Args>
 		requires CSharedInitializeable<T, Args...>
@@ -147,28 +151,29 @@ namespace Mcro::Error
 		FORCEINLINE int32                           GetInnerErrorCount() const { return InnerErrors.Num(); }
 
 		/**
+		 *	@brief
 		 *	Get a list of source locations where this error has been handled. This is not equivalent of stack-traces but
 		 *	rather a historical record of where this error was considered throughout the source code. Each item in this
-		 *	list is explicitly recorded via `WithLocation`. The first item is the earliest consideration of this error.
+		 *	list is explicitly recorded via WithLocation. The first item is the earliest consideration of this error.
 		 */
 		TArray<FString> GetErrorPropagation() const;
 
-		/** Same as `GetErrorPropagation` but items are separated by new line. */
+		/** @brief Same as `GetErrorPropagation` but items are separated by new line. */
 		FString GetErrorPropagationJoined() const;
 
-		/** Get the error severity as an unreal string. */
+		/** @brief Get the error severity as an unreal string. */
 		FStringView GetSeverityString() const;
 
-		/** Override this function to customize how an error is displaxed for the end-user */
+		/** @brief Override this function to customize how an error is displaxed for the end-user */
 		virtual TSharedRef<SErrorDisplay> CreateErrorWidget();
 
 		/**
-		 *	Specify error     message with a fluent API
-		 *	@tparam Self      Deducing this
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param input      the message
-		 *	@param condition  Only add message when this condition is satisfied
-		 *	@return       Self for further fluent API setup
+		 *	@brief   Specify error message with a fluent API
+		 *	@tparam  Self       Deducing this
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   input      the message
+		 *	@param   condition  Only add message when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
 		SelfRef<Self> WithMessage(this Self&& self, const FString& input, bool condition = true)
@@ -178,12 +183,12 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Specify formatted error message with a fluent API
-		 *	@tparam Self    Deducing this
-		 *	@param self     Deduced this (not present in calling arguments)
-		 *	@param input    the message format
-		 *	@param fmtArgs  format arguments
-		 *	@return       Self for further fluent API setup
+		 *	@brief   Specify formatted error message with a fluent API
+		 *	@tparam  Self     Deducing this
+		 *	@param   self     Deduced this (not present in calling arguments)
+		 *	@param   input    the message format
+		 *	@param   fmtArgs  format arguments
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithMessageF(this Self&& self, const TCHAR* input, FormatArgs&&... fmtArgs)
@@ -193,13 +198,13 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Specify formatted error message with a fluent API
-		 *	@tparam Self      Deducing this
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param condition  Only add message when this condition is satisfied
-		 *	@param input      the message format
-		 *	@param fmtArgs    format arguments
-		 *	@return       Self for further fluent API setup
+		 *	@brief   Specify formatted error message with a fluent API
+		 *	@tparam  Self       Deducing this
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   condition  Only add message when this condition is satisfied
+		 *	@param   input      the message format
+		 *	@param   fmtArgs    format arguments
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithMessageFC(this Self&& self, bool condition, const TCHAR* input, FormatArgs&&... fmtArgs)
@@ -209,12 +214,12 @@ namespace Mcro::Error
 		}
 		
 		/**
-		 *	Specify severity with a fluent API
-		 *	@tparam Self  Deducing this
-		 *	@param self   Deduced this (not present in calling arguments)
-		 *	@param input  the severity
-		 *	@return       Self for further fluent API setup
-		 *	@see  Mcro::Error::EErrorSeverity
+		 *	@brief   Specify severity with a fluent API
+		 *	@tparam  Self   Deducing this
+		 *	@param   self   Deduced this (not present in calling arguments)
+		 *	@param   input  the severity
+		 *	@return  Self for further fluent API setup
+		 *	@see     EErrorSeverity
 		 */
 		template <typename Self>
 		SelfRef<Self> WithSeverity(this Self&& self, EErrorSeverity input)
@@ -223,7 +228,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Recoverable shorthand */
+		/** @brief Recoverable shorthand */
 		template <typename Self>
 		SelfRef<Self> AsRecoverable(this Self&& self)
 		{
@@ -231,7 +236,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Fatal shorthand */
+		/** @brief Fatal shorthand */
 		template <typename Self>
 		SelfRef<Self> AsFatal(this Self&& self)
 		{
@@ -239,7 +244,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Crashing shorthand */
+		/** @brief Crashing shorthand */
 		template <typename Self>
 		SelfRef<Self> AsCrashing(this Self&& self)
 		{
@@ -248,13 +253,15 @@ namespace Mcro::Error
 		}
 
 		/**
+		 *	@brief 
 		 *	Specify details for the error which may provide further context for the user or provide them
 		 *	reminders/suggestions
-		 *	@tparam Self      Deducing this
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param input      the details text
-		 *	@param condition  Only add details when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	
+		 *	@tparam  Self       Deducing this
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   input      the details text
+		 *	@param   condition  Only add details when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
 		SelfRef<Self> WithDetails(this Self&& self, const FString& input, bool condition = true)
@@ -264,13 +271,15 @@ namespace Mcro::Error
 		}
 
 		/**
+		 *	@brief
 		 *	Specify formatted details for the error which may provide further context for the user or provide them
 		 *	reminders/suggestions
-		 *	@tparam Self    Deducing this
-		 *	@param self     Deduced this (not present in calling arguments)
-		 *	@param input    the details text
-		 *	@param fmtArgs  format arguments
-		 *	@return         Self for further fluent API setup
+		 *	
+		 *	@tparam  Self     Deducing this
+		 *	@param   self     Deduced this (not present in calling arguments)
+		 *	@param   input    the details text
+		 *	@param   fmtArgs  format arguments
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithDetailsF(this Self&& self, const TCHAR* input, FormatArgs&&... fmtArgs)
@@ -280,14 +289,16 @@ namespace Mcro::Error
 		}
 
 		/**
+		 *	@brief
 		 *	Specify formatted details for the error which may provide further context for the user or provide them
 		 *	reminders/suggestions
-		 *	@tparam Self      Deducing this
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param input      the details text
-		 *	@param condition  Only add details when this condition is satisfied
-		 *	@param fmtArgs    format arguments
-		 *	@return           Self for further fluent API setup
+		 *	
+		 *	@tparam  Self       Deducing this
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   input      the details text
+		 *	@param   condition  Only add details when this condition is satisfied
+		 *	@param   fmtArgs    format arguments
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithDetailsFC(this Self&& self, bool condition, const TCHAR* input, FormatArgs&&... fmtArgs)
@@ -297,12 +308,12 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	If available write a source code context into the error directly displaying where this error has occured
-		 *	@tparam Self      Deducing this
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param input      the source code context
-		 *	@param condition  Only add code context when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   If available write a source code context into the error directly displaying where this error has occured
+		 *	@tparam  Self       Deducing this
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   input      the source code context
+		 *	@param   condition  Only add code context when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
 		SelfRef<Self> WithCodeContext(this Self&& self, const FString& input, bool condition = true)
@@ -312,13 +323,13 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add a uniquely typed inner error.
-		 *	@tparam Self      Deducing this
-		 *	@tparam Error     Deduced type of the error
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param input      Inner error
-		 *	@param condition  Only add inner error when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   Add a uniquely typed inner error.
+		 *	@tparam  Self       Deducing this
+		 *	@tparam  Error      Deduced type of the error
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   input      Inner error
+		 *	@param   condition  Only add inner error when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, CError Error>
 		SelfRef<Self> WithError(this Self&& self, const TSharedRef<Error>& input, bool condition = true)
@@ -328,14 +339,14 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add one inner error with specific name.
-		 *	@tparam Self      Deducing this
-		 *	@tparam Error     Deduced type of the error
-		 *	@param self       Deduced this (not present in calling arguments)
-		 *	@param name       Optional name of the error. If it's empty only the type of the error will be used for ID
-		 *	@param input      Inner error
-		 *	@param condition  Only add inner error when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   Add one inner error with specific name.
+		 *	@tparam  Self       Deducing this
+		 *	@tparam  Error      Deduced type of the error
+		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@param   name       Optional name of the error. If it's empty only the type of the error will be used for ID
+		 *	@param   input      Inner error
+		 *	@param   condition  Only add inner error when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, CError Error>
 		SelfRef<Self> WithError(this Self&& self, const FString& name, const TSharedRef<Error>& input, bool condition = true)
@@ -345,11 +356,11 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add multiple errors at once with optional names
-		 *	@tparam Self      Deducing this
-		 *	@param input      An array of tuples with otional error name and the error itself
-		 *	@param condition  Only add errors when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   Add multiple errors at once with optional names
+		 *	@tparam  Self       Deducing this
+		 *	@param   input      An array of tuples with otional error name and the error itself
+		 *	@param   condition  Only add errors when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
 		SelfRef<Self> WithErrors(this Self&& self, const TArray<TTuple<FString, IErrorRef>>& input, bool condition = true)
@@ -363,11 +374,11 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add multiple errors at once
-		 *	@tparam Self    Deducing this
-		 *	@tparam Errors  Deduced type of the errors
-		 *	@param errors   Errors to be added
-		 *	@return         Self for further fluent API setup
+		 *	@brief   Add multiple errors at once
+		 *	@tparam  Self     Deducing this
+		 *	@tparam  Errors   Deduced type of the errors
+		 *	@param   errors   Errors to be added
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, CError... Errors>
 		SelfRef<Self> WithErrors(this Self&& self, const TSharedRef<Errors>&... errors)
@@ -377,12 +388,12 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add multiple errors at once
-		 *	@tparam Self      Deducing this
-		 *	@tparam Errors    Deduced type of the errors
-		 *	@param errors     Errors to be added
-		 *	@param condition  Only add errors when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   Add multiple errors at once
+		 *	@tparam  Self       Deducing this
+		 *	@tparam  Errors     Deduced type of the errors
+		 *	@param   errors     Errors to be added
+		 *	@param   condition  Only add errors when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, CError... Errors>
 		SelfRef<Self> WithErrors(this Self&& self, bool condition, const TSharedRef<Errors>&... errors)
@@ -392,12 +403,12 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add an extra plain text block inside inner errors
-		 *	@tparam Self      Deducing this
-		 *	@param name       Name of the extra text block
-		 *	@param text       Value of the extra text block
-		 *	@param condition  Only add inner error when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   Add an extra plain text block inside inner errors
+		 *	@tparam  Self       Deducing this
+		 *	@param   name       Name of the extra text block
+		 *	@param   text       Value of the extra text block
+		 *	@param   condition  Only add inner error when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
 		SelfRef<Self> WithAppendix(this Self&& self, const FString& name, const FString& text, bool condition = true)
@@ -407,12 +418,12 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add an extra plain text block inside inner errors
-		 *	@tparam Self    Deducing this
-		 *	@param name     Name of the extra text block
-		 *	@param text     Value of the extra text block
-		 *	@param fmtArgs  format arguments
-		 *	@return         Self for further fluent API setup
+		 *	@brief   Add an extra plain text block inside inner errors
+		 *	@tparam  Self     Deducing this
+		 *	@param   name     Name of the extra text block
+		 *	@param   text     Value of the extra text block
+		 *	@param   fmtArgs  format arguments
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithAppendixF(this Self&& self, const FString& name, const TCHAR* text, FormatArgs&&... fmtArgs)
@@ -422,13 +433,13 @@ namespace Mcro::Error
 		}
 
 		/**
-		 *	Add an extra plain text block inside inner errors
-		 *	@tparam Self      Deducing this
-		 *	@param name       Name of the extra text block
-		 *	@param text       Value of the extra text block
-		 *	@param fmtArgs    format arguments
-		 *	@param condition  Only add inner error when this condition is satisfied
-		 *	@return           Self for further fluent API setup
+		 *	@brief   Add an extra plain text block inside inner errors
+		 *	@tparam  Self       Deducing this
+		 *	@param   name       Name of the extra text block
+		 *	@param   text       Value of the extra text block
+		 *	@param   fmtArgs    format arguments
+		 *	@param   condition  Only add inner error when this condition is satisfied
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithAppendixFC(this Self&& self, bool condition, const FString& name, const TCHAR* text, FormatArgs&&... fmtArgs)
@@ -438,7 +449,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Notify an observable state about this error */
+		/** @brief Notify an observable state about this error */
 		template <typename Self>
 		SelfRef<Self> Notify(this Self&& self, Observable::IState<IErrorPtr>& state)
 		{
@@ -446,7 +457,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Break if a debugger is attached when this error is created */
+		/** @brief Break if a debugger is attached when this error is created */
 		template <typename Self>
 		SelfRef<Self> BreakDebugger(this Self&& self)
 		{
@@ -454,7 +465,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Shorthand for adding the current C++ stacktrace to this error */
+		/** @brief Shorthand for adding the current C++ stacktrace to this error */
 		template <typename Self>
 		SelfRef<Self> WithCppStackTrace(this Self&& self, const FString& name = {}, bool condition = true, int32 numAdditionalStackFramesToIgnore = 0, bool fastWalk = !UE_BUILD_DEBUG)
 		{
@@ -465,7 +476,7 @@ namespace Mcro::Error
 			return self.SharedThis(&self);
 		}
 
-		/** Shorthand for adding the current Blueprint stacktrace to this error */
+		/** @brief Shorthand for adding the current Blueprint stacktrace to this error */
 		template <typename Self>
 		SelfRef<Self> WithBlueprintStackTrace(this Self&& self, const FString& name = {}, bool condition = true)
 		{
@@ -477,12 +488,14 @@ namespace Mcro::Error
 		}
 
 		/**
+		 *	@brief
 		 *	Allow the error to record the source locations it has been handled at compile time. For example this gives
 		 *	more information than stack-traces because it can also record where errors were handled between parallel 
 		 *	threads.
-		 *	@tparam Self     Deducing this
-		 *	@param location  The location this error is handled at. In 99% of cases this should be left at the default
-		 *	@return          Self for further fluent API setup
+		 *	
+		 *	@tparam  Self      Deducing this
+		 *	@param   location  The location this error is handled at. In 99% of cases this should be left at the default
+		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
 		SelfRef<Self> WithLocation(this Self&& self, std::source_location location = std::source_location::current())
@@ -492,10 +505,11 @@ namespace Mcro::Error
 		}
 	};
 
-	/** A simple error type for checking booleans. It adds no extra features to IError */
+	/** @brief A simple error type for checking booleans. It adds no extra features to IError */
 	class MCRO_API FAssertion : public IError {};
 
 	/**
+	 *	@brief
 	 *	A simple error type denoting that whatever is being accessed is not available like attempting to access nullptr.
 	 *	It adds no extra features to IError
 	 */
@@ -506,9 +520,11 @@ namespace Mcro::Error
 	};
 
 	/**
-	 *	A TValueOrError alternative for IError which allows implicit conversion from values and errors (no need for
-	 *	`MakeError` or `MakeValue`) and is boolean testable. It also doesn't have ambiguous state such as TValueOrError
-	 *	has, so a TMaybe will always have either an error or a value, it will never have neither of them or both of them.
+	 *	@brief
+	 *	A `TValueOrError` alternative for IError which allows implicit conversion from values and errors (no need for
+	 *	`MakeError` or `MakeValue`) and is boolean testable. It also doesn't have ambiguous state such as
+	 *	`TValueOrError` has, so a TMaybe will always have either an error or a value, it will never have neither of
+	 *	them or both of them.
 	 */
 	template <CNonVoid T>
 	struct TMaybe
@@ -516,6 +532,7 @@ namespace Mcro::Error
 		using ValueType = T;
 
 		/**
+		 *	@brief
 		 *	Default initializing a TMaybe while its value is not default initializable, initializes the resulting
 		 *	TMaybe to an erroneous state.
 		 */
@@ -528,27 +545,27 @@ namespace Mcro::Error
 			)
 		) {}
 
-		/** If T is default initializable then the default state of TMaybe will be the default value of T, and not an error */
+		/** @brief If T is default initializable then the default state of TMaybe will be the default value of T, and not an error */
 		template <CDefaultInitializable = T>
 		TMaybe() : Value(T{}) {}
 		
-		/** Enable copy constructor for T only when T is copy constructable */
+		/** @brief Enable copy constructor for T only when T is copy constructable */
 		template <CConvertibleToDecayed<T> From, CCopyConstructible = T>
 		TMaybe(From const& value) : Value(value) {}
 		
-		/** Enable move constructor for T only when T is move constructable */
+		/** @brief Enable move constructor for T only when T is move constructable */
 		template <CConvertibleToDecayed<T> From, CMoveConstructible = T>
 		TMaybe(From&& value) : Value(Forward<From>(value)) {}
 		
-		/** Enable copy constructor for TMaybe only when T is copy constructable */
+		/** @brief Enable copy constructor for TMaybe only when T is copy constructable */
 		template <CConvertibleToDecayed<T> From, CCopyConstructible = T>
 		TMaybe(TMaybe<From> const& other) : Value(other.Value) {}
 		
-		/** Enable move constructor for TMaybe only when T is move constructable */
+		/** @brief Enable move constructor for TMaybe only when T is move constructable */
 		template <CConvertibleToDecayed<T> From, CMoveConstructible = T>
 		TMaybe(TMaybe<From>&& other) : Value(MoveTemp(other.Value)) {}
 
-		/** Set this TMaybe to an erroneous state */
+		/** @brief Set this TMaybe to an erroneous state */
 		template <CError ErrorType>
 		TMaybe(TSharedRef<ErrorType> const& error) : Error(error) {}
 
@@ -577,16 +594,17 @@ namespace Mcro::Error
 		IErrorPtr Error;
 	};
 
-	/** Indicate that an otherwise void function that it may fail with an `IError`. */
+	/** @brief Indicate that an otherwise void function that it may fail with an IError. */
 	using FCanFail = TMaybe<FVoid>;
 
 	/**
+	 *	@brief
 	 *	Syntactically same as `FCanFail` but for functions which is explicitly used to query some boolean decidable
 	 *	thing, and which can also provide a reason why the queried thing is false. 
 	 */
 	using FTrueOrReason = TMaybe<FVoid>;
 
-	/** Return an FCanFail or FTrueOrReason indicating a success or truthy output */
+	/** @brief Return an FCanFail or FTrueOrReason indicating a success or truthy output */
 	FORCEINLINE FCanFail Success() { return FVoid(); }
 }
 
@@ -602,7 +620,7 @@ namespace Mcro::Error
 		->ToString()                                                  \
 	))                                                               //
 
-/** Similar to check() macro, but return an error instead of crashing */
+/** @brief Similar to check() macro, but return an error instead of crashing */
 #define ASSERT_RETURN(condition)                                        \
 	if (UNLIKELY(!(condition)))                                         \
 		return Mcro::Error::IError::Make(new Mcro::Error::FAssertion()) \
@@ -610,14 +628,15 @@ namespace Mcro::Error
 			->AsRecoverable()                                           \
 			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition))         //
 
-/** Denote that a resource which is asked for doesn't exist */
+/** @brief Denote that a resource which is asked for doesn't exist */
 #define UNAVAILABLE()                                                 \
 	return Mcro::Error::IError::Make(new Mcro::Error::FUnavailable()) \
 		->WithLocation()                                              \
 		->AsRecoverable()                                            //
 
 /**
- *	If a function returns a TMaybe<V> inside another function which may also return another error use this convenience
+ *	@brief
+ *	If a function returns a TMaybe inside another function which may also return another error use this convenience
  *	macro to propagate the failure. Set a target variable name to store a returned value upon success. Leave type
  *	argument empty for existing variables
  */
@@ -627,12 +646,14 @@ namespace Mcro::Error
 		->WithLocation()                               //
 
 /**
+ *	@brief
  *	If a function returns a TMaybe<V> inside another function which may also return another error use this convenience
  *	macro to propagate the failure. Set a local variable to store a returned value upon success.
  */
 #define PROPAGATE_FAIL_V(var, expression) PROPAGATE_FAIL_TV(auto, var, expression)
 
 /**
+ *	@brief
  *	If a function returns an FCanFail inside another function which may also return another error use this convenience
  *	macro to propagate the failure. This is only useful with expressions which doesn't return a value upon success.
  */

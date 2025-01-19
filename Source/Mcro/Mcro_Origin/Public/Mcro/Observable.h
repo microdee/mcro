@@ -13,17 +13,17 @@
 #include "CoreMinimal.h"
 #include "Mcro/AssertMacros.h"
 #include "Mcro/Delegates/EventDelegate.h"
-#include "Mcro/Construct.h"
 #include "Mcro/Observable.Fwd.h"
 
 namespace Mcro::Observable
 {
 	using namespace Mcro::Delegates;
-	using namespace Mcro::Construct;
+	using namespace Mcro::InitializeOnCopy;
 
 	/**
-	 * This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan is
-	 * managed entirely by `TState`
+	 *	@brief
+	 *	This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan is
+	 *	managed entirely by `TState`
 	 */
 	template <typename T>
 	struct TChangeData
@@ -52,7 +52,7 @@ namespace Mcro::Observable
 		TOptional<T> Previous;
 	};
 
-	/** Public API and base class for `TState` which shouldn't concern with policy flags or thread safety */
+	/** @brief Public API and base class for `TState` which shouldn't concern with policy flags or thread safety */
 	template <typename T>
 	struct IState : IStateTag
 	{
@@ -63,6 +63,7 @@ namespace Mcro::Observable
 		virtual ~IState() = default;
 		
 		/**
+		 *	@brief
 		 *	Get the wrapped value if for some reason the conversion operator is not enough or deleted.
 		 *	Thread safety is not considered in this function, use `ReadLock` before `Get`, or use `GetOnAnyThread`
 		 *	which provides a read lock, if thread safety is a concern.
@@ -70,6 +71,7 @@ namespace Mcro::Observable
 		virtual T const& Get() const = 0;
 		
 		/**
+		 *	@brief
 		 *	Set the wrapped value if for some reason the assignment operator is not enough or deleted. When thread
 		 *	safety is enabled Set will automatically lock this state for writing.
 		 *
@@ -79,9 +81,9 @@ namespace Mcro::Observable
 		virtual void Set(T const& value) = 0;
 		
 		/**
-		 *	Modify this state via an l-value ref in a functor
-		 *
-		 *	@param modifier  The functor which modifies this value
+		 *	@brief  Modify this state via an l-value ref in a functor
+		 *	
+		 *	@param  modifier  The functor which modifies this value
 		 *	
 		 *	@param alwaysNotify
 		 *	Notify observers about the change even when the previous state is not different after the modification.
@@ -104,15 +106,13 @@ namespace Mcro::Observable
 		}
 	public:
 		
-		/** Add a delegate which gets a `TChangeData<T> const&` if this state has been set. */
+		/** @brief Add a delegate which gets a `TChangeData<T> const&` if this state has been set. */
 		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EInvokeMode invokeMode = DefaultInvocation) = 0;
 
 		/**
+		 *	@brief
 		 *	Add a function without object binding which either has one or two arguments with the following signature:
-		 *
-		 *	@code
-		 *	[](T const& next, [TOptional<T> const& previous])
-		 *	@endcode
+		 *	`[](T const& next, [TOptional<T> const& previous])`
 		 *
 		 *	Where the argument `previous` is optional (to have, not its type). The argument `previous` when it is
 		 *	present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable.
@@ -124,11 +124,9 @@ namespace Mcro::Observable
 		}
 		
 		/**
+		 *	@brief
 		 *	Add a function with an object binding which either has one or two arguments with the following signature:
-		 *
-		 *	@code
-		 *	[](T const& next, [TOptional<T> const& previous])
-		 *	@endcode
+		 *	`[](T const& next, [TOptional<T> const& previous])`
 		 *
 		 *	Where the argument `previous` is optional (to have, not its type). The argument `previous` when it is
 		 *	present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable.
@@ -140,6 +138,7 @@ namespace Mcro::Observable
 		}
 
 		/**
+		 *	@brief
 		 *	Given value will be stored in the state only if T is equality comparable and it differs from the current
 		 *	state value. If T is not equality comparable this function is equivalent to Set and always returns true.
 		 *
@@ -149,24 +148,26 @@ namespace Mcro::Observable
 		 */
 		virtual bool HasChangedFrom(const T& nextValue) = 0;
 
-		/** Returns true if this state has ever been changed from its initial value given at construction. */
+		/** @brief Returns true if this state has ever been changed from its initial value given at construction. */
 		virtual bool HasEverChanged() const = 0;
 
-		/** Equivalent to `TMulticastDelegate::Remove` */
+		/** @brief Equivalent to `TMulticastDelegate::Remove` */
 		virtual bool Remove(FDelegateHandle const& handle) = 0;
 		
-		/** Equivalent to `TMulticastDelegate::RemoveAll` */
+		/** @brief Equivalent to `TMulticastDelegate::RemoveAll` */
 		virtual int32 RemoveAll(const void* object) = 0;
 		
 		/**
+		 *	@brief
 		 *	If thread safety is enabled in DefaultPolicy, get the value with a bundled read-scope-lock. Otherwise the
 		 *	tuple returns an empty dummy struct as its second argument.
+		 *	
 		 *	Use C++17 structured binding for convenience:
-		 *
 		 *	@code
 		 *	auto [value, lock] = MyState.GetOnAnyThread();
 		 *	@endcode
 		 *
+		 *	@remarks
 		 *	Unlike the placeholder `auto` keyword, the structured binding `auto` keyword preserves reference qualifiers.
 		 *	See https://godbolt.org/z/jn918fKfd
 		 *
@@ -177,7 +178,7 @@ namespace Mcro::Observable
 		virtual TTuple<T const&, TUniquePtr<ReadLockVariant>> GetOnAnyThread() const = 0;
 
 		/**
-		 *	Lock this state for reading for the current scope
+		 *	@brief  Lock this state for reading for the current scope.
 		 *
 		 *	@return
 		 *	The lock is returned as TUniquePtr it's slightly more expensive because of ref-counting but it makes the API
@@ -186,7 +187,7 @@ namespace Mcro::Observable
 		virtual TUniquePtr<ReadLockVariant> ReadLock() const = 0;
 		
 		/**
-		 *	Lock this state for writing for the current scope
+		 *	@brief  Lock this state for writing for the current scope.
 		 *	
 		 *	@return
 		 *	The lock is returned as TUniquePtr it's slightly more expensive because of ref-counting but it makes the API
@@ -219,8 +220,9 @@ namespace Mcro::Observable
 	};
 
 	/**
-	 * Storage wrapper for any value which state needs to be tracked or their change needs to be observed.
-	 * By default `TState` is not thread-safe unless ThreadSafeState policy is active in `DefaultPolicy`
+	 *	@brief 
+	 *	Storage wrapper for any value which state needs to be tracked or their change needs to be observed.
+	 *	By default, TState is not thread-safe unless ThreadSafeState policy is active in DefaultPolicy
 	 */
 	template <typename T, int32 DefaultPolicy>
 	struct TState : IState<T>
@@ -238,32 +240,32 @@ namespace Mcro::Observable
 		
 		static constexpr int32 DefaultPolicyFlags = DefaultPolicy;
 		
-		/** Enable default constructor only when T is default initializable */
+		/** @brief Enable default constructor only when T is default initializable */
 		template <CDefaultInitializable = T>
 		TState() : Value() {}
 		
-		/** Enable copy constructor for T only when T is copy constructable */
+		/** @brief Enable copy constructor for T only when T is copy constructable */
 		template <CCopyConstructible = T>
 		TState(T const& value) : Value(value) {}
 		
-		/** Enable move constructor for T only when T is move constructable */
+		/** @brief Enable move constructor for T only when T is move constructable */
 		template <CMoveConstructible = T>
 		TState(T&& value) : Value(MoveTemp(value)) {}
 		
-		/** Enable copy constructor for the state only when T is copy constructable */
+		/** @brief Enable copy constructor for the state only when T is copy constructable */
 		template <CCopyConstructible = T>
 		TState(TState const& other) : Value(other.Value.Next) {}
 		
-		/** Enable move constructor for the state only when T is move constructable */
+		/** @brief Enable move constructor for the state only when T is move constructable */
 		template <CMoveConstructible = T>
 		TState(TState&& other) : Value(MoveTemp(other.Value.Next)) {}
 
-		/** Construct value in-place with non-semantic single argument constructor */
+		/** @brief Construct value in-place with non-semantic single argument constructor */
 		template <typename Arg>
 		requires (!CConvertibleTo<Arg, TState> && !CSameAs<Arg, T>)
 		TState(Arg&& arg) : Value(Forward<Arg>(arg)) {}
 
-		/** Construct value in-place with multiple argument constructor */
+		/** @brief Construct value in-place with multiple argument constructor */
 		template <typename... Args>
 		requires (sizeof...(Args) > 1)
 		TState(Args&&... args) : Value(Forward<Args>(args)...) {}

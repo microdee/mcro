@@ -16,9 +16,7 @@
 
 namespace Mcro::Error
 {
-	/**
-	 * An Error component which stores a C++ stack trace in its message upon construction
-	 */
+	/** @brief An Error component which stores a C++ stack trace in its message upon construction. */
 	class MCRO_API FCppStackTrace : public IPlainTextComponent
 	{
 	public:

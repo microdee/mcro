@@ -17,9 +17,7 @@
 
 namespace Mcro::Error
 {
-	/**
-	 * Displaying error components which just provide a block of text (like a stack-trace)
-	 */
+	/** @brief Displaying error components which just provide a block of text (like a stack-trace) */
 	class MCRO_API SPlainTextDisplay : public SErrorDisplay
 	{
 	public:
@@ -27,7 +25,6 @@ namespace Mcro::Error
 			SLATE_ARGUMENT(IErrorRef, Error);
 		SLATE_END_ARGS()
 
-		/** Constructs this widget with InArgs */
 		void Construct(const FArguments& inArgs);
 	};
 }

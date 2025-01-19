@@ -14,27 +14,29 @@
 #include "Mcro/TypeName.h"
 #include "Mcro/Delegates/EventDelegate.h"
 
-/** Namespace for utilities handling Unreal modules */
+/** @brief Namespace for utilities handling Unreal modules */
 namespace Mcro::Modules
 {
 	using namespace Mcro::Delegates;
 	using namespace Mcro::Concepts;
 	using namespace Mcro::TypeName;
 
-	/** Add this interface to your module class if other things can listen to module startup or shutdown */
+	/** @brief Add this interface to your module class if other things can listen to module startup or shutdown */
 	class MCRO_API IObservableModule : public IModuleInterface
 	{
 	public:
 		
 		/**
-		 * Event broadcasted on module startup or immediately executed upon subscription if module has already been
-		 * started up.
+		 *	@brief
+		 *	Event broadcasted on module startup or immediately executed upon subscription if module has already been
+		 *	started up.
 		 */
 		TBelatedEventDelegate<void()> OnStartupModule;
 		
 		/**
-		 * Event broadcasted on module shutdown or immediately executed upon subscription if module has already been
-		 * shut down.
+		 *	@brief
+		 *	Event broadcasted on module shutdown or immediately executed upon subscription if module has already been
+		 *	shut down.
 		 */
 		TBelatedEventDelegate<void()> OnShutdownModule;
 
@@ -42,14 +44,15 @@ namespace Mcro::Modules
 		virtual void ShutdownModule() override;
 	};
 
-	/** Use this in global variables to automatically do things on module startup or shutdown */
+	/** @brief Use this in global variables to automatically do things on module startup or shutdown */
 	template <CDerivedFrom<IObservableModule> M>
 	struct TObserveModule
 	{
 		/**
-		 * Default constructor will try to infer module name from type name. Given convention
-		 * `(F|I)Foobar(Module(Interface)?)? the extracted name will be Foobar. If your module doesn't follow this
-		 * naming use the constructor accepting an FName
+		 *	@brief
+		 *	Default constructor will try to infer module name from type name. Given convention
+		 *	`(F|I)Foobar(Module(Interface)?)?` the extracted name will be `Foobar`. If your module doesn't follow this
+		 *	naming use the constructor accepting an FName
 		 */
 		TObserveModule()
 		{
@@ -59,32 +62,34 @@ namespace Mcro::Modules
 			ObserveModule(moduleName);
 		}
 
-		/** This constructor provides an explicit FName for getting the module */
+		/** @brief This constructor provides an explicit FName for getting the module */
 		TObserveModule(FName const& moduleName)
 		{
 			ObserveModule(moduleName);
 		}
 
 		/**
-		 * Event broadcasted on module startup or immediately executed upon subscription if module has already been
-		 * started up.
+		 *	@brief
+		 *	Event broadcasted on module startup or immediately executed upon subscription if module has already been
+		 *	started up.
 		 */
 		TBelatedEventDelegate<void()> OnStartupModule;
 
 		/**
-		 * Event broadcasted on module shutdown or immediately executed upon subscription if module has already been
-		 * shut down.
+		 *	@brief
+		 *	Event broadcasted on module shutdown or immediately executed upon subscription if module has already been
+		 *	shut down.
 		 */
 		TBelatedEventDelegate<void()> OnShutdownModule;
 
-		/** Specify function to be executed on startup */
+		/** @brief Specify function to be executed on startup */
 		TObserveModule& OnStartup(TFunction<void()>&& func)
 		{
 			OnStartupModule.Add(From(func));
 			return *this;
 		}
 		
-		/** Specify function to be executed on shutdown */
+		/** @brief Specify function to be executed on shutdown */
 		TObserveModule& OnShutdown(TFunction<void()>&& func)
 		{
 			OnShutdownModule.Add(From(func));

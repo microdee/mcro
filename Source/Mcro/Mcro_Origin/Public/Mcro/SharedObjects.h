@@ -15,31 +15,31 @@
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/Construct.h"
 
-/** Utilities for TSharedPtr/Ref and related */
+/** @brief Utilities for TSharedPtr/Ref and related */
 namespace Mcro::SharedObjects
 {
 	using namespace Mcro::Concepts;
 	using namespace Mcro::FunctionTraits;
 
-	/** Copy thread-safety from other shared object type */
+	/** @brief Copy thread-safety from other shared object type */
 	template <CSharedOrWeak T>
 	using TSharedPtrFrom = TSharedPtr<typename T::ElementType, T::Mode>;
 
-	/** Copy thread-safety from other shared object type */
+	/** @brief Copy thread-safety from other shared object type */
 	template <CSharedOrWeak T>
 	using TSharedRefFrom = TSharedRef<typename T::ElementType, T::Mode>;
 
-	/** Copy thread-safety from other shared object type */
+	/** @brief Copy thread-safety from other shared object type */
 	template <CSharedOrWeak T>
 	using TWeakPtrFrom = TWeakPtr<typename T::ElementType, T::Mode>;
 
 	/**
-	 *	Concept describing an object which provides a deferred initializer for shared objects.
+	 *	@brief  Concept describing an object which provides a deferred initializer for shared objects.
 	 *	
 	 *	This works around the annoyance of TSharedFromThis objects cannot use their shared pointers in their
 	 *	constructor, braking RAII in some cases. Of course this is only achievable if the object cooperates and
 	 *	implements an Initialize method.
-	 *	It's important that Initialize should not be virtual so derived classes can hide them with their own
+	 *	It's important that `Initialize` should not be virtual so derived classes can hide them with their own
 	 *	overload.
 	 */
 	template <typename T, typename... Args>
@@ -49,6 +49,7 @@ namespace Mcro::SharedObjects
 	};
 
 	/**
+	 *	@brief
 	 *	A wrapper around MakeShareable that automatically calls an initializer method Initialize on the
 	 *	instantiated object.
 	 *	
@@ -68,9 +69,9 @@ namespace Mcro::SharedObjects
 	}
 
 	/**
-	 *	A combination of MakeShareable and `Mcro::Construct::ConstructNew`
+	 *	@brief  A combination of MakeShareable and Mcro::Construct::ConstructNew
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::SharedObjects;
 	 *	
@@ -83,10 +84,10 @@ namespace Mcro::SharedObjects
 	 *	static_assert(std::is_same_v<decltype(myObject), TSharedRef<MyObject>>);
 	 *	@endcode
 	 *
-	 *	@param init A lambda function with a single l-value reference parameter of the object type to initialize.
-	 *	@param args
-	 *	@return A pointer to the object instance on heap.
-	 *	@remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
+	 *	@param    init  A lambda function with a single l-value reference parameter of the object type to initialize.
+	 *	@param    args  Arguments of the object constructor
+	 *	@return   A pointer to the object instance on heap.
+	 *	@remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
 	 */
 	template <
 		CFunctorObject Initializer,
@@ -105,7 +106,7 @@ namespace Mcro::SharedObjects
 	}
 
 	/**
-	 *	Create a shared pointer which takes in an object with in-place refcounting.
+	 *	@brief  Create a shared pointer which takes in an object with in-place refcounting.
 	 *	
 	 *	Refcounted TSharedPtr/Ref doesn't take ownership of the object and when the last reference goes out of scope it
 	 *	simply decreases the refcount instead of deleting the object.
@@ -119,8 +120,10 @@ namespace Mcro::SharedObjects
 	}
 
 	/**
+	 *	@brief
 	 *	Same as `SharedThis(this)` in `TSharedFromThis` but returning a weak pointer instead.
-	 *	Indeed `TSharedFromThis` already has `AsWeak()` but that can only return the type which was originally set by
+	 *	
+	 *	Indeed, `TSharedFromThis` already has `AsWeak()` but that can only return the type which was originally set by
 	 *	`TSharedFromThis` making its usage slightly less convenient in derived classes.
 	 */
 	template <
@@ -133,8 +136,10 @@ namespace Mcro::SharedObjects
 	}
 
 	/**
+	 *	@brief
 	 *	Same as `SharedThis(this)` in `TSharedFromThis` but returning a weak pointer instead.
-	 *	Indeed `TSharedFromThis` already has `AsWeak()` but that can only return the type which was originally set by
+	 *	
+	 *	Indeed, `TSharedFromThis` already has `AsWeak()` but that can only return the type which was originally set by
 	 *	`TSharedFromThis` making its usage slightly less convenient in derived classes.
 	*/
 	template <

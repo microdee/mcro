@@ -10,7 +10,7 @@
 #include "magic_enum.hpp"
 #include "Mcro/LibraryIncludes/End.h"
 
-/** Contains utilities for handling enums as strings or vice-versa */
+/** @brief Contains utilities for handling enums as strings or vice-versa */
 namespace Mcro::Enums
 {
 	using namespace Mcro::Concepts;

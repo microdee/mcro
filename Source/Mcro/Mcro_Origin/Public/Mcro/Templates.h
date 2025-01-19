@@ -15,10 +15,10 @@
 #include "Concepts.h"
 
 /**
- *	This namespace provide some introspection into template instantiations.
+ *	@brief  This namespace provide some introspection into template instantiations.
  *
  *	@warning
- *	Members of this namespace is very limited in usage and therefore should be used with utmost care.
+ *	Members of this namespace are very limited in usage and therefore should be used with utmost care.
  *	Until this proposal https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf or equivalent is considered
  *	seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when
  *	a default is specified for them will result in compile error.
@@ -28,7 +28,7 @@ namespace Mcro::Templates
 	using namespace Mcro::Concepts;
 	
 	/**
-	 *	Base struct containing traits of specified template (which only accepts type parameters)
+	 *	@brief  Base struct containing traits of specified template (which only accepts type parameters)
 	 *
 	 *	@warning
 	 *	Until this proposal https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf or equivalent is
@@ -58,7 +58,7 @@ namespace Mcro::Templates
 	};
 	
 	/**
-	 *	Get template type parameters as a tuple
+	 *	@brief  Get template type parameters as a tuple
 	 *
 	 *	@warning
 	 *	Until this proposal https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf or equivalent is
@@ -69,7 +69,7 @@ namespace Mcro::Templates
 	using TTemplate_Params = typename TTemplate<Template>::template Parameters<T>::Type;
 
 	/**
-	 *	Check if given type is an instantiation of a given template (which only accepts type parameters)
+	 *	@brief  Check if given type is an instantiation of a given template (which only accepts type parameters)
 	 *
 	 *	@warning
 	 *	Until this proposal https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf or equivalent is
@@ -79,27 +79,35 @@ namespace Mcro::Templates
 	template <template <typename...> typename Template, typename T>
 	concept CIsTemplate = TTemplate<Template>::template Match<T>::Value;
 
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CConstType T>
 	auto AsConst(T&& input) { return Forward<T>(input); }
 	
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CMutableType T>
 	auto AsConst(T&& input) { return Forward<T>(const_cast<const T>(input)); }
 
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CMutableType T>
 	auto AsMutable(T&& input) { return Forward<T>(input); }
 	
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CConstType T>
 	auto AsMutable(T&& input) { return Forward<T>(const_cast<T>(input)); }
 
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName*>(...)`? use this instead */
 	template <typename T>
 	auto AsConstPtr(const T* input) { return input; }
 	
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName*>(...)`? use this instead */
 	template <typename T>
 	auto AsConstPtr(T* input) { return const_cast<const T*>(input); }
 
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName*>(...)`? use this instead */
 	template <typename T>
 	auto AsMutablePtr(T* input) { return input; }
 	
+	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName*>(...)`? use this instead */
 	template <typename T>
 	auto AsMutablePtr(const T* input) { return const_cast<T*>(input); }
 }

@@ -24,24 +24,26 @@ namespace Mcro::Observable
 {
 	using namespace Mcro::FunctionTraits;
 
-	/** Flags expressing how TState should handle object comparison and lifespan */
+	/** @brief Flags expressing how TState should handle object comparison and lifespan */
 	enum EStatePolicy
 	{
 		/**
-		 * When the object inside TState is != comparable TState wull only emit change events when the submitted
-		 * value differs from the existing one.
+		 *	@brief
+		 *	When the object inside TState is != comparable TState wull only emit change events when the submitted
+		 *	value differs from the existing one.
 		 */
 		NotifyOnChangeOnly = 0,
 
-		/** Always emit change notification when a value is set on TState and don't attempt to compare them */
+		/** @brief Always emit change notification when a value is set on TState and don't attempt to compare them */
 		AlwaysNotify = 1 << 0,
 
-		/** Always emit change notification when a value is set on TState and don't attempt to compare them */
+		/** @brief Always emit change notification when a value is set on TState and don't attempt to compare them */
 		StorePrevious = 1 << 1,
 
 		/**
-		 * Enable mutexes during modifications, notifications and expose a public critical section for users
-		 * of the state.
+		 *	@brief
+		 *	Enable mutexes during modifications, notifications and expose a public critical section for users
+		 *	of the state.
 		 */
 		ThreadSafeState = 1 << 2
 	};
@@ -66,6 +68,7 @@ namespace Mcro::Observable
 	struct TState;
 
 	/**
+	 *	@brief
 	 *	Convenience alias for shared reference to a base type of TState. Use this in APIs which may modify or get the
 	 *	value of a state declared elsewhere.
 	 */
@@ -73,6 +76,7 @@ namespace Mcro::Observable
 	using TStateRef = TSharedRef<IState<T>>;
 
 	/**
+	 *	@brief
 	 *	Convenience alias for shared pointer to a base type of TState. Use this in APIs which may modify or get the
 	 *	value of a state declared elsewhere.
 	 */
@@ -80,49 +84,50 @@ namespace Mcro::Observable
 	using TStatePtr = TSharedPtr<IState<T>>;
 
 	/**
+	 *	@brief
 	 *	Convenience alias for weak pointer to a base type of TState. Use this in APIs which may modify or get the
 	 *	value of a state declared elsewhere.
 	 */
 	template <typename T>
 	using TStateWeakPtr = TWeakPtr<IState<T>>;
 
-	/** Convenience alias for declaring a state as a shared reference. Use this only as object members */
+	/** @brief Convenience alias for declaring a state as a shared reference. Use this only as object members */
 	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
 	using TDeclareStateRef = TSharedRef<TState<T, DefaultPolicy>>;
 
-	/** Convenience alias for declaring a state as a shared pointer. Use this only as object members */
+	/** @brief Convenience alias for declaring a state as a shared pointer. Use this only as object members */
 	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
 	using TDeclareStatePtr = TSharedPtr<TState<T, DefaultPolicy>>;
 
-	/** Concept constraining given type to a state */
+	/** @brief Concept constraining given type to a state */
 	template <typename T>
 	concept CState = CDerivedFrom<T, IStateTag>;
 
-	/** Concept describing a function which can be a change listener on a TState */
+	/** @brief Concept describing a function which can be a change listener on a TState */
 	template <typename Function, typename T>
 	concept CChangeListener = CFunctionLike<Function>
 		&& TFunction_ArgCount<Function> > 0
 		&& CConvertibleTo<T, TFunction_ArgDecay<Function, 0>>
 	;
 
-	/** Concept describing a function which can listen to changes to the current value of a TState only */
+	/** @brief Concept describing a function which can listen to changes to the current value of a TState only */
 	template <typename Function, typename T>
 	concept CChangeNextOnlyListener = CChangeListener<Function, T> && TFunction_ArgCount<Function> == 1;
 
-	/** Concept describing a function which can listen to changes to the current and the previous values of a TState */
+	/** @brief Concept describing a function which can listen to changes to the current and the previous values of a TState */
 	template <typename Function, typename T>
 	concept CChangeNextPreviousListener = CChangeListener<Function, T>
 		&& TFunction_ArgCount<Function> == 2
 		&& CConvertibleTo<TOptional<T>, TFunction_ArgDecay<Function, 1>>
 	;
 
-	/** Convenience alias for thread safe states */
+	/** @brief Convenience alias for thread safe states */
 	template <typename T, int32 DefaultPolicy = StatePolicyFor<T> | ThreadSafeState>
 	using TStateTS = TState<T, DefaultPolicy>;
 
-	/** Convenience alias for boolean states */
+	/** @brief Convenience alias for boolean states */
 	using FBool = TState<bool>;
 	
-	/** Convenience alias for thread-safe boolean states */
+	/** @brief Convenience alias for thread-safe boolean states */
 	using FBoolTS = TStateTS<bool>;
 }

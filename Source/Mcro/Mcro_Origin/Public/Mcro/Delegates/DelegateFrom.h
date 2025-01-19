@@ -39,7 +39,15 @@ namespace Mcro::Delegates
 {
 	using namespace Mcro::FunctionTraits;
 	using namespace Mcro::Tuples;
-	
+
+	/**
+	 *	@brief
+	 *	Infer a delegate type from an input function signature and a list of captures.
+	 *
+	 *	The resulting delegate signature will trim the "Captures" from the input function signature. This is used in
+	 *	`From` overloads to allow binding functions with extra arguments to a delegate which has fewer (as the vanilla
+	 *	Unreal delegates API allows to do so)
+	 */
 	template <CFunctionLike Function, typename... Captures>
 	using TInferredDelegate = TDelegate<
 			TFunctionFromTuple<
@@ -50,92 +58,162 @@ namespace Mcro::Delegates
 		>
 	;
 
-	/** Maps to CreateStatic */
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateStatic`
+	 */
 	template <CFunctionLike Function, typename... Captures>
 	requires (!CFunction_IsMember<Function>)
 		&& (!CFunctorObject<Function>)
-	TInferredDelegate<Function, Captures...> From(Function func, const Captures&... captures)
+	TInferredDelegate<Function, Captures...> From(Function func, Captures&&... captures)
 	{
-		return TInferredDelegate<Function, Captures...>::CreateStatic(func, captures...);
+		return TInferredDelegate<Function, Captures...>::CreateStatic(func, Forward<Captures>(captures)...);
 	}
 
-	/** Maps to CreateLambda */
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateLambda`
+	 */
 	template <CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateLambda(MoveTemp(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateLambda(Forward<Function>(func));
 	}
 	
-	/** Maps to CreateSPLambda */
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedRef)
+	 */
 	template <CSharedRef Object, CFunctorObject Function>
-	TDelegate<TFunction_Signature<Function>> From(const Object& self, Function&& func)
+	TDelegate<TFunction_Signature<Function>> From(Object const& self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, MoveTemp(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, Forward<Function>(func));
 	}
 	
-	/** Maps to CreateSPLambda (SharedFromThis) */
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedFromThis pointer)
+	 */
 	template <CSharedFromThis Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Object* self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, MoveTemp(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, Forward<Function>(func));
 	}
 	
-	/** Maps to CreateSPLambda (SharedFromThis) */
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedFromThis const pointer)
+	 */
 	template <CSharedFromThis Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(const Object* self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, MoveTemp(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, Forward<Function>(func));
 	}
 	
-	/** Maps to CreateWeakLambda */
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateWeakLambda` (plain C++ object pointer)
+	 */
 	template <CPlainClass Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Object* self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateWeakLambda(self, MoveTemp(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateWeakLambda(self, Forward<Function>(func));
 	}
-
-	/** Maps to CreateRaw */
-	template <CPlainClass Object, CFunctionLike Function, typename... Captures>
+	
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateRaw` (plain C++ object pointer)
+	 */
+	template <CPlainClass Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateRaw(self, func, captures...);
 	}
 
-	/** Maps to CreateRaw */
-	template <CPlainClass Object, CFunctionLike Function, typename... Captures>
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateRaw` (plain C++ const object pointer)
+	 */
+	template <CPlainClass Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateRaw(self, func, captures...);
 	}
 
-	/** Maps to CreateSP */
-	template <CSharedRef Object, CFunctionLike Function, typename... Captures>
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateSP` (TSharedRef)
+	 */
+	template <CSharedRef Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object& self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
 	}
 
-	/** Maps to CreateSP (SharedFromThis) */
-	template <CSharedFromThis Object, CFunctionLike Function, typename... Captures>
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis pointer)
+	 */
+	template <CSharedFromThis Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
 	}
 
-	/** Maps to CreateSP (SharedFromThis) */
-	template <CSharedFromThis Object, CFunctionLike Function, typename... Captures>
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis const pointer)
+	 */
+	template <CSharedFromThis Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
 	}
 
-	/** Maps to CreateUObject */
-	template <CUObject Object, CFunctionLike Function, typename... Captures>
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateUObject` (UObject pointer)
+	 */
+	template <CUObject Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function>
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
@@ -143,20 +221,41 @@ namespace Mcro::Delegates
 		return TInferredDelegate<Function, Captures...>::CreateUObject(self, func, captures...);
 	}
 	
-	/** Maps to CreateUObject */
-	template <CUObject Object, CFunctionLike Function, typename... Captures>
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateUObject` (UObject const pointer)
+	 */
+	template <CUObject Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function>
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateUObject(self, func, captures...);
 	}
+	
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateUObject` (TObjectPtr)
+	 */
+	template <CUObject Object, CFunctionPtr Function, typename... Captures>
+	requires CFunction_IsMember<Function>
+		&& (!CFunctorObject<Function>)
+	TInferredDelegate<Function, Captures...> From(TObjectPtr<Object> self, Function func, const Captures&... captures)
+	{
+		return TInferredDelegate<Function, Captures...>::CreateUObject(self, func, captures...);
+	}
 
 	/**
-	 *	Broadcast a multicast delegate when the returned delegate is executed.
-	 *	@param multicast  input multicast delegate
+	 *	@brief  Broadcast a multicast delegate when the returned delegate is executed.
+	 *	@param  multicast  input multicast delegate
 	 *	
-	 *	@todo  Captures... and bound object
+	 *	@todo   Captures... and bound object
 	 */
 	template <typename... Args>
 	TDelegate<void(Args...)> From(TMulticastDelegate<void(Args...)>& multicast)
@@ -168,9 +267,9 @@ namespace Mcro::Delegates
 	}
 
 	/**
-	 *	Broadcast a multicast delegate when the returned delegate is executed with a binding object.
-	 *	@param self       any type of binding object other `From` overloads accept
-	 *	@param multicast  input multicast delegate
+	 *	@brief  Broadcast a multicast delegate when the returned delegate is executed with a binding object.
+	 *	@param  self       any type of binding object other `From` overloads accept
+	 *	@param  multicast  input multicast delegate
 	 *	
 	 *	@todo  Captures... and bound object
 	 */
@@ -205,11 +304,11 @@ namespace Mcro::Delegates
 	}
 
 	/**
-	 *	Broadcast a dynamic multicast delegate when the returned delegate is executed.
-	 *	@tparam Dynamic   The type of the input dynamic multicast delegate
-	 *	@param multicast  input dynamic multicast delegate
+	 *	@brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.
+	 *	@tparam Dynamic    The type of the input dynamic multicast delegate
+	 *	@param  multicast  input dynamic multicast delegate
 	 *	
-	 *	@todo  Captures... and bound object
+	 *	@todo   Captures... and bound object
 	 */
 	template <CDynamicMulticastDelegate Dynamic>
 	TNative<typename Dynamic::FDelegate> From(Dynamic& multicast)
@@ -224,12 +323,12 @@ namespace Mcro::Delegates
 	
 
 	/**
-	 *	Broadcast a dynamic multicast delegate when the returned delegate is executed.
-	 *	@tparam Dynamic   The type of the input dynamic multicast delegate
-	 *	@param self       any type of binding object other `From` overloads accept
-	 *	@param multicast  input dynamic multicast delegate
+	 *	@brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.
+	 *	@tparam Dynamic    The type of the input dynamic multicast delegate
+	 *	@param  self       any type of binding object other `From` overloads accept
+	 *	@param  multicast  input dynamic multicast delegate
 	 *	
-	 *	@todo  Captures... and bound object
+	 *	@todo   Captures... and bound object
 	 */
 	template <typename Object, CDynamicMulticastDelegate Dynamic>
 	TNative<typename Dynamic::FDelegate> From(Object&& self, Dynamic& multicast)

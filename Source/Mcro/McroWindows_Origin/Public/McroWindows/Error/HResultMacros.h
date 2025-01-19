@@ -33,11 +33,12 @@
 			->AsRecoverable                                                                             \
 			->WithCodeContext(PREPROCESSOR_TO_TEXT(expression))                                        //
 
-/** Use this macro in a function which returns an `Mcro::Error::TMaybe`. */
+/** @brief Use this macro in a function which returns an `Mcro::Error::TMaybe`. */
 #define HR_TRY_WITH(expression, noErrorInfo) \
 	MCRO_TRY_WITH_IMPL(PREPROCESSOR_JOIN(tempHr, __LINE__), expression, noErrorInfo)
 
 /**
+ *	@brief
  *	Use this macro in a function which returns an `Mcro::Error::TMaybe`. On non-shipping builds stacktrace is captured
  *	by default.
  */
@@ -47,10 +48,11 @@
 		->AsFatal()                \
 		->BreakDebugger()         //
 
-/** Use this macro in a function which returns an `Mcro::Error::TMaybe`. This version doesn't capture a stacktrace. */
+/** @brief Use this macro in a function which returns an `Mcro::Error::TMaybe`. This version doesn't capture a stacktrace. */
 #define HR_TRY_FAST(expression) HR_TRY_WITH(expression, false)
 
 /**
+ *	@brief
  *	Use this macro in a function which returns an `Mcro::Error::TMaybe`. This version doesn't capture a stacktrace and
  *	it won't calculate human readable messages from the HRESULT the error code.
  */

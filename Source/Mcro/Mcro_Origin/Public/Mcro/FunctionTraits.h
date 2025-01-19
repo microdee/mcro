@@ -20,11 +20,10 @@ namespace Mcro::FunctionTraits
 {
 	using namespace Mcro::Concepts;
 	
-	/** Concept constraining input T to a lambda function or a functor object. */
+	/** @brief Concept constraining input T to a lambda function or a functor object. */
 	template <typename T>
 	concept CFunctorObject = requires { &std::decay_t<T>::operator(); };
 
-	/** @internal */
 	namespace Detail
 	{
 		template <typename ReturnIn, typename... Args>
@@ -53,6 +52,7 @@ namespace Mcro::FunctionTraits
 	}
 	
 	/**
+	 *	@brief
 	 *	Get signature information about any function declaring type (function pointer or functor
 	 *	structs including lambda functions). It should be used in other templates.
 	 *	
@@ -69,7 +69,7 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = false;
 	};
 		
-	/** Specialization for functor structs / lambda functions. */
+	/** @brief Specialization for functor structs / lambda functions. */
 	template <CFunctorObject T>
 	struct TFunctionTraits<T> : TFunctionTraits<decltype(&std::decay_t<T>::operator())>
 	{
@@ -80,7 +80,7 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = false;
 	};
 
-	/** Specialization extracting the types from the compound function pointer type of a const member function. */
+	/** @brief Specialization extracting the types from the compound function pointer type of a const member function. */
 	template <typename ClassIn, typename ReturnIn, typename... Args>
 	struct TFunctionTraits<ReturnIn(ClassIn::*)(Args...) const> : Detail::TFunctionMeta<ReturnIn, Args...>
 	{
@@ -92,7 +92,7 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = true;
 	};
 
-	/** Specialization extracting the types from the compound function pointer type of a member function. */
+	/** @brief Specialization extracting the types from the compound function pointer type of a member function. */
 	template <typename ClassIn, typename ReturnIn, typename... Args>
 	struct TFunctionTraits<ReturnIn(ClassIn::*)(Args...)> : Detail::TFunctionMeta<ReturnIn, Args...>
 	{
@@ -104,7 +104,7 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = false;
 	};
 
-	/** Specialization extracting the types from the compound function pointer type. */
+	/** @brief Specialization extracting the types from the compound function pointer type. */
 	template <typename ReturnIn, typename... Args>
 	struct TFunctionTraits<ReturnIn(*)(Args...)> : Detail::TFunctionMeta<ReturnIn, Args...>
 	{
@@ -115,7 +115,7 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = false;
 	};
 
-	/** Specialization extracting the types from the compound function type. */
+	/** @brief Specialization extracting the types from the compound function type. */
 	template <typename ReturnIn, typename... Args>
 	struct TFunctionTraits<ReturnIn(Args...)> : Detail::TFunctionMeta<ReturnIn, Args...>
 	{
@@ -126,47 +126,54 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = false;
 	};
 
-	/** Shorthand for getting a tuple representing the function arguments. */
+	/** @brief Shorthand for getting a tuple representing the function arguments. */
 	template <typename T>
 	using TFunction_Arguments = typename TFunctionTraits<std::decay_t<T>>::Arguments;
 
-	/** Shorthand for getting a tuple representing the decayed function arguments. */
+	/** @brief Shorthand for getting a tuple representing the decayed function arguments. */
 	template <typename T>
 	using TFunction_ArgumentsDecay = typename TFunctionTraits<std::decay_t<T>>::ArgumentsDecay;
 
-	/** Shorthand for getting a type of a function argument at given position I. */
+	/** @brief Shorthand for getting a type of a function argument at given position I. */
 	template <typename T, int I>
 	using TFunction_Arg = typename TFunctionTraits<std::decay_t<T>>::template Arg<I>;
 
-	/** Shorthand for getting a decayed type of a function argument at given position I. */
+	/** @brief Shorthand for getting a decayed type of a function argument at given position I. */
 	template <typename T, int I>
 	using TFunction_ArgDecay = typename TFunctionTraits<std::decay_t<T>>::template ArgDecay<I>;
 
+	/** @brief Shorthand for getting a function argument count. */
 	template <typename T>
 	inline constexpr size_t TFunction_ArgCount = TFunctionTraits<std::decay_t<T>>::ArgumentCount;
 
+	/** @brief Shorthand for getting a function return type. */
 	template <typename T>
 	using TFunction_Return = typename TFunctionTraits<std::decay_t<T>>::Return;
 
+	/** @brief Shorthand for getting a function return type discarding qualifiers. */
 	template <typename T>
 	using TFunction_ReturnDecay = typename TFunctionTraits<std::decay_t<T>>::Return;
 
+	/** @brief Shorthand for getting a pur function signature. */
 	template <typename T>
 	using TFunction_Signature = typename TFunctionTraits<std::decay_t<T>>::Signature;
 
 	template <typename T>
-	using TFunction_Class = typename TFunctionTraits<std::decay_t<T>>::Class;
-
-	template <typename T>
 	concept CFunction_IsMember = TFunctionTraits<std::decay_t<T>>::IsMember;
 
+	/** @brief Shorthand for getting the class of a member function. */
+	template <CFunction_IsMember T>
+	using TFunction_Class = typename TFunctionTraits<std::decay_t<T>>::Class;
+
+	/** @brief Shorthand for getting the constness of a member function. */
 	template <typename T>
 	concept CFunction_IsConst = TFunctionTraits<std::decay_t<T>>::IsConst;
 	
-	/** A concept accepting any function like entity (function pointer or functor object) */
+	/** @brief A concept accepting any function like entity (function pointer or functor object) */
 	template <typename T>
 	concept CFunctionLike = TFunctionTraits<std::decay_t<T>>::IsFunction;
 
+	/** @brief A concept accepting function pointer types */
 	template <typename T>
 	concept CFunctionPtr = TFunctionTraits<std::decay_t<T>>::IsPointer;
 
@@ -192,18 +199,23 @@ namespace Mcro::FunctionTraits
 		};
 	}
 
+	/** @brief Compose a function type from a tuple of arguments and a return type */
 	template <typename Return, typename Tuple>
 	using TFunctionFromTuple = typename Detail::TFunctionFromTuple_Struct<Return, std::decay_t<Tuple>>::Type;
 
+	/** @brief Override the return type of an input function signature */
 	template <typename Return, typename DstFunction>
 	using TSetReturn = TFunctionFromTuple<Return, TFunction_Arguments<DstFunction>>;
 
+	/** @brief Override the return type of an input function signature, and discard its qualifiers */
 	template <typename Return, typename DstFunction>
 	using TSetReturnDecay = TFunctionFromTuple<std::decay_t<Return>, TFunction_Arguments<DstFunction>>;
 
+	/** @brief Copy the return type from source function signature to the destination one */
 	template <typename SrcFunction, typename DstFunction>
 	using TCopyReturn = TSetReturn<TFunction_Return<SrcFunction>, DstFunction>;
 
+	/** @brief Copy the return type from source function signature to the destination one, and discard its qualifiers */
 	template <typename SrcFunction, typename DstFunction>
 	using TCopyReturnDecay = TSetReturnDecay<TFunction_ReturnDecay<SrcFunction>, DstFunction>;
 	
@@ -232,8 +244,9 @@ namespace Mcro::FunctionTraits
 	}
 
 	/**
-	 * A clone of std::apply for Unreal tuples which also supports function pointers.
-	 * TL;DR: It calls a function with arguments supplied from a tuple.
+	 *	@brief
+	 *	A clone of std::apply for Unreal tuples which also supports function pointers.
+	 *	TL;DR: It calls a function with arguments supplied from a tuple.
 	 */
 	template<typename Function>
 	TFunction_Return<Function> InvokeWithTuple(Function&& function, TFunction_Arguments<Function> const& arguments)
@@ -245,8 +258,9 @@ namespace Mcro::FunctionTraits
 	}
 
 	/**
-	 * A clone of std::apply for Unreal tuples which also supports function pointers. This overload can bind an object
-	 * TL;DR: It calls a function with arguments supplied from a tuple.
+	 *	@brief
+	 *	A clone of std::apply for Unreal tuples which also supports function pointers. This overload can bind an object
+	 *	TL;DR: It calls a function with arguments supplied from a tuple.
 	 */
 	template<CFunctionPtr Function, CHasFunction<Function> Object>
 	TFunction_Return<Function> InvokeWithTuple(Object* object, Function&& function, TFunction_Arguments<Function> const& arguments)
@@ -260,7 +274,8 @@ namespace Mcro::FunctionTraits
 
 	/**
 	 *	@brief
-	 *	Tests if a provided class member function pointer instance (not type!) is indeed an instance member method.  
+	 *	Tests if a provided class member function pointer instance (not type!) is indeed an instance member method.
+	 *	Negating it can assume static class member function 
 	 */
 	template <auto FuncPtr>
 	concept CInstanceMethod = requires(

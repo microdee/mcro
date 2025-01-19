@@ -19,10 +19,11 @@ namespace Mcro::Construct
 	using namespace Mcro::FunctionTraits;
 	
 	/**
+	 *	@brief
 	 *	Simply makes a new object and allows to initialize it in place with a lambda function. The object type is derived
 	 *	from the first argument of the initializer lambda function.
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::Construct;
 	 *	
@@ -35,10 +36,10 @@ namespace Mcro::Construct
 	 *	static_assert(std::is_same_v<decltype(myObject), MyObject>);
 	 *	@endcode
 	 *
-	 *	@param init A lambda function with a single l-value reference parameter of the object type to initialize.
-	 *	@param args
-	 *	@return A new instance of the object.
-	 *	@remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
+	 *	@param    init  A lambda function with a single l-value reference parameter of the object type to initialize.
+	 *	@param    args  Arguments of the object constructor
+	 *	@return   A new instance of the object.
+	 *	@remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
 	 */
 	template<
 		CFunctorObject Initializer,
@@ -55,10 +56,11 @@ namespace Mcro::Construct
 	}
 	
 	/**
+	 *	@brief
 	 *	Simply makes a new object on the heap and allows to initialize it in place with a lambda function. The object
 	 *	type is derived from the first argument of the initializer lambda function.
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::Construct;
 	 *	
@@ -71,10 +73,10 @@ namespace Mcro::Construct
 	 *	static_assert(std::is_same_v<decltype(myObject), MyObject*>);
 	 *	@endcode
 	 *
-	 *	@param init A lambda function with a single l-value reference parameter of the object type to initialize.
-	 *	@param args
-	 *	@return A pointer to the object instance on heap.
-	 *	@remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
+	 *	@param    init  A lambda function with a single l-value reference parameter of the object type to initialize.
+	 *	@param    args  Arguments of the object constructor
+	 *	@return   A pointer to the object instance on heap.
+	 *	@remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
 	 */
 	template<
 		CFunctorObject Initializer,

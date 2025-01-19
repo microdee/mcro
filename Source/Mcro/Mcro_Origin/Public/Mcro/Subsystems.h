@@ -42,14 +42,16 @@ namespace Mcro::Subsystems
 		UseFirstWorldContext,
 	};
 
+	/** @brief Extra namespace encapsulates common vocabulary */
 	namespace Subsystems
 	{
 		/**
+		 *	@brief
 		 *	Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T
 		 *	inherits from. Required arguments may vary depending on the type of subsystem.
 		 *	
-		 *	@tparam T  UEngineSubsystem derivative
-		 *	@return    Subsystem if exists or nullptr
+		 *	@tparam  T  UEngineSubsystem derivative
+		 *	@return  Subsystem if exists or nullptr
 		 */
 		template<CEngineSubsystem T>
 		T* Get()
@@ -58,11 +60,12 @@ namespace Mcro::Subsystems
 		}
 
 		/**
+		 *	@brief
 		 *	Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T
 		 *	inherits from. Required arguments may vary depending on the type of subsystem.
 		 *	
-		 *	@tparam T  UGameInstanceSubsystem derivative
-		 *	@return    Subsystem if exists or nullptr
+		 *	@tparam  T  UGameInstanceSubsystem derivative
+		 *	@return  Subsystem if exists or nullptr
 		 */
 		template<CGameInstanceSubsystem T>
 		T* Get(
@@ -113,11 +116,12 @@ namespace Mcro::Subsystems
 		}
 
 		/**
+		 *	@brief
 		 *	Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T
 		 *	inherits from. Required arguments may vary depending on the type of subsystem.
 		 *	
-		 *	@tparam T  ULocalPlayerSubsystem derivative
-		 *	@return    Subsystem if exists or nullptr
+		 *	@tparam  T  ULocalPlayerSubsystem derivative
+		 *	@return  Subsystem if exists or nullptr
 		 */
 		template<CLocalPlayerSubsystem T>
 		T* Get(const UObject* worldContext)
@@ -130,11 +134,12 @@ namespace Mcro::Subsystems
 		}
 
 		/**
+		 *	@brief
 		 *	Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T
 		 *	inherits from. Required arguments may vary depending on the type of subsystem.
 		 *	
-		 *	@tparam T  UWorldSubsystem derivative
-		 *	@return    Subsystem if exists or nullptr
+		 *	@tparam  T  UWorldSubsystem derivative
+		 *	@return  Subsystem if exists or nullptr
 		 */
 		template<CWorldSubsystem T>
 		T* Get(const UObject* worldContext, EGetWorldErrorMode errorMode = EGetWorldErrorMode::LogAndReturnNull)
@@ -147,12 +152,13 @@ namespace Mcro::Subsystems
 		}
 
 		/**
+		 *	@brief
 		 *	Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T
 		 *	inherits from. Required arguments may vary depending on the type of subsystem. This is a checked version so
 		 *	if any steps fail to produce the target subsystem the program may crash.
 		 *	
-		 *	@tparam T  type of the subsystem
-		 *	@return    Guaranteed valid reference to a subsystem
+		 *	@tparam  T  type of the subsystem
+		 *	@return  Guaranteed valid reference to a subsystem
 		 */
 		template<CSubsystem T, typename... Args>
 		T& GetChecked(Args... args)
@@ -167,12 +173,13 @@ namespace Mcro::Subsystems
 		}
 
 		/**
+		 *	@brief
 		 *	Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T
 		 *	inherits from. Required arguments may vary depending on the type of subsystem. This is an ensured version so
 		 *	if any steps fail to produce the target subsystem an ensure may be hit.
 		 *	
-		 *	@tparam T  type of the subsystem
-		 *	@return    Subsystem if exists or nullptr
+		 *	@tparam  T  type of the subsystem
+		 *	@return  Subsystem if exists or nullptr
 		 */
 		template<CSubsystem T, typename... Args>
 		T* GetEnsured(Args... args)
@@ -183,6 +190,7 @@ namespace Mcro::Subsystems
 		}
 
 		/**
+		 *	@brief
 		 *	Helper for checking if some other subsystem should be created. Useful when you want to make a subsystem
 		 *	which should only be created if some other subsystem should be also created.
 		 *	
@@ -196,7 +204,7 @@ namespace Mcro::Subsystems
 		 *	@return  True if the target subsystem should be created
 		 */
 		template<CSubsystem T>
-		bool ShouldCreateSubsystem(UObject* outer)
+		bool ShouldCreate(UObject* outer)
 		{
 			const USubsystem* cdo = T::StaticClass()->template GetDefaultObject<USubsystem>();
 			return cdo->ShouldCreateSubsystem(outer);
