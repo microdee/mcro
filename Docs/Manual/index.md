@@ -634,13 +634,18 @@ export void MakeLookupUV(
 
 [Third-party components used by MCRO](#Attribution)
 
-When using MCRO in a plugin distributed via Fab, these components must be listed upon submission.
+When using MCRO in a plugin distributed via Fab, the components above must be listed upon submission.
 
 In addition the following tools and .NET libraries are used for build tooling:
 
 * [NUKE](https://nuke.build)
 * [Scriban](https://github.com/scriban/scriban)
 * [Humanizer](https://github.com/Humanizr/Humanizer)
+
+And documentation:
+
+* [Doxygen](https://www.doxygen.nl/index.html)
+* [Doxygen Awesome](https://jothepro.github.io/doxygen-awesome-css/)
 
 This library is distributed under the **Mozilla Public License Version 2.0** open-source software license. Each source code file where this license is applicable contains a comment about this.
 
