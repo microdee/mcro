@@ -18,22 +18,21 @@ namespace Mcro::Windows::Error
 {
 	using namespace Mcro::Error;
 
-	/**
-	 *	An error wrapping the returned code of GetLastError and attempts to get a string description of it
-	 */
+	/** @brief An error wrapping the returned code of GetLastError and attempts to get a string description of it */
 	MCROWINDOWS_API class FLastError : public IError
 	{
 	public:
 		FLastError(int32 errorCode);
 
-		/** The result code wrapped by this error */
+		/** @brief The result code wrapped by this error */
 		int32 ErrorCode;
 		
-		/** The message what the Windows API communicates to us */
+		/** @brief The message what the Windows API communicates to us */
 		FString SystemMessage;
 	};
 
 	/**
+	 *	@brief
 	 *	An error wrapping HRESULT code returned by many Microsoft APIs. It will also collect human readable metadata.
 	 */
 	MCROWINDOWS_API class FHresultError : public  IError
@@ -51,16 +50,19 @@ namespace Mcro::Windows::Error
 
 		void SetHumanReadable();
 
-		/** The result code wrapped by this error */
+		/** @brief The result code wrapped by this error */
 		HRESULT Result;
 
-		/** The message what the Windows API communicates to us */
+		/** @brief The message what the Windows API communicates to us */
 		FString SystemMessage;
 
-		/** Stores the language-dependent programmatic ID (ProgID) for the class or application that raised the error. */
+		/**
+		 *	@brief
+		 *	Stores the language-dependent programmatic ID (ProgID) for the class or application that raised the error.
+		 */
 		FString ProgramID;
 
-		/** A textual description of the error (might be different from Message) */
+		/** @brief A textual description of the error (might be different from Message) */
 		FString Description;
 	};
 }

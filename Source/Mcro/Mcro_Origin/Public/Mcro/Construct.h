@@ -19,10 +19,11 @@ namespace Mcro::Construct
 	using namespace Mcro::FunctionTraits;
 	
 	/**
+	 *	@brief
 	 *	Simply makes a new object and allows to initialize it in place with a lambda function. The object type is derived
 	 *	from the first argument of the initializer lambda function.
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::Construct;
 	 *	
@@ -35,10 +36,10 @@ namespace Mcro::Construct
 	 *	static_assert(std::is_same_v<decltype(myObject), MyObject>);
 	 *	@endcode
 	 *
-	 *	@param init A lambda function with a single l-value reference parameter of the object type to initialize.
-	 *	@param args
-	 *	@return A new instance of the object.
-	 *	@remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
+	 *	@param    init  A lambda function with a single l-value reference parameter of the object type to initialize.
+	 *	@param    args  Arguments of the object constructor
+	 *	@return   A new instance of the object.
+	 *	@remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
 	 */
 	template<
 		CFunctorObject Initializer,
@@ -55,10 +56,11 @@ namespace Mcro::Construct
 	}
 	
 	/**
+	 *	@brief
 	 *	Simply makes a new object on the heap and allows to initialize it in place with a lambda function. The object
 	 *	type is derived from the first argument of the initializer lambda function.
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::Construct;
 	 *	
@@ -71,10 +73,10 @@ namespace Mcro::Construct
 	 *	static_assert(std::is_same_v<decltype(myObject), MyObject*>);
 	 *	@endcode
 	 *
-	 *	@param init A lambda function with a single l-value reference parameter of the object type to initialize.
-	 *	@param args
-	 *	@return A pointer to the object instance on heap.
-	 *	@remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
+	 *	@param    init  A lambda function with a single l-value reference parameter of the object type to initialize.
+	 *	@param    args  Arguments of the object constructor
+	 *	@return   A pointer to the object instance on heap.
+	 *	@remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists
 	 */
 	template<
 		CFunctorObject Initializer,
@@ -89,31 +91,4 @@ namespace Mcro::Construct
 		init(*result);
 		return result;
 	}
-
-	/**
-	 *	A type wrapper around a default initializeable object which may not be copyable but which needs to be a member
-	 *	of a copyable class. On each instance of such class the wrapped value may not need to be copied and default
-	 *	constructing it is enough. Useful for mutexes for example.
-	 */
-	template <CDefaultInitializable T>
-	requires (!CCopyable<T>)
-	struct TInitializeOnCopy
-	{
-		TInitializeOnCopy() : Value() {}
-		TInitializeOnCopy(TInitializeOnCopy const&) : Value() {}
-		TInitializeOnCopy(TInitializeOnCopy&&) noexcept : Value() {}
-		auto operator=(TInitializeOnCopy const&) -> TInitializeOnCopy& { return *this; }
-		auto operator=(TInitializeOnCopy&& other) noexcept -> TInitializeOnCopy& { return *this; }
-
-		TUniqueObj<T> Value;
-
-		      T* operator -> ()       { return &Value.Get(); }
-		const T* operator -> () const { return &Value.Get(); }
-		
-		      T& Get()       { return Value.Get(); }
-		const T& Get() const { return Value.Get(); }
-		
-		template <typename Self>
-		operator typename TCopyQualifiersFromTo<Self, T&>::Type (this Self&& self) { return self.Get(); }
-	};
 }

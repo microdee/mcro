@@ -15,10 +15,13 @@
 namespace Mcro::Finally
 {
 	/**
-	 *	Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however FFinally can be moved
-	 *	around into different scopes, Payload will be only executed if the finalizer hasn't been moved from, otherwise
-	 *	the payload will be ignored in the source of move assignments:
-	 *	
+	 *	@brief
+	 *	Run arbitrary finalizers on destruction. It has similar purpose to `ON_SCOPE_EXIT`, however FFinally can be
+	 *	moved around into different scopes, Payload will be only executed if the finalizer hasn't been moved from,
+	 *	otherwise the payload will be ignored in the source of move assignments
+	 *
+	 *	Usage:
+	 *	@code
 	 *	{
 	 *		FFinally fin([] {...})
 	 *		Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)]
@@ -27,9 +30,9 @@ namespace Mcro::Finally
 	 *		}
 	 *		// Payload is not executed here
 	 *	}
-	 *	
+	 *	@endcode
 	 *	Finalizers can be moved into nested scopes
-	 *	
+	 *	@code
 	 *	{
 	 *		FFinally fin([] {...})
 	 *		Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)] mutable
@@ -42,6 +45,7 @@ namespace Mcro::Finally
 	 *		}
 	 *		// Payload is not executed here
 	 *	}
+	 *	@endcode 
 	 */
 	struct FFinally : FNoncopyable
 	{
@@ -62,7 +66,10 @@ namespace Mcro::Finally
 		}
 	};
 
-	/** Do not use this directly, use FINALLY macro. Similar intentions to ON_SCOPE_EXIT but gives more freedom */
+	/**
+	 *	@warning
+	 *	Do not use this directly, use FINALLY macro. Similar intentions to ON_SCOPE_EXIT but gives more freedom
+	 */
 	struct FFinallySyntaxSupport
 	{
 		FFinally operator+(TUniqueFunction<void()>&& payload)

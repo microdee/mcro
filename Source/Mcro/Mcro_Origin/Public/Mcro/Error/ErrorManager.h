@@ -17,41 +17,43 @@
 
 namespace Mcro::Error
 {
-	/** Global facilities for IError handling, including displaying them to the user, trigger error events, etc */
+	/** @brief Global facilities for IError handling, including displaying them to the user, trigger error events, etc */
 	class MCRO_API FErrorManager
 	{
 	public:
 	
-		/** Get the global singleton */
+		/** @brief Get the global singleton */
 		static FErrorManager& Get();
 
-		/** The results of displaying an error. In all cases the error is logged. */
+		/** @brief The results of displaying an error. In all cases the error is logged. */
 		enum EDisplayErrorResult
 		{
-			/** The error has been displayed for the user. */
+			/** @brief The error has been displayed for the user. */
 			Displayed,
 
-			/** The error has not been shown to the user because another error is already being shown. */
+			/** @brief The error has not been shown to the user because another error is already being shown. */
 			Suppressed_AnotherErrorOpen,
 
-			/** Modal windows couldn't be created at the time, so we couldn't show it to the user either. */
+			/** @brief Modal windows couldn't be created at the time, so we couldn't show it to the user either. */
 			Suppressed_CannotDisplayModalWindow,
 		};
 
-		/** Control how an error is being displayed. Use C++ 20 designated initializers for convenience */
+		/** @brief Control how an error is being displayed. Use C++ 20 designated initializers for convenience */
 		struct FDisplayErrorArgs
 		{
 			/**
+			 *	@brief
 			 *	The error message will not block the engine tick. This is useful for errors happening in the editor
 			 *	so even if PIE session is aborted due to an error, the developer can cross-check their assets with the
 			 *	error still open.
 			 */
 			bool bAsync = false;
 
-			/** Enables an extra checkbox which reminds the user to please do not immediately dismiss the error */
+			/** @brief Enables an extra checkbox which reminds the user to please do not immediately dismiss the error */
 			bool bImportantToRead = false;
 
 			/**
+			 *	@brief
 			 *	Optionally set a parent widget for the modal window of the error. By default if not specified here the
 			 *	main editor window is used, or the main gameplay viewport.
 			 */
@@ -59,8 +61,11 @@ namespace Mcro::Error
 		};
 
 		/**
+		 *	@brief
 		 *	Display the error summary for the user. Only use this when your program arrives to an unrecoverable state
 		 *	which either needs explanation for the user or requires action from the user (like configuration changes).
+		 *
+		 *	@important
 		 *	The modal window and the widgets representing the error will be created on the main thread, keep that in
 		 *	mind while making the widgets for the errors.
 		 *	
@@ -77,7 +82,7 @@ namespace Mcro::Error
 		 *	then simply wait on the returned future.
 		 *
 		 *	@todo
-		 *	Add ability to let the user "ignore" errors, and continue execution.
+		 *	Add ability to let the user "ignore" errors, and continue execution, because they know better.
 		 */
 		auto DisplayError(IErrorRef const& error, FDisplayErrorArgs const& args) -> TFuture<EDisplayErrorResult>;
 

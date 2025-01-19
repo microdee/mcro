@@ -281,6 +281,7 @@ namespace Mcro::Concepts
 	 *	Concept that returns true if the given member pointer belongs to the class.
 	 *	
 	 *	Example:
+	 *	@code
 	 *	class MyClass
 	 *	{
 	 *		int myMember;
@@ -293,6 +294,7 @@ namespace Mcro::Concepts
 	 *	}
 	 *	
 	 *	CMemberPointerOf<MyOtherClass, &MyClass::myMember> // --> false;
+	 *	@endcode
 	 */
 	template <typename OwnerObject, typename MemberPointerType>
 	concept CMemberPointerOf =

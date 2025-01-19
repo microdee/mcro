@@ -9,6 +9,12 @@
  *  @date 2025
  */
 
+/**
+ * @file
+ * Use this header and `Start.h` in tandem to include third-party library headers which may not tolerate Unreal's common
+ * vocabulary macros or its stricter warning policies.
+ */
+
 THIRD_PARTY_INCLUDES_END
 PRAGMA_POP_PLATFORM_DEFAULT_PACKING
 

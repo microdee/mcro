@@ -15,7 +15,8 @@
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/Delegates/EventDelegate.h"
 
-/** 
+/**
+ *	@brief
  *	Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API
  *	can serve
  *	- events via function override
@@ -74,10 +75,8 @@ namespace Mcro::Delegates
 		};
 	}
 
-	template <typename T>
-	class TEventMultiplex;
-
 	/**
+	 *	@brief
 	 *	Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API
 	 *	can serve
 	 *	- events via function override
@@ -85,11 +84,28 @@ namespace Mcro::Delegates
 	 *	- Blueprint listeners via a dynamic multicast delegate
 	 *	with calling only a single class member.
 	 *
+	 *	@important
 	 *	This is set up via the MCRO_DYNAMIC_EVENT_MULTIPLEX macro next to relevant class members.
+	 *	Using this template directly is not recommended
 	 */
+	template <typename T>
+	class TEventMultiplex {};
+
+	/** @copydoc TEventMultiplex */
 	template <CNonVoid Return, typename... Args>
 	class TEventMultiplex<Return(Args...)> : public Detail::TEventMultiplexBase<Return, Args...>
 	{
+	public:
+		using Base = Detail::TEventMultiplexBase<Return, Args...>;
+		using Base::FunctionSignature;
+		using Base::EventSignature;
+		using Base::FDelegate;
+		using Base::FEventDelegate;
+		using Base::Multicast;
+		
+	protected:
+		using Base::Function;
+		
 	public:
 		template <CSameAs<FEventDelegate>... Delegates>
 		TEventMultiplex(FDelegate&& function, Delegates&&... delegates)
@@ -109,10 +125,22 @@ namespace Mcro::Delegates
 			return From(object..., &TEventMultiplex::operator());
 		};
 	};
-
+	
+	/** @copydoc TEventMultiplex */
 	template <typename... Args>
 	class TEventMultiplex<void(Args...)> : public Detail::TEventMultiplexBase<void, Args...>
 	{
+	public:
+		using Base = Detail::TEventMultiplexBase<void, Args...>;
+		using Base::FunctionSignature;
+		using Base::EventSignature;
+		using Base::FDelegate;
+		using Base::FEventDelegate;
+		using Base::Multicast;
+		
+	protected:
+		using Base::Function;
+		
 	public:
 		template <CSameAs<FEventDelegate>... Delegates>
 		TEventMultiplex(FDelegate&& function, Delegates&&... delegates)
@@ -148,7 +176,7 @@ namespace Mcro::Delegates
 	struct TNativeMultiplex_Struct
 	{
 		using Type = TEventMultiplex<
-			TSetReturn<Return, TDynamicSignature<Dynamic>>
+			TSetReturnDecay<Return, TDynamicSignature<Dynamic>>
 		>;
 	};
 	

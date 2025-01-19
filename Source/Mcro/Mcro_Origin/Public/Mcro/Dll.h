@@ -18,7 +18,7 @@ namespace Mcro::Dll
 {
 	using namespace Mcro::Concepts;
 	
-	/** RAII wrapper around PushDllDirectory / PopDllDirectory */
+	/** @brief RAII wrapper around PushDllDirectory / PopDllDirectory */
 	struct MCRO_API FScopedSearchPath
 	{
 		FScopedSearchPath(FString const& path);
@@ -28,7 +28,7 @@ namespace Mcro::Dll
 		FString Path;
 	};
 	
-	/** RAII wrapper around GetDllHandle / FreeDllHandle */
+	/** @brief RAII wrapper around GetDllHandle / FreeDllHandle */
 	struct MCRO_API FScopedDll
 	{
 		FScopedDll(const TCHAR* fileName);
@@ -38,7 +38,7 @@ namespace Mcro::Dll
 		void* Handle;
 	};
 
-	/** Handle multiple DLL files in one set and an optional base path for them */
+	/** @brief Handle multiple DLL files in one set and an optional base path for them */
 	struct MCRO_API FScopedDllSet
 	{
 		FScopedDllSet() {}

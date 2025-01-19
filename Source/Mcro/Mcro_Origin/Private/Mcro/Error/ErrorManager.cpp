@@ -41,7 +41,7 @@ namespace Mcro::Error
 			*error->GetType().ToString()
 		);
 		ERROR_LOG(LogErrorManager, Error, error);
-		MCRO_DEBUG_BREAK();
+		UE_DEBUG_BREAK();
 
 		if (bIsDisplayingError)
 		{

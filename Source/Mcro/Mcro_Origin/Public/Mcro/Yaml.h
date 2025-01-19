@@ -25,9 +25,9 @@ namespace Mcro::Yaml
 	using namespace Mcro::Text;
 
 	/**
-	 * RAII friendly region annotation for YAML::Emitter streams
-	 * @tparam Begin The YAML region begin tag
-	 * @tparam End The YAML region end tag
+	 *	@brief  RAII friendly region annotation for YAML::Emitter streams
+	 *	@tparam Begin  The YAML region begin tag
+	 *	@tparam End    The YAML region end tag
 	 */
 	template <YAML::EMITTER_MANIP Begin, YAML::EMITTER_MANIP End>
 	class TScopedRegion
@@ -46,13 +46,13 @@ namespace Mcro::Yaml
 		}
 	};
 
-	/** Annotate a mapping region in a YAML::Emitter stream, which ends when this object goes out of scope */
+	/** @brief Annotate a mapping region in a YAML::Emitter stream, which ends when this object goes out of scope */
 	using FMap = TScopedRegion<YAML::BeginMap, YAML::EndMap>;
 	
-	/** Annotate a sequence region in a YAML::Emitter stream, which ends when this object goes out of scope */
+	/** @brief Annotate a sequence region in a YAML::Emitter stream, which ends when this object goes out of scope */
 	using FSeq = TScopedRegion<YAML::BeginSeq, YAML::EndSeq>;
 
-	/** Convenience operator to append Unreal or potentially wide strings to YAML::Emitter streams */
+	/** @brief Convenience operator to append Unreal or potentially wide strings to YAML::Emitter streams */
 	template <typename String>
 	requires (CStringOrViewOrName<String> || CStdStringOrView<String>)
 	YAML::Emitter& operator << (YAML::Emitter& out, String&& v)
@@ -61,7 +61,7 @@ namespace Mcro::Yaml
 		return out;
 	}
 	
-	/** Convenience operator to append enums as strings to a YAML::Emitter streams */
+	/** @brief Convenience operator to append enums as strings to a YAML::Emitter streams */
 	template <CEnum Enum>
 	YAML::Emitter& operator << (YAML::Emitter& out, Enum v)
 	{

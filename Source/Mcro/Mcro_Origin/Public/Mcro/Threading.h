@@ -21,6 +21,7 @@ namespace Mcro::Threading
 	using namespace Mcro::SharedObjects;
 
 	/**
+	 *	@brief
 	 *	Returns true when called in the thread which is associated with the given ENamedThreads.
 	 *	If there's no such a thread or if this function is not called in that thread, return false.
 	 */
@@ -108,54 +109,71 @@ namespace Mcro::Threading
 		}
 	}
 	
-	/** Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread already */
+	/**
+	 *	@brief
+	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
+	 *	already
+	 */
 	MCRO_API void RunInThread(ENamedThreads::Type threadName, TUniqueFunction<void()>&& func);
 	
 	/**
+	 *	@brief
 	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
 	 *	already check the validity of a target object first before running on the selected thread.
 	 */
 	MCRO_API void RunInThread(ENamedThreads::Type threadName, const UObject* boundToObject, TUniqueFunction<void()>&& func);
 	
 	/**
-	 * Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
-	 * already check the validity of a target object first before running on the selected thread.
+	 *	@brief
+	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
+	 *	already check the validity of a target object first before running on the selected thread.
 	 */
 	MCRO_API void RunInThread(ENamedThreads::Type threadName, const FWeakObjectPtr& boundToObject, TUniqueFunction<void()>&& func);
 	
-	/** Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already */
+	/**
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 */
 	MCRO_API void RunInGameThread(TUniqueFunction<void()>&& func);
 	
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * Check the validity of a target object first before running on the game thread.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	Check the validity of a target object first before running on the game thread.
 	 */
 	MCRO_API void RunInGameThread(const UObject* boundToObject, TUniqueFunction<void()>&& func);
 	
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * Check the validity of a target object first before running on the game thread.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	Check the validity of a target object first before running on the game thread.
 	 */
 	MCRO_API void RunInGameThread(const FWeakObjectPtr& boundToObject, TUniqueFunction<void()>&& func);
 	
-	/** Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already */
+	/**
+	 *	@brief
+	 *	Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
+	 */
 	MCRO_API void EnqueueRenderCommand(TUniqueFunction<void(FRHICommandListImmediate&)>&& func);
 	
 	/**
-	 * Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
-	 * Check the validity of a target object first before running on the render thread.
+	 *	@brief
+	 *	Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
+	 *	Check the validity of a target object first before running on the render thread.
 	 */
 	MCRO_API void EnqueueRenderCommand(const UObject* boundToObject, TUniqueFunction<void(FRHICommandListImmediate&)>&& func);
 	
 	/**
-	 * Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
-	 * Check the validity of a target object first before running on the render thread.
+	 *	@brief
+	 *	Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
+	 *	Check the validity of a target object first before running on the render thread.
 	 */
 	MCRO_API void EnqueueRenderCommand(const FWeakObjectPtr& boundToObject, TUniqueFunction<void(FRHICommandListImmediate&)>&& func);
 
 	/**
-	 * Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
-	 * already Check the validity of a target object first before running on the selected thread.
+	 *	@brief
+	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
+	 *	already Check the validity of a target object first before running on the selected thread.
 	 */
 	template <CSharedOrWeak Object>
 	void RunInThread(ENamedThreads::Type threadName, const Object& boundToObject, TUniqueFunction<void()>&& func)
@@ -168,8 +186,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * Check the validity of a target object first before running on the game thread.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	Check the validity of a target object first before running on the game thread.
 	 */
 	template <CSharedOrWeak Object>
 	void RunInGameThread(const Object& boundToObject, TUniqueFunction<void()>&& func)
@@ -178,8 +197,9 @@ namespace Mcro::Threading
 	}
 	
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * Check the validity of a target object first before running on the game thread.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	Check the validity of a target object first before running on the game thread.
 	 */
 	template <CSharedOrWeak Object>
 	void EnqueueRenderCommand(const Object& boundToObject, TUniqueFunction<void(FRHICommandListImmediate&)>&& func)
@@ -192,8 +212,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
-	 * already This overload doesn't check object lifespans.
+	 *	@brief
+	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
+	 *	already This overload doesn't check object lifespans.
 	 */
 	template <
 		CFunctorObject Function,
@@ -206,8 +227,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
-	 * already Check the validity of a target object first before running on the selected thread.
+	 *	@brief
+	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
+	 *	already Check the validity of a target object first before running on the selected thread.
 	 */
 	template <
 		CSharedOrWeak Object,
@@ -225,8 +247,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
-	 * already Check the validity of a target object first before running on the selected thread.
+	 *	@brief
+	 *	Simply run a lambda function on the selected thread but only use AsyncTask if it's not on the selected thread
+	 *	already Check the validity of a target object first before running on the selected thread.
 	 */
 	template <
 		CUObject Object,
@@ -243,8 +266,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * This overload doesn't check object lifespans.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	This overload doesn't check object lifespans.
 	 */
 	template <
 		CFunctorObject Function,
@@ -257,8 +281,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * Check the validity of a target object first before running on the game thread.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	Check the validity of a target object first before running on the game thread.
 	 */
 	template <
 		CSharedOrWeak Object,
@@ -276,8 +301,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
-	 * Check the validity of a target object first before running on the game thread.
+	 *	@brief
+	 *	Simply run a lambda function on the game thread but only use AsyncTask if it's not on the game thread already
+	 *	Check the validity of a target object first before running on the game thread.
 	 */
 	template <
 		CUObject Object,
@@ -294,8 +320,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
-	 * This overload doesn't check object lifespans.
+	 *	@brief
+	 *	Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
+	 *	This overload doesn't check object lifespans.
 	 */
 	template <
 		CFunctorObject Function,
@@ -311,8 +338,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
-	 * Check the validity of a target object first before running on the render thread.
+	 *	@brief 
+	 *	Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
+	 *	Check the validity of a target object first before running on the render thread.
 	 */
 	template <
 		CSharedOrWeak Object,
@@ -333,8 +361,9 @@ namespace Mcro::Threading
 	}
 
 	/**
-	 * Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
-	 * Check the validity of a target object first before running on the render thread.
+	 *	@brief 
+	 *	Simply run a lambda function on the render thread but only use AsyncTask if it's not on the render thread already
+	 *	Check the validity of a target object first before running on the render thread.
 	 */
 	template <
 		CUObject Object,

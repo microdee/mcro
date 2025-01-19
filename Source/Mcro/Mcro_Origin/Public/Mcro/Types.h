@@ -29,7 +29,7 @@ namespace Mcro::Types
 	concept CHasTypeName = CDerivedFrom<T, IHaveType>;
 
 	/**
-	 *	A barebones base class for types which may store their type-name as a string
+	 *	@brief  A barebones base class for types which may store their type-name as a string
 	 *
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes
@@ -46,7 +46,7 @@ namespace Mcro::Types
 	protected:
 		FName TypeName;
 
-		/** This function needs to be called on top level derived type for runtime reflection to work */
+		/** @brief This function needs to be called on top level derived type for runtime reflection to work */
 		template <typename Self>
 		void SetType(this Self&& self)
 		{
@@ -57,7 +57,7 @@ namespace Mcro::Types
 		template <typename Self>
 		using SelfRef = TSharedRef<std::decay_t<Self>>;
 
-		/** Fluent API for setting tpye for deferred initialization (for example in factory functions) */
+		/** @brief Fluent API for setting tpye for deferred initialization (for example in factory functions) */
 		template <typename Self>
 		SelfRef<Self> WithType(this Self&& self)
 		{
@@ -68,7 +68,7 @@ namespace Mcro::Types
 		FORCEINLINE FName const& GetType() const { return TypeName; }
 
 		/**
-		 *	Very simple dynamic casting of this object to a derived top-level type.
+		 *	@brief  Very simple dynamic casting of this object to a derived top-level type.
 		 *
 		 *	@tparam Derived
 		 *	Only return the desired type when the current object is exactly that type, and doesn't have deeper

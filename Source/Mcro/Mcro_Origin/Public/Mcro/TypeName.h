@@ -34,12 +34,12 @@
 #pragma warning(disable: 4804) // unsafe use of type 'bool' in operation
 
 /**
- *	Get a string view of the compile time typename
+ *	@brief  Get a string view of the compile time typename
  *	
  *	@note
  *	Using std::(w)string here instead of FString or FStringView for consteval compatibility
  *	
- *	@tparam  T target type
+ *	@tparam  T  target type
  *	@return  string view of the name of the type
  */
 template <typename T>
@@ -86,13 +86,15 @@ namespace Mcro::TypeName
 	using namespace Mcro::Text;
 	
 	/**
-	 *	Get a friendly string of an input type without using `typeid(T).name()` Actually this method gives more
-	 *	predictable results across compilers than `typeid(T).name()` but still not 100% the same. Besides
-	 *	`TTypeName<T>` can deal with incomplete types as well, whereas `typeid(T)` cannot (more on this in
-	 *	remarks). While it is more consistent across compilers, it is still not 100% consistent. Take
-	 *	templated types for instance where MSVC compiler will add "class" prefix in front of type arguments
-	 *	where GCC or CLang might not. Because of subtle differences like this, it is strongly discouraged to
-	 *	assume the exact format of the output of `TTypeName<T>`
+	 *	@brief
+	 *	Get a friendly string of an input type without using `typeid(T).name()`.
+	 *
+	 *	Actually this method gives more predictable results across compilers than `typeid(T).name()` but still not 100%
+	 *	the same. Besides TTypeName can deal with incomplete types as well, whereas `typeid(T)` cannot (more on this in
+	 *	remarks). While it is more consistent across compilers, it is still not 100% consistent. Take templated types
+	 *	for instance where MSVC compiler will add "class" prefix in front of type arguments where GCC or CLang might not.
+	 *	Because of subtle differences like this, it is strongly discouraged to assume the exact format of the output of
+	 *	TTypeName
 	 *	
 	 *	Usage:
 	 *	@code
@@ -122,10 +124,10 @@ namespace Mcro::TypeName
 	 *	@endcode
 	 *	as you can see they are not equal. For sake of simplicity TTypeName only supports incomplete
 	 *	types when they're declared in global scope. Any other case might yield undesired results
-	 *	(e.g.: TTypeName<class I> of incomplete `I` might not be the same as TTypeName<I> somewhere
+	 *	(e.g.: `TTypeName<class I>` of incomplete `I` might not be the same as `TTypeName<I>` somewhere
 	 *	else with `I` being fully defined)
 	 *	
-	 *	@tparam  T The type to be named
+	 *	@tparam  T  The type to be named
 	 */
 	template <typename T>
 	constexpr FStringView TTypeName = FStringView(

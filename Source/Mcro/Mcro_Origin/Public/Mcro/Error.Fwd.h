@@ -14,7 +14,7 @@
 #include "CoreMinimal.h"
 #include "Mcro/Concepts.h"
 
-/** Contains utilities for structured error handling */
+/** @brief Contains utilities for structured error handling */
 namespace Mcro::Error
 {
 	using namespace Mcro::Concepts;
@@ -22,48 +22,50 @@ namespace Mcro::Error
 	class IError;
 	class SErrorDisplay;
 	
-	using IErrorRef = TSharedRef<IError>;   /**< Convenience alias for an instance of an error */
-	using IErrorPtr = TSharedPtr<IError>;   /**< Convenience alias for an instance of an error */
-	using IErrorWeakPtr = TWeakPtr<IError>; /**< Convenience alias for an instance of an error */
+	using IErrorRef = TSharedRef<IError>;   /**< @brief Convenience alias for an instance of an error */
+	using IErrorPtr = TSharedPtr<IError>;   /**< @brief Convenience alias for an instance of an error */
+	using IErrorWeakPtr = TWeakPtr<IError>; /**< @brief Convenience alias for an instance of an error */
 
 	using FNamedError = TPair<FString, IErrorRef>;
 
-	/** Concept constraining input type argument T to an IError */
+	/** @brief Concept constraining input type argument T to an IError */
 	template <typename T>
 	concept CError = CDerivedFrom<T, IError>;
 
-	/** Concept constraining input type argument T to be an IErrorRef */
+	/** @brief Concept constraining input type argument T to be an IErrorRef */
 	template <typename T>
 	concept CErrorRef = CSharedRef<T> && CError<typename T::ElementType>;
 
-	/** Concept constraining input type argument T to be an IErrorPtr */
+	/** @brief Concept constraining input type argument T to be an IErrorPtr */
 	template <typename T>
 	concept CErrorPtr = CSharedPtr<T> && CError<typename T::ElementType>;
 
-	/** Concept constraining input type argument T to be an IErrorPtr */
+	/** @brief Concept constraining input type argument T to be an IErrorPtr */
 	template <typename T>
 	concept CErrorRefOrPtr = CErrorRef<T> || CErrorPtr<T>;
 
-	/** Concept constraining input type argument T to be an IErrorPtr */
+	/** @brief Concept constraining input type argument T to be an IErrorPtr */
 	template <typename T>
 	concept CSharedError = CErrorRefOrPtr<T> || (CWeakPtr<T> && CError<typename T::ElementType>);
 
-	/** Indicate the severity of an error and at what discretion the caller may treat it. */
+	/** @brief Indicate the severity of an error and at what discretion the caller may treat it. */
 	enum class EErrorSeverity
 	{
-		/** Indicates that an inner error just contains extra context for a real error */
+		/** @brief Indicates that an inner error just contains extra context for a real error */
 		ErrorComponent = -1,
 		
-		/** The caller can handle the error and may continue execution, for example errors with telemetry. */
+		/** @brief The caller can handle the error and may continue execution, for example errors with telemetry. */
 		Recoverable,
 		
 		/**
+		 *	@brief
 		 *	A sub-program (like PIE) or a thread should abort its entire purpose but it should not crash the entire
 		 *	encompassing application, for example early runtime checks about the correctness of some required configuration.
 		 */
 		Fatal,
 
 		/**
+		 *	@brief
 		 *	The application has arrived to an invalid state from which recovery is impossible, for example access
 		 *	violation errors.
 		 */

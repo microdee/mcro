@@ -15,21 +15,3 @@
 #include "HAL/PreprocessorHelpers.h"
 
 #define PREPROCESSOR_TO_TEXT(x) TEXT(PREPROCESSOR_TO_STRING(x))
-
-#if UE_BUILD_SHIPPING
-
-/**
- *	UE_DEBUG_BREAK is disabled in all non-editor builds, not only in shipping. MCRO_DEBUG_BREAK however is only
- *	disabled in shipping,
- */
-#define MCRO_DEBUG_BREAK() ((void)0)
-
-#else
-
-/**
- *	UE_DEBUG_BREAK is disabled in all non-editor builds, not only in shipping. MCRO_DEBUG_BREAK however is only
- *	disabled in shipping,
- */
-#define MCRO_DEBUG_BREAK() ((void)(FPlatformMisc::IsDebuggerPresent() && ([] () { UE_DEBUG_BREAK_IMPL(); } (), 1)))
-
-#endif

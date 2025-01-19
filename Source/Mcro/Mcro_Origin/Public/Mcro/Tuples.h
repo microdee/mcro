@@ -13,14 +13,13 @@
 
 #include "CoreMinimal.h"
 
-/** Templating utilities for manipulating `TTuple`s */
+/** @brief Templating utilities for manipulating `TTuple`s */
 namespace Mcro::Tuples
 {
-	/** Compose one tuple out of the elements of another tuple based on the input index parameter pack */
+	/** @brief Compose one tuple out of the elements of another tuple based on the input index parameter pack */
 	template <typename Tuple, size_t... Indices>
 	using TComposeFrom = TTuple<typename TTupleElement<Indices, Tuple>::Type...>;
 
-	/** @copydoc TSkip */
 	template <size_t Count, typename Tuple>
 	requires (TTupleArity<Tuple>::Value >= Count)
 	struct TSkip_Struct
@@ -33,11 +32,10 @@ namespace Mcro::Tuples
 		);
 	};
 
-	/** Skip the first `Count` elements of the input tuple */
+	/** @brief Skip the first `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
 	using TSkip = typename TSkip_Struct<Count, Tuple>::Type;
 
-	/** @copydoc TTrimEnd */
 	template <size_t Count, typename Tuple>
 	requires (TTupleArity<Tuple>::Value >= Count)
 	struct TTrimEnd_Struct
@@ -50,11 +48,10 @@ namespace Mcro::Tuples
 		);
 	};
 
-	/** Disregard the last `Count` elements of the input tuple */
+	/** @brief Disregard the last `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
 	using TTrimEnd = typename TTrimEnd_Struct<Count, Tuple>::Type;
 
-	/** @copydoc TTake */
 	template <size_t Count, typename Tuple>
 	requires (TTupleArity<Tuple>::Value >= Count)
 	struct TTake_Struct
@@ -67,7 +64,7 @@ namespace Mcro::Tuples
 		);
 	};
 
-	/** Take only the first `Count` elements of the input tuple */
+	/** @brief Take only the first `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
 	using TTake = typename TTake_Struct<Count, Tuple>::Type;
 }

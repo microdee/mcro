@@ -14,35 +14,40 @@
 namespace Mcro::Badge
 {
 	/**
-	 * Use this template to give exclusive access to functions to specific classes, like so:
-	 * class A;
-	 * class B;
-	 * class C;
-	 * 
-	 * class A
-	 * {
-	 *     static void CallFromB(TBadge<B> badge) {...}
-	 * };
-	 *
-	 * class B
-	 * {
-	 *     void Foobar()
-	 *     {
-	 *         // OK
-	 *         A::CallFromB({});
-	 *     }
-	 * };
-	 *
-	 * class C
-	 * {
-	 *     void Foobar()
-	 *     {
-	 *         // compile error:
-	 *         // badge template instance declared in A::CallFromB is only friends with class B,
-	 *         // therefore the private default constructor is inaccessible from class C
-	 *         A::CallFromB({});
-	 *     }
-	 * };
+	 *	@brief
+	 *	Use this template to give exclusive access to functions to specific classes.
+	 *	
+	 *	Like so:
+	 *	@code
+	 *	class A;
+	 *	class B;
+	 *	class C;
+	 *	
+	 *	class A
+	 *	{
+	 *		static void CallFromB(TBadge<B> badge) {...}
+	 *	};
+	 *	
+	 *	class B
+	 *	{
+	 *		void Foobar()
+	 *		{
+	 *			// OK
+	 *			A::CallFromB({});
+	 *		}
+	 *	};
+	 *	
+	 *	class C
+	 *	{
+	 *		void Foobar()
+	 *		{
+	 *			// compile error:
+	 *			// badge template instance declared in A::CallFromB is only friends with class B,
+	 *			// therefore the private default constructor is inaccessible from class C
+	 *			A::CallFromB({});
+	 *		}
+	 *	};
+	 *	@endcode
 	 */
 	template<class T>
 	class TBadge
@@ -51,6 +56,3 @@ namespace Mcro::Badge
 	private: TBadge() {}
 	};
 }
-
-template <typename T>
-using TBadge = Mcro::Badge::TBadge<T>;

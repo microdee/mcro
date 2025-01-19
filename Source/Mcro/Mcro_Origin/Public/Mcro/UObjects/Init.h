@@ -24,43 +24,64 @@ namespace Mcro::UObjects::Init
 		t->Initialize(args...);
 	};
 
-	/** Mirror of FStaticConstructObjectParameters but it's POCO and doesn't have a constructor */
+	/**
+	 *	@brief
+	 *	Mirror of `FStaticConstructObjectParameters` but it's a plain C++ object and doesn't have a constructor so
+	 *	designated initialization with named members is possible
+	 */
 	struct MCRO_API FConstructObjectParameters
 	{
-		/** The object to create this object within (the Outer property for the new object will be set to the value specified here). */
+		/**
+		 *	@brief
+		 *	The object to create this object within (the Outer property for the new object will be set to the value
+		 *	specified here).
+		 */
 		UObject* Outer = (UObject*)GetTransientPackage();
 		
-		/** The class of the object to create */
+		/** @brief The class of the object to create */
 		const UClass* Class;
 
-		/** The name to give the new object.If no value(NAME_None) is specified, the object will be given a unique name in the form of ClassName_#. */
+		/** @brief
+		 *	The name to give the new object. If no value (`NAME_None`) is specified, the object will be given a unique
+		 *	name in the form of `ClassName_#`.
+		 */
 		FName Name = NAME_None;
 
-		/** The ObjectFlags to assign to the new object. some flags can affect the behavior of constructing the object. */
+		/**
+		 *	@brief
+		 *	The ObjectFlags to assign to the new object. some flags can affect the behavior of constructing the object.
+		 */
 		EObjectFlags Flags = RF_NoFlags;
 
-		/** The InternalObjectFlags to assign to the new object. some flags can affect the behavior of constructing the object. */
+		/**
+		 *	@brief The `InternalObjectFlags` to assign to the new object. Some flags can affect the behavior of
+		 *	constructing the object.
+		 */
 		EInternalObjectFlags InternalSetFlags = EInternalObjectFlags::None;
 
-		/** If true, copy transient from the class defaults instead of the pass in archetype ptr(often these are the same) */
+		/**
+		 *	@brief
+		 *	If true, copy transient from the class defaults instead of the pass in archetype ptr (often these are the same)
+		 */
 		bool bCopyTransientsFromClassDefaults = false;
 
-		/** If true, Template is guaranteed to be an archetype */
+		/** @brief If true, Template is guaranteed to be an archetype */
 		bool bAssumeTemplateIsArchetype = false;
 
 		/**
-		 * If specified, the property values from this object will be copied to the new object, and the new object's ObjectArchetype value will be set to this object.
-		 * If nullptr, the class default object is used instead.
+		 *	@brief 
+		 *	If specified, the property values from this object will be copied to the new object, and the new object's
+		 *	`ObjectArchetype` value will be set to this object. If nullptr, the class default object is used instead.
 		 */
 		UObject* Template = nullptr;
 
-		/** Contains the mappings of instanced objects and components to their templates */
+		/** @brief Contains the mappings of instanced objects and components to their templates */
 		FObjectInstancingGraph* InstanceGraph = nullptr;
 
-		/** Assign an external Package to the created object if non-null */
+		/** @brief Assign an external Package to the created object if non-null */
 		UPackage* ExternalPackage = nullptr;
 
-		/** Callback for custom code to initialize properties before PostInitProperties runs */
+		/** @brief Callback for custom code to initialize properties before `PostInitProperties` runs */
 		TFunction<void()> PropertyInitCallback;
 	};
 
@@ -78,14 +99,15 @@ namespace Mcro::UObjects::Init
 	}
 	
 	/**
-	 *	Create a new object which can also be initialized with an Initialize function if it has one.
-	 *	In case it has an Initialize function the `args` parameters should match them. This is an equivalent to
-	 *	the template `Mcro::SharedObjects::MakeShareableInit`
+	 *	@brief
+	 *	Create a new object which can also be initialized with an `Initialize` function if it has one.
+	 *	In case it has an `Initialize` function the `args` parameters should match them. This is an equivalent to
+	 *	the template Mcro::SharedObjects::MakeShareableInit
 	 *	
-	 *	@tparam T      Type of initializable UObject
-	 *	@tparam Args   Arguments for the Initialize function
-	 *	@param params  Parameters for every new object
-	 *	@param args    Arguments for the Initialize function
+	 *	@tparam  T       Type of initializable UObject
+	 *	@tparam  Args    Arguments for the Initialize function
+	 *	@param   params  Parameters for every new object
+	 *	@param   args    Arguments for the Initialize function
 	 *	@return  The new object
 	 */
 	template <CUObject T, typename... Args>
@@ -106,9 +128,10 @@ namespace Mcro::UObjects::Init
 	}
 
 	/**
-	 *	Equivalent to `Mcro::Construct::Construct` but for UObjects.
+	 *	@brief
+	 *	Equivalent to Mcro::Construct::Construct but for UObjects.
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::UObjects::Init;
 	 *	
@@ -123,9 +146,9 @@ namespace Mcro::UObjects::Init
 	 *
 	 *	Notice how the object type is deduced from the argument of the initializer.
 	 *	
-	 *	@tparam Initializer  Initializer function type
-	 *	@param params        Parameters for every new object
-	 *	@param init          A setup function for the newly created UObject
+	 *	@tparam  Initializer  Initializer function type
+	 *	@param   params       Parameters for every new object
+	 *	@param   init         A setup function for the newly created UObject
 	 *	@return  The new object
 	 */
 	template <
@@ -151,11 +174,12 @@ namespace Mcro::UObjects::Init
 	}
 
 	/**
-	 *	Equivalent to `Mcro::Construct::Construct` but for UObjects. If the constructed UObject type also has an
+	 *	@brief
+	 *	Equivalent to Mcro::Construct::Construct but for `UObjects`. If the constructed `UObject` type also has an
 	 *	`Initialize` function call that too after the lambda initializer. The `args` parameters should match the
 	 *	signature of `Initialize` in that case.
+	 *	
 	 *	Usage:
-	 *
 	 *	@code
 	 *	using namespace Mcro::UObjects::Init;
 	 *	
@@ -170,11 +194,11 @@ namespace Mcro::UObjects::Init
 	 *
 	 *	Notice how the object type is deduced from the argument of the initializer.
 	 *	
-	 *	@tparam Initializer  Initializer function type
-	 *	@tparam Args         Arguments for the Initialize function
-	 *	@param params        Parameters for every new object
-	 *	@param init          A setup function for the newly created UObject
-	 *	@param args          Arguments for the Initialize function
+	 *	@tparam  Initializer  Initializer function type
+	 *	@tparam  Args         Arguments for the Initialize function
+	 *	@param   params       Parameters for every new object
+	 *	@param   init         A setup function for the newly created UObject
+	 *	@param   args         Arguments for the Initialize function
 	 *	@return  The new object
 	 */
 	template <

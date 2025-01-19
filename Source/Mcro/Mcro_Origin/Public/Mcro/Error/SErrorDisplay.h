@@ -18,9 +18,7 @@
 
 namespace Mcro::Error
 {
-	/**
-	 * Base class for displaying Mcro::Error::IError objects to the user
-	 */
+	/** @brief Base class for displaying Mcro::Error::IError objects to the user */
 	class MCRO_API SErrorDisplay : public SCompoundWidget
 	{
 	public:

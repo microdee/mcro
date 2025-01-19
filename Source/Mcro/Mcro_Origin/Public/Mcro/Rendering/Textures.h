@@ -16,15 +16,15 @@
 #include "Mcro/AssertMacros.h"
 #include "Engine/TextureRenderTarget2D.h"
 
-/** This namespace contain utilities regarding high-level cross-platform and cross-rhi texture objects */
+/** @brief This namespace contain utilities regarding high-level cross-platform and cross-rhi texture objects */
 namespace Mcro::Rendering::Textures
 {
 	using namespace Mcro::Concepts;
 	
-	/** Get the lower level RHI texture from a high level UTexture2D object if it's possible, nullptr otherwise */
+	/** @brief Get the lower level RHI texture from a high level UTexture2D object if it's possible, nullptr otherwise */
 	MCRO_API FRHITexture* GetRhiTexture2D(UTexture* target);
 
-	/** Describing a struct which can give texture size and layout information */
+	/** @brief Describing a struct which can give texture size and layout information */
 	template <typename T>
 	concept CTextureSize = requires(T t, typename T::FormatType)
 	{
@@ -33,14 +33,14 @@ namespace Mcro::Rendering::Textures
 		t.Format;
 	};
 
-	/** Specialize this function template to define the unknown format for an RHI texture format */
+	/** @brief Specialize this function template to define the unknown format for an RHI texture format */
 	template <CEnum FormatType>
 	constexpr auto GetUnknownFormat() { return static_cast<FormatType>(0); }
 
 	template <> constexpr auto GetUnknownFormat<EPixelFormat>() { return PF_Unknown; }
 	template <> constexpr auto GetUnknownFormat<ETextureRenderTargetFormat>() { return RTF_R8; }
 
-	/** Specialize this function template to define format conversion of equivalent formats between RHIs */
+	/** @brief Specialize this function template to define format conversion of equivalent formats between RHIs */
 	template <CEnum ToFormatType, CEnum FromFormatType>
 	requires (!CSameAs<ToFormatType, FromFormatType>)
 	ToFormatType ConvertFormat(FromFormatType from)
@@ -48,7 +48,7 @@ namespace Mcro::Rendering::Textures
 		return static_cast<ToFormatType>(from);
 	}
 
-	/** Special case when ToFormatType and FromFormatType are the same there's no need for conversion */
+	/** @brief Special case when ToFormatType and FromFormatType are the same there's no need for conversion */
 	template <CEnum ToFormatType, CEnum FromFormatType>
 	requires CSameAs<ToFormatType, FromFormatType>
 	ToFormatType ConvertFormat(FromFormatType from)
@@ -114,11 +114,10 @@ namespace Mcro::Rendering::Textures
 	}
 
 	/**
-	 *	A simple texture size description which can be used for checking the need to recreate a texture resource.
-	 *	
-	 *	@todo This may get generalized to other type of resources in the future.
+	 *	@brief  A simple texture size description which can be used for checking the need to recreate a texture resource.
 	 *	@tparam SizeType      the integral type for texture size
 	 *	@tparam InFormatType  the type of the format enum
+	 *	@todo   This may get generalized to other type of resources in the future.
 	 */
 	template <CScalar SizeType, CEnum InFormatType>
 	struct TTextureSize

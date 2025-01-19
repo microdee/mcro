@@ -23,44 +23,44 @@ namespace Mcro::Timespan::Literals
 		template <auto Function, char... ValueText>
 		constexpr FTimespan CreateFromParamPack()
 		{
-			static TStaticArray<char, sizeof...(ValueText) + 1> string { ValueText..., '\0' };
-			double value = TCString<char>::Atod(string.GetData());
+			static constexpr char string [sizeof...(ValueText) + 1] { ValueText..., '\0' };
+			double value = TCString<char>::Atod(string);
 			return Function(value);
 		}
 	}
 	
 	template <char... Value>
-	constexpr FTimespan operator ""_D ()
+	constexpr FTimespan operator ""_Day ()
 	{
 		return Detail::CreateFromParamPack<&FTimespan::FromDays, Value...>();
 	}
 	
 	template <char... Value>
-	constexpr FTimespan operator ""_h ()
+	constexpr FTimespan operator ""_Hour ()
 	{
 		return Detail::CreateFromParamPack<&FTimespan::FromHours, Value...>();
 	}
 	
 	template <char... Value>
-	constexpr FTimespan operator ""_m ()
+	constexpr FTimespan operator ""_Min ()
 	{
 		return Detail::CreateFromParamPack<&FTimespan::FromMinutes, Value...>();
 	}
 	
 	template <char... Value>
-	constexpr FTimespan operator ""_s ()
+	constexpr FTimespan operator ""_Sec ()
 	{
 		return Detail::CreateFromParamPack<&FTimespan::FromSeconds, Value...>();
 	}
 	
 	template <char... Value>
-	constexpr FTimespan operator ""_ms ()
+	constexpr FTimespan operator ""_mSec ()
 	{
 		return Detail::CreateFromParamPack<&FTimespan::FromMilliseconds, Value...>();
 	}
 	
 	template <char... Value>
-	constexpr FTimespan operator ""_us ()
+	constexpr FTimespan operator ""_uSec ()
 	{
 		return Detail::CreateFromParamPack<&FTimespan::FromMicroseconds, Value...>();
 	}

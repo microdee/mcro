@@ -15,25 +15,26 @@
 
 namespace Mcro::Once
 {
-	/** <pre>
-	 * Used for lambdas which supposed to run only once. The first time it is converted to bool it returns true
-	 * but every other times it will return false.
-	 * 
-	 * Usage:
-	 * 
-	 * using namespace BaseUtils;
-	 * SomeEvent.AddLambda([once = FOnce()]
-	 * {
-	 *     // Just use it inside a condition
-	 *     if (once) { ... }
-	 *     
-	 *     // exploiting short-circuit:
-	 *     if (MyCondition && once) { ... }
-	 *
-	 *     // but this will not produce the expected result:
-	 *     if (once && MyCondition) { ... } // BAD
-	 * }
-	 * </pre>
+	/**
+	 *	@brief 
+	 *	Used for lambdas which supposed to run only once. The first time it is converted to bool it returns true
+	 *	but every other times it will return false.
+	 *	
+	 *	Usage:
+	 *	@code
+	 *	using namespace BaseUtils;
+	 *	SomeEvent.AddLambda([once = FOnce()]
+	 *	{
+	 *	    // Just use it inside a condition
+	 *	    if (once) { ... }
+	 *	    
+	 *	    // exploiting short-circuit:
+	 *	    if (MyCondition && once) { ... }
+	 *	
+	 *	    // but this will not produce the expected result:
+	 *	    if (once && MyCondition) { ... } // BAD
+	 *	}
+	 *	@endcode
 	 */
 	struct FOnce
 	{

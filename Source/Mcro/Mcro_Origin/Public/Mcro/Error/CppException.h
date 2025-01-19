@@ -19,10 +19,11 @@
 namespace Mcro::Error
 {
 	/**
+	 *	@brief
 	 *	Unreal itself discourages the usage of C++ exceptions and there are also couple of thoughts above IError why
-	 *	that's the case. However there are third-party libraries which may require their users to catch errors their functions
-	 *	may yield via exceptions. For this reason there's an IError wrapper around std::exception base class which however
-	 *	will not preserve the actual type of the cought exception. For that use TCppException template.
+	 *	that's the case. However, there are third-party libraries which may require their users to catch errors, their
+	 *	functions may, yield via exceptions. For this reason there's an IError wrapper around std::exception base class
+	 *	which however will not preserve the actual type of the caught exception. For that use TCppException template.
 	 */
 	class MCRO_API FCppException : public IError
 	{
@@ -41,7 +42,7 @@ namespace Mcro::Error
 	};
 
 	/**
-	 *	Use this template for catching STL exceptions to preserve the exception type name. 
+	 *	@brief  Use this template for catching STL exceptions to preserve the exception type name. 
 	 *	@tparam Exception  Type of the encapsulated exception
 	 */
 	template <CDerivedFrom<std::exception> Exception>
@@ -53,7 +54,7 @@ namespace Mcro::Error
 			, TypedException(input)
 		{}
 		
-		/** Storage for the exception but preserving its actual type. It's copied to this member */
+		/** @brief Storage for the exception but preserving its actual type. It's copied to this member */
 		Exception TypedException;
 		
 	protected:

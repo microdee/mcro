@@ -9,6 +9,12 @@
  *  @date 2025
  */
 
+/**
+ * @file
+ * Use this header and `End.h` in tandem to include third-party library headers which may not tolerate Unreal's common
+ * vocabulary macros or its stricter warning policies.
+ */
+
 #include "Mcro/Macros.h"
 
 #ifdef NON_UNREAL_INCLUDE_REGION
@@ -111,14 +117,14 @@
 
 #endif
 
-// Unreal might use combination of compiler specific macros, which third-party libraries might not
-// tolerate well. Sanitizing such macros here:
+// A combination of compiler specific macros may be present, which is super rare probably. Third-party libraries might
+// not tolerate that well. Sanitizing such macros here:
 
-// prefer MSVC compiler macros over GCC if they're both present for some god forsaken reason
+// prefer MSVC compiler macros over GCC if they're both present for some godforsaken reason
 #if defined(_MSC_VER) && defined(__GNUC__)
 
 #if _MSC_VER > 0
-#pragma message ("Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: " MCRO_STRIFY(__GNUC__) ", MSVC: " MCRO_STRIFY(_MSC_VER) ")")
+#pragma message ("Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: " PREPROCESSOR_TO_STRING(__GNUC__) ", MSVC: " PREPROCESSOR_TO_STRING(_MSC_VER) ")")
 #define NUIR_MSVC_GNUC_AVOIDANCE __GNUC__
 #pragma push_macro("__GNUC__")
 #undef __GNUC__
