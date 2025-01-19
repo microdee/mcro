@@ -10,7 +10,7 @@ var searchData=
   ['severity_7',['Severity',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#a9eb9db7f3d7e0c9763a154c959e64da8',1,'Mcro::Error::SErrorDisplay']]],
   ['severitywidget_8',['SeverityWidget',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#ae64bfe9645f2f62957859b473d11724a',1,'Mcro::Error::SErrorDisplay']]],
   ['sharerefcounted_9',['ShareRefCounted',['../db/d9b/namespaceMcro_1_1SharedObjects.html#ae549895692735cd877b5d681cac10735',1,'Mcro::SharedObjects']]],
-  ['shouldcreatesubsystem_10',['ShouldCreateSubsystem',['../dc/def/namespaceMcro_1_1Subsystems_1_1Subsystems.html#a00118b8ddd5b4a43868566664b951ce7',1,'Mcro::Subsystems::Subsystems']]],
+  ['shouldcreate_10',['ShouldCreate',['../dc/def/namespaceMcro_1_1Subsystems_1_1Subsystems.html#ab0f8be242e1c7358d7f2728a66b214f0',1,'Mcro::Subsystems::Subsystems']]],
   ['shutdownmodule_11',['ShutdownModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#a30ef23d7a9fc0ee15fd0ef9a9f7d4a31',1,'Mcro::Modules::IObservableModule']]],
   ['slate_5fargument_12',['SLATE_ARGUMENT',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#a4c303fb2d8044dd6f70f4db95289043a',1,'Mcro::Error::SErrorDisplay::SLATE_ARGUMENT()'],['../d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html#ae39d896d2ffa16aa4cc482df959bb040',1,'Mcro::Error::SPlainTextDisplay::SLATE_ARGUMENT()']]],
   ['slate_5fbegin_5fargs_13',['SLATE_BEGIN_ARGS',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#abeea7ce53eb52a98eb467c9f6bdd32f6',1,'Mcro::Error::SErrorDisplay::SLATE_BEGIN_ARGS()'],['../d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html#ae2b82c422628ab2697865b67abf8a051',1,'Mcro::Error::SPlainTextDisplay::SLATE_BEGIN_ARGS()']]],

@@ -16,7 +16,7 @@ var searchData=
   ['severitywidget_13',['SeverityWidget',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#ae64bfe9645f2f62957859b473d11724a',1,'Mcro::Error::SErrorDisplay']]],
   ['sharedobjects_2eh_14',['SharedObjects.h',['../d3/d3e/SharedObjects_8h.html',1,'']]],
   ['sharerefcounted_15',['ShareRefCounted',['../db/d9b/namespaceMcro_1_1SharedObjects.html#ae549895692735cd877b5d681cac10735',1,'Mcro::SharedObjects']]],
-  ['shouldcreatesubsystem_16',['ShouldCreateSubsystem',['../dc/def/namespaceMcro_1_1Subsystems_1_1Subsystems.html#a00118b8ddd5b4a43868566664b951ce7',1,'Mcro::Subsystems::Subsystems']]],
+  ['shouldcreate_16',['ShouldCreate',['../dc/def/namespaceMcro_1_1Subsystems_1_1Subsystems.html#ab0f8be242e1c7358d7f2728a66b214f0',1,'Mcro::Subsystems::Subsystems']]],
   ['shutdownmodule_17',['ShutdownModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#a30ef23d7a9fc0ee15fd0ef9a9f7d4a31',1,'Mcro::Modules::IObservableModule']]],
   ['signature_18',['Signature',['../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html#a0a7cae2e40a80b8cd2362a7405c41647',1,'Mcro::FunctionTraits::Detail::TFunctionMeta']]],
   ['slate_20declarative_20syntax_19',['Extending the Slate declarative syntax',['../index.html#autotoc_md16',1,'']]],

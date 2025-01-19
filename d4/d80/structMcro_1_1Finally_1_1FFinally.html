@@ -118,6 +118,9 @@ $(function(){initNavTree('d4/d80/structMcro_1_1Finally_1_1FFinally.html','../../
 </div><!--header-->
 <div class="contents">
 
+<p>Run arbitrary finalizers on destruction. It has similar purpose to <code>ON_SCOPE_EXIT</code>, however <a class="el" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html" title="Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however FFinally ca...">FFinally</a> can be moved around into different scopes, Payload will be only executed if the finalizer hasn't been moved from, otherwise the payload will be ignored in the source of move assignments.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Mcro::Finally::FFinally:</div>
@@ -136,12 +139,30 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1f40b430228fdeaa260246a28cfba70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however <a class="el" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> can be moved around into different scopes, Payload will be only executed if the finalizer hasn't been moved from, otherwise the payload will be ignored in the source of move assignments:</p>
-<p>{ <a class="el" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> fin([] {...}) Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)] { // Payload is executed at the end of this scope } // Payload is not executed here }</p>
-<p>Finalizers can be moved into nested scopes</p>
-<p>{ <a class="el" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> fin([] {...}) Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)] mutable { AsyncTask(ENamedThreads::GameThread, [fin = MoveTemp(fin)] { // Payload is executed at the end of this scope } // Payload is not executed here } // Payload is not executed here } </p>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00046">46</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
+<div class="textblock"><p>Run arbitrary finalizers on destruction. It has similar purpose to <code>ON_SCOPE_EXIT</code>, however <a class="el" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html" title="Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however FFinally ca...">FFinally</a> can be moved around into different scopes, Payload will be only executed if the finalizer hasn't been moved from, otherwise the payload will be ignored in the source of move assignments. </p>
+<p>Usage: </p><div class="fragment"><div class="line">{</div>
+<div class="line">    <a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> fin([] {...})</div>
+<div class="line">    Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)]</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Payload is executed at the end of this scope</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// Payload is not executed here</span></div>
+<div class="line">}</div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">Mcro::Finally::FFinally</a></div><div class="ttdoc">Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however FFinally ca...</div><div class="ttdef"><b>Definition</b> <a href="../../de/de6/Finally_8h_source.html#l00050">Finally.h:51</a></div></div>
+</div><!-- fragment --><p> Finalizers can be moved into nested scopes </p><div class="fragment"><div class="line">{</div>
+<div class="line">    <a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> fin([] {...})</div>
+<div class="line">    Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)] <span class="keyword">mutable</span></div>
+<div class="line">    {</div>
+<div class="line">        AsyncTask(ENamedThreads::GameThread, [fin = MoveTemp(fin)]</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Payload is executed at the end of this scope</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="comment">// Payload is not executed here</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// Payload is not executed here</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00050">50</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3c683bfc062a6d984503e5830e4eaa47" name="a3c683bfc062a6d984503e5830e4eaa47"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c683bfc062a6d984503e5830e4eaa47">&#9670;&#160;</a></span>FFinally() <span class="overload">[1/2]</span></h2>
@@ -166,7 +187,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00053">53</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00057">57</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +214,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00054">54</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00058">58</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
 
 </div>
 </div>
@@ -220,7 +241,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00059">59</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de6/Finally_8h_source.html#l00063">63</a> of file <a class="el" href="../../de/de6/Finally_8h_source.html">Finally.h</a>.</p>
 
 </div>
 </div>

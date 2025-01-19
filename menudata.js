@@ -135,6 +135,7 @@ var menudata={children:[
 {text:"w",url:"functions_vars.html#index_w"}]},
 {text:"Typedefs",url:"functions_type.html",children:[
 {text:"a",url:"functions_type.html#index_a"},
+{text:"b",url:"functions_type.html#index_b"},
 {text:"c",url:"functions_type.html#index_c"},
 {text:"e",url:"functions_type.html#index_e"},
 {text:"f",url:"functions_type.html#index_f"},
@@ -160,10 +161,8 @@ var menudata={children:[
 {text:"m",url:"globals.html#index_m"},
 {text:"n",url:"globals.html#index_n"},
 {text:"p",url:"globals.html#index_p"},
-{text:"t",url:"globals.html#index_t"},
 {text:"u",url:"globals.html#index_u"}]},
 {text:"Functions",url:"globals_func.html"},
-{text:"Typedefs",url:"globals_type.html"},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"a",url:"globals_defs.html#index_a"},
 {text:"e",url:"globals_defs.html#index_e"},

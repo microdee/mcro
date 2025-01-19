@@ -131,23 +131,28 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html">Mcro::SharedObjects</a></td></tr>
+<tr class="memdesc:db/d9b/namespaceMcro_1_1SharedObjects"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for TSharedPtr/Ref and related. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d69/conceptMcro_1_1SharedObjects_1_1CSharedInitializeable.html">Mcro::SharedObjects::CSharedInitializeable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept describing an object which provides a deferred initializer for shared objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a70296931b08e077b44c9206942a72cda" id="r_a70296931b08e077b44c9206942a72cda"><td class="memTemplParams" colspan="2">template&lt;CSharedOrWeak T&gt; </td></tr>
 <tr class="memitem:a70296931b08e077b44c9206942a72cda"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#a70296931b08e077b44c9206942a72cda">Mcro::SharedObjects::TSharedPtrFrom</a> = TSharedPtr&lt;typename T::ElementType, T::Mode&gt;</td></tr>
+<tr class="memdesc:a70296931b08e077b44c9206942a72cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy thread-safety from other shared object type.  <br /></td></tr>
 <tr class="separator:a70296931b08e077b44c9206942a72cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a521f77e604fbb359028827b60f35ab71" id="r_a521f77e604fbb359028827b60f35ab71"><td class="memTemplParams" colspan="2">template&lt;CSharedOrWeak T&gt; </td></tr>
 <tr class="memitem:a521f77e604fbb359028827b60f35ab71"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#a521f77e604fbb359028827b60f35ab71">Mcro::SharedObjects::TSharedRefFrom</a> = TSharedRef&lt;typename T::ElementType, T::Mode&gt;</td></tr>
+<tr class="memdesc:a521f77e604fbb359028827b60f35ab71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy thread-safety from other shared object type.  <br /></td></tr>
 <tr class="separator:a521f77e604fbb359028827b60f35ab71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9688d16467e2840873a3a34bd2b251f2" id="r_a9688d16467e2840873a3a34bd2b251f2"><td class="memTemplParams" colspan="2">template&lt;CSharedOrWeak T&gt; </td></tr>
 <tr class="memitem:a9688d16467e2840873a3a34bd2b251f2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#a9688d16467e2840873a3a34bd2b251f2">Mcro::SharedObjects::TWeakPtrFrom</a> = TWeakPtr&lt;typename T::ElementType, T::Mode&gt;</td></tr>
+<tr class="memdesc:a9688d16467e2840873a3a34bd2b251f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy thread-safety from other shared object type.  <br /></td></tr>
 <tr class="separator:a9688d16467e2840873a3a34bd2b251f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -155,19 +160,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a1b0bc2e40cf3b49b4d9bde451db7c42b" id="r_a1b0bc2e40cf3b49b4d9bde451db7c42b"><td class="memTemplParams" colspan="2">template&lt;typename T , ESPMode Mode = ESPMode::ThreadSafe, typename... Args&gt; <br />
 requires CSharedInitializeable&lt;T, Args...&gt;</td></tr>
 <tr class="memitem:a1b0bc2e40cf3b49b4d9bde451db7c42b"><td class="memTemplItemLeft" align="right" valign="top">TSharedRef&lt; T, Mode &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#a1b0bc2e40cf3b49b4d9bde451db7c42b">Mcro::SharedObjects::MakeShareableInit</a> (T *newObject, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a1b0bc2e40cf3b49b4d9bde451db7c42b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper around MakeShareable that automatically calls an initializer method Initialize on the instantiated object.  <br /></td></tr>
 <tr class="separator:a1b0bc2e40cf3b49b4d9bde451db7c42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af61e42e2a3a1889799e27c8acd037875" id="r_af61e42e2a3a1889799e27c8acd037875"><td class="memTemplParams" colspan="2">template&lt;CFunctorObject Initializer, typename... Args, ESPMode Mode = ESPMode::ThreadSafe, typename ResultArg  = TFunction_Arg&lt;Initializer, 0&gt;, typename Result  = std::decay_t&lt;ResultArg&gt;&gt; <br />
 requires std::is_lvalue_reference_v&lt;ResultArg&gt;</td></tr>
 <tr class="memitem:af61e42e2a3a1889799e27c8acd037875"><td class="memTemplItemLeft" align="right" valign="top">TSharedRef&lt; Result, Mode &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#af61e42e2a3a1889799e27c8acd037875">Mcro::SharedObjects::ConstructShared</a> (Initializer &amp;&amp;init, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:af61e42e2a3a1889799e27c8acd037875"><td class="mdescLeft">&#160;</td><td class="mdescRight">A combination of MakeShareable and <a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e" title="Simply makes a new object on the heap and allows to initialize it in place with a lambda function....">Mcro::Construct::ConstructNew</a>.  <br /></td></tr>
 <tr class="separator:af61e42e2a3a1889799e27c8acd037875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae549895692735cd877b5d681cac10735" id="r_ae549895692735cd877b5d681cac10735"><td class="memTemplParams" colspan="2">template&lt;CRefCounted T, ESPMode Mode = ESPMode::ThreadSafe&gt; </td></tr>
 <tr class="memitem:ae549895692735cd877b5d681cac10735"><td class="memTemplItemLeft" align="right" valign="top">TSharedRef&lt; T, Mode &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#ae549895692735cd877b5d681cac10735">Mcro::SharedObjects::ShareRefCounted</a> (T *object)</td></tr>
+<tr class="memdesc:ae549895692735cd877b5d681cac10735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a shared pointer which takes in an object with in-place refcounting.  <br /></td></tr>
 <tr class="separator:ae549895692735cd877b5d681cac10735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee124299fa684b0156f2573e5064f1f5" id="r_aee124299fa684b0156f2573e5064f1f5"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis T, ESPMode Mode = decltype(DeclVal&lt;T const&gt;().AsShared())::Mode&gt; </td></tr>
 <tr class="memitem:aee124299fa684b0156f2573e5064f1f5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#aee124299fa684b0156f2573e5064f1f5">Mcro::SharedObjects::WeakSelf</a> (const T *self) -&gt; TWeakPtr&lt; T const, Mode &gt;</td></tr>
+<tr class="memdesc:aee124299fa684b0156f2573e5064f1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code> but returning a weak pointer instead.  <br /></td></tr>
 <tr class="separator:aee124299fa684b0156f2573e5064f1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab98aebf22da1767f81c9db02538f4736" id="r_ab98aebf22da1767f81c9db02538f4736"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis T, ESPMode Mode = decltype(DeclVal&lt;T&gt;().AsShared())::Mode&gt; </td></tr>
 <tr class="memitem:ab98aebf22da1767f81c9db02538f4736"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#ab98aebf22da1767f81c9db02538f4736">Mcro::SharedObjects::WeakSelf</a> (T *self) -&gt; TWeakPtr&lt; T, Mode &gt;</td></tr>
+<tr class="memdesc:ab98aebf22da1767f81c9db02538f4736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code> but returning a weak pointer instead.  <br /></td></tr>
 <tr class="separator:ab98aebf22da1767f81c9db02538f4736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

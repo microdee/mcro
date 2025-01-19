@@ -143,9 +143,9 @@ $(function(){initNavTree('d1/d43/Yaml_8h_source.html','../../'); initResizable(t
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d8/d6f/namespaceMcro_1_1Text.html">Mcro::Text</a>;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     * RAII friendly region annotation for YAML::Emitter streams</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     * @tparam Begin The YAML region begin tag</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     * @tparam End The YAML region end tag</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *  @brief  RAII friendly region annotation for YAML::Emitter streams</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *  @tparam Begin  The YAML region begin tag</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *  @tparam End    The YAML region end tag</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">template</span> &lt;YAML::EMITTER_MANIP Begin, YAML::EMITTER_MANIP End&gt;</div>
 <div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
@@ -168,13 +168,13 @@ $(function(){initNavTree('d1/d43/Yaml_8h_source.html','../../'); initResizable(t
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    };</div>
 </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"></span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">    /** Annotate a mapping region in a YAML::Emitter stream, which ends when this object goes out of scope */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">    /** @brief Annotate a mapping region in a YAML::Emitter stream, which ends when this object goes out of scope */</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d5/dba/namespaceMcro_1_1Yaml.html#a3f05a37e9779b9800c46f55816361410">   50</a></span>    <span class="keyword">using </span><a class="code hl_class" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">FMap</a> = <a class="code hl_class" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">TScopedRegion&lt;YAML::BeginMap, YAML::EndMap&gt;</a>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    /** Annotate a sequence region in a YAML::Emitter stream, which ends when this object goes out of scope */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    /** @brief Annotate a sequence region in a YAML::Emitter stream, which ends when this object goes out of scope */</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d5/dba/namespaceMcro_1_1Yaml.html#a5a80e16e078683d8183ca2ebf4a213cb">   53</a></span>    <span class="keyword">using </span><a class="code hl_class" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">FSeq</a> = <a class="code hl_class" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">TScopedRegion&lt;YAML::BeginSeq, YAML::EndSeq&gt;</a>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"></span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    /** Convenience operator to append Unreal or potentially wide strings to YAML::Emitter streams */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    /** @brief Convenience operator to append Unreal or potentially wide strings to YAML::Emitter streams */</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> String&gt;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">requires</span> (CStringOrViewOrName&lt;String&gt; || CStdStringOrView&lt;String&gt;)</div>
 <div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
@@ -185,7 +185,7 @@ $(function(){initNavTree('d1/d43/Yaml_8h_source.html','../../'); initResizable(t
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
 </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">    /** Convenience operator to append enums as strings to a YAML::Emitter streams */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">    /** @brief Convenience operator to append enums as strings to a YAML::Emitter streams */</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">template</span> &lt;CEnum Enum&gt;</div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d5/dba/namespaceMcro_1_1Yaml.html#a35b8dd354fe4d3d0723b4b72043daba7">   66</a></span>    YAML::Emitter&amp; <a class="code hl_function" href="../../d5/dba/namespaceMcro_1_1Yaml.html#ac1d54619c9062439cf8f940c23dcde54">operator &lt;&lt; </a>(YAML::Emitter&amp; out, Enum v)</div>
@@ -199,14 +199,14 @@ $(function(){initNavTree('d1/d43/Yaml_8h_source.html','../../'); initResizable(t
 <div class="ttc" id="aEnd_8h_html"><div class="ttname"><a href="../../d7/ddc/End_8h.html">End.h</a></div></div>
 <div class="ttc" id="aStart_8h_html"><div class="ttname"><a href="../../df/d42/Start_8h.html">Start.h</a></div></div>
 <div class="ttc" id="aText_8h_html"><div class="ttname"><a href="../../d6/d35/Text_8h.html">Text.h</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Yaml_1_1TScopedRegion_html"><div class="ttname"><a href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">Mcro::Yaml::TScopedRegion</a></div><div class="ttdef"><b>Definition</b> <a href="#l00033">Yaml.h:34</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Yaml_1_1TScopedRegion_html"><div class="ttname"><a href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">Mcro::Yaml::TScopedRegion</a></div><div class="ttdoc">RAII friendly region annotation for YAML::Emitter streams.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Yaml.h:34</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Yaml_1_1TScopedRegion_html_a6c1bcae276238684648b45a87c4636d5"><div class="ttname"><a href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html#a6c1bcae276238684648b45a87c4636d5">Mcro::Yaml::TScopedRegion::operator&lt;&lt;</a></div><div class="ttdeci">TScopedRegion &amp; operator&lt;&lt;(T &amp;&amp;rhs)</div><div class="ttdef"><b>Definition</b> <a href="#l00042">Yaml.h:42</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Yaml_1_1TScopedRegion_html_a9d7747c79601f343beb48dac861a725f"><div class="ttname"><a href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html#a9d7747c79601f343beb48dac861a725f">Mcro::Yaml::TScopedRegion::~TScopedRegion</a></div><div class="ttdeci">~TScopedRegion()</div><div class="ttdef"><b>Definition</b> <a href="#l00039">Yaml.h:39</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Yaml_1_1TScopedRegion_html_af9ad68218a050f9073a743dfa96558d3"><div class="ttname"><a href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html#af9ad68218a050f9073a743dfa96558d3">Mcro::Yaml::TScopedRegion::TScopedRegion</a></div><div class="ttdeci">TScopedRegion(YAML::Emitter &amp;out)</div><div class="ttdef"><b>Definition</b> <a href="#l00038">Yaml.h:38</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Text_html"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html">Mcro::Text</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00019">Text.h:20</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Text_html_a0d3550f6d37ce31d0ea6b48edffc9191"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#a0d3550f6d37ce31d0ea6b48edffc9191">Mcro::Text::StdConvertUtf8</a></div><div class="ttdeci">MCRO_API std::string StdConvertUtf8(FStringView const &amp;unrealStr)</div></div>
 <div class="ttc" id="anamespaceMcro_1_1Yaml_html"><div class="ttname"><a href="../../d5/dba/namespaceMcro_1_1Yaml.html">Mcro::Yaml</a></div><div class="ttdef"><b>Definition</b> <a href="#l00023">Yaml.h:24</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Yaml_html_ac1d54619c9062439cf8f940c23dcde54"><div class="ttname"><a href="../../d5/dba/namespaceMcro_1_1Yaml.html#ac1d54619c9062439cf8f940c23dcde54">Mcro::Yaml::operator&lt;&lt;</a></div><div class="ttdeci">YAML::Emitter &amp; operator&lt;&lt;(YAML::Emitter &amp;out, String &amp;&amp;v)</div><div class="ttdef"><b>Definition</b> <a href="#l00058">Yaml.h:58</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Yaml_html_ac1d54619c9062439cf8f940c23dcde54"><div class="ttname"><a href="../../d5/dba/namespaceMcro_1_1Yaml.html#ac1d54619c9062439cf8f940c23dcde54">Mcro::Yaml::operator&lt;&lt;</a></div><div class="ttdeci">YAML::Emitter &amp; operator&lt;&lt;(YAML::Emitter &amp;out, String &amp;&amp;v)</div><div class="ttdoc">Convenience operator to append Unreal or potentially wide strings to YAML::Emitter streams.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">Yaml.h:58</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

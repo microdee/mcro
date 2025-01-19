@@ -1,5 +1,6 @@
 var EventDelegate_8h =
 [
+    [ "Mcro::Delegates::TEventDelegate< Function, DefaultInvokeMode >", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
     [ "Mcro::Delegates::TEventDelegate< void(Args...), DefaultInvokeMode >", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4" ],
     [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultSettings >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ],
     [ "TBelatedEventDelegate", "df/d51/EventDelegate_8h.html#a3e8b41a8185b9ceb9e88c7bee2b0eda9", null ],

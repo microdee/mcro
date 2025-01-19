@@ -113,7 +113,6 @@ $(function(){initNavTree('d1/dd5/Construct_8h.html','../../'); initResizable(tru
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Construct.h File Reference</div></div>
@@ -124,11 +123,6 @@ $(function(){initNavTree('d1/dd5/Construct_8h.html','../../'); initResizable(tru
 </div>
 <p><a href="../../d1/dd5/Construct_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">Mcro::Construct::TInitializeOnCopy&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></td></tr>
@@ -141,10 +135,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af94e599172b834021f0084e6ddeb63f4" id="r_af94e599172b834021f0084e6ddeb63f4"><td class="memTemplParams" colspan="2">template&lt;CFunctorObject Initializer, typename... Args, typename ResultArg  = TFunction_Arg&lt;Initializer, 0&gt;, typename Result  = std::decay_t&lt;ResultArg&gt;&gt; <br />
 requires std::is_lvalue_reference_v&lt;ResultArg&gt;</td></tr>
 <tr class="memitem:af94e599172b834021f0084e6ddeb63f4"><td class="memTemplItemLeft" align="right" valign="top">Result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">Mcro::Construct::Construct</a> (Initializer &amp;&amp;init, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:af94e599172b834021f0084e6ddeb63f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simply makes a new object and allows to initialize it in place with a lambda function. The object type is derived from the first argument of the initializer lambda function.  <br /></td></tr>
 <tr class="separator:af94e599172b834021f0084e6ddeb63f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3b7fdc343af9039784eabd6ecef4b2e" id="r_ab3b7fdc343af9039784eabd6ecef4b2e"><td class="memTemplParams" colspan="2">template&lt;CFunctorObject Initializer, typename... Args, typename ResultArg  = TFunction_Arg&lt;Initializer, 0&gt;, typename Result  = std::decay_t&lt;ResultArg&gt;&gt; <br />
 requires std::is_lvalue_reference_v&lt;ResultArg&gt;</td></tr>
 <tr class="memitem:ab3b7fdc343af9039784eabd6ecef4b2e"><td class="memTemplItemLeft" align="right" valign="top">Result *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">Mcro::Construct::ConstructNew</a> (Initializer &amp;&amp;init, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ab3b7fdc343af9039784eabd6ecef4b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simply makes a new object on the heap and allows to initialize it in place with a lambda function. The object type is derived from the first argument of the initializer lambda function.  <br /></td></tr>
 <tr class="separator:ab3b7fdc343af9039784eabd6ecef4b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

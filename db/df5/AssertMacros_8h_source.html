@@ -144,7 +144,7 @@ $(function(){initNavTree('db/df5/AssertMacros_8h_source.html','../../'); initRes
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d0a/Macros_8h.html">Mcro/Macros.h</a>&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;Logging/LogMacros.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/** Do not use this namespace directly use `ASSERT_QUIT|CRASH` macros instead */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/** @brief Do not use this namespace directly use `ASSERT_QUIT|CRASH` macros instead */</span></div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d94/namespaceMcro_1_1AssertMacros.html">   31</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d1/d94/namespaceMcro_1_1AssertMacros.html">Mcro::AssertMacros</a></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
@@ -228,14 +228,14 @@ $(function(){initNavTree('db/df5/AssertMacros_8h_source.html','../../'); initRes
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#if WITH_EDITOR</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"></span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> *  Use this instead of `check` macro if the checked expression shouldn&#39;t be ignored in shipping builds. This version will</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> *  also crash the entire editor even during a PIE session. Use this only if there&#39;s absolutely no way to recover from</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> *  an invalid state, like a situation when early return is not possible / doesn&#39;t make sense (e.g.: return a checked</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> *  pointer by reference).</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> *  </span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> *  This macro will attempt to display the error before crashing via the IError type. You can also append extra</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> *  information to it, or even override preset information like so:</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> *  @brief </span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> *  Use this instead of `check` macro if the checked expression shouldn&#39;t be ignored in shipping builds. This version</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> *  will also crash the entire editor even during a PIE session. Use this only if there&#39;s absolutely no way to recover</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> *  from an invalid state, like a situation when early return is not possible / doesn&#39;t make sense (e.g.: return a</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> *  checked pointer by reference).</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> *  This macro will attempt to display the error before crashing via the IError type. You can also append extra</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> *  information to it, or even override preset information like so:</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> *  @code</span></div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> *  ASSERT_CRASH(arrayNum &gt; 0,</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> *      -&gt;WithDetails(TEXT(&quot;Did you forget to specify data?&quot;))</span></div>
@@ -245,31 +245,31 @@ $(function(){initNavTree('db/df5/AssertMacros_8h_source.html','../../'); initRes
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../db/df5/AssertMacros_8h.html#aa701f2cd895ccc225e7eaef22640854d">  113</a></span><span class="preprocessor">#define ASSERT_CRASH(condition, ...) MCRO_ASSERT_CRASH_COMMON(condition, __VA_ARGS__)</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"></span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">/** This is equivalent to ASSERT_CRASH but if a code path reaches this macro it will always crash */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">/** @brief This is equivalent to ASSERT_CRASH but if a code path reaches this macro it will always crash */</span></div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../db/df5/AssertMacros_8h.html#a48dadaaff5de49fb994f03ba43a52852">  116</a></span><span class="preprocessor">#define FORCE_CRASH(...) MCRO_CRASH_BODY(Invalid code path, __VA_ARGS__)</span></div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"></span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> *  Use this instead of `check` macro if the checked expression shouldn&#39;t be ignored in shipping builds. This version will</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> *  not crash the editor but will display an error, stops the PIE, and should return the calling function. A return value</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> *  should be provided on failure, or leave it empty to return void. so either</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> *  </span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> *  @code</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> *  ASSERT_QUIT(SomethingImportantButNullable, ) // important to leave an extra comma for void functions</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"> *  // or return default</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"> *  ASSERT_QUIT(SomethingImportantButNullable, {})</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> *  // or return whatever</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> *  ASSERT_QUIT(SomethingImportantButNullable, myReturnValue)</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> *  @endcode</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> *  </span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> *  This is done in the hopes that these checks failing in PIE sessions doesn&#39;t crash the entire editor giving the</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> *  developer a chance for fixing the error before restarting. However early returns might cause undefined/vaguely-defined</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> *  side effects and may lead to uninitialized resources or in worst case scenario may lead to incorrect states in</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> *  resource cleanups which then might crash the editor. Always check the validity of your resources in destructors.</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> *  Failing this check outside of PIE or in a Standalone session will still crash with a `check` macro.</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> *  </span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> *  This macro will attempt to display the error before quitting via the IError type. You can also append extra</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> *  information to it like so, or even override preset information like so:</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> *  @brief</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> *  Use this instead of `check` macro if the checked expression shouldn&#39;t be ignored in shipping builds. This version</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> *  will not crash the editor but will display an error, stops the PIE, and should return the calling function.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> *  A return value should be provided on failure, or leave it empty to return void. so either</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> *  @code</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"> *  ASSERT_QUIT(SomethingImportantButNullable, ) // important to leave an extra comma for void functions</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"> *  // or return default</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> *  ASSERT_QUIT(SomethingImportantButNullable, {})</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> *  // or return whatever</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> *  ASSERT_QUIT(SomethingImportantButNullable, myReturnValue)</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> *  @endcode</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> *  This is done in the hopes that these checks failing in PIE sessions doesn&#39;t crash the entire editor giving the</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> *  developer a chance for fixing the error before restarting. However, early returns might cause</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> *  undefined/vaguely-defined side effects and may lead to uninitialized resources or in worst case scenario may lead to</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> *  incorrect states in resource cleanups which then might crash the editor. Always check the validity of your resources in destructors.</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> *  Failing this check outside of PIE or in a Standalone session will still crash with a `check` macro.</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> *  This macro will attempt to display the error before quitting via the IError type. You can also append extra</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> *  information to it like so, or even override preset information like so:</span></div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"> *  @code</span></div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"> *  ASSERT_QUIT(arrayNum &gt; 0, myReturnValue,</span></div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"> *      -&gt;WithDetails(TEXT(&quot;Did you forget to specify data?&quot;))</span></div>
@@ -279,7 +279,7 @@ $(function(){initNavTree('db/df5/AssertMacros_8h_source.html','../../'); initRes
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="../../db/df5/AssertMacros_8h.html#a317dc938d91eac73bdea39eafe3f8b8a">  147</a></span><span class="preprocessor">#define ASSERT_QUIT(condition, returnOnFailure, ...) MCRO_ASSERT_QUIT_COMMON(condition, returnOnFailure, __VA_ARGS__)</span></div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"></span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/** This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit */</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/** @brief  This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit */</span></div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="../../db/df5/AssertMacros_8h.html#a6f8cc493be58e5bfe52ffdfd00db3619">  150</a></span><span class="preprocessor">#define FORCE_QUIT(returnOnFailure, ...) MCRO_QUIT_BODY(Invalid code path, returnOnFailure, __VA_ARGS__)</span></div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#elif UE_BUILD_SHIPPING &amp;&amp; defined(MCRO_ASSERT_IGNORE_SHIPPING)</span></div>
@@ -298,10 +298,10 @@ $(function(){initNavTree('db/df5/AssertMacros_8h_source.html','../../'); initRes
 <div class="ttc" id="anamespaceMcro_1_1AssertMacros_1_1Detail_html_a349a28c61b3b1d1ea66d9b0e064b1e2e"><div class="ttname"><a href="../../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a349a28c61b3b1d1ea66d9b0e064b1e2e">Mcro::AssertMacros::Detail::StopPie</a></div><div class="ttdeci">MCRO_API void StopPie()</div></div>
 <div class="ttc" id="anamespaceMcro_1_1AssertMacros_1_1Detail_html_a6db6e981d4e2b0f88f6cf581f7108da8"><div class="ttname"><a href="../../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8">Mcro::AssertMacros::Detail::IsRunningPIE</a></div><div class="ttdeci">MCRO_API bool IsRunningPIE()</div></div>
 <div class="ttc" id="anamespaceMcro_1_1AssertMacros_1_1Detail_html_abc87996d4922b38f5a12a7fb36e830d2"><div class="ttname"><a href="../../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#abc87996d4922b38f5a12a7fb36e830d2">Mcro::AssertMacros::Detail::SubmitError</a></div><div class="ttdeci">MCRO_API void SubmitError(EErrorSeverity severity, FString const &amp;codeContext, bool async, bool important, TUniqueFunction&lt; void(IErrorRef const &amp;)&gt; &amp;&amp;extraSetup)</div></div>
-<div class="ttc" id="anamespaceMcro_1_1AssertMacros_html"><div class="ttname"><a href="../../d1/d94/namespaceMcro_1_1AssertMacros.html">Mcro::AssertMacros</a></div><div class="ttdef"><b>Definition</b> <a href="#l00031">AssertMacros.h:32</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00018">Error.Fwd.h:19</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html_a13dfe513629ee4ddd2dca4b1fdcd78d6"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">Mcro::Error::IErrorRef</a></div><div class="ttdeci">TSharedRef&lt; IError &gt; IErrorRef</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00025">Error.Fwd.h:25</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html_ac027708dee5eda3aa90338fe0267302c"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302c">Mcro::Error::EErrorSeverity</a></div><div class="ttdeci">EErrorSeverity</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00052">Error.Fwd.h:53</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1AssertMacros_html"><div class="ttname"><a href="../../d1/d94/namespaceMcro_1_1AssertMacros.html">Mcro::AssertMacros</a></div><div class="ttdoc">Do not use this namespace directly use ASSERT_QUIT|CRASH macros instead.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">AssertMacros.h:32</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></div><div class="ttdoc">Contains utilities for structured error handling.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00018">Error.Fwd.h:19</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html_a13dfe513629ee4ddd2dca4b1fdcd78d6"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">Mcro::Error::IErrorRef</a></div><div class="ttdeci">TSharedRef&lt; IError &gt; IErrorRef</div><div class="ttdoc">Convenience alias for an instance of an error.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00025">Error.Fwd.h:25</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html_ac027708dee5eda3aa90338fe0267302c"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302c">Mcro::Error::EErrorSeverity</a></div><div class="ttdeci">EErrorSeverity</div><div class="ttdoc">Indicate the severity of an error and at what discretion the caller may treat it.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00052">Error.Fwd.h:53</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

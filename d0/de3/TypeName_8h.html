@@ -137,12 +137,14 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:aa25579665ec537022e869b1e5a500337" id="r_aa25579665ec537022e869b1e5a500337"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa25579665ec537022e869b1e5a500337"><td class="memTemplItemLeft" align="right" valign="top">consteval <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ae89b160805d6a59c921a0353dc2d3423">Mcro::Text::FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a> ()</td></tr>
+<tr class="memdesc:aa25579665ec537022e869b1e5a500337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string view of the compile time typename.  <br /></td></tr>
 <tr class="separator:aa25579665ec537022e869b1e5a500337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9" id="r_a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplItemLeft" align="right" valign="top">constexpr FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></td></tr>
+<tr class="memdesc:a4b48113b8a32fb7465ce6663edab3aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a friendly string of an input type without using <code>typeid(T).name()</code>.  <br /></td></tr>
 <tr class="separator:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0" id="r_af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#af597045724d09ebd9dac4d01b85ed1c0">Mcro::TypeName::TTypeNameStd</a> = <a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
@@ -186,7 +188,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get a string view of the compile time typename</p>
+
+<p>Get a string view of the compile time typename. </p>
 <dl class="section note"><dt>Note</dt><dd>Using std::(w)string here instead of FString or FStringView for consteval compatibility</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">

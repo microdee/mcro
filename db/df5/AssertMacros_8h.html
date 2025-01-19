@@ -131,6 +131,7 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d94/namespaceMcro_1_1AssertMacros.html">Mcro::AssertMacros</a></td></tr>
+<tr class="memdesc:d1/d94/namespaceMcro_1_1AssertMacros"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do not use this namespace directly use <code>ASSERT_QUIT|CRASH</code> macros instead. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html">Mcro::AssertMacros::Detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,12 +153,16 @@ Macros</h2></td></tr>
 <tr class="memitem:a00bca9eac31edb01fba1dc0b0a6ff2e8" id="r_a00bca9eac31edb01fba1dc0b0a6ff2e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00bca9eac31edb01fba1dc0b0a6ff2e8">MCRO_ASSERT_QUIT_COMMON</a>(condition,  returnOnFailure, ...)</td></tr>
 <tr class="separator:a00bca9eac31edb01fba1dc0b0a6ff2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa701f2cd895ccc225e7eaef22640854d" id="r_aa701f2cd895ccc225e7eaef22640854d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a>(condition, ...)</td></tr>
+<tr class="memdesc:aa701f2cd895ccc225e7eaef22640854d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will also crash the entire editor even during a PIE session. Use this only if there's absolutely no way to recover from an invalid state, like a situation when early return is not possible / doesn't make sense (e.g.: return a checked pointer by reference).  <br /></td></tr>
 <tr class="separator:aa701f2cd895ccc225e7eaef22640854d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48dadaaff5de49fb994f03ba43a52852" id="r_a48dadaaff5de49fb994f03ba43a52852"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48dadaaff5de49fb994f03ba43a52852">FORCE_CRASH</a>(...)</td></tr>
+<tr class="memdesc:a48dadaaff5de49fb994f03ba43a52852"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is equivalent to ASSERT_CRASH but if a code path reaches this macro it will always crash.  <br /></td></tr>
 <tr class="separator:a48dadaaff5de49fb994f03ba43a52852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a317dc938d91eac73bdea39eafe3f8b8a" id="r_a317dc938d91eac73bdea39eafe3f8b8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(condition,  returnOnFailure, ...)</td></tr>
+<tr class="memdesc:a317dc938d91eac73bdea39eafe3f8b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will not crash the editor but will display an error, stops the PIE, and should return the calling function.  <br /></td></tr>
 <tr class="separator:a317dc938d91eac73bdea39eafe3f8b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f8cc493be58e5bfe52ffdfd00db3619" id="r_a6f8cc493be58e5bfe52ffdfd00db3619"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f8cc493be58e5bfe52ffdfd00db3619">FORCE_QUIT</a>(returnOnFailure, ...)</td></tr>
+<tr class="memdesc:a6f8cc493be58e5bfe52ffdfd00db3619"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit.  <br /></td></tr>
 <tr class="separator:a6f8cc493be58e5bfe52ffdfd00db3619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -198,13 +203,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a588ce77d066e07032a97a1fabf9d7cea">MCRO_ASSERT_CRASH_COMMON</a>(condition, __VA_ARGS__)</div>
 <div class="ttc" id="aAssertMacros_8h_html_a588ce77d066e07032a97a1fabf9d7cea"><div class="ttname"><a href="#a588ce77d066e07032a97a1fabf9d7cea">MCRO_ASSERT_CRASH_COMMON</a></div><div class="ttdeci">#define MCRO_ASSERT_CRASH_COMMON(condition,...)</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00083">AssertMacros.h:83</a></div></div>
-</div><!-- fragment --><p>Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will also crash the entire editor even during a PIE session. Use this only if there's absolutely no way to recover from an invalid state, like a situation when early return is not possible / doesn't make sense (e.g.: return a checked pointer by reference).</p>
-<p>This macro will attempt to display the error before crashing via the IError type. You can also append extra information to it, or even override preset information like so:</p>
-<div class="fragment"><div class="line"><a class="code hl_define" href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a>(arrayNum &gt; 0,</div>
+</div><!-- fragment -->
+<p>Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will also crash the entire editor even during a PIE session. Use this only if there's absolutely no way to recover from an invalid state, like a situation when early return is not possible / doesn't make sense (e.g.: return a checked pointer by reference). </p>
+<p>This macro will attempt to display the error before crashing via the IError type. You can also append extra information to it, or even override preset information like so: </p><div class="fragment"><div class="line"><a class="code hl_define" href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a>(arrayNum &gt; 0,</div>
 <div class="line">    -&gt;WithDetails(TEXT(<span class="stringliteral">&quot;Did you forget to specify data?&quot;</span>))</div>
 <div class="line">    -&gt;WithAppendix(TEXT(<span class="stringliteral">&quot;Data&quot;</span>), data.ToString())</div>
 <div class="line">)</div>
-<div class="ttc" id="aAssertMacros_8h_html_aa701f2cd895ccc225e7eaef22640854d"><div class="ttname"><a href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a></div><div class="ttdeci">#define ASSERT_CRASH(condition,...)</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00113">AssertMacros.h:113</a></div></div>
+<div class="ttc" id="aAssertMacros_8h_html_aa701f2cd895ccc225e7eaef22640854d"><div class="ttname"><a href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a></div><div class="ttdeci">#define ASSERT_CRASH(condition,...)</div><div class="ttdoc">Use this instead of check macro if the checked expression shouldn't be ignored in shipping builds....</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00113">AssertMacros.h:113</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00113">113</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
@@ -235,16 +240,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a00bca9eac31edb01fba1dc0b0a6ff2e8">MCRO_ASSERT_QUIT_COMMON</a>(condition, returnOnFailure, __VA_ARGS__)</div>
 <div class="ttc" id="aAssertMacros_8h_html_a00bca9eac31edb01fba1dc0b0a6ff2e8"><div class="ttname"><a href="#a00bca9eac31edb01fba1dc0b0a6ff2e8">MCRO_ASSERT_QUIT_COMMON</a></div><div class="ttdeci">#define MCRO_ASSERT_QUIT_COMMON(condition, returnOnFailure,...)</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00089">AssertMacros.h:89</a></div></div>
-</div><!-- fragment --><p>Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will not crash the editor but will display an error, stops the PIE, and should return the calling function. A return value should be provided on failure, or leave it empty to return void. so either</p>
-<div class="fragment"><div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(SomethingImportantButNullable, ) <span class="comment">// important to leave an extra comma for void functions</span></div>
+</div><!-- fragment -->
+<p>Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will not crash the editor but will display an error, stops the PIE, and should return the calling function. </p>
+<p>A return value should be provided on failure, or leave it empty to return void. so either </p><div class="fragment"><div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(SomethingImportantButNullable, ) <span class="comment">// important to leave an extra comma for void functions</span></div>
 <div class="line"><span class="comment">// or return default</span></div>
 <div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(SomethingImportantButNullable, {})</div>
 <div class="line"><span class="comment">// or return whatever</span></div>
 <div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(SomethingImportantButNullable, myReturnValue)</div>
-<div class="ttc" id="aAssertMacros_8h_html_a317dc938d91eac73bdea39eafe3f8b8a"><div class="ttname"><a href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a></div><div class="ttdeci">#define ASSERT_QUIT(condition, returnOnFailure,...)</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00147">AssertMacros.h:147</a></div></div>
-</div><!-- fragment --><p>This is done in the hopes that these checks failing in PIE sessions doesn't crash the entire editor giving the developer a chance for fixing the error before restarting. However early returns might cause undefined/vaguely-defined side effects and may lead to uninitialized resources or in worst case scenario may lead to incorrect states in resource cleanups which then might crash the editor. Always check the validity of your resources in destructors. Failing this check outside of PIE or in a Standalone session will still crash with a <code>check</code> macro.</p>
-<p>This macro will attempt to display the error before quitting via the IError type. You can also append extra information to it like so, or even override preset information like so:</p>
-<div class="fragment"><div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(arrayNum &gt; 0, myReturnValue,</div>
+<div class="ttc" id="aAssertMacros_8h_html_a317dc938d91eac73bdea39eafe3f8b8a"><div class="ttname"><a href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a></div><div class="ttdeci">#define ASSERT_QUIT(condition, returnOnFailure,...)</div><div class="ttdoc">Use this instead of check macro if the checked expression shouldn't be ignored in shipping builds....</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00147">AssertMacros.h:147</a></div></div>
+</div><!-- fragment --><p>This is done in the hopes that these checks failing in PIE sessions doesn't crash the entire editor giving the developer a chance for fixing the error before restarting. However, early returns might cause undefined/vaguely-defined side effects and may lead to uninitialized resources or in worst case scenario may lead to incorrect states in resource cleanups which then might crash the editor. Always check the validity of your resources in destructors. Failing this check outside of PIE or in a Standalone session will still crash with a <code>check</code> macro.</p>
+<p>This macro will attempt to display the error before quitting via the IError type. You can also append extra information to it like so, or even override preset information like so: </p><div class="fragment"><div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(arrayNum &gt; 0, myReturnValue,</div>
 <div class="line">    -&gt;WithDetails(TEXT(<span class="stringliteral">&quot;Did you forget to specify data?&quot;</span>))</div>
 <div class="line">    -&gt;WithAppendix(TEXT(<span class="stringliteral">&quot;Data&quot;</span>), data.ToString())</div>
 <div class="line">)</div>
@@ -269,7 +274,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a32263d9e9c647c5d5ea838152763967a">MCRO_CRASH_BODY</a>(Invalid code path, __VA_ARGS__)</div>
 <div class="ttc" id="aAssertMacros_8h_html_a32263d9e9c647c5d5ea838152763967a"><div class="ttname"><a href="#a32263d9e9c647c5d5ea838152763967a">MCRO_CRASH_BODY</a></div><div class="ttdeci">#define MCRO_CRASH_BODY(condition,...)</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00062">AssertMacros.h:62</a></div></div>
-</div><!-- fragment --><p>This is equivalent to ASSERT_CRASH but if a code path reaches this macro it will always crash </p>
+</div><!-- fragment -->
+<p>This is equivalent to ASSERT_CRASH but if a code path reaches this macro it will always crash. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00116">116</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
@@ -295,7 +301,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a45682925d9aa5824efc2734bcbab676c">MCRO_QUIT_BODY</a>(Invalid code path, returnOnFailure, __VA_ARGS__)</div>
 <div class="ttc" id="aAssertMacros_8h_html_a45682925d9aa5824efc2734bcbab676c"><div class="ttname"><a href="#a45682925d9aa5824efc2734bcbab676c">MCRO_QUIT_BODY</a></div><div class="ttdeci">#define MCRO_QUIT_BODY(condition, returnOnFailure,...)</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00069">AssertMacros.h:69</a></div></div>
-</div><!-- fragment --><p>This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit </p>
+</div><!-- fragment -->
+<p>This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00150">150</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
@@ -421,7 +428,7 @@ Functions</h2></td></tr>
 <div class="line">        [&amp;](<a class="code hl_typedef" href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">Mcro::Error::IErrorRef</a> <span class="keyword">const</span>&amp; error) { (error __VA_ARGS__); }    \</div>
 <div class="line">    );</div>
 <div class="ttc" id="anamespaceMcro_1_1AssertMacros_1_1Detail_html_abc87996d4922b38f5a12a7fb36e830d2"><div class="ttname"><a href="../../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#abc87996d4922b38f5a12a7fb36e830d2">Mcro::AssertMacros::Detail::SubmitError</a></div><div class="ttdeci">MCRO_API void SubmitError(EErrorSeverity severity, FString const &amp;codeContext, bool async, bool important, TUniqueFunction&lt; void(IErrorRef const &amp;)&gt; &amp;&amp;extraSetup)</div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html_a13dfe513629ee4ddd2dca4b1fdcd78d6"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">Mcro::Error::IErrorRef</a></div><div class="ttdeci">TSharedRef&lt; IError &gt; IErrorRef</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00025">Error.Fwd.h:25</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html_a13dfe513629ee4ddd2dca4b1fdcd78d6"><div class="ttname"><a href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">Mcro::Error::IErrorRef</a></div><div class="ttdeci">TSharedRef&lt; IError &gt; IErrorRef</div><div class="ttdoc">Convenience alias for an instance of an error.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3f/Error_8Fwd_8h_source.html#l00025">Error.Fwd.h:25</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00048">48</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
@@ -513,7 +520,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="../../de/dba/Error_8h.html#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a>(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)</div>
-<div class="ttc" id="aError_8h_html_a17f21b72a1de7dd934d3badd23953072"><div class="ttname"><a href="../../de/dba/Error_8h.html#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a></div><div class="ttdeci">#define PROPAGATE_FAIL_V(var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00633">Error.h:633</a></div></div>
+<div class="ttc" id="aError_8h_html_a17f21b72a1de7dd934d3badd23953072"><div class="ttname"><a href="../../de/dba/Error_8h.html#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a></div><div class="ttdeci">#define PROPAGATE_FAIL_V(var, expression)</div><div class="ttdoc">If a function returns a TMaybe&lt;V&gt; inside another function which may also return another error use thi...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00653">Error.h:653</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

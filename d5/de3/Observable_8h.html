@@ -122,7 +122,6 @@ $(function(){initNavTree('d5/de3/Observable_8h.html','../../'); initResizable(tr
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../db/df5/AssertMacros_8h_source.html">Mcro/AssertMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d51/EventDelegate_8h_source.html">Mcro/Delegates/EventDelegate.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d1/dd5/Construct_8h_source.html">Mcro/Construct.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Mcro/Observable.Fwd.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d5/de3/Observable_8h_source.html">Go to the source code of this file.</a></p>
@@ -130,10 +129,13 @@ $(function(){initNavTree('d5/de3/Observable_8h.html','../../'); initResizable(tr
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcf/structMcro_1_1Observable_1_1TChangeData.html">Mcro::Observable::TChangeData&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan is managed entirely by <code><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a></code>  <a href="../../dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public API and base class for <code><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a></code> which shouldn't concern with policy flags or thread safety.  <a href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage wrapper for any value which state needs to be tracked or their change needs to be observed. By default, <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> is not thread-safe unless ThreadSafeState policy is active in DefaultPolicy.  <a href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>

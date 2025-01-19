@@ -138,64 +138,67 @@ $(function(){initNavTree('d6/d11/AsNative_8h_source.html','../../'); initResizab
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment"></span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     *  Creates a native delegate that is bound to the same UFunction as the specified dynamic delegate.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     *  @note This function can only convert non-multicast delegates.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *  The signatures of the functions are checked, so that it is not possible to compile a conversion that would crash</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *  at runtime.</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *  Example Usage:</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     *      using FMyNativeDelegate = TDelegate&lt;void(int32 someParam)&gt;;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *      DECLARE_DYNAMIC_DELEGATE_OneParam(FMyBlueprintDelegate, const int32, someParam);</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *      </span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     *      void MyNativeDelegateFunction(FMyNativeDelegate delegate)</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     *      {</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     *          ...</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     *      }</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     *      </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     *      void MyBlueprintDelegateFunction(FMyBlueprintDelegate delegate)</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     *      {</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     *          MyNativeDelegateFunction(Delegates::AsNative(delegate));</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     *      }</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     *  @tparam Dynamic             The origin type, i.e. the dynamic delegate. Will be auto-deduced.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     *  @tparam NativeDelegateType  The target type, i.e. the delegate that you want to produce. Will be auto-deduced from Dynamic.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     *  @param dynamicDelegate      The dynamic delegate that will be converted</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">template</span> &lt;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_concept" href="../../dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html">CDynamicDelegate</a> Dynamic,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">typename</span> MethodPtrTypeDynamic = <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">typename</span> NativeDelegateType = TDelegate&lt;TFunction_Signature&lt;MethodPtrTypeDynamic&gt;&gt;,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">typename</span> MethodPtrTypeNative = <span class="keyword">typename</span> TMemFunPtrType&lt;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            FDeclareOnly,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keyword">typename</span> NativeDelegateType::TFuncType</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        &gt;::Type</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    &gt;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">requires</span> CSameAs&lt;MethodPtrTypeDynamic, MethodPtrTypeNative&gt;</div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a741dd0776a003ff6e054298d57c4fb59">   60</a></span>    NativeDelegateType <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a741dd0776a003ff6e054298d57c4fb59">AsNative</a>(Dynamic&amp;&amp; dynamicDelegate)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// The TBaseUFunctionDelegateInstance constructor asserts if the function name is NAME_None. We therefore must check</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// to see if the dynamic delegate is bound at all. If it isn&#39;t, return an unbound native delegate.</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">if</span> (!dynamicDelegate.IsBound())</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">return</span> NativeDelegateType();</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> NativeDelegateType::CreateUFunction(dynamicDelegate.GetUObject(), dynamicDelegate.GetFunctionName());</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *  Creates a native delegate that is bound to the same UFunction as the specified dynamic delegate.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     *  @note This function can only convert non-multicast delegates.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *  The signatures of the functions are checked, so that it is not possible to compile a conversion that would crash</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *  at runtime.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     *  Example Usage:</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *  using FMyNativeDelegate = TDelegate&lt;void(int32 someParam)&gt;;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     *  DECLARE_DYNAMIC_DELEGATE_OneParam(FMyBlueprintDelegate, int32, someParam);</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     *  void MyNativeDelegateFunction(FMyNativeDelegate delegate)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     *      ...</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     *  void MyBlueprintDelegateFunction(FMyBlueprintDelegate delegate)</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     *      MyNativeDelegateFunction(Delegates::AsNative(delegate));</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     *  @tparam Dynamic             The origin type, i.e. the dynamic delegate. Will be auto-deduced.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     *  @tparam NativeDelegateType  The target type, i.e. the delegate that you want to produce. Will be auto-deduced from Dynamic.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     *  @param dynamicDelegate      The dynamic delegate that will be converted</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_concept" href="../../dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html">CDynamicDelegate</a> Dynamic,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">typename</span> MethodPtrTypeDynamic = <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">typename</span> NativeDelegateType = TDelegate&lt;TFunction_Signature&lt;MethodPtrTypeDynamic&gt;&gt;,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">typename</span> MethodPtrTypeNative = <span class="keyword">typename</span> TMemFunPtrType&lt;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            FDeclareOnly,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">typename</span> NativeDelegateType::TFuncType</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        &gt;::Type</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    &gt;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">requires</span> CSameAsDecayed&lt;MethodPtrTypeDynamic, MethodPtrTypeNative&gt;</div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479">   63</a></span>    NativeDelegateType <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479">AsNative</a>(Dynamic&amp;&amp; dynamicDelegate)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// The TBaseUFunctionDelegateInstance constructor asserts if the function name is NAME_None. We therefore must check</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="comment">// to see if the dynamic delegate is bound at all. If it isn&#39;t, return an unbound native delegate.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> (!dynamicDelegate.IsBound())</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">return</span> NativeDelegateType();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> NativeDelegateType::CreateUFunction(dynamicDelegate.GetUObject(), dynamicDelegate.GetFunctionName());</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="../../d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
 <div class="ttc" id="aTraits_8h_html"><div class="ttname"><a href="../../db/d31/Traits_8h.html">Traits.h</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Delegates_1_1CDynamicDelegate_html"><div class="ttname"><a href="../../dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html">Mcro::Delegates::CDynamicDelegate</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00024">Traits.h:24</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Delegates_1_1CDynamicDelegate_html"><div class="ttname"><a href="../../dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html">Mcro::Delegates::CDynamicDelegate</a></div><div class="ttdoc">Constraint given type to a dynamic delegate class.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00024">Traits.h:24</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Delegates_html"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></div><div class="ttdef"><b>Definition</b> <a href="#l00018">AsNative.h:19</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a741dd0776a003ff6e054298d57c4fb59"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a741dd0776a003ff6e054298d57c4fb59">Mcro::Delegates::AsNative</a></div><div class="ttdeci">NativeDelegateType AsNative(Dynamic &amp;&amp;dynamicDelegate)</div><div class="ttdef"><b>Definition</b> <a href="#l00060">AsNative.h:60</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_ae79c9ec71f5c756d96d75d002b713a43"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">Mcro::Delegates::TDynamicMethodPtr</a></div><div class="ttdeci">typename TDynamicMethodPtr_Struct&lt; std::decay_t&lt; Dynamic &gt; &gt;::Type TDynamicMethodPtr</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00055">Traits.h:55</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a90436033b2baeab420898e7d14f48479"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479">Mcro::Delegates::AsNative</a></div><div class="ttdeci">NativeDelegateType AsNative(Dynamic &amp;&amp;dynamicDelegate)</div><div class="ttdoc">Creates a native delegate that is bound to the same UFunction as the specified dynamic delegate.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">AsNative.h:63</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_ae79c9ec71f5c756d96d75d002b713a43"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">Mcro::Delegates::TDynamicMethodPtr</a></div><div class="ttdeci">typename TDynamicMethodPtr_Struct&lt; std::decay_t&lt; Dynamic &gt; &gt;::Type TDynamicMethodPtr</div><div class="ttdoc">Get the native function pointer type compatible with given dynamic (multicast) delegate.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00053">Traits.h:53</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00019">FunctionTraits.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

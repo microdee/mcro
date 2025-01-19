@@ -122,6 +122,7 @@ $(function(){initNavTree('df/d09/namespaceMcro_1_1TypeName.html','../../'); init
 Variables</h2></td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9" id="r_a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplItemLeft" align="right" valign="top">constexpr FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a></td></tr>
+<tr class="memdesc:a4b48113b8a32fb7465ce6663edab3aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a friendly string of an input type without using <code>typeid(T).name()</code>.  <br /></td></tr>
 <tr class="separator:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0" id="r_af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af597045724d09ebd9dac4d01b85ed1c0">TTypeNameStd</a> = <a class="el" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
@@ -149,9 +150,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9" title="Get a friendly string of an input type without using typeid(T).name().">TTypeName</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00142">142</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00144">144</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -180,10 +181,12 @@ template&lt;typename T &gt; </div>
 <div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().data(),</div>
 <div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().size()</div>
 <div class="line">    )</div>
-<div class="ttc" id="aTypeName_8h_html_aa25579665ec537022e869b1e5a500337"><div class="ttname"><a href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a></div><div class="ttdeci">consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00046">TypeName.h:46</a></div></div>
-</div><!-- fragment --><p>Get a friendly string of an input type without using <code>typeid(T).name()</code> Actually this method gives more predictable results across compilers than <code>typeid(T).name()</code> but still not 100% the same. Besides <code>TTypeName&lt;T&gt;</code> can deal with incomplete types as well, whereas <code>typeid(T)</code> cannot (more on this in remarks). While it is more consistent across compilers, it is still not 100% consistent. Take templated types for instance where MSVC compiler will add "class" prefix in front of type arguments where GCC or CLang might not. Because of subtle differences like this, it is strongly discouraged to assume the exact format of the output of <code>TTypeName&lt;T&gt;</code></p>
+<div class="ttc" id="aTypeName_8h_html_aa25579665ec537022e869b1e5a500337"><div class="ttname"><a href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a></div><div class="ttdeci">consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()</div><div class="ttdoc">Get a string view of the compile time typename.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00046">TypeName.h:46</a></div></div>
+</div><!-- fragment -->
+<p>Get a friendly string of an input type without using <code>typeid(T).name()</code>. </p>
+<p>Actually this method gives more predictable results across compilers than <code>typeid(T).name()</code> but still not 100% the same. Besides TTypeName can deal with incomplete types as well, whereas <code>typeid(T)</code> cannot (more on this in remarks). While it is more consistent across compilers, it is still not 100% consistent. Take templated types for instance where MSVC compiler will add "class" prefix in front of type arguments where GCC or CLang might not. Because of subtle differences like this, it is strongly discouraged to assume the exact format of the output of TTypeName</p>
 <p>Usage: </p><div class="fragment"><div class="line">FStringView myTypeName = <a class="code hl_variable" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName&lt;FMyType&gt;</a>;</div>
-<div class="ttc" id="anamespaceMcro_1_1TypeName_html_a4b48113b8a32fb7465ce6663edab3aa9"><div class="ttname"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></div><div class="ttdeci">constexpr FStringView TTypeName</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00131">TypeName.h:131</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1TypeName_html_a4b48113b8a32fb7465ce6663edab3aa9"><div class="ttname"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></div><div class="ttdeci">constexpr FStringView TTypeName</div><div class="ttdoc">Get a friendly string of an input type without using typeid(T).name().</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00133">TypeName.h:133</a></div></div>
 </div><!-- fragment --><p>It is useful in templates where a type name should be known in runtime as well. (e.g.: Modular features)</p>
 <dl class="section remark"><dt>Remarks</dt><dd>Note on incomplete types: incomplete types on MSVC are localized to current scope. which means <div class="fragment"><div class="line"><span class="keyword">class </span>I;</div>
 <div class="line"> </div>
@@ -197,15 +200,15 @@ template&lt;typename T &gt; </div>
 <div class="line">    FStringView GetName() { <span class="keywordflow">return</span> TTypeName&lt;class I&gt;; }</div>
 <div class="line">    <span class="comment">// Returns &quot;A::GetName::I&quot;</span></div>
 <div class="line">}</div>
-</div><!-- fragment --> as you can see they are not equal. For sake of simplicity TTypeName only supports incomplete types when they're declared in global scope. Any other case might yield undesired results (e.g.: TTypeName&lt;class I&gt; of incomplete <code>I</code> might not be the same as TTypeName<em> somewhere else with <code>I</code> being fully defined)</em></dd></dl>
+</div><!-- fragment --> as you can see they are not equal. For sake of simplicity TTypeName only supports incomplete types when they're declared in global scope. Any other case might yield undesired results (e.g.: <code>TTypeName&lt;class I&gt;</code> of incomplete <code>I</code> might not be the same as <code>TTypeName&lt;I&gt;</code> somewhere else with <code>I</code> being fully defined)</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td><em>The type to be named </em></td></tr>
+    <tr><td class="paramname">T</td><td>The type to be named </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00131">131</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00133">133</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -230,9 +233,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9" title="Get a friendly string of an input type without using typeid(T).name().">TTypeName</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00138">138</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00140">140</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -249,9 +252,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9" title="Get a friendly string of an input type without using typeid(T).name().">TTypeName</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00146">146</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00148">148</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>

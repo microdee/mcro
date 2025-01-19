@@ -133,96 +133,103 @@ $(function(){initNavTree('de/de6/Finally_8h_source.html','../../'); initResizabl
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../df/d7d/namespaceMcro_1_1Finally.html">   15</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/d7d/namespaceMcro_1_1Finally.html">Mcro::Finally</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{<span class="comment"></span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">     *  Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however FFinally can be moved</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">     *  around into different scopes, Payload will be only executed if the finalizer hasn&#39;t been moved from, otherwise</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     *  the payload will be ignored in the source of move assignments:</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     *      FFinally fin([] {...})</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *      Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)]</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     *      {</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     *          // Payload is executed at the end of this scope</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *      }</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *      // Payload is not executed here</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *  }</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     *  Finalizers can be moved into nested scopes</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *      FFinally fin([] {...})</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     *      Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)] mutable</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     *      {</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     *          AsyncTask(ENamedThreads::GameThread, [fin = MoveTemp(fin)]</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     *          {</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     *              // Payload is executed at the end of this scope</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     *          }</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     *          // Payload is not executed here</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     *      }</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     *      // Payload is not executed here</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     *  }</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     */</span></div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">   46</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> : FNoncopyable</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        TUniqueFunction&lt;void()&gt; Payload;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">bool</span> bIsValid = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a3c683bfc062a6d984503e5830e4eaa47">   53</a></span>        <a class="code hl_function" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a3c683bfc062a6d984503e5830e4eaa47">FFinally</a>(TUniqueFunction&lt;<span class="keywordtype">void</span>()&gt;&amp;&amp; payload) : Payload(MoveTemp(payload)) {}</div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c">   54</a></span>        <a class="code hl_function" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c">FFinally</a>(<a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a>&amp;&amp; from) noexcept : Payload(MoveTemp(from.Payload))</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            from.bIsValid = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">     *  Run arbitrary finalizers on destruction. It has similar purpose to `ON_SCOPE_EXIT`, however FFinally can be</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     *  moved around into different scopes, Payload will be only executed if the finalizer hasn&#39;t been moved from,</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">     *  otherwise the payload will be ignored in the source of move assignments</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     *  Usage:</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     *      FFinally fin([] {...})</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *      Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)]</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *      {</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *          // Payload is executed at the end of this scope</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *      }</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     *      // Payload is not executed here</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *  Finalizers can be moved into nested scopes</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     *      FFinally fin([] {...})</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     *      Async(EAsyncExecution::ThreadPool, [fin = MoveTemp(fin)] mutable</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     *      {</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     *          AsyncTask(ENamedThreads::GameThread, [fin = MoveTemp(fin)]</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     *          {</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     *              // Payload is executed at the end of this scope</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     *          }</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     *          // Payload is not executed here</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     *      }</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     *      // Payload is not executed here</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     *  @endcode </span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">   50</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> : FNoncopyable</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        TUniqueFunction&lt;void()&gt; Payload;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">bool</span> bIsValid = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a3c683bfc062a6d984503e5830e4eaa47">   57</a></span>        <a class="code hl_function" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a3c683bfc062a6d984503e5830e4eaa47">FFinally</a>(TUniqueFunction&lt;<span class="keywordtype">void</span>()&gt;&amp;&amp; payload) : Payload(MoveTemp(payload)) {}</div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c">   58</a></span>        <a class="code hl_function" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c">FFinally</a>(<a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a>&amp;&amp; from) noexcept : Payload(MoveTemp(from.Payload))</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            from.bIsValid = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
 </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a1f40b430228fdeaa260246a28cfba70f">   59</a></span>        <a class="code hl_function" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a1f40b430228fdeaa260246a28cfba70f">~FFinally</a>()</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">if</span>(bIsValid) Payload();</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a1f40b430228fdeaa260246a28cfba70f">   63</a></span>        <a class="code hl_function" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a1f40b430228fdeaa260246a28cfba70f">~FFinally</a>()</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">if</span>(bIsValid) Payload();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    };</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    };</div>
 </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">    /** Do not use this directly, use FINALLY macro. Similar intentions to ON_SCOPE_EXIT but gives more freedom */</span></div>
-<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html">   66</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html">FFinallySyntaxSupport</a></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7">   68</a></span>        <a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> <a class="code hl_function" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7">operator+</a>(TUniqueFunction&lt;<span class="keywordtype">void</span>()&gt;&amp;&amp; payload)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">return</span> <a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a>(MoveTemp(payload));</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     *  @warning</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">     *  Do not use this directly, use FINALLY macro. Similar intentions to ON_SCOPE_EXIT but gives more freedom</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="};">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html">   73</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html">FFinallySyntaxSupport</a></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7">   75</a></span>        <a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a> <a class="code hl_function" href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7">operator+</a>(TUniqueFunction&lt;<span class="keywordtype">void</span>()&gt;&amp;&amp; payload)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">return</span> <a class="code hl_struct" href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">FFinally</a>(MoveTemp(payload));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    };</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    };</div>
 </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> *  A more convenient way to use `FFinally`.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> *  @code</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> *  auto fin = FINALLY(=, this) mutable</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> *  {</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> *      ...</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> *  };</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> *  AsyncTask(ENamedThreads::GameThread, [fin = MoveTemp(fin)]</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> *  {</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> *      // Payload is executed at the end of this scope</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> *  }</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> *  @endcode </span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../de/de6/Finally_8h.html#a3c9f61559683179b3d1b596e954df1ad">   89</a></span><span class="preprocessor">#define FINALLY(...) Mcro::Finally::FFinallySyntaxSupport() + [__VA_ARGS__]()</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> *  A more convenient way to use `FFinally`.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> *  @code</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> *  auto fin = FINALLY(=, this) mutable</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> *  {</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> *      ...</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> *  };</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> *  AsyncTask(ENamedThreads::GameThread, [fin = MoveTemp(fin)]</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> *  {</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> *      // Payload is executed at the end of this scope</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> *  }</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> *  @endcode </span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../de/de6/Finally_8h.html#a3c9f61559683179b3d1b596e954df1ad">   96</a></span><span class="preprocessor">#define FINALLY(...) Mcro::Finally::FFinallySyntaxSupport() + [__VA_ARGS__]()</span></div>
 <div class="ttc" id="anamespaceMcro_1_1Finally_html"><div class="ttname"><a href="../../df/d7d/namespaceMcro_1_1Finally.html">Mcro::Finally</a></div><div class="ttdef"><b>Definition</b> <a href="#l00015">Finally.h:16</a></div></div>
-<div class="ttc" id="astructMcro_1_1Finally_1_1FFinallySyntaxSupport_html"><div class="ttname"><a href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html">Mcro::Finally::FFinallySyntaxSupport</a></div><div class="ttdef"><b>Definition</b> <a href="#l00066">Finally.h:67</a></div></div>
-<div class="ttc" id="astructMcro_1_1Finally_1_1FFinallySyntaxSupport_html_a33bc42bcf07346445a65bdea801909d7"><div class="ttname"><a href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7">Mcro::Finally::FFinallySyntaxSupport::operator+</a></div><div class="ttdeci">FFinally operator+(TUniqueFunction&lt; void()&gt; &amp;&amp;payload)</div><div class="ttdef"><b>Definition</b> <a href="#l00068">Finally.h:68</a></div></div>
-<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">Mcro::Finally::FFinally</a></div><div class="ttdef"><b>Definition</b> <a href="#l00046">Finally.h:47</a></div></div>
-<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html_a1f40b430228fdeaa260246a28cfba70f"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a1f40b430228fdeaa260246a28cfba70f">Mcro::Finally::FFinally::~FFinally</a></div><div class="ttdeci">~FFinally()</div><div class="ttdef"><b>Definition</b> <a href="#l00059">Finally.h:59</a></div></div>
-<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html_a3c683bfc062a6d984503e5830e4eaa47"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a3c683bfc062a6d984503e5830e4eaa47">Mcro::Finally::FFinally::FFinally</a></div><div class="ttdeci">FFinally(TUniqueFunction&lt; void()&gt; &amp;&amp;payload)</div><div class="ttdef"><b>Definition</b> <a href="#l00053">Finally.h:53</a></div></div>
-<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html_a928e4b58f3a3c5b591188b8e69a4736c"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c">Mcro::Finally::FFinally::FFinally</a></div><div class="ttdeci">FFinally(FFinally &amp;&amp;from) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00054">Finally.h:54</a></div></div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinallySyntaxSupport_html"><div class="ttname"><a href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html">Mcro::Finally::FFinallySyntaxSupport</a></div><div class="ttdef"><b>Definition</b> <a href="#l00073">Finally.h:74</a></div></div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinallySyntaxSupport_html_a33bc42bcf07346445a65bdea801909d7"><div class="ttname"><a href="../../d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7">Mcro::Finally::FFinallySyntaxSupport::operator+</a></div><div class="ttdeci">FFinally operator+(TUniqueFunction&lt; void()&gt; &amp;&amp;payload)</div><div class="ttdef"><b>Definition</b> <a href="#l00075">Finally.h:75</a></div></div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html">Mcro::Finally::FFinally</a></div><div class="ttdoc">Run arbitrary finalizers on destruction. It has similar purpose to ON_SCOPE_EXIT, however FFinally ca...</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Finally.h:51</a></div></div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html_a1f40b430228fdeaa260246a28cfba70f"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a1f40b430228fdeaa260246a28cfba70f">Mcro::Finally::FFinally::~FFinally</a></div><div class="ttdeci">~FFinally()</div><div class="ttdef"><b>Definition</b> <a href="#l00063">Finally.h:63</a></div></div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html_a3c683bfc062a6d984503e5830e4eaa47"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a3c683bfc062a6d984503e5830e4eaa47">Mcro::Finally::FFinally::FFinally</a></div><div class="ttdeci">FFinally(TUniqueFunction&lt; void()&gt; &amp;&amp;payload)</div><div class="ttdef"><b>Definition</b> <a href="#l00057">Finally.h:57</a></div></div>
+<div class="ttc" id="astructMcro_1_1Finally_1_1FFinally_html_a928e4b58f3a3c5b591188b8e69a4736c"><div class="ttname"><a href="../../d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c">Mcro::Finally::FFinally::FFinally</a></div><div class="ttdeci">FFinally(FFinally &amp;&amp;from) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00058">Finally.h:58</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

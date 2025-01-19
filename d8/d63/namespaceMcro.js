@@ -8,7 +8,10 @@ var namespaceMcro =
     [ "AutoModularFeature", "d3/d71/namespaceMcro_1_1AutoModularFeature.html", "d3/d71/namespaceMcro_1_1AutoModularFeature" ],
     [ "Badge", "d3/dd6/namespaceMcro_1_1Badge.html", "d3/dd6/namespaceMcro_1_1Badge" ],
     [ "Concepts", "d2/d09/namespaceMcro_1_1Concepts.html", "d2/d09/namespaceMcro_1_1Concepts" ],
-    [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html", "d3/d5d/namespaceMcro_1_1Construct" ],
+    [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html", [
+      [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4", null ],
+      [ "ConstructNew", "d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e", null ]
+    ] ],
     [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", "d0/dec/namespaceMcro_1_1Delegates" ],
     [ "Dll", "d6/dcf/namespaceMcro_1_1Dll.html", "d6/dcf/namespaceMcro_1_1Dll" ],
     [ "Enums", "db/d56/namespaceMcro_1_1Enums.html", [
@@ -21,6 +24,7 @@ var namespaceMcro =
     [ "Error", "dd/d58/namespaceMcro_1_1Error.html", "dd/d58/namespaceMcro_1_1Error" ],
     [ "Finally", "df/d7d/namespaceMcro_1_1Finally.html", "df/d7d/namespaceMcro_1_1Finally" ],
     [ "FunctionTraits", "d5/de0/namespaceMcro_1_1FunctionTraits.html", "d5/de0/namespaceMcro_1_1FunctionTraits" ],
+    [ "InitializeOnCopy", "df/dae/namespaceMcro_1_1InitializeOnCopy.html", "df/dae/namespaceMcro_1_1InitializeOnCopy" ],
     [ "Modules", "d5/d1b/namespaceMcro_1_1Modules.html", "d5/d1b/namespaceMcro_1_1Modules" ],
     [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", "d6/da2/namespaceMcro_1_1Observable" ],
     [ "Once", "dd/d7f/namespaceMcro_1_1Once.html", "dd/d7f/namespaceMcro_1_1Once" ],

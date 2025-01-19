@@ -15,5 +15,5 @@ var Subsystems_8h =
     [ "Get", "d7/d78/Subsystems_8h.html#aae1ccf92d88aa9a8725c649608924024", null ],
     [ "GetChecked", "d7/d78/Subsystems_8h.html#aa9d929a2b3bc95cd9bfb2f2ed4b984bb", null ],
     [ "GetEnsured", "d7/d78/Subsystems_8h.html#ab3016855b2904686fd1d4be79e07a6f7", null ],
-    [ "ShouldCreateSubsystem", "d7/d78/Subsystems_8h.html#a00118b8ddd5b4a43868566664b951ce7", null ]
+    [ "ShouldCreate", "d7/d78/Subsystems_8h.html#ab0f8be242e1c7358d7f2728a66b214f0", null ]
 ];

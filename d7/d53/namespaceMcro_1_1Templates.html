@@ -120,47 +120,59 @@ $(function(){initNavTree('d7/d53/namespaceMcro_1_1Templates.html','../../'); ini
   <div class="headertitle"><div class="title">Mcro::Templates Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This namespace provide some introspection into template instantiations.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base struct containing traits of specified template (which only accepts type parameters)  <a href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/conceptMcro_1_1Templates_1_1CIsTemplate.html">CIsTemplate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if given type is an instantiation of a given template (which only accepts type parameters) <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a0a7110901e690293584da6a8714b17c5" id="r_a0a7110901e690293584da6a8714b17c5"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename T &gt; </td></tr>
 <tr class="memitem:a0a7110901e690293584da6a8714b17c5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0a7110901e690293584da6a8714b17c5">TTemplate_Params</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Parameters&lt;T&gt;::Type</td></tr>
+<tr class="memdesc:a0a7110901e690293584da6a8714b17c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get template type parameters as a tuple.  <br /></td></tr>
 <tr class="separator:a0a7110901e690293584da6a8714b17c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9503e65658cd5634b670c93800bede0d" id="r_a9503e65658cd5634b670c93800bede0d"><td class="memTemplParams" colspan="2">template&lt;CConstType T&gt; </td></tr>
 <tr class="memitem:a9503e65658cd5634b670c93800bede0d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9503e65658cd5634b670c93800bede0d">AsConst</a> (T &amp;&amp;input)</td></tr>
+<tr class="memdesc:a9503e65658cd5634b670c93800bede0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:a9503e65658cd5634b670c93800bede0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7e246afc5fdf5d5790527389110242e" id="r_ad7e246afc5fdf5d5790527389110242e"><td class="memTemplParams" colspan="2">template&lt;CMutableType T&gt; </td></tr>
 <tr class="memitem:ad7e246afc5fdf5d5790527389110242e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad7e246afc5fdf5d5790527389110242e">AsMutable</a> (T &amp;&amp;input)</td></tr>
+<tr class="memdesc:ad7e246afc5fdf5d5790527389110242e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:ad7e246afc5fdf5d5790527389110242e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa41c0cfc9b6ba1081945de3a7927fed" id="r_aaa41c0cfc9b6ba1081945de3a7927fed"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aaa41c0cfc9b6ba1081945de3a7927fed"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aaa41c0cfc9b6ba1081945de3a7927fed">AsConstPtr</a> (const T *input)</td></tr>
+<tr class="memdesc:aaa41c0cfc9b6ba1081945de3a7927fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:aaa41c0cfc9b6ba1081945de3a7927fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a2237cf28d5358d12cf3ec6bcd6396c" id="r_a9a2237cf28d5358d12cf3ec6bcd6396c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9a2237cf28d5358d12cf3ec6bcd6396c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9a2237cf28d5358d12cf3ec6bcd6396c">AsConstPtr</a> (T *input)</td></tr>
+<tr class="memdesc:a9a2237cf28d5358d12cf3ec6bcd6396c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:a9a2237cf28d5358d12cf3ec6bcd6396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf09bdd7c44a820a176d0d5e9eb6624" id="r_acdf09bdd7c44a820a176d0d5e9eb6624"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:acdf09bdd7c44a820a176d0d5e9eb6624"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acdf09bdd7c44a820a176d0d5e9eb6624">AsMutablePtr</a> (T *input)</td></tr>
+<tr class="memdesc:acdf09bdd7c44a820a176d0d5e9eb6624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:acdf09bdd7c44a820a176d0d5e9eb6624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae59b77ac781451dc3fe5acc995d5f320" id="r_ae59b77ac781451dc3fe5acc995d5f320"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ae59b77ac781451dc3fe5acc995d5f320"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae59b77ac781451dc3fe5acc995d5f320">AsMutablePtr</a> (const T *input)</td></tr>
+<tr class="memdesc:ae59b77ac781451dc3fe5acc995d5f320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:ae59b77ac781451dc3fe5acc995d5f320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This namespace provide some introspection into template instantiations.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Members of this namespace is very limited in usage and therefore should be used with utmost care. Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
+<div class="textblock"><p>This namespace provide some introspection into template instantiations. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Members of this namespace are very limited in usage and therefore should be used with utmost care. Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a0a7110901e690293584da6a8714b17c5" name="a0a7110901e690293584da6a8714b17c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a7110901e690293584da6a8714b17c5">&#9670;&#160;</a></span>TTemplate_Params</h2>
@@ -175,7 +187,8 @@ template&lt;template&lt; typename... &gt; typename Template, typename T &gt; </d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get template type parameters as a tuple</p>
+
+<p>Get template type parameters as a tuple. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00069">69</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
@@ -200,7 +213,9 @@ template&lt;CConstType T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00083">83</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00084">84</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +236,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00095">95</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00100">100</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +259,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00098">98</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00104">104</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -263,7 +282,9 @@ template&lt;CMutableType T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00089">89</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00092">92</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +305,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00104">104</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00112">112</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -305,7 +328,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00101">101</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00108">108</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>

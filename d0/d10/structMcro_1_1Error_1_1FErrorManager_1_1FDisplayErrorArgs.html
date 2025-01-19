@@ -118,19 +118,25 @@ $(function(){initNavTree('d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDispla
 </div><!--header-->
 <div class="contents">
 
+<p>Control how an error is being displayed. Use C++ 20 designated initializers for convenience.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a57af1e4df965e562dfee1163ae219453" id="r_a57af1e4df965e562dfee1163ae219453"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57af1e4df965e562dfee1163ae219453">bAsync</a> = false</td></tr>
+<tr class="memdesc:a57af1e4df965e562dfee1163ae219453"><td class="mdescLeft">&#160;</td><td class="mdescRight">The error message will not block the engine tick. This is useful for errors happening in the editor so even if PIE session is aborted due to an error, the developer can cross-check their assets with the error still open.  <br /></td></tr>
 <tr class="separator:a57af1e4df965e562dfee1163ae219453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aead5b2b64ccf3590fcc78b797a1f7236" id="r_aead5b2b64ccf3590fcc78b797a1f7236"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aead5b2b64ccf3590fcc78b797a1f7236">bImportantToRead</a> = false</td></tr>
+<tr class="memdesc:aead5b2b64ccf3590fcc78b797a1f7236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables an extra checkbox which reminds the user to please do not immediately dismiss the error.  <br /></td></tr>
 <tr class="separator:aead5b2b64ccf3590fcc78b797a1f7236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ef490790214ee6dd0ed4d75ccf22a83" id="r_a1ef490790214ee6dd0ed4d75ccf22a83"><td class="memItemLeft" align="right" valign="top">TSharedPtr&lt; const SWidget &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ef490790214ee6dd0ed4d75ccf22a83">Parent</a> = {}</td></tr>
+<tr class="memdesc:a1ef490790214ee6dd0ed4d75ccf22a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optionally set a parent widget for the modal window of the error. By default if not specified here the main editor window is used, or the main gameplay viewport.  <br /></td></tr>
 <tr class="separator:a1ef490790214ee6dd0ed4d75ccf22a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Control how an error is being displayed. Use C++ 20 designated initializers for convenience </p>
+<div class="textblock"><p>Control how an error is being displayed. Use C++ 20 designated initializers for convenience. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00042">42</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
@@ -145,9 +151,10 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The error message will not block the engine tick. This is useful for errors happening in the editor so even if PIE session is aborted due to an error, the developer can cross-check their assets with the error still open. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00049">49</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00050">50</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 
 </div>
 </div>
@@ -162,9 +169,10 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Enables an extra checkbox which reminds the user to please do not immediately dismiss the error </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00052">52</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p>Enables an extra checkbox which reminds the user to please do not immediately dismiss the error. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00053">53</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 
 </div>
 </div>
@@ -179,9 +187,10 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Optionally set a parent widget for the modal window of the error. By default if not specified here the main editor window is used, or the main gameplay viewport. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00058">58</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00060">60</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 
 </div>
 </div>

@@ -133,10 +133,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a741dd0776a003ff6e054298d57c4fb59" id="r_a741dd0776a003ff6e054298d57c4fb59"><td class="memTemplParams" colspan="2">template&lt;CDynamicDelegate Dynamic, typename MethodPtrTypeDynamic  = TDynamicMethodPtr&lt;Dynamic&gt;, typename NativeDelegateType  = TDelegate&lt;TFunction_Signature&lt;MethodPtrTypeDynamic&gt;&gt;, typename MethodPtrTypeNative  = typename TMemFunPtrType&lt;			false,			FDeclareOnly,			typename NativeDelegateType::TFuncType		&gt;::Type&gt; <br />
-requires CSameAs&lt;MethodPtrTypeDynamic, MethodPtrTypeNative&gt;</td></tr>
-<tr class="memitem:a741dd0776a003ff6e054298d57c4fb59"><td class="memTemplItemLeft" align="right" valign="top">NativeDelegateType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a741dd0776a003ff6e054298d57c4fb59">Mcro::Delegates::AsNative</a> (Dynamic &amp;&amp;dynamicDelegate)</td></tr>
-<tr class="separator:a741dd0776a003ff6e054298d57c4fb59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90436033b2baeab420898e7d14f48479" id="r_a90436033b2baeab420898e7d14f48479"><td class="memTemplParams" colspan="2">template&lt;CDynamicDelegate Dynamic, typename MethodPtrTypeDynamic  = TDynamicMethodPtr&lt;Dynamic&gt;, typename NativeDelegateType  = TDelegate&lt;TFunction_Signature&lt;MethodPtrTypeDynamic&gt;&gt;, typename MethodPtrTypeNative  = typename TMemFunPtrType&lt;			false,			FDeclareOnly,			typename NativeDelegateType::TFuncType		&gt;::Type&gt; <br />
+requires CSameAsDecayed&lt;MethodPtrTypeDynamic, MethodPtrTypeNative&gt;</td></tr>
+<tr class="memitem:a90436033b2baeab420898e7d14f48479"><td class="memTemplItemLeft" align="right" valign="top">NativeDelegateType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479">Mcro::Delegates::AsNative</a> (Dynamic &amp;&amp;dynamicDelegate)</td></tr>
+<tr class="memdesc:a90436033b2baeab420898e7d14f48479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a native delegate that is bound to the same UFunction as the specified dynamic delegate.  <br /></td></tr>
+<tr class="separator:a90436033b2baeab420898e7d14f48479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>

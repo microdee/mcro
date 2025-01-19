@@ -117,32 +117,44 @@ $(function(){initNavTree('dc/def/namespaceMcro_1_1Subsystems_1_1Subsystems.html'
   <div class="headertitle"><div class="title">Mcro::Subsystems::Subsystems Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Extra namespace encapsulates common vocabulary.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a862e145227789cb7d746dab3b5f65054" id="r_a862e145227789cb7d746dab3b5f65054"><td class="memTemplParams" colspan="2">template&lt;CEngineSubsystem T&gt; </td></tr>
 <tr class="memitem:a862e145227789cb7d746dab3b5f65054"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a862e145227789cb7d746dab3b5f65054">Get</a> ()</td></tr>
+<tr class="memdesc:a862e145227789cb7d746dab3b5f65054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.  <br /></td></tr>
 <tr class="separator:a862e145227789cb7d746dab3b5f65054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae1ccf92d88aa9a8725c649608924024" id="r_aae1ccf92d88aa9a8725c649608924024"><td class="memTemplParams" colspan="2">template&lt;CGameInstanceSubsystem T&gt; </td></tr>
 <tr class="memitem:aae1ccf92d88aa9a8725c649608924024"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aae1ccf92d88aa9a8725c649608924024">Get</a> (const UObject *worldContextObject=nullptr, <a class="el" href="../../da/d33/namespaceMcro_1_1Subsystems.html#a733d266d03d841b5b9fb34811123bb0f">EGameInstanceFallback</a> fallback=<a class="el" href="../../da/d33/namespaceMcro_1_1Subsystems.html#a733d266d03d841b5b9fb34811123bb0faaedd3663268f869fd0ddb5882857a351">EGameInstanceFallback::UseGameViewport</a>, EGetWorldErrorMode errorMode=EGetWorldErrorMode::LogAndReturnNull)</td></tr>
+<tr class="memdesc:aae1ccf92d88aa9a8725c649608924024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.  <br /></td></tr>
 <tr class="separator:aae1ccf92d88aa9a8725c649608924024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abff7f6b6a7f997d8b21771984a103114" id="r_abff7f6b6a7f997d8b21771984a103114"><td class="memTemplParams" colspan="2">template&lt;CLocalPlayerSubsystem T&gt; </td></tr>
 <tr class="memitem:abff7f6b6a7f997d8b21771984a103114"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abff7f6b6a7f997d8b21771984a103114">Get</a> (const UObject *worldContext)</td></tr>
+<tr class="memdesc:abff7f6b6a7f997d8b21771984a103114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.  <br /></td></tr>
 <tr class="separator:abff7f6b6a7f997d8b21771984a103114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d53057bb1762201cbd08ebb4d71afc4" id="r_a3d53057bb1762201cbd08ebb4d71afc4"><td class="memTemplParams" colspan="2">template&lt;CWorldSubsystem T&gt; </td></tr>
 <tr class="memitem:a3d53057bb1762201cbd08ebb4d71afc4"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3d53057bb1762201cbd08ebb4d71afc4">Get</a> (const UObject *worldContext, EGetWorldErrorMode errorMode=EGetWorldErrorMode::LogAndReturnNull)</td></tr>
+<tr class="memdesc:a3d53057bb1762201cbd08ebb4d71afc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.  <br /></td></tr>
 <tr class="separator:a3d53057bb1762201cbd08ebb4d71afc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9d929a2b3bc95cd9bfb2f2ed4b984bb" id="r_aa9d929a2b3bc95cd9bfb2f2ed4b984bb"><td class="memTemplParams" colspan="2">template&lt;CSubsystem T, typename... Args&gt; </td></tr>
 <tr class="memitem:aa9d929a2b3bc95cd9bfb2f2ed4b984bb"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa9d929a2b3bc95cd9bfb2f2ed4b984bb">GetChecked</a> (Args... args)</td></tr>
+<tr class="memdesc:aa9d929a2b3bc95cd9bfb2f2ed4b984bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. This is a checked version so if any steps fail to produce the target subsystem the program may crash.  <br /></td></tr>
 <tr class="separator:aa9d929a2b3bc95cd9bfb2f2ed4b984bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3016855b2904686fd1d4be79e07a6f7" id="r_ab3016855b2904686fd1d4be79e07a6f7"><td class="memTemplParams" colspan="2">template&lt;CSubsystem T, typename... Args&gt; </td></tr>
 <tr class="memitem:ab3016855b2904686fd1d4be79e07a6f7"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab3016855b2904686fd1d4be79e07a6f7">GetEnsured</a> (Args... args)</td></tr>
+<tr class="memdesc:ab3016855b2904686fd1d4be79e07a6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. This is an ensured version so if any steps fail to produce the target subsystem an ensure may be hit.  <br /></td></tr>
 <tr class="separator:ab3016855b2904686fd1d4be79e07a6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00118b8ddd5b4a43868566664b951ce7" id="r_a00118b8ddd5b4a43868566664b951ce7"><td class="memTemplParams" colspan="2">template&lt;CSubsystem T&gt; </td></tr>
-<tr class="memitem:a00118b8ddd5b4a43868566664b951ce7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a00118b8ddd5b4a43868566664b951ce7">ShouldCreateSubsystem</a> (UObject *outer)</td></tr>
-<tr class="separator:a00118b8ddd5b4a43868566664b951ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f8be242e1c7358d7f2728a66b214f0" id="r_ab0f8be242e1c7358d7f2728a66b214f0"><td class="memTemplParams" colspan="2">template&lt;CSubsystem T&gt; </td></tr>
+<tr class="memitem:ab0f8be242e1c7358d7f2728a66b214f0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab0f8be242e1c7358d7f2728a66b214f0">ShouldCreate</a> (UObject *outer)</td></tr>
+<tr class="memdesc:ab0f8be242e1c7358d7f2728a66b214f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for checking if some other subsystem should be created. Useful when you want to make a subsystem which should only be created if some other subsystem should be also created.  <br /></td></tr>
+<tr class="separator:ab0f8be242e1c7358d7f2728a66b214f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Extra namespace encapsulates common vocabulary. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a862e145227789cb7d746dab3b5f65054" name="a862e145227789cb7d746dab3b5f65054"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a862e145227789cb7d746dab3b5f65054">&#9670;&#160;</a></span>Get() <span class="overload">[1/4]</span></h2>
 
@@ -159,7 +171,8 @@ template&lt;CEngineSubsystem T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.</p>
+
+<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>UEngineSubsystem derivative </td></tr>
@@ -168,7 +181,7 @@ template&lt;CEngineSubsystem T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Subsystem if exists or nullptr </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00055">55</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00057">57</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +201,8 @@ template&lt;CLocalPlayerSubsystem T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.</p>
+
+<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>ULocalPlayerSubsystem derivative </td></tr>
@@ -197,7 +211,7 @@ template&lt;CLocalPlayerSubsystem T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Subsystem if exists or nullptr </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00123">123</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00127">127</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +235,8 @@ template&lt;CWorldSubsystem T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.</p>
+
+<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>UWorldSubsystem derivative </td></tr>
@@ -230,7 +245,7 @@ template&lt;CWorldSubsystem T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Subsystem if exists or nullptr </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00140">140</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00145">145</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>
@@ -259,7 +274,8 @@ template&lt;CGameInstanceSubsystem T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem.</p>
+
+<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>UGameInstanceSubsystem derivative </td></tr>
@@ -268,7 +284,7 @@ template&lt;CGameInstanceSubsystem T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Subsystem if exists or nullptr </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00068">68</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00071">71</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +304,8 @@ template&lt;CSubsystem T, typename... Args&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. This is a checked version so if any steps fail to produce the target subsystem the program may crash.</p>
+
+<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. This is a checked version so if any steps fail to produce the target subsystem the program may crash. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type of the subsystem </td></tr>
@@ -297,7 +314,7 @@ template&lt;CSubsystem T, typename... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Guaranteed valid reference to a subsystem </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00158">158</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00164">164</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +334,8 @@ template&lt;CSubsystem T, typename... Args&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. This is an ensured version so if any steps fail to produce the target subsystem an ensure may be hit.</p>
+
+<p>Helper for getting a subsystem, the internal boilerplate will be chosen based on the type of subsystem T inherits from. Required arguments may vary depending on the type of subsystem. This is an ensured version so if any steps fail to produce the target subsystem an ensure may be hit. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type of the subsystem </td></tr>
@@ -326,12 +344,12 @@ template&lt;CSubsystem T, typename... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Subsystem if exists or nullptr </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00178">178</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00185">185</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>
-<a id="a00118b8ddd5b4a43868566664b951ce7" name="a00118b8ddd5b4a43868566664b951ce7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00118b8ddd5b4a43868566664b951ce7">&#9670;&#160;</a></span>ShouldCreateSubsystem()</h2>
+<a id="ab0f8be242e1c7358d7f2728a66b214f0" name="ab0f8be242e1c7358d7f2728a66b214f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f8be242e1c7358d7f2728a66b214f0">&#9670;&#160;</a></span>ShouldCreate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,14 +357,15 @@ template&lt;CSubsystem T, typename... Args&gt; </div>
 template&lt;CSubsystem T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool Mcro::Subsystems::Subsystems::ShouldCreateSubsystem </td>
+          <td class="memname">bool Mcro::Subsystems::Subsystems::ShouldCreate </td>
           <td>(</td>
           <td class="paramtype">UObject *</td>          <td class="paramname"><span class="paramname"><em>outer</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper for checking if some other subsystem should be created. Useful when you want to make a subsystem which should only be created if some other subsystem should be also created.</p>
+
+<p>Helper for checking if some other subsystem should be created. Useful when you want to make a subsystem which should only be created if some other subsystem should be also created. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type of the subsystem</td></tr>
@@ -361,7 +380,7 @@ template&lt;CSubsystem T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the target subsystem should be created </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00199">199</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d78/Subsystems_8h_source.html#l00207">207</a> of file <a class="el" href="../../d7/d78/Subsystems_8h_source.html">Subsystems.h</a>.</p>
 
 </div>
 </div>

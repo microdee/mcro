@@ -143,8 +143,8 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">   24</a></span>        <span class="keyword">constexpr</span> FTimespan <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">CreateFromParamPack</a>()</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keyword">static</span> TStaticArray&lt;char, <span class="keyword">sizeof</span>...(ValueText) + 1&gt; <span class="keywordtype">string</span> { ValueText..., <span class="charliteral">&#39;\0&#39;</span> };</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordtype">double</span> value = TCString&lt;char&gt;::Atod(<span class="keywordtype">string</span>.GetData());</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keywordtype">string</span> [<span class="keyword">sizeof</span>...(ValueText) + 1] { ValueText..., <span class="charliteral">&#39;\0&#39;</span> };</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordtype">double</span> value = TCString&lt;char&gt;::Atod(<span class="keywordtype">string</span>);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keywordflow">return</span> Function(value);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        }</div>
 </div>
@@ -153,7 +153,7 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">char</span>... Value&gt;</div>
 <div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a8c6772c08d2eaa6161d5924a24e0901b">   33</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_D ()</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#aacb0b63098f9ad55a5b1b63dd788fd65">   33</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Day ()</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">Detail::CreateFromParamPack</a>&lt;&amp;FTimespan::FromDays, Value...&gt;();</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
@@ -161,7 +161,7 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">char</span>... Value&gt;</div>
 <div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#ab542ee71b5c3789f9aad95f168f58030">   39</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_h ()</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a6c7fa859b73d4cb66ba490e577b77a5d">   39</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Hour ()</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">Detail::CreateFromParamPack</a>&lt;&amp;FTimespan::FromHours, Value...&gt;();</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
@@ -169,7 +169,7 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">char</span>... Value&gt;</div>
 <div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a8c3286798278ca414a3c14b055d50399">   45</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_m ()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a05ede4662642bd2c6b72e6725fcba14b">   45</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Min ()</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">Detail::CreateFromParamPack</a>&lt;&amp;FTimespan::FromMinutes, Value...&gt;();</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
@@ -177,7 +177,7 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">char</span>... Value&gt;</div>
 <div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a5cdd474fdafee77efe34bd57b88eaea1">   51</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_s ()</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a2b45b629ed18ce9eb7214cfef8d5c4f9">   51</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Sec ()</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">Detail::CreateFromParamPack</a>&lt;&amp;FTimespan::FromSeconds, Value...&gt;();</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
@@ -185,7 +185,7 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">char</span>... Value&gt;</div>
 <div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#ad42b6ccf680401d27a98ed7dec10f8a5">   57</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_ms ()</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a28d16d33e5237e435206f7ae3b09e94d">   57</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_mSec ()</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">Detail::CreateFromParamPack</a>&lt;&amp;FTimespan::FromMilliseconds, Value...&gt;();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
@@ -193,7 +193,7 @@ $(function(){initNavTree('dc/d41/TimespanLiterals_8h_source.html','../../'); ini
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">char</span>... Value&gt;</div>
 <div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#ac66fb0715a2d6660fc771d1bf75b8eba">   63</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_us ()</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a96bcaabe33492c0a5bbd6ec6e0d99e30">   63</a></span>    <span class="keyword">constexpr</span> FTimespan <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_uSec ()</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d2d/namespaceMcro_1_1Timespan_1_1Literals_1_1Detail.html#afdb5e6a90d3068ad3183ca7cb523ed58">Detail::CreateFromParamPack</a>&lt;&amp;FTimespan::FromMicroseconds, Value...&gt;();</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>

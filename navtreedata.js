@@ -80,7 +80,6 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -90,12 +89,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html",
-"d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html#aabc29830f87425c7b3cde11af579f234",
-"d7/d5e/structMcro_1_1Observable_1_1TState.html#a07abf028ecb5f1ff6decd905ef02c9ee",
-"d9/d70/structMcro_1_1Once_1_1FOnce.html#adabb674cd4fae9f2b0d51b03fc99de7a",
-"dc/da3/Observable_8Fwd_8h_source.html",
-"de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html"
+"d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7d47ebfde8aa6fe52fddda6d566ae466",
+"d4/dbf/DelegateFrom_8h.html#aad0eab8a0fa4e31ff839d333d0a08757",
+"d7/d5e/structMcro_1_1Observable_1_1TState.html#a4e38b124440253776e48f12ff943c063",
+"d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02",
+"dc/da3/Observable_8Fwd_8h.html#a2fe69b38b2bfee60af6ed91851d3acf1",
+"de/d2e/namespaceMcro_1_1UObjects_1_1Init.html#a3978c33fff8ecad30d1d8b15986f4061"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

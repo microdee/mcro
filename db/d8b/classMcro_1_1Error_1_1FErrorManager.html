@@ -121,11 +121,15 @@ $(function(){initNavTree('db/d8b/classMcro_1_1Error_1_1FErrorManager.html','../.
 </div><!--header-->
 <div class="contents">
 
+<p>Global facilities for <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API.">IError</a> handling, including displaying them to the user, trigger error events, etc.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html">FDisplayErrorArgs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control how an error is being displayed. Use C++ 20 designated initializers for convenience.  <a href="../../d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -134,20 +138,23 @@ Public Types</h2></td></tr>
 , <a class="el" href="#a600c501b106f74b305f657025785c347a16627f35f1898ba8ad2208f07de09802">Suppressed_AnotherErrorOpen</a>
 , <a class="el" href="#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd">Suppressed_CannotDisplayModalWindow</a>
  }</td></tr>
+<tr class="memdesc:a600c501b106f74b305f657025785c347"><td class="mdescLeft">&#160;</td><td class="mdescRight">The results of displaying an error. In all cases the error is logged.  <a href="#a600c501b106f74b305f657025785c347">More...</a><br /></td></tr>
 <tr class="separator:a600c501b106f74b305f657025785c347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa694e3494cd197314bcac03a689dc0c6" id="r_aa694e3494cd197314bcac03a689dc0c6"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa694e3494cd197314bcac03a689dc0c6">DisplayError</a> (<a class="el" href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">IErrorRef</a> const &amp;error, <a class="el" href="../../d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html">FDisplayErrorArgs</a> const &amp;args) -&gt; TFuture&lt; <a class="el" href="#a600c501b106f74b305f657025785c347">EDisplayErrorResult</a> &gt;</td></tr>
+<tr class="memdesc:aa694e3494cd197314bcac03a689dc0c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the error summary for the user. Only use this when your program arrives to an unrecoverable state which either needs explanation for the user or requires action from the user (like configuration changes).  <br /></td></tr>
 <tr class="separator:aa694e3494cd197314bcac03a689dc0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a20a188b26ecdf4c96b210e880c3822b1" id="r_a20a188b26ecdf4c96b210e880c3822b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../db/d8b/classMcro_1_1Error_1_1FErrorManager.html">FErrorManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20a188b26ecdf4c96b210e880c3822b1">Get</a> ()</td></tr>
+<tr class="memdesc:a20a188b26ecdf4c96b210e880c3822b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global singleton.  <br /></td></tr>
 <tr class="separator:a20a188b26ecdf4c96b210e880c3822b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Global facilities for <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html">IError</a> handling, including displaying them to the user, trigger error events, etc </p>
+<div class="textblock"><p>Global facilities for <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API.">IError</a> handling, including displaying them to the user, trigger error events, etc. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00021">21</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -162,6 +169,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The results of displaying an error. In all cases the error is logged. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a600c501b106f74b305f657025785c347a0c66cfaba3034182a4fc645ad6cee90d" name="a600c501b106f74b305f657025785c347a0c66cfaba3034182a4fc645ad6cee90d"></a>Displayed&#160;</td><td class="fielddoc"><p>The error has been displayed for the user. </p>
@@ -195,7 +203,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Display the error summary for the user. Only use this when your program arrives to an unrecoverable state which either needs explanation for the user or requires action from the user (like configuration changes). The modal window and the widgets representing the error will be created on the main thread, keep that in mind while making the widgets for the errors.</p>
+
+<p>Display the error summary for the user. Only use this when your program arrives to an unrecoverable state which either needs explanation for the user or requires action from the user (like configuration changes). </p>
+<dl class="section important"><dt>Important</dt><dd>The modal window and the widgets representing the error will be created on the main thread, keep that in mind while making the widgets for the errors.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">error</td><td>The input error </td></tr>
@@ -205,7 +215,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A future telling that either the dialog has been displayed or how it has been suppressed. The future also gives an opportunity to block the calling thread until the user acknowledges the error.</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Unless <code>bAsync</code> is set in the arguments, calling this function from any thread will also block the main thread while the modal window containing the error is open. If the calling thread also needs to be blocked then simply wait on the returned future.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>Add ability to let the user "ignore" errors, and continue execution. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>Add ability to let the user "ignore" errors, and continue execution, because they know better. </dd></dl>
 
 </div>
 </div>
@@ -231,7 +241,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get the global singleton </p>
+
+<p>Get the global singleton. </p>
 
 </div>
 </div>

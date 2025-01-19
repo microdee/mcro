@@ -76,9 +76,12 @@ var concepts =
       ] ],
       [ "FunctionTraits", "d5/de0/namespaceMcro_1_1FunctionTraits.html", [
         [ "CFunctorObject", "d7/dba/conceptMcro_1_1FunctionTraits_1_1CFunctorObject.html", null ],
+        [ "CFunction_IsMember", "df/d47/conceptMcro_1_1FunctionTraits_1_1CFunction__IsMember.html", null ],
+        [ "CFunction_IsConst", "dd/d96/conceptMcro_1_1FunctionTraits_1_1CFunction__IsConst.html", null ],
         [ "CFunctionLike", "de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html", null ],
         [ "CFunctionPtr", "d5/d28/conceptMcro_1_1FunctionTraits_1_1CFunctionPtr.html", null ],
-        [ "CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ]
+        [ "CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ],
+        [ "CInstanceMethod", "d3/d38/conceptMcro_1_1FunctionTraits_1_1CInstanceMethod.html", null ]
       ] ],
       [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
         [ "CState", "d7/d0a/conceptMcro_1_1Observable_1_1CState.html", null ],

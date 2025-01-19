@@ -1,6 +1,7 @@
 var EventMultiplex_8h =
 [
     [ "Mcro::Delegates::Detail::TEventMultiplexBase< Return, Args >", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase" ],
+    [ "Mcro::Delegates::TEventMultiplex< T >", "d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html", null ],
     [ "Mcro::Delegates::TEventMultiplex< Return(Args...)>", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4" ],
     [ "Mcro::Delegates::TEventMultiplex< void(Args...)>", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4" ],
     [ "Mcro::Delegates::TReturnOverride_Struct< Dynamic >", "d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html", "d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct" ],

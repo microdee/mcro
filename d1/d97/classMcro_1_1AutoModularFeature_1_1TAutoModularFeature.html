@@ -120,6 +120,9 @@ $(function(){initNavTree('d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModular
 </div><!--header-->
 <div class="contents">
 
+<p>Auto Modular Features are a workflow with Modular Features where the developer doesn't have to rely on string identifiers. <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html" title="Auto Modular Features are a workflow with Modular Features where the developer doesn&#39;t have to rely o...">TAutoModularFeature</a> and TFeatureImplementation templates take care of naming the feature and introduces some common functionality, like getter functions and runtime validations.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Mcro::AutoModularFeature::TAutoModularFeature&lt; FeatureIn &gt;:</div>
@@ -127,7 +130,7 @@ Inheritance diagram for Mcro::AutoModularFeature::TAutoModularFeature&lt; Featur
  <div class="center">
   <img src="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.png" usemap="#Mcro::AutoModularFeature::TAutoModularFeature_3C_20FeatureIn_20_3E_map" alt=""/>
   <map id="Mcro::AutoModularFeature::TAutoModularFeature_3C_20FeatureIn_20_3E_map" name="Mcro::AutoModularFeature::TAutoModularFeature_3C_20FeatureIn_20_3E_map">
-<area href="../../db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html" alt="Mcro::AutoModularFeature::IAutoModularFeature" shape="rect" coords="0,0,373,24"/>
+<area href="../../db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html" title="Tagging an auto feature (DO NOT USE MANUALLY, inherited by TAutoModularFeature)" alt="Mcro::AutoModularFeature::IAutoModularFeature" shape="rect" coords="0,0,373,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -143,6 +146,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a889e2cfc9fb83cb4e6a0bac9b15865da" id="r_a889e2cfc9fb83cb4e6a0bac9b15865da"><td class="memTemplParams" colspan="2">template&lt;typename Implementation &gt; <br />
 requires CDerivedFrom&lt;Implementation, <a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a>&gt;</td></tr>
 <tr class="memitem:a889e2cfc9fb83cb4e6a0bac9b15865da"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a889e2cfc9fb83cb4e6a0bac9b15865da">Register</a> (this Implementation &amp;&amp;self)</td></tr>
+<tr class="memdesc:a889e2cfc9fb83cb4e6a0bac9b15865da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function in implementation constructors.  <br /></td></tr>
 <tr class="separator:a889e2cfc9fb83cb4e6a0bac9b15865da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de19c9be33d1d11f7a3ccd5f3526040" id="r_a8de19c9be33d1d11f7a3ccd5f3526040"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8de19c9be33d1d11f7a3ccd5f3526040">~TAutoModularFeature</a> ()</td></tr>
 <tr class="separator:a8de19c9be33d1d11f7a3ccd5f3526040"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,27 +154,31 @@ requires CDerivedFrom&lt;Implementation, <a class="el" href="#a2bf3c03c81a8f3df9
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa40b49070cb710af20efdfd90334902" id="r_aaa40b49070cb710af20efdfd90334902"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE const FName &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa40b49070cb710af20efdfd90334902">FeatureName</a> ()</td></tr>
+<tr class="memdesc:aaa40b49070cb710af20efdfd90334902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the feature.  <br /></td></tr>
 <tr class="separator:aaa40b49070cb710af20efdfd90334902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76dff224b5670cc05a2599fbd4dccb75" id="r_a76dff224b5670cc05a2599fbd4dccb75"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76dff224b5670cc05a2599fbd4dccb75">ImplementationCount</a> ()</td></tr>
 <tr class="separator:a76dff224b5670cc05a2599fbd4dccb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a076cf38a6bf449bc5a98017d4c2df426" id="r_a076cf38a6bf449bc5a98017d4c2df426"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE <a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a076cf38a6bf449bc5a98017d4c2df426">Get</a> ()</td></tr>
+<tr class="memdesc:a076cf38a6bf449bc5a98017d4c2df426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first existing implementation of this feature. If there are no implementations a check will fail.  <br /></td></tr>
 <tr class="separator:a076cf38a6bf449bc5a98017d4c2df426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c1e8c112e273aefea9474d0e6bf7cf" id="r_ae7c1e8c112e273aefea9474d0e6bf7cf"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE <a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7c1e8c112e273aefea9474d0e6bf7cf">TryGet</a> (const int32 index)</td></tr>
+<tr class="memdesc:ae7c1e8c112e273aefea9474d0e6bf7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first existing implementation of this feature. Return nullptr If there are no implementations.  <br /></td></tr>
 <tr class="separator:ae7c1e8c112e273aefea9474d0e6bf7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30ef877c0a149e7e363f5f3ec5422e8c" id="r_a30ef877c0a149e7e363f5f3ec5422e8c"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE TArray&lt; <a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30ef877c0a149e7e363f5f3ec5422e8c">GetAll</a> ()</td></tr>
 <tr class="separator:a30ef877c0a149e7e363f5f3ec5422e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa169c1b5f5aad56022a21e54409273b" id="r_aaa169c1b5f5aad56022a21e54409273b"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE TFuture&lt; <a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa169c1b5f5aad56022a21e54409273b">GetBelated</a> ()</td></tr>
+<tr class="memdesc:aaa169c1b5f5aad56022a21e54409273b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first implementation once it is registered, or return the first implementation immediately if there's already one registered.  <br /></td></tr>
 <tr class="separator:aaa169c1b5f5aad56022a21e54409273b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename FeatureIn&gt;<br />
-class Mcro::AutoModularFeature::TAutoModularFeature&lt; FeatureIn &gt;</div><p>Auto Modular Features are a workflow with Modular Features where the developer doesn't have to rely on string identifiers. <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">TAutoModularFeature</a> and TFeatureImplementation templates take care of naming the feature and introduces some common functionality, like getter functions and runtime validations.</p>
-<dl class="section remark"><dt>Remarks</dt><dd>First a feature is defined with its interface class like so: <div class="fragment"><div class="line"><span class="keyword">class </span>IMyModularFeature : <span class="keyword">public</span> <a class="code hl_class" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">TAutoModularFeature</a>&lt;IMyModularFeature&gt;</div>
+class Mcro::AutoModularFeature::TAutoModularFeature&lt; FeatureIn &gt;</div><p>Auto Modular Features are a workflow with Modular Features where the developer doesn't have to rely on string identifiers. <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html" title="Auto Modular Features are a workflow with Modular Features where the developer doesn&#39;t have to rely o...">TAutoModularFeature</a> and TFeatureImplementation templates take care of naming the feature and introduces some common functionality, like getter functions and runtime validations. </p>
+<p>First a feature is defined with its interface class like so: </p><div class="fragment"><div class="line"><span class="keyword">class </span>IMyModularFeature : <span class="keyword">public</span> <a class="code hl_class" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">TAutoModularFeature</a>&lt;IMyModularFeature&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassMcro_1_1AutoModularFeature_1_1TAutoModularFeature_html"><div class="ttname"><a href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">Mcro::AutoModularFeature::TAutoModularFeature</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/db5/AutoModularFeature_8h_source.html#l00089">AutoModularFeature.h:90</a></div></div>
-</div><!-- fragment --> Then each implementations of this feature are defined like so: <div class="fragment"><div class="line"><span class="keyword">class </span>FMyFeatureImplementation : <span class="keyword">public</span> IMyModularFeature, <span class="keyword">public</span> <a class="code hl_class" href="../../d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html">IFeatureImplementation</a></div>
+<div class="ttc" id="aclassMcro_1_1AutoModularFeature_1_1TAutoModularFeature_html"><div class="ttname"><a href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">Mcro::AutoModularFeature::TAutoModularFeature</a></div><div class="ttdoc">Auto Modular Features are a workflow with Modular Features where the developer doesn't have to rely o...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/db5/AutoModularFeature_8h_source.html#l00090">AutoModularFeature.h:91</a></div></div>
+</div><!-- fragment --><p> Then each implementation of this feature are defined like so: </p><div class="fragment"><div class="line"><span class="keyword">class </span>FMyFeatureImplementation : <span class="keyword">public</span> IMyModularFeature, <span class="keyword">public</span> <a class="code hl_class" href="../../d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html">IFeatureImplementation</a></div>
 <div class="line">{</div>
 <div class="line">    FMyFeatureImplementation()</div>
 <div class="line">    {</div>
@@ -178,8 +186,8 @@ class Mcro::AutoModularFeature::TAutoModularFeature&lt; FeatureIn &gt;</div><p>A
 <div class="line">        Register()</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassMcro_1_1AutoModularFeature_1_1IFeatureImplementation_html"><div class="ttname"><a href="../../d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html">Mcro::AutoModularFeature::IFeatureImplementation</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/db5/AutoModularFeature_8h_source.html#l00029">AutoModularFeature.h:29</a></div></div>
-</div><!-- fragment --> Then instantiate the feature implementation when needed: <div class="fragment"><div class="line"><span class="keyword">class </span>FMyModule</div>
+<div class="ttc" id="aclassMcro_1_1AutoModularFeature_1_1IFeatureImplementation_html"><div class="ttname"><a href="../../d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html">Mcro::AutoModularFeature::IFeatureImplementation</a></div><div class="ttdoc">Tagging an implementation of a feature.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/db5/AutoModularFeature_8h_source.html#l00030">AutoModularFeature.h:30</a></div></div>
+</div><!-- fragment --><p> Then instantiate the feature implementation when needed: </p><div class="fragment"><div class="line"><span class="keyword">class </span>FMyModule</div>
 <div class="line">{</div>
 <div class="line">    TPimplPtr&lt;FMyFeatureImplementation&gt; MyImplementation;</div>
 <div class="line">}</div>
@@ -188,14 +196,13 @@ class Mcro::AutoModularFeature::TAutoModularFeature&lt; FeatureIn &gt;</div><p>A
 <div class="line">{</div>
 <div class="line">    MyImplementation = MakePimpl&lt;FMyFeatureImplementation&gt;();</div>
 <div class="line">}</div>
-</div><!-- fragment --> To access the feature implementations then just use <div class="fragment"><div class="line"><span class="keywordflow">if</span> (IMyModularFeature::ImplementationCount() &gt; 0)</div>
+</div><!-- fragment --><p> To access the feature implementations then just use </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (IMyModularFeature::ImplementationCount() &gt; 0)</div>
 <div class="line">{</div>
 <div class="line">    IMyModularFeature::Get().MyStuff();</div>
 <div class="line">}</div>
-</div><!-- fragment --> Internally the feature name will be identical to the class name. In this case IMyModularFeature will register as "IMyModularFeature". Technically one can get it via <div class="fragment"><div class="line">IModularFeatures::Get().GetModularFeature&lt;IMyModularFeature&gt;(TEXT(<span class="stringliteral">&quot;IMyModularFeature&quot;</span>))</div>
-</div><!-- fragment --> but it is strongly discouraged for type safety and keeping code simple.</dd>
-<dd>
-IMyModularFeature::FeatureName() and <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName&lt;FMyFeatureImplementation&gt;()</a> can be used for runtime comparison / validation. See TFeatureImplementation::CastChecked which helps handling implementation specific structures and their runtime polymorphism.</dd></dl>
+</div><!-- fragment --><p>Internally the feature name will be identical to the class name. In this case <code>IMyModularFeature</code> will register as "IMyModularFeature". Technically one can get it via </p><div class="fragment"><div class="line">IModularFeatures::Get().GetModularFeature&lt;IMyModularFeature&gt;(TEXT(<span class="stringliteral">&quot;IMyModularFeature&quot;</span>))</div>
+</div><!-- fragment --><p> but it is strongly discouraged for type safety and keeping code simple.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>IMyModularFeature::FeatureName() and <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5">TTypeFName&lt;FMyFeatureImplementation&gt;()</a> can be used for runtime comparison / validation.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">FeatureIn</td><td>Curiously Recurring Template argument of the feature </td></tr>
@@ -203,7 +210,7 @@ IMyModularFeature::FeatureName() and <a class="el" href="../../df/d09/namespaceM
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00089">89</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00090">90</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a11dd5c98fb95068e573dbd1de8bfec9d" name="a11dd5c98fb95068e573dbd1de8bfec9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11dd5c98fb95068e573dbd1de8bfec9d">&#9670;&#160;</a></span>AutoModularFeature</h2>
@@ -219,7 +226,7 @@ template&lt;typename FeatureIn &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00093">93</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00094">94</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +244,7 @@ template&lt;typename FeatureIn &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00092">92</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00093">93</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +274,7 @@ template&lt;typename FeatureIn &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00154">154</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00152">152</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -296,9 +303,10 @@ template&lt;typename FeatureIn &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gert the name of the feature </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00096">96</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p>Get the name of the feature. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00097">97</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -326,6 +334,7 @@ template&lt;typename FeatureIn &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Get the first existing implementation of this feature. If there are no implementations a check will fail. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00112">112</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
@@ -358,7 +367,7 @@ template&lt;typename FeatureIn &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>An array of all implementations of this feature </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00128">128</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00124">124</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -386,10 +395,11 @@ template&lt;typename FeatureIn &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get the first implementation once it is registered, or return the first implementation immediately if there's already one registered.</p>
+
+<p>Get the first implementation once it is registered, or return the first implementation immediately if there's already one registered. </p>
 <dl class="section return"><dt>Returns</dt><dd>A future completed when the first implementation becomes available, or there's already one </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00165">165</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00164">164</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +429,7 @@ template&lt;typename FeatureIn &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The number of implementations created for this feature </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00104">104</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00103">103</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -450,7 +460,9 @@ requires CDerivedFrom&lt;Implementation, <a class="el" href="#a2bf3c03c81a8f3df9
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Call this function in implementation constructors. This is a necessary boilerplate to maintain polymorphism of implementations. Otherwise, if the native registration function would be called directly in <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">TAutoModularFeature</a> default constructor, virtual function overrides are not yet known, and "deducing this" is not meant for constructors.</p>
+
+<p>Call this function in implementation constructors. </p>
+<p>This is a necessary boilerplate to maintain polymorphism of implementations. Otherwise, if the native registration function would be called directly in <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html" title="Auto Modular Features are a workflow with Modular Features where the developer doesn&#39;t have to rely o...">TAutoModularFeature</a> default constructor, virtual function overrides are not yet known, and "deducing this" is not meant for constructors.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Implementation</td><td>Derived type of the implementation </td></tr>
@@ -464,7 +476,7 @@ requires CDerivedFrom&lt;Implementation, <a class="el" href="#a2bf3c03c81a8f3df9
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00143">143</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00141">141</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>
@@ -492,9 +504,10 @@ template&lt;typename FeatureIn &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Get the first existing implementation of this feature. Return nullptr If there are no implementations. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00120">120</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html#l00118">118</a> of file <a class="el" href="../../d7/db5/AutoModularFeature_8h_source.html">AutoModularFeature.h</a>.</p>
 
 </div>
 </div>

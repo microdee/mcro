@@ -119,6 +119,9 @@ $(function(){initNavTree('d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01vo
 </div><!--header-->
 <div class="contents">
 
+<p>"Extension" of a common TMulticastDelegate. It allows to define optional "flags" when adding a binding, in order to:     
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -139,58 +142,70 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa83e91c674743df1c4dd84408a10e11d" id="r_aa83e91c674743df1c4dd84408a10e11d"><td class="memTemplParams" colspan="2">template&lt;typename... OptionalObject&gt; <br />
 requires (sizeof...(OptionalObject) &lt;= 1)</td></tr>
 <tr class="memitem:aa83e91c674743df1c4dd84408a10e11d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#a3c76a8e48c1f17c096d8cb40ef8b4c78">FDelegate</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa83e91c674743df1c4dd84408a10e11d">Delegation</a> (OptionalObject &amp;&amp;... object)</td></tr>
+<tr class="memdesc:aa83e91c674743df1c4dd84408a10e11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a delegate object which is broadcasting this event. This is useful for chaining events together like so:  <br /></td></tr>
 <tr class="separator:aa83e91c674743df1c4dd84408a10e11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07be6a2313df00185b966a4336108afe" id="r_a07be6a2313df00185b966a4336108afe"><td class="memItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07be6a2313df00185b966a4336108afe">Add</a> (<a class="el" href="#a3c76a8e48c1f17c096d8cb40ef8b4c78">FDelegate</a> delegate, const <a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77">EInvokeMode</a> &amp;invokeMode=<a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77a79b3d80a7d4a3d62a5c5aba8435665f5">DefaultInvocation</a>)</td></tr>
+<tr class="memdesc:a07be6a2313df00185b966a4336108afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new delegate to the event delegate.  <br /></td></tr>
 <tr class="separator:a07be6a2313df00185b966a4336108afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80e1d37481939632f140546ac7548277" id="r_a80e1d37481939632f140546ac7548277"><td class="memTemplParams" colspan="2">template&lt;CSameAs&lt; <a class="el" href="#a3c76a8e48c1f17c096d8cb40ef8b4c78">FDelegate</a> &gt;... Delegates&gt; </td></tr>
 <tr class="memitem:a80e1d37481939632f140546ac7548277"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a80e1d37481939632f140546ac7548277">With</a> (Delegates &amp;&amp;... delegates)</td></tr>
+<tr class="memdesc:a80e1d37481939632f140546ac7548277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind multiple delegates at once, useful for initial mandatory bindings <br  />
+  <br /></td></tr>
 <tr class="separator:a80e1d37481939632f140546ac7548277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52d42f489366bf088dcbeca26d07326e" id="r_a52d42f489366bf088dcbeca26d07326e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52d42f489366bf088dcbeca26d07326e">TEventDelegate</a> ()</td></tr>
 <tr class="separator:a52d42f489366bf088dcbeca26d07326e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cee5a725d0c76d4682919bb08a478bb" id="r_a7cee5a725d0c76d4682919bb08a478bb"><td class="memTemplParams" colspan="2">template&lt;CSameAs&lt; <a class="el" href="#a3c76a8e48c1f17c096d8cb40ef8b4c78">FDelegate</a> &gt;... Delegates&gt; </td></tr>
 <tr class="memitem:a7cee5a725d0c76d4682919bb08a478bb"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7cee5a725d0c76d4682919bb08a478bb">TEventDelegate</a> (Delegates... delegates)</td></tr>
+<tr class="memdesc:a7cee5a725d0c76d4682919bb08a478bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind multiple delegates at once, useful for initial mandatory bindings.  <br /></td></tr>
 <tr class="separator:a7cee5a725d0c76d4682919bb08a478bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e82a6d478957743cfe3103d8980db5f" id="r_a8e82a6d478957743cfe3103d8980db5f"><td class="memTemplParams" colspan="2">template&lt;CDynamicDelegate DynamicDelegateType&gt; </td></tr>
 <tr class="memitem:a8e82a6d478957743cfe3103d8980db5f"><td class="memTemplItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8e82a6d478957743cfe3103d8980db5f">Add</a> (const DynamicDelegateType &amp;dynamicDelegate, const <a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77">EInvokeMode</a> &amp;invokeMode=<a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77a79b3d80a7d4a3d62a5c5aba8435665f5">DefaultInvocation</a>)</td></tr>
+<tr class="memdesc:a8e82a6d478957743cfe3103d8980db5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new dynamic delegate to this event delegate.  <br /></td></tr>
 <tr class="separator:a8e82a6d478957743cfe3103d8980db5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c4a4bfe0117724d6dadc76b4e64b774" id="r_a6c4a4bfe0117724d6dadc76b4e64b774"><td class="memTemplParams" colspan="2">template&lt;CDynamicDelegate DynamicDelegateType&gt; </td></tr>
 <tr class="memitem:a6c4a4bfe0117724d6dadc76b4e64b774"><td class="memTemplItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6c4a4bfe0117724d6dadc76b4e64b774">AddUnique</a> (const DynamicDelegateType &amp;dynamicDelegate, <a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77">EInvokeMode</a> invokeMode=<a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77a79b3d80a7d4a3d62a5c5aba8435665f5">DefaultInvocation</a>)</td></tr>
+<tr class="memdesc:a6c4a4bfe0117724d6dadc76b4e64b774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the given dynamic delegate only if it's not already bound to this event delegate.  <br /></td></tr>
 <tr class="separator:a6c4a4bfe0117724d6dadc76b4e64b774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92937990e41f3f9b88668df908243b1b" id="r_a92937990e41f3f9b88668df908243b1b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92937990e41f3f9b88668df908243b1b">Remove</a> (const FDelegateHandle &amp;delegateHandle)</td></tr>
+<tr class="memdesc:a92937990e41f3f9b88668df908243b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the binding associated to the given handle.  <br /></td></tr>
 <tr class="separator:a92937990e41f3f9b88668df908243b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dac445a25694d14f5c271b84299764c" id="r_a8dac445a25694d14f5c271b84299764c"><td class="memTemplParams" colspan="2">template&lt;class DynamicDelegateType &gt; </td></tr>
 <tr class="memitem:a8dac445a25694d14f5c271b84299764c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8dac445a25694d14f5c271b84299764c">Remove</a> (const DynamicDelegateType &amp;dynamicDelegate)</td></tr>
+<tr class="memdesc:a8dac445a25694d14f5c271b84299764c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the binding associated to the dynamic delegate.  <br /></td></tr>
 <tr class="separator:a8dac445a25694d14f5c271b84299764c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab920cc1485532fa7b3b87c86922b23b" id="r_aab920cc1485532fa7b3b87c86922b23b"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab920cc1485532fa7b3b87c86922b23b">RemoveAll</a> (const void *inUserObject)</td></tr>
+<tr class="memdesc:aab920cc1485532fa7b3b87c86922b23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all binding associated to the given object.  <br /></td></tr>
 <tr class="separator:aab920cc1485532fa7b3b87c86922b23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b57e27a49fa3ec04644f821ae1711c6" id="r_a2b57e27a49fa3ec04644f821ae1711c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b57e27a49fa3ec04644f821ae1711c6">Reset</a> ()</td></tr>
+<tr class="memdesc:a2b57e27a49fa3ec04644f821ae1711c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all states of this event delegate to their default.  <br /></td></tr>
 <tr class="separator:a2b57e27a49fa3ec04644f821ae1711c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a874c1473453f5c5a426a75e803fe617f" id="r_a874c1473453f5c5a426a75e803fe617f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a874c1473453f5c5a426a75e803fe617f">IsBroadcasted</a> () const</td></tr>
 <tr class="separator:a874c1473453f5c5a426a75e803fe617f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename... Args, int32 DefaultInvokeMode&gt;<br />
-class Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultInvokeMode &gt;</div><p>"Extension" of a common TMulticastDelegate. It allows to define optional "settings" when ad1ding a binding, in order to:</p><ul>
+class Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultInvokeMode &gt;</div><p>"Extension" of a common TMulticastDelegate. It allows to define optional "flags" when adding a binding, in order to:    </p>
+<ul>
 <li>Remove the binding after the next broadcast</li>
 <li>Execute the associated event immediately if the delegate has already been broadcast</li>
 <li>Allow comfortable chaining</li>
 </ul>
-<p>The delegate can be defined with settings that will be applied by default to all bindings (but the behavior can still be changed per-binding if needed).</p>
+<p>The delegate can be defined with default settings that will be applied by default to all bindings (but the behavior can still be changed per-binding if needed (except thread safety and argument retention mode).</p>
 <p>Example usage:</p>
 <div class="fragment"><div class="line"><span class="comment">// The delegate will use default settings (i.e. the behavior will be the same as a TMulticastDelegate by default)</span></div>
-<div class="line"><span class="keyword">using </span>FMyNativeDelegate = <a class="code hl_class" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(int32 someParam)&gt;;</div>
+<div class="line"><span class="keyword">using </span>FMyEventDelegate = <a class="code hl_class" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(int32 someParam)&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Fire a new binding immediately if the delegate has been already broadcasted</span></div>
-<div class="line"><span class="keyword">using </span>FMyNativeDelegate = <a class="code hl_class" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(int32 someParam), <a class="code hl_enumvalue" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">EInvokeMode::BelatedInvoke</a>&gt;;</div>
+<div class="line"><span class="keyword">using </span>FMyEventDelegate = <a class="code hl_class" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(int32 someParam), <a class="code hl_enumvalue" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">EInvokeMode::BelatedInvoke</a>&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Fire a new binding immediately if the delegate has been already broadcasted,</span></div>
 <div class="line"><span class="comment">// AND the binding will be removed after the next broadcast</span></div>
-<div class="line"><span class="keyword">using </span>FMyNativeDelegate = <a class="code hl_class" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(int32 someParam), <a class="code hl_enumvalue" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">EInvokeMode::BelatedInvoke</a> | <a class="code hl_enumvalue" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">EInvokeMode::InvokeOnce</a>&gt;;</div>
-<div class="ttc" id="aclassMcro_1_1Delegates_1_1TEventDelegate_html"><div class="ttname"><a href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00048">EventDelegate.h:48</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">Mcro::Delegates::BelatedInvoke</a></div><div class="ttdeci">@ BelatedInvoke</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00035">EventDelegate.h:35</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">Mcro::Delegates::InvokeOnce</a></div><div class="ttdeci">@ InvokeOnce</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00032">EventDelegate.h:32</a></div></div>
-</div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00075">75</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<div class="line"><span class="keyword">using </span>FMyEventDelegate = <a class="code hl_class" href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(int32 someParam), <a class="code hl_enumvalue" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">EInvokeMode::BelatedInvoke</a> | <a class="code hl_enumvalue" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">EInvokeMode::InvokeOnce</a>&gt;;</div>
+<div class="ttc" id="aclassMcro_1_1Delegates_1_1TEventDelegate_html"><div class="ttname"><a href="../../d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></div><div class="ttdoc">&quot;Extension&quot; of a common TMulticastDelegate. It allows to define optional &quot;flags&quot; when adding a bindin...</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00074">EventDelegate.h:74</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">Mcro::Delegates::BelatedInvoke</a></div><div class="ttdeci">@ BelatedInvoke</div><div class="ttdoc">The binding will be executed immediately if the delegate has already been broadcasted.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00035">EventDelegate.h:35</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">Mcro::Delegates::InvokeOnce</a></div><div class="ttdeci">@ InvokeOnce</div><div class="ttdoc">The binding will be automatically removed after the next broadcast.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00032">EventDelegate.h:32</a></div></div>
+</div><!-- fragment -->    
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00078">78</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a14046e418d454786f401b20c42300a17" name="a14046e418d454786f401b20c42300a17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14046e418d454786f401b20c42300a17">&#9670;&#160;</a></span>ArgumentsCache</h2>
@@ -210,9 +225,9 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 <div class="line">            TTuple&lt;std::decay_t&lt;Args&gt;...&gt;,</div>
 <div class="line">            TTuple&lt;Args...&gt;</div>
 <div class="line">        &gt;</div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ac31d2d53f1f7933c0a1423ca896c0d7e"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ac31d2d53f1f7933c0a1423ca896c0d7e">Mcro::Delegates::CopyArguments</a></div><div class="ttdeci">@ CopyArguments</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00041">EventDelegate.h:41</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ac31d2d53f1f7933c0a1423ca896c0d7e"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ac31d2d53f1f7933c0a1423ca896c0d7e">Mcro::Delegates::CopyArguments</a></div><div class="ttdeci">@ CopyArguments</div><div class="ttdoc">Attempt to copy arguments when storing them for belated invokes, instead of perfect forwarding them....</div><div class="ttdef"><b>Definition</b> <a href="../../df/d51/EventDelegate_8h_source.html#l00042">EventDelegate.h:42</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00083">83</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00086">86</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -230,7 +245,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00081">81</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00084">84</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -248,7 +263,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00080">80</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00083">83</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +281,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00078">78</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00081">81</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +311,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00150">150</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00154">154</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -326,9 +341,10 @@ template&lt;CSameAs&lt; <a class="el" href="#a3c76a8e48c1f17c096d8cb40ef8b4c78">
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Bind multiple delegates at once, useful for initial mandatory bindings </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00154">154</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p>Bind multiple delegates at once, useful for initial mandatory bindings. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00158">158</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -363,7 +379,8 @@ template&lt;CDynamicDelegate DynamicDelegateType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Adds a new dynamic delegate to this event delegate.</p>
+
+<p>Adds a new dynamic delegate to this event delegate. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dynamicDelegate</td><td>The dynamic delegate to bind</td></tr>
@@ -373,7 +390,7 @@ template&lt;CDynamicDelegate DynamicDelegateType&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Handle to the delegate </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00171">171</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00175">175</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +422,8 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Adds a new delegate to the event delegate.</p>
+
+<p>Adds a new delegate to the event delegate. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">delegate</td><td>The delegate to bind</td></tr>
@@ -415,7 +433,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Handle to the delegate </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00132">132</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00136">136</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -449,7 +467,8 @@ template&lt;CDynamicDelegate DynamicDelegateType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Adds the given dynamic delegate only if it's not already bound to this event delegate.</p>
+
+<p>Adds the given dynamic delegate only if it's not already bound to this event delegate. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dynamicDelegate</td><td>The dynamic delegate to bind</td></tr>
@@ -459,7 +478,7 @@ template&lt;CDynamicDelegate DynamicDelegateType&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Handle to the delegate. If the binding already existed, the handle to the existing binding is returned </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00191">191</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00195">195</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -488,7 +507,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00089">89</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00092">92</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -519,7 +538,9 @@ requires (sizeof...(OptionalObject) &lt;= 1)</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create a delegate object which is broadcasting this event. This is useful for chaining events together like so: </p><div class="fragment"><div class="line">MyEvent.Add(MyOtherEvent.Delegation(<span class="keyword">this</span>));</div>
+
+<p>Create a delegate object which is broadcasting this event. This is useful for chaining events together like so: </p>
+<div class="fragment"><div class="line">MyEvent.Add(MyOtherEvent.Delegation(<span class="keyword">this</span>));</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">object</td><td>Optionally bind an object to the event delegation </td></tr>
@@ -527,7 +548,7 @@ requires (sizeof...(OptionalObject) &lt;= 1)</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00116">116</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00120">120</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -557,7 +578,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if this event delegate was ever broadcasted. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00271">271</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00275">275</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +608,8 @@ template&lt;class DynamicDelegateType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Remove the binding associated to the dynamic delegate.</p>
+
+<p>Remove the binding associated to the dynamic delegate. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dynamicDelegate</td><td>The dynamic delegate to remove</td></tr>
@@ -596,7 +618,7 @@ template&lt;class DynamicDelegateType &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if a binding was removed; false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00232">232</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00236">236</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -624,7 +646,8 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Remove the binding associated to the given handle</p>
+
+<p>Remove the binding associated to the given handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">delegateHandle</td><td>Handle of the binding to remove</td></tr>
@@ -633,7 +656,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if a binding was removed; false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00218">218</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00222">222</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -661,7 +684,8 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Removes all binding associated to the given object</p>
+
+<p>Removes all binding associated to the given object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inUserObject</td><td>The object to remove the bindings for</td></tr>
@@ -670,7 +694,7 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The total number of bindings that were removed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00249">249</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00253">253</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -698,9 +722,10 @@ template&lt;typename... Args, int32 DefaultInvokeMode&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Resets all states of this event delegate to their default. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00260">260</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00264">264</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>
@@ -730,10 +755,12 @@ template&lt;CSameAs&lt; <a class="el" href="#a3c76a8e48c1f17c096d8cb40ef8b4c78">
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Bind multiple delegates at once, useful for initial mandatory bindings <br  />
- </p><dl class="section return"><dt>Returns</dt><dd>This event </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00143">143</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
+<p>Bind multiple delegates at once, useful for initial mandatory bindings <br  />
+ </p>
+<dl class="section return"><dt>Returns</dt><dd>This event </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d51/EventDelegate_8h_source.html#l00147">147</a> of file <a class="el" href="../../df/d51/EventDelegate_8h_source.html">EventDelegate.h</a>.</p>
 
 </div>
 </div>

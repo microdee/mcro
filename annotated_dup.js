@@ -15,9 +15,6 @@ var annotated_dup =
           [ "TExtractClassName< MemberType ClassType::* >", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4.html", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4" ]
         ] ]
       ] ],
-      [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html", [
-        [ "TInitializeOnCopy", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy" ]
-      ] ],
       [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", [
         [ "Detail", "df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html", [
           [ "TEventMultiplexBase", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase" ]
@@ -62,15 +59,18 @@ var annotated_dup =
       ] ],
       [ "FunctionTraits", "d5/de0/namespaceMcro_1_1FunctionTraits.html", [
         [ "Detail", "d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html", [
+          [ "TFunctionFromTuple_Struct", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct" ],
           [ "TFunctionMeta", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta" ]
         ] ],
-        [ "TFunctionFromTuple_Struct", "d4/d61/structMcro_1_1FunctionTraits_1_1TFunctionFromTuple__Struct.html", "d4/d61/structMcro_1_1FunctionTraits_1_1TFunctionFromTuple__Struct" ],
         [ "TFunctionTraits", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", null ],
         [ "TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
         [ "TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", null ],
         [ "TFunctionTraits< ReturnIn(ClassIn::*)(Args...) const >", "db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", "db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4" ],
         [ "TFunctionTraits< ReturnIn(ClassIn::*)(Args...)>", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4" ],
         [ "TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", null ]
+      ] ],
+      [ "InitializeOnCopy", "df/dae/namespaceMcro_1_1InitializeOnCopy.html", [
+        [ "TInitializeOnCopy", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy" ]
       ] ],
       [ "Modules", "d5/d1b/namespaceMcro_1_1Modules.html", [
         [ "IObservableModule", "df/d06/classMcro_1_1Modules_1_1IObservableModule.html", "df/d06/classMcro_1_1Modules_1_1IObservableModule" ],

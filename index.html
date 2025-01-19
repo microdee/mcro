@@ -247,10 +247,10 @@ Error handling</h2>
 <div class="ttc" id="aAssertMacros_8h_html_afa32959b04a99d2f4a56cd141e34a9bd"><div class="ttname"><a href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a></div><div class="ttdeci">#define PROPAGATE_FAIL(expression)</div></div>
 <div class="ttc" id="aCppException_8h_html"><div class="ttname"><a href="d3/d35/CppException_8h.html">CppException.h</a></div></div>
 <div class="ttc" id="aError_8h_html"><div class="ttname"><a href="de/dba/Error_8h.html">Error.h</a></div></div>
-<div class="ttc" id="aError_8h_html_af37be15dc2b5053c9c6f901363b2a756"><div class="ttname"><a href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a></div><div class="ttdeci">#define ASSERT_RETURN(condition)</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00606">Error.h:606</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1TCppException_html"><div class="ttname"><a href="db/d63/classMcro_1_1Error_1_1TCppException.html">Mcro::Error::TCppException</a></div><div class="ttdef"><b>Definition</b> <a href="d3/d35/CppException_8h_source.html#l00048">CppException.h:49</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></div><div class="ttdef"><b>Definition</b> <a href="d7/d3f/Error_8Fwd_8h_source.html#l00018">Error.Fwd.h:19</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html_a27d33ed2b445ca7310f71a30e9ad956f"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f">Mcro::Error::Success</a></div><div class="ttdeci">FORCEINLINE FCanFail Success()</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00590">Error.h:590</a></div></div>
+<div class="ttc" id="aError_8h_html_af37be15dc2b5053c9c6f901363b2a756"><div class="ttname"><a href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a></div><div class="ttdeci">#define ASSERT_RETURN(condition)</div><div class="ttdoc">Similar to check() macro, but return an error instead of crashing.</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00624">Error.h:624</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1TCppException_html"><div class="ttname"><a href="db/d63/classMcro_1_1Error_1_1TCppException.html">Mcro::Error::TCppException</a></div><div class="ttdoc">Use this template for catching STL exceptions to preserve the exception type name.</div><div class="ttdef"><b>Definition</b> <a href="d3/d35/CppException_8h_source.html#l00049">CppException.h:50</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></div><div class="ttdoc">Contains utilities for structured error handling.</div><div class="ttdef"><b>Definition</b> <a href="d7/d3f/Error_8Fwd_8h_source.html#l00018">Error.Fwd.h:19</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html_a27d33ed2b445ca7310f71a30e9ad956f"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f">Mcro::Error::Success</a></div><div class="ttdeci">FORCEINLINE FCanFail Success()</div><div class="ttdoc">Return an FCanFail or FTrueOrReason indicating a success or truthy output.</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00608">Error.h:608</a></div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Delegate type inferance</h2>
 <p>In <code><a class="el" href="d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></code> namespace there's a bunch of overloads of <code>From</code> function which can infer a delegate type and its intended binding only based on its input arguments. It means a couple of things:</p>
@@ -339,7 +339,7 @@ Delegate type inferance</h2>
 </div><div class="tabbed"></div><p>There's also a dynamic / native (multicast) delegate interop including similar chaining demonstrated here.</p>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Advanced TEventDelegate</h2>
-<p>Did your thing ever load after an event which your thing depends on, but now you have to somehow detect that the event has already happened and you have to execute your thing manually? With <code><a class="el" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></code> this situation has a lot less friction:</p>
+<p>Did your thing ever load after an event which your thing depends on, but now you have to somehow detect that the event has already happened and you have to execute your thing manually? With <code><a class="el" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html" title="&quot;Extension&quot; of a common TMulticastDelegate. It allows to define optional &quot;flags&quot; when adding a bindin...">Mcro::Delegates::TEventDelegate</a></code> this situation has a lot less friction:</p>
 <div class="fragment"><div class="line"> ++</div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="df/d51/EventDelegate_8h.html">Mcro/Delegates/EventDelegate.h</a>&quot;</span></div>
 <div class="line"> </div>
@@ -372,8 +372,8 @@ Advanced TEventDelegate</h2>
 <div class="line">);</div>
 <div class="line"><span class="comment">// -&gt; The last argument this event broadcasted with: 1337</span></div>
 <div class="ttc" id="aEventDelegate_8h_html"><div class="ttname"><a href="df/d51/EventDelegate_8h.html">EventDelegate.h</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Delegates_1_1TEventDelegate_html"><div class="ttname"><a href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00048">EventDelegate.h:48</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">Mcro::Delegates::BelatedInvoke</a></div><div class="ttdeci">@ BelatedInvoke</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00035">EventDelegate.h:35</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Delegates_1_1TEventDelegate_html"><div class="ttname"><a href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></div><div class="ttdoc">&quot;Extension&quot; of a common TMulticastDelegate. It allows to define optional &quot;flags&quot; when adding a bindin...</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00074">EventDelegate.h:74</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">Mcro::Delegates::BelatedInvoke</a></div><div class="ttdeci">@ BelatedInvoke</div><div class="ttdoc">The binding will be executed immediately if the delegate has already been broadcasted.</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00035">EventDelegate.h:35</a></div></div>
 </div><!-- fragment --><p>Or your thing only needs to do its tasks on the first time a frequently invoked event is triggered?</p>
 <div class="fragment"><div class="line"> ++</div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="df/d51/EventDelegate_8h.html">Mcro/Delegates/EventDelegate.h</a>&quot;</span></div>
@@ -469,7 +469,7 @@ TTypeName</h2>
 <div class="line">);</div>
 <div class="line"><span class="comment">// -&gt; But asking the base type will still preserve `FMyDerivedType`</span></div>
 <div class="ttc" id="aTypes_8h_html"><div class="ttname"><a href="d7/df8/Types_8h.html">Types.h</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Types_1_1IHaveType_html"><div class="ttname"><a href="d8/d19/classMcro_1_1Types_1_1IHaveType.html">Mcro::Types::IHaveType</a></div><div class="ttdef"><b>Definition</b> <a href="d7/df8/Types_8h_source.html#l00041">Types.h:42</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Types_1_1IHaveType_html"><div class="ttname"><a href="d8/d19/classMcro_1_1Types_1_1IHaveType.html">Mcro::Types::IHaveType</a></div><div class="ttdoc">A barebones base class for types which may store their type-name as a string.</div><div class="ttdef"><b>Definition</b> <a href="d7/df8/Types_8h_source.html#l00041">Types.h:42</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Types_html"><div class="ttname"><a href="da/d89/namespaceMcro_1_1Types.html">Mcro::Types</a></div><div class="ttdef"><b>Definition</b> <a href="d7/df8/Types_8h_source.html#l00021">Types.h:22</a></div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
 Auto modular features</h2>
@@ -566,7 +566,7 @@ Observable TState</h2>
 <div class="line">        MyStuff.Update(3);</div>
 <div class="line">        <span class="comment">// -&gt; Changed from 2 to 3</span></div>
 <div class="line">        <span class="comment">// -&gt; Arriving late 3</span></div>
-<div class="line">        MyStuff.OnChange(<a class="code hl_function" href="d0/dec/namespaceMcro_1_1Delegates.html#aa9afc24b49261d326ba6dd0d1e2afa73">From</a>(<span class="keyword">this</span>, &amp;FFoobar::Thing, TEXT(<span class="stringliteral">&quot;a unicorn&quot;</span>)));</div>
+<div class="line">        MyStuff.OnChange(<a class="code hl_function" href="d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">this</span>, &amp;FFoobar::Thing, TEXT(<span class="stringliteral">&quot;a unicorn&quot;</span>)));</div>
 <div class="line">        MyStuff.Update(4)</div>
 <div class="line">        <span class="comment">// -&gt; Changed from 3 to 4</span></div>
 <div class="line">        <span class="comment">// -&gt; Arriving late 4</span></div>
@@ -574,13 +574,13 @@ Observable TState</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aObservable_8h_html"><div class="ttname"><a href="d5/de3/Observable_8h.html">Observable.h</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aa9afc24b49261d326ba6dd0d1e2afa73"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aa9afc24b49261d326ba6dd0d1e2afa73">Mcro::Delegates::From</a></div><div class="ttdeci">TInferredDelegate&lt; Function, Captures... &gt; From(Function func, const Captures &amp;... captures)</div><div class="ttdef"><b>Definition</b> <a href="d4/dbf/DelegateFrom_8h_source.html#l00057">DelegateFrom.h:57</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">Mcro::Delegates::InvokeOnce</a></div><div class="ttdeci">@ InvokeOnce</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00032">EventDelegate.h:32</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a5f3cc254801d3d4fb340907c65123cd8"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">Mcro::Delegates::From</a></div><div class="ttdeci">TInferredDelegate&lt; Function, Captures... &gt; From(Function func, Captures &amp;&amp;... captures)</div><div class="ttdoc">Instead of specifying manually a delegate type, infer it from the input function and the extra captur...</div><div class="ttdef"><b>Definition</b> <a href="d4/dbf/DelegateFrom_8h_source.html#l00070">DelegateFrom.h:70</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">Mcro::Delegates::InvokeOnce</a></div><div class="ttdeci">@ InvokeOnce</div><div class="ttdoc">The binding will be automatically removed after the next broadcast.</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00032">EventDelegate.h:32</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Observable_html"><div class="ttname"><a href="d6/da2/namespaceMcro_1_1Observable.html">Mcro::Observable</a></div><div class="ttdef"><b>Definition</b> <a href="dc/da3/Observable_8Fwd_8h_source.html#l00023">Observable.Fwd.h:24</a></div></div>
-<div class="ttc" id="astructMcro_1_1Observable_1_1TChangeData_html"><div class="ttname"><a href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html">Mcro::Observable::TChangeData</a></div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00029">Observable.h:30</a></div></div>
+<div class="ttc" id="astructMcro_1_1Observable_1_1TChangeData_html"><div class="ttname"><a href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html">Mcro::Observable::TChangeData</a></div><div class="ttdoc">This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan...</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00029">Observable.h:30</a></div></div>
 <div class="ttc" id="astructMcro_1_1Observable_1_1TChangeData_html_a25a0f6961761740bca074faad4a38ca8"><div class="ttname"><a href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#a25a0f6961761740bca074faad4a38ca8">Mcro::Observable::TChangeData::Next</a></div><div class="ttdeci">T Next</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00051">Observable.h:51</a></div></div>
-<div class="ttc" id="astructMcro_1_1Observable_1_1TState_html"><div class="ttname"><a href="d7/d5e/structMcro_1_1Observable_1_1TState.html">Mcro::Observable::TState</a></div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00226">Observable.h:227</a></div></div>
-<div class="ttc" id="astructMcro_1_1Observable_1_1TState_html_af20d748b285a12ca2cab03a77e69b75a"><div class="ttname"><a href="d7/d5e/structMcro_1_1Observable_1_1TState.html#af20d748b285a12ca2cab03a77e69b75a">Mcro::Observable::TState::OnChange</a></div><div class="ttdeci">virtual FDelegateHandle OnChange(TDelegate&lt; void(TChangeData&lt; T &gt; const &amp;)&gt; onChange, EInvokeMode invokeMode=DefaultInvocation) override</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00330">Observable.h:330</a></div></div>
+<div class="ttc" id="astructMcro_1_1Observable_1_1TState_html"><div class="ttname"><a href="d7/d5e/structMcro_1_1Observable_1_1TState.html">Mcro::Observable::TState</a></div><div class="ttdoc">Storage wrapper for any value which state needs to be tracked or their change needs to be observed....</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00228">Observable.h:229</a></div></div>
+<div class="ttc" id="astructMcro_1_1Observable_1_1TState_html_af20d748b285a12ca2cab03a77e69b75a"><div class="ttname"><a href="d7/d5e/structMcro_1_1Observable_1_1TState.html#af20d748b285a12ca2cab03a77e69b75a">Mcro::Observable::TState::OnChange</a></div><div class="ttdeci">virtual FDelegateHandle OnChange(TDelegate&lt; void(TChangeData&lt; T &gt; const &amp;)&gt; onChange, EInvokeMode invokeMode=DefaultInvocation) override</div><div class="ttdoc">Add a delegate which gets a TChangeData&lt;T&gt; const&amp; if this state has been set.</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00332">Observable.h:332</a></div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
 Function Traits</h2>
 <p>Make templates dealing with function types more readable and yet more versatile via the <code><a class="el" href="d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></code> namespace. This is the foundation of many intricate teemplates <a class="el" href="d8/d63/namespaceMcro.html">Mcro</a> can offer.</p>
@@ -610,14 +610,14 @@ Function Traits</h2>
 <div class="line">}</div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00019">FunctionTraits.h:20</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00134">FunctionTraits.h:134</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdoc">Shorthand for getting a type of a function argument at given position I.</div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00139">FunctionTraits.h:139</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1UObjects_1_1Init_html"><div class="ttname"><a href="de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></div><div class="ttdef"><b>Definition</b> <a href="db/db1/Init_8h_source.html#l00017">Init.h:18</a></div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 Concepts</h2>
 <p>There's a copy of the C++ 20 STL Concepts library in <code><a class="el" href="d2/d09/namespaceMcro_1_1Concepts.html">Mcro::Concepts</a></code> namespace but with more Unreal friendly nameing. Also it adds some conveniance concepts, like <code>*Decayed</code> versions of type constraints, or some Unreal specific constraints like <code>CSharedRefOrPtr</code> or <code>CUObject</code></p>
 <h2><a class="anchor" id="autotoc_md16"></a>
 Extending the Slate declarative syntax</h2>
-<p><code><a class="el" href="df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></code> adds the <code>/</code> operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.</p>
+<p><code><a class="el" href="df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Mcro::Slate</a></code> adds the <code>/</code> operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.</p>
 <div class="fragment"><div class="line"> ++</div>
 <div class="line"><span class="preprocessor">#include &quot;Mcro/Slate&quot;</span>;</div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a>;</div>
@@ -663,9 +663,9 @@ Extending the Slate declarative syntax</h2>
 <div class="line">            ];</div>
 <div class="line">    };</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00018">Slate.h:19</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html_a0a93c9ab0e9db18e32d30eab8bde6323"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">Mcro::Slate::TAttributeBlock</a></div><div class="ttdeci">TUniqueFunction&lt; TArgumentsOf&lt; T &gt; &amp;(TArgumentsOf&lt; T &gt; &amp;)&gt; TAttributeBlock</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00083">Slate.h:83</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html_a4fa0c2bf1d38dc606f82a421bb902d3e"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">Mcro::Slate::IsVisible</a></div><div class="ttdeci">MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState=EVisibility::Collapsed)</div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdoc">Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00021">Slate.h:22</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html_a0a93c9ab0e9db18e32d30eab8bde6323"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">Mcro::Slate::TAttributeBlock</a></div><div class="ttdeci">TUniqueFunction&lt; TArgumentsOf&lt; T &gt; &amp;(TArgumentsOf&lt; T &gt; &amp;)&gt; TAttributeBlock</div><div class="ttdoc">Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and re...</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00087">Slate.h:87</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html_a4fa0c2bf1d38dc606f82a421bb902d3e"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">Mcro::Slate::IsVisible</a></div><div class="ttdeci">MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState=EVisibility::Collapsed)</div><div class="ttdoc">Convenience function for typing less when widget visibility depends on a boolean.</div></div>
 </div><!-- fragment --><p>Or add slots right in the Slate declarative syntax derived from an input array:</p>
 <div class="fragment"><div class="line"> ++</div>
 <div class="line"><span class="comment">// This is just a convenience function so we don&#39;t repeat ourselves</span></div>
@@ -692,7 +692,7 @@ Extending the Slate declarative syntax</h2>
 <div class="line">        + Row()[ SNew(STextBlock) / Text(TEXT(<span class="stringliteral">&quot;Fin.&quot;</span>)) ]</div>
 <div class="line">    ];</div>
 <div class="line">}</div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00179">Slate.h:180</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00185">Slate.h:186</a></div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Text interop</h2>
 <p>The <code><a class="el" href="d8/d6f/namespaceMcro_1_1Text.html">Mcro::Text</a></code> namespace provides some handy text templating and conversion utilities and interop between Unreal string and std::strings for third-party libraries.</p>
@@ -760,12 +760,17 @@ Last but not least</h2>
 <h1><a class="anchor" id="autotoc_md20"></a>
 Legal</h1>
 <p><a class="el" href="da/dfb/Attribution.html">Third-party components used by MCRO</a></p>
-<p>When using MCRO in a plugin distributed via Fab, these components must be listed upon submission.</p>
+<p>When using MCRO in a plugin distributed via Fab, the components above must be listed upon submission.</p>
 <p>In addition the following tools and .NET libraries are used for build tooling:</p>
 <ul>
 <li><a href="https://nuke.build">NUKE</a></li>
 <li><a href="https://github.com/scriban/scriban">Scriban</a></li>
 <li><a href="https://github.com/Humanizr/Humanizer">Humanizer</a></li>
+</ul>
+<p>And documentation:</p>
+<ul>
+<li><a href="https://www.doxygen.nl/index.html">Doxygen</a></li>
+<li><a href="https://jothepro.github.io/doxygen-awesome-css/">Doxygen Awesome</a></li>
 </ul>
 <p>This library is distributed under the <b>Mozilla Public License Version 2.0</b> open-source software license. Each source code file where this license is applicable contains a comment about this.</p>
 <p>Modifying those files or the entire library for commercial purposes is allowed but those modifications should also be published free and open-source under the same license. However files added by third-party for commercial purposes interfacing with the original files under MPL v2.0 are not affected by MPL v2.0 and therefore can have any form of copyright the third-party may choose.</p>

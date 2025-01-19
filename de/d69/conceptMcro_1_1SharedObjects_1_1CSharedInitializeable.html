@@ -116,6 +116,9 @@ $(function(){initNavTree('de/d69/conceptMcro_1_1SharedObjects_1_1CSharedInitiali
 </div><!--header-->
 <div class="contents">
 
+<p>Concept describing an object which provides a deferred initializer for shared objects.  
+<a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
@@ -123,10 +126,10 @@ $(function(){initNavTree('de/d69/conceptMcro_1_1SharedObjects_1_1CSharedInitiali
 <div class="line">    {</div>
 <div class="line">        <span class="keywordtype">object</span>.Initialize(Forward&lt;Args&gt;(args)...);</div>
 <div class="line">    }</div>
-<div class="ttc" id="aconceptMcro_1_1SharedObjects_1_1CSharedInitializeable_html"><div class="ttname"><a href="../../de/d69/conceptMcro_1_1SharedObjects_1_1CSharedInitializeable.html">Mcro::SharedObjects::CSharedInitializeable</a></div><div class="ttdef"><b>Definition</b> <a href="../../d3/d3e/SharedObjects_8h_source.html#l00046">SharedObjects.h:46</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1SharedObjects_1_1CSharedInitializeable_html"><div class="ttname"><a href="../../de/d69/conceptMcro_1_1SharedObjects_1_1CSharedInitializeable.html">Mcro::SharedObjects::CSharedInitializeable</a></div><div class="ttdoc">Concept describing an object which provides a deferred initializer for shared objects.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d3e/SharedObjects_8h_source.html#l00046">SharedObjects.h:46</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Concept describing an object which provides a deferred initializer for shared objects.</p>
-<p>This works around the annoyance of TSharedFromThis objects cannot use their shared pointers in their constructor, braking RAII in some cases. Of course this is only achievable if the object cooperates and implements an Initialize method. It's important that Initialize should not be virtual so derived classes can hide them with their own overload. </p>
+<div class="textblock"><p>Concept describing an object which provides a deferred initializer for shared objects. </p>
+<p>This works around the annoyance of TSharedFromThis objects cannot use their shared pointers in their constructor, braking RAII in some cases. Of course this is only achievable if the object cooperates and implements an Initialize method. It's important that <code>Initialize</code> should not be virtual so derived classes can hide them with their own overload. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00046">46</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 </div></div><!-- contents -->

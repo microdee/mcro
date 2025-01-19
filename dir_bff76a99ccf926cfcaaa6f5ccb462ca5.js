@@ -17,6 +17,7 @@ var dir_bff76a99ccf926cfcaaa6f5ccb462ca5 =
     [ "Error.h", "de/dba/Error_8h.html", "de/dba/Error_8h" ],
     [ "Finally.h", "de/de6/Finally_8h.html", "de/de6/Finally_8h" ],
     [ "FunctionTraits.h", "d7/d25/FunctionTraits_8h.html", "d7/d25/FunctionTraits_8h" ],
+    [ "InitializeOnCopy.h", "d6/dd0/InitializeOnCopy_8h.html", "d6/dd0/InitializeOnCopy_8h" ],
     [ "Macros.h", "df/d0a/Macros_8h.html", "df/d0a/Macros_8h" ],
     [ "Modules.h", "dd/dc2/Modules_8h.html", "dd/dc2/Modules_8h" ],
     [ "Observable.Fwd.h", "dc/da3/Observable_8Fwd_8h.html", "dc/da3/Observable_8Fwd_8h" ],

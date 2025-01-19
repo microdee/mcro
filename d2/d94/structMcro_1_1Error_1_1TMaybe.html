@@ -119,6 +119,9 @@ $(function(){initNavTree('d2/d94/structMcro_1_1Error_1_1TMaybe.html','../../'); 
 </div><!--header-->
 <div class="contents">
 
+<p>A <code>TValueOrError</code> alternative for <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API.">IError</a> which allows implicit conversion from values and errors (no need for <code>MakeError</code> or <code>MakeValue</code>) and is boolean testable. It also doesn't have ambiguous state such as <code>TValueOrError</code> has, so a <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> will always have either an error or a value, it will never have neither of them or both of them.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -131,24 +134,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e878ffa8582d63b143fa7ce1feb9019" id="r_a1e878ffa8582d63b143fa7ce1feb9019"><td class="memTemplParams" colspan="2">template&lt;typename  = T&gt; <br />
 requires (!CDefaultInitializable&lt;T&gt;)</td></tr>
 <tr class="memitem:a1e878ffa8582d63b143fa7ce1feb9019"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1e878ffa8582d63b143fa7ce1feb9019">TMaybe</a> ()</td></tr>
+<tr class="memdesc:a1e878ffa8582d63b143fa7ce1feb9019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default initializing a <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> while its value is not default initializable, initializes the resulting <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> to an erroneous state.  <br /></td></tr>
 <tr class="separator:a1e878ffa8582d63b143fa7ce1feb9019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cecf4d9667ec195cba0ce99db82c35d" id="r_a7cecf4d9667ec195cba0ce99db82c35d"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable  = T&gt; </td></tr>
 <tr class="memitem:a7cecf4d9667ec195cba0ce99db82c35d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7cecf4d9667ec195cba0ce99db82c35d">TMaybe</a> ()</td></tr>
+<tr class="memdesc:a7cecf4d9667ec195cba0ce99db82c35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">If T is default initializable then the default state of <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> will be the default value of T, and not an error.  <br /></td></tr>
 <tr class="separator:a7cecf4d9667ec195cba0ce99db82c35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1d4fce1c8f69b72f5ebd12e357156f0" id="r_ae1d4fce1c8f69b72f5ebd12e357156f0"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; From, CCopyConstructible  = T&gt; </td></tr>
 <tr class="memitem:ae1d4fce1c8f69b72f5ebd12e357156f0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae1d4fce1c8f69b72f5ebd12e357156f0">TMaybe</a> (From const &amp;value)</td></tr>
+<tr class="memdesc:ae1d4fce1c8f69b72f5ebd12e357156f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable copy constructor for T only when T is copy constructable.  <br /></td></tr>
 <tr class="separator:ae1d4fce1c8f69b72f5ebd12e357156f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0226c962d15940bc8983f9f14d22e53d" id="r_a0226c962d15940bc8983f9f14d22e53d"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; From, CMoveConstructible  = T&gt; </td></tr>
 <tr class="memitem:a0226c962d15940bc8983f9f14d22e53d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0226c962d15940bc8983f9f14d22e53d">TMaybe</a> (From &amp;&amp;value)</td></tr>
+<tr class="memdesc:a0226c962d15940bc8983f9f14d22e53d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable move constructor for T only when T is move constructable.  <br /></td></tr>
 <tr class="separator:a0226c962d15940bc8983f9f14d22e53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c92b9a0bd8493f7777bc32177517ed3" id="r_a1c92b9a0bd8493f7777bc32177517ed3"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; From, CCopyConstructible  = T&gt; </td></tr>
 <tr class="memitem:a1c92b9a0bd8493f7777bc32177517ed3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1c92b9a0bd8493f7777bc32177517ed3">TMaybe</a> (<a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a>&lt; From &gt; const &amp;other)</td></tr>
+<tr class="memdesc:a1c92b9a0bd8493f7777bc32177517ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable copy constructor for <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> only when T is copy constructable.  <br /></td></tr>
 <tr class="separator:a1c92b9a0bd8493f7777bc32177517ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d6b2d09fccfc6e95804f4bceecab72f" id="r_a8d6b2d09fccfc6e95804f4bceecab72f"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; From, CMoveConstructible  = T&gt; </td></tr>
 <tr class="memitem:a8d6b2d09fccfc6e95804f4bceecab72f"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8d6b2d09fccfc6e95804f4bceecab72f">TMaybe</a> (<a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a>&lt; From &gt; &amp;&amp;other)</td></tr>
+<tr class="memdesc:a8d6b2d09fccfc6e95804f4bceecab72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable move constructor for <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> only when T is move constructable.  <br /></td></tr>
 <tr class="separator:a8d6b2d09fccfc6e95804f4bceecab72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46c711fc97eb4055769206320de832b7" id="r_a46c711fc97eb4055769206320de832b7"><td class="memTemplParams" colspan="2">template&lt;CError ErrorType&gt; </td></tr>
 <tr class="memitem:a46c711fc97eb4055769206320de832b7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a46c711fc97eb4055769206320de832b7">TMaybe</a> (TSharedRef&lt; ErrorType &gt; const &amp;error)</td></tr>
+<tr class="memdesc:a46c711fc97eb4055769206320de832b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set this <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> to an erroneous state.  <br /></td></tr>
 <tr class="separator:a46c711fc97eb4055769206320de832b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65adeaef29dd4787cfa2ae959dd4c5a0" id="r_a65adeaef29dd4787cfa2ae959dd4c5a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65adeaef29dd4787cfa2ae959dd4c5a0">HasValue</a> () const</td></tr>
 <tr class="separator:a65adeaef29dd4787cfa2ae959dd4c5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,9 +181,9 @@ requires (!CDefaultInitializable&lt;T&gt;)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;CNonVoid T&gt;<br />
-struct Mcro::Error::TMaybe&lt; T &gt;</div><p>A TValueOrError alternative for <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html">IError</a> which allows implicit conversion from values and errors (no need for <code>MakeError</code> or <code>MakeValue</code>) and is boolean testable. It also doesn't have ambiguous state such as TValueOrError has, so a <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> will always have either an error or a value, it will never have neither of them or both of them. </p>
+struct Mcro::Error::TMaybe&lt; T &gt;</div><p>A <code>TValueOrError</code> alternative for <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API.">IError</a> which allows implicit conversion from values and errors (no need for <code>MakeError</code> or <code>MakeValue</code>) and is boolean testable. It also doesn't have ambiguous state such as <code>TValueOrError</code> has, so a <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> will always have either an error or a value, it will never have neither of them or both of them. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00514">514</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00530">530</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9dba62a27ab2416f88164fcd431e1b7b" name="a9dba62a27ab2416f88164fcd431e1b7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9dba62a27ab2416f88164fcd431e1b7b">&#9670;&#160;</a></span>ValueType</h2>
@@ -189,7 +199,7 @@ template&lt;CNonVoid T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00516">516</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00532">532</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -221,9 +231,10 @@ requires (!CDefaultInitializable&lt;T&gt;)</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Default initializing a <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> while its value is not default initializable, initializes the resulting <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> to an erroneous state. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00524">524</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>Default initializing a <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> while its value is not default initializable, initializes the resulting <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> to an erroneous state. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00541">541</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -253,9 +264,10 @@ template&lt;CDefaultInitializable  = T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>If T is default initializable then the default state of <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> will be the default value of T, and not an error </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00533">533</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>If T is default initializable then the default state of <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> will be the default value of T, and not an error. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00550">550</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -285,9 +297,10 @@ template&lt;CConvertibleToDecayed&lt; T &gt; From, CCopyConstructible  = T&gt; <
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Enable copy constructor for T only when T is copy constructable </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00537">537</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>Enable copy constructor for T only when T is copy constructable. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00554">554</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -317,9 +330,10 @@ template&lt;CConvertibleToDecayed&lt; T &gt; From, CMoveConstructible  = T&gt; <
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Enable move constructor for T only when T is move constructable </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00541">541</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>Enable move constructor for T only when T is move constructable. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00558">558</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -349,9 +363,10 @@ template&lt;CConvertibleToDecayed&lt; T &gt; From, CCopyConstructible  = T&gt; <
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Enable copy constructor for <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> only when T is copy constructable </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00545">545</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>Enable copy constructor for <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> only when T is copy constructable. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00562">562</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -381,9 +396,10 @@ template&lt;CConvertibleToDecayed&lt; T &gt; From, CMoveConstructible  = T&gt; <
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Enable move constructor for <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> only when T is move constructable </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00549">549</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>Enable move constructor for <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> only when T is move constructable. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00566">566</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -413,9 +429,10 @@ template&lt;CError ErrorType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Set this <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a> to an erroneous state </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00553">553</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p>Set this <a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">TMaybe</a> to an erroneous state. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00570">570</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -445,7 +462,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00564">564</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00581">581</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -474,7 +491,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00561">561</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00578">578</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -503,7 +520,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00562">562</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00579">579</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +549,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00556">556</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00573">573</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -561,7 +578,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00555">555</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00572">572</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -590,7 +607,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00566">566</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00583">583</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -619,7 +636,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00568">568</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00585">585</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -648,7 +665,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00558">558</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00575">575</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -677,7 +694,7 @@ template&lt;CNonVoid T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00559">559</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00576">576</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>

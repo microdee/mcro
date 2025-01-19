@@ -120,15 +120,20 @@ $(function(){initNavTree('d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html','.
   <div class="headertitle"><div class="title">Mcro::Rendering::Textures Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This namespace contain utilities regarding high-level cross-platform and cross-rhi texture objects.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html">TTextureSize</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple texture size description which can be used for checking the need to recreate a texture resource.  <a href="../../d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d24/conceptMcro_1_1Rendering_1_1Textures_1_1CTextureSize.html">CTextureSize</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describing a struct which can give texture size and layout information. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -139,9 +144,11 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae69b4f6330fb9f1c2e67abd1b47cfe51" id="r_ae69b4f6330fb9f1c2e67abd1b47cfe51"><td class="memItemLeft" align="right" valign="top">MCRO_API FRHITexture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae69b4f6330fb9f1c2e67abd1b47cfe51">GetRhiTexture2D</a> (UTexture *target)</td></tr>
+<tr class="memdesc:ae69b4f6330fb9f1c2e67abd1b47cfe51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the lower level RHI texture from a high level UTexture2D object if it's possible, nullptr otherwise.  <br /></td></tr>
 <tr class="separator:ae69b4f6330fb9f1c2e67abd1b47cfe51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ebe1c1242db5bc8d6b6fa1569f6c3e" id="r_aa9ebe1c1242db5bc8d6b6fa1569f6c3e"><td class="memTemplParams" colspan="2">template&lt;CEnum FormatType&gt; </td></tr>
 <tr class="memitem:aa9ebe1c1242db5bc8d6b6fa1569f6c3e"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa9ebe1c1242db5bc8d6b6fa1569f6c3e">GetUnknownFormat</a> ()</td></tr>
+<tr class="memdesc:aa9ebe1c1242db5bc8d6b6fa1569f6c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialize this function template to define the unknown format for an RHI texture format.  <br /></td></tr>
 <tr class="separator:aa9ebe1c1242db5bc8d6b6fa1569f6c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50ba2c45a75d348a14ae61f7880b3135" id="r_a50ba2c45a75d348a14ae61f7880b3135"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a50ba2c45a75d348a14ae61f7880b3135"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a50ba2c45a75d348a14ae61f7880b3135">GetUnknownFormat&lt; EPixelFormat &gt;</a> ()</td></tr>
@@ -152,10 +159,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af06838c885e791e45bc25155c624a4cf" id="r_af06838c885e791e45bc25155c624a4cf"><td class="memTemplParams" colspan="2">template&lt;CEnum ToFormatType, CEnum FromFormatType&gt; <br />
 requires (!CSameAs&lt;ToFormatType, FromFormatType&gt;)</td></tr>
 <tr class="memitem:af06838c885e791e45bc25155c624a4cf"><td class="memTemplItemLeft" align="right" valign="top">ToFormatType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af06838c885e791e45bc25155c624a4cf">ConvertFormat</a> (FromFormatType from)</td></tr>
+<tr class="memdesc:af06838c885e791e45bc25155c624a4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialize this function template to define format conversion of equivalent formats between RHIs.  <br /></td></tr>
 <tr class="separator:af06838c885e791e45bc25155c624a4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49505a3493bd0cce5290c170a1cc815b" id="r_a49505a3493bd0cce5290c170a1cc815b"><td class="memTemplParams" colspan="2">template&lt;CEnum ToFormatType, CEnum FromFormatType&gt; <br />
 requires CSameAs&lt;ToFormatType, FromFormatType&gt;</td></tr>
 <tr class="memitem:a49505a3493bd0cce5290c170a1cc815b"><td class="memTemplItemLeft" align="right" valign="top">ToFormatType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a49505a3493bd0cce5290c170a1cc815b">ConvertFormat</a> (FromFormatType from)</td></tr>
+<tr class="memdesc:a49505a3493bd0cce5290c170a1cc815b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special case when ToFormatType and FromFormatType are the same there's no need for conversion.  <br /></td></tr>
 <tr class="separator:a49505a3493bd0cce5290c170a1cc815b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5070a12ec9afddf62d18fd4f247c5b59" id="r_a5070a12ec9afddf62d18fd4f247c5b59"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a5070a12ec9afddf62d18fd4f247c5b59"><td class="memTemplItemLeft" align="right" valign="top">FORCEINLINE_DEBUGGABLE ETextureRenderTargetFormat&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5070a12ec9afddf62d18fd4f247c5b59">ConvertFormat&lt; ETextureRenderTargetFormat, EPixelFormat &gt;</a> (EPixelFormat from)</td></tr>
@@ -188,7 +197,7 @@ requires CSameAs&lt;ToFormatType, FromFormatType&gt;</td></tr>
 <tr class="separator:a3b801888f9013a18acc34060750983b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This namespace contain utilities regarding high-level cross-platform and cross-rhi texture objects </p>
+<div class="textblock"><p>This namespace contain utilities regarding high-level cross-platform and cross-rhi texture objects. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a0b6e81f1c960d820099dd896c11810c5" name="a0b6e81f1c960d820099dd896c11810c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b6e81f1c960d820099dd896c11810c5">&#9670;&#160;</a></span>FUnrealTextureSize</h2>
@@ -202,7 +211,7 @@ requires CSameAs&lt;ToFormatType, FromFormatType&gt;</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00182">182</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00181">181</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
 
 </div>
 </div>
@@ -224,7 +233,8 @@ requires (!CSameAs&lt;ToFormatType, FromFormatType&gt;)</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Specialize this function template to define format conversion of equivalent formats between RHIs </p>
+
+<p>Specialize this function template to define format conversion of equivalent formats between RHIs. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00046">46</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
 
@@ -247,7 +257,8 @@ requires CSameAs&lt;ToFormatType, FromFormatType&gt;</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Special case when ToFormatType and FromFormatType are the same there's no need for conversion </p>
+
+<p>Special case when ToFormatType and FromFormatType are the same there's no need for conversion. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00054">54</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
 
@@ -385,7 +396,8 @@ template&lt;&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the lower level RHI texture from a high level UTexture2D object if it's possible, nullptr otherwise </p>
+
+<p>Get the lower level RHI texture from a high level UTexture2D object if it's possible, nullptr otherwise. </p>
 
 </div>
 </div>
@@ -430,7 +442,8 @@ template&lt;CEnum FormatType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Specialize this function template to define the unknown format for an RHI texture format </p>
+
+<p>Specialize this function template to define the unknown format for an RHI texture format. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00038">38</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
 
@@ -544,7 +557,7 @@ template&lt;CTextureSize Left, CTextureSize Right&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00180">180</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00179">179</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
 
 </div>
 </div>
@@ -569,7 +582,7 @@ template&lt;CTextureSize Left, CTextureSize Right&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00171">171</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html#l00170">170</a> of file <a class="el" href="../../d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html">Textures.h</a>.</p>
 
 </div>
 </div>

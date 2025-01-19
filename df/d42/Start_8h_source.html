@@ -125,126 +125,132 @@ $(function(){initNavTree('df/d42/Start_8h_source.html','../../'); initResizable(
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *  @author David Mórász</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *  @date 2025</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d0a/Macros_8h.html">Mcro/Macros.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifdef NON_UNREAL_INCLUDE_REGION</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#error Third-party library or non-unreal include regions cannot be nested, one region is already opened before</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../df/d42/Start_8h.html#a0901508f5f31599b680f55dd460575df">   17</a></span><span class="preprocessor">#define NON_UNREAL_INCLUDE_REGION 1</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#if PLATFORM_WINDOWS</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;Windows/AllowWindowsPlatformTypes.h&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;Windows/AllowWindowsPlatformAtomics.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"></span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * @file</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * Use this header and `End.h` in tandem to include third-party library headers which may not tolerate Unreal&#39;s common</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * vocabulary macros or its stricter warning policies.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d0a/Macros_8h.html">Mcro/Macros.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifdef NON_UNREAL_INCLUDE_REGION</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#error Third-party library or non-unreal include regions cannot be nested, one region is already opened before</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#pragma warning( push )</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#pragma warning( disable : 4005 5205 4265 4268 4946 4103 )</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// temporarily undefine simplistic Unreal macros third-party libraries might also use</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#pragma push_macro(&quot;TEXT&quot;)</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#pragma push_macro(&quot;TRUE&quot;)</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#pragma push_macro(&quot;FALSE&quot;)</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#pragma push_macro(&quot;MAX_uint8&quot;)</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#pragma push_macro(&quot;MAX_uint16&quot;)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#pragma push_macro(&quot;MAX_uint32&quot;)</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#pragma push_macro(&quot;MAX_int32&quot;)</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#pragma push_macro(&quot;CONSTEXPR&quot;)</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#pragma push_macro(&quot;PI&quot;)</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#pragma push_macro(&quot;dynamic_cast&quot;)</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#pragma push_macro(&quot;VARARGS&quot;)</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#pragma push_macro(&quot;CDECL&quot;)</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#pragma push_macro(&quot;STDCALL&quot;)</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#pragma push_macro(&quot;FORCEINLINE&quot;)</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#pragma push_macro(&quot;FORCENOINLINE&quot;)</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#pragma push_macro(&quot;ABSTRACT&quot;)</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#pragma push_macro(&quot;LINE_TERMINATOR&quot;)</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#pragma push_macro(&quot;LINE_TERMINATOR_ANSI&quot;)</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#pragma push_macro(&quot;DLLEXPORT&quot;)</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#pragma push_macro(&quot;DLLIMPORT&quot;)</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#pragma push_macro(&quot;LIKELY&quot;)</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#pragma push_macro(&quot;UNLIKELY&quot;)</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#pragma push_macro(&quot;RESTRICT&quot;)</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#pragma push_macro(&quot;MOBILE&quot;)</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#pragma push_macro(&quot;CONSOLE&quot;)</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_WINDOWS&quot;)</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_COMPILER_CLANG&quot;)</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_APPLE&quot;)</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_MAC&quot;)</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_LINUX&quot;)</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_FREEBSD&quot;)</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_UNIX&quot;)</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#pragma push_macro(&quot;DEFAULTS&quot;)</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#undef TEXT</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#undef CONSTEXPR</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#undef PI</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#undef dynamic_cast</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#undef VARARGS</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#undef CDECL</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#undef STDCALL</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#undef FORCEINLINE</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#undef FORCENOINLINE</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#undef ABSTRACT</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#undef LINE_TERMINATOR</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#undef LINE_TERMINATOR_ANSI</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#undef DLLEXPORT</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#undef DLLIMPORT</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#undef LIKELY</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#undef UNLIKELY</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#undef RESTRICT</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#undef MOBILE</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#undef CONSOLE</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#undef PLATFORM_WINDOWS</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#undef PLATFORM_COMPILER_CLANG</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#undef PLATFORM_APPLE</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#undef PLATFORM_MAC</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#undef PLATFORM_LINUX</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#undef PLATFORM_FREEBSD</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#undef PLATFORM_UNIX</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#undef DEFAULTS</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#if DO_CHECK</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#define NUIR_DO_CHECK 1</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#pragma push_macro(&quot;DO_CHECK&quot;)</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#pragma push_macro(&quot;checkCode&quot;)</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#pragma push_macro(&quot;check&quot;)</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#pragma push_macro(&quot;checkf&quot;)</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#pragma push_macro(&quot;verify&quot;)</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#pragma push_macro(&quot;verifyf&quot;)</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#pragma push_macro(&quot;unimplemented&quot;)</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#pragma push_macro(&quot;ensure&quot;)</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#undef DO_CHECK</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#undef checkCode</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#undef check</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#undef checkf</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#undef verify</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#undef verifyf</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#undef unimplemented</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#undef ensure</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">// Unreal might use combination of compiler specific macros, which third-party libraries might not</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">// tolerate well. Sanitizing such macros here:</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">// prefer MSVC compiler macros over GCC if they&#39;re both present for some god forsaken reason</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; defined(__GNUC__)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../df/d42/Start_8h.html#a0901508f5f31599b680f55dd460575df">   23</a></span><span class="preprocessor">#define NON_UNREAL_INCLUDE_REGION 1</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#if PLATFORM_WINDOWS</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;Windows/AllowWindowsPlatformTypes.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;Windows/AllowWindowsPlatformAtomics.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#pragma warning( push )</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#pragma warning( disable : 4005 5205 4265 4268 4946 4103 )</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// temporarily undefine simplistic Unreal macros third-party libraries might also use</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#pragma push_macro(&quot;TEXT&quot;)</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#pragma push_macro(&quot;TRUE&quot;)</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#pragma push_macro(&quot;FALSE&quot;)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#pragma push_macro(&quot;MAX_uint8&quot;)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#pragma push_macro(&quot;MAX_uint16&quot;)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#pragma push_macro(&quot;MAX_uint32&quot;)</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#pragma push_macro(&quot;MAX_int32&quot;)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#pragma push_macro(&quot;CONSTEXPR&quot;)</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#pragma push_macro(&quot;PI&quot;)</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#pragma push_macro(&quot;dynamic_cast&quot;)</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#pragma push_macro(&quot;VARARGS&quot;)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#pragma push_macro(&quot;CDECL&quot;)</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#pragma push_macro(&quot;STDCALL&quot;)</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#pragma push_macro(&quot;FORCEINLINE&quot;)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#pragma push_macro(&quot;FORCENOINLINE&quot;)</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#pragma push_macro(&quot;ABSTRACT&quot;)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#pragma push_macro(&quot;LINE_TERMINATOR&quot;)</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#pragma push_macro(&quot;LINE_TERMINATOR_ANSI&quot;)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#pragma push_macro(&quot;DLLEXPORT&quot;)</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#pragma push_macro(&quot;DLLIMPORT&quot;)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#pragma push_macro(&quot;LIKELY&quot;)</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#pragma push_macro(&quot;UNLIKELY&quot;)</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#pragma push_macro(&quot;RESTRICT&quot;)</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#pragma push_macro(&quot;MOBILE&quot;)</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#pragma push_macro(&quot;CONSOLE&quot;)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_WINDOWS&quot;)</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_COMPILER_CLANG&quot;)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_APPLE&quot;)</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_MAC&quot;)</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_LINUX&quot;)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_FREEBSD&quot;)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#pragma push_macro(&quot;PLATFORM_UNIX&quot;)</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#pragma push_macro(&quot;DEFAULTS&quot;)</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#undef TEXT</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#undef CONSTEXPR</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#undef PI</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#undef dynamic_cast</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#undef VARARGS</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#undef CDECL</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#undef STDCALL</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#undef FORCEINLINE</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#undef FORCENOINLINE</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#undef ABSTRACT</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#undef LINE_TERMINATOR</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#undef LINE_TERMINATOR_ANSI</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#undef DLLEXPORT</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#undef DLLIMPORT</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#undef LIKELY</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#undef UNLIKELY</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#undef RESTRICT</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#undef MOBILE</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#undef CONSOLE</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#undef PLATFORM_WINDOWS</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#undef PLATFORM_COMPILER_CLANG</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#undef PLATFORM_APPLE</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#undef PLATFORM_MAC</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#undef PLATFORM_LINUX</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#undef PLATFORM_FREEBSD</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#undef PLATFORM_UNIX</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#undef DEFAULTS</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#if DO_CHECK</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#define NUIR_DO_CHECK 1</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#pragma push_macro(&quot;DO_CHECK&quot;)</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#pragma push_macro(&quot;checkCode&quot;)</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#pragma push_macro(&quot;check&quot;)</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#pragma push_macro(&quot;checkf&quot;)</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#pragma push_macro(&quot;verify&quot;)</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#pragma push_macro(&quot;verifyf&quot;)</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#pragma push_macro(&quot;unimplemented&quot;)</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#pragma push_macro(&quot;ensure&quot;)</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#undef DO_CHECK</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#undef checkCode</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#undef check</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#undef checkf</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#undef verify</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#undef verifyf</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#undef unimplemented</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#undef ensure</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#if _MSC_VER &gt; 0</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#pragma message (&quot;Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: &quot; MCRO_STRIFY(__GNUC__) &quot;, MSVC: &quot; MCRO_STRIFY(_MSC_VER) &quot;)&quot;)</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#define NUIR_MSVC_GNUC_AVOIDANCE __GNUC__</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#pragma push_macro(&quot;__GNUC__&quot;)</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#undef __GNUC__</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>THIRD_PARTY_INCLUDES_START</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>PRAGMA_PUSH_PLATFORM_DEFAULT_PACKING</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">// A combination of compiler specific macros may be present, which is super rare probably. Third-party libraries might</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">// not tolerate that well. Sanitizing such macros here:</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">// prefer MSVC compiler macros over GCC if they&#39;re both present for some godforsaken reason</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; defined(__GNUC__)</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#if _MSC_VER &gt; 0</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#pragma message (&quot;Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: &quot; PREPROCESSOR_TO_STRING(__GNUC__) &quot;, MSVC: &quot; PREPROCESSOR_TO_STRING(_MSC_VER) &quot;)&quot;)</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#define NUIR_MSVC_GNUC_AVOIDANCE __GNUC__</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#pragma push_macro(&quot;__GNUC__&quot;)</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#undef __GNUC__</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>THIRD_PARTY_INCLUDES_START</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>PRAGMA_PUSH_PLATFORM_DEFAULT_PACKING</div>
 <div class="ttc" id="aMacros_8h_html"><div class="ttname"><a href="../../df/d0a/Macros_8h.html">Macros.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

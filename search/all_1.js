@@ -30,7 +30,7 @@ var searchData=
   ['asfatal_27',['AsFatal',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a66c8ee08e47f338a97af6fcafdf3de66',1,'Mcro::Error::IError']]],
   ['asmutable_28',['AsMutable',['../d7/d53/namespaceMcro_1_1Templates.html#ad7e246afc5fdf5d5790527389110242e',1,'Mcro::Templates']]],
   ['asmutableptr_29',['AsMutablePtr',['../d7/d53/namespaceMcro_1_1Templates.html#acdf09bdd7c44a820a176d0d5e9eb6624',1,'Mcro::Templates::AsMutablePtr(T *input)'],['../d7/d53/namespaceMcro_1_1Templates.html#ae59b77ac781451dc3fe5acc995d5f320',1,'Mcro::Templates::AsMutablePtr(const T *input)']]],
-  ['asnative_30',['AsNative',['../d0/dec/namespaceMcro_1_1Delegates.html#a741dd0776a003ff6e054298d57c4fb59',1,'Mcro::Delegates']]],
+  ['asnative_30',['AsNative',['../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479',1,'Mcro::Delegates']]],
   ['asnative_2eh_31',['AsNative.h',['../d6/d11/AsNative_8h.html',1,'']]],
   ['asrecoverable_32',['AsRecoverable',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a96426efed3343f50076cfd59f2a29c20',1,'Mcro::Error::IError']]],
   ['assert_5fcrash_33',['ASSERT_CRASH',['../db/df5/AssertMacros_8h.html#aa701f2cd895ccc225e7eaef22640854d',1,'AssertMacros.h']]],

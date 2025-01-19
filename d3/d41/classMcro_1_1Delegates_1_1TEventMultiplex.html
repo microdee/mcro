@@ -115,10 +115,22 @@ $(function(){initNavTree('d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html'
   <div class="headertitle"><div class="title">Mcro::Delegates::TEventMultiplex&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API can serve.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a>&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
-class Mcro::Delegates::TEventMultiplex&lt; T &gt;</div>
-<p class="definition">Definition at line <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html#l00078">78</a> of file <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a>.</p>
+class Mcro::Delegates::TEventMultiplex&lt; T &gt;</div><p>Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API can serve. </p>
+<ul>
+<li>events via function override</li>
+<li>C++ listeners via a native event delegate</li>
+<li>Blueprint listeners via a dynamic multicast delegate with calling only a single class member.</li>
+</ul>
+<dl class="section important"><dt>Important</dt><dd>This is set up via the MCRO_DYNAMIC_EVENT_MULTIPLEX macro next to relevant class members. Using this template directly is not recommended </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html#l00092">92</a> of file <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Mcro_Origin/Public/Mcro/Delegates/<a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a></li>
 </ul>

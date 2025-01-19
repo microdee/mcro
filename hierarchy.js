@@ -57,7 +57,7 @@ var hierarchy =
     ] ],
     [ "Mcro::Concepts::Detail::TExtractClassName< T >", "d5/d32/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName.html", null ],
     [ "Mcro::Concepts::Detail::TExtractClassName< MemberType ClassType::* >", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4.html", null ],
-    [ "Mcro::FunctionTraits::TFunctionFromTuple_Struct< Return, Tuple >", "d4/d61/structMcro_1_1FunctionTraits_1_1TFunctionFromTuple__Struct.html", null ],
+    [ "Mcro::FunctionTraits::Detail::TFunctionFromTuple_Struct< Return, Tuple >", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", null ],
     [ "Mcro::FunctionTraits::Detail::TFunctionMeta< ReturnIn, Args >", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", null ],
     [ "Mcro::FunctionTraits::Detail::TFunctionMeta< ReturnIn, Args... >", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", [
       [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
@@ -69,9 +69,9 @@ var hierarchy =
     [ "Mcro::FunctionTraits::TFunctionTraits< decltype(&std::decay_t< T >::operator())>", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", [
       [ "Mcro::FunctionTraits::TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", null ]
     ] ],
-    [ "Mcro::Construct::TInitializeOnCopy< T >", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", null ],
-    [ "Mcro::Construct::TInitializeOnCopy< FCriticalSection >", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", null ],
-    [ "Mcro::Construct::TInitializeOnCopy< FRWLock >", "d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html", null ],
+    [ "Mcro::InitializeOnCopy::TInitializeOnCopy< T >", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", null ],
+    [ "Mcro::InitializeOnCopy::TInitializeOnCopy< FCriticalSection >", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", null ],
+    [ "Mcro::InitializeOnCopy::TInitializeOnCopy< FRWLock >", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", null ],
     [ "Mcro::Error::TMaybe< T >", "d2/d94/structMcro_1_1Error_1_1TMaybe.html", null ],
     [ "Mcro::Delegates::TNative_Struct< typename >", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
     [ "Mcro::Delegates::TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", null ],

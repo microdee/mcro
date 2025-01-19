@@ -127,8 +127,10 @@ $(function(){initNavTree('d3/d35/CppException_8h.html','../../'); initResizable(
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dfc/classMcro_1_1Error_1_1FCppException.html">Mcro::Error::FCppException</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unreal itself discourages the usage of C++ exceptions and there are also couple of thoughts above <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API.">IError</a> why that's the case. However, there are third-party libraries which may require their users to catch errors, their functions may, yield via exceptions. For this reason there's an <a class="el" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API.">IError</a> wrapper around std::exception base class which however will not preserve the actual type of the caught exception. For that use <a class="el" href="../../db/d63/classMcro_1_1Error_1_1TCppException.html" title="Use this template for catching STL exceptions to preserve the exception type name.">TCppException</a> template.  <a href="../../db/dfc/classMcro_1_1Error_1_1FCppException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d63/classMcro_1_1Error_1_1TCppException.html">Mcro::Error::TCppException&lt; Exception &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this template for catching STL exceptions to preserve the exception type name.  <a href="../../db/d63/classMcro_1_1Error_1_1TCppException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -136,6 +138,7 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></td></tr>
+<tr class="memdesc:dd/d58/namespaceMcro_1_1Error"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains utilities for structured error handling. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -411,51 +411,53 @@ $(function(){initNavTree('d1/d8d/Concepts_8h_source.html','../../'); initResizab
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="comment">     *  Concept that returns true if the given member pointer belongs to the class.</span></div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment">     *  </span></div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment">     *  Example:</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment">     *  class MyClass</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment">     *      int myMember;</span></div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment">     *  }</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">     *  CMemberPointerOf&lt;MyClass, &amp;MyClass::myMember&gt; // --&gt; true;</span></div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">     *  class MyOtherClass</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment">     *  }</span></div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">     *  CMemberPointerOf&lt;MyOtherClass, &amp;MyClass::myMember&gt; // --&gt; false;</span></div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> OwnerObject, <span class="keyword">typename</span> MemberPo<span class="keywordtype">int</span>erType&gt;</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">  298</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">CMemberPointerOf</a> =</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        std::is_member_pointer_v&lt;MemberPointerType&gt;</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        &amp;&amp; <a class="code hl_concept" href="../../dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html">CSameAsDecayed&lt;OwnerObject, Detail::TExtractedClassName&lt;MemberPointerType&gt;</a>&gt;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    ;</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="comment"></span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment">    //// Misc</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment">     *  class MyClass</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment">     *      int myMember;</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">     *  CMemberPointerOf&lt;MyClass, &amp;MyClass::myMember&gt; // --&gt; true;</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">     *  class MyOtherClass</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">     *  CMemberPointerOf&lt;MyOtherClass, &amp;MyClass::myMember&gt; // --&gt; false;</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> OwnerObject, <span class="keyword">typename</span> MemberPo<span class="keywordtype">int</span>erType&gt;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">  300</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">CMemberPointerOf</a> =</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        std::is_member_pointer_v&lt;MemberPointerType&gt;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        &amp;&amp; <a class="code hl_concept" href="../../dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html">CSameAsDecayed&lt;OwnerObject, Detail::TExtractedClassName&lt;MemberPointerType&gt;</a>&gt;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    ;</div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment"></span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">  306</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">CNonVoid</a> = !std::is_void_v&lt;T&gt;;</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00309" data-start="{" data-end="}">
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">  309</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">CRefCounted</a> = <span class="keyword">requires</span>(std::decay_t&lt;T&gt;&amp; t)</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    {</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        t.AddRef();</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        t.Release();</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    };</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment">    //// Misc</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment"></span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">  308</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">CNonVoid</a> = !std::is_void_v&lt;T&gt;;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00311" data-start="{" data-end="}">
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">  311</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">CRefCounted</a> = <span class="keyword">requires</span>(std::decay_t&lt;T&gt;&amp; t)</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    {</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        t.AddRef();</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        t.Release();</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    };</div>
 </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00316" data-start="{" data-end="}">
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="../../d1/d58/conceptMcro_1_1Concepts_1_1CRange.html">  316</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d1/d58/conceptMcro_1_1Concepts_1_1CRange.html">CRange</a> = <span class="keyword">requires</span>(std::decay_t&lt;T&gt; <span class="keyword">const</span>&amp; t)</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    {</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        t.begin();</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        t.end();</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    };</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00318" data-start="{" data-end="}">
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="../../d1/d58/conceptMcro_1_1Concepts_1_1CRange.html">  318</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d1/d58/conceptMcro_1_1Concepts_1_1CRange.html">CRange</a> = <span class="keyword">requires</span>(std::decay_t&lt;T&gt; <span class="keyword">const</span>&amp; t)</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    {</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        t.begin();</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        t.end();</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    };</div>
 </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="comment">// use in decltype</span></div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="../../d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89">  323</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T <a class="code hl_function" href="../../d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89">DecayPtr</a>(T*);</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>}</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="comment">// use in decltype</span></div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="../../d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89">  325</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T <a class="code hl_function" href="../../d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89">DecayPtr</a>(T*);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>}</div>
 </div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CAssignableFromDecayed_html"><div class="ttname"><a href="../../d3/d76/conceptMcro_1_1Concepts_1_1CAssignableFromDecayed.html">Mcro::Concepts::CAssignableFromDecayed</a></div><div class="ttdef"><b>Definition</b> <a href="#l00053">Concepts.h:53</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CAssignableFrom_html"><div class="ttname"><a href="../../d3/d1d/conceptMcro_1_1Concepts_1_1CAssignableFrom.html">Mcro::Concepts::CAssignableFrom</a></div><div class="ttdef"><b>Definition</b> <a href="#l00050">Concepts.h:50</a></div></div>
@@ -482,21 +484,21 @@ $(function(){initNavTree('d1/d8d/Concepts_8h_source.html','../../'); initResizab
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CInterfaceUClass_html"><div class="ttname"><a href="../../dd/d6a/conceptMcro_1_1Concepts_1_1CInterfaceUClass.html">Mcro::Concepts::CInterfaceUClass</a></div><div class="ttdef"><b>Definition</b> <a href="#l00228">Concepts.h:228</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CInterface_html"><div class="ttname"><a href="../../d4/d98/conceptMcro_1_1Concepts_1_1CInterface.html">Mcro::Concepts::CInterface</a></div><div class="ttdef"><b>Definition</b> <a href="#l00225">Concepts.h:225</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CInvocable_html"><div class="ttname"><a href="../../da/d3f/conceptMcro_1_1Concepts_1_1CInvocable.html">Mcro::Concepts::CInvocable</a></div><div class="ttdef"><b>Definition</b> <a href="#l00173">Concepts.h:173</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMemberPointerOf_html"><div class="ttname"><a href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">Mcro::Concepts::CMemberPointerOf</a></div><div class="ttdef"><b>Definition</b> <a href="#l00298">Concepts.h:298</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMemberPointerOf_html"><div class="ttname"><a href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">Mcro::Concepts::CMemberPointerOf</a></div><div class="ttdef"><b>Definition</b> <a href="#l00300">Concepts.h:300</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CModels_html"><div class="ttname"><a href="../../dc/d1d/conceptMcro_1_1Concepts_1_1CModels.html">Mcro::Concepts::CModels</a></div><div class="ttdef"><b>Definition</b> <a href="#l00197">Concepts.h:197</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMovable_html"><div class="ttname"><a href="../../d4/de8/conceptMcro_1_1Concepts_1_1CMovable.html">Mcro::Concepts::CMovable</a></div><div class="ttdef"><b>Definition</b> <a href="#l00152">Concepts.h:152</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMoveConstructible_html"><div class="ttname"><a href="../../dd/d08/conceptMcro_1_1Concepts_1_1CMoveConstructible.html">Mcro::Concepts::CMoveConstructible</a></div><div class="ttdef"><b>Definition</b> <a href="#l00142">Concepts.h:142</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMutableType_html"><div class="ttname"><a href="../../df/d03/conceptMcro_1_1Concepts_1_1CMutableType.html">Mcro::Concepts::CMutableType</a></div><div class="ttdef"><b>Definition</b> <a href="#l00130">Concepts.h:130</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CNonCharPtr_html"><div class="ttname"><a href="../../d4/d2d/conceptMcro_1_1Concepts_1_1CNonCharPtr.html">Mcro::Concepts::CNonCharPtr</a></div><div class="ttdef"><b>Definition</b> <a href="#l00236">Concepts.h:236</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CNonChar_html"><div class="ttname"><a href="../../d8/dbb/conceptMcro_1_1Concepts_1_1CNonChar.html">Mcro::Concepts::CNonChar</a></div><div class="ttdef"><b>Definition</b> <a href="#l00242">Concepts.h:242</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CNonVoid_html"><div class="ttname"><a href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">Mcro::Concepts::CNonVoid</a></div><div class="ttdef"><b>Definition</b> <a href="#l00306">Concepts.h:306</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CNonVoid_html"><div class="ttname"><a href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">Mcro::Concepts::CNonVoid</a></div><div class="ttdef"><b>Definition</b> <a href="#l00308">Concepts.h:308</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CPartiallyOrderedWith_html"><div class="ttname"><a href="../../db/d48/conceptMcro_1_1Concepts_1_1CPartiallyOrderedWith.html">Mcro::Concepts::CPartiallyOrderedWith</a></div><div class="ttdef"><b>Definition</b> <a href="#l00121">Concepts.h:121</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CPlainClass_html"><div class="ttname"><a href="../../db/dde/conceptMcro_1_1Concepts_1_1CPlainClass.html">Mcro::Concepts::CPlainClass</a></div><div class="ttdef"><b>Definition</b> <a href="#l00256">Concepts.h:256</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CPlainEnum_html"><div class="ttname"><a href="../../da/d8e/conceptMcro_1_1Concepts_1_1CPlainEnum.html">Mcro::Concepts::CPlainEnum</a></div><div class="ttdef"><b>Definition</b> <a href="#l00088">Concepts.h:88</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CPointer_html"><div class="ttname"><a href="../../db/de5/conceptMcro_1_1Concepts_1_1CPointer.html">Mcro::Concepts::CPointer</a></div><div class="ttdef"><b>Definition</b> <a href="#l00247">Concepts.h:247</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CPredicate_html"><div class="ttname"><a href="../../d7/db4/conceptMcro_1_1Concepts_1_1CPredicate.html">Mcro::Concepts::CPredicate</a></div><div class="ttdef"><b>Definition</b> <a href="#l00179">Concepts.h:179</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CRange_html"><div class="ttname"><a href="../../d1/d58/conceptMcro_1_1Concepts_1_1CRange.html">Mcro::Concepts::CRange</a></div><div class="ttdef"><b>Definition</b> <a href="#l00316">Concepts.h:316</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CRefCounted_html"><div class="ttname"><a href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">Mcro::Concepts::CRefCounted</a></div><div class="ttdef"><b>Definition</b> <a href="#l00309">Concepts.h:309</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CRange_html"><div class="ttname"><a href="../../d1/d58/conceptMcro_1_1Concepts_1_1CRange.html">Mcro::Concepts::CRange</a></div><div class="ttdef"><b>Definition</b> <a href="#l00318">Concepts.h:318</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CRefCounted_html"><div class="ttname"><a href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">Mcro::Concepts::CRefCounted</a></div><div class="ttdef"><b>Definition</b> <a href="#l00311">Concepts.h:311</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CRegular_html"><div class="ttname"><a href="../../da/dc0/conceptMcro_1_1Concepts_1_1CRegular.html">Mcro::Concepts::CRegular</a></div><div class="ttdef"><b>Definition</b> <a href="#l00170">Concepts.h:170</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CRelation_html"><div class="ttname"><a href="../../de/d65/conceptMcro_1_1Concepts_1_1CRelation.html">Mcro::Concepts::CRelation</a></div><div class="ttdef"><b>Definition</b> <a href="#l00182">Concepts.h:182</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CSameAsDecayed_html"><div class="ttname"><a href="../../dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html">Mcro::Concepts::CSameAsDecayed</a></div><div class="ttdef"><b>Definition</b> <a href="#l00041">Concepts.h:41</a></div></div>

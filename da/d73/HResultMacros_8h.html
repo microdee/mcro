@@ -129,12 +129,16 @@ Macros</h2></td></tr>
 <tr class="memitem:a15873b32ab94142154378975456448f7" id="r_a15873b32ab94142154378975456448f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15873b32ab94142154378975456448f7">MCRO_TRY_WITH_IMPL</a>(tempVar,  expression,  noErrorInfo)</td></tr>
 <tr class="separator:a15873b32ab94142154378975456448f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a41141e526b70b5595f95d7d6467984" id="r_a8a41141e526b70b5595f95d7d6467984"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a41141e526b70b5595f95d7d6467984">HR_TRY_WITH</a>(expression,  noErrorInfo)</td></tr>
+<tr class="memdesc:a8a41141e526b70b5595f95d7d6467984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>.  <br /></td></tr>
 <tr class="separator:a8a41141e526b70b5595f95d7d6467984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0278b53dedb9e39df3797be07e66a434" id="r_a0278b53dedb9e39df3797be07e66a434"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0278b53dedb9e39df3797be07e66a434">HR_TRY</a>(expression)</td></tr>
+<tr class="memdesc:a0278b53dedb9e39df3797be07e66a434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. On non-shipping builds stacktrace is captured by default.  <br /></td></tr>
 <tr class="separator:a0278b53dedb9e39df3797be07e66a434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c43b424147496c75e6ab1813f18da86" id="r_a6c43b424147496c75e6ab1813f18da86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c43b424147496c75e6ab1813f18da86">HR_TRY_FAST</a>(expression)</td></tr>
+<tr class="memdesc:a6c43b424147496c75e6ab1813f18da86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. This version doesn't capture a stacktrace.  <br /></td></tr>
 <tr class="separator:a6c43b424147496c75e6ab1813f18da86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa230fdcd68090fe0de01d7f5addb7833" id="r_aa230fdcd68090fe0de01d7f5addb7833"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa230fdcd68090fe0de01d7f5addb7833">HR_TRY_RAW</a>(expression)</td></tr>
+<tr class="memdesc:aa230fdcd68090fe0de01d7f5addb7833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. This version doesn't capture a stacktrace and it won't calculate human readable messages from the HRESULT the error code.  <br /></td></tr>
 <tr class="separator:aa230fdcd68090fe0de01d7f5addb7833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -163,11 +167,12 @@ Macros</h2></td></tr>
 <div class="line">        <a class="code hl_define" href="#afdf343e4c2ad9900573afa7b79d111cf">HR_WITH_STACKTRACE</a>         \</div>
 <div class="line">        -&gt;AsFatal()                \</div>
 <div class="line">        -&gt;BreakDebugger()</div>
-<div class="ttc" id="aHResultMacros_8h_html_a8a41141e526b70b5595f95d7d6467984"><div class="ttname"><a href="#a8a41141e526b70b5595f95d7d6467984">HR_TRY_WITH</a></div><div class="ttdeci">#define HR_TRY_WITH(expression, noErrorInfo)</div><div class="ttdef"><b>Definition</b> <a href="../../da/d73/HResultMacros_8h_source.html#l00037">HResultMacros.h:37</a></div></div>
+<div class="ttc" id="aHResultMacros_8h_html_a8a41141e526b70b5595f95d7d6467984"><div class="ttname"><a href="#a8a41141e526b70b5595f95d7d6467984">HR_TRY_WITH</a></div><div class="ttdeci">#define HR_TRY_WITH(expression, noErrorInfo)</div><div class="ttdoc">Use this macro in a function which returns an Mcro::Error::TMaybe.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d73/HResultMacros_8h_source.html#l00037">HResultMacros.h:37</a></div></div>
 <div class="ttc" id="aHResultMacros_8h_html_afdf343e4c2ad9900573afa7b79d111cf"><div class="ttname"><a href="#afdf343e4c2ad9900573afa7b79d111cf">HR_WITH_STACKTRACE</a></div><div class="ttdeci">#define HR_WITH_STACKTRACE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d73/HResultMacros_8h_source.html#l00025">HResultMacros.h:25</a></div></div>
-</div><!-- fragment --><p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">Mcro::Error::TMaybe</a></code>. On non-shipping builds stacktrace is captured by default. </p>
+</div><!-- fragment -->
+<p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. On non-shipping builds stacktrace is captured by default. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00044">44</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00045">45</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
 
 </div>
 </div>
@@ -186,9 +191,10 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a8a41141e526b70b5595f95d7d6467984">HR_TRY_WITH</a>(expression, <span class="keyword">false</span>)</div>
-</div><!-- fragment --><p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">Mcro::Error::TMaybe</a></code>. This version doesn't capture a stacktrace. </p>
+</div><!-- fragment -->
+<p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. This version doesn't capture a stacktrace. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00051">51</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00052">52</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
 
 </div>
 </div>
@@ -207,9 +213,10 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a8a41141e526b70b5595f95d7d6467984">HR_TRY_WITH</a>(expression, <span class="keyword">true</span>)</div>
-</div><!-- fragment --><p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">Mcro::Error::TMaybe</a></code>. This version doesn't capture a stacktrace and it won't calculate human readable messages from the HRESULT the error code. </p>
+</div><!-- fragment -->
+<p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. This version doesn't capture a stacktrace and it won't calculate human readable messages from the HRESULT the error code. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00059">59</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
 
 </div>
 </div>
@@ -233,7 +240,8 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#a15873b32ab94142154378975456448f7">MCRO_TRY_WITH_IMPL</a>(PREPROCESSOR_JOIN(tempHr, __LINE__), expression, noErrorInfo)</div>
 <div class="ttc" id="aHResultMacros_8h_html_a15873b32ab94142154378975456448f7"><div class="ttname"><a href="#a15873b32ab94142154378975456448f7">MCRO_TRY_WITH_IMPL</a></div><div class="ttdeci">#define MCRO_TRY_WITH_IMPL(tempVar, expression, noErrorInfo)</div><div class="ttdef"><b>Definition</b> <a href="../../da/d73/HResultMacros_8h_source.html#l00028">HResultMacros.h:28</a></div></div>
-</div><!-- fragment --><p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">Mcro::Error::TMaybe</a></code>. </p>
+</div><!-- fragment -->
+<p>Use this macro in a function which returns an <code><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html" title="A TValueOrError alternative for IError which allows implicit conversion from values and errors (no ne...">Mcro::Error::TMaybe</a></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00037">37</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
 
@@ -285,8 +293,8 @@ Macros</h2></td></tr>
 <div class="line">            -&gt;AsRecoverable                                                                             \</div>
 <div class="line">            -&gt;WithCodeContext(<a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(expression))</div>
 <div class="ttc" id="aMacros_8h_html_a4bf69615cef105529a52fd1a06f84704"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a></div><div class="ttdeci">#define PREPROCESSOR_TO_TEXT(x)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00017">Macros.h:17</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1IError_html_ac2ce5e2b8105f57bb6fb0ff948e9c79d"><div class="ttname"><a href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a></div><div class="ttdeci">static TSharedRef&lt; T &gt; Make(T *newError, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00136">Error.h:136</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Windows_1_1Error_1_1FHresultError_html"><div class="ttname"><a href="../../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html">Mcro::Windows::Error::FHresultError</a></div><div class="ttdef"><b>Definition</b> <a href="../../d0/d7b/WindowsError_8h_source.html#l00039">WindowsError.h:40</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1IError_html_ac2ce5e2b8105f57bb6fb0ff948e9c79d"><div class="ttname"><a href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a></div><div class="ttdeci">static TSharedRef&lt; T &gt; Make(T *newError, Args &amp;&amp;... args)</div><div class="ttdoc">To ensure automatic type reflection use IError::Make instead of manually constructing error objects.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00140">Error.h:140</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Windows_1_1Error_1_1FHresultError_html"><div class="ttname"><a href="../../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html">Mcro::Windows::Error::FHresultError</a></div><div class="ttdoc">An error wrapping HRESULT code returned by many Microsoft APIs. It will also collect human readable m...</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d7b/WindowsError_8h_source.html#l00038">WindowsError.h:39</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../da/d73/HResultMacros_8h_source.html#l00028">28</a> of file <a class="el" href="../../da/d73/HResultMacros_8h_source.html">HResultMacros.h</a>.</p>
 

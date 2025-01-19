@@ -133,6 +133,7 @@ $(function(){initNavTree('d1/d43/Yaml_8h.html','../../'); initResizable(true); }
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">Mcro::Yaml::TScopedRegion&lt; Begin, End &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII friendly region annotation for YAML::Emitter streams.  <a href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -145,8 +146,10 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a3f05a37e9779b9800c46f55816361410" id="r_a3f05a37e9779b9800c46f55816361410"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dba/namespaceMcro_1_1Yaml.html#a3f05a37e9779b9800c46f55816361410">Mcro::Yaml::FMap</a> = <a class="el" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">TScopedRegion</a>&lt;YAML::BeginMap, YAML::EndMap&gt;</td></tr>
+<tr class="memdesc:a3f05a37e9779b9800c46f55816361410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Annotate a mapping region in a YAML::Emitter stream, which ends when this object goes out of scope.  <br /></td></tr>
 <tr class="separator:a3f05a37e9779b9800c46f55816361410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a80e16e078683d8183ca2ebf4a213cb" id="r_a5a80e16e078683d8183ca2ebf4a213cb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dba/namespaceMcro_1_1Yaml.html#a5a80e16e078683d8183ca2ebf4a213cb">Mcro::Yaml::FSeq</a> = <a class="el" href="../../d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html">TScopedRegion</a>&lt;YAML::BeginSeq, YAML::EndSeq&gt;</td></tr>
+<tr class="memdesc:a5a80e16e078683d8183ca2ebf4a213cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Annotate a sequence region in a YAML::Emitter stream, which ends when this object goes out of scope.  <br /></td></tr>
 <tr class="separator:a5a80e16e078683d8183ca2ebf4a213cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -154,9 +157,11 @@ Functions</h2></td></tr>
 <tr class="memitem:ac1d54619c9062439cf8f940c23dcde54" id="r_ac1d54619c9062439cf8f940c23dcde54"><td class="memTemplParams" colspan="2">template&lt;typename String &gt; <br />
 requires (CStringOrViewOrName&lt;String&gt; || CStdStringOrView&lt;String&gt;)</td></tr>
 <tr class="memitem:ac1d54619c9062439cf8f940c23dcde54"><td class="memTemplItemLeft" align="right" valign="top">YAML::Emitter &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/dba/namespaceMcro_1_1Yaml.html#ac1d54619c9062439cf8f940c23dcde54">Mcro::Yaml::operator&lt;&lt;</a> (YAML::Emitter &amp;out, String &amp;&amp;v)</td></tr>
+<tr class="memdesc:ac1d54619c9062439cf8f940c23dcde54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience operator to append Unreal or potentially wide strings to YAML::Emitter streams.  <br /></td></tr>
 <tr class="separator:ac1d54619c9062439cf8f940c23dcde54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35b8dd354fe4d3d0723b4b72043daba7" id="r_a35b8dd354fe4d3d0723b4b72043daba7"><td class="memTemplParams" colspan="2">template&lt;CEnum Enum&gt; </td></tr>
 <tr class="memitem:a35b8dd354fe4d3d0723b4b72043daba7"><td class="memTemplItemLeft" align="right" valign="top">YAML::Emitter &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/dba/namespaceMcro_1_1Yaml.html#a35b8dd354fe4d3d0723b4b72043daba7">Mcro::Yaml::operator&lt;&lt;</a> (YAML::Emitter &amp;out, Enum v)</td></tr>
+<tr class="memdesc:a35b8dd354fe4d3d0723b4b72043daba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience operator to append enums as strings to a YAML::Emitter streams.  <br /></td></tr>
 <tr class="separator:a35b8dd354fe4d3d0723b4b72043daba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

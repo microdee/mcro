@@ -137,126 +137,90 @@ $(function(){initNavTree('d1/dd5/Construct_8h_source.html','../../'); initResiza
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment"></span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     *  Simply makes a new object and allows to initialize it in place with a lambda function. The object type is derived</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     *  from the first argument of the initializer lambda function.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *  Usage:</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     *  @code</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *  using namespace Mcro::Construct;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *  auto myObject = Construct([](MyObject&amp; _)</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     *      _.Foo = 42;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     *      _.Initialize();</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *      // etc...</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *  });</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     *  static_assert(std::is_same_v&lt;decltype(myObject), MyObject&gt;);</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     *  @endcode</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     *  @param init A lambda function with a single l-value reference parameter of the object type to initialize.</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     *  @param args</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     *  @return A new instance of the object.</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     *  @remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">template</span>&lt;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        CFunctorObject Initializer,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">typename</span>... Args,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">typename</span> ResultArg = <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg&lt;Initializer, 0&gt;</a>,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">typename</span> Result = std::decay_t&lt;ResultArg&gt;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    &gt;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">requires</span> std::is_lvalue_reference_v&lt;ResultArg&gt;</div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">   50</a></span>    Result <a class="code hl_function" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">Construct</a>(Initializer&amp;&amp; init, Args&amp;&amp;... args)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        Result result {Forward&lt;Args&gt;(args)...};</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        init(result);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     *  Simply makes a new object and allows to initialize it in place with a lambda function. The object type is derived</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *  from the first argument of the initializer lambda function.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     *  Usage:</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     *  using namespace Mcro::Construct;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     *  auto myObject = Construct([](MyObject&amp; _)</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     *      _.Foo = 42;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *      _.Initialize();</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *      // etc...</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     *  });</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     *  static_assert(std::is_same_v&lt;decltype(myObject), MyObject&gt;);</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     *  @param    init  A lambda function with a single l-value reference parameter of the object type to initialize.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     *  @param    args  Arguments of the object constructor</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     *  @return   A new instance of the object.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     *  @remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">template</span>&lt;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        CFunctorObject Initializer,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">typename</span>... Args,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">typename</span> ResultArg = <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg&lt;Initializer, 0&gt;</a>,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">typename</span> Result = std::decay_t&lt;ResultArg&gt;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    &gt;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">requires</span> std::is_lvalue_reference_v&lt;ResultArg&gt;</div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">   51</a></span>    Result <a class="code hl_function" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">Construct</a>(Initializer&amp;&amp; init, Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        Result result {Forward&lt;Args&gt;(args)...};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        init(result);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">     *  Simply makes a new object on the heap and allows to initialize it in place with a lambda function. The object</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">     *  type is derived from the first argument of the initializer lambda function.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">     *  Usage:</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     *  @code</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     *  using namespace Mcro::Construct;</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">     *  auto myObject = ConstructNew([](MyObject&amp; _)</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     *      _.Foo = 42;</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">     *      _.Initialize();</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     *      // etc...</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     *  });</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">     *  static_assert(std::is_same_v&lt;decltype(myObject), MyObject*&gt;);</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">     *  @endcode</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     *  @param init A lambda function with a single l-value reference parameter of the object type to initialize.</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     *  @param args</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     *  @return A pointer to the object instance on heap.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     *  @remarks The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">template</span>&lt;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        CFunctorObject Initializer,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">typename</span>... Args,</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">typename</span> ResultArg = <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg&lt;Initializer, 0&gt;</a>,</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">typename</span> Result = std::decay_t&lt;ResultArg&gt;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    &gt;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">requires</span> std::is_lvalue_reference_v&lt;ResultArg&gt;</div>
-<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">   86</a></span>    Result* <a class="code hl_function" href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">ConstructNew</a>(Initializer&amp;&amp; init, Args&amp;&amp;... args)</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        Result* result = <span class="keyword">new</span> Result {Forward&lt;Args&gt;(args)...};</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        init(*result);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">     *  Simply makes a new object on the heap and allows to initialize it in place with a lambda function. The object</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     *  type is derived from the first argument of the initializer lambda function.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     *  Usage:</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">     *  using namespace Mcro::Construct;</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     *  auto myObject = ConstructNew([](MyObject&amp; _)</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     *      _.Foo = 42;</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     *      _.Initialize();</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">     *      // etc...</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">     *  });</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">     *  static_assert(std::is_same_v&lt;decltype(myObject), MyObject*&gt;);</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     *  @param    init  A lambda function with a single l-value reference parameter of the object type to initialize.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     *  @param    args  Arguments of the object constructor</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     *  @return   A pointer to the object instance on heap.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">     *  @remarks  The C++ 20 designated initializers with named arguments has annoying limitations, therefore this exists</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">template</span>&lt;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        CFunctorObject Initializer,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">typename</span>... Args,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keyword">typename</span> ResultArg = <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg&lt;Initializer, 0&gt;</a>,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keyword">typename</span> Result = std::decay_t&lt;ResultArg&gt;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    &gt;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">requires</span> std::is_lvalue_reference_v&lt;ResultArg&gt;</div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">   88</a></span>    Result* <a class="code hl_function" href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">ConstructNew</a>(Initializer&amp;&amp; init, Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        Result* result = <span class="keyword">new</span> Result {Forward&lt;Args&gt;(args)...};</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        init(*result);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">     *  A type wrapper around a default initializeable object which may not be copyable but which needs to be a member</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     *  of a copyable class. On each instance of such class the wrapped value may not need to be copied and default</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     *  constructing it is enough. Useful for mutexes for example.</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">template</span> &lt;CDefaultInitializable T&gt;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">requires</span> (!CCopyable&lt;T&gt;)</div>
-<div class="foldopen" id="foldopen00100" data-start="{" data-end="};">
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">  100</a></span>    <span class="keyword">struct</span> <a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a2f0e24d7ad2b4686f49fbdd33c9a0d3e">  102</a></span>        <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a2f0e24d7ad2b4686f49fbdd33c9a0d3e">TInitializeOnCopy</a>() : Value() {}</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a51baeb9374e53ac300d9fa435ac1c78d">  103</a></span>        <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a51baeb9374e53ac300d9fa435ac1c78d">TInitializeOnCopy</a>(<a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a> <span class="keyword">const</span>&amp;) : Value() {}</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a026e39aa880934881ab6c6728e333ece">  104</a></span>        <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a026e39aa880934881ab6c6728e333ece">TInitializeOnCopy</a>(<a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a>&amp;&amp;) noexcept : Value() {}</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a0feb0797654d0babdddf6aaf93b9eaaa">  105</a></span>        <span class="keyword">auto</span> <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a0feb0797654d0babdddf6aaf93b9eaaa">operator=</a>(<a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a> <span class="keyword">const</span>&amp;) -&gt; <a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a>&amp; { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a538a2e1f948b05d396c055f2bfe24920">  106</a></span>        <span class="keyword">auto</span> <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a538a2e1f948b05d396c055f2bfe24920">operator=</a>(<a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a>&amp;&amp; other) <span class="keyword">noexcept</span> -&gt; <a class="code hl_struct" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">TInitializeOnCopy</a>&amp; { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a99706b49a3a40d09154e481b386264d2">  108</a></span>        TUniqueObj&lt;T&gt; <a class="code hl_variable" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a99706b49a3a40d09154e481b386264d2">Value</a>;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a33abb2d36bd5fce58ca7dfc247b4c88e">  110</a></span>              T* operator -&gt; ()       { <span class="keywordflow">return</span> &amp;Value.Get(); }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a48a07c887fdc9ceab4495b89b86b9fdb">  111</a></span>        <span class="keyword">const</span> T* operator -&gt; ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> &amp;Value.Get(); }</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a325f1f11d070359f5524fa10867c5fb5">  113</a></span>              T&amp; <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a325f1f11d070359f5524fa10867c5fb5">Get</a>()       { <span class="keywordflow">return</span> Value.Get(); }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a9a7933401a548479dd2b964521403436">  114</a></span>        <span class="keyword">const</span> T&amp; <a class="code hl_function" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a9a7933401a548479dd2b964521403436">Get</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Value.Get(); }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Self&gt;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a98f87c29368260465f62e5772d45de0c">  117</a></span>        <span class="keyword">operator</span> <span class="keyword">typename</span> TCopyQualifiersFromTo&lt;Self, T&amp;&gt;::Type (<span class="keyword">this</span> Self&amp;&amp; self) { <span class="keywordflow">return</span> self.Get(); }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    };</div>
-</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
 </div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="../../d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Construct_html"><div class="ttname"><a href="../../d3/d5d/namespaceMcro_1_1Construct.html">Mcro::Construct</a></div><div class="ttdef"><b>Definition</b> <a href="#l00017">Construct.h:18</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Construct_html_ab3b7fdc343af9039784eabd6ecef4b2e"><div class="ttname"><a href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">Mcro::Construct::ConstructNew</a></div><div class="ttdeci">Result * ConstructNew(Initializer &amp;&amp;init, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="#l00086">Construct.h:86</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Construct_html_af94e599172b834021f0084e6ddeb63f4"><div class="ttname"><a href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">Mcro::Construct::Construct</a></div><div class="ttdeci">Result Construct(Initializer &amp;&amp;init, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Construct.h:50</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Construct_html_ab3b7fdc343af9039784eabd6ecef4b2e"><div class="ttname"><a href="../../d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e">Mcro::Construct::ConstructNew</a></div><div class="ttdeci">Result * ConstructNew(Initializer &amp;&amp;init, Args &amp;&amp;... args)</div><div class="ttdoc">Simply makes a new object on the heap and allows to initialize it in place with a lambda function....</div><div class="ttdef"><b>Definition</b> <a href="#l00088">Construct.h:88</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Construct_html_af94e599172b834021f0084e6ddeb63f4"><div class="ttname"><a href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4">Mcro::Construct::Construct</a></div><div class="ttdeci">Result Construct(Initializer &amp;&amp;init, Args &amp;&amp;... args)</div><div class="ttdoc">Simply makes a new object and allows to initialize it in place with a lambda function....</div><div class="ttdef"><b>Definition</b> <a href="#l00051">Construct.h:51</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00019">FunctionTraits.h:20</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00134">FunctionTraits.h:134</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html">Mcro::Construct::TInitializeOnCopy</a></div><div class="ttdef"><b>Definition</b> <a href="#l00100">Construct.h:101</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a026e39aa880934881ab6c6728e333ece"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a026e39aa880934881ab6c6728e333ece">Mcro::Construct::TInitializeOnCopy::TInitializeOnCopy</a></div><div class="ttdeci">TInitializeOnCopy(TInitializeOnCopy &amp;&amp;) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00104">Construct.h:104</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a0feb0797654d0babdddf6aaf93b9eaaa"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a0feb0797654d0babdddf6aaf93b9eaaa">Mcro::Construct::TInitializeOnCopy::operator=</a></div><div class="ttdeci">auto operator=(TInitializeOnCopy const &amp;) -&gt; TInitializeOnCopy &amp;</div><div class="ttdef"><b>Definition</b> <a href="#l00105">Construct.h:105</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a2f0e24d7ad2b4686f49fbdd33c9a0d3e"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a2f0e24d7ad2b4686f49fbdd33c9a0d3e">Mcro::Construct::TInitializeOnCopy::TInitializeOnCopy</a></div><div class="ttdeci">TInitializeOnCopy()</div><div class="ttdef"><b>Definition</b> <a href="#l00102">Construct.h:102</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a325f1f11d070359f5524fa10867c5fb5"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a325f1f11d070359f5524fa10867c5fb5">Mcro::Construct::TInitializeOnCopy::Get</a></div><div class="ttdeci">T &amp; Get()</div><div class="ttdef"><b>Definition</b> <a href="#l00113">Construct.h:113</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a51baeb9374e53ac300d9fa435ac1c78d"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a51baeb9374e53ac300d9fa435ac1c78d">Mcro::Construct::TInitializeOnCopy::TInitializeOnCopy</a></div><div class="ttdeci">TInitializeOnCopy(TInitializeOnCopy const &amp;)</div><div class="ttdef"><b>Definition</b> <a href="#l00103">Construct.h:103</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a538a2e1f948b05d396c055f2bfe24920"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a538a2e1f948b05d396c055f2bfe24920">Mcro::Construct::TInitializeOnCopy::operator=</a></div><div class="ttdeci">auto operator=(TInitializeOnCopy &amp;&amp;other) noexcept -&gt; TInitializeOnCopy &amp;</div><div class="ttdef"><b>Definition</b> <a href="#l00106">Construct.h:106</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a99706b49a3a40d09154e481b386264d2"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a99706b49a3a40d09154e481b386264d2">Mcro::Construct::TInitializeOnCopy::Value</a></div><div class="ttdeci">TUniqueObj&lt; T &gt; Value</div><div class="ttdef"><b>Definition</b> <a href="#l00108">Construct.h:108</a></div></div>
-<div class="ttc" id="astructMcro_1_1Construct_1_1TInitializeOnCopy_html_a9a7933401a548479dd2b964521403436"><div class="ttname"><a href="../../d1/d94/structMcro_1_1Construct_1_1TInitializeOnCopy.html#a9a7933401a548479dd2b964521403436">Mcro::Construct::TInitializeOnCopy::Get</a></div><div class="ttdeci">const T &amp; Get() const</div><div class="ttdef"><b>Definition</b> <a href="#l00114">Construct.h:114</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdoc">Shorthand for getting a type of a function argument at given position I.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00139">FunctionTraits.h:139</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
