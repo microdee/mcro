@@ -35,28 +35,14 @@
 #include "Mcro/Delegates/Traits.h"
 #include "Mcro/Tuples.h"
 
-namespace Mcro::Delegates
+/**
+ *	@brief The extra layer of namespace `Infer` is there for guarding common vocabulary (From) but still allowing the
+ *	developer to use this namespace for a more terse syntax.
+ */
+namespace Mcro::Delegates::InferDelegate
 {
 	using namespace Mcro::FunctionTraits;
 	using namespace Mcro::Tuples;
-
-	/**
-	 *	@brief
-	 *	Infer a delegate type from an input function signature and a list of captures.
-	 *
-	 *	The resulting delegate signature will trim the "Captures" from the input function signature. This is used in
-	 *	`From` overloads to allow binding functions with extra arguments to a delegate which has fewer (as the vanilla
-	 *	Unreal delegates API allows to do so)
-	 */
-	template <CFunctionLike Function, typename... Captures>
-	using TInferredDelegate = TDelegate<
-			TFunctionFromTuple<
-				TFunction_Return<Function>,
-				TTrimEnd<sizeof...(Captures), typename TFunction<Function>::Arguments>
-			>,
-			FDefaultDelegateUserPolicy
-		>
-	;
 
 	/**
 	 *	@brief

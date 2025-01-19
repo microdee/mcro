@@ -29,8 +29,8 @@
 #define MCRO_DYNAMIC_EVENT_MULTIPLEX(functionName) \
 	Mcro::Delegates::TNativeMultiplex<F##functionName> functionName##Multiplex \
 	{ \
-		Mcro::Delegates::From(this, &MCRO_THIS_TYPE::functionName), \
-		Mcro::Delegates::From(functionName##Event) \
+		Mcro::Delegates::InferDelegate::From(this, &MCRO_THIS_TYPE::functionName), \
+		Mcro::Delegates::InferDelegate::From(functionName##Event) \
 	} \
 
 /**
@@ -122,7 +122,7 @@ namespace Mcro::Delegates
 		template <typename... OptionalObject> requires (sizeof...(OptionalObject) <= 1)
 		FDelegate Delegation(OptionalObject... object)
 		{
-			return From(object..., &TEventMultiplex::operator());
+			return InferDelegate::From(object..., &TEventMultiplex::operator());
 		};
 	};
 	
@@ -156,7 +156,7 @@ namespace Mcro::Delegates
 		template <typename... OptionalObject> requires (sizeof...(OptionalObject) <= 1)
 		FDelegate Delegation(OptionalObject... object)
 		{
-			return From(object..., &TEventMultiplex::operator());
+			return InferDelegate::From(object..., &TEventMultiplex::operator());
 		};
 	};
 

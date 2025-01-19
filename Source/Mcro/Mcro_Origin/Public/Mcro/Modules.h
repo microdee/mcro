@@ -85,14 +85,14 @@ namespace Mcro::Modules
 		/** @brief Specify function to be executed on startup */
 		TObserveModule& OnStartup(TFunction<void()>&& func)
 		{
-			OnStartupModule.Add(From(func));
+			OnStartupModule.Add(InferDelegate::From(func));
 			return *this;
 		}
 		
 		/** @brief Specify function to be executed on shutdown */
 		TObserveModule& OnShutdown(TFunction<void()>&& func)
 		{
-			OnShutdownModule.Add(From(func));
+			OnShutdownModule.Add(InferDelegate::From(func));
 			return *this;
 		}
 		

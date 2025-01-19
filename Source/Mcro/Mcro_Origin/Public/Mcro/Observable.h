@@ -120,7 +120,7 @@ namespace Mcro::Observable
 		template <CChangeListener<T> Function>
 		FDelegateHandle OnChange(Function const& onChange, EInvokeMode invokeMode = DefaultInvocation)
 		{
-			return OnChange(From(DelegateValueArgument(onChange)), invokeMode);
+			return OnChange(InferDelegate::From(DelegateValueArgument(onChange)), invokeMode);
 		}
 		
 		/**
@@ -134,7 +134,7 @@ namespace Mcro::Observable
 		template <typename Object, CChangeListener<T> Function>
 		FDelegateHandle OnChange(Object&& object, Function const& onChange, EInvokeMode invokeMode = DefaultInvocation)
 		{
-			return OnChange(From(Forward<Object>(object), DelegateValueArgument(onChange)), invokeMode);
+			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), invokeMode);
 		}
 
 		/**
