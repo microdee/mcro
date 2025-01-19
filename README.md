@@ -71,13 +71,12 @@ Here are some code appetizers without going too deep into their details. The dem
 
 An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
 
-```C++
-#include "Mcro/Error.h"
-#include "Mcro/Error/CppException.h"
+```Cpp
+#include "Mcro/Common.h"
 
 FCanFail FK4ADevice::Tick_Sync()
 {
-    using namespace Mcro::Error;
+    using namespace Mcro::Common;
 
     ASSERT_RETURN(Device.is_valid())
         ->AsCrashing()
@@ -122,7 +121,7 @@ In `Mcro::Delegates` namespace there's a bunch of overloads of `From` function w
 
 For example given an imaginary type with a terrible API for some reason
 
-```C++
+```Cpp
 struct FObservable
 {
     using FOnStateResetTheFirstTimeEvent = TMulticastDelegate<void(FObservable const&)>;
@@ -140,8 +139,8 @@ struct FObservable
 
 we can do
 
-```C++
-#include "Mcro/Delegates/DelegateFrom.h"
+```Cpp
+#include "Mcro/Common.h"
 
 struct FListener : TSharedFromThis<FListener>
 {
@@ -149,7 +148,7 @@ struct FListener : TSharedFromThis<FListener>
     void OnFirstStateReset(FObservable const& observable, FString const& capturedData)
     void BindTo(FObservable& observable)
     {
-        using Mcro::Delegates;
+        using namespace Mcro::Delegates::InferDelegate;
 
         // Repeating the delegate type on call site is not necessary
         observable.SetDefaultInitializer(From(this, [this](FObservable const&) -> FString
@@ -168,7 +167,7 @@ struct FListener : TSharedFromThis<FListener>
 
 is equivalent to doing the following with the vanilla Unreal delegates API:
 
-```C++
+```Cpp
 struct FListener : TSharedFromThis<FListener>
 {
     TMulticastDelegate<void(FObservable const&)> PropagateEvent;
@@ -199,8 +198,9 @@ There's also a dynamic / native (multicast) delegate interop including similar c
 
 Did your thing ever load after an event which your thing depends on, but now you have to somehow detect that the event has already happened and you have to execute your thing manually? With `Mcro::Delegates::TEventDelegate` this situation has a lot less friction:
 
-```C++
-#include "Mcro/Delegates/EventDelegate.h"
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 // TBelatedEventDelegate is an alias for TEventDelegate<Signature, BelatedInvoke>
 TBelatedEventDelegate<void(int)> SomeEvent;
@@ -234,8 +234,9 @@ SomeOtherEvent.Add(
 
 Or your thing only needs to do its tasks on the first time a frequently invoked event is triggered?
 
-```C++
-#include "Mcro/Delegates/EventDelegate.h"
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 TEventDelegate<void(int)> SomeFrequentEvent;
 
@@ -256,8 +257,9 @@ SomeFrequentEvent.Broadcast(2);
 
 Chaining events?
 
-```C++
-#include "Mcro/Delegates/EventDelegate.h"
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 TMulticastDelegate<void(int)> LowerLevelEvent;
 TEventDelegate<void(int)> HigherLevelEvent;
@@ -278,9 +280,9 @@ Of course the above chaining can be combined with belated~ or one-time invocatio
 
 C++ 20 can do string manipulation in compile time, [including regex](https://github.com/hanickadot/compile-time-regular-expressions). With that, compiler specific "pretty function" macros become a key tool for simple static reflection. Based on that MCRO has `TTypeName`
 
-```C++
-#include "Mcro/TypeName.h"
-using namespace Mcro::TypeName;
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
 
 struct FMyType
 {
@@ -290,9 +292,9 @@ struct FMyType
 
 even better with C++ 23 deducing this
 
-```C++
-#include "Mcro/TypeName.h"
-using namespace Mcro::TypeName;
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
 
 struct FMyBaseType
 {
@@ -316,9 +318,9 @@ UE_LOG(LogTemp, Display, TEXT("This is `%s`"), *myBaseVar.GetTypeString());
 
 MCRO provides a base type `IHaveType` for storing the final type as an `FName` to avoid situations like above
 
-```C++
-#include "Mcro/Types.h"
-using namespace Mcro::Types;
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
 
 struct FMyBaseType : IHaveType {}
 
@@ -344,9 +346,9 @@ UE_LOG(
 
 One use of `TTypeName` is making modular features easier to use:
 
-```C++
-#include "Mcro/AutoModularFeatures.h"
-using namespace Mcro::AutoModularFeatures;
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common;
 
 // In central API module
 class IProblemSolvingFeature : public TAutoModularFeature<IProblemSolvingFeature>
@@ -378,10 +380,9 @@ Notice how the feature name has never needed to be explicitly specified as a str
 
 You have data members of your class, but you also want to notify others about how that's changing?
 
-```C++
-#include "Mcro/Observable.h"
-#include "Mcro/Delegates/DelegateFrom.h"
-using namespace Mcro::Observable;
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 struct FMyStuff
 {
@@ -456,7 +457,7 @@ Make templates dealing with function types more readable and yet more versatile 
 
 Constraint/infer template parameters from the signature of an input function. (This is an annotated exempt from `Mcro::UObjects::Init`)
 
-```C++
+```Cpp
 #include "Mcro/FunctionTraits.h" // it also brings in Concepts
 
 namespace Mcro::UObjects::Init
@@ -489,9 +490,9 @@ There's a copy of the C++ 20 STL Concepts library in `Mcro::Concepts` namespace 
 
 `Mcro::Slate` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
 
-```C++
-#include "Mcro/Slate";
-using namespace Mcro::Slate;
+```Cpp
+#include "Mcro/Common";
+using namespace Mcro::Common;
 
 // Define a reusable block of attributes
 auto Text(FString const& text) -> TAttributeBlock<STextBlock>
@@ -538,7 +539,7 @@ auto ExpandableText(
 
 Or add slots right in the Slate declarative syntax derived from an input array:
 
-```C++
+```Cpp
 // This is just a convenience function so we don't repeat ourselves
 auto Row() -> SVerticalBox::FSlot::FSlotArguments
 {
@@ -569,9 +570,9 @@ void Construct(FArguments const& inArgs)
 
 The `Mcro::Text` namespace provides some handy text templating and conversion utilities and interop between Unreal string and std::strings for third-party libraries.
 
-```C++
-#include "Mcro/Text";
-using namespace Mcro::Text;
+```Cpp
+#include "Mcro/CommonCore";
+using namespace Mcro::Common;
 
 // Accept many string types at once
 template <CStringOrViewOrName String>
@@ -582,12 +583,12 @@ template <CStdStringOrViewInvariant String>
 size_t GetLength(String&& input) { return input.size(); }
 ```
 
-```C++
+```Cpp
 // Type alias for choosing a std::string which is best matching the current TCHAR.
 FStdString foo(TEXT("bar")); // -> std::wstring (on Windows at least)
 ```
 
-```C++
+```Cpp
 FString foo(TEXT("bar"));
 std::string fooNarrow = StdConvertUtf8(foo);
 ```
