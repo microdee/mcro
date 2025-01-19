@@ -450,7 +450,7 @@ namespace Mcro::Error
 		template <typename Self>
 		SelfRef<Self> BreakDebugger(this Self&& self)
 		{
-			MCRO_DEBUG_BREAK();
+			UE_DEBUG_BREAK();
 			return self.SharedThis(&self);
 		}
 
