@@ -11,6 +11,7 @@
 
 /**
  *	@file
+ *	@brief
  *	These two are the most useful types in the arsenal of the C++ developer. Use these for dummy types or when it is
  *	easier to have explicit return types than dealing with void specializations in templates.
  */

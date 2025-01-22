@@ -13,6 +13,7 @@
 
 /**
  *	@file 
+ *	@brief
  *	This header exists because STL headers in Android doesn't define STL concepts (other than same_as which is weird),
  *	despite the fact that in `<concepts>` the synopsis contains all of them (but only as a comment).
  *	@file

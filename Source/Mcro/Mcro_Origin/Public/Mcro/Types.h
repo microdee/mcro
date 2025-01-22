@@ -17,7 +17,7 @@
 #include "Mcro/TypeName.h"
 #include "Mcro/Templates.h"
 
-/** C++ native static reflection utilities, not to be confused with reflection of UObjects */
+/** @brief C++ native static reflection utilities, not to be confused with reflection of UObjects */
 namespace Mcro::Types
 {
 	using namespace Mcro::TypeName;
