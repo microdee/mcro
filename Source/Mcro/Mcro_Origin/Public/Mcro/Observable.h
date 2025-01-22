@@ -280,7 +280,7 @@ namespace Mcro::Observable
 		virtual void Set(T const& value) override
 		{
 			ASSERT_QUIT(!Modifying, ,
-				->WithMessage(TEXT("Attempting to set this state while this state is already being set from somewhere else."))
+				->WithMessage(TEXT_"Attempting to set this state while this state is already being set from somewhere else.")
 			);
 			TGuardValue modifyingGuard(Modifying, true);
 			auto lock = WriteLock();
@@ -302,7 +302,7 @@ namespace Mcro::Observable
 		virtual void Modify(TUniqueFunction<void(T&)>&& modifier, bool alwaysNotify = true) override
 		{
 			ASSERT_QUIT(!Modifying, ,
-				->WithMessage(TEXT("Attempting to set this state while this state is already being set from somewhere else."))
+				->WithMessage(TEXT_"Attempting to set this state while this state is already being set from somewhere else.")
 			);
 			TGuardValue modifyingGuard(Modifying, true);
 			auto lock = WriteLock();

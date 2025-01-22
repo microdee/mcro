@@ -76,7 +76,7 @@ namespace Mcro::AutoModularFeature
 	 *	Internally the feature name will be identical to the class name. In this case `IMyModularFeature` will register
 	 *	as "IMyModularFeature". Technically one can get it via
 	 *	@code
-	 *	IModularFeatures::Get().GetModularFeature<IMyModularFeature>(TEXT("IMyModularFeature"))
+	 *	IModularFeatures::Get().GetModularFeature<IMyModularFeature>(TEXT_"IMyModularFeature")
 	 *	@endcode
 	 *	but it is strongly discouraged for type safety and keeping code simple.
 	 *	
@@ -142,7 +142,7 @@ namespace Mcro::AutoModularFeature
 		{
 			UE_LOG(
 				LogAutoModularFeature, Log,
-				TEXT("Registering %s as %s feature"),
+				TEXT_"Registering %s as %s feature",
 				*TTypeString<Implementation>,
 				*TTypeString<Feature>
 			);

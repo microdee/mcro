@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "McroWindows/Error/WindowsError.h"
+#include "Mcro/TextMacros.h"
 #include "Microsoft/COMPointer.h"
 
 namespace Mcro::Windows::COM
@@ -27,7 +28,7 @@ namespace Mcro::Windows::COM
 			return IError::Make(new FHresultError(hr, fastError))
 				->AsRecoverable()
 				->WithMessageF(
-					TEXT("Object of type %s did not implement %s"),
+					TEXT_"Object of type %s did not implement %s",
 					*TTypeString<From>,
 					*TTypeString<To>
 				);

@@ -35,6 +35,7 @@
 #include "Mcro/Threading.h"
 #include "Mcro/Types.h"
 #include "Mcro/Void.h"
+#include "Mcro/TextMacros.h"
 
 /** @brief Use this namespace for the minimal utilities MCRO has to offer */
 namespace Mcro::CommonCore

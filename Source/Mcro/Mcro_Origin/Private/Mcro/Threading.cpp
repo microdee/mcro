@@ -10,6 +10,7 @@
  */
 
 #include "Mcro/Threading.h"
+#include "Mcro/TextMacros.h"
 
 namespace Mcro::Threading
 {
@@ -22,7 +23,7 @@ namespace Mcro::Threading
 		case ENamedThreads::ActualRenderingThread: return &IsInActualRenderingThread;
 		case ENamedThreads::GameThread_Local: return &IsInGameThread;
 		case ENamedThreads::ActualRenderingThread_Local: return &IsInActualRenderingThread;
-		default: ensureMsgf(false, TEXT("GetThreadCheck cannot get this thread predicate."));
+		default: ensureMsgf(false, TEXT_"GetThreadCheck cannot get this thread predicate.");
 		}
 		return nullptr;
 	}

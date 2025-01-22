@@ -37,7 +37,7 @@ namespace Mcro::Error
 
 	FStringView FCppException::GetExceptionType() const
 	{
-		return TEXT("std::exception");
+		return TEXT_"std::exception";
 	}
 
 	void FCppException::SerializeMembers(YAML::Emitter& emitter, bool isRoot) const

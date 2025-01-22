@@ -35,7 +35,7 @@ namespace TestImplementation
 
 DEFINE_SPEC(
 	FMcroAutoModularFeatures_Spec,
-	TEXT("Mcro.AutoModularFeatures"),
+	TEXT_"Mcro.AutoModularFeatures",
 	EAutomationTestFlags_ApplicationContextMask
 	| EAutomationTestFlags::HighPriority
 	| EAutomationTestFlags::ProductFilter
@@ -43,22 +43,22 @@ DEFINE_SPEC(
 
 void FMcroAutoModularFeatures_Spec::Define()
 {
-	Describe(TEXT("AutoModularFeatures"), [this]
+	Describe(TEXT_"AutoModularFeatures", [this]
 	{
-		It(TEXT("API should work"), [this]
+		It(TEXT_"API should work", [this]
 		{
 			{
 				// Keep an implementation only during this scope
 				FTestFeatureImplementation implementation {};
 			
-				TestEqual(TEXT("Feature name"), ITestFeature::FeatureName().ToString(), TEXT("ITestFeature"));
-				TestEqual(TEXT("Feature name (derived)"), FTestFeatureImplementation::FeatureName().ToString(), TEXT("ITestFeature"));
+				TestEqual(TEXT_"Feature name", ITestFeature::FeatureName().ToString(), TEXT_"ITestFeature");
+				TestEqual(TEXT_"Feature name (derived)", FTestFeatureImplementation::FeatureName().ToString(), TEXT_"ITestFeature");
 
-				TestTrue(TEXT("Is implemented?"), ITestFeature::ImplementationCount() > 0);
-				TestNotNull(TEXT("Get implementation"), ITestFeature::TryGet(0));
+				TestTrue(TEXT_"Is implemented?", ITestFeature::ImplementationCount() > 0);
+				TestNotNull(TEXT_"Get implementation", ITestFeature::TryGet(0));
 			}
 			
-			TestTrue(TEXT("Confirm unregistering"), ITestFeature::ImplementationCount() == 0);
+			TestTrue(TEXT_"Confirm unregistering", ITestFeature::ImplementationCount() == 0);
 			
 			{
 				// Keep an implementation only during this scope
@@ -66,13 +66,13 @@ void FMcroAutoModularFeatures_Spec::Define()
 				FTestImplementationInNamespace implementation {};
 
 				TestTrue(
-					TEXT("Implementation name in namespace"),
+					TEXT_"Implementation name in namespace",
 					ITestFeature::ImplementationCount() > 0
 				);
 			}
 		});
 
-		LatentIt(TEXT("should be available via TFuture"), 30_mSec, [this](FDoneDelegate const& done)
+		LatentIt(TEXT_"should be available via TFuture", 30_mSec, [this](FDoneDelegate const& done)
 		{
 			ITestFeature::GetBelated().Next([this, &done](ITestFeature*)
 			{

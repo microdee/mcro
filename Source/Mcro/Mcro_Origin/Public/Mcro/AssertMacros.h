@@ -53,11 +53,11 @@ namespace Mcro::AssertMacros
 		[&](Mcro::Error::IErrorRef const& error) { (error __VA_ARGS__); }    \
 	);                                                                      //
 
-#define MCRO_ASSERT_CRASH_METHOD                                    \
-	UE_LOG(LogTemp, Fatal,                                          \
-		TEXT("Program cannot continue for the reasons above. (at ") \
-		PREPROCESSOR_TO_TEXT(__FILE__:__LINE__) TEXT(")")           \
-	)                                                              //
+#define MCRO_ASSERT_CRASH_METHOD                                   \
+	UE_LOG(LogTemp, Fatal,                                         \
+		TEXT_"Program cannot continue for the reasons above. (at " \
+		PREPROCESSOR_TO_TEXT(__FILE__:__LINE__) TEXT_")"           \
+	)                                                             //
 
 #define MCRO_CRASH_BODY(condition, ...)    \
 	MCRO_ASSERT_SUBMIT_ERROR(              \
@@ -105,8 +105,8 @@ namespace Mcro::AssertMacros
  *	information to it, or even override preset information like so:
  *	@code
  *	ASSERT_CRASH(arrayNum > 0,
- *		->WithDetails(TEXT("Did you forget to specify data?"))
- *		->WithAppendix(TEXT("Data"), data.ToString())
+ *		->WithDetails(TEXT_"Did you forget to specify data?")
+ *		->WithAppendix(TEXT_"Data", data.ToString())
  *	)
  *	@endcode
  */
@@ -139,8 +139,8 @@ namespace Mcro::AssertMacros
  *	information to it like so, or even override preset information like so:
  *	@code
  *	ASSERT_QUIT(arrayNum > 0, myReturnValue,
- *		->WithDetails(TEXT("Did you forget to specify data?"))
- *		->WithAppendix(TEXT("Data"), data.ToString())
+ *		->WithDetails(TEXT_"Did you forget to specify data?")
+ *		->WithAppendix(TEXT_"Data", data.ToString())
  *	)
  *	@endcode
  */

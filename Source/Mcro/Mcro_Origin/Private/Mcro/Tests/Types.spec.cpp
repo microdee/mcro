@@ -10,7 +10,7 @@
  */
 
 #include "CoreMinimal.h"
-#include "Mcro/Types.h"
+#include "Mcro/CommonCore.h"
 
 using namespace Mcro::Types;
 
@@ -39,7 +39,7 @@ struct FDerivedSomething : FBaseSomething
 
 DEFINE_SPEC(
 	FMcroTypes_Spec,
-	TEXT("Mcro.Types"),
+	TEXT_"Mcro.Types",
 	EAutomationTestFlags_ApplicationContextMask
 	| EAutomationTestFlags::CriticalPriority
 	| EAutomationTestFlags::ProductFilter
@@ -47,48 +47,48 @@ DEFINE_SPEC(
 
 void FMcroTypes_Spec::Define()
 {
-	Describe(TEXT("TTypeName template"), [this]
+	Describe(TEXT_"TTypeName template", [this]
 	{
-		It(TEXT("should correctly match typenames"), [this]
+		It(TEXT_"should correctly match typenames", [this]
 		{
 			auto name = TTypeName<FMcroTypes_Spec>;
-			TestEqual(TEXT("Name matches"), name, TEXT("FMcroTypes_Spec"));
+			TestEqual(TEXT_"Name matches", name, TEXT_"FMcroTypes_Spec");
 			name = TTypeName<FNonExistent>;
-			TestEqual(TEXT("Matches incomplete types"), name, TEXT("FNonExistent"));
+			TestEqual(TEXT_"Matches incomplete types", name, TEXT_"FNonExistent");
 			name = FTestIncompleteScope::Test();
-			TestEqual(TEXT("Confirm strictly scoped incompleteness"), name, TEXT("FTestIncompleteScope::Test::FIncomplete"));
+			TestEqual(TEXT_"Confirm strictly scoped incompleteness", name, TEXT_"FTestIncompleteScope::Test::FIncomplete");
 			name = TTypeName<TTestTemplatedType<FMcroTypes_Spec>>;
 #if PLATFORM_WINDOWS
-			TestEqual(TEXT("Matches templated types"), name, TEXT("TTestTemplatedType<class FMcroTypes_Spec>"));
+			TestEqual(TEXT_"Matches templated types", name, TEXT_"TTestTemplatedType<class FMcroTypes_Spec>");
 #else
-			TestEqual(TEXT("Matches templated types"), name, TEXT("TTestTemplatedType<FMcroTypes_Spec>"));
+			TestEqual(TEXT_"Matches templated types", name, TEXT_"TTestTemplatedType<FMcroTypes_Spec>");
 #endif
 			name = TTypeName<IHaveType>;
-			TestEqual(TEXT("Matches types in namespace"), name, TEXT("Mcro::Types::IHaveType"));
+			TestEqual(TEXT_"Matches types in namespace", name, TEXT_"Mcro::Types::IHaveType");
 			name = TTypeName<IHaveType const&>;
-			TestEqual(TEXT("Ignores CV ref qualifiers"), name, TEXT("Mcro::Types::IHaveType"));
+			TestEqual(TEXT_"Ignores CV ref qualifiers", name, TEXT_"Mcro::Types::IHaveType");
 		});
 	});
 	
-	Describe(TEXT("IHaveType base class"), [this]
+	Describe(TEXT_"IHaveType base class", [this]
 	{
-		It(TEXT("should correctly preserve type"), [this]
+		It(TEXT_"should correctly preserve type", [this]
 		{
 			FBaseSomething something;
-			TestEqual(TEXT("Type name is embedded."), something.GetType().ToString(), TEXT("FBaseSomething"));
+			TestEqual(TEXT_"Type name is embedded.", something.GetType().ToString(), TEXT_"FBaseSomething");
 			FDerivedSomething derived;
 			FBaseSomething const& somethingRef = derived;
-			TestEqual(TEXT("Type name is preserved from base lvalue-ref variable"), somethingRef.GetType().ToString(), TEXT("FDerivedSomething"));
+			TestEqual(TEXT_"Type name is preserved from base lvalue-ref variable", somethingRef.GetType().ToString(), TEXT_"FDerivedSomething");
 		});
 		
-		It(TEXT("should dynamic cast to exact type"), [this]
+		It(TEXT_"should dynamic cast to exact type", [this]
 		{
 			auto derived = MakeShared<FDerivedSomething>();
 			TSharedRef<FBaseSomething> something = derived;
-			TestEqual(TEXT("Type name is preserved from base lvalue-ref variable"), something->GetType().ToString(), TEXT("FDerivedSomething"));
+			TestEqual(TEXT_"Type name is preserved from base lvalue-ref variable", something->GetType().ToString(), TEXT_"FDerivedSomething");
 
 			auto derivedAgain = something->AsExactly<FDerivedSomething>();
-			TestNotNull(TEXT("Dynamic cast to exact type"), derivedAgain.Get());
+			TestNotNull(TEXT_"Dynamic cast to exact type", derivedAgain.Get());
 		});
 	});
 }

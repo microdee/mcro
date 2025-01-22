@@ -10,13 +10,13 @@
  */
 
 #include "CoreMinimal.h"
-#include "Mcro/TimespanLiterals.h"
+#include "Mcro/Common.h"
 
-using namespace Mcro::Timespan::Literals;
+using namespace Mcro::Common::With::Literals;
 
 DEFINE_SPEC(
 	FMcroTimespan_Spec,
-	TEXT("Mcro.Timespan"),
+	TEXT_"Mcro.Timespan",
 	EAutomationTestFlags_ApplicationContextMask
 	| EAutomationTestFlags::CriticalPriority
 	| EAutomationTestFlags::ProductFilter
@@ -24,16 +24,16 @@ DEFINE_SPEC(
 
 void FMcroTimespan_Spec::Define()
 {
-	Describe(TEXT("Timespan literals"), [this]
+	Describe(TEXT_"Timespan literals", [this]
 	{
-		It(TEXT("should produce the same values as Timespan::From functions."), [this]
+		It(TEXT_"should produce the same values as Timespan::From functions.", [this]
 		{
-			TestEqual(TEXT("Days"),         30_Day,   FTimespan::FromDays(30));
-			TestEqual(TEXT("Hours"),        30_Hour,  FTimespan::FromHours(30));
-			TestEqual(TEXT("Minutes"),      30_Min,   FTimespan::FromMinutes(30));
-			TestEqual(TEXT("Seconds"),      30_Sec,   FTimespan::FromSeconds(30));
-			TestEqual(TEXT("Milliseconds"), 30_mSec,  FTimespan::FromMilliseconds(30));
-			TestEqual(TEXT("Microseconds"), 30_uSec,  FTimespan::FromMicroseconds(30));
+			TestEqual(TEXT_"Days",         30_Day,   FTimespan::FromDays(30));
+			TestEqual(TEXT_"Hours",        30_Hour,  FTimespan::FromHours(30));
+			TestEqual(TEXT_"Minutes",      30_Min,   FTimespan::FromMinutes(30));
+			TestEqual(TEXT_"Seconds",      30_Sec,   FTimespan::FromSeconds(30));
+			TestEqual(TEXT_"Milliseconds", 30_mSec,  FTimespan::FromMilliseconds(30));
+			TestEqual(TEXT_"Microseconds", 30_uSec,  FTimespan::FromMicroseconds(30));
 		});
 	});
 }
