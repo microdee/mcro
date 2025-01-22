@@ -42,9 +42,6 @@
 #include "Mcro/UObjects/Init.h"
 #include "Mcro/Yaml.h"
 
-#define NAMESPACE_WITH(base, ns) namespace ns { using namespace base; using namespace base::ns; }
-#define MCRO_NAMESPACE_WITH(ns) NAMESPACE_WITH(Mcro::Common, ns)
-
 /** @brief Use this namespace for all the common features MCRO has to offer */
 namespace Mcro::Common
 {
@@ -64,7 +61,8 @@ namespace Mcro::Common
 	/** @brief Use Mcro::Common with namespaces included which may guard common vocabulary symbols like "From" or "Get" */
 	namespace With
 	{
-		MCRO_NAMESPACE_WITH(InferDelegate)
-		MCRO_NAMESPACE_WITH(Literals)
+		/** @copydoc Mcro::Delegates::InferDelegate */
+		namespace InferDelegate { using namespace Mcro::Common; using namespace Mcro::Common::InferDelegate; }
+		namespace Literals      { using namespace Mcro::Common; using namespace Mcro::Common::Literals; }
 	}
 }
