@@ -14,11 +14,14 @@
 #include <utility>
 
 #include "CoreMinimal.h"
+#include "Tuples.h"
+
 #include "Mcro/Concepts.h"
 
 namespace Mcro::FunctionTraits
 {
 	using namespace Mcro::Concepts;
+	using namespace Mcro::Tuples;
 	
 	/** @brief Concept constraining input T to a lambda function or a functor object. */
 	template <typename T>
@@ -283,5 +286,37 @@ namespace Mcro::FunctionTraits
 		TFunction_Arguments<decltype(FuncPtr)> argsTuple
 	) {
 		InvokeWithTuple(instance, FuncPtr, argsTuple);
+	};
+
+	/**
+	 *	@brief
+	 *	Defers a set of arguments for a function call later with its first argument. This is useful for developing
+	 *	fluent API operators.
+	 */
+	template <auto FuncPtr, CFunctionPtr Function = decltype(FuncPtr)>
+	requires (
+		CFunctionPtr<decltype(FuncPtr)>
+		&& TFunction_ArgCount<decltype(FuncPtr)> > 0
+	)
+	struct TDeferFunctionArguments
+	{
+		using FirstArg = TFunction_Arg<Function, 0>;
+		using ExtraArgs = TSkip<1, TFunction_Arguments<Function>>;
+		using Return = TFunction_Return<Function>;
+
+		template <typename... Args>
+		TDeferFunctionArguments(Args... args)
+			: Storage(Forward<Args>(args)...)
+		{}
+
+		template <CConvertibleToDecayed<FirstArg> FirstArgRef>
+		Return operator () (FirstArgRef&& arg)
+		{
+			auto args = arg >> Storage;
+			return InvokeWithTuple<Function>(FuncPtr, args);
+		}
+
+	private:
+		ExtraArgs Storage;
 	};
 }

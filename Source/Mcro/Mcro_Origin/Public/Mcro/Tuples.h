@@ -67,4 +67,37 @@ namespace Mcro::Tuples
 	/** @brief Take only the first `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
 	using TTake = typename TTake_Struct<Count, Tuple>::Type;
+
+	namespace Detail
+	{
+		template <typename T, typename RestTuple, size_t... Indices>
+		auto Prepend_Impl(T&& left, RestTuple&& right, std::index_sequence<Indices...>&&)
+		{
+			return TTuple<T, typename TTupleElement<Indices, RestTuple>::Type...>(
+				Forward<T>(left), right.template Get<Indices>()...
+			);
+		}
+		
+		template <typename T, typename RestTuple, size_t... Indices>
+		auto Append_Impl(T&& right, RestTuple&& left, std::index_sequence<Indices...>&&)
+		{
+			return TTuple<typename TTupleElement<Indices, RestTuple>::Type..., T>(
+				left.template Get<Indices>()..., Forward<T>(right)
+			);
+		}
+	}
+
+	/** @brief Prepend a value to a tuple */
+	template <typename T, typename... Rest>
+	auto operator >> (T&& left, TTuple<Rest...> const& right)
+	{
+		return Detail::Prepend_Impl(left, right, std::make_index_sequence<sizeof...(Rest)>{});
+	}
+
+	/** @brief Append a value to a tuple */
+	template <typename T, typename... Rest>
+	auto operator << (TTuple<Rest...> const& left, T&& right)
+	{
+		return Detail::Append_Impl(right, left, std::make_index_sequence<sizeof...(Rest)>{});
+	}
 }
