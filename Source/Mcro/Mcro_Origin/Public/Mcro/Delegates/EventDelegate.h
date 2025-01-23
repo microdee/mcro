@@ -157,7 +157,7 @@ namespace Mcro::Delegates
 		template <CSameAs<FDelegate>... Delegates>
 		TEventDelegate(Delegates... delegates)
 		{
-			WithHelper(Add(delegates)...);
+			(AddInternal(delegates, DefaultInvocation), ...);
 		}
 
 		/**

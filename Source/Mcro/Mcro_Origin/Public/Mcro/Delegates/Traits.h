@@ -33,7 +33,7 @@ namespace Mcro::Delegates
 	using TInferredDelegate = TDelegate<
 			TFunctionFromTuple<
 				TFunction_Return<Function>,
-				TTrimEnd<sizeof...(Captures), typename TFunction<Function>::Arguments>
+				TTrimEnd<sizeof...(Captures), TFunction_Arguments<Function>>
 			>,
 			FDefaultDelegateUserPolicy
 		>

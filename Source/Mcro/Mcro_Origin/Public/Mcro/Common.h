@@ -26,6 +26,7 @@
 #include "Mcro/Delegates/EventDelegate.h"
 #include "Mcro/Delegates/DelegateFrom.h"
 #include "Mcro/Delegates/AsNative.h"
+#include "Mcro/Delegates/EventMultiplex.h"
 #include "Mcro/Error/BlueprintStackTrace.h"
 #include "Mcro/Error/CppException.h"
 #include "Mcro/Error/CppStackTrace.h"

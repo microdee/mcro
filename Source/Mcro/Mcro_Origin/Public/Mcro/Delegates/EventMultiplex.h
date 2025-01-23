@@ -46,34 +46,6 @@
 namespace Mcro::Delegates
 {
 	using namespace Mcro::Concepts;
-	
-	namespace Detail
-	{
-		template <typename Return, typename... Args>
-		class TEventMultiplexBase
-		{
-		public:
-			using FunctionSignature = Return(Args...);
-			using EventSignature = void(Args...);
-			using FDelegate = TDelegate<FunctionSignature, FDefaultDelegateUserPolicy>;
-			using FEventDelegate = TDelegate<EventSignature, FDefaultDelegateUserPolicy>;
-
-			template <CSameAs<FEventDelegate>... Delegates>
-			TEventMultiplexBase(FDelegate&& function, Delegates&&... delegates)
-				: Multicast(delegates...)
-				, Function(function)
-			{}
-
-			TEventDelegate<void(Args...)> Multicast;
-
-			TEventDelegate<void(Args...)>* operator -> () const
-			{
-				return &Multicast;
-			}
-		protected:
-			FDelegate Function;
-		};
-	}
 
 	/**
 	 *	@brief
@@ -92,71 +64,52 @@ namespace Mcro::Delegates
 	class TEventMultiplex {};
 
 	/** @copydoc TEventMultiplex */
-	template <CNonVoid Return, typename... Args>
-	class TEventMultiplex<Return(Args...)> : public Detail::TEventMultiplexBase<Return, Args...>
+	template <typename Return, typename... Args>
+	class TEventMultiplex<Return(Args...)>
 	{
 	public:
-		using Base = Detail::TEventMultiplexBase<Return, Args...>;
-		using Base::FunctionSignature;
-		using Base::EventSignature;
-		using Base::FDelegate;
-		using Base::FEventDelegate;
-		using Base::Multicast;
+		using FunctionSignature = Return(Args...);
+		using EventSignature = void(Args...);
+		using FDelegate = TDelegate<FunctionSignature, FDefaultDelegateUserPolicy>;
+		using FVoidDelegate = TDelegate<EventSignature>;
+		using FEventDelegate = TEventDelegate<EventSignature>;
+		
+		FEventDelegate Multicast;
 		
 	protected:
-		using Base::Function;
+		FDelegate Function;
 		
 	public:
-		template <CSameAs<FEventDelegate>... Delegates>
-		TEventMultiplex(FDelegate&& function, Delegates&&... delegates)
-			: Detail::TEventMultiplexBase<void, Args...>(function, delegates...)
+		template <CConvertibleToDecayed<FVoidDelegate>... Delegates>
+		TEventMultiplex(FDelegate const& function, Delegates&&... delegates)
+			: Multicast(Forward<Delegates>(delegates)...)
+			, Function(function)
 		{}
 
-		Return operator() (Args... args)
+		template <CNonVoid = Return>
+		Return operator () (Args&&... args)
 		{
-			Return result = Function.Execute(args...);
-			Multicast.Broadcast(args...);
+			Return result = Function.Execute(Forward<Args>(args)...);
+			Multicast.Broadcast(Forward<Args>(args)...);
 			return result;
 		}
-		
-		template <typename... OptionalObject> requires (sizeof...(OptionalObject) <= 1)
-		FDelegate Delegation(OptionalObject... object)
-		{
-			return InferDelegate::From(object..., &TEventMultiplex::operator());
-		};
-	};
-	
-	/** @copydoc TEventMultiplex */
-	template <typename... Args>
-	class TEventMultiplex<void(Args...)> : public Detail::TEventMultiplexBase<void, Args...>
-	{
-	public:
-		using Base = Detail::TEventMultiplexBase<void, Args...>;
-		using Base::FunctionSignature;
-		using Base::EventSignature;
-		using Base::FDelegate;
-		using Base::FEventDelegate;
-		using Base::Multicast;
-		
-	protected:
-		using Base::Function;
-		
-	public:
-		template <CSameAs<FEventDelegate>... Delegates>
-		TEventMultiplex(FDelegate&& function, Delegates&&... delegates)
-			: Detail::TEventMultiplexBase<void, Args...>(function, delegates...)
-		{}
 
-		void operator ()(Args... args)
+		template <CVoid = Return>
+		void operator () (Args&&... args)
 		{
-			Function.Execute(args...);
-			Multicast.Broadcast(args...);
+			Function.Execute(Forward<Args>(args)...);
+			Multicast.Broadcast(Forward<Args>(args)...);
+		}
+
+		FEventDelegate* operator -> () const
+		{
+			return &Multicast;
 		}
 		
 		template <typename... OptionalObject> requires (sizeof...(OptionalObject) <= 1)
-		FDelegate Delegation(OptionalObject... object)
+		FDelegate Delegation(OptionalObject&&... object)
 		{
-			return InferDelegate::From(object..., &TEventMultiplex::operator());
+			return InferDelegate::From(Forward<OptionalObject>(object)..., &TEventMultiplex::operator()<Return>);
 		};
 	};
 

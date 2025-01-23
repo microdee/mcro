@@ -306,6 +306,9 @@ namespace Mcro::Concepts
 	//// Misc
 
 	template <typename T>
+	concept CVoid = std::is_void_v<T>;
+
+	template <typename T>
 	concept CNonVoid = !std::is_void_v<T>;
 
 	template<typename T>

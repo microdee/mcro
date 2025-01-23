@@ -14,7 +14,7 @@
 /**
  *	@file
  *	Unreal delegates while being great they have the problem that they're pretty verbose to use, as the usage site
- *	requires the developer to spell out the delegate types when they're being bound to something. `Mcro::Delegate::From`
+ *	requires the developer to spell out the delegate types when they're being bound to something. `InferDelegate::From`
  *	overloads not only infer delegate types from input function, but they also infer how the delegate is being used.
  *	For example take `From(this, &FStuff::MyFunc)` can map to several classic delegate usages depending on the type of
  *	`this`:
@@ -25,7 +25,7 @@
  *	`From` can also deal with
  *	- usages of Lambda functions with same API
  *	- correct delegate type from combination of given function signature and given captures
- *	  - So `From(this, &FStuff::MyFunc, TEXT("my capture")` will correctly remove the last argument from the function
+ *	  - So `From(this, &FStuff::MyFunc, TEXT_"my capture")` will correctly remove the last argument from the function
  *	    signature of `FStuff::MyFunc` when inferring the delegate type.
  *	- Chain multicast delegates together
  */
@@ -36,8 +36,8 @@
 #include "Mcro/Tuples.h"
 
 /**
- *	@brief The extra layer of namespace `Infer` is there for guarding common vocabulary (From) but still allowing the
- *	developer to use this namespace for a more terse syntax.
+ *	@brief The extra layer of namespace `InferDelegate` is there for guarding common vocabulary (From) but still
+ *	allowing the developer to use this namespace for a more terse syntax.
  */
 namespace Mcro::Delegates::InferDelegate
 {
@@ -201,7 +201,6 @@ namespace Mcro::Delegates::InferDelegate
 	 */
 	template <CUObject Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function>
-		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateUObject(self, func, captures...);
@@ -216,7 +215,6 @@ namespace Mcro::Delegates::InferDelegate
 	 */
 	template <CUObject Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function>
-		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateUObject(self, func, captures...);
@@ -231,7 +229,6 @@ namespace Mcro::Delegates::InferDelegate
 	 */
 	template <CUObject Object, CFunctionPtr Function, typename... Captures>
 	requires CFunction_IsMember<Function>
-		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(TObjectPtr<Object> self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateUObject(self, func, captures...);
