@@ -112,7 +112,29 @@ FCanFail FK4ADevice::Tick_Sync()
 }
 ```
 
-### Delegate type inferance
+### Text macros without parenthesis
+
+```Cpp
+FString myVar(TEXT_"Hello world!");
+UE_LOG(LogTemp, Display, TEXT_"%s", *myVar);
+FText myText = INVTEXT_"Even FText macros are there";
+```
+
+<details><summary>Vanilla:</summary>
+
+```Cpp
+FString myVar(TEXT("Hello world!"));
+UE_LOG(LogTemp, Display, TEXT("%s"), *myVar);
+FText myText = INVTEXT("Even FText macros are there");
+```
+
+</details>
+
+One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()` macro, especially the extra pair of parenthesis it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple `TCHAR` strings, or operator overloads for `FText`.
+
+The earlier was even a suggestion of Microsoft [when they announced their standard compliant new preprocessor](https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval), and asked the general public to stop exploiting the behaviors of the old one.
+
+### Delegate type inference
 
 In `Mcro::Delegates` namespace there's a bunch of overloads of `From` function which can infer a delegate type and its intended binding only based on its input arguments. It means a couple of things:
 
@@ -153,19 +175,19 @@ struct FListener : TSharedFromThis<FListener>
         // Repeating the delegate type on call site is not necessary
         observable.SetDefaultInitializer(From(this, [this](FObservable const&) -> FString
         {
-            return TEXT("Some default value");
+            return TEXT_"Some default value";
         }));
 
         // Chaining events like this is a single line
         observable.OnStateResetTheFirstTimeEvent.Add(From(this, PropagateEvent));
 
         // No need to decide on the method of binding, the most suitable one is chosen via templating
-        observable.OnStateResetTheFirstTimeEvent.Add(From(this, &FListener::OnFirstStateReset, TEXT("Capture this")));
+        observable.OnStateResetTheFirstTimeEvent.Add(From(this, &FListener::OnFirstStateReset, TEXT_"Capture this"));
     }
 }
 ```
 
-is equivalent to doing the following with the vanilla Unreal delegates API:
+<details><summary>Equivalent vanilla Unreal delegates:</summary>
 
 ```Cpp
 struct FListener : TSharedFromThis<FListener>
@@ -177,7 +199,7 @@ struct FListener : TSharedFromThis<FListener>
         // Delegate API in these situations is pretty verbose
         observable.SetDefaultInitializer(FDefaultInitializerDelegate::CreateSPLambda(this, [this](FObservable const&) -> FString
         {
-            return TEXT("Some default value");
+            return TEXT_"Some default value";
         }));
 
         // Chaining events is a new Feature introduced with From
@@ -187,10 +209,12 @@ struct FListener : TSharedFromThis<FListener>
         });
 
         // Ok here the difference is almost nothing
-        observable.OnStateResetTheFirstTimeEvent.AddSP(this, &FListener::OnFirstStateReset, TEXT("Capture this"));
+        observable.OnStateResetTheFirstTimeEvent.AddSP(this, &FListener::OnFirstStateReset, TEXT_"Capture this");
     }
 }
 ```
+
+</details>
 
 There's also a dynamic / native (multicast) delegate interop including similar chaining demonstrated here.
 
@@ -211,7 +235,7 @@ SomeEvent.Broadcast(42);
 // Late subscribers will not be left behind
 SomeEvent.Add(From([](int value)
 {
-    UE_LOG(LogTemp, Display, TEXT("The last argument this event broadcasted with: %d"), value);
+    UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
 }));
 // -> The last argument this event broadcasted with: 42
 
@@ -225,7 +249,7 @@ SomeOtherEvent.Broadcast(1337);
 SomeOtherEvent.Add(
     From([](int value)
     {
-        UE_LOG(LogTemp, Display, TEXT("The last argument this event broadcasted with: %d"), value);
+        UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
     }),
     BelatedInvoke
 );
@@ -244,7 +268,7 @@ TEventDelegate<void(int)> SomeFrequentEvent;
 SomeFrequentEvent.Add(
     From([](int value)
     {
-        UE_LOG(LogTemp, Display, TEXT("This value is printed only once: %d"), value);
+        UE_LOG(LogTemp, Display, TEXT_"This value is printed only once: %d", value);
     }),
     InvokeOnce
 );
@@ -266,7 +290,7 @@ TEventDelegate<void(int)> HigherLevelEvent;
 
 HigherLevelEvent.Add(From([](int value)
 {
-    UE_LOG(LogTemp, Display, TEXT("Value: %d"), value);
+    UE_LOG(LogTemp, Display, TEXT_"Value: %d", value);
 }));
 LowerLevelEvent.Add(HigherLevelEvent.Delegation(this /* optionally bind an object */));
 
@@ -306,13 +330,13 @@ struct FMyBaseType
 struct FMyDerivedType : FMyBaseType {}
 
 FMyDerivedType myVar;
-UE_LOG(LogTemp, Display, TEXT("This is `%s`"), *myVar.GetTypeString());
+UE_LOG(LogTemp, Display, TEXT_"This is `%s`", *myVar.GetTypeString());
 // -> This is `FMyDerivedType`
 
 // BUT!
 
 FMyBaseType const& myBaseVar = myVar;
-UE_LOG(LogTemp, Display, TEXT("This is `%s`"), *myBaseVar.GetTypeString());
+UE_LOG(LogTemp, Display, TEXT_"This is `%s`", *myBaseVar.GetTypeString());
 // -> This is `FMyBaseType`
 ```
 
@@ -330,13 +354,13 @@ struct FMyDerivedType : FMyBaseType
 }
 
 FMyDerivedType myVar;
-UE_LOG(LogTemp, Display, TEXT("This is as expected a `%s`"), *myVar.GetType().ToString());
+UE_LOG(LogTemp, Display, TEXT_"This is as expected a `%s`", *myVar.GetType().ToString());
 // -> This is as expected `FMyDerivedType`
 
 FMyBaseType const& myBaseVar = myVar;
 UE_LOG(
     LogTemp, Display,
-    TEXT("But asking the base type will still preserve `%s`"),
+    TEXT_"But asking the base type will still preserve `%s`",
     *myBaseVar.GetType().ToString()
 );
 // -> But asking the base type will still preserve `FMyDerivedType`
@@ -395,12 +419,12 @@ struct FMyStuff
         {
             // If `StorePrevious` flag is active we should always have a value in `previous`
             // so we should never see -2
-            UE_LOG(LogTemp, Display, TEXT("Changed from %d to %d"), previous.Get(-2), next);
+            UE_LOG(LogTemp, Display, TEXT_"Changed from %d to %d", previous.Get(-2), next);
         });
 
         // Listen to change only the first time
         State.OnChange(
-            [](int next) { UE_LOG(LogTemp, Display, TEXT("The first changed value is %d"), next); },
+            [](int next) { UE_LOG(LogTemp, Display, TEXT_"The first changed value is %d", next); },
             InvokeOnce
         );
     }
@@ -421,7 +445,7 @@ struct FFoobar : TSharedFromThis<FFoobar>
 
     void Thing(TChangeData<T> const& change, FString const& capture)
     {
-        UE_LOG(LogTemp, Display, TEXT("React to %d with %s"), change.Next, *capture);
+        UE_LOG(LogTemp, Display, TEXT_"React to %d with %s", change.Next, *capture);
     }
 
     void Do()
@@ -434,14 +458,14 @@ struct FFoobar : TSharedFromThis<FFoobar>
         MyStuff.Update(2);
         // (nothing is logged as previous update was also 2)
         MyStuff.OnChange(
-            [](int next) { UE_LOG(LogTemp, Display, TEXT("Arriving late %d"), next); },
+            [](int next) { UE_LOG(LogTemp, Display, TEXT_"Arriving late %d", next); },
             BelatedInvoke
         );
         // -> Arriving late 2
         MyStuff.Update(3);
         // -> Changed from 2 to 3
         // -> Arriving late 3
-        MyStuff.OnChange(From(this, &FFoobar::Thing, TEXT("a unicorn")));
+        MyStuff.OnChange(From(this, &FFoobar::Thing, TEXT_"a unicorn"));
         MyStuff.Update(4)
         // -> Changed from 3 to 4
         // -> Arriving late 4
@@ -554,14 +578,14 @@ void Construct(FArguments const& inArgs)
     ChildSlot
     [
         SNew(SVerticalBox)
-        + Row()[ SNew(STextBlock) / Text(TEXT("Items:")) ]
+        + Row()[ SNew(STextBlock) / Text(TEXT_"Items:") ]
         + TSlots(inArgs._Items.Get(), [&](FString const& item)
         {
             return MoveTemp(
                 Row()[ SNew(STextBlock) / Text(item) ]
             );
         })
-        + Row()[ SNew(STextBlock) / Text(TEXT("Fin.")) ]
+        + Row()[ SNew(STextBlock) / Text(TEXT_"Fin.") ]
     ];
 }
 ```
@@ -585,11 +609,11 @@ size_t GetLength(String&& input) { return input.size(); }
 
 ```Cpp
 // Type alias for choosing a std::string which is best matching the current TCHAR.
-FStdString foo(TEXT("bar")); // -> std::wstring (on Windows at least)
+FStdString foo(TEXT_"bar"); // -> std::wstring (on Windows at least)
 ```
 
 ```Cpp
-FString foo(TEXT("bar"));
+FString foo(TEXT_"bar");
 std::string fooNarrow = StdConvertUtf8(foo);
 ```
 
@@ -651,7 +675,7 @@ export void MakeLookupUV(
   * [ ] Shared textures but without the Unreal TextureShare library
 
 ## Legal
-
+[Traits.h](../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Public/Mcro/Delegates/Traits.h)
 [Third-party components used by MCRO](ATTRIBUTION.md)
 
 When using MCRO in a plugin distributed via Fab, the components above must be listed upon submission.
