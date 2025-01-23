@@ -64,6 +64,6 @@ namespace Mcro::Common
 	{
 		/** @copydoc Mcro::Delegates::InferDelegate */
 		namespace InferDelegate { using namespace Mcro::Common; using namespace Mcro::Common::InferDelegate; }
-		namespace Literals      { using namespace Mcro::Common; using namespace Mcro::Common::Literals; }
+		namespace Literals      { using namespace Mcro::Common; using namespace Mcro::Timespan::Literals; }
 	}
 }

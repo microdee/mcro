@@ -50,7 +50,7 @@ namespace Mcro::Delegates::InferDelegate
 	 *	
 	 *	This overload is equivalent to `TDelegate::CreateStatic`
 	 */
-	template <CFunctionLike Function, typename... Captures>
+	template <CFunctionPtr Function, typename... Captures>
 	requires (!CFunction_IsMember<Function>)
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Function func, Captures&&... captures)
@@ -114,23 +114,10 @@ namespace Mcro::Delegates::InferDelegate
 	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
 	 *	infer the method of object binding based on the type traits of the object argument.
 	 *	
-	 *	This overload is equivalent to `TDelegate::CreateWeakLambda` (plain C++ object pointer)
-	 */
-	template <CPlainClass Object, CFunctorObject Function>
-	TDelegate<TFunction_Signature<Function>> From(Object* self, Function&& func)
-	{
-		return TDelegate<TFunction_Signature<Function>>::CreateWeakLambda(self, Forward<Function>(func));
-	}
-	
-	/**
-	 *	@brief
-	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
-	 *	infer the method of object binding based on the type traits of the object argument.
-	 *	
 	 *	This overload is equivalent to `TDelegate::CreateRaw` (plain C++ object pointer)
 	 */
 	template <CPlainClass Object, CFunctionPtr Function, typename... Captures>
-	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function>
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateRaw(self, func, captures...);
@@ -144,7 +131,7 @@ namespace Mcro::Delegates::InferDelegate
 	 *	This overload is equivalent to `TDelegate::CreateRaw` (plain C++ const object pointer)
 	 */
 	template <CPlainClass Object, CFunctionPtr Function, typename... Captures>
-	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function>
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateRaw(self, func, captures...);
@@ -158,7 +145,7 @@ namespace Mcro::Delegates::InferDelegate
 	 *	This overload is equivalent to `TDelegate::CreateSP` (TSharedRef)
 	 */
 	template <CSharedRef Object, CFunctionPtr Function, typename... Captures>
-	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function>
 	TInferredDelegate<Function, Captures...> From(const Object& self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
@@ -172,7 +159,7 @@ namespace Mcro::Delegates::InferDelegate
 	 *	This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis pointer)
 	 */
 	template <CSharedFromThis Object, CFunctionPtr Function, typename... Captures>
-	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function>
 	TInferredDelegate<Function, Captures...> From(Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
@@ -186,10 +173,23 @@ namespace Mcro::Delegates::InferDelegate
 	 *	This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis const pointer)
 	 */
 	template <CSharedFromThis Object, CFunctionPtr Function, typename... Captures>
-	requires CFunction_IsMember<Function> && (!CFunctorObject<Function>)
+	requires CFunction_IsMember<Function>
 	TInferredDelegate<Function, Captures...> From(const Object* self, Function func, const Captures&... captures)
 	{
 		return TInferredDelegate<Function, Captures...>::CreateSP(self, func, captures...);
+	}
+	
+	/**
+	 *	@brief
+	 *	Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also
+	 *	infer the method of object binding based on the type traits of the object argument.
+	 *	
+	 *	This overload is equivalent to `TDelegate::CreateWeakLambda` (UObject)
+	 */
+	template <CUObject Object, CFunctorObject Function>
+	TDelegate<TFunction_Signature<Function>> From(Object* self, Function&& func)
+	{
+		return TDelegate<TFunction_Signature<Function>>::CreateWeakLambda(self, Forward<Function>(func));
 	}
 
 	/**
