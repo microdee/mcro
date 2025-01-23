@@ -65,7 +65,7 @@ namespace Mcro::Text::Macros
 }
 
 template <auto FunctionPtr>
-auto operator >> (Mcro::FunctionTraits::TDeferFunctionArguments<FunctionPtr>&& deferrer, const TCHAR* literal)
+auto operator / (Mcro::FunctionTraits::TDeferFunctionArguments<FunctionPtr>&& deferrer, const TCHAR* literal)
 {
 	return deferrer(literal);
 }
@@ -75,18 +75,18 @@ auto operator >> (Mcro::FunctionTraits::TDeferFunctionArguments<FunctionPtr>&& d
  *	A convenience alternative to Unreal's own `LOCTEXT` macro but this one doesn't require parenthesis around the text literal
  */
 #define LOCTEXT_(key) \
-	Mcro::Text::Macros::FDefer_AsLocalizable_Advanced(TEXT(LOCTEXT_NAMESPACE), TEXT(key)) >> TEXT_
+	Mcro::Text::Macros::FDefer_AsLocalizable_Advanced(TEXT(LOCTEXT_NAMESPACE), TEXT(key)) / TEXT_
 
 /**
  *	@brief
  *	A convenience alternative to Unreal's own `NSLOCTEXT` macro but this one doesn't require parenthesis around the text literal
  */
 #define NSLOCTEXT_(ns, key) \
-	Mcro::Text::Macros::FDefer_AsLocalizable_Advanced(TEXT(ns), TEXT(key)) >> TEXT_
+	Mcro::Text::Macros::FDefer_AsLocalizable_Advanced(TEXT(ns), TEXT(key)) / TEXT_
 
 /**
  *	@brief
  *	A convenience alternative to Unreal's own `INVTEXT` macro but this one doesn't require parenthesis around the text literal
  */
 #define INVTEXT_ \
-	Mcro::Text::Macros::FDefer_AsCultureInvariant() >> TEXT_
+	Mcro::Text::Macros::FDefer_AsCultureInvariant() / TEXT_
