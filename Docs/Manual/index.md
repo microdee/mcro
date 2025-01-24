@@ -610,7 +610,6 @@ using namespace Mcro::Common;
 // Accept many string types at once
 template <CStringOrViewOrName String>
 bool GetSomethingCommon(String&& input) { ... }
-[Delegates.Spec.cpp](../../../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Private/Mcro/Tests/Delegates.Spec.cpp)
 // Work with std::string types
 template <CStdStringOrViewInvariant String>
 size_t GetLength(String&& input) { return input.size(); }
