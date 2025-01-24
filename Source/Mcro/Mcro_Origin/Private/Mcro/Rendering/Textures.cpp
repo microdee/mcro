@@ -9,6 +9,7 @@
  *  @date 2025
  */
 #include "Mcro/Rendering/Textures.h"
+#include "Mcro/TextMacros.h"
 
 #include "Engine/Texture2DDynamic.h"
 
@@ -35,7 +36,7 @@ namespace Mcro::Rendering::Textures
 		if (auto typedTexture = Cast<UTextureRenderTarget>(texture))
 			format = typedTexture->GetFormat();
 		
-		ensureMsgf(format != PF_Unknown, TEXT("Couldn't get pixel format of %s"), *texture->GetClass()->GetName());
+		ensureMsgf(format != PF_Unknown, TEXT_"Couldn't get pixel format of %s", *texture->GetClass()->GetName());
 		return {width, height, format};
 	}
 }

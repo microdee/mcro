@@ -37,7 +37,7 @@ namespace Mcro::Error
 	{
 		UE_LOG(
 			LogErrorManager, Error,
-			TEXT("Displaying error %s:"),
+			TEXT_"Displaying error %s:",
 			*error->GetType().ToString()
 		);
 		ERROR_LOG(LogErrorManager, Error, error);
@@ -45,11 +45,11 @@ namespace Mcro::Error
 
 		if (bIsDisplayingError)
 		{
-			UE_LOG(LogErrorManager, Warning, TEXT(
+			UE_LOG(LogErrorManager, Warning, TEXT_
 				"Another error is already being displayed. Suppressing this one."
 				" If multiple things can go wrong in quick succession please organize them into one aggregate error,"
 				" and display that."
-			));
+			);
 
 			// TODO: deal with this situation more automatically
 			return MakeFulfilledPromise<EDisplayErrorResult>(Suppressed_AnotherErrorOpen).GetFuture();
@@ -80,7 +80,7 @@ namespace Mcro::Error
 
 		auto severity = error->GetSeverityString();
 		auto title = FString::Printf(
-			TEXT("%s error %s"), severity.GetData(), *error->GetType().ToString()
+			TEXT_"%s error %s", severity.GetData(), *error->GetType().ToString()
 		);
 		
 		FErrorHeaderStyle headerStyle;
@@ -119,7 +119,7 @@ namespace Mcro::Error
 		TSharedPtr<SWindow> modalWindow;
 		TSharedPtr<SCheckBox> pleaseRead;
 		SAssignNew(modalWindow, SWindow)
-			. Style(&style.GetWidgetStyle<FWindowStyle>(TEXT("Window")))
+			. Style(&style.GetWidgetStyle<FWindowStyle>(TEXT_"Window"))
 			. Title(FText::FromString(title))
 			. Type(EWindowType::Normal)
 			. AutoCenter(EAutoCenter::PreferredWorkArea)
@@ -137,7 +137,7 @@ namespace Mcro::Error
 					[
 						SNew(STextBlock)
 						. SimpleTextMode(true)
-						. Text(INVTEXT("(you can still interact with the program while this dialog is open)"))
+						. Text(INVTEXT_"(you can still interact with the program while this dialog is open)")
 						. Font(FCoreStyle::GetDefaultFontStyle("Italic", 12))
 						. ColorAndOpacity(FLinearColor(0.45f, 0.45f, 0.45f, 1.00f))
 						. Visibility(IsVisible(args.bAsync))
@@ -164,13 +164,13 @@ namespace Mcro::Error
 					. AutoHeight()
 					[
 						SNew(STextBlock)
-						. Text(INVTEXT(
+						. Text(INVTEXT_
 							"Unfortunately this application has ran into a problem it could not handle automatically."
 							" There can be a wide spectrum of reasons which this error summary aims to narrow down."
 							" Please examine ít carefully and patiently. While reporting this error DO NOT send (only)"
 							" the screenshot of this dialog box, but use the \"Copy Error to Clipboard\" button!"
 							"\nThank you for your patience, understanding and cooperation!"
-						))
+						)
 					]
 					+ SVerticalBox::Slot()
 					. HAlign(HAlign_Fill)
@@ -201,7 +201,7 @@ namespace Mcro::Error
 							[
 								SNew(STextBlock)
 								. SimpleTextMode(true)
-								. Text(INVTEXT("I have read the error summary."))
+								. Text(INVTEXT_"I have read the error summary.")
 							]
 						]
 						+ SHorizontalBox::Slot()
@@ -209,16 +209,16 @@ namespace Mcro::Error
 						. AutoWidth()
 						[
 							SNew(SButton)
-							. Text(INVTEXT("Dismiss"))
+							. Text(INVTEXT_"Dismiss")
 							. ToolTipText_Lambda([weakPleaseRead = pleaseRead.ToWeakPtr(), important = args.bImportantToRead]
 							{
 								if (auto pleaseRead = weakPleaseRead.Pin())
 								if (important && !pleaseRead->IsChecked())
-									return INVTEXT(
+									return INVTEXT_
 										"Please confirm that you have read this error summary by ticking the checkbox"
 										" to the left."
-									);
-								return INVTEXT("Once done reading dismiss this error summary.");
+									;
+								return INVTEXT_"Once done reading dismiss this error summary.";
 							})
 							. IsEnabled_Lambda([weakPleaseRead = pleaseRead.ToWeakPtr(), important = args.bImportantToRead]
 							{
@@ -238,8 +238,8 @@ namespace Mcro::Error
 						. AutoWidth()
 						[
 							SNew(SButton)
-							. Text(INVTEXT("Copy Error to Clipboard"))
-							. ToolTipText(INVTEXT("The error is copied in its entirety formatted as YAML plain text."))
+							. Text(INVTEXT_"Copy Error to Clipboard")
+							. ToolTipText(INVTEXT_"The error is copied in its entirety formatted as YAML plain text.")
 							. OnClicked_Lambda([error]
 							{
 								FPlatformApplicationMisc::ClipboardCopy(*error->ToString());

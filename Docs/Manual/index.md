@@ -50,13 +50,12 @@ Here are some code appetizers without going too deep into their details. The dem
 
 An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
 
-```C++
-#include "Mcro/Error.h"
-#include "Mcro/Error/CppException.h"
+```Cpp
+#include "Mcro/Common.h"
 
 FCanFail FK4ADevice::Tick_Sync()
 {
-    using namespace Mcro::Error;
+    using namespace Mcro::Common;
 
     ASSERT_RETURN(Device.is_valid())
         ->AsCrashing()
@@ -92,7 +91,45 @@ FCanFail FK4ADevice::Tick_Sync()
 }
 ```
 
-### Delegate type inferance
+### Text macros without parenthesis
+
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">Without parenthesis:</b>
+
+```Cpp
+FString myVar(TEXT_"Hello world!");
+UE_LOG(LogTemp, Display, TEXT_"%s", *myVar);
+FText myText = INVTEXT_"Even FText macros are there";
+```
+
+</li>
+
+<li>
+
+<b class="tab-title">Vanilla:</b>
+
+```Cpp
+FString myVar(TEXT("Hello world!"));
+UE_LOG(LogTemp, Display, TEXT("%s"), *myVar);
+FText myText = INVTEXT("Even FText macros are there");
+```
+
+</li>
+
+</ul>
+
+</div>
+
+One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()` macro, especially the extra pair of parenthesis it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple `TCHAR` strings, or operator overloads for `FText`.
+
+The earlier was even a suggestion of Microsoft [when they announced their standard compliant new preprocessor](https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval), and asked the general public to stop exploiting the behaviors of the old one.
+
+### Delegate type inference
 
 In `Mcro::Delegates` namespace there's a bunch of overloads of `From` function which can infer a delegate type and its intended binding only based on its input arguments. It means a couple of things:
 
@@ -101,7 +138,7 @@ In `Mcro::Delegates` namespace there's a bunch of overloads of `From` function w
 
 For example given an imaginary type with a terrible API for some reason
 
-```C++
+```Cpp
 struct FObservable
 {
     using FOnStateResetTheFirstTimeEvent = TMulticastDelegate<void(FObservable const&)>;
@@ -125,8 +162,8 @@ struct FObservable
 
 <b class="tab-title">We can do:</b>
 
-```C++
-#include "Mcro/Delegates/DelegateFrom.h"
+```Cpp
+#include "Mcro/Common.h"
 
 struct FListener : TSharedFromThis<FListener>
 {
@@ -134,19 +171,19 @@ struct FListener : TSharedFromThis<FListener>
     void OnFirstStateReset(FObservable const& observable, FString const& capturedData)
     void BindTo(FObservable& observable)
     {
-        using Mcro::Delegates;
+        using namespace Mcro::Delegates::InferDelegate;
 
         // Repeating the delegate type on call site is not necessary
         observable.SetDefaultInitializer(From(this, [this](FObservable const&) -> FString
         {
-            return TEXT("Some default value");
+            return TEXT_"Some default value";
         }));
 
         // Chaining events like this is a single line
         observable.OnStateResetTheFirstTimeEvent.Add(From(this, PropagateEvent));
 
         // No need to decide on the method of binding, the most suitable one is chosen via templating
-        observable.OnStateResetTheFirstTimeEvent.Add(From(this, &FListener::OnFirstStateReset, TEXT("Capture this")));
+        observable.OnStateResetTheFirstTimeEvent.Add(From(this, &FListener::OnFirstStateReset, TEXT_"Capture this"));
     }
 }
 ```
@@ -157,7 +194,7 @@ struct FListener : TSharedFromThis<FListener>
 
 <b class="tab-title">Equivalent vanilla Unreal delegates:</b>
 
-```C++
+```Cpp
 struct FListener : TSharedFromThis<FListener>
 {
     TMulticastDelegate<void(FObservable const&)> PropagateEvent;
@@ -167,7 +204,7 @@ struct FListener : TSharedFromThis<FListener>
         // Delegate API in these situations is pretty verbose
         observable.SetDefaultInitializer(FDefaultInitializerDelegate::CreateSPLambda(this, [this](FObservable const&) -> FString
         {
-            return TEXT("Some default value");
+            return TEXT_"Some default value";
         }));
 
         // Chaining events is a new Feature introduced with From
@@ -177,7 +214,7 @@ struct FListener : TSharedFromThis<FListener>
         });
 
         // Ok here the difference is almost nothing
-        observable.OnStateResetTheFirstTimeEvent.AddSP(this, &FListener::OnFirstStateReset, TEXT("Capture this"));
+        observable.OnStateResetTheFirstTimeEvent.AddSP(this, &FListener::OnFirstStateReset, TEXT_"Capture this");
     }
 }
 ```
@@ -194,8 +231,9 @@ There's also a dynamic / native (multicast) delegate interop including similar c
 
 Did your thing ever load after an event which your thing depends on, but now you have to somehow detect that the event has already happened and you have to execute your thing manually? With `Mcro::Delegates::TEventDelegate` this situation has a lot less friction:
 
-```C++
-#include "Mcro/Delegates/EventDelegate.h"
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 // TBelatedEventDelegate is an alias for TEventDelegate<Signature, BelatedInvoke>
 TBelatedEventDelegate<void(int)> SomeEvent;
@@ -206,7 +244,7 @@ SomeEvent.Broadcast(42);
 // Late subscribers will not be left behind
 SomeEvent.Add(From([](int value)
 {
-    UE_LOG(LogTemp, Display, TEXT("The last argument this event broadcasted with: %d"), value);
+    UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
 }));
 // -> The last argument this event broadcasted with: 42
 
@@ -220,7 +258,7 @@ SomeOtherEvent.Broadcast(1337);
 SomeOtherEvent.Add(
     From([](int value)
     {
-        UE_LOG(LogTemp, Display, TEXT("The last argument this event broadcasted with: %d"), value);
+        UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
     }),
     BelatedInvoke
 );
@@ -229,8 +267,9 @@ SomeOtherEvent.Add(
 
 Or your thing only needs to do its tasks on the first time a frequently invoked event is triggered?
 
-```C++
-#include "Mcro/Delegates/EventDelegate.h"
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 TEventDelegate<void(int)> SomeFrequentEvent;
 
@@ -238,7 +277,7 @@ TEventDelegate<void(int)> SomeFrequentEvent;
 SomeFrequentEvent.Add(
     From([](int value)
     {
-        UE_LOG(LogTemp, Display, TEXT("This value is printed only once: %d"), value);
+        UE_LOG(LogTemp, Display, TEXT_"This value is printed only once: %d", value);
     }),
     InvokeOnce
 );
@@ -251,15 +290,16 @@ SomeFrequentEvent.Broadcast(2);
 
 Chaining events?
 
-```C++
-#include "Mcro/Delegates/EventDelegate.h"
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 TMulticastDelegate<void(int)> LowerLevelEvent;
 TEventDelegate<void(int)> HigherLevelEvent;
 
 HigherLevelEvent.Add(From([](int value)
 {
-    UE_LOG(LogTemp, Display, TEXT("Value: %d"), value);
+    UE_LOG(LogTemp, Display, TEXT_"Value: %d", value);
 }));
 LowerLevelEvent.Add(HigherLevelEvent.Delegation(this /* optionally bind an object */));
 
@@ -273,9 +313,9 @@ Of course the above chaining can be combined with belated~ or one-time invocatio
 
 C++ 20 can do string manipulation in compile time, [including regex](https://github.com/hanickadot/compile-time-regular-expressions). With that, compiler specific "pretty function" macros become a key tool for simple static reflection. Based on that MCRO has `TTypeName`
 
-```C++
-#include "Mcro/TypeName.h"
-using namespace Mcro::TypeName;
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
 
 struct FMyType
 {
@@ -285,9 +325,9 @@ struct FMyType
 
 even better with C++ 23 deducing this
 
-```C++
-#include "Mcro/TypeName.h"
-using namespace Mcro::TypeName;
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
 
 struct FMyBaseType
 {
@@ -299,21 +339,21 @@ struct FMyBaseType
 struct FMyDerivedType : FMyBaseType {}
 
 FMyDerivedType myVar;
-UE_LOG(LogTemp, Display, TEXT("This is `%s`"), *myVar.GetTypeString());
+UE_LOG(LogTemp, Display, TEXT_"This is `%s`", *myVar.GetTypeString());
 // -> This is `FMyDerivedType`
 
 // BUT!
 
 FMyBaseType const& myBaseVar = myVar;
-UE_LOG(LogTemp, Display, TEXT("This is `%s`"), *myBaseVar.GetTypeString());
+UE_LOG(LogTemp, Display, TEXT_"This is `%s`", *myBaseVar.GetTypeString());
 // -> This is `FMyBaseType`
 ```
 
 MCRO provides a base type `IHaveType` for storing the final type as an `FName` to avoid situations like above
 
-```C++
-#include "Mcro/Types.h"
-using namespace Mcro::Types;
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
 
 struct FMyBaseType : IHaveType {}
 
@@ -323,13 +363,13 @@ struct FMyDerivedType : FMyBaseType
 }
 
 FMyDerivedType myVar;
-UE_LOG(LogTemp, Display, TEXT("This is as expected a `%s`"), *myVar.GetType().ToString());
+UE_LOG(LogTemp, Display, TEXT_"This is as expected a `%s`", *myVar.GetType().ToString());
 // -> This is as expected `FMyDerivedType`
 
 FMyBaseType const& myBaseVar = myVar;
 UE_LOG(
     LogTemp, Display,
-    TEXT("But asking the base type will still preserve `%s`"),
+    TEXT_"But asking the base type will still preserve `%s`",
     *myBaseVar.GetType().ToString()
 );
 // -> But asking the base type will still preserve `FMyDerivedType`
@@ -339,9 +379,9 @@ UE_LOG(
 
 One use of `TTypeName` is making modular features easier to use:
 
-```C++
-#include "Mcro/AutoModularFeatures.h"
-using namespace Mcro::AutoModularFeatures;
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common;
 
 // In central API module
 class IProblemSolvingFeature : public TAutoModularFeature<IProblemSolvingFeature>
@@ -373,10 +413,9 @@ Notice how the feature name has never needed to be explicitly specified as a str
 
 You have data members of your class, but you also want to notify others about how that's changing?
 
-```C++
-#include "Mcro/Observable.h"
-#include "Mcro/Delegates/DelegateFrom.h"
-using namespace Mcro::Observable;
+```Cpp
+#include "Mcro/Common.h"
+using namespace Mcro::Common::With::InferDelegate;
 
 struct FMyStuff
 {
@@ -389,12 +428,12 @@ struct FMyStuff
         {
             // If `StorePrevious` flag is active we should always have a value in `previous`
             // so we should never see -2
-            UE_LOG(LogTemp, Display, TEXT("Changed from %d to %d"), previous.Get(-2), next);
+            UE_LOG(LogTemp, Display, TEXT_"Changed from %d to %d", previous.Get(-2), next);
         });
 
         // Listen to change only the first time
         State.OnChange(
-            [](int next) { UE_LOG(LogTemp, Display, TEXT("The first changed value is %d"), next); },
+            [](int next) { UE_LOG(LogTemp, Display, TEXT_"The first changed value is %d", next); },
             InvokeOnce
         );
     }
@@ -415,27 +454,27 @@ struct FFoobar : TSharedFromThis<FFoobar>
 
     void Thing(TChangeData<T> const& change, FString const& capture)
     {
-        UE_LOG(LogTemp, Display, TEXT("React to %d with %s"), change.Next, *capture);
+        UE_LOG(LogTemp, Display, TEXT_"React to %d with %s", change.Next, *capture);
     }
 
     void Do()
     {
         MyStuff.Update(1);
-        // -> Changed from -1 to 1
+        // -> Changed from -1 to 1[TimespanLiterals.h](../../../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Public/Mcro/TimespanLiterals.h)
         // -> The first changed value is 1
         MyStuff.Update(2);
         // -> Changed from 1 to 2
         MyStuff.Update(2);
         // (nothing is logged as previous update was also 2)
         MyStuff.OnChange(
-            [](int next) { UE_LOG(LogTemp, Display, TEXT("Arriving late %d"), next); },
+            [](int next) { UE_LOG(LogTemp, Display, TEXT_"Arriving late %d", next); },
             BelatedInvoke
         );
         // -> Arriving late 2
         MyStuff.Update(3);
         // -> Changed from 2 to 3
         // -> Arriving late 3
-        MyStuff.OnChange(From(this, &FFoobar::Thing, TEXT("a unicorn")));
+        MyStuff.OnChange(From(this, &FFoobar::Thing, TEXT_"a unicorn"));
         MyStuff.Update(4)
         // -> Changed from 3 to 4
         // -> Arriving late 4
@@ -451,7 +490,7 @@ Make templates dealing with function types more readable and yet more versatile 
 
 Constraint/infer template parameters from the signature of an input function. (This is an annotated exempt from `Mcro::UObjects::Init`)
 
-```C++
+```Cpp
 #include "Mcro/FunctionTraits.h" // it also brings in Concepts
 
 namespace Mcro::UObjects::Init
@@ -484,9 +523,9 @@ There's a copy of the C++ 20 STL Concepts library in `Mcro::Concepts` namespace 
 
 `Mcro::Slate` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
 
-```C++
-#include "Mcro/Slate";
-using namespace Mcro::Slate;
+```Cpp
+#include "Mcro/Common";
+using namespace Mcro::Common;
 
 // Define a reusable block of attributes
 auto Text(FString const& text) -> TAttributeBlock<STextBlock>
@@ -533,7 +572,7 @@ auto ExpandableText(
 
 Or add slots right in the Slate declarative syntax derived from an input array:
 
-```C++
+```Cpp
 // This is just a convenience function so we don't repeat ourselves
 auto Row() -> SVerticalBox::FSlot::FSlotArguments
 {
@@ -548,14 +587,14 @@ void Construct(FArguments const& inArgs)
     ChildSlot
     [
         SNew(SVerticalBox)
-        + Row()[ SNew(STextBlock) / Text(TEXT("Items:")) ]
+        + Row()[ SNew(STextBlock) / Text(TEXT_"Items:") ]
         + TSlots(inArgs._Items.Get(), [&](FString const& item)
         {
             return MoveTemp(
                 Row()[ SNew(STextBlock) / Text(item) ]
             );
         })
-        + Row()[ SNew(STextBlock) / Text(TEXT("Fin.")) ]
+        + Row()[ SNew(STextBlock) / Text(TEXT_"Fin.") ]
     ];
 }
 ```
@@ -564,26 +603,26 @@ void Construct(FArguments const& inArgs)
 
 The `Mcro::Text` namespace provides some handy text templating and conversion utilities and interop between Unreal string and std::strings for third-party libraries.
 
-```C++
-#include "Mcro/Text";
-using namespace Mcro::Text;
+```Cpp
+#include "Mcro/CommonCore";
+using namespace Mcro::Common;
 
 // Accept many string types at once
 template <CStringOrViewOrName String>
 bool GetSomethingCommon(String&& input) { ... }
-
+[Delegates.Spec.cpp](../../../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Private/Mcro/Tests/Delegates.Spec.cpp)
 // Work with std::string types
 template <CStdStringOrViewInvariant String>
 size_t GetLength(String&& input) { return input.size(); }
 ```
 
-```C++
+```Cpp
 // Type alias for choosing a std::string which is best matching the current TCHAR.
-FStdString foo(TEXT("bar")); // -> std::wstring (on Windows at least)
+FStdString foo(TEXT_"bar"); // -> std::wstring (on Windows at least)
 ```
 
-```C++
-FString foo(TEXT("bar"));
+```Cpp
+FString foo(TEXT_"bar");
 std::string fooNarrow = StdConvertUtf8(foo);
 ```
 

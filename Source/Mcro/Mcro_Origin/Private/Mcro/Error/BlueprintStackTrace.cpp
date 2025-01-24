@@ -19,18 +19,18 @@ namespace Mcro::Error
 		{
 			TArrayView<const FFrame* const> rawStack = bpCtxTracker->GetCurrentScriptStack();
 			TStringBuilder<4096> scriptStack;
-			scriptStack << TEXT("\n\nScript Stack (") << rawStack.Num() << TEXT(" frames)\n");
+			scriptStack << TEXT_"\n\nScript Stack (" << rawStack.Num() << TEXT_" frames)\n";
 
 			for (int32 frame = rawStack.Num() - 1; frame >= 0; --frame)
 			{
 				rawStack[frame]->GetStackDescription(scriptStack);
-				scriptStack << TEXT("\n");
+				scriptStack << TEXT_"\n";
 			}
 			Message = *scriptStack;
 		}
 		else
 		{
-			Message = TEXT("Blueprint stack trace was not available");
+			Message = TEXT_"Blueprint stack trace was not available";
 		}
 	}
 }

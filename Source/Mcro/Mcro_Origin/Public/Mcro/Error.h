@@ -18,6 +18,7 @@
 #include "Mcro/Concepts.h"
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Observable.Fwd.h"
+#include "Mcro/TextMacros.h"
 
 #include "Mcro/LibraryIncludes/Start.h"
 #include "yaml-cpp/yaml.h"
@@ -79,7 +80,7 @@ namespace Mcro::Error
 		virtual void AddError(const FString& name, const TSharedRef<IError>& error, const FString& typeOverride = {});
 
 		/** @brief Add extra separate blocks of text in an ad-hoc fashion */
-		virtual void AddAppendix(const FString& name, const FString& text, const FString& type = TEXT("Appendix"));
+		virtual void AddAppendix(const FString& name, const FString& text, const FString& type = TEXT_"Appendix");
 
 		void AddCppStackTrace(const FString& name, int32 numAdditionalStackFramesToIgnore, bool fastWalk);
 		void AddBlueprintStackTrace(const FString& name);
@@ -540,7 +541,7 @@ namespace Mcro::Error
 		requires (!CDefaultInitializable<T>)
 		TMaybe() : Error(IError::Make(new FUnavailable())
 			->WithMessageF(
-				TEXT("TMaybe has been default initialized, but a Value of %s cannot be default initialized"),
+				TEXT_"TMaybe has been default initialized, but a Value of %s cannot be default initialized",
 				*TTypeString<T>
 			)
 		) {}
@@ -608,17 +609,17 @@ namespace Mcro::Error
 	FORCEINLINE FCanFail Success() { return FVoid(); }
 }
 
-#define ERROR_LOG(categoryName, verbosity, error)         \
-	UE_LOG(categoryName, verbosity, TEXT("%s"), *((error) \
-		->WithLocation()                                  \
-		->ToString()                                      \
-	))                                                   //
+#define ERROR_LOG(categoryName, verbosity, error)        \
+	UE_LOG(categoryName, verbosity, TEXT_"%s", *((error) \
+		->WithLocation()                                 \
+		->ToString())                                    \
+	)                                                   //
 
-#define ERROR_CLOG(condition, categoryName, verbosity, error)         \
-	UE_CLOG(condition, categoryName, verbosity, TEXT("%s"), *((error) \
-		->WithLocation()                                              \
-		->ToString()                                                  \
-	))                                                               //
+#define ERROR_CLOG(condition, categoryName, verbosity, error)        \
+	UE_CLOG(condition, categoryName, verbosity, TEXT_"%s", *((error) \
+		->WithLocation()                                             \
+		->ToString()                                                 \
+	))                                                              //
 
 /** @brief Similar to check() macro, but return an error instead of crashing */
 #define ASSERT_RETURN(condition)                                        \
@@ -634,27 +635,25 @@ namespace Mcro::Error
 		->WithLocation()                                              \
 		->AsRecoverable()                                            //
 
-/**
- *	@brief
- *	If a function returns a TMaybe inside another function which may also return another error use this convenience
- *	macro to propagate the failure. Set a target variable name to store a returned value upon success. Leave type
- *	argument empty for existing variables
- */
-#define PROPAGATE_FAIL_TV(type, var, expression)        \
+#define MCRO_PROPAGATE_FAIL_3(type, var, expression)    \
 	type var = (expression);                            \
 	if (UNLIKELY(var.HasError())) return var.GetError() \
 		->WithLocation()                               //
 
-/**
- *	@brief
- *	If a function returns a TMaybe<V> inside another function which may also return another error use this convenience
- *	macro to propagate the failure. Set a local variable to store a returned value upon success.
- */
-#define PROPAGATE_FAIL_V(var, expression) PROPAGATE_FAIL_TV(auto, var, expression)
+#define MCRO_PROPAGATE_FAIL_2(var, expression) MCRO_PROPAGATE_FAIL_3(auto, var, expression)
+#define MCRO_PROPAGATE_FAIL_1(expression) MCRO_PROPAGATE_FAIL_2(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)
 
 /**
  *	@brief
- *	If a function returns an FCanFail inside another function which may also return another error use this convenience
- *	macro to propagate the failure. This is only useful with expressions which doesn't return a value upon success.
+ *	If a function returns a TMaybe or an FCanFail inside another function which may also return another error use this
+ *	convenience macro to propagate the failure.
+ *
+ *	The following overloads are available:
+ *	- `(expression)` Use this when the value of success is not needed further below. This will create a local variable
+ *	  with an automatically determined name and type
+ *	- `(var, expression)` Use this when the value of success will be used further below. The local variable will be
+ *	  created with `auto`
+ *	- `(type, var, expression)` Use this when the value of success will be used further below and its local variable
+ *	  should have an explicit type
  */
-#define PROPAGATE_FAIL(expression) PROPAGATE_FAIL_V(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)
+#define PROPAGATE_FAIL(...) MACRO_OVERLOAD(MCRO_PROPAGATE_FAIL_, __VA_ARGS__)

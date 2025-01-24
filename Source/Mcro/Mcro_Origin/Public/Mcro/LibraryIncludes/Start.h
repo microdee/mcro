@@ -11,6 +11,7 @@
 
 /**
  * @file
+ * @brief
  * Use this header and `End.h` in tandem to include third-party library headers which may not tolerate Unreal's common
  * vocabulary macros or its stricter warning policies.
  */

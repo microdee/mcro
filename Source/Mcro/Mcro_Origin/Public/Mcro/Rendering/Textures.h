@@ -76,7 +76,7 @@ namespace Mcro::Rendering::Textures
 		default:
 			{
 				ASSERT_QUIT(false, RTF_R8,
-					->WithMessageF(TEXT("Unhandled ETextureRenderTargetFormat entry %s"), GetPixelFormatString(from))
+					->WithMessageF(TEXT_"Unhandled ETextureRenderTargetFormat entry %s", GetPixelFormatString(from))
 				)
 				return RTF_R8;
 			};
@@ -106,7 +106,7 @@ namespace Mcro::Rendering::Textures
 			{
 				auto enumName = UEnum::GetValueAsString(from);
 				ASSERT_QUIT(false, PF_Unknown,
-					->WithMessageF(TEXT("Unhandled ETextureRenderTargetFormat entry %s"), *enumName)
+					->WithMessageF(TEXT_"Unhandled ETextureRenderTargetFormat entry %s", *enumName)
 				);
 				return PF_Unknown;
 			}

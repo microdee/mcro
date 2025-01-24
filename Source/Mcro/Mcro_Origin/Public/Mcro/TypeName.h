@@ -11,7 +11,7 @@
 
 /**
  * @file
- * Convert types to string
+ * @brief  Convert types to string
  */
 
 #pragma once
@@ -21,6 +21,7 @@
 #include "CoreMinimal.h"
 #include "UnrealCtre.h"
 #include "Mcro/Text.h"
+#include "Mcro/TextMacros.h"
 
 // TODO: C++ 20's std::source_location was used instead of this bouquet of macros, but then some platforms don't have <source_location>
 #if PLATFORM_LINUX || PLATFORM_ANDROID || PLATFORM_MAC
@@ -69,11 +70,11 @@ consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()
 	//                                                                           |                  capturing: [---------------------]|
 	// class std::basic_string_view<char,struct std::char_traits<char> > __cdecl GetCompileTimeTypeName<struct MyTemplate<struct Vec>>(void)
 	
-	auto result = ctre::search<TEXT(R"(GetCompileTimeTypeName\<((struct|class)\s)?(?<TYPE>.+?)\>\()")>(thisFunctionName);
+	auto result = ctre::search<TEXT_ R"(GetCompileTimeTypeName\<((struct|class)\s)?(?<TYPE>.+?)\>\()">(thisFunctionName);
 	
 #endif
 	
-	FStdStringView output = result.get<TEXT("TYPE")>().to_view();
+	FStdStringView output = result.get<TEXT_"TYPE">().to_view();
 	size_t size = output.size();
 	size /= output.size() > 0; // Fail compilation with division-by-zero if we couldn't extract a typename
 	

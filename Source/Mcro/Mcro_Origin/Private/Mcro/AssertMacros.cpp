@@ -13,6 +13,7 @@
 
 #include "Mcro/Error.h"
 #include "Mcro/Error/ErrorManager.h"
+#include "Mcro/TextMacros.h"
 
 #if WITH_EDITOR
 #include "Editor.h"
@@ -28,7 +29,7 @@ namespace Mcro::AssertMacros::Detail
 	) {
 		auto error = IError::Make(new FAssertion())
 			->WithSeverity(severity)
-			->WithMessage(TEXT("Program has hit an assertion"))
+			->WithMessage(TEXT_"Program has hit an assertion")
 			->WithCodeContext(codeContext)
 			->WithCppStackTrace({}, true, 1)
 			->WithBlueprintStackTrace({}, IsInGameThread());

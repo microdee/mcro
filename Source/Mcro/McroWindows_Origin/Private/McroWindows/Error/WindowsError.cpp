@@ -10,6 +10,7 @@
  */
 
 #include "McroWindows/Error/WindowsError.h"
+#include "Mcro/TextMacros.h"
 #include "Windows/WindowsPlatformMisc.h"
 
 #include "Mcro/LibraryIncludes/Start.h"
@@ -23,8 +24,8 @@ namespace Mcro::Windows::Error
 		TCHAR errorTextBuffer[2048];
 		FWindowsPlatformMisc::GetSystemErrorMessage(errorTextBuffer, 2048, errorCode);
 		SystemMessage = errorTextBuffer;
-		IError::AddAppendix(TEXT("SystemMessage"), SystemMessage);
-		IError::AddAppendix(TEXT("ErrorCode"), FString::FromInt(errorCode));
+		IError::AddAppendix(TEXT_"SystemMessage", SystemMessage);
+		IError::AddAppendix(TEXT_"ErrorCode", FString::FromInt(errorCode));
 	}
 
 	FHresultError::FHresultError(HRESULT result, bool fastMode) : Result(result)
@@ -32,7 +33,7 @@ namespace Mcro::Windows::Error
 		if (fastMode)
 		{
 			SystemMessage = FString::FromInt(result);
-			IError::AddAppendix(TEXT("SystemMessage"), SystemMessage);
+			IError::AddAppendix(TEXT_"SystemMessage", SystemMessage);
 		}
 		else SetHumanReadable();
 	}
@@ -43,9 +44,9 @@ namespace Mcro::Windows::Error
 		SystemMessage = comError.ErrorMessage();
 		ProgramID = comError.Source();
 		Description = comError.Description();
-		IError::AddAppendix(TEXT("SystemMessage"), SystemMessage);
-		IError::AddAppendix(TEXT("Description"), Description);
-		IError::AddAppendix(TEXT("ProgramID"), ProgramID);
-		IError::AddAppendix(TEXT("ErrorCode"), FString::FromInt(Result));
+		IError::AddAppendix(TEXT_"SystemMessage", SystemMessage);
+		IError::AddAppendix(TEXT_"Description", Description);
+		IError::AddAppendix(TEXT_"ProgramID", ProgramID);
+		IError::AddAppendix(TEXT_"ErrorCode", FString::FromInt(Result));
 	}
 }

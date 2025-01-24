@@ -28,11 +28,11 @@ namespace Mcro::Error
 			+ Row()[ inArgs._PostSeverity.Widget ]
 			+ Row()[ OptionalTextWidget(inArgs._Error->GetMessage()) ]
 			+ Row()[ inArgs._PostMessage.Widget ]
-			+ Row()[ ExpandableTextWidget(INVTEXT("Further details"), inArgs._Error->GetDetails()) ]
+			+ Row()[ ExpandableTextWidget(INVTEXT_"Further details", inArgs._Error->GetDetails()) ]
 			+ Row()[ inArgs._PostDetails.Widget ]
-			+ Row()[ ExpandableTextWidget(INVTEXT("Code context"), inArgs._Error->GetCodeContext()) ]
+			+ Row()[ ExpandableTextWidget(INVTEXT_"Code context", inArgs._Error->GetCodeContext()) ]
 			+ Row()[ inArgs._PostCodeContext.Widget ]
-			+ Row()[ ExpandableTextWidget(INVTEXT("Error Propagation"), inArgs._Error->GetErrorPropagationJoined()) ]
+			+ Row()[ ExpandableTextWidget(INVTEXT_"Error Propagation", inArgs._Error->GetErrorPropagationJoined()) ]
 			+ Row()[ inArgs._PostErrorPropagation.Widget ]
 			+ TSlots(inArgs._Error.Get(), [&](const FNamedError& inner)
 			{

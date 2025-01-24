@@ -169,7 +169,7 @@ namespace Mcro::Slate
 	 *			. AutoHeight()
 	 *			[
 	 *				SNew(STextBlock)
-	 *				. Text(INVTEXT("Footer after the list of data"))
+	 *				. Text(INVTEXT_"Footer after the list of data")
 	 *			]
 	 *		];
 	 *	}

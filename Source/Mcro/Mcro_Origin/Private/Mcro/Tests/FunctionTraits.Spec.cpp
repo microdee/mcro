@@ -10,9 +10,9 @@
 */
 
 #include "CoreMinimal.h"
-#include "Mcro/FunctionTraits.h"
+#include "Mcro/CommonCore.h"
 
-using namespace Mcro::FunctionTraits;
+using namespace Mcro::Common;
 
 struct FFunctionTestType
 {
@@ -22,7 +22,7 @@ struct FFunctionTestType
 
 	FString MemberMethodReturns(bool boolean, TCHAR character) const
 	{
-		return FString::Printf(TEXT("boolean %d character %c"), boolean, character);
+		return FString::Printf(TEXT_"boolean %d character %c", boolean, character);
 	}
 };
 
@@ -156,7 +156,7 @@ static_assert(!CInstanceMethod<&FFunctionTestType::StaticFunction>);
 
 DEFINE_SPEC(
 	FMcroFunctionTraits_Spec,
-	TEXT("Mcro.FunctionTraits"),
+	TEXT_"Mcro.FunctionTraits",
 	EAutomationTestFlags_ApplicationContextMask
 	| EAutomationTestFlags::CriticalPriority
 	| EAutomationTestFlags::ProductFilter
@@ -164,18 +164,18 @@ DEFINE_SPEC(
 
 void FMcroFunctionTraits_Spec::Define()
 {
-	Describe(TEXT("InvokeWithTuple"), [this]
+	Describe(TEXT_"InvokeWithTuple", [this]
 	{
-		It(TEXT("should produce the same result as calling the function natively"), [this]
+		It(TEXT_"should produce the same result as calling the function natively", [this]
 		{
 			FFunctionTestType instance;
-			auto expected = instance.MemberMethodReturns(true, TEXT('C'));
+			auto expected = instance.MemberMethodReturns(true, TCHAR('C'));
 			auto actual = InvokeWithTuple(
 				&instance, &FFunctionTestType::MemberMethodReturns,
-				TTuple<bool, TCHAR>{ true, TEXT('C') }
+				TTuple<bool, TCHAR>{ true, TCHAR('C') }
 			);
 			TestEqualSensitive(
-				TEXT("Native function call result is equal to InvokeWithTuple result."),
+				TEXT_"Native function call result is equal to InvokeWithTuple result.",
 				actual, expected
 			);
 		});

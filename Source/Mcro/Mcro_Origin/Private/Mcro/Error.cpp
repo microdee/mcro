@@ -53,12 +53,12 @@ namespace Mcro::Error
 	void IError::AddError(const FString& name, const TSharedRef<IError>& error, const FString& typeOverride)
 	{
 		FString type = typeOverride.IsEmpty() ? error->GetType().ToString() : typeOverride;
-		FString key = Join(TEXT(" "), type.Replace(TEXT("::"), TEXT(".")), name);
+		FString key = Join(TEXT_" ", type.Replace(TEXT_"::", TEXT_"."), name);
 		FString keyUnique = key;
 		for (int i = 1; i <= 100 && InnerErrors.Contains(keyUnique); ++i)
 		{
 			check(i < 100);
-			keyUnique = FString::Printf(TEXT("%s %d"), *key, i);
+			keyUnique = FString::Printf(TEXT_"%s %d", *key, i);
 		}
 		InnerErrors[keyUnique] = error;
 	}
@@ -132,7 +132,7 @@ namespace Mcro::Error
 		TArray<FString> result;
 		Algo::Transform(ErrorPropagation, result, [&](std::source_location const& at)
 		{
-			return FString::Printf(TEXT("%s @ %s : %d"),
+			return FString::Printf(TEXT_"%s @ %s : %d",
 				ANSI_TO_TCHAR(at.function_name()),
 				ANSI_TO_TCHAR(at.file_name()),
 				at.line()
@@ -143,7 +143,7 @@ namespace Mcro::Error
 
 	FString IError::GetErrorPropagationJoined() const
 	{
-		return FString::Join(GetErrorPropagation(), TEXT("\n"));
+		return FString::Join(GetErrorPropagation(), TEXT_"\n");
 	}
 
 	FStringView IError::GetSeverityString() const
@@ -158,6 +158,6 @@ namespace Mcro::Error
 
 	FUnavailable::FUnavailable()
 	{
-		Message = TEXT("Attempted to access a resource which doesn't exist.");
+		Message = TEXT_"Attempted to access a resource which doesn't exist.";
 	}
 }
