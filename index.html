@@ -712,11 +712,9 @@ Text interop</h2>
 <div class="line"><span class="comment">// Accept many string types at once</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CStringOrViewOrName String&gt;</div>
 <div class="line"><span class="keywordtype">bool</span> GetSomethingCommon(String&amp;&amp; input) { ... }</div>
-<div class="line">[Delegates.Spec.cpp](../../../../Plugins/Yanui/Source/<a class="code hl_namespace" href="d8/d63/namespaceMcro.html">Mcro</a>/Mcro_Yn/Private/<a class="code hl_namespace" href="d8/d63/namespaceMcro.html">Mcro</a>/Tests/Delegates.Spec.cpp)</div>
 <div class="line"><span class="comment">// Work with std::string types</span></div>
-<div class="line">template &lt;CStdStringOrViewInvariant String&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CStdStringOrViewInvariant String&gt;</div>
 <div class="line"><span class="keywordtype">size_t</span> GetLength(String&amp;&amp; input) { <span class="keywordflow">return</span> input.size(); }</div>
-<div class="ttc" id="anamespaceMcro_html"><div class="ttname"><a href="d8/d63/namespaceMcro.html">Mcro</a></div><div class="ttdef"><b>Definition</b> <a href="df/d5d/ArrayViews_8h_source.html#l00016">ArrayViews.h:17</a></div></div>
 </div><!-- fragment --><div class="fragment"><div class="line"><span class="comment">// Type alias for choosing a std::string which is best matching the current TCHAR.</span></div>
 <div class="line"><a class="code hl_typedef" href="d8/d6f/namespaceMcro_1_1Text.html#a2e8c067032afba88d5274e9060b7eb51">FStdString</a> foo(<a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;bar&quot;</span>); <span class="comment">// -&gt; std::wstring (on Windows at least)</span></div>
 <div class="ttc" id="anamespaceMcro_1_1Text_html_a2e8c067032afba88d5274e9060b7eb51"><div class="ttname"><a href="d8/d6f/namespaceMcro_1_1Text.html#a2e8c067032afba88d5274e9060b7eb51">Mcro::Text::FStdString</a></div><div class="ttdeci">std::wstring FStdString</div><div class="ttdef"><b>Definition</b> <a href="d6/d35/Text_8h_source.html#l00030">Text.h:30</a></div></div>
