@@ -113,8 +113,10 @@ $(function(){initNavTree('db/d81/namespaceMcro_1_1Tuples.html','../../'); initRe
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Tuples Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -122,6 +124,11 @@ $(function(){initNavTree('db/d81/namespaceMcro_1_1Tuples.html','../../'); initRe
 <p>Templating utilities for manipulating <code>TTuple</code>s.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d02/namespaceMcro_1_1Tuples_1_1Detail.html">Detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html">TSkip_Struct</a></td></tr>
@@ -149,6 +156,17 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a26ad914c4d35e206ac5d12cdc185876d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a26ad914c4d35e206ac5d12cdc185876d">TTake</a> = typename <a class="el" href="../../d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html">TTake_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
 <tr class="memdesc:a26ad914c4d35e206ac5d12cdc185876d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take only the first <code>Count</code> elements of the input tuple.  <br /></td></tr>
 <tr class="separator:a26ad914c4d35e206ac5d12cdc185876d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:afa89e77d0a5ca93f63bdbddd52a05b64" id="r_afa89e77d0a5ca93f63bdbddd52a05b64"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Rest&gt; </td></tr>
+<tr class="memitem:afa89e77d0a5ca93f63bdbddd52a05b64"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afa89e77d0a5ca93f63bdbddd52a05b64">operator&gt;&gt;</a> (T &amp;&amp;left, TTuple&lt; Rest... &gt; const &amp;right)</td></tr>
+<tr class="memdesc:afa89e77d0a5ca93f63bdbddd52a05b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepend a value to a tuple.  <br /></td></tr>
+<tr class="separator:afa89e77d0a5ca93f63bdbddd52a05b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26dbf9db696b9af804fd3908589dc6bd" id="r_a26dbf9db696b9af804fd3908589dc6bd"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Rest&gt; </td></tr>
+<tr class="memitem:a26dbf9db696b9af804fd3908589dc6bd"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a26dbf9db696b9af804fd3908589dc6bd">operator&lt;&lt;</a> (TTuple&lt; Rest... &gt; const &amp;left, T &amp;&amp;right)</td></tr>
+<tr class="memdesc:a26dbf9db696b9af804fd3908589dc6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a value to a tuple.  <br /></td></tr>
+<tr class="separator:a26dbf9db696b9af804fd3908589dc6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Templating utilities for manipulating <code>TTuple</code>s. </p>
@@ -230,6 +248,61 @@ template&lt;size_t Count, typename Tuple &gt; </div>
 <p>Disregard the last <code>Count</code> elements of the input tuple. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d07/Tuples_8h_source.html#l00053">53</a> of file <a class="el" href="../../d6/d07/Tuples_8h_source.html">Tuples.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a26dbf9db696b9af804fd3908589dc6bd" name="a26dbf9db696b9af804fd3908589dc6bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26dbf9db696b9af804fd3908589dc6bd">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename... Rest&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Tuples::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">TTuple&lt; Rest... &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Append a value to a tuple. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d07/Tuples_8h_source.html#l00099">99</a> of file <a class="el" href="../../d6/d07/Tuples_8h_source.html">Tuples.h</a>.</p>
+
+</div>
+</div>
+<a id="afa89e77d0a5ca93f63bdbddd52a05b64" name="afa89e77d0a5ca93f63bdbddd52a05b64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa89e77d0a5ca93f63bdbddd52a05b64">&#9670;&#160;</a></span>operator&gt;&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename... Rest&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Tuples::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTuple&lt; Rest... &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepend a value to a tuple. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d07/Tuples_8h_source.html#l00092">92</a> of file <a class="el" href="../../d6/d07/Tuples_8h_source.html">Tuples.h</a>.</p>
 
 </div>
 </div>

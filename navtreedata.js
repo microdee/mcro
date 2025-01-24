@@ -29,19 +29,20 @@ var NAVTREE =
     [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md6", null ],
     [ "What MCRO can do?", "index.html#autotoc_md7", [
       [ "Error handling", "index.html#autotoc_md8", null ],
-      [ "Delegate type inferance", "index.html#autotoc_md9", null ],
-      [ "Advanced TEventDelegate", "index.html#autotoc_md10", null ],
-      [ "TTypeName", "index.html#autotoc_md11", null ],
-      [ "Auto modular features", "index.html#autotoc_md12", null ],
-      [ "Observable TState", "index.html#autotoc_md13", null ],
-      [ "Function Traits", "index.html#autotoc_md14", null ],
-      [ "Concepts", "index.html#autotoc_md15", null ],
-      [ "Extending the Slate declarative syntax", "index.html#autotoc_md16", null ],
-      [ "Text interop", "index.html#autotoc_md17", null ],
-      [ "ISPC parallel tasks support", "index.html#autotoc_md18", null ],
-      [ "Last but not least", "index.html#autotoc_md19", null ]
+      [ "Text macros without parenthesis", "index.html#autotoc_md9", null ],
+      [ "Delegate type inference", "index.html#autotoc_md10", null ],
+      [ "Advanced TEventDelegate", "index.html#autotoc_md11", null ],
+      [ "TTypeName", "index.html#autotoc_md12", null ],
+      [ "Auto modular features", "index.html#autotoc_md13", null ],
+      [ "Observable TState", "index.html#autotoc_md14", null ],
+      [ "Function Traits", "index.html#autotoc_md15", null ],
+      [ "Concepts", "index.html#autotoc_md16", null ],
+      [ "Extending the Slate declarative syntax", "index.html#autotoc_md17", null ],
+      [ "Text interop", "index.html#autotoc_md18", null ],
+      [ "ISPC parallel tasks support", "index.html#autotoc_md19", null ],
+      [ "Last but not least", "index.html#autotoc_md20", null ]
     ] ],
-    [ "Legal", "index.html#autotoc_md20", null ],
+    [ "Legal", "index.html#autotoc_md21", null ],
     [ "Attribution", "da/dfb/Attribution.html", [
       [ "Tabler Icons", "da/dfb/Attribution.html#autotoc_md0", null ],
       [ "Compile Time Regular Expression", "da/dfb/Attribution.html#autotoc_md1", null ],
@@ -80,6 +81,7 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -89,12 +91,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7d47ebfde8aa6fe52fddda6d566ae466",
-"d4/dbf/DelegateFrom_8h.html#aad0eab8a0fa4e31ff839d333d0a08757",
-"d7/d5e/structMcro_1_1Observable_1_1TState.html#a4e38b124440253776e48f12ff943c063",
-"d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02",
-"dc/da3/Observable_8Fwd_8h.html#a2fe69b38b2bfee60af6ed91851d3acf1",
-"de/d2e/namespaceMcro_1_1UObjects_1_1Init.html#a3978c33fff8ecad30d1d8b15986f4061"
+"d2/d94/structMcro_1_1Error_1_1TMaybe.html#af0141a1996ddbcdf4a1a6b327cbe863e",
+"d4/ded/classUDynamicDelegateTestClass.html#a1423da047deb920129c70c1ea22dc883",
+"d7/d53/namespaceMcro_1_1Templates.html#acdf09bdd7c44a820a176d0d5e9eb6624",
+"d8/d6f/namespaceMcro_1_1Text.html#ae520c2ca467fd41167e6929b8e0dd263",
+"db/de3/namespaceMcro_1_1Windows.html",
+"dd/d8f/classMcro_1_1Error_1_1IError.html#ab844cf9f23cefd8274b8fd99f12e3a28",
+"functions_r.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

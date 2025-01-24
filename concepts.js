@@ -59,6 +59,7 @@ var concepts =
         [ "CUnion", "d0/d70/conceptMcro_1_1Concepts_1_1CUnion.html", null ],
         [ "CPlainClass", "db/dde/conceptMcro_1_1Concepts_1_1CPlainClass.html", null ],
         [ "CMemberPointerOf", "dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html", null ],
+        [ "CVoid", "d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html", null ],
         [ "CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],
         [ "CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
         [ "CRange", "d1/d58/conceptMcro_1_1Concepts_1_1CRange.html", null ]

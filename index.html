@@ -130,42 +130,45 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
         <a href="#autotoc_md8">Error handling</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md9">Delegate type inferance</a>
+        <a href="#autotoc_md9">Text macros without parenthesis</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md10">Advanced TEventDelegate</a>
+        <a href="#autotoc_md10">Delegate type inference</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md11">TTypeName</a>
+        <a href="#autotoc_md11">Advanced TEventDelegate</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md12">Auto modular features</a>
+        <a href="#autotoc_md12">TTypeName</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md13">Observable TState</a>
+        <a href="#autotoc_md13">Auto modular features</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md14">Function Traits</a>
+        <a href="#autotoc_md14">Observable TState</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md15">Concepts</a>
+        <a href="#autotoc_md15">Function Traits</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md16">Extending the Slate declarative syntax</a>
+        <a href="#autotoc_md16">Concepts</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md17">Text interop</a>
+        <a href="#autotoc_md17">Extending the Slate declarative syntax</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md18">ISPC parallel tasks support</a>
+        <a href="#autotoc_md18">Text interop</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md19">Last but not least</a>
+        <a href="#autotoc_md19">ISPC parallel tasks support</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md20">Last but not least</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md20">Legal</a>
+    <a href="#autotoc_md21">Legal</a>
   </li>
 </ul>
 </div>
@@ -204,13 +207,11 @@ What MCRO can do?</h1>
 <h2><a class="anchor" id="autotoc_md8"></a>
 Error handling</h2>
 <p>An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="de/dba/Error_8h.html">Mcro/Error.h</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d3/d35/CppException_8h.html">Mcro/Error/CppException.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line">FCanFail FK4ADevice::Tick_Sync()</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">using namespace </span><a class="code hl_namespace" href="dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a>;</div>
+<div class="line">    <span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a>(Device.is_valid())</div>
 <div class="line">        -&gt;AsCrashing()</div>
@@ -225,15 +226,15 @@ Error handling</h2>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">auto</span> color = capture.get_color_image(); ColorStream-&gt;Active)</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(ColorStream-&gt;Push(color))-&gt;Notify(LastError);</div>
+<div class="line">            <a class="code hl_define" href="de/dba/Error_8h.html#a41129ba2fdbe7b114501485451a06227">PROPAGATE_FAIL</a>(ColorStream-&gt;Push(color))-&gt;Notify(LastError);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">auto</span> depth = capture.get_depth_image(); DepthStream-&gt;Active)</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(DepthStream-&gt;Push(depth))-&gt;Notify(LastError);</div>
+<div class="line">            <a class="code hl_define" href="de/dba/Error_8h.html#a41129ba2fdbe7b114501485451a06227">PROPAGATE_FAIL</a>(DepthStream-&gt;Push(depth))-&gt;Notify(LastError);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">auto</span> ir = capture.get_ir_image(); IRStream-&gt;Active)</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code hl_define" href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(IRStream-&gt;Push(ir))-&gt;Notify(LastError);</div>
+<div class="line">            <a class="code hl_define" href="de/dba/Error_8h.html#a41129ba2fdbe7b114501485451a06227">PROPAGATE_FAIL</a>(IRStream-&gt;Push(ir))-&gt;Notify(LastError);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">catch</span> (k4a::error <span class="keyword">const</span>&amp; exception)</div>
@@ -244,23 +245,47 @@ Error handling</h2>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f">Success</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aAssertMacros_8h_html_afa32959b04a99d2f4a56cd141e34a9bd"><div class="ttname"><a href="db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a></div><div class="ttdeci">#define PROPAGATE_FAIL(expression)</div></div>
-<div class="ttc" id="aCppException_8h_html"><div class="ttname"><a href="d3/d35/CppException_8h.html">CppException.h</a></div></div>
-<div class="ttc" id="aError_8h_html"><div class="ttname"><a href="de/dba/Error_8h.html">Error.h</a></div></div>
-<div class="ttc" id="aError_8h_html_af37be15dc2b5053c9c6f901363b2a756"><div class="ttname"><a href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a></div><div class="ttdeci">#define ASSERT_RETURN(condition)</div><div class="ttdoc">Similar to check() macro, but return an error instead of crashing.</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00624">Error.h:624</a></div></div>
+<div class="ttc" id="aCommon_8h_html"><div class="ttname"><a href="dc/d33/Common_8h.html">Common.h</a></div><div class="ttdoc">This header is a central include for all common utilities MCRO offers including higher level features...</div></div>
+<div class="ttc" id="aError_8h_html_a41129ba2fdbe7b114501485451a06227"><div class="ttname"><a href="de/dba/Error_8h.html#a41129ba2fdbe7b114501485451a06227">PROPAGATE_FAIL</a></div><div class="ttdeci">#define PROPAGATE_FAIL(...)</div><div class="ttdoc">If a function returns a TMaybe or an FCanFail inside another function which may also return another e...</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00659">Error.h:659</a></div></div>
+<div class="ttc" id="aError_8h_html_af37be15dc2b5053c9c6f901363b2a756"><div class="ttname"><a href="de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756">ASSERT_RETURN</a></div><div class="ttdeci">#define ASSERT_RETURN(condition)</div><div class="ttdoc">Similar to check() macro, but return an error instead of crashing.</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00625">Error.h:625</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Error_1_1TCppException_html"><div class="ttname"><a href="db/d63/classMcro_1_1Error_1_1TCppException.html">Mcro::Error::TCppException</a></div><div class="ttdoc">Use this template for catching STL exceptions to preserve the exception type name.</div><div class="ttdef"><b>Definition</b> <a href="d3/d35/CppException_8h_source.html#l00049">CppException.h:50</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html">Mcro::Error</a></div><div class="ttdoc">Contains utilities for structured error handling.</div><div class="ttdef"><b>Definition</b> <a href="d7/d3f/Error_8Fwd_8h_source.html#l00018">Error.Fwd.h:19</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Error_html_a27d33ed2b445ca7310f71a30e9ad956f"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f">Mcro::Error::Success</a></div><div class="ttdeci">FORCEINLINE FCanFail Success()</div><div class="ttdoc">Return an FCanFail or FTrueOrReason indicating a success or truthy output.</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00608">Error.h:608</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Common_html"><div class="ttname"><a href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a></div><div class="ttdoc">Use this namespace for all the common features MCRO has to offer.</div><div class="ttdef"><b>Definition</b> <a href="dc/d33/Common_8h_source.html#l00047">Common.h:48</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Error_html_a27d33ed2b445ca7310f71a30e9ad956f"><div class="ttname"><a href="dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f">Mcro::Error::Success</a></div><div class="ttdeci">FORCEINLINE FCanFail Success()</div><div class="ttdoc">Return an FCanFail or FTrueOrReason indicating a success or truthy output.</div><div class="ttdef"><b>Definition</b> <a href="de/dba/Error_8h_source.html#l00609">Error.h:609</a></div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
-Delegate type inferance</h2>
+Text macros without parenthesis</h2>
+<div class="tabbed"></div><div class="tabbed"><ul>
+<li>
+<p class="startli"></p>
+<p class="interli"><b class="tab-title">Without parenthesis:</b></p>
+<div class="fragment"><div class="line">FString myVar(<a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Hello world!&quot;</span>);</div>
+<div class="line">UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;%s&quot;</span>, *myVar);</div>
+<div class="line">FText myText = <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3">INVTEXT_</a><span class="stringliteral">&quot;Even FText macros are there&quot;</span>;</div>
+<div class="ttc" id="aTextMacros_8h_html_a8e87be3484ebd811a74c494f6cc25ab3"><div class="ttname"><a href="d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3">INVTEXT_</a></div><div class="ttdeci">#define INVTEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own INVTEXT macro but this one doesn't require parenthesis arou...</div><div class="ttdef"><b>Definition</b> <a href="d9/dde/TextMacros_8h_source.html#l00091">TextMacros.h:91</a></div></div>
+<div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="d9/dde/TextMacros_8h_source.html#l00047">TextMacros.h:47</a></div></div>
+</div><!-- fragment --><p class="interli"></p>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"></p>
+<p class="interli"><b class="tab-title">Vanilla:</b></p>
+<div class="fragment"><div class="line">FString myVar(TEXT(<span class="stringliteral">&quot;Hello world!&quot;</span>));</div>
+<div class="line">UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;%s&quot;</span>), *myVar);</div>
+<div class="line">FText myText = INVTEXT(<span class="stringliteral">&quot;Even FText macros are there&quot;</span>);</div>
+</div><!-- fragment --><p class="interli"></p>
+<p class="endli"></p>
+</li>
+</ul>
+</div><div class="tabbed"></div><p>One of the oldest eye-sores I have with Unreal Engine source code is the <code>TEXT()</code> macro, especially the extra pair of parenthesis it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple <code>TCHAR</code> strings, or operator overloads for <code>FText</code>.</p>
+<p>The earlier was even a suggestion of Microsoft <a href="https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval">when they announced their standard compliant new preprocessor</a>, and asked the general public to stop exploiting the behaviors of the old one.</p>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Delegate type inference</h2>
 <p>In <code><a class="el" href="d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></code> namespace there's a bunch of overloads of <code>From</code> function which can infer a delegate type and its intended binding only based on its input arguments. It means a couple of things:</p>
 <ol type="1">
 <li>The potentially lengthy delegate types are no longer needed to be repeated.</li>
 <li>Creating an alias for each (multicast) delegate is no longer a must have.</li>
 </ol>
 <p>For example given an imaginary type with a terrible API for some reason</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="keyword">struct </span>FObservable</div>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>FObservable</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">using </span>FOnStateResetTheFirstTimeEvent = TMulticastDelegate&lt;void(FObservable <span class="keyword">const</span>&amp;)&gt;;</div>
 <div class="line">    FOnStateResetTheFirstTimeEvent OnStateResetTheFirstTimeEvent;</div>
@@ -277,8 +302,7 @@ Delegate type inferance</h2>
 <li>
 <p class="startli"></p>
 <p class="interli"><b class="tab-title">We can do:</b></p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d4/dbf/DelegateFrom_8h.html">Mcro/Delegates/DelegateFrom.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FListener : TSharedFromThis&lt;FListener&gt;</div>
 <div class="line">{</div>
@@ -286,31 +310,29 @@ Delegate type inferance</h2>
 <div class="line">    <span class="keywordtype">void</span> OnFirstStateReset(FObservable <span class="keyword">const</span>&amp; observable, FString <span class="keyword">const</span>&amp; capturedData)</div>
 <div class="line">    <span class="keywordtype">void</span> BindTo(FObservable&amp; observable)</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">using </span><a class="code hl_namespace" href="d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a>;</div>
+<div class="line">        <span class="keyword">using namespace </span><a class="code hl_namespace" href="d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html">Mcro::Delegates::InferDelegate</a>;</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Repeating the delegate type on call site is not necessary</span></div>
 <div class="line">        observable.SetDefaultInitializer(From(<span class="keyword">this</span>, [<span class="keyword">this</span>](FObservable <span class="keyword">const</span>&amp;) -&gt; FString</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">return</span> TEXT(<span class="stringliteral">&quot;Some default value&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Some default value&quot;</span>;</div>
 <div class="line">        }));</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Chaining events like this is a single line</span></div>
 <div class="line">        observable.OnStateResetTheFirstTimeEvent.Add(From(<span class="keyword">this</span>, PropagateEvent));</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// No need to decide on the method of binding, the most suitable one is chosen via templating</span></div>
-<div class="line">        observable.OnStateResetTheFirstTimeEvent.Add(From(<span class="keyword">this</span>, &amp;FListener::OnFirstStateReset, TEXT(<span class="stringliteral">&quot;Capture this&quot;</span>)));</div>
+<div class="line">        observable.OnStateResetTheFirstTimeEvent.Add(From(<span class="keyword">this</span>, &amp;FListener::OnFirstStateReset, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Capture this&quot;</span>));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aDelegateFrom_8h_html"><div class="ttname"><a href="d4/dbf/DelegateFrom_8h.html">DelegateFrom.h</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></div><div class="ttdef"><b>Definition</b> <a href="d6/d11/AsNative_8h_source.html#l00018">AsNative.h:19</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_1_1InferDelegate_html"><div class="ttname"><a href="d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html">Mcro::Delegates::InferDelegate</a></div><div class="ttdoc">The extra layer of namespace InferDelegate is there for guarding common vocabulary (From) but still a...</div><div class="ttdef"><b>Definition</b> <a href="d4/dbf/DelegateFrom_8h_source.html#l00042">DelegateFrom.h:43</a></div></div>
 </div><!-- fragment --><p class="interli"></p>
 <p class="endli"></p>
 </li>
 <li>
 <p class="startli"></p>
 <p class="interli"><b class="tab-title">Equivalent vanilla Unreal delegates:</b></p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="keyword">struct </span>FListener : TSharedFromThis&lt;FListener&gt;</div>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>FListener : TSharedFromThis&lt;FListener&gt;</div>
 <div class="line">{</div>
 <div class="line">    TMulticastDelegate&lt;void(FObservable <span class="keyword">const</span>&amp;)&gt; PropagateEvent;</div>
 <div class="line">    <span class="keywordtype">void</span> OnFirstStateReset(FObservable <span class="keyword">const</span>&amp; observable, FString <span class="keyword">const</span>&amp; capturedData)</div>
@@ -319,7 +341,7 @@ Delegate type inferance</h2>
 <div class="line">        <span class="comment">// Delegate API in these situations is pretty verbose</span></div>
 <div class="line">        observable.SetDefaultInitializer(FDefaultInitializerDelegate::CreateSPLambda(<span class="keyword">this</span>, [<span class="keyword">this</span>](FObservable <span class="keyword">const</span>&amp;) -&gt; FString</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">return</span> TEXT(<span class="stringliteral">&quot;Some default value&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Some default value&quot;</span>;</div>
 <div class="line">        }));</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Chaining events is a new Feature introduced with From</span></div>
@@ -329,7 +351,7 @@ Delegate type inferance</h2>
 <div class="line">        });</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Ok here the difference is almost nothing</span></div>
-<div class="line">        observable.OnStateResetTheFirstTimeEvent.AddSP(<span class="keyword">this</span>, &amp;FListener::OnFirstStateReset, TEXT(<span class="stringliteral">&quot;Capture this&quot;</span>));</div>
+<div class="line">        observable.OnStateResetTheFirstTimeEvent.AddSP(<span class="keyword">this</span>, &amp;FListener::OnFirstStateReset, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Capture this&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p class="interli"></p>
@@ -337,11 +359,11 @@ Delegate type inferance</h2>
 </li>
 </ul>
 </div><div class="tabbed"></div><p>There's also a dynamic / native (multicast) delegate interop including similar chaining demonstrated here.</p>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Advanced TEventDelegate</h2>
 <p>Did your thing ever load after an event which your thing depends on, but now you have to somehow detect that the event has already happened and you have to execute your thing manually? With <code><a class="el" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html" title="&quot;Extension&quot; of a common TMulticastDelegate. It allows to define optional &quot;flags&quot; when adding a bindin...">Mcro::Delegates::TEventDelegate</a></code> this situation has a lot less friction:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="df/d51/EventDelegate_8h.html">Mcro/Delegates/EventDelegate.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="da/da9/namespaceMcro_1_1Common_1_1With_1_1InferDelegate.html">Mcro::Common::With::InferDelegate</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// TBelatedEventDelegate is an alias for TEventDelegate&lt;Signature, BelatedInvoke&gt;</span></div>
 <div class="line"><a class="code hl_class" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TBelatedEventDelegate</a>&lt;void(<span class="keywordtype">int</span>)&gt; SomeEvent;</div>
@@ -352,7 +374,7 @@ Advanced TEventDelegate</h2>
 <div class="line"><span class="comment">// Late subscribers will not be left behind</span></div>
 <div class="line">SomeEvent.Add(From([](<span class="keywordtype">int</span> value)</div>
 <div class="line">{</div>
-<div class="line">    UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;The last argument this event broadcasted with: %d&quot;</span>), value);</div>
+<div class="line">    UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;The last argument this event broadcasted with: %d&quot;</span>, value);</div>
 <div class="line">}));</div>
 <div class="line"><span class="comment">// -&gt; The last argument this event broadcasted with: 42</span></div>
 <div class="line"> </div>
@@ -366,17 +388,17 @@ Advanced TEventDelegate</h2>
 <div class="line">SomeOtherEvent.Add(</div>
 <div class="line">    From([](<span class="keywordtype">int</span> value)</div>
 <div class="line">    {</div>
-<div class="line">        UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;The last argument this event broadcasted with: %d&quot;</span>), value);</div>
+<div class="line">        UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;The last argument this event broadcasted with: %d&quot;</span>, value);</div>
 <div class="line">    }),</div>
 <div class="line">    <a class="code hl_enumvalue" href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">BelatedInvoke</a></div>
 <div class="line">);</div>
 <div class="line"><span class="comment">// -&gt; The last argument this event broadcasted with: 1337</span></div>
-<div class="ttc" id="aEventDelegate_8h_html"><div class="ttname"><a href="df/d51/EventDelegate_8h.html">EventDelegate.h</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Delegates_1_1TEventDelegate_html"><div class="ttname"><a href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></div><div class="ttdoc">&quot;Extension&quot; of a common TMulticastDelegate. It allows to define optional &quot;flags&quot; when adding a bindin...</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00074">EventDelegate.h:74</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Common_1_1With_1_1InferDelegate_html"><div class="ttname"><a href="da/da9/namespaceMcro_1_1Common_1_1With_1_1InferDelegate.html">Mcro::Common::With::InferDelegate</a></div><div class="ttdoc">The extra layer of namespace InferDelegate is there for guarding common vocabulary (From) but still a...</div><div class="ttdef"><b>Definition</b> <a href="dc/d33/Common_8h_source.html#l00066">Common.h:66</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">Mcro::Delegates::BelatedInvoke</a></div><div class="ttdeci">@ BelatedInvoke</div><div class="ttdoc">The binding will be executed immediately if the delegate has already been broadcasted.</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00035">EventDelegate.h:35</a></div></div>
 </div><!-- fragment --><p>Or your thing only needs to do its tasks on the first time a frequently invoked event is triggered?</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="df/d51/EventDelegate_8h.html">Mcro/Delegates/EventDelegate.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="da/da9/namespaceMcro_1_1Common_1_1With_1_1InferDelegate.html">Mcro::Common::With::InferDelegate</a>;</div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(<span class="keywordtype">int</span>)&gt; SomeFrequentEvent;</div>
 <div class="line"> </div>
@@ -384,7 +406,7 @@ Advanced TEventDelegate</h2>
 <div class="line">SomeFrequentEvent.Add(</div>
 <div class="line">    From([](<span class="keywordtype">int</span> value)</div>
 <div class="line">    {</div>
-<div class="line">        UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;This value is printed only once: %d&quot;</span>), value);</div>
+<div class="line">        UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;This value is printed only once: %d&quot;</span>, value);</div>
 <div class="line">    }),</div>
 <div class="line">    InvokeOnce</div>
 <div class="line">);</div>
@@ -394,38 +416,35 @@ Advanced TEventDelegate</h2>
 <div class="line">SomeFrequentEvent.Broadcast(2);</div>
 <div class="line"><span class="comment">// (nothing is executed here)</span></div>
 </div><!-- fragment --><p>Chaining events?</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="df/d51/EventDelegate_8h.html">Mcro/Delegates/EventDelegate.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="da/da9/namespaceMcro_1_1Common_1_1With_1_1InferDelegate.html">Mcro::Common::With::InferDelegate</a>;</div>
 <div class="line"> </div>
 <div class="line">TMulticastDelegate&lt;void(<span class="keywordtype">int</span>)&gt; LowerLevelEvent;</div>
 <div class="line"><a class="code hl_class" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TEventDelegate</a>&lt;void(<span class="keywordtype">int</span>)&gt; HigherLevelEvent;</div>
 <div class="line"> </div>
 <div class="line">HigherLevelEvent.Add(From([](<span class="keywordtype">int</span> value)</div>
 <div class="line">{</div>
-<div class="line">    UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;Value: %d&quot;</span>), value);</div>
+<div class="line">    UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Value: %d&quot;</span>, value);</div>
 <div class="line">}));</div>
 <div class="line">LowerLevelEvent.Add(HigherLevelEvent.Delegation(<span class="keyword">this</span> <span class="comment">/* optionally bind an object */</span>));</div>
 <div class="line"> </div>
 <div class="line">LoverLevelEvent.Broadcast(42);</div>
 <div class="line"><span class="comment">// -&gt; Value: 42</span></div>
 </div><!-- fragment --><p>Of course the above chaining can be combined with belated~ or one-time invocations.</p>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 TTypeName</h2>
 <p>C++ 20 can do string manipulation in compile time, <a href="https://github.com/hanickadot/compile-time-regular-expressions">including regex</a>. With that, compiler specific "pretty function" macros become a key tool for simple static reflection. Based on that MCRO has <code>TTypeName</code></p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d0/de3/TypeName_8h.html">Mcro/TypeName.h</a>&quot;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="df/d09/namespaceMcro_1_1TypeName.html">Mcro::TypeName</a>;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="da/db5/CommonCore_8h.html">Mcro/CommonCore.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyType</div>
 <div class="line">{</div>
 <div class="line">    FStringView GetTypeString() { <span class="keywordflow">return</span> TTypeName&lt;FMyType&gt;; } <span class="comment">// -&gt; &quot;FMyType&quot; as view</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aTypeName_8h_html"><div class="ttname"><a href="d0/de3/TypeName_8h.html">TypeName.h</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1TypeName_html"><div class="ttname"><a href="df/d09/namespaceMcro_1_1TypeName.html">Mcro::TypeName</a></div><div class="ttdef"><b>Definition</b> <a href="d0/de3/TypeName_8h_source.html#l00084">TypeName.h:85</a></div></div>
+<div class="ttc" id="aCommonCore_8h_html"><div class="ttname"><a href="da/db5/CommonCore_8h.html">CommonCore.h</a></div><div class="ttdoc">This header is a central include for simpler utilities MCRO offers. Higher level features like errors...</div></div>
 </div><!-- fragment --><p>even better with C++ 23 deducing this</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d0/de3/TypeName_8h.html">Mcro/TypeName.h</a>&quot;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="df/d09/namespaceMcro_1_1TypeName.html">Mcro::TypeName</a>;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="da/db5/CommonCore_8h.html">Mcro/CommonCore.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyBaseType</div>
 <div class="line">{</div>
@@ -437,18 +456,17 @@ TTypeName</h2>
 <div class="line"><span class="keyword">struct </span>FMyDerivedType : FMyBaseType {}</div>
 <div class="line"> </div>
 <div class="line">FMyDerivedType myVar;</div>
-<div class="line">UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;This is `%s`&quot;</span>), *myVar.GetTypeString());</div>
+<div class="line">UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;This is `%s`&quot;</span>, *myVar.GetTypeString());</div>
 <div class="line"><span class="comment">// -&gt; This is `FMyDerivedType`</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// BUT!</span></div>
 <div class="line"> </div>
 <div class="line">FMyBaseType <span class="keyword">const</span>&amp; myBaseVar = myVar;</div>
-<div class="line">UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;This is `%s`&quot;</span>), *myBaseVar.GetTypeString());</div>
+<div class="line">UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;This is `%s`&quot;</span>, *myBaseVar.GetTypeString());</div>
 <div class="line"><span class="comment">// -&gt; This is `FMyBaseType`</span></div>
 </div><!-- fragment --><p>MCRO provides a base type <code>IHaveType</code> for storing the final type as an <code>FName</code> to avoid situations like above</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d7/df8/Types_8h.html">Mcro/Types.h</a>&quot;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="da/d89/namespaceMcro_1_1Types.html">Mcro::Types</a>;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="da/db5/CommonCore_8h.html">Mcro/CommonCore.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyBaseType : <a class="code hl_class" href="d8/d19/classMcro_1_1Types_1_1IHaveType.html">IHaveType</a> {}</div>
 <div class="line"> </div>
@@ -458,28 +476,25 @@ TTypeName</h2>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">FMyDerivedType myVar;</div>
-<div class="line">UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;This is as expected a `%s`&quot;</span>), *myVar.GetType().ToString());</div>
+<div class="line">UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;This is as expected a `%s`&quot;</span>, *myVar.GetType().ToString());</div>
 <div class="line"><span class="comment">// -&gt; This is as expected `FMyDerivedType`</span></div>
 <div class="line"> </div>
 <div class="line">FMyBaseType <span class="keyword">const</span>&amp; myBaseVar = myVar;</div>
 <div class="line">UE_LOG(</div>
 <div class="line">    LogTemp, Display,</div>
-<div class="line">    TEXT(<span class="stringliteral">&quot;But asking the base type will still preserve `%s`&quot;</span>),</div>
+<div class="line">    <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;But asking the base type will still preserve `%s`&quot;</span>,</div>
 <div class="line">    *myBaseVar.GetType().ToString()</div>
 <div class="line">);</div>
 <div class="line"><span class="comment">// -&gt; But asking the base type will still preserve `FMyDerivedType`</span></div>
-<div class="ttc" id="aTypes_8h_html"><div class="ttname"><a href="d7/df8/Types_8h.html">Types.h</a></div></div>
 <div class="ttc" id="aclassMcro_1_1Types_1_1IHaveType_html"><div class="ttname"><a href="d8/d19/classMcro_1_1Types_1_1IHaveType.html">Mcro::Types::IHaveType</a></div><div class="ttdoc">A barebones base class for types which may store their type-name as a string.</div><div class="ttdef"><b>Definition</b> <a href="d7/df8/Types_8h_source.html#l00041">Types.h:42</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Types_html"><div class="ttname"><a href="da/d89/namespaceMcro_1_1Types.html">Mcro::Types</a></div><div class="ttdef"><b>Definition</b> <a href="d7/df8/Types_8h_source.html#l00021">Types.h:22</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
 Auto modular features</h2>
 <p>One use of <code>TTypeName</code> is making modular features easier to use:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;Mcro/AutoModularFeatures.h&quot;</span></div>
-<div class="line"><span class="keyword">using namespace </span>Mcro::AutoModularFeatures;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// In central API module</span></div>
-<div class="line"><span class="keyword">class </span>IProblemSolvingFeature : <span class="keyword">public</span> TAutoModularFeature&lt;IProblemSolvingFeature&gt;</div>
+<div class="line"><span class="keyword">class </span>IProblemSolvingFeature : <span class="keyword">public</span> <a class="code hl_class" href="d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">TAutoModularFeature</a>&lt;IProblemSolvingFeature&gt;</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SolveAllProblems() = 0;</div>
@@ -487,7 +502,7 @@ Auto modular features</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// In another implementation specific module</span></div>
 <div class="line"><span class="comment">// Define implementation first</span></div>
-<div class="line"><span class="keyword">class </span>FProblemSolver : <span class="keyword">public</span> IProblemSolvingFeature, <span class="keyword">public</span> IFeatureImplementation</div>
+<div class="line"><span class="keyword">class </span>FProblemSolver : <span class="keyword">public</span> IProblemSolvingFeature, <span class="keyword">public</span> <a class="code hl_class" href="d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html">IFeatureImplementation</a></div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    FProblemSolver() { Register(); }</div>
@@ -500,14 +515,14 @@ Auto modular features</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// In some other place, which doesn&#39;t know about the above implementation, the feature is used:</span></div>
 <div class="line">IProblemSolvingFeature::Get().SolveAllProblems();</div>
+<div class="ttc" id="aclassMcro_1_1AutoModularFeature_1_1IFeatureImplementation_html"><div class="ttname"><a href="d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html">Mcro::AutoModularFeature::IFeatureImplementation</a></div><div class="ttdoc">Tagging an implementation of a feature.</div><div class="ttdef"><b>Definition</b> <a href="d7/db5/AutoModularFeature_8h_source.html#l00030">AutoModularFeature.h:30</a></div></div>
+<div class="ttc" id="aclassMcro_1_1AutoModularFeature_1_1TAutoModularFeature_html"><div class="ttname"><a href="d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">Mcro::AutoModularFeature::TAutoModularFeature</a></div><div class="ttdoc">Auto Modular Features are a workflow with Modular Features where the developer doesn't have to rely o...</div><div class="ttdef"><b>Definition</b> <a href="d7/db5/AutoModularFeature_8h_source.html#l00090">AutoModularFeature.h:91</a></div></div>
 </div><!-- fragment --><p>Notice how the feature name has never needed to be explicitly specified as a string, because the type name is used under the hood.</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Observable TState</h2>
 <p>You have data members of your class, but you also want to notify others about how that's changing?</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d5/de3/Observable_8h.html">Mcro/Observable.h</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d4/dbf/DelegateFrom_8h.html">Mcro/Delegates/DelegateFrom.h</a>&quot;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d6/da2/namespaceMcro_1_1Observable.html">Mcro::Observable</a>;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="da/da9/namespaceMcro_1_1Common_1_1With_1_1InferDelegate.html">Mcro::Common::With::InferDelegate</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyStuff</div>
 <div class="line">{</div>
@@ -520,12 +535,12 @@ Observable TState</h2>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">// If `StorePrevious` flag is active we should always have a value in `previous`</span></div>
 <div class="line">            <span class="comment">// so we should never see -2</span></div>
-<div class="line">            UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;Changed from %d to %d&quot;</span>), previous.Get(-2), next);</div>
+<div class="line">            UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Changed from %d to %d&quot;</span>, previous.Get(-2), next);</div>
 <div class="line">        });</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Listen to change only the first time</span></div>
 <div class="line">        State.OnChange(</div>
-<div class="line">            [](<span class="keywordtype">int</span> next) { UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;The first changed value is %d&quot;</span>), next); },</div>
+<div class="line">            [](<span class="keywordtype">int</span> next) { UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;The first changed value is %d&quot;</span>, next); },</div>
 <div class="line">            <a class="code hl_enumvalue" href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">InvokeOnce</a></div>
 <div class="line">        );</div>
 <div class="line">    }</div>
@@ -546,47 +561,44 @@ Observable TState</h2>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> Thing(<a class="code hl_struct" href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html">TChangeData&lt;T&gt;</a> <span class="keyword">const</span>&amp; change, FString <span class="keyword">const</span>&amp; capture)</div>
 <div class="line">    {</div>
-<div class="line">        UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;React to %d with %s&quot;</span>), change.<a class="code hl_variable" href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#a25a0f6961761740bca074faad4a38ca8">Next</a>, *capture);</div>
+<div class="line">        UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;React to %d with %s&quot;</span>, change.<a class="code hl_variable" href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#a25a0f6961761740bca074faad4a38ca8">Next</a>, *capture);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> Do()</div>
 <div class="line">    {</div>
 <div class="line">        MyStuff.Update(1);</div>
-<div class="line">        <span class="comment">// -&gt; Changed from -1 to 1</span></div>
+<div class="line">        <span class="comment">// -&gt; Changed from -1 to 1[TimespanLiterals.h](../../../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Public/Mcro/TimespanLiterals.h)</span></div>
 <div class="line">        <span class="comment">// -&gt; The first changed value is 1</span></div>
 <div class="line">        MyStuff.Update(2);</div>
 <div class="line">        <span class="comment">// -&gt; Changed from 1 to 2</span></div>
 <div class="line">        MyStuff.Update(2);</div>
 <div class="line">        <span class="comment">// (nothing is logged as previous update was also 2)</span></div>
 <div class="line">        MyStuff.OnChange(</div>
-<div class="line">            [](<span class="keywordtype">int</span> next) { UE_LOG(LogTemp, Display, TEXT(<span class="stringliteral">&quot;Arriving late %d&quot;</span>), next); },</div>
+<div class="line">            [](<span class="keywordtype">int</span> next) { UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Arriving late %d&quot;</span>, next); },</div>
 <div class="line">            <a class="code hl_enumvalue" href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3">BelatedInvoke</a></div>
 <div class="line">        );</div>
 <div class="line">        <span class="comment">// -&gt; Arriving late 2</span></div>
 <div class="line">        MyStuff.Update(3);</div>
 <div class="line">        <span class="comment">// -&gt; Changed from 2 to 3</span></div>
 <div class="line">        <span class="comment">// -&gt; Arriving late 3</span></div>
-<div class="line">        MyStuff.OnChange(<a class="code hl_function" href="d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">this</span>, &amp;FFoobar::Thing, TEXT(<span class="stringliteral">&quot;a unicorn&quot;</span>)));</div>
+<div class="line">        MyStuff.OnChange(<a class="code hl_function" href="d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(<span class="keyword">this</span>, &amp;FFoobar::Thing, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;a unicorn&quot;</span>));</div>
 <div class="line">        MyStuff.Update(4)</div>
 <div class="line">        <span class="comment">// -&gt; Changed from 3 to 4</span></div>
 <div class="line">        <span class="comment">// -&gt; Arriving late 4</span></div>
 <div class="line">        <span class="comment">// -&gt; React to 4 with a unicorn</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aObservable_8h_html"><div class="ttname"><a href="d5/de3/Observable_8h.html">Observable.h</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a5f3cc254801d3d4fb340907c65123cd8"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">Mcro::Delegates::From</a></div><div class="ttdeci">TInferredDelegate&lt; Function, Captures... &gt; From(Function func, Captures &amp;&amp;... captures)</div><div class="ttdoc">Instead of specifying manually a delegate type, infer it from the input function and the extra captur...</div><div class="ttdef"><b>Definition</b> <a href="d4/dbf/DelegateFrom_8h_source.html#l00070">DelegateFrom.h:70</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_1_1InferDelegate_html_ae76d3762d68c77da68029e23ca2e67e6"><div class="ttname"><a href="d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">Mcro::Delegates::InferDelegate::From</a></div><div class="ttdeci">TInferredDelegate&lt; Function, Captures... &gt; From(Function func, Captures &amp;&amp;... captures)</div><div class="ttdoc">Instead of specifying manually a delegate type, infer it from the input function and the extra captur...</div><div class="ttdef"><b>Definition</b> <a href="d4/dbf/DelegateFrom_8h_source.html#l00056">DelegateFrom.h:56</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Delegates_html_aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b"><div class="ttname"><a href="d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b">Mcro::Delegates::InvokeOnce</a></div><div class="ttdeci">@ InvokeOnce</div><div class="ttdoc">The binding will be automatically removed after the next broadcast.</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00032">EventDelegate.h:32</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Observable_html"><div class="ttname"><a href="d6/da2/namespaceMcro_1_1Observable.html">Mcro::Observable</a></div><div class="ttdef"><b>Definition</b> <a href="dc/da3/Observable_8Fwd_8h_source.html#l00023">Observable.Fwd.h:24</a></div></div>
 <div class="ttc" id="astructMcro_1_1Observable_1_1TChangeData_html"><div class="ttname"><a href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html">Mcro::Observable::TChangeData</a></div><div class="ttdoc">This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan...</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00029">Observable.h:30</a></div></div>
 <div class="ttc" id="astructMcro_1_1Observable_1_1TChangeData_html_a25a0f6961761740bca074faad4a38ca8"><div class="ttname"><a href="dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#a25a0f6961761740bca074faad4a38ca8">Mcro::Observable::TChangeData::Next</a></div><div class="ttdeci">T Next</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00051">Observable.h:51</a></div></div>
 <div class="ttc" id="astructMcro_1_1Observable_1_1TState_html"><div class="ttname"><a href="d7/d5e/structMcro_1_1Observable_1_1TState.html">Mcro::Observable::TState</a></div><div class="ttdoc">Storage wrapper for any value which state needs to be tracked or their change needs to be observed....</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00228">Observable.h:229</a></div></div>
 <div class="ttc" id="astructMcro_1_1Observable_1_1TState_html_af20d748b285a12ca2cab03a77e69b75a"><div class="ttname"><a href="d7/d5e/structMcro_1_1Observable_1_1TState.html#af20d748b285a12ca2cab03a77e69b75a">Mcro::Observable::TState::OnChange</a></div><div class="ttdeci">virtual FDelegateHandle OnChange(TDelegate&lt; void(TChangeData&lt; T &gt; const &amp;)&gt; onChange, EInvokeMode invokeMode=DefaultInvocation) override</div><div class="ttdoc">Add a delegate which gets a TChangeData&lt;T&gt; const&amp; if this state has been set.</div><div class="ttdef"><b>Definition</b> <a href="d5/de3/Observable_8h_source.html#l00332">Observable.h:332</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 Function Traits</h2>
 <p>Make templates dealing with function types more readable and yet more versatile via the <code><a class="el" href="d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></code> namespace. This is the foundation of many intricate teemplates <a class="el" href="d8/d63/namespaceMcro.html">Mcro</a> can offer.</p>
 <p>Constraint/infer template parameters from the signature of an input function. (This is an annotated exempt from <code><a class="el" href="de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></code>)</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d7/d25/FunctionTraits_8h.html">Mcro/FunctionTraits.h</a>&quot;</span> <span class="comment">// it also brings in Concepts</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d7/d25/FunctionTraits_8h.html">Mcro/FunctionTraits.h</a>&quot;</span> <span class="comment">// it also brings in Concepts</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></div>
 <div class="line">{</div>
@@ -605,22 +617,22 @@ Function Traits</h2>
 <div class="line">    &gt;</div>
 <div class="line">    <span class="comment">// That argument  must also be an l-value ref</span></div>
 <div class="line">    <span class="keyword">requires</span> std::is_lvalue_reference_v&lt;Argument&gt;</div>
-<div class="line">    Result* Construct(FConstructObjectParameters&amp;&amp; params, Initializer&amp;&amp; init)</div>
+<div class="line">    Result* Construct(<a class="code hl_struct" href="db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a>&amp;&amp; params, Initializer&amp;&amp; init)</div>
 <div class="line">    { ... }</div>
 <div class="line">}</div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00019">FunctionTraits.h:20</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdoc">Shorthand for getting a type of a function argument at given position I.</div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00139">FunctionTraits.h:139</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00021">FunctionTraits.h:22</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdoc">Shorthand for getting a type of a function argument at given position I.</div><div class="ttdef"><b>Definition</b> <a href="d7/d25/FunctionTraits_8h_source.html#l00142">FunctionTraits.h:142</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1UObjects_1_1Init_html"><div class="ttname"><a href="de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></div><div class="ttdef"><b>Definition</b> <a href="db/db1/Init_8h_source.html#l00017">Init.h:18</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
+<div class="ttc" id="astructMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters_html"><div class="ttname"><a href="db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">Mcro::UObjects::Init::FConstructObjectParameters</a></div><div class="ttdoc">Mirror of FStaticConstructObjectParameters but it's a plain C++ object and doesn't have a constructor...</div><div class="ttdef"><b>Definition</b> <a href="db/db1/Init_8h_source.html#l00032">Init.h:33</a></div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
 Concepts</h2>
 <p>There's a copy of the C++ 20 STL Concepts library in <code><a class="el" href="d2/d09/namespaceMcro_1_1Concepts.html">Mcro::Concepts</a></code> namespace but with more Unreal friendly nameing. Also it adds some conveniance concepts, like <code>*Decayed</code> versions of type constraints, or some Unreal specific constraints like <code>CSharedRefOrPtr</code> or <code>CUObject</code></p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Extending the Slate declarative syntax</h2>
 <p><code><a class="el" href="df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Mcro::Slate</a></code> adds the <code>/</code> operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;Mcro/Slate&quot;</span>;</div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a>;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Mcro/Common&quot;</span>;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Define a reusable block of attributes</span></div>
 <div class="line"><span class="keyword">auto</span> Text(FString <span class="keyword">const</span>&amp; text) -&gt; <a class="code hl_typedef" href="df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">TAttributeBlock&lt;STextBlock&gt;</a></div>
@@ -663,12 +675,10 @@ Extending the Slate declarative syntax</h2>
 <div class="line">            ];</div>
 <div class="line">    };</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdoc">Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00021">Slate.h:22</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Slate_html_a0a93c9ab0e9db18e32d30eab8bde6323"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">Mcro::Slate::TAttributeBlock</a></div><div class="ttdeci">TUniqueFunction&lt; TArgumentsOf&lt; T &gt; &amp;(TArgumentsOf&lt; T &gt; &amp;)&gt; TAttributeBlock</div><div class="ttdoc">Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and re...</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00087">Slate.h:87</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Slate_html_a4fa0c2bf1d38dc606f82a421bb902d3e"><div class="ttname"><a href="df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">Mcro::Slate::IsVisible</a></div><div class="ttdeci">MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState=EVisibility::Collapsed)</div><div class="ttdoc">Convenience function for typing less when widget visibility depends on a boolean.</div></div>
 </div><!-- fragment --><p>Or add slots right in the Slate declarative syntax derived from an input array:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="comment">// This is just a convenience function so we don&#39;t repeat ourselves</span></div>
+<div class="fragment"><div class="line"><span class="comment">// This is just a convenience function so we don&#39;t repeat ourselves</span></div>
 <div class="line"><span class="keyword">auto</span> Row() -&gt; SVerticalBox::FSlot::FSlotArguments</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> MoveTemp(SVerticalBox::Slot()</div>
@@ -682,40 +692,37 @@ Extending the Slate declarative syntax</h2>
 <div class="line">    ChildSlot</div>
 <div class="line">    [</div>
 <div class="line">        SNew(SVerticalBox)</div>
-<div class="line">        + Row()[ SNew(STextBlock) / Text(TEXT(<span class="stringliteral">&quot;Items:&quot;</span>)) ]</div>
+<div class="line">        + Row()[ SNew(STextBlock) / Text(<a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Items:&quot;</span>) ]</div>
 <div class="line">        + <a class="code hl_struct" href="d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>(inArgs._Items.Get(), [&amp;](FString <span class="keyword">const</span>&amp; item)</div>
 <div class="line">        {</div>
 <div class="line">            return MoveTemp(</div>
 <div class="line">                Row()[ SNew(STextBlock) / Text(item) ]</div>
 <div class="line">            );</div>
 <div class="line">        })</div>
-<div class="line">        + Row()[ SNew(STextBlock) / Text(TEXT(<span class="stringliteral">&quot;Fin.&quot;</span>)) ]</div>
+<div class="line">        + Row()[ SNew(STextBlock) / Text(<a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Fin.&quot;</span>) ]</div>
 <div class="line">    ];</div>
 <div class="line">}</div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="d2/dc0/Slate_8h_source.html#l00185">Slate.h:186</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
 Text interop</h2>
 <p>The <code><a class="el" href="d8/d6f/namespaceMcro_1_1Text.html">Mcro::Text</a></code> namespace provides some handy text templating and conversion utilities and interop between Unreal string and std::strings for third-party libraries.</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;Mcro/Text&quot;</span>;</div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d8/d6f/namespaceMcro_1_1Text.html">Mcro::Text</a>;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Mcro/CommonCore&quot;</span>;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Accept many string types at once</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CStringOrViewOrName String&gt;</div>
 <div class="line"><span class="keywordtype">bool</span> GetSomethingCommon(String&amp;&amp; input) { ... }</div>
-<div class="line"> </div>
+<div class="line">[Delegates.Spec.cpp](../../../../Plugins/Yanui/Source/<a class="code hl_namespace" href="d8/d63/namespaceMcro.html">Mcro</a>/Mcro_Yn/Private/<a class="code hl_namespace" href="d8/d63/namespaceMcro.html">Mcro</a>/Tests/Delegates.Spec.cpp)</div>
 <div class="line"><span class="comment">// Work with std::string types</span></div>
-<div class="line"><span class="keyword">template</span> &lt;CStdStringOrViewInvariant String&gt;</div>
+<div class="line">template &lt;CStdStringOrViewInvariant String&gt;</div>
 <div class="line"><span class="keywordtype">size_t</span> GetLength(String&amp;&amp; input) { <span class="keywordflow">return</span> input.size(); }</div>
-<div class="ttc" id="anamespaceMcro_1_1Text_html"><div class="ttname"><a href="d8/d6f/namespaceMcro_1_1Text.html">Mcro::Text</a></div><div class="ttdef"><b>Definition</b> <a href="d6/d35/Text_8h_source.html#l00019">Text.h:20</a></div></div>
-</div><!-- fragment --><div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="comment">// Type alias for choosing a std::string which is best matching the current TCHAR.</span></div>
-<div class="line"><a class="code hl_typedef" href="d8/d6f/namespaceMcro_1_1Text.html#a2e8c067032afba88d5274e9060b7eb51">FStdString</a> foo(TEXT(<span class="stringliteral">&quot;bar&quot;</span>)); <span class="comment">// -&gt; std::wstring (on Windows at least)</span></div>
+<div class="ttc" id="anamespaceMcro_html"><div class="ttname"><a href="d8/d63/namespaceMcro.html">Mcro</a></div><div class="ttdef"><b>Definition</b> <a href="df/d5d/ArrayViews_8h_source.html#l00016">ArrayViews.h:17</a></div></div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="comment">// Type alias for choosing a std::string which is best matching the current TCHAR.</span></div>
+<div class="line"><a class="code hl_typedef" href="d8/d6f/namespaceMcro_1_1Text.html#a2e8c067032afba88d5274e9060b7eb51">FStdString</a> foo(<a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;bar&quot;</span>); <span class="comment">// -&gt; std::wstring (on Windows at least)</span></div>
 <div class="ttc" id="anamespaceMcro_1_1Text_html_a2e8c067032afba88d5274e9060b7eb51"><div class="ttname"><a href="d8/d6f/namespaceMcro_1_1Text.html#a2e8c067032afba88d5274e9060b7eb51">Mcro::Text::FStdString</a></div><div class="ttdeci">std::wstring FStdString</div><div class="ttdef"><b>Definition</b> <a href="d6/d35/Text_8h_source.html#l00030">Text.h:30</a></div></div>
-</div><!-- fragment --><div class="fragment"><div class="line"> ++</div>
-<div class="line">FString foo(TEXT(<span class="stringliteral">&quot;bar&quot;</span>));</div>
+</div><!-- fragment --><div class="fragment"><div class="line">FString foo(<a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;bar&quot;</span>);</div>
 <div class="line">std::string fooNarrow = StdConvertUtf8(foo);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
 ISPC parallel tasks support</h2>
 <p><code>McroISPC</code> module gives support for <code>task</code> and <code>launch</code> keywords of the ISPC language</p>
 <div class="fragment"><div class="line">task <span class="keywordtype">void</span> MakeLookupUVLine(</div>
@@ -737,7 +744,7 @@ ISPC parallel tasks support</h2>
 <div class="line">) {</div>
 <div class="line">    launch [height] MakeLookupUVLine(buffer, width);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md20"></a>
 Last but not least</h2>
 <ul>
 <li><a class="el" href="d6/d11/AsNative_8h.html">Dynamic ↔ Native (multicast) delegate interop</a></li>
@@ -757,7 +764,7 @@ Last but not least</h2>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Legal</h1>
 <p><a class="el" href="da/dfb/Attribution.html">Third-party components used by MCRO</a></p>
 <p>When using MCRO in a plugin distributed via Fab, the components above must be listed upon submission.</p>

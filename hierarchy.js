@@ -38,23 +38,18 @@ var hierarchy =
     [ "Mcro::Slate::TArgumentsOf_S< T >", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html", null ],
     [ "Mcro::Badge::TBadge< T >", "d0/d8f/classMcro_1_1Badge_1_1TBadge.html", null ],
     [ "Mcro::Observable::TChangeData< T >", "dd/dcf/structMcro_1_1Observable_1_1TChangeData.html", null ],
+    [ "Mcro::FunctionTraits::TDeferFunctionArguments< FuncPtr, Function >", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", null ],
     [ "Mcro::Delegates::TDynamicMethodPtr_Struct< typename >", "d6/d84/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct.html", null ],
     [ "Mcro::Delegates::TDynamicMethodPtr_Struct< Dynamic >", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4.html", null ],
     [ "Mcro::Delegates::TDynamicSignature_Struct< typename >", "d9/d42/structMcro_1_1Delegates_1_1TDynamicSignature__Struct.html", null ],
     [ "Mcro::Delegates::TDynamicSignature_Struct< Dynamic >", "d0/da4/structMcro_1_1Delegates_1_1TDynamicSignature__Struct_3_01Dynamic_01_4.html", null ],
     [ "Mcro::Delegates::TEventDelegate< Function, DefaultInvokeMode >", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
+    [ "Mcro::Delegates::TEventDelegate< EventSignature >", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
     [ "Mcro::Delegates::TEventDelegate< void()>", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
     [ "Mcro::Delegates::TEventDelegate< void(Args...), DefaultInvokeMode >", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html", null ],
-    [ "Mcro::Delegates::TEventDelegate< void(Args...)>", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
     [ "Mcro::Delegates::TEventDelegate< void(Mcro::Observable::TChangeData< T > const &)>", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
     [ "Mcro::Delegates::TEventMultiplex< T >", "d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html", null ],
-    [ "Mcro::Delegates::Detail::TEventMultiplexBase< Return, Args >", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html", null ],
-    [ "Mcro::Delegates::Detail::TEventMultiplexBase< Return, Args... >", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html", [
-      [ "Mcro::Delegates::TEventMultiplex< Return(Args...)>", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html", null ]
-    ] ],
-    [ "Mcro::Delegates::Detail::TEventMultiplexBase< void, Args... >", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html", [
-      [ "Mcro::Delegates::TEventMultiplex< void(Args...)>", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html", null ]
-    ] ],
+    [ "Mcro::Delegates::TEventMultiplex< Return(Args...)>", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html", null ],
     [ "Mcro::Concepts::Detail::TExtractClassName< T >", "d5/d32/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName.html", null ],
     [ "Mcro::Concepts::Detail::TExtractClassName< MemberType ClassType::* >", "de/df5/structMcro_1_1Concepts_1_1Detail_1_1TExtractClassName_3_01MemberType_01ClassType_1_1_5_01_4.html", null ],
     [ "Mcro::FunctionTraits::Detail::TFunctionFromTuple_Struct< Return, Tuple >", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", null ],
@@ -102,5 +97,8 @@ var hierarchy =
     [ "Mcro::Tuples::TTake_Struct< Count, Tuple >", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", null ],
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],
     [ "Mcro::Rendering::Textures::TTextureSize< SizeType, InFormatType >", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", null ],
-    [ "Mcro::Tuples::TTrimEnd_Struct< Count, Tuple >", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", null ]
+    [ "Mcro::Tuples::TTrimEnd_Struct< Count, Tuple >", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", null ],
+    [ "UObject", null, [
+      [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", null ]
+    ] ]
 ];

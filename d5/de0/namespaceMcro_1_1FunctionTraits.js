@@ -1,6 +1,7 @@
 var namespaceMcro_1_1FunctionTraits =
 [
     [ "Detail", "d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html", "d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail" ],
+    [ "TDeferFunctionArguments", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments" ],
     [ "TFunctionTraits", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", null ],
     [ "TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
     [ "TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", null ],

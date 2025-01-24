@@ -122,6 +122,9 @@ $(function(){initNavTree('d1/d8d/Concepts_8h.html','../../'); initResizable(true
   <div class="headertitle"><div class="title">Concepts.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This header exists because STL headers in Android doesn't define STL concepts (other than same_as which is weird), despite the fact that in <code>&lt;concepts&gt;</code> the synopsis contains all of them (but only as a comment).  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;CoreMinimal.h&quot;</code><br />
 </div>
@@ -257,6 +260,8 @@ Concepts</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">Mcro::Concepts::CMemberPointerOf</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html">Mcro::Concepts::CVoid</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html">Mcro::Concepts::CNonVoid</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html">Mcro::Concepts::CRefCounted</a></td></tr>
@@ -282,10 +287,10 @@ Functions</h2></td></tr>
 <tr class="separator:ad82cfff038438996ec817f8460d25e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
+<div class="textblock"><p>This header exists because STL headers in Android doesn't define STL concepts (other than same_as which is weird), despite the fact that in <code>&lt;concepts&gt;</code> the synopsis contains all of them (but only as a comment). </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
 <dl class="section author"><dt>Author</dt><dd>David Mórász </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
-<p>This header exists because STL headers in Android doesn't define STL concepts (other than same_as which is weird), despite the fact that in <code>&lt;concepts&gt;</code> the synopsis contains all of them (but only as a comment).</p>
 <p>However, &lt;type_traits&gt; seems to be implemented properly so many concepts here will be just encapsulating equivalent type traits (like CConstType = std::is_const_v&lt;T&gt;). Using MSVC implementation as reference </p>
 
 <p class="definition">Definition in file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
@@ -302,7 +307,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d8d/Concepts_8h_source.html#l00031">31</a> of file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d8d/Concepts_8h_source.html#l00032">32</a> of file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
 
 </div>
 </div>

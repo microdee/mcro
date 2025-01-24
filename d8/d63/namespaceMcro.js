@@ -7,6 +7,8 @@ var namespaceMcro =
     [ "AssertMacros", "d1/d94/namespaceMcro_1_1AssertMacros.html", "d1/d94/namespaceMcro_1_1AssertMacros" ],
     [ "AutoModularFeature", "d3/d71/namespaceMcro_1_1AutoModularFeature.html", "d3/d71/namespaceMcro_1_1AutoModularFeature" ],
     [ "Badge", "d3/dd6/namespaceMcro_1_1Badge.html", "d3/dd6/namespaceMcro_1_1Badge" ],
+    [ "Common", "d4/df4/namespaceMcro_1_1Common.html", "d4/df4/namespaceMcro_1_1Common" ],
+    [ "CommonCore", "df/d6f/namespaceMcro_1_1CommonCore.html", null ],
     [ "Concepts", "d2/d09/namespaceMcro_1_1Concepts.html", "d2/d09/namespaceMcro_1_1Concepts" ],
     [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html", [
       [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4", null ],

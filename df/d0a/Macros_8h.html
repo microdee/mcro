@@ -126,6 +126,9 @@ $(function(){initNavTree('df/d0a/Macros_8h.html','../../'); initResizable(true);
 Macros</h2></td></tr>
 <tr class="memitem:a4bf69615cef105529a52fd1a06f84704" id="r_a4bf69615cef105529a52fd1a06f84704"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(x)</td></tr>
 <tr class="separator:a4bf69615cef105529a52fd1a06f84704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048e492c8a4074ec4ce7f5438280b98a" id="r_a048e492c8a4074ec4ce7f5438280b98a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a>(prefix, ...)</td></tr>
+<tr class="memdesc:a048e492c8a4074ec4ce7f5438280b98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement preprocessor function overloading based on argument count for a set of macros following a distinct convention. Individual overloads must have a trailing number corresponding to the number of arguments they accept.  <br /></td></tr>
+<tr class="separator:a048e492c8a4074ec4ce7f5438280b98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
@@ -134,6 +137,41 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a048e492c8a4074ec4ce7f5438280b98a" name="a048e492c8a4074ec4ce7f5438280b98a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a048e492c8a4074ec4ce7f5438280b98a">&#9670;&#160;</a></span>MACRO_OVERLOAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MACRO_OVERLOAD</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">PREPROCESSOR_APPEND_VA_ARG_COUNT(prefix, __VA_ARGS__)(__VA_ARGS__)</div>
+</div><!-- fragment -->
+<p>Implement preprocessor function overloading based on argument count for a set of macros following a distinct convention. Individual overloads must have a trailing number corresponding to the number of arguments they accept. </p>
+<p>For example: </p><div class="fragment"><div class="line"><span class="preprocessor">#define FOO_3(a, b, c) a##b##c</span></div>
+<div class="line"><span class="preprocessor">#define FOO_2(a, b)    a##b</span></div>
+<div class="line"><span class="preprocessor">#define FOO_1(a)       a</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define FOO(...) MACRO_OVERLOAD(FOO_, __VA_ARGS__)</span></div>
+<div class="line"> </div>
+<div class="line">FOO(1) <span class="comment">// -&gt; 1</span></div>
+<div class="line">FOO(1, 2) <span class="comment">// -&gt; 12</span></div>
+<div class="line">FOO(1, 2, 3) <span class="comment">// -&gt; 123</span></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00037">37</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
 <a id="a4bf69615cef105529a52fd1a06f84704" name="a4bf69615cef105529a52fd1a06f84704"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4bf69615cef105529a52fd1a06f84704">&#9670;&#160;</a></span>PREPROCESSOR_TO_TEXT</h2>
 

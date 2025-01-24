@@ -138,8 +138,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:afa32959b04a99d2f4a56cd141e34a9bd" id="r_afa32959b04a99d2f4a56cd141e34a9bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(expression)</td></tr>
-<tr class="separator:afa32959b04a99d2f4a56cd141e34a9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6cf89b0c99dcc164d51b257cd9d2b9f" id="r_ae6cf89b0c99dcc164d51b257cd9d2b9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6cf89b0c99dcc164d51b257cd9d2b9f">MCRO_ASSERT_SUBMIT_ERROR</a>(condition,  severity,  async,  important, ...)</td></tr>
 <tr class="separator:ae6cf89b0c99dcc164d51b257cd9d2b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad04c6f5e3f2ecc828765f495a94561f4" id="r_ad04c6f5e3f2ecc828765f495a94561f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04c6f5e3f2ecc828765f495a94561f4">MCRO_ASSERT_CRASH_METHOD</a></td></tr>
@@ -206,10 +204,11 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p>Use this instead of <code>check</code> macro if the checked expression shouldn't be ignored in shipping builds. This version will also crash the entire editor even during a PIE session. Use this only if there's absolutely no way to recover from an invalid state, like a situation when early return is not possible / doesn't make sense (e.g.: return a checked pointer by reference). </p>
 <p>This macro will attempt to display the error before crashing via the IError type. You can also append extra information to it, or even override preset information like so: </p><div class="fragment"><div class="line"><a class="code hl_define" href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a>(arrayNum &gt; 0,</div>
-<div class="line">    -&gt;WithDetails(TEXT(<span class="stringliteral">&quot;Did you forget to specify data?&quot;</span>))</div>
-<div class="line">    -&gt;WithAppendix(TEXT(<span class="stringliteral">&quot;Data&quot;</span>), data.ToString())</div>
+<div class="line">    -&gt;WithDetails(<a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Did you forget to specify data?&quot;</span>)</div>
+<div class="line">    -&gt;WithAppendix(<a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Data&quot;</span>, data.ToString())</div>
 <div class="line">)</div>
 <div class="ttc" id="aAssertMacros_8h_html_aa701f2cd895ccc225e7eaef22640854d"><div class="ttname"><a href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a></div><div class="ttdeci">#define ASSERT_CRASH(condition,...)</div><div class="ttdoc">Use this instead of check macro if the checked expression shouldn't be ignored in shipping builds....</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00113">AssertMacros.h:113</a></div></div>
+<div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00047">TextMacros.h:47</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00113">113</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
@@ -250,8 +249,8 @@ Functions</h2></td></tr>
 <div class="ttc" id="aAssertMacros_8h_html_a317dc938d91eac73bdea39eafe3f8b8a"><div class="ttname"><a href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a></div><div class="ttdeci">#define ASSERT_QUIT(condition, returnOnFailure,...)</div><div class="ttdoc">Use this instead of check macro if the checked expression shouldn't be ignored in shipping builds....</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00147">AssertMacros.h:147</a></div></div>
 </div><!-- fragment --><p>This is done in the hopes that these checks failing in PIE sessions doesn't crash the entire editor giving the developer a chance for fixing the error before restarting. However, early returns might cause undefined/vaguely-defined side effects and may lead to uninitialized resources or in worst case scenario may lead to incorrect states in resource cleanups which then might crash the editor. Always check the validity of your resources in destructors. Failing this check outside of PIE or in a Standalone session will still crash with a <code>check</code> macro.</p>
 <p>This macro will attempt to display the error before quitting via the IError type. You can also append extra information to it like so, or even override preset information like so: </p><div class="fragment"><div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(arrayNum &gt; 0, myReturnValue,</div>
-<div class="line">    -&gt;WithDetails(TEXT(<span class="stringliteral">&quot;Did you forget to specify data?&quot;</span>))</div>
-<div class="line">    -&gt;WithAppendix(TEXT(<span class="stringliteral">&quot;Data&quot;</span>), data.ToString())</div>
+<div class="line">    -&gt;WithDetails(<a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Did you forget to specify data?&quot;</span>)</div>
+<div class="line">    -&gt;WithAppendix(<a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Data&quot;</span>, data.ToString())</div>
 <div class="line">)</div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00147">147</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
@@ -346,9 +345,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    UE_LOG(LogTemp, Fatal,                                          \</div>
-<div class="line">        TEXT(<span class="stringliteral">&quot;Program cannot continue for the reasons above. (at &quot;</span>) \</div>
-<div class="line">        <a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(__FILE__:__LINE__) TEXT(<span class="stringliteral">&quot;)&quot;</span>)           \</div>
+<b>Value:</b><div class="fragment"><div class="line">    UE_LOG(LogTemp, Fatal,                                         \</div>
+<div class="line">        <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Program cannot continue for the reasons above. (at &quot;</span> \</div>
+<div class="line">        <a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(__FILE__:__LINE__) <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;)&quot;</span>           \</div>
 <div class="line">    )</div>
 <div class="ttc" id="aMacros_8h_html_a4bf69615cef105529a52fd1a06f84704"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a></div><div class="ttdeci">#define PREPROCESSOR_TO_TEXT(x)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00017">Macros.h:17</a></div></div>
 </div><!-- fragment -->
@@ -503,25 +502,6 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00069">69</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
-</div>
-</div>
-<a id="afa32959b04a99d2f4a56cd141e34a9bd" name="afa32959b04a99d2f4a56cd141e34a9bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa32959b04a99d2f4a56cd141e34a9bd">&#9670;&#160;</a></span>PROPAGATE_FAIL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PROPAGATE_FAIL</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>expression</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="../../de/dba/Error_8h.html#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a>(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)</div>
-<div class="ttc" id="aError_8h_html_a17f21b72a1de7dd934d3badd23953072"><div class="ttname"><a href="../../de/dba/Error_8h.html#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a></div><div class="ttdeci">#define PROPAGATE_FAIL_V(var, expression)</div><div class="ttdoc">If a function returns a TMaybe&lt;V&gt; inside another function which may also return another error use thi...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00653">Error.h:653</a></div></div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

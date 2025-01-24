@@ -8,6 +8,7 @@ var FunctionTraits_8h =
     [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
     [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", null ],
     [ "Mcro::FunctionTraits::Detail::TFunctionFromTuple_Struct< Return, Tuple >", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct" ],
+    [ "Mcro::FunctionTraits::TDeferFunctionArguments< FuncPtr, Function >", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments" ],
     [ "Mcro::FunctionTraits::CFunctorObject", "d7/dba/conceptMcro_1_1FunctionTraits_1_1CFunctorObject.html", null ],
     [ "Mcro::FunctionTraits::CFunction_IsMember", "df/d47/conceptMcro_1_1FunctionTraits_1_1CFunction__IsMember.html", null ],
     [ "Mcro::FunctionTraits::CFunction_IsConst", "dd/d96/conceptMcro_1_1FunctionTraits_1_1CFunction__IsConst.html", null ],

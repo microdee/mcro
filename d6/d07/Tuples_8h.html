@@ -115,7 +115,8 @@ $(function(){initNavTree('d6/d07/Tuples_8h.html','../../'); initResizable(true);
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Tuples.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -139,6 +140,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html">Mcro::Tuples</a></td></tr>
 <tr class="memdesc:db/d81/namespaceMcro_1_1Tuples"><td class="mdescLeft">&#160;</td><td class="mdescRight">Templating utilities for manipulating <code>TTuple</code>s. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d02/namespaceMcro_1_1Tuples_1_1Detail.html">Mcro::Tuples::Detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -158,6 +161,23 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a26ad914c4d35e206ac5d12cdc185876d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a26ad914c4d35e206ac5d12cdc185876d">Mcro::Tuples::TTake</a> = typename <a class="el" href="../../d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html">TTake_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
 <tr class="memdesc:a26ad914c4d35e206ac5d12cdc185876d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take only the first <code>Count</code> elements of the input tuple.  <br /></td></tr>
 <tr class="separator:a26ad914c4d35e206ac5d12cdc185876d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a9a81ae9b3f7d0cd01754d819e73a27ae" id="r_a9a81ae9b3f7d0cd01754d819e73a27ae"><td class="memTemplParams" colspan="2">template&lt;typename T , typename RestTuple , size_t... Indices&gt; </td></tr>
+<tr class="memitem:a9a81ae9b3f7d0cd01754d819e73a27ae"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d02/namespaceMcro_1_1Tuples_1_1Detail.html#a9a81ae9b3f7d0cd01754d819e73a27ae">Mcro::Tuples::Detail::Prepend_Impl</a> (T &amp;&amp;left, RestTuple &amp;&amp;right, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:a9a81ae9b3f7d0cd01754d819e73a27ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd648b4a48f8cb82510a01e8d2dde8d" id="r_aebd648b4a48f8cb82510a01e8d2dde8d"><td class="memTemplParams" colspan="2">template&lt;typename T , typename RestTuple , size_t... Indices&gt; </td></tr>
+<tr class="memitem:aebd648b4a48f8cb82510a01e8d2dde8d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d02/namespaceMcro_1_1Tuples_1_1Detail.html#aebd648b4a48f8cb82510a01e8d2dde8d">Mcro::Tuples::Detail::Append_Impl</a> (T &amp;&amp;right, RestTuple &amp;&amp;left, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:aebd648b4a48f8cb82510a01e8d2dde8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa89e77d0a5ca93f63bdbddd52a05b64" id="r_afa89e77d0a5ca93f63bdbddd52a05b64"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Rest&gt; </td></tr>
+<tr class="memitem:afa89e77d0a5ca93f63bdbddd52a05b64"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#afa89e77d0a5ca93f63bdbddd52a05b64">Mcro::Tuples::operator&gt;&gt;</a> (T &amp;&amp;left, TTuple&lt; Rest... &gt; const &amp;right)</td></tr>
+<tr class="memdesc:afa89e77d0a5ca93f63bdbddd52a05b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepend a value to a tuple.  <br /></td></tr>
+<tr class="separator:afa89e77d0a5ca93f63bdbddd52a05b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26dbf9db696b9af804fd3908589dc6bd" id="r_a26dbf9db696b9af804fd3908589dc6bd"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Rest&gt; </td></tr>
+<tr class="memitem:a26dbf9db696b9af804fd3908589dc6bd"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a26dbf9db696b9af804fd3908589dc6bd">Mcro::Tuples::operator&lt;&lt;</a> (TTuple&lt; Rest... &gt; const &amp;left, T &amp;&amp;right)</td></tr>
+<tr class="memdesc:a26dbf9db696b9af804fd3908589dc6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a value to a tuple.  <br /></td></tr>
+<tr class="separator:a26dbf9db696b9af804fd3908589dc6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>

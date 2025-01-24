@@ -16,9 +16,6 @@ var annotated_dup =
         ] ]
       ] ],
       [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", [
-        [ "Detail", "df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html", [
-          [ "TEventMultiplexBase", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html", "d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase" ]
-        ] ],
         [ "TDynamicMethodPtr_Struct", "d6/d84/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct.html", null ],
         [ "TDynamicMethodPtr_Struct< Dynamic >", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4.html", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4" ],
         [ "TDynamicSignature_Struct", "d9/d42/structMcro_1_1Delegates_1_1TDynamicSignature__Struct.html", null ],
@@ -27,7 +24,6 @@ var annotated_dup =
         [ "TEventDelegate< void(Args...), DefaultInvokeMode >", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4" ],
         [ "TEventMultiplex", "d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html", null ],
         [ "TEventMultiplex< Return(Args...)>", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4" ],
-        [ "TEventMultiplex< void(Args...)>", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4" ],
         [ "TNative_Struct", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
         [ "TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4" ],
         [ "TNativeEvent_Struct", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ],
@@ -62,6 +58,7 @@ var annotated_dup =
           [ "TFunctionFromTuple_Struct", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct" ],
           [ "TFunctionMeta", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta" ]
         ] ],
+        [ "TDeferFunctionArguments", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments" ],
         [ "TFunctionTraits", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", null ],
         [ "TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
         [ "TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", null ],
@@ -121,5 +118,6 @@ var annotated_dup =
         [ "TScopedRegion", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion" ]
       ] ]
     ] ],
-    [ "FVoid", "d3/daf/structFVoid.html", "d3/daf/structFVoid" ]
+    [ "FVoid", "d3/daf/structFVoid.html", "d3/daf/structFVoid" ],
+    [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", "d4/ded/classUDynamicDelegateTestClass" ]
 ];

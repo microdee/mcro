@@ -128,16 +128,11 @@ $(function(){initNavTree('df/d7c/EventMultiplex_8h.html','../../'); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc5/classMcro_1_1Delegates_1_1Detail_1_1TEventMultiplexBase.html">Mcro::Delegates::Detail::TEventMultiplexBase&lt; Return, Args &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html">Mcro::Delegates::TEventMultiplex&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API can serve.  <a href="../../d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html">Mcro::Delegates::TEventMultiplex&lt; Return(Args...)&gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API can serve.     <a href="../../d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html">Mcro::Delegates::TEventMultiplex&lt; void(Args...)&gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API can serve.     <a href="../../d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html">Mcro::Delegates::TReturnOverride_Struct&lt; Dynamic &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,8 +144,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html">Mcro::Delegates::Detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -193,10 +186,10 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#adc0589d28ce19bdefd30341caa714b54">Mcro::Delegates::TNativeMultiplex&lt;F##functionName&gt;</a> functionName##Multiplex \</div>
 <div class="line">    { \</div>
-<div class="line">        Mcro::Delegates::From(<span class="keyword">this</span>, &amp;MCRO_THIS_TYPE::functionName), \</div>
-<div class="line">        Mcro::Delegates::From(functionName##Event) \</div>
+<div class="line">        Mcro::Delegates::InferDelegate::From(<span class="keyword">this</span>, &amp;MCRO_THIS_TYPE::functionName), \</div>
+<div class="line">        Mcro::Delegates::InferDelegate::From(functionName##Event) \</div>
 <div class="line">    } \</div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_adc0589d28ce19bdefd30341caa714b54"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#adc0589d28ce19bdefd30341caa714b54">Mcro::Delegates::TNativeMultiplex</a></div><div class="ttdeci">typename TNativeMultiplex_Struct&lt; Dynamic, Return &gt;::Type TNativeMultiplex</div><div class="ttdef"><b>Definition</b> <a href="../../df/d7c/EventMultiplex_8h_source.html#l00187">EventMultiplex.h:187</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_adc0589d28ce19bdefd30341caa714b54"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#adc0589d28ce19bdefd30341caa714b54">Mcro::Delegates::TNativeMultiplex</a></div><div class="ttdeci">typename TNativeMultiplex_Struct&lt; Dynamic, Return &gt;::Type TNativeMultiplex</div><div class="ttdef"><b>Definition</b> <a href="../../df/d7c/EventMultiplex_8h_source.html#l00140">EventMultiplex.h:140</a></div></div>
 </div><!-- fragment -->
 <p>Glue together a regular function, a native event delegate and a dynamic multicast delegate, so a given API can serve. </p>
 <ul>
@@ -234,8 +227,8 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code hl_struct" href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html">Mcro::Delegates::TReturnOverride_Struct</a>&lt;delegate&gt; { <span class="keyword">using </span><a class="code hl_typedef" href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html#a64acb1971d1d6bfb5576d1b0c1af844f">Type</a> = type; }</div>
-<div class="ttc" id="astructMcro_1_1Delegates_1_1TReturnOverride__Struct_html"><div class="ttname"><a href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html">Mcro::Delegates::TReturnOverride_Struct</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d7c/EventMultiplex_8h_source.html#l00164">EventMultiplex.h:165</a></div></div>
-<div class="ttc" id="astructMcro_1_1Delegates_1_1TReturnOverride__Struct_html_a64acb1971d1d6bfb5576d1b0c1af844f"><div class="ttname"><a href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html#a64acb1971d1d6bfb5576d1b0c1af844f">Mcro::Delegates::TReturnOverride_Struct::Type</a></div><div class="ttdeci">void Type</div><div class="ttdef"><b>Definition</b> <a href="../../df/d7c/EventMultiplex_8h_source.html#l00166">EventMultiplex.h:166</a></div></div>
+<div class="ttc" id="astructMcro_1_1Delegates_1_1TReturnOverride__Struct_html"><div class="ttname"><a href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html">Mcro::Delegates::TReturnOverride_Struct</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d7c/EventMultiplex_8h_source.html#l00117">EventMultiplex.h:118</a></div></div>
+<div class="ttc" id="astructMcro_1_1Delegates_1_1TReturnOverride__Struct_html_a64acb1971d1d6bfb5576d1b0c1af844f"><div class="ttname"><a href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html#a64acb1971d1d6bfb5576d1b0c1af844f">Mcro::Delegates::TReturnOverride_Struct::Type</a></div><div class="ttdeci">void Type</div><div class="ttdef"><b>Definition</b> <a href="../../df/d7c/EventMultiplex_8h_source.html#l00119">EventMultiplex.h:119</a></div></div>
 </div><!-- fragment --><p>In case the multiplexed function returns a value instead of just returning void, add this macro below the dynamic multicast delegate declaration</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

@@ -128,6 +128,7 @@ $(function(){initNavTree('de/dba/Error_8h.html','../../'); initResizable(true); 
 <code>#include &quot;<a class="el" href="../../d1/d8d/Concepts_8h_source.html">Mcro/Concepts.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">Mcro/SharedObjects.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Mcro/Observable.Fwd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d42/Start_8h_source.html">Mcro/LibraryIncludes/Start.h</a>&quot;</code><br />
 <code>#include &quot;yaml-cpp/yaml.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/ddc/End_8h_source.html">Mcro/LibraryIncludes/End.h</a>&quot;</code><br />
@@ -170,15 +171,15 @@ Macros</h2></td></tr>
 <tr class="memitem:a0a5a9eb2f4763179e164c33377606ab8" id="r_a0a5a9eb2f4763179e164c33377606ab8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a5a9eb2f4763179e164c33377606ab8">UNAVAILABLE</a>()</td></tr>
 <tr class="memdesc:a0a5a9eb2f4763179e164c33377606ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Denote that a resource which is asked for doesn't exist.  <br /></td></tr>
 <tr class="separator:a0a5a9eb2f4763179e164c33377606ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d11e2b00012c796b0884e823c02a03" id="r_a32d11e2b00012c796b0884e823c02a03"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32d11e2b00012c796b0884e823c02a03">PROPAGATE_FAIL_TV</a>(type,  var,  expression)</td></tr>
-<tr class="memdesc:a32d11e2b00012c796b0884e823c02a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">If a function returns a TMaybe inside another function which may also return another error use this convenience macro to propagate the failure. Set a target variable name to store a returned value upon success. Leave type argument empty for existing variables.  <br /></td></tr>
-<tr class="separator:a32d11e2b00012c796b0884e823c02a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17f21b72a1de7dd934d3badd23953072" id="r_a17f21b72a1de7dd934d3badd23953072"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a>(var,  expression)</td></tr>
-<tr class="memdesc:a17f21b72a1de7dd934d3badd23953072"><td class="mdescLeft">&#160;</td><td class="mdescRight">If a function returns a TMaybe&lt;V&gt; inside another function which may also return another error use this convenience macro to propagate the failure. Set a local variable to store a returned value upon success.  <br /></td></tr>
-<tr class="separator:a17f21b72a1de7dd934d3badd23953072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa32959b04a99d2f4a56cd141e34a9bd" id="r_afa32959b04a99d2f4a56cd141e34a9bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa32959b04a99d2f4a56cd141e34a9bd">PROPAGATE_FAIL</a>(expression)</td></tr>
-<tr class="memdesc:afa32959b04a99d2f4a56cd141e34a9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">If a function returns an FCanFail inside another function which may also return another error use this convenience macro to propagate the failure. This is only useful with expressions which doesn't return a value upon success.  <br /></td></tr>
-<tr class="separator:afa32959b04a99d2f4a56cd141e34a9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c02656a66375f94124ba473e4bf954d" id="r_a6c02656a66375f94124ba473e4bf954d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c02656a66375f94124ba473e4bf954d">MCRO_PROPAGATE_FAIL_3</a>(type,  var,  expression)</td></tr>
+<tr class="separator:a6c02656a66375f94124ba473e4bf954d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad3f41996d940cc820308ad5b102ae2" id="r_a6ad3f41996d940cc820308ad5b102ae2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ad3f41996d940cc820308ad5b102ae2">MCRO_PROPAGATE_FAIL_2</a>(var,  expression)</td></tr>
+<tr class="separator:a6ad3f41996d940cc820308ad5b102ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b14adae907d6ef76b8ab72f71f09d7d" id="r_a2b14adae907d6ef76b8ab72f71f09d7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b14adae907d6ef76b8ab72f71f09d7d">MCRO_PROPAGATE_FAIL_1</a>(expression)</td></tr>
+<tr class="separator:a2b14adae907d6ef76b8ab72f71f09d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41129ba2fdbe7b114501485451a06227" id="r_a41129ba2fdbe7b114501485451a06227"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41129ba2fdbe7b114501485451a06227">PROPAGATE_FAIL</a>(...)</td></tr>
+<tr class="memdesc:a41129ba2fdbe7b114501485451a06227"><td class="mdescLeft">&#160;</td><td class="mdescRight">If a function returns a TMaybe or an FCanFail inside another function which may also return another error use this convenience macro to propagate the failure.  <br /></td></tr>
+<tr class="separator:a41129ba2fdbe7b114501485451a06227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -222,12 +223,12 @@ Functions</h2></td></tr>
 <div class="line">            -&gt;AsRecoverable()                                           \</div>
 <div class="line">            -&gt;WithCodeContext(<a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(condition))</div>
 <div class="ttc" id="aMacros_8h_html_a4bf69615cef105529a52fd1a06f84704"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a></div><div class="ttdeci">#define PREPROCESSOR_TO_TEXT(x)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00017">Macros.h:17</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1FAssertion_html"><div class="ttname"><a href="../../d2/dc8/classMcro_1_1Error_1_1FAssertion.html">Mcro::Error::FAssertion</a></div><div class="ttdoc">A simple error type for checking booleans. It adds no extra features to IError.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00509">Error.h:509</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1IError_html_ac2ce5e2b8105f57bb6fb0ff948e9c79d"><div class="ttname"><a href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a></div><div class="ttdeci">static TSharedRef&lt; T &gt; Make(T *newError, Args &amp;&amp;... args)</div><div class="ttdoc">To ensure automatic type reflection use IError::Make instead of manually constructing error objects.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00140">Error.h:140</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1FAssertion_html"><div class="ttname"><a href="../../d2/dc8/classMcro_1_1Error_1_1FAssertion.html">Mcro::Error::FAssertion</a></div><div class="ttdoc">A simple error type for checking booleans. It adds no extra features to IError.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00510">Error.h:510</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1IError_html_ac2ce5e2b8105f57bb6fb0ff948e9c79d"><div class="ttname"><a href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a></div><div class="ttdeci">static TSharedRef&lt; T &gt; Make(T *newError, Args &amp;&amp;... args)</div><div class="ttdoc">To ensure automatic type reflection use IError::Make instead of manually constructing error objects.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00141">Error.h:141</a></div></div>
 </div><!-- fragment -->
 <p>Similar to check() macro, but return an error instead of crashing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00624">624</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00625">625</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -259,12 +260,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    UE_CLOG(condition, categoryName, verbosity, TEXT(<span class="stringliteral">&quot;%s&quot;</span>), *((error) \</div>
-<div class="line">        -&gt;WithLocation()                                              \</div>
-<div class="line">        -&gt;ToString()                                                  \</div>
+<b>Value:</b><div class="fragment"><div class="line">    UE_CLOG(condition, categoryName, verbosity, <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;%s&quot;</span>, *((error) \</div>
+<div class="line">        -&gt;WithLocation()                                             \</div>
+<div class="line">        -&gt;ToString()                                                 \</div>
 <div class="line">    ))</div>
+<div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00047">TextMacros.h:47</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00617">617</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00618">618</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -291,46 +293,69 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    UE_LOG(categoryName, verbosity, TEXT(<span class="stringliteral">&quot;%s&quot;</span>), *((error) \</div>
-<div class="line">        -&gt;WithLocation()                                  \</div>
-<div class="line">        -&gt;ToString()                                      \</div>
-<div class="line">    ))</div>
+<b>Value:</b><div class="fragment"><div class="line">    UE_LOG(categoryName, verbosity, <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;%s&quot;</span>, *((error) \</div>
+<div class="line">        -&gt;WithLocation()                                 \</div>
+<div class="line">        -&gt;ToString())                                    \</div>
+<div class="line">    )</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00611">611</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00612">612</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
-<a id="afa32959b04a99d2f4a56cd141e34a9bd" name="afa32959b04a99d2f4a56cd141e34a9bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa32959b04a99d2f4a56cd141e34a9bd">&#9670;&#160;</a></span>PROPAGATE_FAIL</h2>
+<a id="a2b14adae907d6ef76b8ab72f71f09d7d" name="a2b14adae907d6ef76b8ab72f71f09d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b14adae907d6ef76b8ab72f71f09d7d">&#9670;&#160;</a></span>MCRO_PROPAGATE_FAIL_1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PROPAGATE_FAIL</td>
+          <td class="memname">#define MCRO_PROPAGATE_FAIL_1</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>expression</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a>(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)</div>
-<div class="ttc" id="aError_8h_html_a17f21b72a1de7dd934d3badd23953072"><div class="ttname"><a href="#a17f21b72a1de7dd934d3badd23953072">PROPAGATE_FAIL_V</a></div><div class="ttdeci">#define PROPAGATE_FAIL_V(var, expression)</div><div class="ttdoc">If a function returns a TMaybe&lt;V&gt; inside another function which may also return another error use thi...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00653">Error.h:653</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a6ad3f41996d940cc820308ad5b102ae2">MCRO_PROPAGATE_FAIL_2</a>(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)</div>
+<div class="ttc" id="aError_8h_html_a6ad3f41996d940cc820308ad5b102ae2"><div class="ttname"><a href="#a6ad3f41996d940cc820308ad5b102ae2">MCRO_PROPAGATE_FAIL_2</a></div><div class="ttdeci">#define MCRO_PROPAGATE_FAIL_2(var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00643">Error.h:643</a></div></div>
 </div><!-- fragment -->
-<p>If a function returns an FCanFail inside another function which may also return another error use this convenience macro to propagate the failure. This is only useful with expressions which doesn't return a value upon success. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00660">660</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00644">644</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
-<a id="a32d11e2b00012c796b0884e823c02a03" name="a32d11e2b00012c796b0884e823c02a03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32d11e2b00012c796b0884e823c02a03">&#9670;&#160;</a></span>PROPAGATE_FAIL_TV</h2>
+<a id="a6ad3f41996d940cc820308ad5b102ae2" name="a6ad3f41996d940cc820308ad5b102ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad3f41996d940cc820308ad5b102ae2">&#9670;&#160;</a></span>MCRO_PROPAGATE_FAIL_2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PROPAGATE_FAIL_TV</td>
+          <td class="memname">#define MCRO_PROPAGATE_FAIL_2</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>var</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>expression</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a6c02656a66375f94124ba473e4bf954d">MCRO_PROPAGATE_FAIL_3</a>(<span class="keyword">auto</span>, var, expression)</div>
+<div class="ttc" id="aError_8h_html_a6c02656a66375f94124ba473e4bf954d"><div class="ttname"><a href="#a6c02656a66375f94124ba473e4bf954d">MCRO_PROPAGATE_FAIL_3</a></div><div class="ttdeci">#define MCRO_PROPAGATE_FAIL_3(type, var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00638">Error.h:638</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00643">643</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+
+</div>
+</div>
+<a id="a6c02656a66375f94124ba473e4bf954d" name="a6c02656a66375f94124ba473e4bf954d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c02656a66375f94124ba473e4bf954d">&#9670;&#160;</a></span>MCRO_PROPAGATE_FAIL_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_PROPAGATE_FAIL_3</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
         </tr>
@@ -350,36 +375,35 @@ Functions</h2></td></tr>
 <div class="line">    if (UNLIKELY(var.HasError())) return var.GetError() \</div>
 <div class="line">        -&gt;WithLocation()</div>
 </div><!-- fragment -->
-<p>If a function returns a TMaybe inside another function which may also return another error use this convenience macro to propagate the failure. Set a target variable name to store a returned value upon success. Leave type argument empty for existing variables. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00643">643</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00638">638</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
-<a id="a17f21b72a1de7dd934d3badd23953072" name="a17f21b72a1de7dd934d3badd23953072"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17f21b72a1de7dd934d3badd23953072">&#9670;&#160;</a></span>PROPAGATE_FAIL_V</h2>
+<a id="a41129ba2fdbe7b114501485451a06227" name="a41129ba2fdbe7b114501485451a06227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41129ba2fdbe7b114501485451a06227">&#9670;&#160;</a></span>PROPAGATE_FAIL</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PROPAGATE_FAIL_V</td>
+          <td class="memname">#define PROPAGATE_FAIL</td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>var</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...</td><td>)</td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>expression</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a32d11e2b00012c796b0884e823c02a03">PROPAGATE_FAIL_TV</a>(<span class="keyword">auto</span>, var, expression)</div>
-<div class="ttc" id="aError_8h_html_a32d11e2b00012c796b0884e823c02a03"><div class="ttname"><a href="#a32d11e2b00012c796b0884e823c02a03">PROPAGATE_FAIL_TV</a></div><div class="ttdeci">#define PROPAGATE_FAIL_TV(type, var, expression)</div><div class="ttdoc">If a function returns a TMaybe inside another function which may also return another error use this c...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00643">Error.h:643</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="../../df/d0a/Macros_8h.html#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a>(MCRO_PROPAGATE_FAIL_, __VA_ARGS__)</div>
+<div class="ttc" id="aMacros_8h_html_a048e492c8a4074ec4ce7f5438280b98a"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a></div><div class="ttdeci">#define MACRO_OVERLOAD(prefix,...)</div><div class="ttdoc">Implement preprocessor function overloading based on argument count for a set of macros following a d...</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00037">Macros.h:37</a></div></div>
 </div><!-- fragment -->
-<p>If a function returns a TMaybe&lt;V&gt; inside another function which may also return another error use this convenience macro to propagate the failure. Set a local variable to store a returned value upon success. </p>
+<p>If a function returns a TMaybe or an FCanFail inside another function which may also return another error use this convenience macro to propagate the failure. </p>
+<p>The following overloads are available:</p><ul>
+<li><code>(expression)</code> Use this when the value of success is not needed further below. This will create a local variable with an automatically determined name and type</li>
+<li><code>(var, expression)</code> Use this when the value of success will be used further below. The local variable will be created with <code>auto</code></li>
+<li><code>(type, var, expression)</code> Use this when the value of success will be used further below and its local variable should have an explicit type </li>
+</ul>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00653">653</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00659">659</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -400,11 +424,11 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a>(<span class="keyword">new</span> <a class="code hl_class" href="../../d4/d68/classMcro_1_1Error_1_1FUnavailable.html">Mcro::Error::FUnavailable</a>()) \</div>
 <div class="line">        -&gt;WithLocation()                                              \</div>
 <div class="line">        -&gt;AsRecoverable()</div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1FUnavailable_html"><div class="ttname"><a href="../../d4/d68/classMcro_1_1Error_1_1FUnavailable.html">Mcro::Error::FUnavailable</a></div><div class="ttdoc">A simple error type denoting that whatever is being accessed is not available like attempting to acce...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00516">Error.h:517</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1FUnavailable_html"><div class="ttname"><a href="../../d4/d68/classMcro_1_1Error_1_1FUnavailable.html">Mcro::Error::FUnavailable</a></div><div class="ttdoc">A simple error type denoting that whatever is being accessed is not available like attempting to acce...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00517">Error.h:518</a></div></div>
 </div><!-- fragment -->
 <p>Denote that a resource which is asked for doesn't exist. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00632">632</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00633">633</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>

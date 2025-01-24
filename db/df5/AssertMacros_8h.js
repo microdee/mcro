@@ -10,7 +10,6 @@ var AssertMacros_8h =
     [ "MCRO_ASSERT_SUBMIT_ERROR", "db/df5/AssertMacros_8h.html#ae6cf89b0c99dcc164d51b257cd9d2b9f", null ],
     [ "MCRO_CRASH_BODY", "db/df5/AssertMacros_8h.html#a32263d9e9c647c5d5ea838152763967a", null ],
     [ "MCRO_QUIT_BODY", "db/df5/AssertMacros_8h.html#a45682925d9aa5824efc2734bcbab676c", null ],
-    [ "PROPAGATE_FAIL", "db/df5/AssertMacros_8h.html#afa32959b04a99d2f4a56cd141e34a9bd", null ],
     [ "IsRunningPIE", "db/df5/AssertMacros_8h.html#a6db6e981d4e2b0f88f6cf581f7108da8", null ],
     [ "StopPie", "db/df5/AssertMacros_8h.html#a349a28c61b3b1d1ea66d9b0e064b1e2e", null ],
     [ "SubmitError", "db/df5/AssertMacros_8h.html#abc87996d4922b38f5a12a7fb36e830d2", null ]

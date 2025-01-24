@@ -131,7 +131,7 @@ $(function(){initNavTree('d4/dbf/DelegateFrom_8h_source.html','../../'); initRes
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *  @file</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *  Unreal delegates while being great they have the problem that they&#39;re pretty verbose to use, as the usage site</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *  requires the developer to spell out the delegate types when they&#39;re being bound to something. `Mcro::Delegate::From`</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *  requires the developer to spell out the delegate types when they&#39;re being bound to something. `InferDelegate::From`</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *  overloads not only infer delegate types from input function, but they also infer how the delegate is being used.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *  For example take `From(this, &amp;FStuff::MyFunc)` can map to several classic delegate usages depending on the type of</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *  `this`:</span></div>
@@ -142,7 +142,7 @@ $(function(){initNavTree('d4/dbf/DelegateFrom_8h_source.html','../../'); initRes
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *  `From` can also deal with</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> *  - usages of Lambda functions with same API</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> *  - correct delegate type from combination of given function signature and given captures</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> *    - So `From(this, &amp;FStuff::MyFunc, TEXT(&quot;my capture&quot;)` will correctly remove the last argument from the function</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> *    - So `From(this, &amp;FStuff::MyFunc, TEXT_&quot;my capture&quot;)` will correctly remove the last argument from the function</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> *      signature of `FStuff::MyFunc` when inferring the delegate type.</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> *  - Chain multicast delegates together</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span></div>
@@ -151,178 +151,179 @@ $(function(){initNavTree('d4/dbf/DelegateFrom_8h_source.html','../../'); initRes
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d25/FunctionTraits_8h.html">Mcro/FunctionTraits.h</a>&quot;</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d31/Traits_8h.html">Mcro/Delegates/Traits.h</a>&quot;</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d07/Tuples_8h.html">Mcro/Tuples.h</a>&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../db/d81/namespaceMcro_1_1Tuples.html">Mcro::Tuples</a>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     *  Infer a delegate type from an input function signature and a list of captures.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     *  The resulting delegate signature will trim the &quot;Captures&quot; from the input function signature. This is used in</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     *  `From` overloads to allow binding functions with extra arguments to a delegate which has fewer (as the vanilla</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     *  Unreal delegates API allows to do so)</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">template</span> &lt;CFunctionLike Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">   52</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate</a> = TDelegate&lt;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a>&lt;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;Function&gt;</a>,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <a class="code hl_typedef" href="../../db/d81/namespaceMcro_1_1Tuples.html#a716064a36e27fdc4cff9ba3edb38e6d0">TTrimEnd</a>&lt;<span class="keyword">sizeof</span>...(Captures), <span class="keyword">typename</span> TFunction&lt;Function&gt;::Arguments&gt;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            &gt;,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            FDefaultDelegateUserPolicy</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        &gt;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    ;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> *  @brief The extra layer of namespace `InferDelegate` is there for guarding common vocabulary (From) but still</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> *  allowing the developer to use this namespace for a more terse syntax.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html">   42</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html">Mcro::Delegates::InferDelegate</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../db/d81/namespaceMcro_1_1Tuples.html">Mcro::Tuples</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateStatic`</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">template</span> &lt;CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">requires</span> (!CFunction_IsMember&lt;Function&gt;)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">   56</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Function func, Captures&amp;&amp;... captures)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate&lt;Function, Captures...&gt;::CreateStatic</a>(func, Forward&lt;Captures&gt;(captures)...);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    /**</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     *  @brief</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures.</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateStatic`</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateLambda`</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">template</span> &lt;CFunctionLike Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">requires</span> (!CFunction_IsMember&lt;Function&gt;)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">   70</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Function func, Captures&amp;&amp;... captures)</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;::CreateStatic</a>(func, Forward&lt;Captures&gt;(captures)...);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">template</span> &lt;CFunctorObject Function&gt;</div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a46ac7bfa7e2df5a3d46d61927b45f701">   68</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Function&amp;&amp; func)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateLambda(Forward&lt;Function&gt;(func));</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
 </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures.</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateLambda`</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">template</span> &lt;CFunctorObject Function&gt;</div>
-<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ab984846b79ab4046f61615447f521601">   82</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Function&amp;&amp; func)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateLambda(Forward&lt;Function&gt;(func));</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedRef)</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">template</span> &lt;CSharedRef Object, CFunctorObject Function&gt;</div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae7cdfd8c3fcb1aa71b5f28c15c1e494b">   81</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object <span class="keyword">const</span>&amp; self, Function&amp;&amp; func)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateSPLambda(self, Forward&lt;Function&gt;(func));</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedRef)</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">template</span> &lt;CSharedRef Object, CFunctorObject Function&gt;</div>
-<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#acae6aad76a03f5977905b259ec95111a">   95</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object <span class="keyword">const</span>&amp; self, Function&amp;&amp; func)</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateSPLambda(self, Forward&lt;Function&gt;(func));</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedFromThis pointer)</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctorObject Function&gt;</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a7b9c023938bafd10549c0571e09cc698">   94</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object* self, Function&amp;&amp; func)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateSPLambda(self, Forward&lt;Function&gt;(func));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
 </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedFromThis pointer)</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctorObject Function&gt;</div>
-<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a20fe79aee9f0f25935e5d1de110eb801">  108</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object* self, Function&amp;&amp; func)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateSPLambda(self, Forward&lt;Function&gt;(func));</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedFromThis const pointer)</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctorObject Function&gt;</div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a3ce0c234708d1ae1b2df6b16082feca3">  107</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(<span class="keyword">const</span> Object* self, Function&amp;&amp; func)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateSPLambda(self, Forward&lt;Function&gt;(func));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
 </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSPLambda` (TSharedFromThis const pointer)</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctorObject Function&gt;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateRaw` (plain C++ object pointer)</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">template</span> &lt;CPlainClass Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
 <div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f2185c049b80ddb94e04613de3359b2">  121</a></span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">const</span> Object* self, Function&amp;&amp; func)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a17edda606a4114980f60c317637fc599">  121</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateSPLambda(self, Forward&lt;Function&gt;(func));</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate&lt;Function, Captures...&gt;::CreateRaw</a>(self, func, captures...);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
 </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"></span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">    /**</span></div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">     *  @brief</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateWeakLambda` (plain C++ object pointer)</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateRaw` (plain C++ const object pointer)</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">template</span> &lt;CPlainClass Object, CFunctorObject Function&gt;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object* self, Function&amp;&amp; func)</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateWeakLambda(self, Forward&lt;Function&gt;(func));</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateRaw` (plain C++ object pointer)</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">template</span> &lt;CPlainClass Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt; &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5bf78956e3c6604b68d1e4374b4eefb3">  148</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;::CreateRaw</a>(self, func, captures...);</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">template</span> &lt;CPlainClass Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae77b93795852c5bf496f22969ea97962">  135</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(<span class="keyword">const</span> Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate&lt;Function, Captures...&gt;::CreateRaw</a>(self, func, captures...);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
 </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"></span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateRaw` (plain C++ const object pointer)</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keyword">template</span> &lt;CPlainClass Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt; &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="foldopen" id="foldopen00162" data-start="{" data-end="}">
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aab56b2130ede295f2db5a35a8fa1a117">  162</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">const</span> Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    {</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;::CreateRaw</a>(self, func, captures...);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"></span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSP` (TSharedRef)</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keyword">template</span> &lt;CSharedRef Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#af8165bf5ec4aadf17a4de172745cd388">  149</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(<span class="keyword">const</span> Object&amp; self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate&lt;Function, Captures...&gt;::CreateSP</a>(self, func, captures...);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
 </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment"></span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSP` (TSharedRef)</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">template</span> &lt;CSharedRef Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt; &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="foldopen" id="foldopen00176" data-start="{" data-end="}">
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2f2d5a037d1c0a1a891b80557bb7b814">  176</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">const</span> Object&amp; self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    {</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;::CreateSP</a>(self, func, captures...);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
-</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"></span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis pointer)</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt; &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"></span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis pointer)</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate&lt;Function, Captures...&gt;::CreateSP</a>(self, func, captures...);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment"></span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis const pointer)</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(<span class="keyword">const</span> Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateSP(self, func, captures...);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateWeakLambda` (UObject)</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keyword">template</span> &lt;CUObject Object, CFunctorObject Function&gt;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object* self, Function&amp;&amp; func)</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    {</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateSP(self, func, captures...);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordflow">return</span> TDelegate&lt;TFunction_Signature&lt;Function&gt;&gt;::CreateWeakLambda(self, Forward&lt;Function&gt;(func));</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment"></span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">    /**</span></div>
@@ -330,183 +331,164 @@ $(function(){initNavTree('d4/dbf/DelegateFrom_8h_source.html','../../'); initRes
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateSP` (TSharedFromThis const pointer)</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateUObject` (UObject pointer)</span></div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">template</span> &lt;CSharedFromThis Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt; &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">const</span> Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">template</span> &lt;CUObject Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    {</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateSP(self, func, captures...);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateUObject(self, func, captures...);</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    }</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment"></span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="comment"></span></div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">    /**</span></div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">     *  @brief</span></div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateUObject` (UObject pointer)</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateUObject` (UObject const pointer)</span></div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keyword">template</span> &lt;CUObject Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateUObject(self, func, captures...);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    }</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateUObject` (UObject const pointer)</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keyword">template</span> &lt;CUObject Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(<span class="keyword">const</span> Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateUObject(self, func, captures...);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateUObject` (TObjectPtr)</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keyword">template</span> &lt;CUObject Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        &amp;&amp; (!CFunctorObject&lt;Function&gt;)</div>
-<div class="foldopen" id="foldopen00249" data-start="{" data-end="}">
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a6ef696c3bbe9edefb938fd9cb3fd2fe0">  249</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(TObjectPtr&lt;Object&gt; self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">TInferredDelegate&lt;Function, Captures...&gt;::CreateUObject</a>(self, func, captures...);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(<span class="keyword">const</span> Object* self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordflow">return</span> TInferredDelegate&lt;Function, Captures...&gt;::CreateUObject(self, func, captures...);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">     *  Instead of specifying manually a delegate type, infer it from the input function and the extra captures. Also</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">     *  infer the method of object binding based on the type traits of the object argument.</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">     *  This overload is equivalent to `TDelegate::CreateUObject` (TObjectPtr)</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keyword">template</span> &lt;CUObject Object, CFunctionPtr Function, <span class="keyword">typename</span>... Captures&gt;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keyword">requires</span> CFunction_IsMember&lt;Function&gt;</div>
+<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a9cd706fb95db6c69ad55007545f452f4">  232</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a>&lt;Function, Captures...&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(TObjectPtr&lt;Object&gt; self, Function func, <span class="keyword">const</span> Captures&amp;... captures)</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate&lt;Function, Captures...&gt;::CreateUObject</a>(self, func, captures...);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
 </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"></span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">     *  @brief  Broadcast a multicast delegate when the returned delegate is executed.</span></div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment">     *  @param  multicast  input multicast delegate</span></div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment">     *  @todo   Captures... and bound object</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="foldopen" id="foldopen00261" data-start="{" data-end="}">
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2b50e984d5ca9315dace579c915befb6">  261</a></span>    TDelegate&lt;void(Args...)&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(TMulticastDelegate&lt;<span class="keywordtype">void</span>(Args...)&gt;&amp; multicast)</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    {</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>([&amp;](Args... args)</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        {</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            multicast.Broadcast(args...);</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        });</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"></span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">     *  @brief  Broadcast a multicast delegate when the returned delegate is executed.</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">     *  @param  multicast  input multicast delegate</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">     *  @todo   Captures... and bound object</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00244" data-start="{" data-end="}">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ad5ef0d7ca03115024908b26ebe078a61">  244</a></span>    TDelegate&lt;void(Args...)&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(TMulticastDelegate&lt;<span class="keywordtype">void</span>(Args...)&gt;&amp; multicast)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>([&amp;](Args... args)</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            multicast.Broadcast(args...);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        });</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    }</div>
 </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment"></span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">     *  @brief  Broadcast a multicast delegate when the returned delegate is executed with a binding object.</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment">     *  @param  self       any type of binding object other `From` overloads accept</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment">     *  @param  multicast  input multicast delegate</span></div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="comment">     *  @todo  Captures... and bound object</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="foldopen" id="foldopen00277" data-start="{" data-end="}">
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#aad0eab8a0fa4e31ff839d333d0a08757">  277</a></span>    TDelegate&lt;void(Args...)&gt; <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object&amp;&amp; self, TMulticastDelegate&lt;<span class="keywordtype">void</span>(Args...)&gt;&amp; multicast)</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    {</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Forward&lt;Object&gt;(self), [&amp;](Args... args)</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            multicast.Broadcast(args...);</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        });</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment"></span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment">     *  @brief  Broadcast a multicast delegate when the returned delegate is executed with a binding object.</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment">     *  @param  self       any type of binding object other `From` overloads accept</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">     *  @param  multicast  input multicast delegate</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment">     *  @todo  Captures... and bound object</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00260" data-start="{" data-end="}">
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#aa4823430ec92d38292066507836f0198">  260</a></span>    TDelegate&lt;void(Args...)&gt; <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object&amp;&amp; self, TMulticastDelegate&lt;<span class="keywordtype">void</span>(Args...)&gt;&amp; multicast)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Forward&lt;Object&gt;(self), [&amp;](Args... args)</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            multicast.Broadcast(args...);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        });</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    }</div>
 </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="foldopen" id="foldopen00285" data-start="{" data-end="}">
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html">  285</a></span>    <span class="keyword">namespace </span>Detail</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    {</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keyword">template</span> &lt;<a class="code hl_concept" href="../../da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html">CDynamicMulticastDelegate</a> Dynamic, <span class="keywordtype">size_t</span>... ArgIndices&gt;</div>
-<div class="foldopen" id="foldopen00288" data-start="{" data-end="}">
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#a42ad11090c093e571ea5c009a7605d9c">  288</a></span>        <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#a42ad11090c093e571ea5c009a7605d9c">FromDynamicMulticastDelegate</a>(Dynamic&amp; multicast, std::index_sequence&lt;ArgIndices...&gt;&amp;&amp;)</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        {</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>([&amp;](<a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>, ArgIndices&gt;... args)</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            {</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                multicast.Broadcast(args...);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            });</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html">  268</a></span>    <span class="keyword">namespace </span>Detail</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">template</span> &lt;<a class="code hl_concept" href="../../da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html">CDynamicMulticastDelegate</a> Dynamic, <span class="keywordtype">size_t</span>... ArgIndices&gt;</div>
+<div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a2cfede3fe863157d2a9f885415071ec8">  271</a></span>        <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a2cfede3fe863157d2a9f885415071ec8">FromDynamicMulticastDelegate</a>(Dynamic&amp; multicast, std::index_sequence&lt;ArgIndices...&gt;&amp;&amp;)</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>([&amp;](<a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>, ArgIndices&gt;... args)</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                multicast.Broadcast(args...);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            });</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        }</div>
 </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object, <a class="code hl_concept" href="../../da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html">CDynamicMulticastDelegate</a> Dynamic, <span class="keywordtype">size_t</span>... ArgIndices&gt;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object, <a class="code hl_concept" href="../../da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html">CDynamicMulticastDelegate</a> Dynamic, <span class="keywordtype">size_t</span>... ArgIndices&gt;</div>
+<div class="foldopen" id="foldopen00280" data-start="{" data-end="}">
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a707813dde97d70d877bb81a923d987e6">  280</a></span>        <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a2cfede3fe863157d2a9f885415071ec8">FromDynamicMulticastDelegate</a>(Object&amp;&amp; self, Dynamic&amp; multicast, std::index_sequence&lt;ArgIndices...&gt;&amp;&amp;)</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        {</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Forward&lt;Object&gt;(self), [&amp;](<a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>, ArgIndices&gt;... args)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                multicast.Broadcast(args...);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            });</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
+</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    }</div>
+</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment"></span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">     *  @brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">     *  @tparam Dynamic    The type of the input dynamic multicast delegate</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">     *  @param  multicast  input dynamic multicast delegate</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment">     *  @todo   Captures... and bound object</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keyword">template</span> &lt;CDynamicMulticastDelegate Dynamic&gt;</div>
 <div class="foldopen" id="foldopen00297" data-start="{" data-end="}">
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#af7822d9d89ca71d1053fd05a5003652a">  297</a></span>        <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#a42ad11090c093e571ea5c009a7605d9c">FromDynamicMulticastDelegate</a>(Object&amp;&amp; self, Dynamic&amp; multicast, std::index_sequence&lt;ArgIndices...&gt;&amp;&amp;)</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        {</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Forward&lt;Object&gt;(self), [&amp;](<a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>, ArgIndices&gt;... args)</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            {</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>                multicast.Broadcast(args...);</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            });</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        }</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae349d1621f64c492713f601408f04d74">  297</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Dynamic&amp; multicast)</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    {</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a2cfede3fe863157d2a9f885415071ec8">Detail::FromDynamicMulticastDelegate</a>(</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            multicast,</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            std::make_index_sequence&lt;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>&gt;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            &gt;{}</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        );</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
 </div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment"></span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment">     *  @brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">     *  @tparam Dynamic    The type of the input dynamic multicast delegate</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">     *  @param  self       any type of binding object other `From` overloads accept</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">     *  @param  multicast  input dynamic multicast delegate</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment">     *  @todo   Captures... and bound object</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object, CDynamicMulticastDelegate Dynamic&gt;</div>
+<div class="foldopen" id="foldopen00317" data-start="{" data-end="}">
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a45bf26c2130580dfe7cf2a2f0ad31643">  317</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">From</a>(Object&amp;&amp; self, Dynamic&amp; multicast)</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    {</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a2cfede3fe863157d2a9f885415071ec8">Detail::FromDynamicMulticastDelegate</a>(</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            Forward&lt;Object&gt;(self), multicast,</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            std::make_index_sequence&lt;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>                <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>&gt;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            &gt;{}</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        );</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    }</div>
 </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"></span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment">     *  @brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.</span></div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment">     *  @tparam Dynamic    The type of the input dynamic multicast delegate</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment">     *  @param  multicast  input dynamic multicast delegate</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">     *  @todo   Captures... and bound object</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keyword">template</span> &lt;CDynamicMulticastDelegate Dynamic&gt;</div>
-<div class="foldopen" id="foldopen00314" data-start="{" data-end="}">
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a7418f4ca117fed4274fad762a533f29a">  314</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Dynamic&amp; multicast)</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    {</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#a42ad11090c093e571ea5c009a7605d9c">Detail::FromDynamicMulticastDelegate</a>(</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            multicast,</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            std::make_index_sequence&lt;</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>                <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>&gt;</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            &gt;{}</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        );</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    }</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>}</div>
 </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="comment"></span> </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="comment">     *  @brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.</span></div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="comment">     *  @tparam Dynamic    The type of the input dynamic multicast delegate</span></div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="comment">     *  @param  self       any type of binding object other `From` overloads accept</span></div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="comment">     *  @param  multicast  input dynamic multicast delegate</span></div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="comment">     *  @todo   Captures... and bound object</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object, CDynamicMulticastDelegate Dynamic&gt;</div>
-<div class="foldopen" id="foldopen00334" data-start="{" data-end="}">
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a345a5169756b843297dbe3e2e3b0da21">  334</a></span>    <a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">TNative&lt;typename Dynamic::FDelegate&gt;</a> <a class="code hl_function" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">From</a>(Object&amp;&amp; self, Dynamic&amp; multicast)</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    {</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#a42ad11090c093e571ea5c009a7605d9c">Detail::FromDynamicMulticastDelegate</a>(</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            Forward&lt;Object&gt;(self), multicast,</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            std::make_index_sequence&lt;</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>                <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;<a class="code hl_typedef" href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr&lt;Dynamic&gt;</a>&gt;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>            &gt;{}</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        );</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    }</div>
-</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>}</div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="../../d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
 <div class="ttc" id="aTraits_8h_html"><div class="ttname"><a href="../../db/d31/Traits_8h.html">Traits.h</a></div></div>
 <div class="ttc" id="aTuples_8h_html"><div class="ttname"><a href="../../d6/d07/Tuples_8h.html">Tuples.h</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate_html"><div class="ttname"><a href="../../da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html">Mcro::Delegates::CDynamicMulticastDelegate</a></div><div class="ttdoc">Constraint given type to a dynamic multicast delegate class.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00031">Traits.h:31</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_1_1Detail_html_a42ad11090c093e571ea5c009a7605d9c"><div class="ttname"><a href="../../df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html#a42ad11090c093e571ea5c009a7605d9c">Mcro::Delegates::Detail::FromDynamicMulticastDelegate</a></div><div class="ttdeci">TNative&lt; typename Dynamic::FDelegate &gt; FromDynamicMulticastDelegate(Dynamic &amp;multicast, std::index_sequence&lt; ArgIndices... &gt; &amp;&amp;)</div><div class="ttdef"><b>Definition</b> <a href="#l00288">DelegateFrom.h:288</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html">Mcro::Delegates</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d11/AsNative_8h_source.html#l00018">AsNative.h:19</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a2a43b0ef75b82f9104675f810ca8236a"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">Mcro::Delegates::TNative</a></div><div class="ttdeci">typename TNative_Struct&lt; std::decay_t&lt; Dynamic &gt; &gt;::Type TNative</div><div class="ttdoc">Map the input dynamic (multicast) delegate to a conceptually compatible native (multicast) delegate t...</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00091">Traits.h:91</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a5f3cc254801d3d4fb340907c65123cd8"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8">Mcro::Delegates::From</a></div><div class="ttdeci">TInferredDelegate&lt; Function, Captures... &gt; From(Function func, Captures &amp;&amp;... captures)</div><div class="ttdoc">Instead of specifying manually a delegate type, infer it from the input function and the extra captur...</div><div class="ttdef"><b>Definition</b> <a href="#l00070">DelegateFrom.h:70</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a8e614ab9ae4bddac65e99d0c353bb01b"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b">Mcro::Delegates::TInferredDelegate</a></div><div class="ttdeci">TDelegate&lt; TFunctionFromTuple&lt; TFunction_Return&lt; Function &gt;, TTrimEnd&lt; sizeof...(Captures), typename TFunction&lt; Function &gt;::Arguments &gt; &gt;, FDefaultDelegateUserPolicy &gt; TInferredDelegate</div><div class="ttdoc">Infer a delegate type from an input function signature and a list of captures.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">DelegateFrom.h:52</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Delegates_html_ae79c9ec71f5c756d96d75d002b713a43"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">Mcro::Delegates::TDynamicMethodPtr</a></div><div class="ttdeci">typename TDynamicMethodPtr_Struct&lt; std::decay_t&lt; Dynamic &gt; &gt;::Type TDynamicMethodPtr</div><div class="ttdoc">Get the native function pointer type compatible with given dynamic (multicast) delegate.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00053">Traits.h:53</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00019">FunctionTraits.h:20</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdoc">Shorthand for getting a type of a function argument at given position I.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00139">FunctionTraits.h:139</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a3d1efdc66989051df52ae194e6a8ab6a"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">Mcro::FunctionTraits::TFunction_Return</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::Return TFunction_Return</div><div class="ttdoc">Shorthand for getting a function return type.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00151">FunctionTraits.h:151</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a506fd8e26fa2dc6ef87c855f741a36dc"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">Mcro::FunctionTraits::TFunction_ArgCount</a></div><div class="ttdeci">constexpr size_t TFunction_ArgCount</div><div class="ttdoc">Shorthand for getting a function argument count.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00147">FunctionTraits.h:147</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_af19319d3a3e6ffff2cb43b1f5126be41"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#af19319d3a3e6ffff2cb43b1f5126be41">Mcro::FunctionTraits::TFunctionFromTuple</a></div><div class="ttdeci">typename Detail::TFunctionFromTuple_Struct&lt; Return, std::decay_t&lt; Tuple &gt; &gt;::Type TFunctionFromTuple</div><div class="ttdoc">Compose a function type from a tuple of arguments and a return type.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00204">FunctionTraits.h:204</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate_html"><div class="ttname"><a href="../../da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html">Mcro::Delegates::CDynamicMulticastDelegate</a></div><div class="ttdoc">Constraint given type to a dynamic multicast delegate class.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00051">Traits.h:51</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail_html_a2cfede3fe863157d2a9f885415071ec8"><div class="ttname"><a href="../../db/dc9/namespaceMcro_1_1Delegates_1_1InferDelegate_1_1Detail.html#a2cfede3fe863157d2a9f885415071ec8">Mcro::Delegates::InferDelegate::Detail::FromDynamicMulticastDelegate</a></div><div class="ttdeci">TNative&lt; typename Dynamic::FDelegate &gt; FromDynamicMulticastDelegate(Dynamic &amp;multicast, std::index_sequence&lt; ArgIndices... &gt; &amp;&amp;)</div><div class="ttdef"><b>Definition</b> <a href="#l00271">DelegateFrom.h:271</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_1_1InferDelegate_html"><div class="ttname"><a href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html">Mcro::Delegates::InferDelegate</a></div><div class="ttdoc">The extra layer of namespace InferDelegate is there for guarding common vocabulary (From) but still a...</div><div class="ttdef"><b>Definition</b> <a href="#l00042">DelegateFrom.h:43</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_1_1InferDelegate_html_ae76d3762d68c77da68029e23ca2e67e6"><div class="ttname"><a href="../../d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#ae76d3762d68c77da68029e23ca2e67e6">Mcro::Delegates::InferDelegate::From</a></div><div class="ttdeci">TInferredDelegate&lt; Function, Captures... &gt; From(Function func, Captures &amp;&amp;... captures)</div><div class="ttdoc">Instead of specifying manually a delegate type, infer it from the input function and the extra captur...</div><div class="ttdef"><b>Definition</b> <a href="#l00056">DelegateFrom.h:56</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a2a43b0ef75b82f9104675f810ca8236a"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a">Mcro::Delegates::TNative</a></div><div class="ttdeci">typename TNative_Struct&lt; std::decay_t&lt; Dynamic &gt; &gt;::Type TNative</div><div class="ttdoc">Map the input dynamic (multicast) delegate to a conceptually compatible native (multicast) delegate t...</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00111">Traits.h:111</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_a5eb5013a1ba38f60ca21d6850595c204"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204">Mcro::Delegates::TInferredDelegate</a></div><div class="ttdeci">TDelegate&lt; TFunctionFromTuple&lt; TFunction_Return&lt; Function &gt;, TTrimEnd&lt; sizeof...(Captures), TFunction_Arguments&lt; Function &gt; &gt; &gt;, FDefaultDelegateUserPolicy &gt; TInferredDelegate</div><div class="ttdoc">Infer a delegate type from an input function signature and a list of captures.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00033">Traits.h:33</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Delegates_html_ae79c9ec71f5c756d96d75d002b713a43"><div class="ttname"><a href="../../d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43">Mcro::Delegates::TDynamicMethodPtr</a></div><div class="ttdeci">typename TDynamicMethodPtr_Struct&lt; std::decay_t&lt; Dynamic &gt; &gt;::Type TDynamicMethodPtr</div><div class="ttdoc">Get the native function pointer type compatible with given dynamic (multicast) delegate.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d31/Traits_8h_source.html#l00073">Traits.h:73</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00021">FunctionTraits.h:22</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a03c6b0c1fd4799038c4fc4add5242f1d"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">Mcro::FunctionTraits::TFunction_Arg</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::template Arg&lt; I &gt; TFunction_Arg</div><div class="ttdoc">Shorthand for getting a type of a function argument at given position I.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00142">FunctionTraits.h:142</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a506fd8e26fa2dc6ef87c855f741a36dc"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">Mcro::FunctionTraits::TFunction_ArgCount</a></div><div class="ttdeci">constexpr size_t TFunction_ArgCount</div><div class="ttdoc">Shorthand for getting a function argument count.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00150">FunctionTraits.h:150</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Tuples_html"><div class="ttname"><a href="../../db/d81/namespaceMcro_1_1Tuples.html">Mcro::Tuples</a></div><div class="ttdoc">Templating utilities for manipulating TTuples.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d07/Tuples_8h_source.html#l00017">Tuples.h:18</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Tuples_html_a716064a36e27fdc4cff9ba3edb38e6d0"><div class="ttname"><a href="../../db/d81/namespaceMcro_1_1Tuples.html#a716064a36e27fdc4cff9ba3edb38e6d0">Mcro::Tuples::TTrimEnd</a></div><div class="ttdeci">typename TTrimEnd_Struct&lt; Count, Tuple &gt;::Type TTrimEnd</div><div class="ttdoc">Disregard the last Count elements of the input tuple.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d07/Tuples_8h_source.html#l00053">Tuples.h:53</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

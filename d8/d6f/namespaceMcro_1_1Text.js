@@ -1,5 +1,11 @@
 var namespaceMcro_1_1Text =
 [
+    [ "Macros", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html", [
+      [ "FDefer_AsCultureInvariant", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a6634362266cd2a7c4c42dc99f9529b05", null ],
+      [ "FDefer_AsLocalizable_Advanced", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a12307b0f821c5aada75b5288f63f54b2", null ],
+      [ "AsCultureInvariant", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#ad2b0e218a4fe4ca1b70ce8f3c0fdfadb", null ],
+      [ "AsLocalizable_Advanced", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f", null ]
+    ] ],
     [ "CStringView", "d6/ddd/conceptMcro_1_1Text_1_1CStringView.html", null ],
     [ "CStringOrView", "d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html", null ],
     [ "CStringOrViewOrName", "d5/de9/conceptMcro_1_1Text_1_1CStringOrViewOrName.html", null ],

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['class_0',['Class',['../db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4.html#a83dfd66a59d9202d98a3112ed6bae58d',1,'Mcro::FunctionTraits::TFunctionTraits&lt; ReturnIn(ClassIn::*)(Args...) const &gt;::Class'],['../d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html#a066d6490c2b85bfd71034af4a3c62e5b',1,'Mcro::FunctionTraits::TFunctionTraits&lt; ReturnIn(ClassIn::*)(Args...)&gt;::Class']]]
+  ['eventsignature_0',['EventSignature',['../d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html#aa82a5b639356df83579ec8ff707ba11e',1,'Mcro::Delegates::TEventMultiplex&lt; Return(Args...)&gt;']]],
+  ['extraargs_1',['ExtraArgs',['../d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html#a7281ebc9613465484ef61a74701cffb1',1,'Mcro::FunctionTraits::TDeferFunctionArguments']]]
 ];

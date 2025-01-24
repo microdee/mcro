@@ -1,6 +1,6 @@
 var namespaceMcro_1_1Delegates =
 [
-    [ "Detail", "df/d3e/namespaceMcro_1_1Delegates_1_1Detail.html", "df/d3e/namespaceMcro_1_1Delegates_1_1Detail" ],
+    [ "InferDelegate", "d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html", "d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate" ],
     [ "TDynamicMethodPtr_Struct", "d6/d84/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct.html", null ],
     [ "TDynamicMethodPtr_Struct< Dynamic >", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4.html", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4" ],
     [ "TDynamicSignature_Struct", "d9/d42/structMcro_1_1Delegates_1_1TDynamicSignature__Struct.html", null ],
@@ -9,7 +9,6 @@ var namespaceMcro_1_1Delegates =
     [ "TEventDelegate< void(Args...), DefaultInvokeMode >", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4" ],
     [ "TEventMultiplex", "d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html", null ],
     [ "TEventMultiplex< Return(Args...)>", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4" ],
-    [ "TEventMultiplex< void(Args...)>", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4.html", "d8/d13/classMcro_1_1Delegates_1_1TEventMultiplex_3_01void_07Args_8_8_8_08_4" ],
     [ "TNative_Struct", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
     [ "TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4" ],
     [ "TNativeEvent_Struct", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ],
@@ -21,7 +20,7 @@ var namespaceMcro_1_1Delegates =
     [ "TBelatedRetainingEventDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#a2bc627d5f17e3d9d2cd279b92c826d91", null ],
     [ "TDynamicMethodPtr", "d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43", null ],
     [ "TDynamicSignature", "d0/dec/namespaceMcro_1_1Delegates.html#a46933d598dfed18f71d53768945f7ca1", null ],
-    [ "TInferredDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#a8e614ab9ae4bddac65e99d0c353bb01b", null ],
+    [ "TInferredDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204", null ],
     [ "TNative", "d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a", null ],
     [ "TNativeEvent", "d0/dec/namespaceMcro_1_1Delegates.html#a40a24d2c1ef6ce69f341ae398603bfb0", null ],
     [ "TNativeMultiplex", "d0/dec/namespaceMcro_1_1Delegates.html#adc0589d28ce19bdefd30341caa714b54", null ],
@@ -38,18 +37,5 @@ var namespaceMcro_1_1Delegates =
       [ "CopyArguments", "d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77ac31d2d53f1f7933c0a1423ca896c0d7e", null ],
       [ "ThreadSafeEvent", "d0/dec/namespaceMcro_1_1Delegates.html#aab1ceef50a2938ef8abc61f78ff30e77a8bd8517876c0e68d4fd51f2cdfc36284", null ]
     ] ],
-    [ "AsNative", "d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a2f2d5a037d1c0a1a891b80557bb7b814", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a5f2185c049b80ddb94e04613de3359b2", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#aab56b2130ede295f2db5a35a8fa1a117", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a7418f4ca117fed4274fad762a533f29a", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#ab984846b79ab4046f61615447f521601", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a5f3cc254801d3d4fb340907c65123cd8", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a345a5169756b843297dbe3e2e3b0da21", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#aad0eab8a0fa4e31ff839d333d0a08757", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a20fe79aee9f0f25935e5d1de110eb801", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a5bf78956e3c6604b68d1e4374b4eefb3", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#acae6aad76a03f5977905b259ec95111a", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a2b50e984d5ca9315dace579c915befb6", null ],
-    [ "From", "d0/dec/namespaceMcro_1_1Delegates.html#a6ef696c3bbe9edefb938fd9cb3fd2fe0", null ]
+    [ "AsNative", "d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479", null ]
 ];

@@ -19,7 +19,7 @@ var searchData=
   ['shouldcreate_16',['ShouldCreate',['../dc/def/namespaceMcro_1_1Subsystems_1_1Subsystems.html#ab0f8be242e1c7358d7f2728a66b214f0',1,'Mcro::Subsystems::Subsystems']]],
   ['shutdownmodule_17',['ShutdownModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#a30ef23d7a9fc0ee15fd0ef9a9f7d4a31',1,'Mcro::Modules::IObservableModule']]],
   ['signature_18',['Signature',['../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html#a0a7cae2e40a80b8cd2362a7405c41647',1,'Mcro::FunctionTraits::Detail::TFunctionMeta']]],
-  ['slate_20declarative_20syntax_19',['Extending the Slate declarative syntax',['../index.html#autotoc_md16',1,'']]],
+  ['slate_20declarative_20syntax_19',['Extending the Slate declarative syntax',['../index.html#autotoc_md17',1,'']]],
   ['slate_2eh_20',['Slate.h',['../d2/dc0/Slate_8h.html',1,'']]],
   ['slate_5fargument_21',['SLATE_ARGUMENT',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#a4c303fb2d8044dd6f70f4db95289043a',1,'Mcro::Error::SErrorDisplay::SLATE_ARGUMENT()'],['../d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html#ae39d896d2ffa16aa4cc482df959bb040',1,'Mcro::Error::SPlainTextDisplay::SLATE_ARGUMENT()']]],
   ['slate_5fbegin_5fargs_22',['SLATE_BEGIN_ARGS',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#abeea7ce53eb52a98eb467c9f6bdd32f6',1,'Mcro::Error::SErrorDisplay::SLATE_BEGIN_ARGS()'],['../d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html#ae2b82c422628ab2697865b67abf8a051',1,'Mcro::Error::SPlainTextDisplay::SLATE_BEGIN_ARGS()']]],
@@ -41,9 +41,9 @@ var searchData=
   ['subsystems_2eh_38',['Subsystems.h',['../d7/d78/Subsystems_8h.html',1,'']]],
   ['success_39',['Success',['../dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f',1,'Mcro::Error']]],
   ['suffix_20everywhere_40',['What&apos;s up with _Origin suffix everywhere?',['../index.html#autotoc_md6',1,'']]],
-  ['support_41',['ISPC parallel tasks support',['../index.html#autotoc_md18',1,'']]],
+  ['support_41',['ISPC parallel tasks support',['../index.html#autotoc_md19',1,'']]],
   ['suppressed_5fanothererroropen_42',['Suppressed_AnotherErrorOpen',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a16627f35f1898ba8ad2208f07de09802',1,'Mcro::Error::FErrorManager']]],
   ['suppressed_5fcannotdisplaymodalwindow_43',['Suppressed_CannotDisplayModalWindow',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd',1,'Mcro::Error::FErrorManager']]],
-  ['syntax_44',['Extending the Slate declarative syntax',['../index.html#autotoc_md16',1,'']]],
+  ['syntax_44',['Extending the Slate declarative syntax',['../index.html#autotoc_md17',1,'']]],
   ['systemmessage_45',['SystemMessage',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#ad358f292283c5d39736d10b091d5fa92',1,'Mcro::Windows::Error::FLastError::SystemMessage'],['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#aa5d7fad4cbb353d575cd2bb3d56d34e0',1,'Mcro::Windows::Error::FHresultError::SystemMessage']]]
 ];
