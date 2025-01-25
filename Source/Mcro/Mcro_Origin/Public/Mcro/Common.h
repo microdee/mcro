@@ -63,7 +63,12 @@ namespace Mcro::Common
 	namespace With
 	{
 		/** @copydoc Mcro::Delegates::InferDelegate */
-		namespace InferDelegate { using namespace Mcro::Common; using namespace Mcro::Common::InferDelegate; }
-		namespace Literals      { using namespace Mcro::Common; using namespace Mcro::Timespan::Literals; }
+		namespace InferDelegate   { using namespace Mcro::Common; using namespace Mcro::Common::InferDelegate; }
+		
+		/** @copydoc Mcro::Slate::AttributeAppend */
+		namespace AttributeAppend { using namespace Mcro::Common; using namespace Mcro::Slate::AttributeAppend; }
+		
+		/** @copydoc Mcro::Timespan::Literals */
+		namespace Literals        { using namespace Mcro::Common; using namespace Mcro::Timespan::Literals; }
 	}
 }
