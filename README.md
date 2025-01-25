@@ -117,7 +117,12 @@ FCanFail FK4ADevice::Tick_Sync()
 ```Cpp
 FString myVar(TEXT_"Hello world!");
 UE_LOG(LogTemp, Display, TEXT_"%s", *myVar);
-FText myText = INVTEXT_"Even FText macros are there";
+
+          FText myText   = INVTEXT_"Even FText macros are there";        // -> FText
+          auto  myString = STRING_"Typed literals";                      // -> FString
+          auto  myName   = NAME_"FName string literals";                 // -> FName
+constexpr auto  myView   = TEXTVIEW_"String view created in constexpr";  // -> FStringView
+constexpr auto  stdView  = STDVIEW_"TCHAR dependent STL string literal"; // -> std::[w]string_view
 ```
 
 <details><summary>Vanilla:</summary>
@@ -125,7 +130,12 @@ FText myText = INVTEXT_"Even FText macros are there";
 ```Cpp
 FString myVar(TEXT("Hello world!"));
 UE_LOG(LogTemp, Display, TEXT("%s"), *myVar);
-FText myText = INVTEXT("Even FText macros are there");
+
+          FText   myText = INVTEXT("Even FText macros are there");
+          FString myString(TEXT("Typed literals"));
+          FName   myName  (TEXT("FName string literals"));
+constexpr auto    myView = TEXTVIEW("String view created in constexpr"); // -> FStringView
+// there are no vanilla utilities for cross-TCHAR STL string handling
 ```
 
 </details>
@@ -512,11 +522,11 @@ There's a copy of the C++ 20 STL Concepts library in `Mcro::Concepts` namespace 
 
 ### Extending the Slate declarative syntax
 
-`Mcro::Slate` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
+`Mcro::Slate::AttributeAppend` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
 
 ```Cpp
 #include "Mcro/Common";
-using namespace Mcro::Common;
+using namespace Mcro::Common::With::AttributeAppend;
 
 // Define a reusable block of attributes
 auto Text(FString const& text) -> TAttributeBlock<STextBlock>
