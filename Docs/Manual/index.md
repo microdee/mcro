@@ -474,7 +474,7 @@ struct FFoobar : TSharedFromThis<FFoobar>
     void Do()
     {
         MyStuff.Update(1);
-        // -> Changed from -1 to 1[TimespanLiterals.h](../../../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Public/Mcro/TimespanLiterals.h)
+        // -> Changed from -1 to 1
         // -> The first changed value is 1
         MyStuff.Update(2);
         // -> Changed from 1 to 2
