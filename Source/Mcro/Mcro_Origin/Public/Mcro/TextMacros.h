@@ -66,6 +66,42 @@ namespace Mcro::Text::Macros
 	struct FStringFakeLiteralTag {};
 	struct FNameFakeLiteralTag {};
 	struct FStdStringLiteralTag {};
+
+	template <typename... Args>
+	struct TStringPrintfLiteral
+	{
+		using Arguments = TTuple<Args...>;
+		TStringPrintfLiteral(Args&&... args) : Storage(Forward<Args>(args)...) {}
+
+	private:
+		template <size_t CharN, size_t... Sequence>
+		FString Invoke_Impl(const TCHAR(& format)[CharN], std::index_sequence<Sequence...>&&)
+		{
+			return FString::Printf(
+				format,
+				Forward<
+					typename TTupleElement<Sequence, Arguments>::Type
+				>(
+					Storage.template Get<Sequence>()
+				)...
+			);
+		}
+		
+	public:
+		template <size_t CharN>
+		FString Invoke(const TCHAR(& format)[CharN])
+		{
+			return Invoke_Impl(format, std::make_index_sequence<sizeof...(Args)>());
+		}
+
+		Arguments Storage;
+	};
+
+	template <typename... Args>
+	TStringPrintfLiteral<Args...> MakePrintfLiteral(Args&&... args)
+	{
+		return TStringPrintfLiteral<Args...>(Forward<Args>(args)...);
+	}
 }
 
 template <auto FunctionPtr>
@@ -115,17 +151,15 @@ consteval FStringView operator % (Mcro::Text::Macros::FStringViewFakeLiteralTag&
 	return FStringView(str, N);
 }
 
-template <size_t N>
-FString operator % (Mcro::Text::Macros::FStringFakeLiteralTag&&, const TCHAR(& str)[N])
-{
-	return FString::ConstructWithSlack(str, N);
-}
-
-template <size_t N>
-FName operator % (Mcro::Text::Macros::FNameFakeLiteralTag&&, const TCHAR(& str)[N])
-{
-	return FName(N, str);
-}
+/**
+ *	@brief
+ *	A convenience alternative to Unreal's own `TEXTVIEW` macro but this one doesn't require parenthesis around the text
+ *	literal.
+ *
+ *	This operation creates an FStringView in consteval time. This is not a custom string literal because they're not
+ *	available for concatenated groups of string literals of mixed encodings.
+ */
+#define TEXTVIEW_ Mcro::Text::Macros::FStringViewFakeLiteralTag() % TEXT_
 
 #if PLATFORM_TCHAR_IS_UTF8CHAR
 template <size_t N>
@@ -144,22 +178,18 @@ consteval std::wstring_view operator % (Mcro::Text::Macros::FStdStringLiteralTag
 /**
  *	@brief
  *	A convenience alternative to Unreal's own `TEXTVIEW` macro but this one doesn't require parenthesis around the text
- *	literal.
- *
- *	This operation creates an FStringView in consteval time. This is not a custom string literal because they're not
- *	available for concatenated groups of string literals of mixed encodings.
- */
-#define TEXTVIEW_ Mcro::Text::Macros::FStringViewFakeLiteralTag() % TEXT_
-
-/**
- *	@brief
- *	A convenience alternative to Unreal's own `TEXTVIEW` macro but this one doesn't require parenthesis around the text
  *	literal and it returns an STL string view.
  *
  *	This operation creates a `std::[w]string_view` in consteval time. This is not a custom string literal because
  *	they're not available for concatenated groups of string literals of mixed encodings.
  */
 #define STDVIEW_ Mcro::Text::Macros::FStdStringLiteralTag() % TEXT_
+
+template <size_t N>
+FString operator % (Mcro::Text::Macros::FStringFakeLiteralTag&&, const TCHAR(& str)[N])
+{
+	return FString::ConstructWithSlack(str, N);
+}
 
 /**
  *	@brief
@@ -170,6 +200,12 @@ consteval std::wstring_view operator % (Mcro::Text::Macros::FStdStringLiteralTag
  */
 #define STRING_ Mcro::Text::Macros::FStringFakeLiteralTag() % TEXT_
 
+template <size_t N>
+FName operator % (Mcro::Text::Macros::FNameFakeLiteralTag&&, const TCHAR(& str)[N])
+{
+	return FName(N, str);
+}
+
 /**
  *	@brief
  *	A convenience macro to allocate an FName directly. 
@@ -178,3 +214,47 @@ consteval std::wstring_view operator % (Mcro::Text::Macros::FStdStringLiteralTag
  *	they're not available for concatenated groups of string literals of mixed encodings.
  */
 #define NAME_ Mcro::Text::Macros::FNameFakeLiteralTag() % TEXT_
+
+template <typename... Args, size_t N>
+FString operator % (const TCHAR(& format)[N], Mcro::Text::Macros::TStringPrintfLiteral<Args...>&& tag)
+{
+	return tag.Invoke(format);
+}
+
+/**
+ *	@brief
+ *	Trailing fake text literal which shortens down the `FString::Printf(TEXT("..."), ...);` expression.
+ *
+ *	Usage:
+ *	@code
+ *	int count, FString type;
+ *	TEXT_"My format literal with %d and %s" _PRINTF(count, type);
+ *	//                                     ^ this space is important
+ *	@endcode
+ *
+ *	This operation runs `FString::Printf` in runtime and allocates a struct which stores the format arguments
+ *	(preserving CV-ref qualifiers).
+ */
+#define _PRINTF(...) % Mcro::Text::Macros::MakePrintfLiteral(__VA_ARGS__)
+
+template <typename... Args, size_t N>
+FString operator % (Mcro::Text::Macros::TStringPrintfLiteral<Args...>&& tag, const TCHAR(& format)[N])
+{
+	return tag.Invoke(format);
+}
+
+/**
+ *	@brief
+ *	Leading fake text literal which shortens down the `FString::Printf(TEXT("..."), ...);` expression.
+ *
+ *	Usage:
+ *	@code
+ *	int count, FString type;
+ *	PRINTF_(count, type) "My format literal with %d and %s";
+ *	//                  ^ this space is optional
+ *	@endcode
+ *
+ *	This operation runs `FString::Printf` in runtime and allocates a struct which stores the format arguments
+ *	(preserving CV-ref qualifiers).
+ */
+#define PRINTF_(...) Mcro::Text::Macros::MakePrintfLiteral(__VA_ARGS__) % TEXT_
