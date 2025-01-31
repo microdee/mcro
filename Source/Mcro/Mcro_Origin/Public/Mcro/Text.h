@@ -88,6 +88,68 @@ namespace Mcro::Text
 		);
 	}
 
-	/** Copy of FString::PrintfImpl but not private so it can work with strings which were not literals */
+	/** @brief Copy of FString::PrintfImpl but not private so it can work with strings which were not literals */
 	MCRO_API FString DynamicPrintf(const TCHAR* fmt, ...);
+
+	template <typename T>
+	concept CDirectStringFormatArgument = CConvertibleTo<T, FStringFormatArg>;
+
+	template <typename T>
+	concept CHasToString = !CDirectStringFormatArgument && requires(T&& t)
+	{
+		{ t.ToString() } -> CDirectStringFormatArgument;
+	};
+
+	struct FStringFormatArgumentTag {};
+
+	template <typename T>
+	concept CHasStringFormatArgumentConversion = !CDirectStringFormatArgument && requires(T&& t)
+	{
+		{ t % FStringFormatArgumentTag() } -> CDirectStringFormatArgument;
+	};
+
+	template <typename T>
+	concept CStringFormatArgument = CDirectStringFormatArgument<T>
+		|| CHasToString<T>
+		|| CHasStringFormatArgumentConversion<T>
+	;
+	
+	template <CDirectStringFormatArgument Operand>
+	Operand operator % (Operand&& left, FStringFormatArgumentTag&&)
+	{
+		return left;
+	}
+
+	template <CHasToString Operand>
+	auto operator % (Operand&& left, FStringFormatArgumentTag&&)
+	{
+		return left.ToString();
+	}
+
+	template <typename StdChar>
+	const StdChar* operator % (std::basic_string<StdChar> left, FStringFormatArgumentTag&&)
+	{
+		return left.c_str();
+	}
+
+	template <CStdStringOrView Operand>
+	FStringView operator % (Operand&& left, FStringFormatArgumentTag&&)
+	{
+		return UnrealView(left);
+	}
+
+	template <CStringFormatArgument... Args>
+	FStringFormatOrderedArguments OrderedArguments(Args&&... args)
+	{
+		return FStringFormatOrderedArguments { FStringFormatArg(args % FStringFormatArgumentTag()) ... };
+	}
+
+	template <CStringFormatArgument... Args>
+	FStringFormatNamedArguments NamedArguments(TTuple<FString, Args>... args)
+	{
+		return FStringFormatNamedArguments {
+			{ args.template Get<0>(), FStringFormatArg(args.template Get<1>() % FStringFormatArgumentTag()) }
+			...
+		};
+	}
 }
