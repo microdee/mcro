@@ -54,7 +54,7 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
 
 #define MCRO_FMT_ORDERED(...) Mcro::Text::OrderedArguments(__VA_ARGS__)
 #define MCRO_FMT_NAMED_ARG_INVOKE(pair) MCRO_FMT_NAMED_ARG ## pair
-#define MCRO_FMT_NAMED_ARG(key, value) MakeTuple(FString(TEXT(key)), value)
+#define MCRO_FMT_NAMED_ARG(key, value) MakeTuple(FString(TEXT(#key)), value)
 #define MCRO_FMT_NAMED(...) Mcro::Text::NamedArguments(FOR_EACH_VA_ARGS(MCRO_FMT_NAMED_ARG_INVOKE, __VA_ARGS__));
 
 #define MCRO_FMT_ARGS(first, ...) \
@@ -79,7 +79,7 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	FString ordered = FMT_(format, num) "Hi {0}, your number is {1}";
  *	// -> "Hi PF_Unknown, your number is 42"
  *	
- *	FString named = FMT_(("Type", format), ("Count", num)) "Hi {Type}, your number is {Count}";
+ *	FString named = FMT_((Type, format), (Count, num)) "Hi {Type}, your number is {Count}";
  *	// -> "Hi PF_Unknown, your number is 42"
  *	@endcode
  *
@@ -109,8 +109,8 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *
  *	// Named arguments look better with multiple lines on this version
  *	FString named = TEXT_"Hi {Type}, your number is {Count}" _FMT(
- *		("Type", format),                                // ^ this space is important
- *		("Count", num)
+ *		(Type, format),                                  // ^ this space is important
+ *		(Count, num)
  *	);
  *	// -> "Hi PF_Unknown, your number is 42"
  *	@endcode
