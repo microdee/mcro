@@ -41,6 +41,7 @@
 #include "Mcro/Subsystems.h"
 #include "Mcro/TimespanLiterals.h"
 #include "Mcro/UObjects/Init.h"
+#include "Mcro/UObjects/ScopeObject.h"
 #include "Mcro/Yaml.h"
 
 /** @brief Use this namespace for all the common features MCRO has to offer */
