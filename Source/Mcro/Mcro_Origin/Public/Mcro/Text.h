@@ -135,7 +135,7 @@ namespace Mcro::Text
 	template <CStdStringOrViewInvariant T>
 	FString UnrealConvert(T const& stdStr)
 	{
-		return HighLevelStringCast<typename T::value_type, TCHAR>(
+		return Detail::HighLevelStringCast<typename T::value_type, TCHAR>(
 			stdStr,
 			[&] { return stdStr.data(); },
 			[&] { return stdStr.length(); },
@@ -151,7 +151,7 @@ namespace Mcro::Text
 	template <CStdStringOrViewInvariant T>
 	FName UnrealNameConvert(T const& stdStr)
 	{
-		return HighLevelStringCast<typename T::value_type, TCHAR>(
+		return Detail::HighLevelStringCast<typename T::value_type, TCHAR>(
 			stdStr,
 			[&] { return stdStr.data(); },
 			[&] { return stdStr.length(); },

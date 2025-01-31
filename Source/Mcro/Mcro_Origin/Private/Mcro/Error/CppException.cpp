@@ -20,7 +20,7 @@ namespace Mcro::Error
 	FCppException::FCppException(std::exception const& input)
 		: BaseException(input)
 	{
-		Message = UnrealConvert(input.what());
+		Message = input.what();
 	}
 
 	TSharedRef<SErrorDisplay> FCppException::CreateErrorWidget()

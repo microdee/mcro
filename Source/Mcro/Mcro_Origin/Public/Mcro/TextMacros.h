@@ -59,13 +59,57 @@ namespace Mcro::Text::Macros
 	{
 		return FText::AsLocalizable_Advanced(Namespace, Key, String);
 	}
-	using FDefer_AsLocalizable_Advanced = TDeferFunctionArguments<&AsLocalizable_Advanced>;
+	struct FDefer_AsLocalizable_Advanced : TDeferFunctionArguments<&AsLocalizable_Advanced>
+	{
+		FORCEINLINE FText operator % (const TCHAR* literal)
+		{
+			return (*this)(literal);
+		}
+	};
 
-	struct FInvTextFakeLiteralTag {};
-	struct FStringViewFakeLiteralTag {};
-	struct FStringFakeLiteralTag {};
-	struct FNameFakeLiteralTag {};
-	struct FStdStringLiteralTag {};
+	struct FInvTextFakeLiteralTag
+	{
+		FORCEINLINE FText operator % (const TCHAR* str) const
+		{
+			return FText::AsCultureInvariant(str);
+		}
+	};
+	
+	struct FStringViewFakeLiteralTag
+	{
+		template <size_t N>
+		consteval FStringView operator % (const TCHAR(& str)[N]) const
+		{
+			return FStringView(str, N);
+		}
+	};
+	
+	struct FStringFakeLiteralTag
+	{
+		template <size_t N>
+		FString operator % (const TCHAR(& str)[N]) const
+		{
+			return FString::ConstructFromPtrSize(str, N);
+		}
+	};
+	
+	struct FNameFakeLiteralTag
+	{
+		template <size_t N>
+		FName operator % (const TCHAR(& str)[N]) const
+		{
+			return FName(N, str);
+		}
+	};
+	
+	struct FStdStringLiteralTag
+	{
+		template <size_t N>
+		consteval std::basic_string_view<TCHAR> operator % (const TCHAR(& str)[N]) const
+		{
+			return std::basic_string_view<TCHAR>(str, N);
+		}
+	};
 
 	template <typename... Args>
 	struct TStringPrintfLiteral
@@ -94,6 +138,18 @@ namespace Mcro::Text::Macros
 			return Invoke_Impl(format, std::make_index_sequence<sizeof...(Args)>());
 		}
 
+		template <size_t N>
+		friend FString operator % (const TCHAR(& format)[N], TStringPrintfLiteral&& tag)
+		{
+			return tag.Invoke(format);
+		}
+
+		template <size_t N>
+		friend FString operator % (TStringPrintfLiteral&& tag, const TCHAR(& format)[N])
+		{
+			return tag.Invoke(format);
+		}
+
 		Arguments Storage;
 	};
 
@@ -102,12 +158,6 @@ namespace Mcro::Text::Macros
 	{
 		return TStringPrintfLiteral<Args...>(Forward<Args>(args)...);
 	}
-}
-
-template <auto FunctionPtr>
-auto operator % (Mcro::FunctionTraits::TDeferFunctionArguments<FunctionPtr>&& deferrer, const TCHAR* literal)
-{
-	return deferrer(literal);
 }
 
 /**
@@ -130,11 +180,6 @@ auto operator % (Mcro::FunctionTraits::TDeferFunctionArguments<FunctionPtr>&& de
 #define NSLOCTEXT_(ns, key) \
 	Mcro::Text::Macros::FDefer_AsLocalizable_Advanced(TEXT(ns), TEXT(key)) % TEXT_
 
-FORCEINLINE FText operator % (Mcro::Text::Macros::FInvTextFakeLiteralTag&&, const TCHAR* str)
-{
-	return FText::AsCultureInvariant(str);
-}
-
 /**
  *	@brief
  *	A convenience alternative to Unreal's own `INVTEXT` macro but this one doesn't require parenthesis around the text
@@ -144,12 +189,6 @@ FORCEINLINE FText operator % (Mcro::Text::Macros::FInvTextFakeLiteralTag&&, cons
  */
 #define INVTEXT_ \
 	Mcro::Text::Macros::FInvTextFakeLiteralTag() % TEXT_
-
-template <size_t N>
-consteval FStringView operator % (Mcro::Text::Macros::FStringViewFakeLiteralTag&&, const TCHAR(& str)[N])
-{
-	return FStringView(str, N);
-}
 
 /**
  *	@brief
@@ -161,20 +200,6 @@ consteval FStringView operator % (Mcro::Text::Macros::FStringViewFakeLiteralTag&
  */
 #define TEXTVIEW_ Mcro::Text::Macros::FStringViewFakeLiteralTag() % TEXT_
 
-#if PLATFORM_TCHAR_IS_UTF8CHAR
-template <size_t N>
-consteval std::string_view operator % (Mcro::Text::Macros::FStdStringLiteralTag&&, const TCHAR(& str)[N])
-{
-	return std::string_view(str, N);
-}
-#else
-template <size_t N>
-consteval std::wstring_view operator % (Mcro::Text::Macros::FStdStringLiteralTag&&, const TCHAR(& str)[N])
-{
-	return std::wstring_view(str, N);
-}
-#endif
-
 /**
  *	@brief
  *	A convenience alternative to Unreal's own `TEXTVIEW` macro but this one doesn't require parenthesis around the text
@@ -185,12 +210,6 @@ consteval std::wstring_view operator % (Mcro::Text::Macros::FStdStringLiteralTag
  */
 #define STDVIEW_ Mcro::Text::Macros::FStdStringLiteralTag() % TEXT_
 
-template <size_t N>
-FString operator % (Mcro::Text::Macros::FStringFakeLiteralTag&&, const TCHAR(& str)[N])
-{
-	return FString::ConstructFromPtrSize(str, N);
-}
-
 /**
  *	@brief
  *	A convenience macro to allocate an FString directly. 
@@ -200,12 +219,6 @@ FString operator % (Mcro::Text::Macros::FStringFakeLiteralTag&&, const TCHAR(& s
  */
 #define STRING_ Mcro::Text::Macros::FStringFakeLiteralTag() % TEXT_
 
-template <size_t N>
-FName operator % (Mcro::Text::Macros::FNameFakeLiteralTag&&, const TCHAR(& str)[N])
-{
-	return FName(N, str);
-}
-
 /**
  *	@brief
  *	A convenience macro to allocate an FName directly. 
@@ -214,12 +227,6 @@ FName operator % (Mcro::Text::Macros::FNameFakeLiteralTag&&, const TCHAR(& str)[
  *	they're not available for concatenated groups of string literals of mixed encodings.
  */
 #define NAME_ Mcro::Text::Macros::FNameFakeLiteralTag() % TEXT_
-
-template <typename... Args, size_t N>
-FString operator % (const TCHAR(& format)[N], Mcro::Text::Macros::TStringPrintfLiteral<Args...>&& tag)
-{
-	return tag.Invoke(format);
-}
 
 /**
  *	@brief
@@ -236,12 +243,6 @@ FString operator % (const TCHAR(& format)[N], Mcro::Text::Macros::TStringPrintfL
  *	(preserving CV-ref qualifiers).
  */
 #define _PRINTF(...) % Mcro::Text::Macros::MakePrintfLiteral(__VA_ARGS__)
-
-template <typename... Args, size_t N>
-FString operator % (Mcro::Text::Macros::TStringPrintfLiteral<Args...>&& tag, const TCHAR(& format)[N])
-{
-	return tag.Invoke(format);
-}
 
 /**
  *	@brief
