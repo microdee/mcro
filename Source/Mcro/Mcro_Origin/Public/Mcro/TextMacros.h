@@ -188,7 +188,7 @@ consteval std::wstring_view operator % (Mcro::Text::Macros::FStdStringLiteralTag
 template <size_t N>
 FString operator % (Mcro::Text::Macros::FStringFakeLiteralTag&&, const TCHAR(& str)[N])
 {
-	return FString::ConstructWithSlack(str, N);
+	return FString::ConstructFromPtrSize(str, N);
 }
 
 /**
