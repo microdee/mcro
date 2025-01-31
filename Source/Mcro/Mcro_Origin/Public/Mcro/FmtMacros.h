@@ -57,10 +57,10 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
 #define MCRO_FMT_NAMED_ARG(key, value) MakeTuple(FString(TEXT(#key)), value)
 #define MCRO_FMT_NAMED(...) Mcro::Text::NamedArguments(FOR_EACH_VA_ARGS(MCRO_FMT_NAMED_ARG_INVOKE, __VA_ARGS__));
 
-#define MCRO_FMT_ARGS(first, ...) \
-	PREPROCESSOR_IF(HAS_PARENTHESIS(first), \
-		MCRO_FMT_NAMED(first, __VA_ARGS__), \
-		MCRO_FMT_ORDERED(first, __VA_ARGS__) \
+#define MCRO_FMT_ARGS(...) \
+	PREPROCESSOR_IF(FIRST_HAS_PARENTHESIS(__VA_ARGS__), \
+		MCRO_FMT_NAMED(__VA_ARGS__), \
+		MCRO_FMT_ORDERED(__VA_ARGS__) \
 	)
 
 /**

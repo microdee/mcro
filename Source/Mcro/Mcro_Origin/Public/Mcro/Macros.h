@@ -45,6 +45,9 @@
 /** @brief returns 1 if given argument is wrapped in parenthesis, returns 0 otherwise */
 #define HAS_PARENTHESIS(a) MCRO_HAS_PARENTHESIS_DECIDE(PREPROCESSOR_JOIN(MCRO_HAS_PARENTHESIS_PASS, a))
 
+/** @brief returns 1 if the first argument is wrapped in parenthesis, returns 0 otherwise */
+#define FIRST_HAS_PARENTHESIS(first, ...) MCRO_HAS_PARENTHESIS_DECIDE(PREPROCESSOR_JOIN(MCRO_HAS_PARENTHESIS_PASS, first))
+
 #define MCRO_FOR_EACH_VA_ARGS_1(transform, first)       transform(first)
 #define MCRO_FOR_EACH_VA_ARGS_2(transform, first, ...)  transform(first), MCRO_FOR_EACH_VA_ARGS_1(transform, __VA_ARGS__)
 #define MCRO_FOR_EACH_VA_ARGS_3(transform, first, ...)  transform(first), MCRO_FOR_EACH_VA_ARGS_2(transform, __VA_ARGS__)
