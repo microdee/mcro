@@ -52,25 +52,41 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
 	return FString::Format(format, args);
 }
 
-#define MCRO_FMT_ORDERED(...) Mcro::Text::OrderedArguments(__VA_ARGS__)
-#define MCRO_FMT_NAMED_ARG_INVOKE(pair) MCRO_FMT_NAMED_ARG ## pair
+#define MCRO_FMT_NAMED_ARG_TRANSFORM(s, data, elem) BOOST_PP_EXPAND(MCRO_FMT_NAMED_ARG elem)
 #define MCRO_FMT_NAMED_ARG(key, value) MakeTuple(FString(TEXT(#key)), value)
-#define MCRO_FMT_NAMED(...) Mcro::Text::NamedArguments(FOR_EACH_VA_ARGS(MCRO_FMT_NAMED_ARG_INVOKE, __VA_ARGS__));
 
-#define MCRO_FMT_ARGS(...) \
-	PREPROCESSOR_IF(FIRST_HAS_PARENTHESIS(__VA_ARGS__), \
-		MCRO_FMT_NAMED(__VA_ARGS__), \
-		MCRO_FMT_ORDERED(__VA_ARGS__) \
-	)
+#define MCRO_FMT_NAMED(seq)                     \
+	BOOST_PP_IIF(BOOST_PP_IS_BEGIN_PARENS(seq), \
+		MCRO_FMT_NAMED_0,                       \
+		BOOST_PP_IDENTITY_N(, 1)                \
+	)(seq)                                     //
+
+#define MCRO_FMT_NAMED_0(seq)                     \
+	Mcro::Text::NamedArguments(                   \
+		BOOST_PP_SEQ_ENUM(                        \
+			BOOST_PP_SEQ_TRANSFORM(               \
+				MCRO_FMT_NAMED_ARG_TRANSFORM, ,   \
+				BOOST_PP_VARIADIC_SEQ_TO_SEQ(seq) \
+			)                                     \
+		)                                         \
+	)                                            //
+
+#define MCRO_FMT_ORDERED(...) Mcro::Text::OrderedArguments(__VA_ARGS__)
+
+#define MCRO_FMT_ARGS(...)                                      \
+	BOOST_PP_IIF(BOOST_PP_IS_BEGIN_PARENS(__VA_ARGS__),         \
+		MCRO_FMT_NAMED(BOOST_PP_VARIADIC_ELEM(0, __VA_ARGS__)), \
+		MCRO_FMT_ORDERED(__VA_ARGS__)                           \
+	)                                                          //
 
 /**
  *	@brief
  *	Leading fake text literal which makes using `FString::Format(...);` much more comfortable.
  *
  *	`FMT` macros allow more types to be used directly in the format arguments expression because `Mcro::Text` has
- *	couple of conversion utilities. If the first argument of `FMT_` is a `("key", value)` pair enclosed in parenthesis,
- *	then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two modes cannot be
- *	mixed.
+ *	couple of conversion utilities. If the first argument of `FMT_` is a sequence of `("key", value)` pairs enclosed
+ *	in parenthesis, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two
+ *	modes cannot be mixed.
  *
  *	Usage:
  *	@code
@@ -78,8 +94,10 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	
  *	FString ordered = FMT_(format, num) "Hi {0}, your number is {1}";
  *	// -> "Hi PF_Unknown, your number is 42"
- *	
- *	FString named = FMT_((Type, format), (Count, num)) "Hi {Type}, your number is {Count}";
+ *
+ *	//                                 | Notice the lack of comma here
+ *	//                                 V  
+ *	FString named = FMT_((Type, format) (Count, num)) "Hi {Type}, your number is {Count}";
  *	// -> "Hi PF_Unknown, your number is 42"
  *	@endcode
  *
@@ -88,6 +106,15 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	and return a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example
  *	check `Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
  *	method to get automatic support.
+ *
+ *	@warning
+ *	The **named arguments** overload (`FMT_((A, a) (B, b) (C, c))`) must not have comma `,` between the individual
+ *	pairs. This is because named argument pairs are passed into this macro as a "sequence" instead of variadic arguments.
+ *	Ordered format arguments however should be passed in as regular variadic arguments separated by comma `,` as
+ *	nature intended.
+ *
+ *	@note
+ *	`FMT` macros are the only things in MCRO where excessive preprocessing is used
  */
 #define FMT_(...) MCRO_FMT_ARGS(__VA_ARGS__) % TEXT_
 
@@ -96,9 +123,9 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	Trailing fake text literal which makes using `FString::Format(...);` much more comfortable.
  *
  *	`FMT` macros allow more types to be used directly in the format arguments expression because `Mcro::Text` has
- *	couple of conversion utilities. If the first argument of `_FMT` is a `("key", value)` pair enclosed in parenthesis,
- *	then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two modes cannot be
- *	mixed.
+ *	couple of conversion utilities. If the first argument of `_FMT` is a sequence of `("key", value)` pairs enclosed
+ *	in parenthesis, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two
+ *	modes cannot be mixed.
  *
  *	Usage:
  *	@code
@@ -109,7 +136,7 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *
  *	// Named arguments look better with multiple lines on this version
  *	FString named = TEXT_"Hi {Type}, your number is {Count}" _FMT(
- *		(Type, format),                                  // ^ this space is important
+ *		(Type, format) // <- Notice the lack of comma here  ^ this space is important
  *		(Count, num)
  *	);
  *	// -> "Hi PF_Unknown, your number is 42"
@@ -120,5 +147,14 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	and return a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example
  *	check `Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
  *	method to get automatic support.
+ *
+ *	@warning
+ *	The **named arguments** overload (`_FMT((A, a) (B, b) (C, c))`) must not have comma `,` between the individual
+ *	pairs. This is because named argument pairs are passed into this macro as a "sequence" instead of variadic arguments.
+ *	Ordered format arguments however should be passed in as regular variadic arguments separated by comma `,` as
+ *	nature intended.
+ *
+ *	@note
+ *	`FMT` macros are the only things in MCRO where excessive preprocessing is used
  */
 #define _FMT(...) % MCRO_FMT_ARGS(__VA_ARGS__)
