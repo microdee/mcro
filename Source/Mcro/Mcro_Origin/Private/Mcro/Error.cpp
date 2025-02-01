@@ -17,6 +17,7 @@
 #include "Mcro/Error/BlueprintStackTrace.h"
 #include "Mcro/Text.h"
 #include "Mcro/Enums.h"
+#include "Mcro/FmtMacros.h"
 #include "Mcro/Yaml.h"
 #include <sstream>
 
@@ -58,7 +59,7 @@ namespace Mcro::Error
 		for (int i = 1; i <= 100 && InnerErrors.Contains(keyUnique); ++i)
 		{
 			check(i < 100);
-			keyUnique = FString::Printf(TEXT_"%s %d", *key, i);
+			keyUnique = FMT_(key, i) "{0} {1}";
 		}
 		InnerErrors[keyUnique] = error;
 	}
@@ -132,10 +133,10 @@ namespace Mcro::Error
 		TArray<FString> result;
 		Algo::Transform(ErrorPropagation, result, [&](std::source_location const& at)
 		{
-			return FString::Printf(TEXT_"%s @ %s : %d",
-				ANSI_TO_TCHAR(at.function_name()),
-				ANSI_TO_TCHAR(at.file_name()),
-				at.line()
+			return TEXT_"{Function} @ {File} : {Line}" _FMT(
+				(Function, at.function_name())
+				(File,     at.file_name())
+				(Line,     at.line())
 			);
 		});
 		return result;

@@ -225,9 +225,9 @@ namespace Mcro::Text
 
 	/** @brief A type which which provides a `ToString()` member method */
 	template <typename T>
-	concept CHasToString = !CDirectStringFormatArgument<T> && requires(T&& t)
+	concept CHasToString = !CDirectStringFormatArgument<T> && requires(T t)
 	{
-		{ t.ToString() } -> CDirectStringFormatArgument<T>;
+		{ t.ToString() } -> CDirectStringFormatArgument;
 	};
 
 	/** @brief An empty tag struct used to extend rigid types to be convertible to FStringFormatArg */
@@ -237,7 +237,7 @@ namespace Mcro::Text
 	template <typename T>
 	concept CHasStringFormatArgumentConversion = !CDirectStringFormatArgument<T> && requires(T&& t)
 	{
-		{ t % FStringFormatArgumentTag() } -> CDirectStringFormatArgument<T>;
+		{ t % FStringFormatArgumentTag() } -> CDirectStringFormatArgument;
 	};
 
 	/** @brief A type which can be converted to FStringFormatArg via any method. */
@@ -259,8 +259,8 @@ namespace Mcro::Text
 		return left.ToString();
 	}
 
-	template <typename StdChar>
-	const StdChar* operator % (std::basic_string<StdChar> left, FStringFormatArgumentTag&&)
+	template <typename CharType>
+	const CharType* operator % (std::basic_string<CharType> const& left, FStringFormatArgumentTag&&)
 	{
 		return left.c_str();
 	}

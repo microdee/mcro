@@ -22,7 +22,7 @@ struct FFunctionTestType
 
 	FString MemberMethodReturns(bool boolean, TCHAR character) const
 	{
-		return FString::Printf(TEXT_"boolean %d character %c", boolean, character);
+		return TEXT_"boolean %d character %c" _PRINTF(boolean, character);
 	}
 };
 
