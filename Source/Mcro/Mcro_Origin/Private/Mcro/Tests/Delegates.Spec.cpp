@@ -58,15 +58,15 @@ template <typename BaseType>
 class TTestNativeObject : public BaseType
 {
 public:
-	int32 MemberFuncTest(TArray<FString>& results, const TCHAR* append) const
+	int32 MemberFuncTest(TArray<FString>& results, FStringView append) const
 	{
-		results.Add(TEXT_"From member function: " + FString(append));
+		results.Add(TEXT_"From member function: {0}" _FMT(append));
 		return results.Num();
 	}
 	
 	FTestDelegateWithArray GetTestMember() const
 	{
-		return From(this, &TTestNativeObject::MemberFuncTest, TEXT_"Capture");
+		return From(this, &TTestNativeObject::MemberFuncTest, TEXTVIEW_"Capture");
 	}
 	
 	FTestDelegateWithArray GetTestLambda() const
@@ -94,7 +94,7 @@ BEGIN_DEFINE_SPEC(
 	| EAutomationTestFlags::CriticalPriority
 	| EAutomationTestFlags::ProductFilter
 )
-	static int32 StaticFuncTest(TArray<FString>& results, const TCHAR* append);
+	static int32 StaticFuncTest(TArray<FString>& results, FStringView append);
 
 	bool TestDelegateResult(FTestDelegateWithArray const& delegate, FTestDelegateArgs const& args);
 	bool TestDelegateResult(TArray<FString>& testArray, FTestDelegateWithArray const& delegate, FTestDelegateArgs const& args);
@@ -102,9 +102,9 @@ BEGIN_DEFINE_SPEC(
 
 END_DEFINE_SPEC(FMcroDelegates_Spec);
 
-int32 FMcroDelegates_Spec::StaticFuncTest(TArray<FString>& results, const TCHAR* append)
+int32 FMcroDelegates_Spec::StaticFuncTest(TArray<FString>& results, FStringView append)
 {
-	results.Add(TEXT_"From static function: " + FString(append));
+	results.Add(TEXT_"From static function: {0}" _FMT(append));
 	return results.Num();
 }
 
@@ -165,7 +165,7 @@ void FMcroDelegates_Spec::Define()
 		It(TEXT_"should work with static functions", [this]
 		{
 			TestDelegateResult(
-				From(&FMcroDelegates_Spec::StaticFuncTest, TEXT_"Capture"),
+				From(&FMcroDelegates_Spec::StaticFuncTest, TEXTVIEW_"Capture"),
 				{ .ExpectedValue = TEXT_"From static function: Capture" }
 			);
 		});
@@ -187,9 +187,35 @@ void FMcroDelegates_Spec::Define()
 		});
 		It(TEXT_"should work with UObject bound functor", [this]
 		{
-			
+			TScopeObject<UDynamicDelegateTestClass> object({});
+			TestDelegateResult(
+				object->GetTestLambda(),
+				{ .ExpectedValue = TEXT_"From lambda function" }
+			);
 		});
 		It(TEXT_"should work with UObject bound function pointers", [this]
+		{
+			TScopeObject<UDynamicDelegateTestClass> object({});
+			TestDelegateResult(
+				object->GetTestMember(),
+				{ .ExpectedValue = TEXT_"From member function: Capture" }
+			);
+		});
+		It(TEXT_"should propagate native multicast delegates", [this]
+		{
+			TArray<FString> result;
+			
+			TMulticastDelegate<void(TArray<FString>&)> someEvent;
+			someEvent.AddLambda([](TArray<FString>& results)
+			{
+				results.Add(TEXT_"From lambda function");
+			});
+
+			auto delegate = From(someEvent);
+			delegate.Execute(result);
+			TestDelegateResultArray(result, { .ExpectedValue = TEXT_"From lambda function" });
+		});
+		It(TEXT_"should propagate dynamic multicast delegates", [this]
 		{
 			
 		});
