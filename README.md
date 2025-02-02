@@ -844,7 +844,6 @@ When this proto plugin is imported into other plugins, this suffix is used for d
   * [ ] Shared textures but without the Unreal TextureShare library
 
 ## Legal
-[Traits.h](../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Public/Mcro/Delegates/Traits.h)
 [Third-party components used by MCRO](ATTRIBUTION.md)
 
 When using MCRO in a plugin distributed via Fab, the components above must be listed upon submission.
