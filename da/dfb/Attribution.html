@@ -140,8 +140,7 @@ $(function(){initNavTree('da/dfb/Attribution.html','../../'); initResizable(true
 </ul>
 <p>Reason of inclusion: <br  />
  It can do this:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="keyword">struct </span>FDate { std::string_view year, month, day; };</div>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>FDate { std::string_view year, month, day; };</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> result = ctre::match&lt;R<span class="stringliteral">&quot;((?&lt;year&gt;\d{4})/(?&lt;month&gt;\d{1,2})/(?&lt;day&gt;\d{1,2}))&quot;&gt;(s);</span></div>
 <div class="line"><span class="stringliteral"></span><span class="keywordflow">return</span> FDate{ result.get&lt;<span class="stringliteral">&quot;year&quot;</span>&gt;(), result.get&lt;<span class="stringliteral">&quot;month&quot;</span>&gt;(), result.get&lt;<span class="stringliteral">&quot;day&quot;</span>&gt;() };</div>

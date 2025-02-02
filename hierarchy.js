@@ -4,6 +4,8 @@ var hierarchy =
     [ "Mcro::Error::FErrorManager::FDisplayErrorArgs", "d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html", null ],
     [ "Mcro::Error::FErrorManager", "db/d8b/classMcro_1_1Error_1_1FErrorManager.html", null ],
     [ "Mcro::Finally::FFinallySyntaxSupport", "d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html", null ],
+    [ "Mcro::Text::Macros::FInvTextFakeLiteralTag", "d7/d8a/structMcro_1_1Text_1_1Macros_1_1FInvTextFakeLiteralTag.html", null ],
+    [ "Mcro::Text::Macros::FNameFakeLiteralTag", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag.html", null ],
     [ "FNoncopyable", null, [
       [ "Mcro::Finally::FFinally", "d4/d80/structMcro_1_1Finally_1_1FFinally.html", null ]
     ] ],
@@ -11,6 +13,10 @@ var hierarchy =
     [ "Mcro::Dll::FScopedDll", "d0/d03/structMcro_1_1Dll_1_1FScopedDll.html", null ],
     [ "Mcro::Dll::FScopedDllSet", "da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html", null ],
     [ "Mcro::Dll::FScopedSearchPath", "d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html", null ],
+    [ "Mcro::Text::Macros::FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", null ],
+    [ "Mcro::Text::Macros::FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", null ],
+    [ "Mcro::Text::FStringFormatTag", "df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html", null ],
+    [ "Mcro::Text::Macros::FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", null ],
     [ "Mcro::AutoModularFeature::IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", [
       [ "Mcro::AutoModularFeature::TAutoModularFeature< FeatureIn >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ]
@@ -39,6 +45,9 @@ var hierarchy =
     [ "Mcro::Badge::TBadge< T >", "d0/d8f/classMcro_1_1Badge_1_1TBadge.html", null ],
     [ "Mcro::Observable::TChangeData< T >", "dd/dcf/structMcro_1_1Observable_1_1TChangeData.html", null ],
     [ "Mcro::FunctionTraits::TDeferFunctionArguments< FuncPtr, Function >", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", null ],
+    [ "Mcro::FunctionTraits::TDeferFunctionArguments<&AsLocalizable_Advanced >", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", [
+      [ "Mcro::Text::Macros::FDefer_AsLocalizable_Advanced", "d3/dd9/structMcro_1_1Text_1_1Macros_1_1FDefer__AsLocalizable__Advanced.html", null ]
+    ] ],
     [ "Mcro::Delegates::TDynamicMethodPtr_Struct< typename >", "d6/d84/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct.html", null ],
     [ "Mcro::Delegates::TDynamicMethodPtr_Struct< Dynamic >", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4.html", null ],
     [ "Mcro::Delegates::TDynamicSignature_Struct< typename >", "d9/d42/structMcro_1_1Delegates_1_1TDynamicSignature__Struct.html", null ],
@@ -75,6 +84,7 @@ var hierarchy =
     [ "Mcro::Modules::TObserveModule< M >", "d3/d30/structMcro_1_1Modules_1_1TObserveModule.html", null ],
     [ "Mcro::Delegates::TReturnOverride_Struct< Dynamic >", "d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html", null ],
     [ "Mcro::Yaml::TScopedRegion< Begin, End >", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", null ],
+    [ "Mcro::UObjects::Init::TScopeObject< T >", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject.html", null ],
     [ "TSharedFromThis", null, [
       [ "Mcro::Types::IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", [
         [ "Mcro::Error::IError", "dd/d8f/classMcro_1_1Error_1_1IError.html", [
@@ -94,6 +104,7 @@ var hierarchy =
     ] ],
     [ "Mcro::Tuples::TSkip_Struct< Count, Tuple >", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", null ],
     [ "Mcro::Slate::TSlots< Range, Transform, OnEmpty, SlotArguments >", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", null ],
+    [ "Mcro::Text::Macros::TStringPrintfLiteral< Args >", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", null ],
     [ "Mcro::Tuples::TTake_Struct< Count, Tuple >", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", null ],
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],
     [ "Mcro::Rendering::Textures::TTextureSize< SizeType, InFormatType >", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", null ],

@@ -118,13 +118,20 @@ var concepts =
         [ "CIsTemplate", "d0/dc6/conceptMcro_1_1Templates_1_1CIsTemplate.html", null ]
       ] ],
       [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
-        [ "CStringView", "d6/ddd/conceptMcro_1_1Text_1_1CStringView.html", null ],
+        [ "CStringViewInvariant", "df/ded/conceptMcro_1_1Text_1_1CStringViewInvariant.html", null ],
+        [ "CStringInvariant", "d5/d3e/conceptMcro_1_1Text_1_1CStringInvariant.html", null ],
         [ "CStringOrView", "d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html", null ],
+        [ "CStringOrViewInvariant", "dc/d76/conceptMcro_1_1Text_1_1CStringOrViewInvariant.html", null ],
         [ "CStringOrViewOrName", "d5/de9/conceptMcro_1_1Text_1_1CStringOrViewOrName.html", null ],
-        [ "CStdStringOrViewUtf8", "d3/d0e/conceptMcro_1_1Text_1_1CStdStringOrViewUtf8.html", null ],
-        [ "CStdStringOrViewWide", "d1/dd8/conceptMcro_1_1Text_1_1CStdStringOrViewWide.html", null ],
         [ "CStdStringOrView", "d7/de9/conceptMcro_1_1Text_1_1CStdStringOrView.html", null ],
-        [ "CStdStringOrViewInvariant", "d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html", null ]
+        [ "CStdStringOrViewTyped", "d4/d45/conceptMcro_1_1Text_1_1CStdStringOrViewTyped.html", null ],
+        [ "CStdStringInvariant", "d4/de0/conceptMcro_1_1Text_1_1CStdStringInvariant.html", null ],
+        [ "CStdStringViewInvariant", "d8/ddd/conceptMcro_1_1Text_1_1CStdStringViewInvariant.html", null ],
+        [ "CStdStringOrViewInvariant", "d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html", null ],
+        [ "CDirectStringFormatArgument", "d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html", null ],
+        [ "CHasToString", "d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html", null ],
+        [ "CHasStringFormatArgumentConversion", "d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html", null ],
+        [ "CStringFormatArgument", "d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html", null ]
       ] ],
       [ "Types", "da/d89/namespaceMcro_1_1Types.html", [
         [ "CHasTypeName", "d3/d31/conceptMcro_1_1Types_1_1CHasTypeName.html", null ]

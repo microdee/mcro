@@ -116,15 +116,18 @@ $(function(){initNavTree('d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html','../
 </div><!--header-->
 <div class="contents">
 
+<p>Concept constraining given type to a string or a a view of TCHAR.  
+<a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html">Mcro::Text::CStringOrView</a> =  CSameAsDecayed&lt;T, FString&gt; || <a class="code hl_concept" href="../../d6/ddd/conceptMcro_1_1Text_1_1CStringView.html">CStringView&lt;T&gt;</a></div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CStringOrView_html"><div class="ttname"><a href="../../d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html">Mcro::Text::CStringOrView</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00038">Text.h:38</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CStringView_html"><div class="ttname"><a href="../../d6/ddd/conceptMcro_1_1Text_1_1CStringView.html">Mcro::Text::CStringView</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00035">Text.h:35</a></div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html">Mcro::Text::CStringOrView</a> =  CSameAsDecayed&lt;T, FString&gt; || CSameAsDecayed&lt;T, FStringView&gt;</div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CStringOrView_html"><div class="ttname"><a href="../../d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html">Mcro::Text::CStringOrView</a></div><div class="ttdoc">Concept constraining given type to a string or a a view of TCHAR.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00062">Text.h:62</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00038">38</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<div class="textblock"><p>Concept constraining given type to a string or a a view of TCHAR. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00062">62</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -116,16 +116,27 @@ $(function(){initNavTree('d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvarian
 </div><!--header-->
 <div class="contents">
 
+<p>Concept constraining given type to a std::string or a view of any character type.  
+<a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html">Mcro::Text::CStdStringOrViewInvariant</a> =  <a class="code hl_concept" href="../../d3/d0e/conceptMcro_1_1Text_1_1CStdStringOrViewUtf8.html">CStdStringOrViewUtf8&lt;T&gt;</a> || <a class="code hl_concept" href="../../d1/dd8/conceptMcro_1_1Text_1_1CStdStringOrViewWide.html">CStdStringOrViewWide&lt;T&gt;</a></div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CStdStringOrViewInvariant_html"><div class="ttname"><a href="../../d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html">Mcro::Text::CStdStringOrViewInvariant</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00053">Text.h:53</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CStdStringOrViewUtf8_html"><div class="ttname"><a href="../../d3/d0e/conceptMcro_1_1Text_1_1CStdStringOrViewUtf8.html">Mcro::Text::CStdStringOrViewUtf8</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00044">Text.h:44</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CStdStringOrViewWide_html"><div class="ttname"><a href="../../d1/dd8/conceptMcro_1_1Text_1_1CStdStringOrViewWide.html">Mcro::Text::CStdStringOrViewWide</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00047">Text.h:47</a></div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html">Mcro::Text::CStdStringOrViewInvariant</a> = </div>
+<div class="line">        CConvertibleToDecayed&lt;</div>
+<div class="line">            T,</div>
+<div class="line">            <a class="code hl_typedef" href="../../d8/d6f/namespaceMcro_1_1Text.html#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a>&lt;</div>
+<div class="line">                <span class="keyword">typename</span> T::value_type,</div>
+<div class="line">                <span class="keyword">typename</span> T::traits_type</div>
+<div class="line">            &gt;</div>
+<div class="line">        &gt;</div>
+<div class="line">    </div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CStdStringOrViewInvariant_html"><div class="ttname"><a href="../../d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html">Mcro::Text::CStdStringOrViewInvariant</a></div><div class="ttdoc">Concept constraining given type to a std::string or a view of any character type.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00106">Text.h:106</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Text_html_aedf2f7dcd3a9ab3deb63c01fb1f215bf"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#aedf2f7dcd3a9ab3deb63c01fb1f215bf">Mcro::Text::TStdStringView</a></div><div class="ttdeci">std::basic_string_view&lt; CharT, Traits &gt; TStdStringView</div><div class="ttdoc">Unreal style alias for STL string views.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00038">Text.h:38</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00053">53</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<div class="textblock"><p>Concept constraining given type to a std::string or a view of any character type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00106">106</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

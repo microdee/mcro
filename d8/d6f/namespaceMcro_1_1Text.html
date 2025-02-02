@@ -114,127 +114,217 @@ $(function(){initNavTree('d8/d6f/namespaceMcro_1_1Text.html','../../'); initResi
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Text Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Mixed text utilities and type traits.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df9/namespaceMcro_1_1Text_1_1Detail.html">Detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2b/namespaceMcro_1_1Text_1_1Macros.html">Macros</a></td></tr>
 <tr class="memdesc:d2/d2b/namespaceMcro_1_1Text_1_1Macros"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace is used by MCRO text literal macros, don't use it directly! <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An empty tag struct used to extend rigid types to be used in string formatting.  <a href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/ddd/conceptMcro_1_1Text_1_1CStringView.html">CStringView</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/ded/conceptMcro_1_1Text_1_1CStringViewInvariant.html">CStringViewInvariant</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a string view of any character type. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d3e/conceptMcro_1_1Text_1_1CStringInvariant.html">CStringInvariant</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a string of any character type. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/conceptMcro_1_1Text_1_1CStringOrView.html">CStringOrView</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a string or a a view of TCHAR. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d76/conceptMcro_1_1Text_1_1CStringOrViewInvariant.html">CStringOrViewInvariant</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a string or a a view of any character type. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de9/conceptMcro_1_1Text_1_1CStringOrViewOrName.html">CStringOrViewOrName</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d0e/conceptMcro_1_1Text_1_1CStdStringOrViewUtf8.html">CStdStringOrViewUtf8</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd8/conceptMcro_1_1Text_1_1CStdStringOrViewWide.html">CStdStringOrViewWide</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a string, a view or an FName of TCHAR. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de9/conceptMcro_1_1Text_1_1CStdStringOrView.html">CStdStringOrView</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a std::string or a view of TCHAR. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d45/conceptMcro_1_1Text_1_1CStdStringOrViewTyped.html">CStdStringOrViewTyped</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a std::string or a view of given character type. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de0/conceptMcro_1_1Text_1_1CStdStringInvariant.html">CStdStringInvariant</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to only a std::string of any character type. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/ddd/conceptMcro_1_1Text_1_1CStdStringViewInvariant.html">CStdStringViewInvariant</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to only a std::string_view of any character type. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html">CStdStringOrViewInvariant</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a std::string or a view of any character type. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">CDirectStringFormatArgument</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which is directly convertible to FStringFormatArg. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html">CHasToString</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which which provides a <code>ToString()</code> member method. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">CHasStringFormatArgumentConversion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be used with FStringFormatArg via a <code>% FStringFormatTag()</code> operator. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">CStringFormatArgument</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be converted to FStringFormatArg via any method. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a6b647098f833a5da521c5fb456a46ca1" id="r_a6b647098f833a5da521c5fb456a46ca1"><td class="memTemplParams" colspan="2">template&lt;class CharT , class Traits  = std::char_traits&lt;CharT&gt;, class Allocator  = std::allocator&lt;CharT&gt;&gt; </td></tr>
+<tr class="memitem:a6b647098f833a5da521c5fb456a46ca1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a> = std::basic_string&lt;CharT, Traits, Allocator&gt;</td></tr>
+<tr class="memdesc:a6b647098f833a5da521c5fb456a46ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unreal style alias for STL strings.  <br /></td></tr>
+<tr class="separator:a6b647098f833a5da521c5fb456a46ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf2f7dcd3a9ab3deb63c01fb1f215bf" id="r_aedf2f7dcd3a9ab3deb63c01fb1f215bf"><td class="memTemplParams" colspan="2">template&lt;class CharT , class Traits  = std::char_traits&lt;CharT&gt;&gt; </td></tr>
+<tr class="memitem:aedf2f7dcd3a9ab3deb63c01fb1f215bf"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a> = std::basic_string_view&lt;CharT, Traits&gt;</td></tr>
+<tr class="memdesc:aedf2f7dcd3a9ab3deb63c01fb1f215bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unreal style alias for STL string views.  <br /></td></tr>
+<tr class="separator:aedf2f7dcd3a9ab3deb63c01fb1f215bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6465378c3a1a942320f3b7dd745656b0" id="r_a6465378c3a1a942320f3b7dd745656b0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6465378c3a1a942320f3b7dd745656b0">FUtf16StringView</a> = TStringView&lt;UTF16CHAR&gt;</td></tr>
 <tr class="separator:a6465378c3a1a942320f3b7dd745656b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbdeae2588a0480a21b85a5bdba508df" id="r_abbdeae2588a0480a21b85a5bdba508df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbdeae2588a0480a21b85a5bdba508df">FUtf32StringView</a> = TStringView&lt;UTF32CHAR&gt;</td></tr>
 <tr class="separator:abbdeae2588a0480a21b85a5bdba508df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8c067032afba88d5274e9060b7eb51" id="r_a2e8c067032afba88d5274e9060b7eb51"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e8c067032afba88d5274e9060b7eb51">FStdString</a> = std::wstring</td></tr>
-<tr class="separator:a2e8c067032afba88d5274e9060b7eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae89b160805d6a59c921a0353dc2d3423" id="r_ae89b160805d6a59c921a0353dc2d3423"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> = std::wstring_view</td></tr>
-<tr class="separator:ae89b160805d6a59c921a0353dc2d3423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28848d61082fc231a19137f8dbd64d9b" id="r_a28848d61082fc231a19137f8dbd64d9b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28848d61082fc231a19137f8dbd64d9b">FStdString</a> = <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt;TCHAR&gt;</td></tr>
+<tr class="memdesc:a28848d61082fc231a19137f8dbd64d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">cross-TCHAR alias for <code>std::[w]string</code>  <br /></td></tr>
+<tr class="separator:a28848d61082fc231a19137f8dbd64d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4bd6678fc692f8ddf782f9b6611d9b" id="r_ade4bd6678fc692f8ddf782f9b6611d9b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> = <a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a>&lt;TCHAR&gt;</td></tr>
+<tr class="memdesc:ade4bd6678fc692f8ddf782f9b6611d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">cross-TCHAR alias for <code>std::[w]string_view</code>  <br /></td></tr>
+<tr class="separator:ade4bd6678fc692f8ddf782f9b6611d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3ad93091a989674568a74c26342312c1" id="r_a3ad93091a989674568a74c26342312c1"><td class="memItemLeft" align="right" valign="top">MCRO_API FStringView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ad93091a989674568a74c26342312c1">UnrealView</a> (<a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;stdStr)</td></tr>
-<tr class="separator:a3ad93091a989674568a74c26342312c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc1abce844a3fec452e9286c9e46b7ef" id="r_adc1abce844a3fec452e9286c9e46b7ef"><td class="memItemLeft" align="right" valign="top">MCRO_API FUtf8StringView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc1abce844a3fec452e9286c9e46b7ef">UnrealViewUtf8</a> (std::string_view const &amp;stdStr)</td></tr>
-<tr class="separator:adc1abce844a3fec452e9286c9e46b7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2386df93e4eaa926877aeb89ad7637" id="r_a2e2386df93e4eaa926877aeb89ad7637"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#a6465378c3a1a942320f3b7dd745656b0">FUtf16StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e2386df93e4eaa926877aeb89ad7637">UnrealViewUtf16</a> (std::wstring_view const &amp;stdStr)</td></tr>
-<tr class="separator:a2e2386df93e4eaa926877aeb89ad7637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4371292ff2abf24adc0af96dba637ce1" id="r_a4371292ff2abf24adc0af96dba637ce1"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4371292ff2abf24adc0af96dba637ce1">StdView</a> (FString const &amp;unrealStr)</td></tr>
-<tr class="separator:a4371292ff2abf24adc0af96dba637ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab39c3f47407786cd199b3cc0fa184707" id="r_ab39c3f47407786cd199b3cc0fa184707"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab39c3f47407786cd199b3cc0fa184707">StdView</a> (FStringView const &amp;unrealStr)</td></tr>
-<tr class="separator:ab39c3f47407786cd199b3cc0fa184707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1a65b1f87b80c89d68804d283084ac8" id="r_ac1a65b1f87b80c89d68804d283084ac8"><td class="memItemLeft" align="right" valign="top">MCRO_API std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1a65b1f87b80c89d68804d283084ac8">StdView</a> (FUtf8StringView const &amp;unrealStr)</td></tr>
-<tr class="separator:ac1a65b1f87b80c89d68804d283084ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7076afa25e4801e77127651b58eb5abf" id="r_a7076afa25e4801e77127651b58eb5abf"><td class="memItemLeft" align="right" valign="top">MCRO_API std::wstring_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7076afa25e4801e77127651b58eb5abf">StdView</a> (<a class="el" href="#a6465378c3a1a942320f3b7dd745656b0">FUtf16StringView</a> const &amp;unrealStr)</td></tr>
-<tr class="separator:a7076afa25e4801e77127651b58eb5abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac454ca4c8b6dc64200d486b9bea32e94" id="r_ac454ca4c8b6dc64200d486b9bea32e94"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac454ca4c8b6dc64200d486b9bea32e94">UnrealCopy</a> (<a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;stdStr)</td></tr>
+<tr class="memitem:a955d9e714f9b48b713296f57060eea79" id="r_a955d9e714f9b48b713296f57060eea79"><td class="memTemplParams" colspan="2">template&lt;CEnum Operand&gt; </td></tr>
+<tr class="memitem:a955d9e714f9b48b713296f57060eea79"><td class="memTemplItemLeft" align="right" valign="top">FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a955d9e714f9b48b713296f57060eea79">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
+<tr class="separator:a955d9e714f9b48b713296f57060eea79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a135b9b15337f45329dfcf5f575579b" id="r_a6a135b9b15337f45329dfcf5f575579b"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
+<tr class="memitem:a6a135b9b15337f45329dfcf5f575579b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6a135b9b15337f45329dfcf5f575579b">UnrealView</a> (<a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a>&lt; CharType &gt; const &amp;stdStr)</td></tr>
+<tr class="memdesc:a6a135b9b15337f45329dfcf5f575579b"><td class="mdescLeft">&#160;</td><td class="mdescRight">View an STL string object via an Unreal <code>TStringView</code>  <br /></td></tr>
+<tr class="separator:a6a135b9b15337f45329dfcf5f575579b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac43b665274f3e1ea82068d8da0fd577" id="r_aac43b665274f3e1ea82068d8da0fd577"><td class="memTemplParams" colspan="2">template&lt;CStringViewInvariant T&gt; </td></tr>
+<tr class="memitem:aac43b665274f3e1ea82068d8da0fd577"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aac43b665274f3e1ea82068d8da0fd577">StdView</a> (T const &amp;unrealStr)</td></tr>
+<tr class="memdesc:aac43b665274f3e1ea82068d8da0fd577"><td class="mdescLeft">&#160;</td><td class="mdescRight">View an Unreal <code>TStringView</code> via an STL string view.  <br /></td></tr>
+<tr class="separator:aac43b665274f3e1ea82068d8da0fd577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0946af2883cd0f4b2c7b88d9f3b00f76" id="r_a0946af2883cd0f4b2c7b88d9f3b00f76"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; FString &gt; T&gt; </td></tr>
+<tr class="memitem:a0946af2883cd0f4b2c7b88d9f3b00f76"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0946af2883cd0f4b2c7b88d9f3b00f76">StdView</a> (T const &amp;unrealStr)</td></tr>
+<tr class="memdesc:a0946af2883cd0f4b2c7b88d9f3b00f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">View an Unreal string via an STL string view.  <br /></td></tr>
+<tr class="separator:a0946af2883cd0f4b2c7b88d9f3b00f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac454ca4c8b6dc64200d486b9bea32e94" id="r_ac454ca4c8b6dc64200d486b9bea32e94"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac454ca4c8b6dc64200d486b9bea32e94">UnrealCopy</a> (<a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;stdStr)</td></tr>
+<tr class="memdesc:ac454ca4c8b6dc64200d486b9bea32e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy of an input STL string.  <br /></td></tr>
 <tr class="separator:ac454ca4c8b6dc64200d486b9bea32e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272164d4f5657c02fa6c4f889bc46dd7" id="r_a272164d4f5657c02fa6c4f889bc46dd7"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a272164d4f5657c02fa6c4f889bc46dd7">UnrealConvert</a> (std::string_view const &amp;stdStr)</td></tr>
-<tr class="separator:a272164d4f5657c02fa6c4f889bc46dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b755fb5f6289d58b2dbf8d21367f153" id="r_a7b755fb5f6289d58b2dbf8d21367f153"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b755fb5f6289d58b2dbf8d21367f153">UnrealConvert</a> (std::wstring_view const &amp;stdStr)</td></tr>
-<tr class="separator:a7b755fb5f6289d58b2dbf8d21367f153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9e5928b38091d6fcbb94d07b1d9b22" id="r_a7f9e5928b38091d6fcbb94d07b1d9b22"><td class="memItemLeft" align="right" valign="top">MCRO_API FName&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f9e5928b38091d6fcbb94d07b1d9b22">UnrealNameCopy</a> (<a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;stdStr)</td></tr>
+<tr class="memitem:a794d55fa6b7ad418fba0e6f2be9c4baf" id="r_a794d55fa6b7ad418fba0e6f2be9c4baf"><td class="memTemplParams" colspan="2">template&lt;CStdStringOrViewInvariant T&gt; </td></tr>
+<tr class="memitem:a794d55fa6b7ad418fba0e6f2be9c4baf"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a794d55fa6b7ad418fba0e6f2be9c4baf">UnrealConvert</a> (T const &amp;stdStr)</td></tr>
+<tr class="memdesc:a794d55fa6b7ad418fba0e6f2be9c4baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy and convert an input STL string to TCHAR.  <br /></td></tr>
+<tr class="separator:a794d55fa6b7ad418fba0e6f2be9c4baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9e5928b38091d6fcbb94d07b1d9b22" id="r_a7f9e5928b38091d6fcbb94d07b1d9b22"><td class="memItemLeft" align="right" valign="top">MCRO_API FName&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f9e5928b38091d6fcbb94d07b1d9b22">UnrealNameCopy</a> (<a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;stdStr)</td></tr>
+<tr class="memdesc:a7f9e5928b38091d6fcbb94d07b1d9b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy of an input STL string as an FName.  <br /></td></tr>
 <tr class="separator:a7f9e5928b38091d6fcbb94d07b1d9b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b4c4cea96c07d792027090d4e05fa4" id="r_a48b4c4cea96c07d792027090d4e05fa4"><td class="memItemLeft" align="right" valign="top">MCRO_API FName&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48b4c4cea96c07d792027090d4e05fa4">UnrealNameConvert</a> (std::string_view const &amp;stdStr)</td></tr>
-<tr class="separator:a48b4c4cea96c07d792027090d4e05fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad149339bb7245364426ac86c9fb7beff" id="r_ad149339bb7245364426ac86c9fb7beff"><td class="memItemLeft" align="right" valign="top">MCRO_API FName&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad149339bb7245364426ac86c9fb7beff">UnrealNameConvert</a> (std::wstring_view const &amp;stdStr)</td></tr>
-<tr class="separator:ad149339bb7245364426ac86c9fb7beff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae520c2ca467fd41167e6929b8e0dd263" id="r_ae520c2ca467fd41167e6929b8e0dd263"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#a2e8c067032afba88d5274e9060b7eb51">FStdString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae520c2ca467fd41167e6929b8e0dd263">StdCopy</a> (FStringView const &amp;unrealStr)</td></tr>
+<tr class="memitem:a6eb43872d83e35660d8b1bd981046ef4" id="r_a6eb43872d83e35660d8b1bd981046ef4"><td class="memTemplParams" colspan="2">template&lt;CStdStringOrViewInvariant T&gt; </td></tr>
+<tr class="memitem:a6eb43872d83e35660d8b1bd981046ef4"><td class="memTemplItemLeft" align="right" valign="top">FName&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6eb43872d83e35660d8b1bd981046ef4">UnrealNameConvert</a> (T const &amp;stdStr)</td></tr>
+<tr class="memdesc:a6eb43872d83e35660d8b1bd981046ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy and convert an input STL string to TCHAR as an FName.  <br /></td></tr>
+<tr class="separator:a6eb43872d83e35660d8b1bd981046ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae520c2ca467fd41167e6929b8e0dd263" id="r_ae520c2ca467fd41167e6929b8e0dd263"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#a28848d61082fc231a19137f8dbd64d9b">FStdString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae520c2ca467fd41167e6929b8e0dd263">StdCopy</a> (FStringView const &amp;unrealStr)</td></tr>
+<tr class="memdesc:ae520c2ca467fd41167e6929b8e0dd263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an Stl copy of an input Unreal string view.  <br /></td></tr>
 <tr class="separator:ae520c2ca467fd41167e6929b8e0dd263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d9a9db5b85e39f0abcbf764d0315002" id="r_a2d9a9db5b85e39f0abcbf764d0315002"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#a2e8c067032afba88d5274e9060b7eb51">FStdString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d9a9db5b85e39f0abcbf764d0315002">StdCopy</a> (FName const &amp;unrealStr)</td></tr>
+<tr class="memitem:a2d9a9db5b85e39f0abcbf764d0315002" id="r_a2d9a9db5b85e39f0abcbf764d0315002"><td class="memItemLeft" align="right" valign="top">MCRO_API <a class="el" href="#a28848d61082fc231a19137f8dbd64d9b">FStdString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d9a9db5b85e39f0abcbf764d0315002">StdCopy</a> (FName const &amp;unrealStr)</td></tr>
+<tr class="memdesc:a2d9a9db5b85e39f0abcbf764d0315002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an Stl copy of an input Unreal string.  <br /></td></tr>
 <tr class="separator:a2d9a9db5b85e39f0abcbf764d0315002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d3550f6d37ce31d0ea6b48edffc9191" id="r_a0d3550f6d37ce31d0ea6b48edffc9191"><td class="memItemLeft" align="right" valign="top">MCRO_API std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d3550f6d37ce31d0ea6b48edffc9191">StdConvertUtf8</a> (FStringView const &amp;unrealStr)</td></tr>
-<tr class="separator:a0d3550f6d37ce31d0ea6b48edffc9191"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc16bcbe557feaae2e02ad1c80284478" id="r_abc16bcbe557feaae2e02ad1c80284478"><td class="memItemLeft" align="right" valign="top">MCRO_API std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc16bcbe557feaae2e02ad1c80284478">StdConvertWide</a> (FStringView const &amp;unrealStr)</td></tr>
-<tr class="separator:abc16bcbe557feaae2e02ad1c80284478"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3d27c5d3d47b328481524a0e1bfe065" id="r_ad3d27c5d3d47b328481524a0e1bfe065"><td class="memItemLeft" align="right" valign="top">MCRO_API std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3d27c5d3d47b328481524a0e1bfe065">StdConvertUtf8</a> (<a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;stdStr)</td></tr>
-<tr class="separator:ad3d27c5d3d47b328481524a0e1bfe065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affd861f5ee11caf291c280f1821b6ce3" id="r_affd861f5ee11caf291c280f1821b6ce3"><td class="memItemLeft" align="right" valign="top">MCRO_API std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affd861f5ee11caf291c280f1821b6ce3">StdConvertWide</a> (<a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;stdStr)</td></tr>
-<tr class="separator:affd861f5ee11caf291c280f1821b6ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fb680e5d113c6a8a2fe2edff419c214" id="r_a1fb680e5d113c6a8a2fe2edff419c214"><td class="memItemLeft" align="right" valign="top">MCRO_API std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fb680e5d113c6a8a2fe2edff419c214">StdConvertUtf8</a> (FName const &amp;unrealName)</td></tr>
-<tr class="separator:a1fb680e5d113c6a8a2fe2edff419c214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd0c4c08be5acb823841e14f2e834b52" id="r_acd0c4c08be5acb823841e14f2e834b52"><td class="memItemLeft" align="right" valign="top">MCRO_API std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd0c4c08be5acb823841e14f2e834b52">StdConvertWide</a> (FName const &amp;unrealName)</td></tr>
-<tr class="separator:acd0c4c08be5acb823841e14f2e834b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01257118e0bdc9f69fb3b310374cb385" id="r_a01257118e0bdc9f69fb3b310374cb385"><td class="memTemplParams" colspan="2">template&lt;CSameAs&lt; FString &gt;... Args&gt; </td></tr>
+<tr class="memitem:adb6d8fa4e880be55dbc60490e57d90a1" id="r_adb6d8fa4e880be55dbc60490e57d90a1"><td class="memTemplParams" colspan="2">template&lt;typename ConvertTo &gt; </td></tr>
+<tr class="memitem:adb6d8fa4e880be55dbc60490e57d90a1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adb6d8fa4e880be55dbc60490e57d90a1">StdConvert</a> (FStringView const &amp;unrealStr) -&gt; <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; ConvertTo &gt;</td></tr>
+<tr class="memdesc:adb6d8fa4e880be55dbc60490e57d90a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy and convert an input Unreal string to the given character type.  <br /></td></tr>
+<tr class="separator:adb6d8fa4e880be55dbc60490e57d90a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76fcad8142d9b61e55927a4d59df80c7" id="r_a76fcad8142d9b61e55927a4d59df80c7"><td class="memTemplParams" colspan="2">template&lt;typename ConvertTo &gt; </td></tr>
+<tr class="memitem:a76fcad8142d9b61e55927a4d59df80c7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a76fcad8142d9b61e55927a4d59df80c7">StdConvert</a> (<a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;stdStr) -&gt; <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; ConvertTo &gt;</td></tr>
+<tr class="memdesc:a76fcad8142d9b61e55927a4d59df80c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy and convert an input STL string of TCHAR to the given character type.  <br /></td></tr>
+<tr class="separator:a76fcad8142d9b61e55927a4d59df80c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dee3a65a7a38732faaae233b2f79b06" id="r_a5dee3a65a7a38732faaae233b2f79b06"><td class="memTemplParams" colspan="2">template&lt;typename ConvertTo &gt; </td></tr>
+<tr class="memitem:a5dee3a65a7a38732faaae233b2f79b06"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5dee3a65a7a38732faaae233b2f79b06">StdConvert</a> (FName const &amp;name) -&gt; <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; ConvertTo &gt;</td></tr>
+<tr class="memdesc:a5dee3a65a7a38732faaae233b2f79b06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy and convert an input FName to the given character type.  <br /></td></tr>
+<tr class="separator:a5dee3a65a7a38732faaae233b2f79b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01257118e0bdc9f69fb3b310374cb385" id="r_a01257118e0bdc9f69fb3b310374cb385"><td class="memTemplParams" colspan="2">template&lt;CStringOrView... Args&gt; </td></tr>
 <tr class="memitem:a01257118e0bdc9f69fb3b310374cb385"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a01257118e0bdc9f69fb3b310374cb385">Join</a> (const TCHAR *separator, Args... args)</td></tr>
+<tr class="memdesc:a01257118e0bdc9f69fb3b310374cb385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join the given string arguments with a delimiter and skip empty entries.  <br /></td></tr>
 <tr class="separator:a01257118e0bdc9f69fb3b310374cb385"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e7b16f541af05b3640eb163179ce00c" id="r_a1e7b16f541af05b3640eb163179ce00c"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7b16f541af05b3640eb163179ce00c">DynamicPrintf</a> (const TCHAR *fmt,...)</td></tr>
+<tr class="memdesc:a1e7b16f541af05b3640eb163179ce00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy of FString::PrintfImpl but not private so it can work with strings which were not literals.  <br /></td></tr>
 <tr class="separator:a1e7b16f541af05b3640eb163179ce00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d42ebafed5e2a3cce94d2ae901e71dc" id="r_a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memTemplParams" colspan="2">template&lt;CDirectStringFormatArgument Operand&gt; </td></tr>
+<tr class="memitem:a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memTemplItemLeft" align="right" valign="top">Operand&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2d42ebafed5e2a3cce94d2ae901e71dc">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
+<tr class="separator:a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada116a50aedb55bfa6f8202717cfd159" id="r_ada116a50aedb55bfa6f8202717cfd159"><td class="memTemplParams" colspan="2">template&lt;CHasToString Operand&gt; </td></tr>
+<tr class="memitem:ada116a50aedb55bfa6f8202717cfd159"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ada116a50aedb55bfa6f8202717cfd159">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
+<tr class="separator:ada116a50aedb55bfa6f8202717cfd159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3e69e28da735a1cda52e00b310795dd" id="r_ad3e69e28da735a1cda52e00b310795dd"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
+<tr class="memitem:ad3e69e28da735a1cda52e00b310795dd"><td class="memTemplItemLeft" align="right" valign="top">const CharType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad3e69e28da735a1cda52e00b310795dd">operator%</a> (<a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; CharType &gt; const &amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
+<tr class="separator:ad3e69e28da735a1cda52e00b310795dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210730107817d1608fa42b9539ca6c80" id="r_a210730107817d1608fa42b9539ca6c80"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FStringView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a210730107817d1608fa42b9539ca6c80">operator%</a> (<a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
+<tr class="separator:a210730107817d1608fa42b9539ca6c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad098102889c26ad24664bc39a0325882" id="r_ad098102889c26ad24664bc39a0325882"><td class="memTemplParams" colspan="2">template&lt;CStdStringViewInvariant Operand&gt; <br />
+requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&gt;)</td></tr>
+<tr class="memitem:ad098102889c26ad24664bc39a0325882"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad098102889c26ad24664bc39a0325882">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
+<tr class="separator:ad098102889c26ad24664bc39a0325882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946" id="r_acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
+<tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acc2c6d6be5a7c30a3e691ce080068946">AsString</a> (T &amp;&amp;input)</td></tr>
+<tr class="memdesc:acc2c6d6be5a7c30a3e691ce080068946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>
+<tr class="separator:acc2c6d6be5a7c30a3e691ce080068946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af755894199136f1ff56c57f5d1b87d13" id="r_af755894199136f1ff56c57f5d1b87d13"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument... Args&gt; </td></tr>
+<tr class="memitem:af755894199136f1ff56c57f5d1b87d13"><td class="memTemplItemLeft" align="right" valign="top">FStringFormatOrderedArguments&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af755894199136f1ff56c57f5d1b87d13">OrderedArguments</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:af755894199136f1ff56c57f5d1b87d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an ordered argument list for a string format from input arguments.  <br /></td></tr>
+<tr class="separator:af755894199136f1ff56c57f5d1b87d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aaef9c9d339cbc73b7cd5a92e9c187a" id="r_a0aaef9c9d339cbc73b7cd5a92e9c187a"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument... Args&gt; </td></tr>
+<tr class="memitem:a0aaef9c9d339cbc73b7cd5a92e9c187a"><td class="memTemplItemLeft" align="right" valign="top">FStringFormatNamedArguments&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0aaef9c9d339cbc73b7cd5a92e9c187a">NamedArguments</a> (TTuple&lt; FString, Args &gt;... args)</td></tr>
+<tr class="memdesc:a0aaef9c9d339cbc73b7cd5a92e9c187a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a named argument list for a string format from input argument tuples.  <br /></td></tr>
+<tr class="separator:a0aaef9c9d339cbc73b7cd5a92e9c187a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a2e8c067032afba88d5274e9060b7eb51" name="a2e8c067032afba88d5274e9060b7eb51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e8c067032afba88d5274e9060b7eb51">&#9670;&#160;</a></span>FStdString</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Mixed text utilities and type traits. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a28848d61082fc231a19137f8dbd64d9b" name="a28848d61082fc231a19137f8dbd64d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28848d61082fc231a19137f8dbd64d9b">&#9670;&#160;</a></span>FStdString</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a2e8c067032afba88d5274e9060b7eb51">Mcro::Text::FStdString</a> = std::wstring</td>
+          <td class="memname">using <a class="el" href="#a28848d61082fc231a19137f8dbd64d9b">Mcro::Text::FStdString</a> = <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt;TCHAR&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00030">30</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p>cross-TCHAR alias for <code>std::[w]string</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00044">44</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
-<a id="ae89b160805d6a59c921a0353dc2d3423" name="ae89b160805d6a59c921a0353dc2d3423"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae89b160805d6a59c921a0353dc2d3423">&#9670;&#160;</a></span>FStdStringView</h2>
+<a id="ade4bd6678fc692f8ddf782f9b6611d9b" name="ade4bd6678fc692f8ddf782f9b6611d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4bd6678fc692f8ddf782f9b6611d9b">&#9670;&#160;</a></span>FStdStringView</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">Mcro::Text::FStdStringView</a> = std::wstring_view</td>
+          <td class="memname">using <a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">Mcro::Text::FStdStringView</a> = <a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a>&lt;TCHAR&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00031">31</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p>cross-TCHAR alias for <code>std::[w]string_view</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00047">47</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -250,7 +340,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00023">23</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00040">40</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -266,11 +356,76 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00024">24</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00041">41</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="a6b647098f833a5da521c5fb456a46ca1" name="a6b647098f833a5da521c5fb456a46ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b647098f833a5da521c5fb456a46ca1">&#9670;&#160;</a></span>TStdString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CharT , class Traits  = std::char_traits&lt;CharT&gt;, class Allocator  = std::allocator&lt;CharT&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">Mcro::Text::TStdString</a> = std::basic_string&lt;CharT, Traits, Allocator&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unreal style alias for STL strings. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00031">31</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="aedf2f7dcd3a9ab3deb63c01fb1f215bf" name="aedf2f7dcd3a9ab3deb63c01fb1f215bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">&#9670;&#160;</a></span>TStdStringView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CharT , class Traits  = std::char_traits&lt;CharT&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">Mcro::Text::TStdStringView</a> = std::basic_string_view&lt;CharT, Traits&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unreal style alias for STL string views. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00038">38</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="acc2c6d6be5a7c30a3e691ce080068946" name="acc2c6d6be5a7c30a3e691ce080068946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2c6d6be5a7c30a3e691ce080068946">&#9670;&#160;</a></span>AsString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CStringFormatArgument T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FString Mcro::Text::AsString </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempt to convert anything to string which can tell via some method how to do so. </p>
+<p>This may be more expensive to directly use than an already existing designated string conversion for a given type, because it uses <code>FStringFormatArg</code> and <code>% FStringFormatTag()</code> as intermediate steps. However, this can be still useful for types where such conversion doesn't already exist or when using this in a template.</p>
+<p>It's still much faster than using <code><a class="el" href="../../d2/d0e/FmtMacros_8h.html#ad2ae177448b123d74e4182bc4469fb74" title="Leading fake text literal which makes using FString::Format(...); much more comfortable.">FMT_(myVar)</a> "{0}"</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00329">329</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
 <a id="a1e7b16f541af05b3640eb163179ce00c" name="a1e7b16f541af05b3640eb163179ce00c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e7b16f541af05b3640eb163179ce00c">&#9670;&#160;</a></span>DynamicPrintf()</h2>
 
@@ -289,7 +444,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Copy of FString::PrintfImpl but not private so it can work with strings which were not literals </p>
+
+<p>Copy of FString::PrintfImpl but not private so it can work with strings which were not literals. </p>
 
 </div>
 </div>
@@ -299,7 +455,7 @@ Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
+template&lt;CStringOrView... Args&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">FString Mcro::Text::Join </td>
@@ -314,109 +470,278 @@ template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00083">83</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p>Join the given string arguments with a delimiter and skip empty entries. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00250">250</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
-<a id="a1fb680e5d113c6a8a2fe2edff419c214" name="a1fb680e5d113c6a8a2fe2edff419c214"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fb680e5d113c6a8a2fe2edff419c214">&#9670;&#160;</a></span>StdConvertUtf8() <span class="overload">[1/3]</span></h2>
+<a id="a0aaef9c9d339cbc73b7cd5a92e9c187a" name="a0aaef9c9d339cbc73b7cd5a92e9c187a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aaef9c9d339cbc73b7cd5a92e9c187a">&#9670;&#160;</a></span>NamedArguments()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;CStringFormatArgument... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API std::string Mcro::Text::StdConvertUtf8 </td>
+          <td class="memname">FStringFormatNamedArguments Mcro::Text::NamedArguments </td>
           <td>(</td>
-          <td class="paramtype">FName const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealName</em></span></td><td>)</td>
+          <td class="paramtype">TTuple&lt; FString, Args &gt;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Create a named argument list for a string format from input argument tuples. </p>
+<p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00354">354</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
 </div>
 </div>
-<a id="ad3d27c5d3d47b328481524a0e1bfe065" name="ad3d27c5d3d47b328481524a0e1bfe065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3d27c5d3d47b328481524a0e1bfe065">&#9670;&#160;</a></span>StdConvertUtf8() <span class="overload">[2/3]</span></h2>
+<a id="a210730107817d1608fa42b9539ca6c80" name="a210730107817d1608fa42b9539ca6c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210730107817d1608fa42b9539ca6c80">&#9670;&#160;</a></span>operator%() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API std::string Mcro::Text::StdConvertUtf8 </td>
+          <td class="memname">FORCEINLINE FStringView Mcro::Text::operator% </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00307">307</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="a955d9e714f9b48b713296f57060eea79" name="a955d9e714f9b48b713296f57060eea79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955d9e714f9b48b713296f57060eea79">&#9670;&#160;</a></span>operator%() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CEnum Operand&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FStringView Mcro::Text::operator% </td>
+          <td>(</td>
+          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d20/Enums_8h_source.html#l00053">53</a> of file <a class="el" href="../../d5/d20/Enums_8h_source.html">Enums.h</a>.</p>
+
+</div>
+</div>
+<a id="a2d42ebafed5e2a3cce94d2ae901e71dc" name="a2d42ebafed5e2a3cce94d2ae901e71dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d42ebafed5e2a3cce94d2ae901e71dc">&#9670;&#160;</a></span>operator%() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDirectStringFormatArgument Operand&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Operand Mcro::Text::operator% </td>
+          <td>(</td>
+          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00290">290</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="ada116a50aedb55bfa6f8202717cfd159" name="ada116a50aedb55bfa6f8202717cfd159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada116a50aedb55bfa6f8202717cfd159">&#9670;&#160;</a></span>operator%() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CHasToString Operand&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Text::operator% </td>
+          <td>(</td>
+          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00296">296</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="ad098102889c26ad24664bc39a0325882" name="ad098102889c26ad24664bc39a0325882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad098102889c26ad24664bc39a0325882">&#9670;&#160;</a></span>operator%() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CStdStringViewInvariant Operand&gt; <br />
+requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&gt;)</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FString Mcro::Text::operator% </td>
+          <td>(</td>
+          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00314">314</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="ad3e69e28da735a1cda52e00b310795dd" name="ad3e69e28da735a1cda52e00b310795dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e69e28da735a1cda52e00b310795dd">&#9670;&#160;</a></span>operator%() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CharType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const CharType * Mcro::Text::operator% </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; CharType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00302">302</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="af755894199136f1ff56c57f5d1b87d13" name="af755894199136f1ff56c57f5d1b87d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af755894199136f1ff56c57f5d1b87d13">&#9670;&#160;</a></span>OrderedArguments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CStringFormatArgument... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FStringFormatOrderedArguments Mcro::Text::OrderedArguments </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Create an ordered argument list for a string format from input arguments. </p>
+<p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00342">342</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
 </div>
 </div>
-<a id="a0d3550f6d37ce31d0ea6b48edffc9191" name="a0d3550f6d37ce31d0ea6b48edffc9191"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d3550f6d37ce31d0ea6b48edffc9191">&#9670;&#160;</a></span>StdConvertUtf8() <span class="overload">[3/3]</span></h2>
+<a id="a5dee3a65a7a38732faaae233b2f79b06" name="a5dee3a65a7a38732faaae233b2f79b06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dee3a65a7a38732faaae233b2f79b06">&#9670;&#160;</a></span>StdConvert() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename ConvertTo &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API std::string Mcro::Text::StdConvertUtf8 </td>
+          <td class="memname">auto Mcro::Text::StdConvert </td>
+          <td>(</td>
+          <td class="paramtype">FName const &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt;ConvertTo&gt;
+	</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a copy and convert an input FName to the given character type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00243">243</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="a76fcad8142d9b61e55927a4d59df80c7" name="a76fcad8142d9b61e55927a4d59df80c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76fcad8142d9b61e55927a4d59df80c7">&#9670;&#160;</a></span>StdConvert() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ConvertTo &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Text::StdConvert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt;ConvertTo&gt;
+	</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a copy and convert an input STL string of TCHAR to the given character type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00226">226</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="adb6d8fa4e880be55dbc60490e57d90a1" name="adb6d8fa4e880be55dbc60490e57d90a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6d8fa4e880be55dbc60490e57d90a1">&#9670;&#160;</a></span>StdConvert() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ConvertTo &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Text::StdConvert </td>
           <td>(</td>
           <td class="paramtype">FStringView const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
-          <td></td>
+          <td> -&gt; <a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt;ConvertTo&gt;
+	</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="acd0c4c08be5acb823841e14f2e834b52" name="acd0c4c08be5acb823841e14f2e834b52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd0c4c08be5acb823841e14f2e834b52">&#9670;&#160;</a></span>StdConvertWide() <span class="overload">[1/3]</span></h2>
+<p>Create a copy and convert an input Unreal string to the given character type. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API std::wstring Mcro::Text::StdConvertWide </td>
-          <td>(</td>
-          <td class="paramtype">FName const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealName</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="affd861f5ee11caf291c280f1821b6ce3" name="affd861f5ee11caf291c280f1821b6ce3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affd861f5ee11caf291c280f1821b6ce3">&#9670;&#160;</a></span>StdConvertWide() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API std::wstring Mcro::Text::StdConvertWide </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abc16bcbe557feaae2e02ad1c80284478" name="abc16bcbe557feaae2e02ad1c80284478"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc16bcbe557feaae2e02ad1c80284478">&#9670;&#160;</a></span>StdConvertWide() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API std::wstring Mcro::Text::StdConvertWide </td>
-          <td>(</td>
-          <td class="paramtype">FStringView const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00209">209</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -427,13 +752,15 @@ template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API <a class="el" href="#a2e8c067032afba88d5274e9060b7eb51">FStdString</a> Mcro::Text::StdCopy </td>
+          <td class="memname">MCRO_API <a class="el" href="#a28848d61082fc231a19137f8dbd64d9b">FStdString</a> Mcro::Text::StdCopy </td>
           <td>(</td>
           <td class="paramtype">FName const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create an Stl copy of an input Unreal string. </p>
 
 </div>
 </div>
@@ -444,7 +771,7 @@ template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API <a class="el" href="#a2e8c067032afba88d5274e9060b7eb51">FStdString</a> Mcro::Text::StdCopy </td>
+          <td class="memname">MCRO_API <a class="el" href="#a28848d61082fc231a19137f8dbd64d9b">FStdString</a> Mcro::Text::StdCopy </td>
           <td>(</td>
           <td class="paramtype">FStringView const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
           <td></td>
@@ -452,107 +779,84 @@ template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Create an Stl copy of an input Unreal string view. </p>
+
 </div>
 </div>
-<a id="a4371292ff2abf24adc0af96dba637ce1" name="a4371292ff2abf24adc0af96dba637ce1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4371292ff2abf24adc0af96dba637ce1">&#9670;&#160;</a></span>StdView() <span class="overload">[1/4]</span></h2>
+<a id="aac43b665274f3e1ea82068d8da0fd577" name="aac43b665274f3e1ea82068d8da0fd577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac43b665274f3e1ea82068d8da0fd577">&#9670;&#160;</a></span>StdView() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;CStringViewInvariant T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API <a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> Mcro::Text::StdView </td>
+          <td class="memname">auto Mcro::Text::StdView </td>
           <td>(</td>
-          <td class="paramtype">FString const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
+          <td class="paramtype">T const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>View an Unreal <code>TStringView</code> via an STL string view. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00158">158</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="a0946af2883cd0f4b2c7b88d9f3b00f76" name="a0946af2883cd0f4b2c7b88d9f3b00f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0946af2883cd0f4b2c7b88d9f3b00f76">&#9670;&#160;</a></span>StdView() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CConvertibleToDecayed&lt; FString &gt; T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Text::StdView </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>View an Unreal string via an STL string view. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00165">165</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
 </div>
 </div>
-<a id="ab39c3f47407786cd199b3cc0fa184707" name="ab39c3f47407786cd199b3cc0fa184707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab39c3f47407786cd199b3cc0fa184707">&#9670;&#160;</a></span>StdView() <span class="overload">[2/4]</span></h2>
+<a id="a794d55fa6b7ad418fba0e6f2be9c4baf" name="a794d55fa6b7ad418fba0e6f2be9c4baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794d55fa6b7ad418fba0e6f2be9c4baf">&#9670;&#160;</a></span>UnrealConvert()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;CStdStringOrViewInvariant T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API <a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> Mcro::Text::StdView </td>
+          <td class="memname">FString Mcro::Text::UnrealConvert </td>
           <td>(</td>
-          <td class="paramtype">FStringView const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
+          <td class="paramtype">T const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a7076afa25e4801e77127651b58eb5abf" name="a7076afa25e4801e77127651b58eb5abf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7076afa25e4801e77127651b58eb5abf">&#9670;&#160;</a></span>StdView() <span class="overload">[3/4]</span></h2>
+<p>Create a copy and convert an input STL string to TCHAR. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API std::wstring_view Mcro::Text::StdView </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a6465378c3a1a942320f3b7dd745656b0">FUtf16StringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac1a65b1f87b80c89d68804d283084ac8" name="ac1a65b1f87b80c89d68804d283084ac8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1a65b1f87b80c89d68804d283084ac8">&#9670;&#160;</a></span>StdView() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API std::string_view Mcro::Text::StdView </td>
-          <td>(</td>
-          <td class="paramtype">FUtf8StringView const &amp;</td>          <td class="paramname"><span class="paramname"><em>unrealStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a272164d4f5657c02fa6c4f889bc46dd7" name="a272164d4f5657c02fa6c4f889bc46dd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a272164d4f5657c02fa6c4f889bc46dd7">&#9670;&#160;</a></span>UnrealConvert() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API FString Mcro::Text::UnrealConvert </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7b755fb5f6289d58b2dbf8d21367f153" name="a7b755fb5f6289d58b2dbf8d21367f153"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b755fb5f6289d58b2dbf8d21367f153">&#9670;&#160;</a></span>UnrealConvert() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API FString Mcro::Text::UnrealConvert </td>
-          <td>(</td>
-          <td class="paramtype">std::wstring_view const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00175">175</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -565,45 +869,36 @@ template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
         <tr>
           <td class="memname">MCRO_API FString Mcro::Text::UnrealCopy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Create a copy of an input STL string. </p>
+
 </div>
 </div>
-<a id="a48b4c4cea96c07d792027090d4e05fa4" name="a48b4c4cea96c07d792027090d4e05fa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48b4c4cea96c07d792027090d4e05fa4">&#9670;&#160;</a></span>UnrealNameConvert() <span class="overload">[1/2]</span></h2>
+<a id="a6eb43872d83e35660d8b1bd981046ef4" name="a6eb43872d83e35660d8b1bd981046ef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eb43872d83e35660d8b1bd981046ef4">&#9670;&#160;</a></span>UnrealNameConvert()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;CStdStringOrViewInvariant T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API FName Mcro::Text::UnrealNameConvert </td>
+          <td class="memname">FName Mcro::Text::UnrealNameConvert </td>
           <td>(</td>
-          <td class="paramtype">std::string_view const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
+          <td class="paramtype">T const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ad149339bb7245364426ac86c9fb7beff" name="ad149339bb7245364426ac86c9fb7beff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad149339bb7245364426ac86c9fb7beff">&#9670;&#160;</a></span>UnrealNameConvert() <span class="overload">[2/2]</span></h2>
+<p>Create a copy and convert an input STL string to TCHAR as an FName. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API FName Mcro::Text::UnrealNameConvert </td>
-          <td>(</td>
-          <td class="paramtype">std::wstring_view const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00191">191</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -616,62 +911,44 @@ template&lt;CSameAs&lt; FString &gt;... Args&gt; </div>
         <tr>
           <td class="memname">MCRO_API FName Mcro::Text::UnrealNameCopy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Create a copy of an input STL string as an FName. </p>
+
 </div>
 </div>
-<a id="a3ad93091a989674568a74c26342312c1" name="a3ad93091a989674568a74c26342312c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ad93091a989674568a74c26342312c1">&#9670;&#160;</a></span>UnrealView()</h2>
+<a id="a6a135b9b15337f45329dfcf5f575579b" name="a6a135b9b15337f45329dfcf5f575579b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a135b9b15337f45329dfcf5f575579b">&#9670;&#160;</a></span>UnrealView()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename CharType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MCRO_API FStringView Mcro::Text::UnrealView </td>
+          <td class="memname">auto Mcro::Text::UnrealView </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a>&lt; CharType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a2e2386df93e4eaa926877aeb89ad7637" name="a2e2386df93e4eaa926877aeb89ad7637"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e2386df93e4eaa926877aeb89ad7637">&#9670;&#160;</a></span>UnrealViewUtf16()</h2>
+<p>View an STL string object via an Unreal <code>TStringView</code> </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API <a class="el" href="#a6465378c3a1a942320f3b7dd745656b0">FUtf16StringView</a> Mcro::Text::UnrealViewUtf16 </td>
-          <td>(</td>
-          <td class="paramtype">std::wstring_view const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adc1abce844a3fec452e9286c9e46b7ef" name="adc1abce844a3fec452e9286c9e46b7ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc1abce844a3fec452e9286c9e46b7ef">&#9670;&#160;</a></span>UnrealViewUtf8()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_API FUtf8StringView Mcro::Text::UnrealViewUtf8 </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view const &amp;</td>          <td class="paramname"><span class="paramname"><em>stdStr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00151">151</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>

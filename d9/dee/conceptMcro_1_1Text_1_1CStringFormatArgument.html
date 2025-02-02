@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11"/>
   <meta name="generator" content="Doxygen 1.12.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MCRO: Mcro::Text::CStringView Concept Reference</title>
+  <title>MCRO: Mcro::Text::CStringFormatArgument Concept Reference</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../../jquery.js"></script>
   <script type="text/javascript" src="../../dynsections.js"></script>
@@ -86,7 +86,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('d6/ddd/conceptMcro_1_1Text_1_1CStringView.html','../../'); initResizable(true); });
+$(function(){initNavTree('d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -112,24 +112,34 @@ $(function(){initNavTree('d6/ddd/conceptMcro_1_1Text_1_1CStringView.html','../..
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Mcro::Text::CStringView Concept Reference</div></div>
+  <div class="headertitle"><div class="title">Mcro::Text::CStringFormatArgument Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A type which can be converted to FStringFormatArg via any method.  
+<a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d6/ddd/conceptMcro_1_1Text_1_1CStringView.html">Mcro::Text::CStringView</a> =  CSameAsDecayed&lt;T, TStringView&lt;typename T::ElementType&gt;&gt;</div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CStringView_html"><div class="ttname"><a href="../../d6/ddd/conceptMcro_1_1Text_1_1CStringView.html">Mcro::Text::CStringView</a></div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00035">Text.h:35</a></div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">Mcro::Text::CStringFormatArgument</a> =  <a class="code hl_concept" href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">CDirectStringFormatArgument&lt;T&gt;</a></div>
+<div class="line">        || <a class="code hl_concept" href="../../d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html">CHasToString&lt;T&gt;</a></div>
+<div class="line">        || <a class="code hl_concept" href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">CHasStringFormatArgumentConversion&lt;T&gt;</a></div>
+<div class="line">    </div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CDirectStringFormatArgument_html"><div class="ttname"><a href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">Mcro::Text::CDirectStringFormatArgument</a></div><div class="ttdoc">A type which is directly convertible to FStringFormatArg.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00263">Text.h:263</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion_html"><div class="ttname"><a href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">Mcro::Text::CHasStringFormatArgumentConversion</a></div><div class="ttdoc">A type which can be used with FStringFormatArg via a % FStringFormatTag() operator.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00277">Text.h:277</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CHasToString_html"><div class="ttname"><a href="../../d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html">Mcro::Text::CHasToString</a></div><div class="ttdoc">A type which which provides a ToString() member method.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00267">Text.h:267</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CStringFormatArgument_html"><div class="ttname"><a href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">Mcro::Text::CStringFormatArgument</a></div><div class="ttdoc">A type which can be converted to FStringFormatArg via any method.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00284">Text.h:284</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00035">35</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<div class="textblock"><p>A type which can be converted to FStringFormatArg via any method. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00284">284</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></li><li class="navelem"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html">Text</a></li><li class="navelem"><a class="el" href="../../d6/ddd/conceptMcro_1_1Text_1_1CStringView.html">CStringView</a></li>
+    <li class="navelem"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></li><li class="navelem"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html">Text</a></li><li class="navelem"><a class="el" href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">CStringFormatArgument</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

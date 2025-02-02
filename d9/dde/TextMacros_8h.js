@@ -1,19 +1,29 @@
 var TextMacros_8h =
 [
+    [ "Mcro::Text::Macros::FDefer_AsLocalizable_Advanced", "d3/dd9/structMcro_1_1Text_1_1Macros_1_1FDefer__AsLocalizable__Advanced.html", "d3/dd9/structMcro_1_1Text_1_1Macros_1_1FDefer__AsLocalizable__Advanced" ],
+    [ "Mcro::Text::Macros::FInvTextFakeLiteralTag", "d7/d8a/structMcro_1_1Text_1_1Macros_1_1FInvTextFakeLiteralTag.html", "d7/d8a/structMcro_1_1Text_1_1Macros_1_1FInvTextFakeLiteralTag" ],
+    [ "Mcro::Text::Macros::FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag" ],
+    [ "Mcro::Text::Macros::FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag" ],
+    [ "Mcro::Text::Macros::FNameFakeLiteralTag", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag.html", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag" ],
+    [ "Mcro::Text::Macros::FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag" ],
+    [ "Mcro::Text::Macros::TStringPrintfLiteral< Args >", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral" ],
+    [ "_PRINTF", "d9/dde/TextMacros_8h.html#ad33429682dabff3fd90527fb341d1396", null ],
     [ "INVTEXT_", "d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3", null ],
     [ "LOCTEXT_", "d9/dde/TextMacros_8h.html#ae84b9aeca8d62603bcdeba17e69faa9c", null ],
+    [ "NAME_", "d9/dde/TextMacros_8h.html#a8669c850f529b43efdd361449e6476f1", null ],
     [ "NSLOCTEXT_", "d9/dde/TextMacros_8h.html#ac079c1ef1e9b0003fa12f80b90f23375", null ],
+    [ "PRINTF_", "d9/dde/TextMacros_8h.html#a9f5256e5a5f2fe8f881946fbb3e2de0a", null ],
+    [ "STDVIEW_", "d9/dde/TextMacros_8h.html#aba05a1e4a20eb8bd2cdbdfb7dddb52a3", null ],
+    [ "STRING_", "d9/dde/TextMacros_8h.html#afbc96d02c293288be9eb3c4c2233f381", null ],
     [ "TEXT_", "d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657", null ],
     [ "TEXT_PASTE_", "d9/dde/TextMacros_8h.html#a8df4811fbae066e5c72a718b74803a35", null ],
+    [ "TEXTVIEW_", "d9/dde/TextMacros_8h.html#acdf73c2b2eed4786f9893545ecaef26f", null ],
     [ "UTF16TEXT_", "d9/dde/TextMacros_8h.html#a9f7a8772f7122a4086b15f1be8279b65", null ],
     [ "UTF16TEXT_PASTE_", "d9/dde/TextMacros_8h.html#a8ed03ee09e4589d9895b3511befb34bc", null ],
     [ "UTF8TEXT_", "d9/dde/TextMacros_8h.html#a242156ac9f2941d01afb00a7cb9b0bc6", null ],
     [ "UTF8TEXT_PASTE_", "d9/dde/TextMacros_8h.html#a6fabc0c4d9570c712c7f59c43b6496b8", null ],
     [ "WIDETEXT_", "d9/dde/TextMacros_8h.html#a8cc20adbbc6274b4fb3f24e9c32df875", null ],
     [ "WIDETEXT_PASTE_", "d9/dde/TextMacros_8h.html#af2b87b1a0f7c497359bdcbda7cc11288", null ],
-    [ "FDefer_AsCultureInvariant", "d9/dde/TextMacros_8h.html#a6634362266cd2a7c4c42dc99f9529b05", null ],
-    [ "FDefer_AsLocalizable_Advanced", "d9/dde/TextMacros_8h.html#a12307b0f821c5aada75b5288f63f54b2", null ],
-    [ "AsCultureInvariant", "d9/dde/TextMacros_8h.html#ad2b0e218a4fe4ca1b70ce8f3c0fdfadb", null ],
     [ "AsLocalizable_Advanced", "d9/dde/TextMacros_8h.html#a03ea4959ef91faaed251dc12117f8b3f", null ],
-    [ "operator/", "d9/dde/TextMacros_8h.html#a8854b58e5866eea0486fcbf096b8f359", null ]
+    [ "MakePrintfLiteral", "d9/dde/TextMacros_8h.html#a2502b204a2fc10975de66e32c6cc8c77", null ]
 ];

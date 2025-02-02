@@ -153,6 +153,28 @@ $(function(){initNavTree('d9/dd0/Platform_8h_source.html','../../'); initResizab
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d9/dd0/Platform_8h.html#a7ae18169a5637a0c3bf19f87216b7354">   37</a></span><span class="preprocessor">#define MCRO_CURRENT_PLATFORM_STRING MCRO_STRIFY(MCRO_CURRENT_PLATFORM)</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d9/dd0/Platform_8h.html#a17c84ea2f903c41e9122f4c2595c962c">   38</a></span><span class="preprocessor">#define MCRO_CURRENT_PLATFORM_TEXT TEXT(MCRO_CURRENT_PLATFORM_STRING)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#if defined(_MSC_VER)</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define MCRO_COMPILER_MSVC 1</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define MCRO_COMPILER_GCC 0</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define MCRO_COMPILER_CLANG 0</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define MCRO_COMPILER MSVC</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#elif defined(__GNUC__)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define MCRO_COMPILER_MSVC 0</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define MCRO_COMPILER_GCC 1</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define MCRO_COMPILER_CLANG 0</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define MCRO_COMPILER GCC</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#elif defined(__clang__)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define MCRO_COMPILER_MSVC 0</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define MCRO_COMPILER_GCC 0</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define MCRO_COMPILER_CLANG 1</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#define MCRO_COMPILER CLang</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d9/dd0/Platform_8h.html#a7838b865b6016a1bae24094f91b23b0b">   56</a></span><span class="preprocessor">#define MCRO_COMPILER_MSVC 0</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d9/dd0/Platform_8h.html#a7f29cf8856e0b09f60fa150aad6f1b70">   57</a></span><span class="preprocessor">#define MCRO_COMPILER_GCC 0</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d9/dd0/Platform_8h.html#a09d541c915907cb5386001d767d12b28">   58</a></span><span class="preprocessor">#define MCRO_COMPILER_CLANG 0</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d9/dd0/Platform_8h.html#a715341c59749e4b064daad8510e9fc1f">   59</a></span><span class="preprocessor">#define MCRO_COMPILER Unknown</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aMacros_8h_html"><div class="ttname"><a href="../../df/d0a/Macros_8h.html">Macros.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

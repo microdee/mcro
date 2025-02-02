@@ -114,6 +114,7 @@ $(function(){initNavTree('d0/de3/TypeName_8h.html','../../'); initResizable(true
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">TypeName.h File Reference</div></div>
@@ -127,6 +128,7 @@ $(function(){initNavTree('d0/de3/TypeName_8h.html','../../'); initResizable(true
 <code>#include &quot;UnrealCtre.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Mcro/Text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dd0/Platform_8h_source.html">Mcro/Platform.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d0/de3/TypeName_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -137,10 +139,15 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html">Mcro::TypeName</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8411175e9f424cd5a05279d27be55b38" id="r_a8411175e9f424cd5a05279d27be55b38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8411175e9f424cd5a05279d27be55b38">MCRO_EXPLICIT_TYPE_EXTRACTION</a>&#160;&#160;&#160;defined(MCRO_EXPLICIT_PRETTY_FUNCTION) &amp;&amp; defined(MCRO_EXPLICIT_TYPE_EXTRACT_REGEX)</td></tr>
+<tr class="separator:a8411175e9f424cd5a05279d27be55b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa25579665ec537022e869b1e5a500337" id="r_aa25579665ec537022e869b1e5a500337"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa25579665ec537022e869b1e5a500337"><td class="memTemplItemLeft" align="right" valign="top">consteval <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ae89b160805d6a59c921a0353dc2d3423">Mcro::Text::FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a> ()</td></tr>
+<tr class="memitem:aa25579665ec537022e869b1e5a500337"><td class="memTemplItemLeft" align="right" valign="top">consteval <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">Mcro::Text::FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a> ()</td></tr>
 <tr class="memdesc:aa25579665ec537022e869b1e5a500337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string view of the compile time typename.  <br /></td></tr>
 <tr class="separator:aa25579665ec537022e869b1e5a500337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -151,7 +158,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a4b48113b8a32fb7465ce6663edab3aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a friendly string of an input type without using <code>typeid(T).name()</code>.  <br /></td></tr>
 <tr class="separator:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0" id="r_af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ae89b160805d6a59c921a0353dc2d3423">FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#af597045724d09ebd9dac4d01b85ed1c0">Mcro::TypeName::TTypeNameStd</a> = <a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
+<tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#af597045724d09ebd9dac4d01b85ed1c0">Mcro::TypeName::TTypeNameStd</a> = <a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
 <tr class="separator:af597045724d09ebd9dac4d01b85ed1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5" id="r_ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplItemLeft" align="right" valign="top">const FName&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5">Mcro::TypeName::TTypeFName</a> = FName(<a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.Len(), <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.GetData())</td></tr>
@@ -167,7 +174,24 @@ Variables</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a8411175e9f424cd5a05279d27be55b38" name="a8411175e9f424cd5a05279d27be55b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8411175e9f424cd5a05279d27be55b38">&#9670;&#160;</a></span>MCRO_EXPLICIT_TYPE_EXTRACTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_EXPLICIT_TYPE_EXTRACTION&#160;&#160;&#160;defined(MCRO_EXPLICIT_PRETTY_FUNCTION) &amp;&amp; defined(MCRO_EXPLICIT_TYPE_EXTRACT_REGEX)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00027">27</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="aa25579665ec537022e869b1e5a500337" name="aa25579665ec537022e869b1e5a500337"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa25579665ec537022e869b1e5a500337">&#9670;&#160;</a></span>GetCompileTimeTypeName()</h2>
 
@@ -180,7 +204,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ae89b160805d6a59c921a0353dc2d3423">Mcro::Text::FStdStringView</a> GetCompileTimeTypeName </td>
+          <td class="memname"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">Mcro::Text::FStdStringView</a> GetCompileTimeTypeName </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -203,7 +227,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string view of the name of the type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00047">47</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00057">57</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>

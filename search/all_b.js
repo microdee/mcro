@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['last_20but_20not_20least_0',['Last but not least',['../index.html#autotoc_md20',1,'']]],
-  ['least_1',['Last but not least',['../index.html#autotoc_md20',1,'']]],
-  ['legal_2',['Legal',['../index.html#autotoc_md21',1,'']]],
-  ['list_3',['Todo List',['../dd/da0/todo.html',1,'']]],
-  ['loctext_5f_4',['LOCTEXT_',['../d9/dde/TextMacros_8h.html#ae84b9aeca8d62603bcdeba17e69faa9c',1,'TextMacros.h']]]
+  ['jbeder_20yaml_20cpp_20yaml_20cpp_20a_0',['&lt;a href=&quot;https://github.com/jbeder/yaml-cpp&quot; &gt;yaml-cpp&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md3',1,'']]],
+  ['join_1',['Join',['../d8/d6f/namespaceMcro_1_1Text.html#a01257118e0bdc9f69fb3b310374cb385',1,'Mcro::Text']]]
 ];

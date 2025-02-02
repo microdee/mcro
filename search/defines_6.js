@@ -1,19 +1,4 @@
 var searchData=
 [
-  ['macro_5foverload_0',['MACRO_OVERLOAD',['../df/d0a/Macros_8h.html#a048e492c8a4074ec4ce7f5438280b98a',1,'Macros.h']]],
-  ['mcro_5fassert_5fcrash_5fcommon_1',['MCRO_ASSERT_CRASH_COMMON',['../db/df5/AssertMacros_8h.html#a588ce77d066e07032a97a1fabf9d7cea',1,'AssertMacros.h']]],
-  ['mcro_5fassert_5fcrash_5fmethod_2',['MCRO_ASSERT_CRASH_METHOD',['../db/df5/AssertMacros_8h.html#ad04c6f5e3f2ecc828765f495a94561f4',1,'AssertMacros.h']]],
-  ['mcro_5fassert_5fquit_5fcommon_3',['MCRO_ASSERT_QUIT_COMMON',['../db/df5/AssertMacros_8h.html#a00bca9eac31edb01fba1dc0b0a6ff2e8',1,'AssertMacros.h']]],
-  ['mcro_5fassert_5fsubmit_5ferror_4',['MCRO_ASSERT_SUBMIT_ERROR',['../db/df5/AssertMacros_8h.html#ae6cf89b0c99dcc164d51b257cd9d2b9f',1,'AssertMacros.h']]],
-  ['mcro_5fcrash_5fbody_5',['MCRO_CRASH_BODY',['../db/df5/AssertMacros_8h.html#a32263d9e9c647c5d5ea838152763967a',1,'AssertMacros.h']]],
-  ['mcro_5fcurrent_5fplatform_5fstring_6',['MCRO_CURRENT_PLATFORM_STRING',['../d9/dd0/Platform_8h.html#a7ae18169a5637a0c3bf19f87216b7354',1,'Platform.h']]],
-  ['mcro_5fcurrent_5fplatform_5ftext_7',['MCRO_CURRENT_PLATFORM_TEXT',['../d9/dd0/Platform_8h.html#a17c84ea2f903c41e9122f4c2595c962c',1,'Platform.h']]],
-  ['mcro_5fdynamic_5fevent_5fmultiplex_8',['MCRO_DYNAMIC_EVENT_MULTIPLEX',['../df/d7c/EventMultiplex_8h.html#a208147f3fbd3ac29e3f024534306eccb',1,'EventMultiplex.h']]],
-  ['mcro_5fdynamic_5freturn_9',['MCRO_DYNAMIC_RETURN',['../df/d7c/EventMultiplex_8h.html#a88b19745c59dadb4a3210a188975eac9',1,'EventMultiplex.h']]],
-  ['mcro_5fpropagate_5ffail_5f1_10',['MCRO_PROPAGATE_FAIL_1',['../de/dba/Error_8h.html#a2b14adae907d6ef76b8ab72f71f09d7d',1,'Error.h']]],
-  ['mcro_5fpropagate_5ffail_5f2_11',['MCRO_PROPAGATE_FAIL_2',['../de/dba/Error_8h.html#a6ad3f41996d940cc820308ad5b102ae2',1,'Error.h']]],
-  ['mcro_5fpropagate_5ffail_5f3_12',['MCRO_PROPAGATE_FAIL_3',['../de/dba/Error_8h.html#a6c02656a66375f94124ba473e4bf954d',1,'Error.h']]],
-  ['mcro_5fquit_5fbody_13',['MCRO_QUIT_BODY',['../db/df5/AssertMacros_8h.html#a45682925d9aa5824efc2734bcbab676c',1,'AssertMacros.h']]],
-  ['mcro_5fthis_5ftype_14',['MCRO_THIS_TYPE',['../d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150',1,'Concepts.h']]],
-  ['mcro_5ftry_5fwith_5fimpl_15',['MCRO_TRY_WITH_IMPL',['../da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7',1,'HResultMacros.h']]]
+  ['loctext_5f_0',['LOCTEXT_',['../d9/dde/TextMacros_8h.html#ae84b9aeca8d62603bcdeba17e69faa9c',1,'TextMacros.h']]]
 ];

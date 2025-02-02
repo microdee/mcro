@@ -95,6 +95,18 @@ var annotated_dup =
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
         [ "TTemplate", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", "da/dde/structMcro_1_1Templates_1_1TTemplate" ]
       ] ],
+      [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
+        [ "Macros", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html", [
+          [ "FDefer_AsLocalizable_Advanced", "d3/dd9/structMcro_1_1Text_1_1Macros_1_1FDefer__AsLocalizable__Advanced.html", "d3/dd9/structMcro_1_1Text_1_1Macros_1_1FDefer__AsLocalizable__Advanced" ],
+          [ "FInvTextFakeLiteralTag", "d7/d8a/structMcro_1_1Text_1_1Macros_1_1FInvTextFakeLiteralTag.html", "d7/d8a/structMcro_1_1Text_1_1Macros_1_1FInvTextFakeLiteralTag" ],
+          [ "FNameFakeLiteralTag", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag.html", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag" ],
+          [ "FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag" ],
+          [ "FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag" ],
+          [ "FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag" ],
+          [ "TStringPrintfLiteral", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral" ]
+        ] ],
+        [ "FStringFormatTag", "df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html", null ]
+      ] ],
       [ "Tuples", "db/d81/namespaceMcro_1_1Tuples.html", [
         [ "TSkip_Struct", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct" ],
         [ "TTake_Struct", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct" ],
@@ -105,7 +117,8 @@ var annotated_dup =
       ] ],
       [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", [
         [ "Init", "de/d2e/namespaceMcro_1_1UObjects_1_1Init.html", [
-          [ "FConstructObjectParameters", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters" ]
+          [ "FConstructObjectParameters", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters" ],
+          [ "TScopeObject", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject.html", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject" ]
         ] ]
       ] ],
       [ "Windows", "db/de3/namespaceMcro_1_1Windows.html", [

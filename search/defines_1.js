@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['error_5fclog_0',['ERROR_CLOG',['../de/dba/Error_8h.html#af62fca6b839f4889d0ac89f460782dd1',1,'Error.h']]],
-  ['error_5flog_1',['ERROR_LOG',['../de/dba/Error_8h.html#a4dda31b172a0b84424ef61f5ebe69b4a',1,'Error.h']]]
+  ['assert_5fcrash_0',['ASSERT_CRASH',['../db/df5/AssertMacros_8h.html#aa701f2cd895ccc225e7eaef22640854d',1,'AssertMacros.h']]],
+  ['assert_5fquit_1',['ASSERT_QUIT',['../db/df5/AssertMacros_8h.html#a317dc938d91eac73bdea39eafe3f8b8a',1,'AssertMacros.h']]],
+  ['assert_5freturn_2',['ASSERT_RETURN',['../de/dba/Error_8h.html#af37be15dc2b5053c9c6f901363b2a756',1,'Error.h']]]
 ];
