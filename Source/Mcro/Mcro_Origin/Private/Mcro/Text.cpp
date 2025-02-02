@@ -20,7 +20,6 @@ namespace Mcro::Text
 
 	FString UnrealCopy(const FStdStringView& stdStr)
 	{
-		FString asd;
 		return FString(stdStr.data(), stdStr.size());
 	}
 
@@ -49,10 +48,10 @@ namespace Mcro::Text
 
 	FString DynamicPrintf(const TCHAR* fmt, ...)
 	{
-		int32		BufferSize	= 512;
-		TCHAR	StartingBuffer[512];
-		TCHAR*	Buffer		= StartingBuffer;
-		int32		Result		= -1;
+		int32  BufferSize     = 512;
+		TCHAR  StartingBuffer  [512];
+		TCHAR* Buffer         = StartingBuffer;
+		int32  Result         = -1;
 
 		// First try to print to a stack allocated location 
 		GET_TYPED_VARARGS_RESULT( TCHAR, Buffer, BufferSize, BufferSize-1, fmt, fmt, Result );
