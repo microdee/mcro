@@ -10,9 +10,10 @@
  */
 
 #include "Mcro/Error/ErrorManager.h"
-#include "Mcro/Threading.h"
-#include "Interfaces/IMainFrameModule.h"
 #include "Mcro/Error/SErrorDisplay.h"
+#include "Mcro/Threading.h"
+#include "Mcro/FmtMacros.h"
+#include "Interfaces/IMainFrameModule.h"
 #include "Styling/StarshipCoreStyle.h"
 #include "HAL/PlatformApplicationMisc.h"
 
@@ -78,10 +79,7 @@ namespace Mcro::Error
 
 		decltype(auto) style = FStarshipCoreStyle::GetCoreStyle();
 
-		auto severity = error->GetSeverityString();
-		auto title = FString::Printf(
-			TEXT_"%s error %s", severity.GetData(), *error->GetType().ToString()
-		);
+		auto title = TEXT_"{0} error {1}" _FMT(error->GetSeverity(), error->GetType());
 		
 		FErrorHeaderStyle headerStyle;
 		switch (error->GetSeverity())

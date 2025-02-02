@@ -21,7 +21,7 @@ Unreal's own asset pipeline in the editor.
 Reason of inclusion:  
 It can do this:
 
-```C++
+```Cpp
 struct FDate { std::string_view year, month, day; };
 
 auto result = ctre::match<R"((?<year>\d{4})/(?<month>\d{1,2})/(?<day>\d{1,2}))">(s);

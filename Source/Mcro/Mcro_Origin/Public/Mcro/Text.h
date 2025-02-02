@@ -15,79 +15,347 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/Concepts.h"
+#include "Mcro/FunctionTraits.h"
 
+/** @brief Mixed text utilities and type traits */
 namespace Mcro::Text
 {
 	using namespace Mcro::Concepts;
 
+	/** @brief Unreal style alias for STL strings */
+	template <
+		class CharT,
+		class Traits = std::char_traits<CharT>,
+		class Allocator = std::allocator<CharT>
+	>
+	using TStdString = std::basic_string<CharT, Traits, Allocator>;
+
+	/** @brief Unreal style alias for STL string views */
+	template <
+		class CharT,
+		class Traits = std::char_traits<CharT>
+	>
+	using TStdStringView = std::basic_string_view<CharT, Traits>;
+
 	using FUtf16StringView = TStringView<UTF16CHAR>;
 	using FUtf32StringView = TStringView<UTF32CHAR>;
-
-#if PLATFORM_TCHAR_IS_UTF8CHAR
-	using FStdString = std::string;
-	using FStdStringView = std::string_view;
-#else
-	using FStdString = std::wstring;
-	using FStdStringView = std::wstring_view;
-#endif
-
-	template<typename T>
-	concept CStringView = CSameAsDecayed<T, TStringView<typename T::ElementType>>;
-
-	template<typename T>
-	concept CStringOrView = CSameAsDecayed<T, FString> || CStringView<T>;
 	
+	/** @brief cross-TCHAR alias for `std::[w]string` */
+	using FStdString = TStdString<TCHAR>;
+	
+	/** @brief cross-TCHAR alias for `std::[w]string_view` */
+	using FStdStringView = TStdStringView<TCHAR>;
+
+	/** @brief Concept constraining given type to a string view of any character type */
+	template<typename T>
+	concept CStringViewInvariant = CSameAsDecayed<T, TStringView<typename T::ElementType>>;
+
+	/** @brief Concept constraining given type to a string of any character type */
+	template<typename T>
+	concept CStringInvariant = CSameAsDecayed<T, FString>
+		|| CSameAsDecayed<T, FAnsiString>
+		|| CSameAsDecayed<T, FUtf8String>
+	;
+
+	/** @brief Concept constraining given type to a string or a a view of TCHAR */
+	template<typename T>
+	concept CStringOrView = CSameAsDecayed<T, FString> || CSameAsDecayed<T, FStringView>;
+
+	/** @brief Concept constraining given type to a string or a a view of any character type */
+	template<typename T>
+	concept CStringOrViewInvariant = CStringInvariant<T> || CStringViewInvariant<T>;
+	
+	/** @brief Concept constraining given type to a string, a view or an FName of TCHAR */
 	template<typename T>
 	concept CStringOrViewOrName = CStringOrView<T> || CSameAsDecayed<T, FName>;
 
-	template <typename T>
-	concept CStdStringOrViewUtf8 = CConvertibleToDecayed<T, std::string_view>;
-
-	template <typename T>
-	concept CStdStringOrViewWide = CConvertibleToDecayed<T, std::wstring_view>;
-
+	/** @brief Concept constraining given type to a std::string or a view of TCHAR */
 	template <typename T>
 	concept CStdStringOrView = CConvertibleToDecayed<T, FStdStringView>;
 
+	/** @brief Concept constraining given type to a std::string or a view of given character type */
+	template <typename T, typename CharType>
+	concept CStdStringOrViewTyped = CConvertibleToDecayed<T, TStdStringView<CharType>>;
+
+	/** @brief Concept constraining given type to only a std::string of any character type */
 	template <typename T>
-	concept CStdStringOrViewInvariant = CStdStringOrViewUtf8<T> || CStdStringOrViewWide<T>;
+	concept CStdStringInvariant =
+		CSameAsDecayed<
+			T,
+			TStdString<
+				typename T::value_type,
+				typename T::traits_type
+			>
+		>
+	;
 
-	MCRO_API FStringView UnrealView(FStdStringView const& stdStr);
-	MCRO_API FUtf8StringView UnrealViewUtf8(std::string_view const& stdStr);
-	MCRO_API FUtf16StringView UnrealViewUtf16(std::wstring_view const& stdStr);
-	MCRO_API FStdStringView StdView(FString const& unrealStr);
-	MCRO_API FStdStringView StdView(FStringView const& unrealStr);
-	MCRO_API std::string_view StdView(FUtf8StringView const& unrealStr);
-	MCRO_API std::wstring_view StdView(FUtf16StringView const& unrealStr);
+	/** @brief Concept constraining given type to only a std::string_view of any character type */
+	template <typename T>
+	concept CStdStringViewInvariant =
+		CSameAsDecayed<
+			T,
+			TStdStringView<
+				typename T::value_type,
+				typename T::traits_type
+			>
+		>
+	;
 
+	/** @brief Concept constraining given type to a std::string or a view of any character type */
+	template <typename T>
+	concept CStdStringOrViewInvariant =
+		CConvertibleToDecayed<
+			T,
+			TStdStringView<
+				typename T::value_type,
+				typename T::traits_type
+			>
+		>
+	;
+
+	namespace Detail
+	{
+		using namespace Mcro::FunctionTraits;
+	
+		template <
+			typename CharFrom, typename CharOutput,
+			typename StringFrom,
+			CFunctionLike PtrGetter, CFunctionLike LengthGetter, CFunctionLike Constructor,
+			typename StringTo = TFunction_Return<Constructor>
+		>
+		StringTo HighLevelStringCast(const StringFrom& strIn, PtrGetter&& getPtr, LengthGetter&& getLength, Constructor&& construct)
+		{
+			if constexpr (CSameAs<CharFrom, CharOutput>)
+			{
+				return construct(
+					reinterpret_cast<const CharOutput*>(getPtr()),
+					getLength()
+				);
+			}
+			else
+			{
+				auto conversion = StringCast<CharOutput>(
+					reinterpret_cast<const CharFrom*>(getPtr()),
+					getLength()
+				);
+				return construct(
+					reinterpret_cast<const CharOutput*>(conversion.Get()),
+					conversion.Length()
+				);
+			}
+		}
+	}
+
+	/** @brief View an STL string object via an Unreal `TStringView` */
+	template <typename CharType>
+	constexpr auto UnrealView(TStdStringView<CharType> const& stdStr)
+	{
+		return TStringView<CharType>(stdStr.data(), stdStr.size());
+	}
+
+	/** @brief View an Unreal `TStringView` via an STL string view */
+	template <CStringViewInvariant T>
+	constexpr auto StdView(T const& unrealStr)
+	{
+		return TStdStringView<typename T::ElementType>(unrealStr.GetData(), unrealStr.Len());
+	}
+
+	/** @brief View an Unreal string via an STL string view */
+	template <CConvertibleToDecayed<FString> T>
+	auto StdView(T const& unrealStr)
+	{
+		return FStdStringView(*unrealStr, unrealStr.Len());
+	}
+
+	/** @brief Create a copy of an input STL string */
 	MCRO_API FString UnrealCopy(FStdStringView const& stdStr);
-	MCRO_API FString UnrealConvert(std::string_view const& stdStr);
-	MCRO_API FString UnrealConvert(std::wstring_view const& stdStr);
+
+	/** @brief Create a copy and convert an input STL string to TCHAR */
+	template <CStdStringOrViewInvariant T>
+	FString UnrealConvert(T const& stdStr)
+	{
+		return Detail::HighLevelStringCast<typename T::value_type, TCHAR>(
+			stdStr,
+			[&] { return stdStr.data(); },
+			[&] { return stdStr.length(); },
+			[](const TCHAR* ptr, int32 len) { return FString::ConstructFromPtrSize(ptr, len); }
+		);
+	}
 	
+	/** @brief Create a copy of an input STL string as an FName */
 	MCRO_API FName UnrealNameCopy(FStdStringView const& stdStr);
-	MCRO_API FName UnrealNameConvert(std::string_view const& stdStr);
-	MCRO_API FName UnrealNameConvert(std::wstring_view const& stdStr);
+	
 
+	/** @brief Create a copy and convert an input STL string to TCHAR as an FName */
+	template <CStdStringOrViewInvariant T>
+	FName UnrealNameConvert(T const& stdStr)
+	{
+		return Detail::HighLevelStringCast<typename T::value_type, TCHAR>(
+			stdStr,
+			[&] { return stdStr.data(); },
+			[&] { return stdStr.length(); },
+			[](const TCHAR* ptr, int32 len) { return FName(len, ptr); }
+		);
+	}
+
+	/** @brief Create an Stl copy of an input Unreal string view */
 	MCRO_API FStdString StdCopy(FStringView const& unrealStr);
+	
+	/** @brief Create an Stl copy of an input Unreal string */
 	MCRO_API FStdString StdCopy(FName const& unrealStr);
-	MCRO_API std::string StdConvertUtf8(FStringView const& unrealStr);
-	MCRO_API std::wstring StdConvertWide(FStringView const& unrealStr);
-	
-	MCRO_API std::string StdConvertUtf8(FStdStringView const& stdStr);
-	MCRO_API std::wstring StdConvertWide(FStdStringView const& stdStr);
-	
-	MCRO_API std::string StdConvertUtf8(FName const& unrealName);
-	MCRO_API std::wstring StdConvertWide(FName const& unrealName);
 
-	template <CSameAs<FString>... Args>
+	/** @brief Create a copy and convert an input Unreal string to the given character type */
+	template <typename ConvertTo>
+	auto StdConvert(FStringView const& unrealStr) -> TStdString<ConvertTo>
+	{
+		if constexpr (CSameAs<TCHAR, ConvertTo>)
+			return TStdString<ConvertTo>(unrealStr.GetData(), unrealStr.Len());
+		else
+		{
+			return Detail::HighLevelStringCast<TCHAR, ConvertTo>(
+				unrealStr,
+				[&] { return unrealStr.GetData(); },
+				[&] { return unrealStr.Len(); },
+				[](const ConvertTo* ptr, int32 len) { return TStdString(ptr, len); }
+			);
+		}
+	}
+
+	/** @brief Create a copy and convert an input STL string of TCHAR to the given character type */
+	template <typename ConvertTo>
+	auto StdConvert(FStdStringView const& stdStr) -> TStdString<ConvertTo>
+	{
+		if constexpr (CSameAs<TCHAR, ConvertTo>)
+			return TStdString<ConvertTo>(stdStr.data(), stdStr.size());
+		else
+		{
+			return Detail::HighLevelStringCast<TCHAR, ConvertTo>(
+				stdStr,
+				[&] { return stdStr.data(); },
+				[&] { return stdStr.size(); },
+				[](const ConvertTo* ptr, int32 len) { return TStdString(ptr, len); }
+			);
+		}
+	}
+
+	/** @brief Create a copy and convert an input FName to the given character type */
+	template <typename ConvertTo>
+	auto StdConvert(FName const& name) -> TStdString<ConvertTo>
+	{
+		return StdConvert<ConvertTo>(name.ToString());
+	}
+
+	/** @brief Join the given string arguments with a delimiter and skip empty entries */
+	template <CStringOrView... Args>
 	FString Join(const TCHAR* separator, Args... args)
 	{
 		return FString::Join(
-			TArray<FString>{args...}.FilterByPredicate([](const FString& str) { return !str.IsEmpty(); }),
+			TArray<FString>{args...}.FilterByPredicate([](FStringView const& str) { return !str.IsEmpty(); }),
 			separator
 		);
 	}
 
-	/** Copy of FString::PrintfImpl but not private so it can work with strings which were not literals */
+	/** @brief Copy of FString::PrintfImpl but not private so it can work with strings which were not literals */
 	MCRO_API FString DynamicPrintf(const TCHAR* fmt, ...);
+
+	/** @brief A type which is directly convertible to FStringFormatArg */
+	template <typename T>
+	concept CDirectStringFormatArgument = CConvertibleTo<T, FStringFormatArg>;
+
+	/** @brief A type which which provides a `ToString()` member method */
+	template <typename T>
+	concept CHasToString = !CDirectStringFormatArgument<T> && requires(T t)
+	{
+		{ t.ToString() } -> CDirectStringFormatArgument;
+	};
+
+	/** @brief An empty tag struct used to extend rigid types to be used in string formatting */
+	struct FStringFormatTag {};
+
+	/** @brief A type which can be used with FStringFormatArg via a `% FStringFormatTag()` operator. */
+	template <typename T>
+	concept CHasStringFormatArgumentConversion = !CDirectStringFormatArgument<T> && requires(T&& t)
+	{
+		{ t % FStringFormatTag() } -> CDirectStringFormatArgument;
+	};
+
+	/** @brief A type which can be converted to FStringFormatArg via any method. */
+	template <typename T>
+	concept CStringFormatArgument = CDirectStringFormatArgument<T>
+		|| CHasToString<T>
+		|| CHasStringFormatArgumentConversion<T>
+	;
+	
+	template <CDirectStringFormatArgument Operand>
+	Operand operator % (Operand&& left, FStringFormatTag&&)
+	{
+		return left;
+	}
+
+	template <CHasToString Operand>
+	auto operator % (Operand&& left, FStringFormatTag&&)
+	{
+		return left.ToString();
+	}
+
+	template <typename CharType>
+	const CharType* operator % (TStdString<CharType> const& left, FStringFormatTag&&)
+	{
+		return left.c_str();
+	}
+
+	FORCEINLINE FStringView operator % (FStdStringView const& left, FStringFormatTag&&)
+	{
+		return UnrealView(left);
+	}
+
+	template <CStdStringViewInvariant Operand>
+	requires (!CSameAsDecayed<Operand, FStdStringView>)
+	FString operator % (Operand&& left, FStringFormatTag&&)
+	{
+		return UnrealConvert(left);
+	}
+
+	/**
+	 *	@brief  Attempt to convert anything to string which can tell via some method how to do so
+	 *
+	 *	This may be more expensive to directly use than an already existing designated string conversion for a given
+	 *	type, because it uses `FStringFormatArg` and `% FStringFormatTag()` as intermediate steps. However, this can be
+	 *	still useful for types where such conversion doesn't already exist or when using this in a template.
+	 *
+	 *	It's still much faster than using `FMT_(myVar) "{0}"`
+	 */
+	template <CStringFormatArgument T>
+	FString AsString(T&& input)
+	{
+		FStringFormatArg format(input % FStringFormatTag());
+		return MoveTemp(format.StringValue);
+	}
+
+	/**
+	 *	@brief  Create an ordered argument list for a string format from input arguments
+	 *
+	 *	While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose.
+	 *	Check `_FMT` or `FMT_` macros for a comfortable string format syntax.
+	 */
+	template <CStringFormatArgument... Args>
+	FStringFormatOrderedArguments OrderedArguments(Args&&... args)
+	{
+		return FStringFormatOrderedArguments { FStringFormatArg(args % FStringFormatTag()) ... };
+	}
+
+	/**
+	 *	@brief  Create a named argument list for a string format from input argument tuples
+	 *
+	 *	While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose.
+	 *	Check `_FMT` or `FMT_` macros for a comfortable string format syntax.
+	 */
+	template <CStringFormatArgument... Args>
+	FStringFormatNamedArguments NamedArguments(TTuple<FString, Args>... args)
+	{
+		return FStringFormatNamedArguments {
+			{ args.template Get<0>(), FStringFormatArg(args.template Get<1>() % FStringFormatTag()) }
+			...
+		};
+	}
 }

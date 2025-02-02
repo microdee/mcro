@@ -20,8 +20,7 @@ namespace Mcro::Error
 		ANSICHAR* stackTrace = (ANSICHAR*)FMemory::SystemMalloc(stackTraceSize);
 		
 #if STATS
-		FString stackWalkPerfMessage = FString::Printf(TEXT_"FPlatformStackWalk::StackWalkAndDump");
-		SCOPE_LOG_TIME_IN_SECONDS(*stackWalkPerfMessage, nullptr)
+		SCOPE_LOG_TIME_IN_SECONDS(TEXT_"FPlatformStackWalk::StackWalkAndDump", nullptr)
 #endif
 		stackTrace[0] = 0;
 		FPlatformStackWalk::StackWalkAndDumpEx(

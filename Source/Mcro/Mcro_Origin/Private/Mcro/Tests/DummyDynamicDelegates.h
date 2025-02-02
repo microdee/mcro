@@ -33,6 +33,10 @@ class UDynamicDelegateTestClass : public UObject
 public:
 	void Initialize();
 
+	FTestDelegateWithArray GetTestMember() const;
+	FTestDelegateWithArray GetTestLambda() const;
+	int32 MemberFuncTest(TArray<FString>& results, const TCHAR* append) const;
+
 	TArray<FString> TestResult;
 
 	UPROPERTY()
@@ -45,7 +49,6 @@ public:
 
 	UPROPERTY()
 	FTestDynamicMulticastDelegate Event;
-	TMulticastDelegate<void(int32)> ResultEvent;
 
 	UFUNCTION()
 	void DynamicDelegateBinding(int32 argument);

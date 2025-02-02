@@ -22,12 +22,22 @@
 #include "UnrealCtre.h"
 #include "Mcro/Text.h"
 #include "Mcro/TextMacros.h"
+#include "Mcro/Platform.h"
+
+#define MCRO_EXPLICIT_TYPE_EXTRACTION defined(MCRO_EXPLICIT_PRETTY_FUNCTION) && defined(MCRO_EXPLICIT_TYPE_EXTRACT_REGEX)
 
 // TODO: C++ 20's std::source_location was used instead of this bouquet of macros, but then some platforms don't have <source_location>
-#if PLATFORM_LINUX || PLATFORM_ANDROID || PLATFORM_MAC
+#if MCRO_COMPILER_GCC || MCRO_COMPILER_CLANG
 #define PRETTY_FUNC __PRETTY_FUNCTION__
-#elif PLATFORM_WINDOWS
+#elif MCRO_COMPILER_MSVC
 #define PRETTY_FUNC __FUNCSIG__
+#elif MCRO_EXPLICIT_TYPE_EXTRACTION
+#define PRETTY_FUNC MCRO_EXPLICIT_PRETTY_FUNCTION
+#else
+#error "TTypeName is only compatible with Clang, GCC and MSVC. Please create a PR for your compiler at https://github.com/microdee/mcro/pulls.
+#error "If your compiler is under NDA add the following definitions in your target rules (values are examples):"
+#error "`MCRO_EXPLICIT_PRETTY_FUNCTION=__PRETTY_FUNCTION__`"
+#error "`MCRO_EXPLICIT_TYPE_EXTRACT_REGEX=\"GetCompileTimeTypeName\\\\<((struct|class)\\\\s)?(?<TYPE>.+?)\\\\>\\\\(\"`"
 #endif
 
 // disable this warning to allow us exploit division by zero error in consteval
@@ -49,7 +59,7 @@ consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()
 	using namespace Mcro::Text;
 	FStdStringView thisFunctionName { TEXT(PRETTY_FUNC) };
 	
-#if PLATFORM_LINUX || PLATFORM_ANDROID || PLATFORM_MAC
+#if MCRO_COMPILER_GCC || MCRO_COMPILER_CLANG
 	
 	// on Clang thisFunctionName looks like this:
 	//        matching: [--------------------------------------------]
@@ -61,9 +71,9 @@ consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()
 	//                            |                       capturing: [-------------]|
 	// consteval std::string_view GetCompileTimeTypeName() [with T = MyTemplate<Vec>; std::string_view = std::basic_string_view<char>]
 	
-	auto result = ctre::search<TEXT(R"(\s\[(?:with\s)?T\s=\s(?<TYPE>.+?)[;\]])")>(thisFunctionName);
+	auto result = ctre::search<TEXT_ R"(\s\[(?:with\s)?T\s=\s(?<TYPE>.+?)[;\]])">(thisFunctionName);
 	
-#elif PLATFORM_WINDOWS
+#elif MCRO_COMPILER_MSVC
 	
 	// on MSVC thisFunctionName looks like this:
 	//                                                                 matching: [----------------------------------------------------]
@@ -71,7 +81,9 @@ consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()
 	// class std::basic_string_view<char,struct std::char_traits<char> > __cdecl GetCompileTimeTypeName<struct MyTemplate<struct Vec>>(void)
 	
 	auto result = ctre::search<TEXT_ R"(GetCompileTimeTypeName\<((struct|class)\s)?(?<TYPE>.+?)\>\()">(thisFunctionName);
-	
+
+#elif MCRO_EXPLICIT_TYPE_EXTRACTION
+	auto result = ctre::search<TEXT(MCRO_EXPLICIT_TYPE_EXTRACT_REGEX)>(thisFunctionName);
 #endif
 	
 	FStdStringView output = result.get<TEXT_"TYPE">().to_view();

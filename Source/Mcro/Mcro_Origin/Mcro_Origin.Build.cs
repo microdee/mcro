@@ -29,6 +29,8 @@ public class Mcro_Origin : ModuleRules
 			"ApplicationCore",
 			"Slate",
 			"SlateCore",
+			"Boost",
+			
 			"Ctre_Origin",
 			"MagicEnum_Origin",
 			"YamlCpp_Origin",

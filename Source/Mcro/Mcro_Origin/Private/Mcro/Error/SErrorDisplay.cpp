@@ -75,6 +75,7 @@ namespace Mcro::Error
 	{
 		return [&](SEditableTextBox::FArguments& args) -> auto&
 		{
+			using namespace AttributeAppend;
 			return args
 				. Visibility(IsVisible(!text.IsEmpty()))
 				/ Text(text);
@@ -83,6 +84,7 @@ namespace Mcro::Error
 
 	auto SErrorDisplay::OptionalTextWidget(const FString& text) -> TSharedRef<SEditableTextBox>
 	{
+		using namespace AttributeAppend;
 		return SNew(SEditableTextBox) / OptionalText(text);
 	}
 
@@ -99,6 +101,7 @@ namespace Mcro::Error
 	{
 		return [&](SExpandableArea::FArguments& args) -> auto&
 		{
+			using namespace AttributeAppend;
 			return args
 				. Visibility(IsVisible(!text.IsEmpty()))
 				. AreaTitle(title)
@@ -112,6 +115,7 @@ namespace Mcro::Error
 
 	auto SErrorDisplay::ExpandableTextWidget(const FText& title, const FString& text) -> TSharedRef<SExpandableArea>
 	{
+		using namespace AttributeAppend;
 		return SNew(SExpandableArea) / ExpandableText(title, text);
 	}
 
@@ -130,6 +134,7 @@ namespace Mcro::Error
 	
 	auto SErrorDisplay::SeverityWidget(const IErrorRef& error) -> TSharedRef<STextBlock>
 	{
+		using namespace AttributeAppend;
 		return SNew(STextBlock)
 			. Font(FCoreStyle::GetDefaultFontStyle("Bold", 14))
 			/ Severity(error);

@@ -46,3 +46,12 @@ namespace Mcro::Enums
 		return magic_enum::enum_cast<Enum>(StdCopy(input));
 	}
 }
+
+namespace Mcro::Text
+{
+	template <CEnum Operand>
+	FStringView operator % (Operand&& left, FStringFormatTag&&)
+	{
+		return Mcro::Enums::EnumToStringView(left);
+	}
+}

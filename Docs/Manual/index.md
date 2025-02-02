@@ -9,37 +9,6 @@ A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
 
 [Find the source code at](https://github.com/microdee/mcro)
 
-## What's a proto-plugin?
-
-This repository is not meant to be used as its own full featured Unreal Plugin, but rather other plugins can compose this one into themselves using the [Folder Composition](https://github.com/microdee/md.Nuke.Cola?tab=readme-ov-file#folder-composition) feature provided by [Nuke.Unreal](https://github.com/microdee/Nuke.Unreal) (via [Nuke.Cola](https://github.com/microdee/md.Nuke.Cola)). The recommended way to use this is via using a simple Nuke.Cola build-plugin which inherits `IUseMcro` for example:
-
-```CSharp
-using Nuke.Common;
-using Nuke.Cola;
-using Nuke.Cola.BuildPlugins;
-using Nuke.Unreal;
-
-[ImplicitBuildInterface]
-public interface IUseMcroInMyProject : IUseMcro
-{
-    Target UseMcro => _ => _
-        .McroGraph()
-        .DependentFor<UnrealBuild>(b => b.Prepare)
-        .Executes(() =>
-        {
-            UseMcroAt(this.ScriptFolder(), "MyProjectSuffix");
-        });
-}
-```
-
-If this seems painful please blame Epic Games who decided to not allow ~~marketplace~~/Fab plugins to depend on each other, or at least depend on free and open source plugins from other sources. So I had to come up with all this "Folder Composition" nonsense so end-users might be able to use multiple of my plugins sharing common dependencies without module name conflicts.
-
-To use MCRO as its own plugin without the need for Nuke.Unreal, see this repository: **(DOESN'T EXIST YET)**
-
-## What's up with _Origin suffix everywhere?
-
-When this proto plugin is imported into other plugins, this suffix is used for disambiguation, in case the end-user uses multiple pre-compiled plugins depending on MCRO. If this seems annoying please refer to the paragraph earlier.
-
 ## What MCRO can do?
 
 Here are some code appetizers without going too deep into their details. The demonstrated features usually can do a lot more than what's shown here.
@@ -91,7 +60,7 @@ FCanFail FK4ADevice::Tick_Sync()
 }
 ```
 
-### Text macros without parenthesis
+### Text macros without parentheses
 
 <div class="tabbed">
 
@@ -99,12 +68,17 @@ FCanFail FK4ADevice::Tick_Sync()
 
 <li>
 
-<b class="tab-title">Without parenthesis:</b>
+<b class="tab-title">Without parentheses:</b>
 
 ```Cpp
 FString myVar(TEXT_"Hello world!");
 UE_LOG(LogTemp, Display, TEXT_"%s", *myVar);
-FText myText = INVTEXT_"Even FText macros are there";
+
+          FText myText   = INVTEXT_"Even FText macros are there";        // -> FText
+          auto  myString = STRING_"Typed literals";                      // -> FString
+          auto  myName   = NAME_"FName string literals";                 // -> FName
+constexpr auto  myView   = TEXTVIEW_"String view created in constexpr";  // -> FStringView
+constexpr auto  stdView  = STDVIEW_"TCHAR dependent STL string literal"; // -> std::[w]string_view
 ```
 
 </li>
@@ -116,7 +90,12 @@ FText myText = INVTEXT_"Even FText macros are there";
 ```Cpp
 FString myVar(TEXT("Hello world!"));
 UE_LOG(LogTemp, Display, TEXT("%s"), *myVar);
-FText myText = INVTEXT("Even FText macros are there");
+
+          FText   myText = INVTEXT("Even FText macros are there");
+          FString myString(TEXT("Typed literals"));
+          FName   myName  (TEXT("FName string literals"));
+constexpr auto    myView = TEXTVIEW("String view created in constexpr"); // -> FStringView
+// there are no vanilla utilities for cross-TCHAR STL string handling
 ```
 
 </li>
@@ -125,9 +104,219 @@ FText myText = INVTEXT("Even FText macros are there");
 
 </div>
 
-One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()` macro, especially the extra pair of parenthesis it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple `TCHAR` strings, or operator overloads for `FText`.
+One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()` macro, especially the extra pair of parentheses it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple `TCHAR` strings, or operator overloads for `FText` or `FName`.
 
 The earlier was even a suggestion of Microsoft [when they announced their standard compliant new preprocessor](https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval), and asked the general public to stop exploiting the behaviors of the old one.
+
+In code these macros are referred to fake text/string literals.
+
+### String formatting literals
+
+There are two groups of macros to express string formatting/interpolation with a "nice" syntax. These are also fake text literals but they can be both leading or trailing after the double quoted text.
+
+Wrapper around `FString::Printf`:
+
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">MCRO trailing:</b>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = STRING_"Hello!"; int32 count = 42;
+
+FString printf = TEXT_"Given %s with comment '%s' and count %d" _PRINTF(
+    *type.ToString(),
+    *comment,
+    count
+);
+// -> "Given Foo with comment 'Hello!' and count 42"
+```
+
+As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
+
+</li>
+
+<li>
+
+<b class="tab-title">Vanilla:</b>
+
+```Cpp
+FName type(TEXT("Foo")); FString comment(TEXT("Hello!")); int32 count = 42;
+
+FString printf = FString::Printf(TEXT("Given %s with comment '%s' and count %d"),
+    *type.ToString(),
+    *comment,
+    count
+);
+// -> "Given Foo with comment 'Hello!' and count 42"
+```
+
+</li>
+
+<li>
+
+<b class="tab-title">MCRO leading:</b>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = STRING_"Hello!"; int32 count = 42;
+
+FString printf = PRINTF_(*type.ToString(), *comment, count)
+    "Given %s with comment '%s' and count %d";
+
+// -> "Given Foo with comment 'Hello!' and count 42"
+```
+
+As a personal opinion this is only readable when there's a simple text and maximum of two arguments, but beauty is in the eye of the beholder.
+
+</li>
+
+</ul>
+
+</div>
+
+But for more modern and more automatic text conversion there's also a wrapper around `FString::Format`, but it can handle much more types automatically than `FString::Format`.
+
+With ordered arguments:
+
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">MCRO trailing:</b>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = TEXT_"Given {0} with comment '{1}' and count {2} with format {3}" _FMT(
+    type, comment, count, format
+);
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
+
+</li>
+
+<li>
+
+<b class="tab-title">Vanilla:</b>
+
+```Cpp
+FName type(TEXT("Foo")); FText comment = INVTEXT("Hello!"); int32 count = 42; // enums aren't supported at all
+
+FStringFormatOrderedArguments fmtArgs;
+fmtArgs.Add(type.ToString());
+fmtArgs.Add(comment.ToString());
+fmtArgs.Add(count);
+FString printf = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
+
+// -> "Given Foo with comment 'Hello!' and count 42"
+// enums aren't supported at all
+```
+
+</li>
+
+<li>
+
+<b class="tab-title">MCRO leading:</b>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = FMT_ (type, comment, count, format)
+    "Given {0} with comment '{1}' and count {2} with format {3}";
+
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is only readable when there's a simple text and maximum of two arguments, but beauty is in the eye of the beholder.
+
+</li>
+
+</ul>
+
+</div>
+
+With named arguments:
+
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">MCRO trailing:</b>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = TEXT_"Given {Type} with comment '{Comment}' and count {Count} with format {Format}" _FMT(
+    (Type,    type)
+    (Comment, comment)
+    (Count,   count)
+    (Format,  format)
+);
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
+
+</li>
+
+<li>
+
+<b class="tab-title">Vanilla:</b>
+
+```Cpp
+FName type(TEXT("Foo")); FText comment = INVTEXT("Hello!"); int32 count = 42; // enums aren't supported at all
+
+FStringFormatNamedArguments fmtArgs;
+fmtArgs.Add(TEXT("Type"),    type.ToString());
+fmtArgs.Add(TEXT("Comment"), comment.ToString());
+fmtArgs.Add(TEXT("Count"),   count);
+FString printf = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
+
+// -> "Given Foo with comment 'Hello!' and count 42"
+// enums aren't supported at all
+```
+
+</li>
+
+<li>
+
+<b class="tab-title">MCRO leading:</b>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = FMT_((Type, type) (Comment, comment) (Count, count) (Format, format))
+    "Given {Type} with comment '{Comment}' and count {Count} with format {Format}";
+
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is very rarely more readable than the trailing counterpart, but beauty is in the eye of the beholder.
+
+</li>
+
+</ul>
+
+</div>
+
+Notice how `FMT` macros decide named vs. ordered arguments based on the argument listing syntax alone, and the developer doesn't have to type out if they want named or ordered formatting.
 
 ### Delegate type inference
 
@@ -160,7 +349,7 @@ struct FObservable
 
 <li>
 
-<b class="tab-title">We can do:</b>
+<b class="tab-title">MCRO:</b>
 
 ```Cpp
 #include "Mcro/Common.h"
@@ -168,7 +357,7 @@ struct FObservable
 struct FListener : TSharedFromThis<FListener>
 {
     TMulticastDelegate<void(FObservable const&)> PropagateEvent;
-    void OnFirstStateReset(FObservable const& observable, FString const& capturedData)
+    void OnFirstStateReset(FObservable const& observable, FStringView capturedData);
     void BindTo(FObservable& observable)
     {
         using namespace Mcro::Delegates::InferDelegate;
@@ -182,8 +371,11 @@ struct FListener : TSharedFromThis<FListener>
         // Chaining events like this is a single line
         observable.OnStateResetTheFirstTimeEvent.Add(From(this, PropagateEvent));
 
-        // No need to decide on the method of binding, the most suitable one is chosen via templating
-        observable.OnStateResetTheFirstTimeEvent.Add(From(this, &FListener::OnFirstStateReset, TEXT_"Capture this"));
+
+
+        // Captured extra arguments are still supported and deduced correctly
+        auto firstReset = From(this, &FListener::OnFirstStateReset, TEXTVIEW_"capture");
+        observable.OnStateResetTheFirstTimeEvent.Add(firstReset);
     }
 }
 ```
@@ -192,19 +384,23 @@ struct FListener : TSharedFromThis<FListener>
 
 <li>
 
-<b class="tab-title">Equivalent vanilla Unreal delegates:</b>
+<b class="tab-title">Vanilla:</b>
 
 ```Cpp
+//
+
 struct FListener : TSharedFromThis<FListener>
 {
     TMulticastDelegate<void(FObservable const&)> PropagateEvent;
-    void OnFirstStateReset(FObservable const& observable, FString const& capturedData)
+    void OnFirstStateReset(FObservable const& observable, FStringView capturedData);
     void BindTo(FObservable& observable)
     {
+    
+    
         // Delegate API in these situations is pretty verbose
         observable.SetDefaultInitializer(FDefaultInitializerDelegate::CreateSPLambda(this, [this](FObservable const&) -> FString
         {
-            return TEXT_"Some default value";
+            return TEXT("Some default value");
         }));
 
         // Chaining events is a new Feature introduced with From
@@ -212,9 +408,9 @@ struct FListener : TSharedFromThis<FListener>
         {
             PropagateEvent.Broadcast(observableArg);
         });
-
-        // Ok here the difference is almost nothing
-        observable.OnStateResetTheFirstTimeEvent.AddSP(this, &FListener::OnFirstStateReset, TEXT_"Capture this");
+        
+        // As that's a given with vanilla multicast delegate API as well
+        observable.OnStateResetTheFirstTimeEvent.AddSP(this, &FListener::OnFirstStateReset, TEXTVIEW("capture"));
     }
 }
 ```
@@ -460,7 +656,7 @@ struct FFoobar : TSharedFromThis<FFoobar>
     void Do()
     {
         MyStuff.Update(1);
-        // -> Changed from -1 to 1[TimespanLiterals.h](../../../../Plugins/Yanui/Source/Mcro/Mcro_Yn/Public/Mcro/TimespanLiterals.h)
+        // -> Changed from -1 to 1
         // -> The first changed value is 1
         MyStuff.Update(2);
         // -> Changed from 1 to 2
@@ -521,11 +717,11 @@ There's a copy of the C++ 20 STL Concepts library in `Mcro::Concepts` namespace 
 
 ### Extending the Slate declarative syntax
 
-`Mcro::Slate` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
+`Mcro::Slate::AttributeAppend` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
 
 ```Cpp
 #include "Mcro/Common";
-using namespace Mcro::Common;
+using namespace Mcro::Common::With::AttributeAppend;
 
 // Define a reusable block of attributes
 auto Text(FString const& text) -> TAttributeBlock<STextBlock>
@@ -668,7 +864,38 @@ export void MakeLookupUV(
 * Windows:
   * [`IError` wrapper for `HRESULT` and `GetLastError`](@ref McroWindows/Error/WindowsError.h) extracting human readable error messages from them.
 
-## Legal
+## What's a proto-plugin
+
+This repository is not meant to be used as its own full featured Unreal Plugin, but rather other plugins can compose this one into themselves using the [Folder Composition](https://github.com/microdee/md.Nuke.Cola?tab=readme-ov-file#folder-composition) feature provided by [Nuke.Unreal](https://github.com/microdee/Nuke.Unreal) (via [Nuke.Cola](https://github.com/microdee/md.Nuke.Cola)). The recommended way to use this is via using a simple Nuke.Cola build-plugin which inherits `IUseMcro` for example:
+
+```CSharp
+using Nuke.Common;
+using Nuke.Cola;
+using Nuke.Cola.BuildPlugins;
+using Nuke.Unreal;
+
+[ImplicitBuildInterface]
+public interface IUseMcroInMyProject : IUseMcro
+{
+    Target UseMcro => _ => _
+        .McroGraph()
+        .DependentFor<UnrealBuild>(b => b.Prepare)
+        .Executes(() =>
+        {
+            UseMcroAt(this.ScriptFolder(), "MyProjectSuffix");
+        });
+}
+```
+
+If this seems painful please blame Epic Games who decided to not allow ~~marketplace~~/Fab plugins to depend on each other, or at least depend on free and open source plugins from other sources. So I had to come up with all this "Folder Composition" nonsense so end-users might be able to use multiple of my plugins sharing common dependencies without module name conflicts.
+
+To use MCRO as its own plugin without the need for Nuke.Unreal, see this repository: **(DOESN'T EXIST YET)**
+
+## What's up with _Origin suffix everywhere?
+
+When this proto plugin is imported into other plugins, this suffix is used for disambiguation, in case the end-user uses multiple pre-compiled plugins depending on MCRO. If this seems annoying please refer to the paragraph earlier.
+
+## Legal {#Legal}
 
 [Third-party components used by MCRO](#Attribution)
 

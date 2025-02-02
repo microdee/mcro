@@ -57,7 +57,7 @@ namespace Mcro::Yaml
 	requires (CStringOrViewOrName<String> || CStdStringOrView<String>)
 	YAML::Emitter& operator << (YAML::Emitter& out, String&& v)
 	{
-		out << StdConvertUtf8(Forward<String>(v));
+		out << StdConvert<ANSICHAR>(Forward<String>(v));
 		return out;
 	}
 	
@@ -65,7 +65,7 @@ namespace Mcro::Yaml
 	template <CEnum Enum>
 	YAML::Emitter& operator << (YAML::Emitter& out, Enum v)
 	{
-		out << StdConvertUtf8(magic_enum::enum_name(v));
+		out << StdConvert<ANSICHAR>(magic_enum::enum_name(v));
 		return out;
 	}
 }

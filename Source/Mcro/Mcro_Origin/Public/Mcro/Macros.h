@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "HAL/PreprocessorHelpers.h"
+#include "boost/preprocessor.hpp"
 
 #define PREPROCESSOR_TO_TEXT(x) TEXT(PREPROCESSOR_TO_STRING(x))
 

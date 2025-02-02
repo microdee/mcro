@@ -20,12 +20,13 @@ namespace Mcro::Error
 	FCppException::FCppException(std::exception const& input)
 		: BaseException(input)
 	{
-		Message = UnrealConvert(input.what());
+		Message = input.what();
 	}
 
 	TSharedRef<SErrorDisplay> FCppException::CreateErrorWidget()
 	{
 		using namespace Slate;
+		using namespace Slate::AttributeAppend;
 		
 		return SNew(SErrorDisplay)
 			. Error(SharedThis(this))

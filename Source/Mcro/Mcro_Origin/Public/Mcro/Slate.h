@@ -96,11 +96,25 @@ namespace Mcro::Slate
 
 	/**
 	 *	@brief
+	 *	Attribute block appending operator is keen to getting selected when it shouldn't be, this is why it's in its own
+	 *	explicit namespace.
+	 *
+	 *	This an issue being actively investigated
+	 */
+	namespace AttributeAppend
+	{
+		
+	/**
+	 *	@brief
 	 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit inside
 	 *	the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit
 	 *	mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the
 	 *	flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget
 	 *	composition more comfortable.
+	 *
+	 *	@todo
+	 *	This template is being instantiated for invalid cases even when valid cases are present in global scope. This is
+	 *	most probably because of ADL and may need API redesign to mitigate it.
 	 *	
 	 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
 	 *	@tparam  AttrBlock   The type of the attribute block function
@@ -125,6 +139,10 @@ namespace Mcro::Slate
 	 *	mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the
 	 *	flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget
 	 *	composition more comfortable.
+	 *
+	 *	@todo
+	 *	This template is being instantiated for invalid cases even when valid cases are present in global scope. This is
+	 *	most probably because of ADL and may need API redesign to mitigate it.
 	 *	
 	 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
 	 *	@tparam  AttrBlock   The type of the attribute block function
@@ -140,6 +158,8 @@ namespace Mcro::Slate
 	TFunction_Return<AttrBlock> operator / (Arguments&& args, const AttrBlock& attributes)
 	{
 		return attributes(args);
+	}
+	
 	}
 
 	/**
