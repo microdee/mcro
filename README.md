@@ -13,7 +13,8 @@ A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
 - [MCRO](#mcro)
   - [What it can do?](#what-it-can-do)
     - [Error handling](#error-handling)
-    - [Text macros without parenthesis](#text-macros-without-parenthesis)
+    - [Text macros without parentheses](#text-macros-without-parentheses)
+    - [String formatting literals](#string-formatting-literals)
     - [Delegate type inference](#delegate-type-inference)
     - [Advanced `TEventDelegate`](#advanced-teventdelegate)
     - [`TTypeName`](#ttypename)
@@ -82,7 +83,7 @@ FCanFail FK4ADevice::Tick_Sync()
 }
 ```
 
-### Text macros without parenthesis
+### Text macros without parentheses
 
 ```Cpp
 FString myVar(TEXT_"Hello world!");
@@ -110,9 +111,165 @@ constexpr auto    myView = TEXTVIEW("String view created in constexpr"); // -> F
 
 </details>
 
-One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()` macro, especially the extra pair of parenthesis it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple `TCHAR` strings, or operator overloads for `FText`.
+One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()` macro, especially the extra pair of parentheses it requires around string literals. Unfortunately it is impossible to achieve the same goal without any preprocessor, that would be ideal, but one can exploit C++ string literal concatenation rules for simple `TCHAR` strings, or operator overloads for `FText`.
 
 The earlier was even a suggestion of Microsoft [when they announced their standard compliant new preprocessor](https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval), and asked the general public to stop exploiting the behaviors of the old one.
+
+In code these macros are referred to as fake text/string literals.
+
+### String formatting literals
+
+There are two groups of macros to express string formatting/interpolation with a "nice" syntax. These are also fake text literals but they can be both leading or trailing after the double quoted text.
+
+Wrapper around `FString::Printf` (trailing):
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = STRING_"Hello!"; int32 count = 42;
+
+FString printf = TEXT_"Given %s with comment '%s' and count %d" _PRINTF(
+    *type.ToString(),
+    *comment,
+    count
+);
+// -> "Given Foo with comment 'Hello!' and count 42"
+```
+
+As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
+
+<details><summary>Vanilla:</summary>
+
+```Cpp
+FName type(TEXT("Foo")); FString comment(TEXT("Hello!")); int32 count = 42;
+
+FString printf = FString::Printf(TEXT("Given %s with comment '%s' and count %d"),
+    *type.ToString(),
+    *comment,
+    count
+);
+// -> "Given Foo with comment 'Hello!' and count 42"
+```
+
+</details>
+
+<details><summary>MCRO leading:</summary>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = STRING_"Hello!"; int32 count = 42;
+
+FString printf = PRINTF_(*type.ToString(), *comment, count)
+    "Given %s with comment '%s' and count %d";
+
+// -> "Given Foo with comment 'Hello!' and count 42"
+```
+
+As a personal opinion this is only readable when there's a simple text and maximum of two arguments, but beauty is in the eye of the beholder.
+
+</details>
+
+But for more modern and more automatic text conversion there's also a wrapper around `FString::Format`, but it can handle much more types automatically than `FString::Format`.
+
+With ordered arguments (trailing):
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = TEXT_"Given {0} with comment '{1}' and count {2} with format {3}" _FMT(
+    type, comment, count, format
+);
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
+
+<details><summary>Vanilla:</summary>
+
+```Cpp
+FName type(TEXT("Foo")); FText comment = INVTEXT("Hello!"); int32 count = 42; // enums aren't supported at all
+
+FStringFormatOrderedArguments fmtArgs;
+fmtArgs.Add(type.ToString());
+fmtArgs.Add(comment.ToString());
+fmtArgs.Add(count);
+FString printf = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
+
+// -> "Given Foo with comment 'Hello!' and count 42"
+// enums aren't supported at all
+```
+
+</details>
+
+<details><summary>MCRO leading:</summary>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = FMT_ (type, comment, count, format)
+    "Given {0} with comment '{1}' and count {2} with format {3}";
+
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is only readable when there's a simple text and maximum of two arguments, but beauty is in the eye of the beholder.
+
+</details>
+
+With named arguments (trailing):
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = TEXT_"Given {Type} with comment '{Comment}' and count {Count} with format {Format}" _FMT(
+    (Type,    type)
+    (Comment, comment)
+    (Count,   count)
+    (Format,  format)
+);
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
+
+<details><summary>Vanilla:</summary>
+
+```Cpp
+FName type(TEXT("Foo")); FText comment = INVTEXT("Hello!"); int32 count = 42; // enums aren't supported at all
+
+FStringFormatNamedArguments fmtArgs;
+fmtArgs.Add(TEXT("Type"),    type.ToString());
+fmtArgs.Add(TEXT("Comment"), comment.ToString());
+fmtArgs.Add(TEXT("Count"),   count);
+FString printf = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
+
+// -> "Given Foo with comment 'Hello!' and count 42"
+// enums aren't supported at all
+```
+
+</details>
+
+<details><summary>MCRO leading:</summary>
+
+```Cpp
+auto type = NAME_"Foo"; auto comment = INVTEXT_"Hello!"; int32 count = 42; EPixelFormat format = PF_Unknown;
+
+FString fmt = FMT_((Type, type) (Comment, comment) (Count, count) (Format, format))
+    "Given {Type} with comment '{Comment}' and count {Count} with format {Format}";
+
+// -> "Given Foo with comment 'Hello!' and count 42 with format PF_Unknown"
+//                                                              ^ works with any undecorated enum type
+//                                                                no need to be UENUM
+```
+
+As a personal opinion this is very rarely more readable than the trailing counterpart, but beauty is in the eye of the beholder.
+
+</details>
+
+Notice how `FMT` macros decide named vs. ordered arguments based on the argument listing syntax alone, and the developer doesn't have to type out if they want named or ordered formatting.
 
 ### Delegate type inference
 
@@ -139,7 +296,7 @@ struct FObservable
 }
 ```
 
-we can do
+we could do
 
 ```Cpp
 #include "Mcro/Common.h"
@@ -147,7 +304,7 @@ we can do
 struct FListener : TSharedFromThis<FListener>
 {
     TMulticastDelegate<void(FObservable const&)> PropagateEvent;
-    void OnFirstStateReset(FObservable const& observable, FStringView capturedData)
+    void OnFirstStateReset(FObservable const& observable, FStringView capturedData);
     void BindTo(FObservable& observable)
     {
         using namespace Mcro::Delegates::InferDelegate;
@@ -174,7 +331,7 @@ struct FListener : TSharedFromThis<FListener>
 struct FListener : TSharedFromThis<FListener>
 {
     TMulticastDelegate<void(FObservable const&)> PropagateEvent;
-    void OnFirstStateReset(FObservable const& observable, FStringView capturedData)
+    void OnFirstStateReset(FObservable const& observable, FStringView capturedData);
     void BindTo(FObservable& observable)
     {
         // Delegate API in these situations is pretty verbose
@@ -674,7 +831,7 @@ When this proto plugin is imported into other plugins, this suffix is used for d
 
 ## Plans
 
-* [ ] Doxygen generated "nice" documentation 
+* [X] Doxygen generated "nice" documentation
 * [ ] Supporting common platform specific chores
   * [ ] Windows
     * [ ] Common COM / WinRT utilities

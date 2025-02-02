@@ -84,8 +84,8 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	Leading fake text literal which makes using `FString::Format(...);` much more comfortable.
  *
  *	`FMT` macros allow more types to be used directly in the format arguments expression because `Mcro::Text` has
- *	couple of conversion utilities. If the first argument of `FMT_` is a sequence of `("key", value)` pairs enclosed
- *	in parenthesis, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two
+ *	a couple of conversion utilities. If the first argument of `FMT_` is a sequence of `("key", value)` pairs enclosed
+ *	in parentheses, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two
  *	modes cannot be mixed.
  *
  *	Usage:
@@ -101,8 +101,17 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	// -> "Hi PF_Unknown, your number is 42"
  *	@endcode
  *
+ *	The following argument types are supported out-of-box:
+ *	- Originally supported by `FStringFormatArg` and what's implicitly convertable to
+ *	  - `FString, FStringView, int32, uint32, int64, uint64, float, double`
+ *	  - `ANSICHAR, WIDECHAR, UCS2CHAR, UTF8CHAR` pointer strings
+ *	- Anything which has a `ToString()` member method which produces one of the above type
+ *	  - Including but not exclusively `FText` and `FName` for example
+ *	- STL strings and views of any encoding
+ *	- Enums where their entries are serialized as human-readable names
+ *
  *	@remarks
- *	To add more supported types overload the `%` operator between your preferred type and `FStringFormatArgumentTag`
+ *	To add more supported types overload the `%` operator between your preferred type and `FStringFormatTag`
  *	and return a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example
  *	check `Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
  *	method to get automatic support.
@@ -123,8 +132,8 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	Trailing fake text literal which makes using `FString::Format(...);` much more comfortable.
  *
  *	`FMT` macros allow more types to be used directly in the format arguments expression because `Mcro::Text` has
- *	couple of conversion utilities. If the first argument of `_FMT` is a sequence of `("key", value)` pairs enclosed
- *	in parenthesis, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two
+ *	a couple of conversion utilities. If the first argument of `_FMT` is a sequence of `("key", value)` pairs enclosed
+ *	in parentheses, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two
  *	modes cannot be mixed.
  *
  *	Usage:
@@ -141,9 +150,18 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	);
  *	// -> "Hi PF_Unknown, your number is 42"
  *	@endcode
+ *
+ *	The following argument types are supported out-of-box:
+ *	- Originally supported by `FStringFormatArg` and what's implicitly convertable to
+ *	  - `FString, FStringView, int32, uint32, int64, uint64, float, double`
+ *	  - `ANSICHAR, WIDECHAR, UCS2CHAR, UTF8CHAR` pointer strings
+ *	- Anything which has a `ToString()` member method which produces one of the above type
+ *	  - Including but not exclusively `FText` and `FName` for example
+ *	- STL strings and views of any encoding
+ *	- Enums where their entries are serialized as human-readable names
  *	
  *	@remarks
- *	To add more supported types overload the `%` operator between your preferred type and `FStringFormatArgumentTag`
+ *	To add more supported types overload the `%` operator between your preferred type and `FStringFormatTag`
  *	and return a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example
  *	check `Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
  *	method to get automatic support.
