@@ -50,7 +50,7 @@ namespace Mcro::Enums
 namespace Mcro::Text
 {
 	template <CEnum Operand>
-	FStringView operator % (Operand&& left, FStringFormatArgumentTag&&)
+	FStringView operator % (Operand&& left, FStringFormatTag&&)
 	{
 		return Mcro::Enums::EnumToStringView(left);
 	}

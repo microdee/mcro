@@ -22,14 +22,29 @@ namespace Mcro::Text
 {
 	using namespace Mcro::Concepts;
 
+	/** @brief Unreal style alias for STL strings */
+	template <
+		class CharT,
+		class Traits = std::char_traits<CharT>,
+		class Allocator = std::allocator<CharT>
+	>
+	using TStdString = std::basic_string<CharT, Traits, Allocator>;
+
+	/** @brief Unreal style alias for STL string views */
+	template <
+		class CharT,
+		class Traits = std::char_traits<CharT>
+	>
+	using TStdStringView = std::basic_string_view<CharT, Traits>;
+
 	using FUtf16StringView = TStringView<UTF16CHAR>;
 	using FUtf32StringView = TStringView<UTF32CHAR>;
 	
-	/** @brief cross-TCHAR typedef for `std::[w]string` */
-	using FStdString = std::basic_string<TCHAR>;
+	/** @brief cross-TCHAR alias for `std::[w]string` */
+	using FStdString = TStdString<TCHAR>;
 	
-	/** @brief cross-TCHAR typedef for `std::[w]string_view` */
-	using FStdStringView = std::basic_string_view<TCHAR>;
+	/** @brief cross-TCHAR alias for `std::[w]string_view` */
+	using FStdStringView = TStdStringView<TCHAR>;
 
 	/** @brief Concept constraining given type to a string view of any character type */
 	template<typename T>
@@ -60,14 +75,38 @@ namespace Mcro::Text
 
 	/** @brief Concept constraining given type to a std::string or a view of given character type */
 	template <typename T, typename CharType>
-	concept CStdStringOrViewTyped = CConvertibleToDecayed<T, std::basic_string_view<CharType>>;
+	concept CStdStringOrViewTyped = CConvertibleToDecayed<T, TStdStringView<CharType>>;
+
+	/** @brief Concept constraining given type to only a std::string of any character type */
+	template <typename T>
+	concept CStdStringInvariant =
+		CSameAsDecayed<
+			T,
+			TStdString<
+				typename T::value_type,
+				typename T::traits_type
+			>
+		>
+	;
+
+	/** @brief Concept constraining given type to only a std::string_view of any character type */
+	template <typename T>
+	concept CStdStringViewInvariant =
+		CSameAsDecayed<
+			T,
+			TStdStringView<
+				typename T::value_type,
+				typename T::traits_type
+			>
+		>
+	;
 
 	/** @brief Concept constraining given type to a std::string or a view of any character type */
 	template <typename T>
 	concept CStdStringOrViewInvariant =
 		CConvertibleToDecayed<
 			T,
-			std::basic_string_view<
+			TStdStringView<
 				typename T::value_type,
 				typename T::traits_type
 			>
@@ -109,7 +148,7 @@ namespace Mcro::Text
 
 	/** @brief View an STL string object via an Unreal `TStringView` */
 	template <typename CharType>
-	constexpr auto UnrealView(std::basic_string_view<CharType> const& stdStr)
+	constexpr auto UnrealView(TStdStringView<CharType> const& stdStr)
 	{
 		return TStringView<CharType>(stdStr.data(), stdStr.size());
 	}
@@ -118,7 +157,7 @@ namespace Mcro::Text
 	template <CStringViewInvariant T>
 	constexpr auto StdView(T const& unrealStr)
 	{
-		return std::basic_string_view<typename T::ElementType>(unrealStr.GetData(), unrealStr.Len());
+		return TStdStringView<typename T::ElementType>(unrealStr.GetData(), unrealStr.Len());
 	}
 
 	/** @brief View an Unreal string via an STL string view */
@@ -167,41 +206,41 @@ namespace Mcro::Text
 
 	/** @brief Create a copy and convert an input Unreal string to the given character type */
 	template <typename ConvertTo>
-	auto StdConvert(FStringView const& unrealStr) -> std::basic_string<ConvertTo>
+	auto StdConvert(FStringView const& unrealStr) -> TStdString<ConvertTo>
 	{
 		if constexpr (CSameAs<TCHAR, ConvertTo>)
-			return std::basic_string<ConvertTo>(unrealStr.GetData(), unrealStr.Len());
+			return TStdString<ConvertTo>(unrealStr.GetData(), unrealStr.Len());
 		else
 		{
 			return Detail::HighLevelStringCast<TCHAR, ConvertTo>(
 				unrealStr,
 				[&] { return unrealStr.GetData(); },
 				[&] { return unrealStr.Len(); },
-				[](const ConvertTo* ptr, int32 len) { return std::basic_string(ptr, len); }
+				[](const ConvertTo* ptr, int32 len) { return TStdString(ptr, len); }
 			);
 		}
 	}
 
 	/** @brief Create a copy and convert an input STL string of TCHAR to the given character type */
 	template <typename ConvertTo>
-	auto StdConvert(FStdStringView const& stdStr) -> std::basic_string<ConvertTo>
+	auto StdConvert(FStdStringView const& stdStr) -> TStdString<ConvertTo>
 	{
 		if constexpr (CSameAs<TCHAR, ConvertTo>)
-			return std::basic_string<ConvertTo>(stdStr.data(), stdStr.size());
+			return TStdString<ConvertTo>(stdStr.data(), stdStr.size());
 		else
 		{
 			return Detail::HighLevelStringCast<TCHAR, ConvertTo>(
 				stdStr,
 				[&] { return stdStr.data(); },
 				[&] { return stdStr.size(); },
-				[](const ConvertTo* ptr, int32 len) { return std::basic_string(ptr, len); }
+				[](const ConvertTo* ptr, int32 len) { return TStdString(ptr, len); }
 			);
 		}
 	}
 
 	/** @brief Create a copy and convert an input FName to the given character type */
 	template <typename ConvertTo>
-	auto StdConvert(FName const& name) -> std::basic_string<ConvertTo>
+	auto StdConvert(FName const& name) -> TStdString<ConvertTo>
 	{
 		return StdConvert<ConvertTo>(name.ToString());
 	}
@@ -230,14 +269,14 @@ namespace Mcro::Text
 		{ t.ToString() } -> CDirectStringFormatArgument;
 	};
 
-	/** @brief An empty tag struct used to extend rigid types to be convertible to FStringFormatArg */
-	struct FStringFormatArgumentTag {};
+	/** @brief An empty tag struct used to extend rigid types to be used in string formatting */
+	struct FStringFormatTag {};
 
-	/** @brief A type which can be used with FStringFormatArg via a `% FStringFormatArgumentTag()` operator. */
+	/** @brief A type which can be used with FStringFormatArg via a `% FStringFormatTag()` operator. */
 	template <typename T>
 	concept CHasStringFormatArgumentConversion = !CDirectStringFormatArgument<T> && requires(T&& t)
 	{
-		{ t % FStringFormatArgumentTag() } -> CDirectStringFormatArgument;
+		{ t % FStringFormatTag() } -> CDirectStringFormatArgument;
 	};
 
 	/** @brief A type which can be converted to FStringFormatArg via any method. */
@@ -248,31 +287,53 @@ namespace Mcro::Text
 	;
 	
 	template <CDirectStringFormatArgument Operand>
-	Operand operator % (Operand&& left, FStringFormatArgumentTag&&)
+	Operand operator % (Operand&& left, FStringFormatTag&&)
 	{
 		return left;
 	}
 
 	template <CHasToString Operand>
-	auto operator % (Operand&& left, FStringFormatArgumentTag&&)
+	auto operator % (Operand&& left, FStringFormatTag&&)
 	{
 		return left.ToString();
 	}
 
 	template <typename CharType>
-	const CharType* operator % (std::basic_string<CharType> const& left, FStringFormatArgumentTag&&)
+	const CharType* operator % (TStdString<CharType> const& left, FStringFormatTag&&)
 	{
 		return left.c_str();
 	}
 
-	template <CStdStringOrView Operand>
-	FStringView operator % (Operand&& left, FStringFormatArgumentTag&&)
+	FORCEINLINE FStringView operator % (FStdStringView const& left, FStringFormatTag&&)
 	{
 		return UnrealView(left);
 	}
 
+	template <CStdStringViewInvariant Operand>
+	requires (!CSameAsDecayed<Operand, FStdStringView>)
+	FString operator % (Operand&& left, FStringFormatTag&&)
+	{
+		return UnrealConvert(left);
+	}
+
 	/**
-	 *	@brief Create an ordered argument list for a string format from input arguments
+	 *	@brief  Attempt to convert anything to string which can tell via some method how to do so
+	 *
+	 *	This may be more expensive to directly use than an already existing designated string conversion for a given
+	 *	type, because it uses `FStringFormatArg` and `% FStringFormatTag()` as intermediate steps. However, this can be
+	 *	still useful for types where such conversion doesn't already exist or when using this in a template.
+	 *
+	 *	It's still much faster than using `FMT_(myVar) "{0}"`
+	 */
+	template <CStringFormatArgument T>
+	FString AsString(T&& input)
+	{
+		FStringFormatArg format(input % FStringFormatTag());
+		return MoveTemp(format.StringValue);
+	}
+
+	/**
+	 *	@brief  Create an ordered argument list for a string format from input arguments
 	 *
 	 *	While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose.
 	 *	Check `_FMT` or `FMT_` macros for a comfortable string format syntax.
@@ -280,12 +341,12 @@ namespace Mcro::Text
 	template <CStringFormatArgument... Args>
 	FStringFormatOrderedArguments OrderedArguments(Args&&... args)
 	{
-		return FStringFormatOrderedArguments { FStringFormatArg(args % FStringFormatArgumentTag()) ... };
+		return FStringFormatOrderedArguments { FStringFormatArg(args % FStringFormatTag()) ... };
 	}
 
 	/**
-	 *	@brief Create a named argument list for a string format from input argument tuples
-	*
+	 *	@brief  Create a named argument list for a string format from input argument tuples
+	 *
 	 *	While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose.
 	 *	Check `_FMT` or `FMT_` macros for a comfortable string format syntax.
 	 */
@@ -293,7 +354,7 @@ namespace Mcro::Text
 	FStringFormatNamedArguments NamedArguments(TTuple<FString, Args>... args)
 	{
 		return FStringFormatNamedArguments {
-			{ args.template Get<0>(), FStringFormatArg(args.template Get<1>() % FStringFormatArgumentTag()) }
+			{ args.template Get<0>(), FStringFormatArg(args.template Get<1>() % FStringFormatTag()) }
 			...
 		};
 	}
