@@ -108,7 +108,7 @@ One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()
 
 The earlier was even a suggestion of Microsoft [when they announced their standard compliant new preprocessor](https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval), and asked the general public to stop exploiting the behaviors of the old one.
 
-In code these macros are referred to fake text/string literals.
+In code these macros are referred to as fake text/string literals.
 
 ### String formatting literals
 
