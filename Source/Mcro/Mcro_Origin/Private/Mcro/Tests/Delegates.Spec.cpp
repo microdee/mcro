@@ -123,8 +123,14 @@ bool FMcroDelegates_Spec::TestDelegateResult(TArray<FString>& testArray, FTestDe
 
 bool FMcroDelegates_Spec::TestDelegateResultArray(TArray<FString>& testArray, FTestDelegateArgs const& args)
 {
+	int result = FPlatformString::Strncmp(*testArray[args.TestElementAt], *args.ExpectedValue, testArray[args.TestElementAt].Len());
+	UE_LOG(LogTemp, Display, TEXT_"Compare result = %d", result);
 	return TestEqual(TEXT_"Input array modified.", testArray.Num(), 1)
-		&& TestEqual(TEXT_"Input array has expected data.", testArray[args.TestElementAt], args.ExpectedValue);
+		&& TestEqualSensitive(
+			TEXT_"Input array has expected data.",
+			testArray[args.TestElementAt],
+			args.ExpectedValue
+		);
 }
 
 void FMcroDelegates_Spec::Define()
@@ -217,7 +223,10 @@ void FMcroDelegates_Spec::Define()
 		});
 		It(TEXT_"should propagate dynamic multicast delegates", [this]
 		{
-			
+			TScopeObject<UDynamicDelegateTestClass> object({});
+			auto delegate = From(object->Event);
+			delegate.Execute();
+			TestDelegateResultArray(object->TestResult, { .ExpectedValue = TEXT_"From UFunction" });
 		});
 	});
 }

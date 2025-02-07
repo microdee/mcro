@@ -115,7 +115,7 @@ namespace Mcro::UObjects::Init
 	{
 		T* result = NewObject<T>(
 			params.Outer,
-			params.Class,
+			params.Class ? params.Class : T::StaticClass(),
 			params.Name,
 			params.Flags,
 			params.Template,
@@ -161,7 +161,7 @@ namespace Mcro::UObjects::Init
 	{
 		T* result = NewObject<T>(
 			params.Outer,
-			params.Class,
+			params.Class ? params.Class : T::StaticClass(),
 			params.Name,
 			params.Flags,
 			params.Template,
@@ -212,7 +212,7 @@ namespace Mcro::UObjects::Init
 	{
 		T* result = NewObject<T>(
 			params.Outer,
-			params.Class,
+			params.Class ? params.Class : T::StaticClass(),
 			params.Name,
 			params.Flags,
 			params.Template,
