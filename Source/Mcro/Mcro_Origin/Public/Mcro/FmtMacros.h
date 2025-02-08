@@ -32,8 +32,6 @@ template <size_t N>
 FString operator % (FStringFormatOrderedArguments&& args, const TCHAR(& format)[N])
 {
 	FString result = FString::Format(format, args);
-	// Either from FString::Format or from the input array argument there may be multiple 0 bytes at the end of the
-	// resulting string so trime them.
 	result.TrimToNullTerminator();
 	return result;
 }
@@ -42,8 +40,6 @@ template <size_t N>
 FString operator % (const TCHAR(& format)[N], FStringFormatOrderedArguments&& args)
 {
 	FString result = FString::Format(format, args);
-	// Either from FString::Format or from the input array argument there may be multiple 0 bytes at the end of the
-	// resulting string so trime them.
 	result.TrimToNullTerminator();
 	return result;
 }
@@ -52,8 +48,6 @@ template <size_t N>
 FString operator % (FStringFormatNamedArguments&& args, const TCHAR(& format)[N])
 {
 	FString result = FString::Format(format, args);
-	// Either from FString::Format or from the input array argument there may be multiple 0 bytes at the end of the
-	// resulting string so trime them.
 	result.TrimToNullTerminator();
 	return result;
 }
@@ -62,8 +56,6 @@ template <size_t N>
 FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args)
 {
 	FString result = FString::Format(format, args);
-	// Either from FString::Format or from the input array argument there may be multiple 0 bytes at the end of the
-	// resulting string so trime them.
 	result.TrimToNullTerminator();
 	return result;
 }

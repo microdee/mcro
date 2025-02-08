@@ -80,7 +80,7 @@ namespace Mcro::Text::Macros
 		template <size_t N>
 		consteval FStringView operator % (const TCHAR(& str)[N]) const
 		{
-			return FStringView(str, N);
+			return FStringView(str, N-1);
 		}
 	};
 	
@@ -89,7 +89,7 @@ namespace Mcro::Text::Macros
 		template <size_t N>
 		FString operator % (const TCHAR(& str)[N]) const
 		{
-			return FString::ConstructFromPtrSize(str, N);
+			return FString::ConstructFromPtrSize(str, N-1);
 		}
 	};
 	
@@ -98,7 +98,7 @@ namespace Mcro::Text::Macros
 		template <size_t N>
 		FName operator % (const TCHAR(& str)[N]) const
 		{
-			return FName(N, str);
+			return FName(N-1, str);
 		}
 	};
 	
@@ -107,7 +107,7 @@ namespace Mcro::Text::Macros
 		template <size_t N>
 		consteval std::basic_string_view<TCHAR> operator % (const TCHAR(& str)[N]) const
 		{
-			return std::basic_string_view<TCHAR>(str, N);
+			return std::basic_string_view<TCHAR>(str, N-1);
 		}
 	};
 
