@@ -23,27 +23,28 @@ namespace Mcro::Delegates
 	using namespace Mcro::InitializeOnCopy;
 	
 	/** @brief Settings for the TEventDelegate class, which defines optional behavior when adding a binding to it */
-	enum EInvokeMode
+	enum class EEventPolicy : uint32
 	{
 		/** @brief The event delegate will act the same as a TMulticastDelegate */
-		DefaultInvocation = 0,
+		Default = 0,
 
 		/** @brief The binding will be automatically removed after the next broadcast */
-		InvokeOnce = 1 << 0,
+		Once = 1 << 0,
 
 		/** @brief The binding will be executed immediately if the delegate has already been broadcasted */
-		BelatedInvoke = 1 << 1,
+		Belated = 1 << 1,
 
 		/**
 		 *	@brief
 		 *	Attempt to copy arguments when storing them for belated invokes, instead of perfect
 		 *	forwarding them. This is only considered from the template argument
 		 */
-		CopyArguments = 1 << 2,
+		CacheViaCopy = 1 << 2,
 
-		/** @brief Enable mutex locks around adding/broadcasting delegates. Only considered in DefaultInvokeMode */
-		ThreadSafeEvent = 1 << 3
+		/** @brief Enable mutex locks around adding/broadcasting delegates. Only considered in DefaultPolicy */
+		ThreadSafe = 1 << 3
 	};
+	ENUM_CLASS_FLAGS(EEventPolicy)
 
 	/**
 	 *	@brief
@@ -63,42 +64,44 @@ namespace Mcro::Delegates
 	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam)>;
 	 * 
 	 *	// Fire a new binding immediately if the delegate has been already broadcasted
-	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam), EInvokeMode::BelatedInvoke>;
+	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam), EEventPolicy::Belated>;
 	 *
 	 *	// Fire a new binding immediately if the delegate has been already broadcasted,
 	 *	// AND the binding will be removed after the next broadcast
-	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam), EInvokeMode::BelatedInvoke | EInvokeMode::InvokeOnce>;
+	 *	using FMyEventDelegate = TEventDelegate<void(int32 someParam), EEventPolicy::Belated | EEventPolicy::Once>;
 	 *	@endcode 
 	 */
-	template <typename Function, int32 DefaultInvokeMode = DefaultInvocation>
+	template <typename Function, EEventPolicy DefaultPolicy = EEventPolicy::Default>
 	class TEventDelegate {};
 
 	/** @copydoc TEventDelegate */
-	template <typename... Args, int32 DefaultInvokeMode>
-	class TEventDelegate<void(Args...), DefaultInvokeMode>
+	template <typename... Args, EEventPolicy DefaultPolicy>
+	class TEventDelegate<void(Args...), DefaultPolicy>
 	{
 	public:
-		using MutexLock = std::conditional_t<static_cast<bool>(DefaultInvokeMode & ThreadSafeEvent), FScopeLock, FVoid>;
+		using MutexLock = std::conditional_t<EnumHasAllFlags(DefaultPolicy, EEventPolicy::ThreadSafe), FScopeLock, FVoid>;
 		
 		using FunctionSignature = void(Args...);
 		using FDelegate = TDelegate<FunctionSignature, FDefaultDelegateUserPolicy>;
 		
 		using ArgumentsCache = std::conditional_t<
-			DefaultInvokeMode & CopyArguments,
+			EnumHasAllFlags(DefaultPolicy, EEventPolicy::CacheViaCopy),
 			TTuple<std::decay_t<Args>...>,
 			TTuple<Args...>
 		>;
-		
-		void Broadcast(Args&&... args)
+
+		template <typename... BroadcastArgs>
+		requires CConvertibleTo<TTuple<BroadcastArgs...>, TTuple<Args...>>
+		void Broadcast(BroadcastArgs&&... args)
 		{
 			MutexLock lock(&Mutex.Get());
 			bHasBroadcasted = true;
-			if constexpr (DefaultInvokeMode & CopyArguments)
-				Cache = ArgumentsCache(args...);
+			if constexpr (EnumHasAllFlags(DefaultPolicy, EEventPolicy::CacheViaCopy))
+				Cache = MakeTuple(args...);
 			else
-				Cache = ArgumentsCache(Forward<Args>(args)...);
+				Cache = ArgumentsCache(Forward<BroadcastArgs>(args)...);
 			
-			MulticastDelegate.Broadcast(Forward<Args>(args)...);
+			MulticastDelegate.Broadcast(Forward<BroadcastArgs>(args)...);
 		
 			for (const FDelegateHandle& handle : OnlyNextDelegates)
 				MulticastDelegate.Remove(handle);
@@ -127,16 +130,16 @@ namespace Mcro::Delegates
 		 *	
 		 *	@param delegate  The delegate to bind
 		 *	
-		 *	@param invokeMode
+		 *	@param policy
 		 *	The (optional) settings to use for this binding. Not passing anything means that it will
 		 *	use the default settigns for this event delegate
 		 *	
 		 *	@return Handle to the delegate
 		 */
-		FDelegateHandle Add(FDelegate delegate, const EInvokeMode& invokeMode = DefaultInvocation)
+		FDelegateHandle Add(FDelegate delegate, EEventPolicy policy = EEventPolicy::Default)
 		{
 			MutexLock lock(&Mutex.Get());
-			return AddInternal(delegate, invokeMode);
+			return AddInternal(delegate, policy);
 		}
 		
 		/**
@@ -147,7 +150,7 @@ namespace Mcro::Delegates
 		TEventDelegate& With(Delegates&&... delegates)
 		{
 			MutexLock lock(&Mutex.Get());
-			(AddInternal(delegates, DefaultInvocation), ...);
+			(AddInternal(delegates, EEventPolicy::Default), ...);
 			return *this;
 		}
 
@@ -157,7 +160,7 @@ namespace Mcro::Delegates
 		template <CSameAs<FDelegate>... Delegates>
 		TEventDelegate(Delegates... delegates)
 		{
-			(AddInternal(delegates, DefaultInvocation), ...);
+			(AddInternal(delegates, EEventPolicy::Default), ...);
 		}
 
 		/**
@@ -165,17 +168,17 @@ namespace Mcro::Delegates
 		 *	
 		 *	@param dynamicDelegate  The dynamic delegate to bind
 		 *	
-		 *	@param invokeMode
+		 *	@param policy
 		 *	The (optional) settings to use for this binding. Not passing anything means that it will
 		 *	use the default settigns for this event delegate
 		 *	
 		 *	@return Handle to the delegate
 		 */
 		template <CDynamicDelegate DynamicDelegateType>
-		FDelegateHandle Add(const DynamicDelegateType& dynamicDelegate, const EInvokeMode& invokeMode = DefaultInvocation)
+		FDelegateHandle Add(const DynamicDelegateType& dynamicDelegate, EEventPolicy policy = EEventPolicy::Default)
 		{
 			MutexLock lock(&Mutex.Get());
-			return AddInternal(AsNative(dynamicDelegate), invokeMode, FDelegateHandle(), dynamicDelegate.GetUObject(), dynamicDelegate.GetFunctionName());
+			return AddInternal(AsNative(dynamicDelegate), policy, FDelegateHandle(), dynamicDelegate.GetUObject(), dynamicDelegate.GetFunctionName());
 		}
 
 		/**
@@ -183,7 +186,7 @@ namespace Mcro::Delegates
 		 *	
 		 *	@param dynamicDelegate  The dynamic delegate to bind
 		 *	
-		 *	@param invokeMode
+		 *	@param policy
 		 *	The (optional) settings to use for this binding. Not passing anything means that it will
 		 *	use the default settigns for this event delegate
 		 *	
@@ -192,10 +195,10 @@ namespace Mcro::Delegates
 		 *	binding is returned
 		 */
 		template <CDynamicDelegate DynamicDelegateType>
-		FDelegateHandle AddUnique(const DynamicDelegateType& dynamicDelegate, EInvokeMode invokeMode = DefaultInvocation)
+		FDelegateHandle AddUnique(const DynamicDelegateType& dynamicDelegate, EEventPolicy policy = EEventPolicy::Default)
 		{
 			MutexLock lock(&Mutex.Get());
-			return AddUniqueInternal(AsNative(dynamicDelegate), invokeMode, dynamicDelegate.GetUObject(), dynamicDelegate.GetFunctionName());
+			return AddUniqueInternal(AsNative(dynamicDelegate), policy, dynamicDelegate.GetUObject(), dynamicDelegate.GetFunctionName());
 		}
 
 	private:
@@ -281,7 +284,7 @@ namespace Mcro::Delegates
 
 		FDelegateHandle AddUniqueInternal(
 			FDelegate delegate,
-			const EInvokeMode& invokeMode,
+			EEventPolicy policy,
 			const UObject* boundObject,
 			const FName& boundFunctionName
 		) {
@@ -290,19 +293,19 @@ namespace Mcro::Delegates
 			if (const FDelegateHandle* delegateHandle = BoundUFunctionsMap.Find(FBoundUFunction(boundObject, boundFunctionName)))
 				uniqueHandle = *delegateHandle;
 			
-			return AddInternal(delegate, invokeMode, uniqueHandle, boundObject, boundFunctionName);
+			return AddInternal(delegate, policy, uniqueHandle, boundObject, boundFunctionName);
 		}
 
 		FDelegateHandle AddInternal(
 			FDelegate delegate,
-			EInvokeMode invokeMode,
+			EEventPolicy policy,
 			FDelegateHandle const& uniqueHandle = FDelegateHandle(), 
 			const UObject* boundObject = nullptr,
 			FName const& boundFunctionName = NAME_None
 		) {
-			const int32 actualInvokeMode = invokeMode == DefaultInvocation ? DefaultInvokeMode : invokeMode;
+			const EEventPolicy actualPolicy = policy == EEventPolicy::Default ? DefaultPolicy : policy;
 
-			if (bHasBroadcasted && actualInvokeMode & (BelatedInvoke | InvokeOnce))
+			if (bHasBroadcasted && EnumHasAllFlags(actualPolicy, EEventPolicy::Belated | EEventPolicy::Once))
 			{
 				CallBelated(delegate);
 				return FDelegateHandle();
@@ -316,11 +319,11 @@ namespace Mcro::Delegates
 				if (boundObject && boundFunctionName != NAME_None)
 					BoundUFunctionsMap.Add(FBoundUFunction(boundObject, boundFunctionName), outputHandle);
 
-				if (actualInvokeMode & InvokeOnce)
+				if (EnumHasAllFlags(actualPolicy, EEventPolicy::Once))
 					OnlyNextDelegates.Add(outputHandle);
 			}
 
-			if (bHasBroadcasted && actualInvokeMode & BelatedInvoke)
+			if (bHasBroadcasted && EnumHasAllFlags(actualPolicy, EEventPolicy::Belated))
 				CallBelated(delegate);
 			
 			return outputHandle;
@@ -333,7 +336,8 @@ namespace Mcro::Delegates
 		
 		using FBoundUFunction = TPair<TWeakObjectPtr<const UObject>, FName>;
 
-		bool                                        bHasBroadcasted = false;
+		bool bHasBroadcasted = false;
+		
 		mutable TInitializeOnCopy<FCriticalSection> Mutex;
 		TSet<FDelegateHandle>                       OnlyNextDelegates;
 		TMap<FBoundUFunction, FDelegateHandle>      BoundUFunctionsMap;
@@ -342,43 +346,43 @@ namespace Mcro::Delegates
 	};
 
 	/** @brief Shorthand alias for TEventDelegate which copies arguments to its cache regardless of their qualifiers */
-	template <typename Signature, int32 Flags = 0>
-	using TRetainingEventDelegate = TEventDelegate<Signature, CopyArguments | Flags>;
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TRetainingEventDelegate = TEventDelegate<Signature, EEventPolicy::CacheViaCopy | DefaultPolicy>;
 
 	/** @brief Shorthand alias for TEventDelegate which broadcasts listeners immediately once they're added */
-	template <typename Signature, int32 Flags = 0>
-	using TBelatedEventDelegate = TEventDelegate<Signature, BelatedInvoke | Flags>;
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TBelatedEventDelegate = TEventDelegate<Signature, EEventPolicy::Belated | DefaultPolicy>;
 
 	/** @brief Shorthand alias for combination of TRetainingEventDelegate and TBelatedEventDelegate */
-	template <typename Signature, int32 Flags = 0>
-	using TBelatedRetainingEventDelegate = TEventDelegate<Signature, BelatedInvoke | CopyArguments | Flags>;
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TBelatedRetainingEventDelegate = TEventDelegate<Signature, EEventPolicy::Belated | EEventPolicy::CacheViaCopy | DefaultPolicy>;
 
 	/** @brief Shorthand alias for TEventDelegate which broadcasts listeners only once and then they're removed */
-	template <typename Signature, int32 Flags = 0>
-	using TOneTimeEventDelegate = TEventDelegate<Signature, InvokeOnce | Flags>;
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TOneTimeEventDelegate = TEventDelegate<Signature, EEventPolicy::Once | DefaultPolicy>;
 	
 	/** @brief Shorthand alias for combination of TRetainingEventDelegate and TOneTimeEventDelegate */
-	template <typename Signature, int32 Flags = 0>
-	using TOneTimeRetainingEventDelegate = TEventDelegate<Signature, InvokeOnce | CopyArguments | Flags>;
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TOneTimeRetainingEventDelegate = TEventDelegate<Signature, EEventPolicy::Once | EEventPolicy::CacheViaCopy | DefaultPolicy>;
 
 	/** @brief Shorthand alias for combination of TBelatedEventDelegate and TOneTimeEventDelegate */
-	template <typename Signature, int32 Flags = 0>
-	using TOneTimeBelatedEventDelegate = TEventDelegate<Signature, InvokeOnce | BelatedInvoke | Flags>;
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TOneTimeBelatedEventDelegate = TEventDelegate<Signature, EEventPolicy::Once | EEventPolicy::Belated | DefaultPolicy>;
 
 	/** @brief Collect'em all */
-	template <typename Signature, int32 Flags = 0>
+	template <typename Signature, EEventPolicy DefaultPolicy = EEventPolicy::Default>
 	using TOneTimeRetainingBelatedEventDelegate = TEventDelegate<Signature,
-		InvokeOnce | BelatedInvoke | CopyArguments | Flags
+		EEventPolicy::Once | EEventPolicy::Belated | EEventPolicy::CacheViaCopy | DefaultPolicy
 	>;
 
 	/** @brief Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */
-	template <CDynamicMulticastDelegate Dynamic, int32 DefaultSettings = DefaultInvocation>
+	template <CDynamicMulticastDelegate Dynamic, EEventPolicy DefaultPolicy = EEventPolicy::Default>
 	struct TNativeEvent_Struct
 	{
-		using Type = TEventDelegate<TDynamicSignature<Dynamic>, DefaultSettings>;
+		using Type = TEventDelegate<TDynamicSignature<Dynamic>, DefaultPolicy>;
 	};
 	
 	/** @brief Map the input dynamic multicast delegate to a conceptually compatible native event delegate type */
-	template <typename Dynamic, int32 DefaultSettings = DefaultInvocation>
-	using TNativeEvent = typename TNativeEvent_Struct<Dynamic, DefaultSettings>::Type;
+	template <typename Dynamic, EEventPolicy DefaultPolicy = EEventPolicy::Default>
+	using TNativeEvent = typename TNativeEvent_Struct<Dynamic, DefaultPolicy>::Type;
 }

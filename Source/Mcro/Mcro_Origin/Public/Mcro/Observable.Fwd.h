@@ -25,7 +25,7 @@ namespace Mcro::Observable
 	using namespace Mcro::FunctionTraits;
 
 	/** @brief Flags expressing how TState should handle object comparison and lifespan */
-	enum EStatePolicy
+	enum class EStatePolicy : uint32
 	{
 		/**
 		 *	@brief
@@ -45,18 +45,19 @@ namespace Mcro::Observable
 		 *	Enable mutexes during modifications, notifications and expose a public critical section for users
 		 *	of the state.
 		 */
-		ThreadSafeState = 1 << 2
+		ThreadSafe = 1 << 2
 	};
+	ENUM_CLASS_FLAGS(EStatePolicy)
 
 	struct IStateTag {};
 
 	template <typename T>
-	inline constexpr int32 StatePolicyFor =
+	inline constexpr EStatePolicy StatePolicyFor =
 		CClass<T>
 			? CCoreEqualityComparable<T>
-				? NotifyOnChangeOnly
-				: AlwaysNotify
-			: StorePrevious | NotifyOnChangeOnly;
+				? EStatePolicy::NotifyOnChangeOnly
+				: EStatePolicy::AlwaysNotify
+			: EStatePolicy::StorePrevious | EStatePolicy::NotifyOnChangeOnly;
 	
 	template <typename T>
 	struct IState;
@@ -64,7 +65,7 @@ namespace Mcro::Observable
 	template <typename T>
 	struct TChangeData;
 	
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
+	template <typename T, EStatePolicy DefaultPolicy = StatePolicyFor<T>>
 	struct TState;
 
 	/**
@@ -92,12 +93,20 @@ namespace Mcro::Observable
 	using TStateWeakPtr = TWeakPtr<IState<T>>;
 
 	/** @brief Convenience alias for declaring a state as a shared reference. Use this only as object members */
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
+	template <typename T, EStatePolicy DefaultPolicy = StatePolicyFor<T>>
 	using TDeclareStateRef = TSharedRef<TState<T, DefaultPolicy>>;
 
 	/** @brief Convenience alias for declaring a state as a shared pointer. Use this only as object members */
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
+	template <typename T, EStatePolicy DefaultPolicy = StatePolicyFor<T>>
 	using TDeclareStatePtr = TSharedPtr<TState<T, DefaultPolicy>>;
+
+	/** @brief Convenience alias for declaring a thread-safe state as a shared reference. Use this only as object members */
+	template <typename T, EStatePolicy DefaultPolicy = StatePolicyFor<T>>
+	using TDeclareStateTSRef = TSharedRef<TState<T, DefaultPolicy | EStatePolicy::ThreadSafe>>;
+
+	/** @brief Convenience alias for declaring a thread-safe state as a shared pointer. Use this only as object members */
+	template <typename T, EStatePolicy DefaultPolicy = StatePolicyFor<T>>
+	using TDeclareStateTSPtr = TSharedPtr<TState<T, DefaultPolicy | EStatePolicy::ThreadSafe>>;
 
 	/** @brief Concept constraining given type to a state */
 	template <typename T>
@@ -122,8 +131,8 @@ namespace Mcro::Observable
 	;
 
 	/** @brief Convenience alias for thread safe states */
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T> | ThreadSafeState>
-	using TStateTS = TState<T, DefaultPolicy>;
+	template <typename T, EStatePolicy DefaultPolicy = StatePolicyFor<T>>
+	using TStateTS = TState<T, DefaultPolicy | EStatePolicy::ThreadSafe>;
 
 	/** @brief Convenience alias for boolean states */
 	using FBool = TState<bool>;

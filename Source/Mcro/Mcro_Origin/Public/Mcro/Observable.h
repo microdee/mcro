@@ -38,7 +38,7 @@ namespace Mcro::Observable
 		TChangeData(const TChangeData& from) : Next(from.Next), Previous(from.Previous) {}
 		
 		template <CMoveConstructible = T>
-		TChangeData(TChangeData&& from) : Next(MoveTemp(from.Next)), Previous(MoveTemp(from.Previous)) {}
+		TChangeData(TChangeData&& from) noexcept : Next(MoveTemp(from.Next)), Previous(MoveTemp(from.Previous)) {}
 		
 		template <typename Arg>
 		requires (!CSameAs<Arg, TChangeData> && !CSameAs<Arg, T>)
@@ -94,7 +94,7 @@ namespace Mcro::Observable
 
 	protected:
 		template <CChangeListener<T> Function>
-		static auto DelegateValueArgument(Function const& onChange, EInvokeMode invokeMode = DefaultInvocation)
+		static auto DelegateValueArgument(Function const& onChange, EEventPolicy eventPolicy = EEventPolicy::Default)
 		{
 			return [onChange](TChangeData<T> const& change)
 			{
@@ -107,7 +107,7 @@ namespace Mcro::Observable
 	public:
 		
 		/** @brief Add a delegate which gets a `TChangeData<T> const&` if this state has been set. */
-		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EInvokeMode invokeMode = DefaultInvocation) = 0;
+		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EEventPolicy eventPolicy = EEventPolicy::Default) = 0;
 
 		/**
 		 *	@brief
@@ -118,9 +118,9 @@ namespace Mcro::Observable
 		 *	present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable.
 		 */
 		template <CChangeListener<T> Function>
-		FDelegateHandle OnChange(Function const& onChange, EInvokeMode invokeMode = DefaultInvocation)
+		FDelegateHandle OnChange(Function const& onChange, EEventPolicy eventPolicy = EEventPolicy::Default)
 		{
-			return OnChange(InferDelegate::From(DelegateValueArgument(onChange)), invokeMode);
+			return OnChange(InferDelegate::From(DelegateValueArgument(onChange)), eventPolicy);
 		}
 		
 		/**
@@ -132,9 +132,9 @@ namespace Mcro::Observable
 		 *	present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable.
 		 */
 		template <typename Object, CChangeListener<T> Function>
-		FDelegateHandle OnChange(Object&& object, Function const& onChange, EInvokeMode invokeMode = DefaultInvocation)
+		FDelegateHandle OnChange(Object&& object, Function const& onChange, EEventPolicy eventPolicy = EEventPolicy::Default)
 		{
-			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), invokeMode);
+			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), eventPolicy);
 		}
 
 		/**
@@ -222,13 +222,13 @@ namespace Mcro::Observable
 	/**
 	 *	@brief 
 	 *	Storage wrapper for any value which state needs to be tracked or their change needs to be observed.
-	 *	By default, TState is not thread-safe unless ThreadSafeState policy is active in DefaultPolicy
+	 *	By default, TState is not thread-safe unless EStatePolicy::ThreadSafe policy is active in DefaultPolicy
 	 */
-	template <typename T, int32 DefaultPolicy>
+	template <typename T, EStatePolicy DefaultPolicy>
 	struct TState : IState<T>
 	{
 		template <typename ThreadSafeType, typename NaiveType>
-		using ThreadSafeSwitch = std::conditional_t<static_cast<bool>(DefaultPolicy & ThreadSafeState), ThreadSafeType, NaiveType>;
+		using ThreadSafeSwitch = std::conditional_t<EnumHasAllFlags(DefaultPolicy, EStatePolicy::ThreadSafe), ThreadSafeType, NaiveType>;
 		
 		using StateBase = IState<T>;
 
@@ -238,7 +238,7 @@ namespace Mcro::Observable
 		using ReadLockType = ThreadSafeSwitch<FReadScopeLock, FVoid>;
 		using WriteLockType = ThreadSafeSwitch<FWriteScopeLock, FVoid>;
 		
-		static constexpr int32 DefaultPolicyFlags = DefaultPolicy;
+		static constexpr EStatePolicy DefaultPolicyFlags = DefaultPolicy;
 		
 		/** @brief Enable default constructor only when T is default initializable */
 		template <CDefaultInitializable = T>
@@ -287,10 +287,10 @@ namespace Mcro::Observable
 			bool broadcast = true;
 
 			if constexpr (CCoreEqualityComparable<T>)
-				broadcast = PolicyFlags & AlwaysNotify || Value.Next != value;
+				broadcast = EnumHasAllFlags(PolicyFlags, EStatePolicy::AlwaysNotify) || Value.Next != value;
 			
 			if constexpr (CCopyable<T>)
-			if (PolicyFlags & StorePrevious)
+			if (EnumHasAllFlags(PolicyFlags, EStatePolicy::StorePrevious))
 				Value.Previous = Value.Next;
 
 			Value.Next = value;
@@ -310,7 +310,7 @@ namespace Mcro::Observable
 			
 			if constexpr (CCopyable<T>)
 			{
-				if (PolicyFlags & StorePrevious)
+				if (EnumHasAllFlags(PolicyFlags, EStatePolicy::StorePrevious))
 				{
 					Value.Previous = Value.Next;
 				}
@@ -320,19 +320,19 @@ namespace Mcro::Observable
 
 			if constexpr (CCopyable<T> && CCoreEqualityComparable<T>)
 				broadcast = alwaysNotify
-					|| !(PolicyFlags & StorePrevious)
-					|| PolicyFlags & AlwaysNotify
+					|| !EnumHasAllFlags(PolicyFlags, EStatePolicy::StorePrevious)
+					||  EnumHasAllFlags(PolicyFlags, EStatePolicy::AlwaysNotify)
 					|| !Value.Previous.IsSet()
-					|| Value.Previous.GetValue() != Value.Next;
+					||  Value.Previous.GetValue() != Value.Next;
 			
 			if (broadcast)
 				OnChangeEvent.Broadcast(Value);
 		}
 		
-		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EInvokeMode invokeMode = DefaultInvocation) override
+		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EEventPolicy eventPolicy = EEventPolicy::Default) override
 		{
 			auto lock = WriteLock();
-			return OnChangeEvent.Add(onChange, invokeMode);
+			return OnChangeEvent.Add(onChange, eventPolicy);
 		}
 
 		virtual bool Remove(FDelegateHandle const& handle) override
@@ -377,7 +377,7 @@ namespace Mcro::Observable
 			return MakeUnique<WriteLockVariant>(TInPlaceType<WriteLockType>(), Mutex.Get());
 		}
 
-		int32 PolicyFlags = DefaultPolicy;
+		EStatePolicy PolicyFlags = DefaultPolicy;
 		
 	private:
 		TEventDelegate<void(TChangeData<T> const&)> OnChangeEvent;
