@@ -23,7 +23,6 @@ A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
     - [Function Traits](#function-traits)
     - [Concepts](#concepts)
     - [Extending the Slate declarative syntax](#extending-the-slate-declarative-syntax)
-    - [Text interop](#text-interop)
     - [ISPC parallel tasks support](#ispc-parallel-tasks-support)
     - [Last but not least](#last-but-not-least)
   - [What's a proto-plugin?](#whats-a-proto-plugin)
@@ -364,7 +363,7 @@ Did your thing ever load after an event which your thing depends on, but now you
 #include "Mcro/Common.h"
 using namespace Mcro::Common::With::InferDelegate;
 
-// TBelatedEventDelegate is an alias for TEventDelegate<Signature, BelatedInvoke>
+// TBelatedEventDelegate is an alias for TEventDelegate<Signature, EEventPolicy::Belated>
 TBelatedEventDelegate<void(int)> SomeEvent;
 
 // Broadcast first
@@ -389,7 +388,7 @@ SomeOtherEvent.Add(
     {
         UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
     }),
-    BelatedInvoke
+    EEventPolicy::Belated
 );
 // -> The last argument this event broadcasted with: 1337
 ```
@@ -408,7 +407,7 @@ SomeFrequentEvent.Add(
     {
         UE_LOG(LogTemp, Display, TEXT_"This value is printed only once: %d", value);
     }),
-    InvokeOnce
+    EEventPolicy::Once
 );
 
 SomeFrequentEvent.Broadcast(1);
@@ -548,14 +547,14 @@ using namespace Mcro::Common::With::InferDelegate;
 
 struct FMyStuff
 {
-    TState<int, StorePrevious> State {-1};
+    TState<int, EStatePolicy::StorePrevious> State {-1};
 
     FMyStuff()
     {
-        // Get previous values as well when `StorePrevious` flag is active
+        // Get previous values as well when `EStatePolicy::StorePrevious` flag is active
         State.OnChange([](int next, TOptional<int> previous)
         {
-            // If `StorePrevious` flag is active we should always have a value in `previous`
+            // If `EStatePolicy::StorePrevious` flag is active we should always have a value in `previous`
             // so we should never see -2
             UE_LOG(LogTemp, Display, TEXT_"Changed from %d to %d", previous.Get(-2), next);
         });
@@ -563,7 +562,7 @@ struct FMyStuff
         // Listen to change only the first time
         State.OnChange(
             [](int next) { UE_LOG(LogTemp, Display, TEXT_"The first changed value is %d", next); },
-            InvokeOnce
+            EEventPolicy::Once
         );
     }
 
@@ -597,7 +596,7 @@ struct FFoobar : TSharedFromThis<FFoobar>
         // (nothing is logged as previous update was also 2)
         MyStuff.OnChange(
             [](int next) { UE_LOG(LogTemp, Display, TEXT_"Arriving late %d", next); },
-            BelatedInvoke
+            EEventPolicy::Belated
         );
         // -> Arriving late 2
         MyStuff.Update(3);
@@ -728,33 +727,6 @@ void Construct(FArguments const& inArgs)
 }
 ```
 
-### Text interop
-
-The `Mcro::Text` namespace provides some handy text templating and conversion utilities and interop between Unreal string and std::strings for third-party libraries.
-
-```Cpp
-#include "Mcro/CommonCore";
-using namespace Mcro::Common;
-
-// Accept many string types at once
-template <CStringOrViewOrName String>
-bool GetSomethingCommon(String&& input) { ... }
-
-// Work with std::string types
-template <CStdStringOrViewInvariant String>
-size_t GetLength(String&& input) { return input.size(); }
-```
-
-```Cpp
-// Type alias for choosing a std::string which is best matching the current TCHAR.
-FStdString foo(TEXT_"bar"); // -> std::wstring (on Windows at least)
-```
-
-```Cpp
-FString foo(TEXT_"bar");
-std::string fooNarrow = StdConvertUtf8(foo);
-```
-
 ### ISPC parallel tasks support
 
 `McroISPC` module gives support for `task` and `launch` keywords of the ISPC language
@@ -784,7 +756,7 @@ export void MakeLookupUV(
 ### Last but not least
 
 * Dynamic ↔ Native (multicast) delegate interop
-* Event multiplexing to virtual function, native event, dynamic event
+* Text interop and conversion utilities for STL strings
 * Object binding and promises for `AsyncTask`
 * Bullet-proof third-party library include guards.
 * Rudimentary rendering utilities
