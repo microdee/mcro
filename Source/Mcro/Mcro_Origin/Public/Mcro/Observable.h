@@ -224,11 +224,11 @@ namespace Mcro::Observable
 	 *	Storage wrapper for any value which state needs to be tracked or their change needs to be observed.
 	 *	By default, TState is not thread-safe unless EStatePolicy::ThreadSafe policy is active in DefaultPolicy
 	 */
-	template <typename T, EStatePolicy DefaultPolicy>
+	template <typename T, FStatePolicy DefaultPolicy>
 	struct TState : IState<T>
 	{
 		template <typename ThreadSafeType, typename NaiveType>
-		using ThreadSafeSwitch = std::conditional_t<EnumHasAllFlags(DefaultPolicy, EStatePolicy::ThreadSafe), ThreadSafeType, NaiveType>;
+		using ThreadSafeSwitch = std::conditional_t<DefaultPolicy.ThreadSafe, ThreadSafeType, NaiveType>;
 		
 		using StateBase = IState<T>;
 
@@ -238,7 +238,7 @@ namespace Mcro::Observable
 		using ReadLockType = ThreadSafeSwitch<FReadScopeLock, FVoid>;
 		using WriteLockType = ThreadSafeSwitch<FWriteScopeLock, FVoid>;
 		
-		static constexpr EStatePolicy DefaultPolicyFlags = DefaultPolicy;
+		static constexpr FStatePolicy DefaultPolicyFlags = DefaultPolicy;
 		
 		/** @brief Enable default constructor only when T is default initializable */
 		template <CDefaultInitializable = T>
@@ -287,10 +287,10 @@ namespace Mcro::Observable
 			bool broadcast = true;
 
 			if constexpr (CCoreEqualityComparable<T>)
-				broadcast = EnumHasAllFlags(PolicyFlags, EStatePolicy::AlwaysNotify) || Value.Next != value;
+				broadcast = PolicyFlags.AlwaysNotify || Value.Next != value;
 			
 			if constexpr (CCopyable<T>)
-			if (EnumHasAllFlags(PolicyFlags, EStatePolicy::StorePrevious))
+			if (PolicyFlags.StorePrevious)
 				Value.Previous = Value.Next;
 
 			Value.Next = value;
@@ -310,7 +310,7 @@ namespace Mcro::Observable
 			
 			if constexpr (CCopyable<T>)
 			{
-				if (EnumHasAllFlags(PolicyFlags, EStatePolicy::StorePrevious))
+				if (PolicyFlags.StorePrevious)
 				{
 					Value.Previous = Value.Next;
 				}
@@ -320,8 +320,8 @@ namespace Mcro::Observable
 
 			if constexpr (CCopyable<T> && CCoreEqualityComparable<T>)
 				broadcast = alwaysNotify
-					|| !EnumHasAllFlags(PolicyFlags, EStatePolicy::StorePrevious)
-					||  EnumHasAllFlags(PolicyFlags, EStatePolicy::AlwaysNotify)
+					|| !PolicyFlags.StorePrevious
+					||  PolicyFlags.AlwaysNotify
 					|| !Value.Previous.IsSet()
 					||  Value.Previous.GetValue() != Value.Next;
 			
@@ -349,7 +349,7 @@ namespace Mcro::Observable
 
 		virtual bool HasChangedFrom(const T& nextValue) override
 		{
-			if constexpr  (CCoreEqualityComparable<T>)
+			if constexpr (CCoreEqualityComparable<T>)
 			{
 				bool hasChanged = Value.Next != nextValue;
 				Set(nextValue);
@@ -377,7 +377,7 @@ namespace Mcro::Observable
 			return MakeUnique<WriteLockVariant>(TInPlaceType<WriteLockType>(), Mutex.Get());
 		}
 
-		EStatePolicy PolicyFlags = DefaultPolicy;
+		FStatePolicy PolicyFlags { DefaultPolicy };
 		
 	private:
 		TEventDelegate<void(TChangeData<T> const&)> OnChangeEvent;
