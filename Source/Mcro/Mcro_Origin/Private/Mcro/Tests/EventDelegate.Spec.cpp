@@ -31,7 +31,7 @@ struct FCopyConstructCounter
 	{
 		if (this == &other) return *this;
 
-		CopyCount = other.CopyCount + 1;
+		CopyAssignCount = other.CopyAssignCount + 1;
 		return *this;
 	}
 
@@ -39,12 +39,14 @@ struct FCopyConstructCounter
 	{
 		if (this == &other) return *this;
 		
-		MoveCount = other.MoveCount + 1;
+		MoveAssignCount = other.MoveAssignCount + 1;
 		return *this;
 	}
 
 	int32 CopyCount = 0;
 	int32 MoveCount = 0;
+	int32 CopyAssignCount = 0;
+	int32 MoveAssignCount = 0;
 };
 
 DEFINE_SPEC(
@@ -156,8 +158,7 @@ void FMcroEventDelegate_Spec::Define()
 
 			retainingEvent.Add(From([this](FCopyConstructCounter const& payload)
 			{
-				TestEqual(TEXT_"Belated invoke should get move constructed object", payload.CopyCount, 0);
-				TestEqual(TEXT_"Belated invoke should get move constructed object", payload.MoveCount, 1);
+				TestGreaterThan(TEXT_"Belated invoke should get copy constructed object", payload.CopyCount, 0);
 			}), {.Belated = true});
 		});
 	});

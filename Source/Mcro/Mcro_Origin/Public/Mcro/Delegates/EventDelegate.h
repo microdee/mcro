@@ -116,7 +116,7 @@ namespace Mcro::Delegates
 			TTuple<std::decay_t<Args>...>,
 			TTuple<Args...>
 		>;
-
+		
 		template <typename... BroadcastArgs>
 		requires CConvertibleTo<TTuple<BroadcastArgs...>, TTuple<Args...>>
 		void Broadcast(BroadcastArgs&&... args)
@@ -124,7 +124,12 @@ namespace Mcro::Delegates
 			MutexLock lock(&Mutex.Get());
 			bHasBroadcasted = true;
 			if constexpr (DefaultPolicy.CacheViaCopy)
-				Cache = ArgumentsCache(args...);
+			{
+				// this here actually copies twice, instead of once, but if we don't have this temporary variable
+				// it doesn't copy at all. CopyTemp, or function with pass-by-copy parameters didn't help
+				ArgumentsCache cache{args...};
+				Cache = cache;
+			}
 			else
 				Cache = ArgumentsCache(Forward<BroadcastArgs>(args)...);
 			
