@@ -94,7 +94,7 @@ namespace Mcro::Observable
 
 	protected:
 		template <CChangeListener<T> Function>
-		static auto DelegateValueArgument(Function const& onChange, EEventPolicy eventPolicy = EEventPolicy::Default)
+		static auto DelegateValueArgument(Function const& onChange)
 		{
 			return [onChange](TChangeData<T> const& change)
 			{
@@ -107,7 +107,7 @@ namespace Mcro::Observable
 	public:
 		
 		/** @brief Add a delegate which gets a `TChangeData<T> const&` if this state has been set. */
-		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EEventPolicy eventPolicy = EEventPolicy::Default) = 0;
+		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, FEventPolicy const& eventPolicy = {}) = 0;
 
 		/**
 		 *	@brief
@@ -118,7 +118,7 @@ namespace Mcro::Observable
 		 *	present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable.
 		 */
 		template <CChangeListener<T> Function>
-		FDelegateHandle OnChange(Function const& onChange, EEventPolicy eventPolicy = EEventPolicy::Default)
+		FDelegateHandle OnChange(Function const& onChange, FEventPolicy const& eventPolicy = {})
 		{
 			return OnChange(InferDelegate::From(DelegateValueArgument(onChange)), eventPolicy);
 		}
@@ -132,7 +132,7 @@ namespace Mcro::Observable
 		 *	present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable.
 		 */
 		template <typename Object, CChangeListener<T> Function>
-		FDelegateHandle OnChange(Object&& object, Function const& onChange, EEventPolicy eventPolicy = EEventPolicy::Default)
+		FDelegateHandle OnChange(Object&& object, Function const& onChange, FEventPolicy const& eventPolicy = {})
 		{
 			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), eventPolicy);
 		}
@@ -329,7 +329,7 @@ namespace Mcro::Observable
 				OnChangeEvent.Broadcast(Value);
 		}
 		
-		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, EEventPolicy eventPolicy = EEventPolicy::Default) override
+		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, FEventPolicy const& eventPolicy = {}) override
 		{
 			auto lock = WriteLock();
 			return OnChangeEvent.Add(onChange, eventPolicy);

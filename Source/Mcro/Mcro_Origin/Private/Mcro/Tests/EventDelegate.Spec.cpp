@@ -70,7 +70,7 @@ void FMcroEventDelegate_Spec::Define()
 			event.Add(From([](TArray<FString>& resultArg)
 			{
 				resultArg.Add(TEXT_"Called once");
-			}), EEventPolicy::Once);
+			}), {.Once = true});
 			
 			event.Broadcast(result);
 			TestEqual(TEXT_"Entries in result should be 2", result.Num(), 2);
@@ -85,7 +85,7 @@ void FMcroEventDelegate_Spec::Define()
 			event.Add(From([](TArray<FString>& resultArg)
 			{
 				resultArg.Add(TEXT_"Called Belated");
-			}), EEventPolicy::Belated);
+			}), {.Belated = true});
 			
 			TestEqual(TEXT_"Entries in result should be 4", result.Num(), 4);
 			TestEqual(TEXT_"Has 1 entry from belated binding", Algo::Count(result, STRING_"Called Belated"), 1UL);
@@ -101,7 +101,7 @@ void FMcroEventDelegate_Spec::Define()
 			event.Add(From([](TArray<FString>& resultArg)
 			{
 				resultArg.Add(TEXT_"Called Once and Belated");
-			}), EEventPolicy::Belated | EEventPolicy::Once);
+			}), {.Once = true, .Belated = true});
 
 			TestEqual(TEXT_"Entries in result should be 7", result.Num(), 7);
 			TestEqual(TEXT_"Has 1 entry from belated and only-once binding", Algo::Count(result, STRING_"Called Once and Belated"), 1UL);
@@ -152,13 +152,13 @@ void FMcroEventDelegate_Spec::Define()
 			{
 				TestEqual(TEXT_"Belated invoke should get a reference", payload.CopyCount, 0);
 				TestEqual(TEXT_"Belated invoke should get a reference", payload.MoveCount, 0);
-			}), EEventPolicy::Belated);
+			}), {.Belated = true});
 
 			retainingEvent.Add(From([this](FCopyConstructCounter const& payload)
 			{
 				TestEqual(TEXT_"Belated invoke should get move constructed object", payload.CopyCount, 0);
 				TestEqual(TEXT_"Belated invoke should get move constructed object", payload.MoveCount, 1);
-			}), EEventPolicy::Belated);
+			}), {.Belated = true});
 		});
 	});
 }
