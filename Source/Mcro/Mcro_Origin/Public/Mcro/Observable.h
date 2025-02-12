@@ -104,10 +104,15 @@ namespace Mcro::Observable
 					onChange(change.Next, change.Previous);
 			};
 		}
+		
+		virtual FDelegateHandle OnChangeImpl(TDelegate<void(TChangeData<T> const&)>&& onChange, FEventPolicy const& eventPolicy = {}) = 0;
 	public:
 		
 		/** @brief Add a delegate which gets a `TChangeData<T> const&` if this state has been set. */
-		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, FEventPolicy const& eventPolicy = {}) = 0;
+		FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, FEventPolicy const& eventPolicy = {})
+		{
+			return OnChangeImpl(MoveTemp(onChange), eventPolicy);
+		};
 
 		/**
 		 *	@brief
@@ -196,7 +201,7 @@ namespace Mcro::Observable
 		virtual TUniquePtr<WriteLockVariant> WriteLock() = 0;
 
 		template <typename Self>
-		operator const T& (this Self&& self)
+		operator T const& (this Self&& self)
 		{
 			return self.Get();
 		}
@@ -205,17 +210,6 @@ namespace Mcro::Observable
 		const T* operator -> (this Self&& self)
 		{
 			return &self.Get();
-		}
-		
-		template <typename Self, CConvertibleTo<T> Other>
-		requires (!CState<Other>)
-		Self& operator = (this Self&& self, Other&& value)
-		{
-			if constexpr (CCopyable<Other>)
-				self.Set(value);
-			else if constexpr (CMovable<Other>)
-				self.Set(MoveTemp(value));
-			return self;
 		}
 	};
 
@@ -246,11 +240,11 @@ namespace Mcro::Observable
 		
 		/** @brief Enable copy constructor for T only when T is copy constructable */
 		template <CCopyConstructible = T>
-		TState(T const& value) : Value(value) {}
+		explicit TState(T const& value) : Value(value) {}
 		
 		/** @brief Enable move constructor for T only when T is move constructable */
 		template <CMoveConstructible = T>
-		TState(T&& value) : Value(MoveTemp(value)) {}
+		explicit TState(T&& value) : Value(MoveTemp(value)) {}
 		
 		/** @brief Enable copy constructor for the state only when T is copy constructable */
 		template <CCopyConstructible = T>
@@ -284,19 +278,20 @@ namespace Mcro::Observable
 			);
 			TGuardValue modifyingGuard(Modifying, true);
 			auto lock = WriteLock();
-			bool broadcast = true;
+			bool allow = true;
 
 			if constexpr (CCoreEqualityComparable<T>)
-				broadcast = PolicyFlags.AlwaysNotify || Value.Next != value;
+				allow = PolicyFlags.AlwaysNotify || Value.Next != value;
 			
 			if constexpr (CCopyable<T>)
-			if (PolicyFlags.StorePrevious)
+			if (PolicyFlags.StorePrevious && (allow || PolicyFlags.AlwaysStorePrevious))
 				Value.Previous = Value.Next;
 
-			Value.Next = value;
-
-			if (broadcast)
+			if (allow)
+			{
+				Value.Next = value;
 				OnChangeEvent.Broadcast(Value);
+			}
 		}
 		
 		virtual void Modify(TUniqueFunction<void(T&)>&& modifier, bool alwaysNotify = true) override
@@ -306,35 +301,37 @@ namespace Mcro::Observable
 			);
 			TGuardValue modifyingGuard(Modifying, true);
 			auto lock = WriteLock();
-			bool broadcast = true;
+			bool allow = true;
+			TOptional<T> previous;
 			
 			if constexpr (CCopyable<T>)
-			{
-				if (PolicyFlags.StorePrevious)
-				{
-					Value.Previous = Value.Next;
-				}
-			}
+			if (PolicyFlags.StorePrevious)
+				previous = Value.Next;
 			
 			modifier(Value.Next);
 
 			if constexpr (CCopyable<T> && CCoreEqualityComparable<T>)
-				broadcast = alwaysNotify
-					|| !PolicyFlags.StorePrevious
+				allow = alwaysNotify
 					||  PolicyFlags.AlwaysNotify
 					|| !Value.Previous.IsSet()
-					||  Value.Previous.GetValue() != Value.Next;
+					||  previous.GetValue() != Value.Next;
 			
-			if (broadcast)
+			if constexpr (CCopyable<T>)
+			if (PolicyFlags.StorePrevious && (allow || PolicyFlags.AlwaysStorePrevious))
+				Value.Previous = previous;
+			
+			if (allow)
 				OnChangeEvent.Broadcast(Value);
 		}
-		
-		virtual FDelegateHandle OnChange(TDelegate<void(TChangeData<T> const&)> onChange, FEventPolicy const& eventPolicy = {}) override
+
+	protected:
+		virtual FDelegateHandle OnChangeImpl(TDelegate<void(TChangeData<T> const&)>&& onChange, FEventPolicy const& eventPolicy = {}) override
 		{
 			auto lock = WriteLock();
 			return OnChangeEvent.Add(onChange, eventPolicy);
 		}
 
+	public:
 		virtual bool Remove(FDelegateHandle const& handle) override
 		{
 			auto lock = WriteLock();
@@ -375,6 +372,17 @@ namespace Mcro::Observable
 		virtual TUniquePtr<WriteLockVariant> WriteLock() override
 		{
 			return MakeUnique<WriteLockVariant>(TInPlaceType<WriteLockType>(), Mutex.Get());
+		}
+		
+		template <CConvertibleTo<T> Other>
+		requires (!CState<Other>)
+		TState& operator = (Other&& value)
+		{
+			if constexpr (CCopyable<Other>)
+				Set(value);
+			else if constexpr (CMovable<Other>)
+				Set(MoveTemp(value));
+			return *this;
 		}
 
 		FStatePolicy PolicyFlags { DefaultPolicy };

@@ -37,12 +37,19 @@ namespace Mcro::Observable
 		/** @brief Always emit change notification when a value is set on TState and don't attempt to compare them */
 		bool AlwaysNotify = false;
 
-		/** @brief Always emit change notification when a value is set on TState and don't attempt to compare them */
+		/** @brief Store previous value as well. If the value is equality comparable store only when it's changed. */
 		bool StorePrevious = false;
 
 		/**
 		 *	@brief
-		 *	Enable mutexes during modifications, notifications and expose a public critical section for users
+		 *	If the state value is equality comparable, store the previous value even when that's equal to the new value.
+		 *	This flag doesn't do anything unless StorePrevious is also true.
+		 */
+		bool AlwaysStorePrevious = false;
+
+		/**
+		 *	@brief
+		 *	Enable mutexes during modifications, notifications and expose a public read-lock for users
 		 *	of the state.
 		 */
 		bool ThreadSafe = false;
@@ -51,19 +58,21 @@ namespace Mcro::Observable
 		FORCEINLINE constexpr FStatePolicy With(FStatePolicy const& other) const
 		{
 			return {
-				NotifyOnChangeOnly || other.NotifyOnChangeOnly,
-				AlwaysNotify       || other.AlwaysNotify,
-				StorePrevious      || other.StorePrevious,
-				ThreadSafe         || other.ThreadSafe
+				NotifyOnChangeOnly  || other.NotifyOnChangeOnly,
+				AlwaysNotify        || other.AlwaysNotify,
+				StorePrevious       || other.StorePrevious,
+				AlwaysStorePrevious || other.AlwaysStorePrevious,
+				ThreadSafe          || other.ThreadSafe
 			};
 		}
 
 		FORCEINLINE friend constexpr bool operator == (FStatePolicy const& lhs, FStatePolicy const& rhs)
 		{
-			return lhs.NotifyOnChangeOnly == rhs.NotifyOnChangeOnly
-				&& lhs.AlwaysNotify       == rhs.AlwaysNotify
-				&& lhs.StorePrevious      == rhs.StorePrevious
-				&& lhs.ThreadSafe         == rhs.ThreadSafe
+			return lhs.NotifyOnChangeOnly  == rhs.NotifyOnChangeOnly
+				&& lhs.AlwaysNotify        == rhs.AlwaysNotify
+				&& lhs.StorePrevious       == rhs.StorePrevious
+				&& lhs.AlwaysStorePrevious == rhs.AlwaysStorePrevious
+				&& lhs.ThreadSafe          == rhs.ThreadSafe
 			;
 		}
 
@@ -88,6 +97,9 @@ namespace Mcro::Observable
 				? FStatePolicy {.NotifyOnChangeOnly = true}
 				: FStatePolicy {.AlwaysNotify = true}
 			: FStatePolicy {.NotifyOnChangeOnly = true, .StorePrevious = true};
+
+	template <>
+	inline constexpr FStatePolicy StatePolicyFor<bool> = {.NotifyOnChangeOnly = true, .StorePrevious = false}; 
 	
 	template <typename T>
 	struct IState;
@@ -142,23 +154,30 @@ namespace Mcro::Observable
 	template <typename T>
 	concept CState = CDerivedFrom<T, IStateTag>;
 
-	/** @brief Concept describing a function which can be a change listener on a TState */
-	template <typename Function, typename T>
-	concept CChangeListener = CFunctionLike<Function>
-		&& TFunction_ArgCount<Function> > 0
-		&& CConvertibleTo<T, TFunction_ArgDecay<Function, 0>>
-	;
+	namespace Detail
+	{
+		template <typename Function, typename T>
+		concept CChangeListenerCandidate = CFunctionLike<Function>
+			&& TFunction_ArgCount<Function> > 0
+			&& CConvertibleTo<T, TFunction_ArgDecay<Function, 0>>
+		;
+	}
+
 
 	/** @brief Concept describing a function which can listen to changes to the current value of a TState only */
 	template <typename Function, typename T>
-	concept CChangeNextOnlyListener = CChangeListener<Function, T> && TFunction_ArgCount<Function> == 1;
+	concept CChangeNextOnlyListener = Detail::CChangeListenerCandidate<Function, T> && TFunction_ArgCount<Function> == 1;
 
 	/** @brief Concept describing a function which can listen to changes to the current and the previous values of a TState */
 	template <typename Function, typename T>
-	concept CChangeNextPreviousListener = CChangeListener<Function, T>
+	concept CChangeNextPreviousListener = Detail::CChangeListenerCandidate<Function, T>
 		&& TFunction_ArgCount<Function> == 2
 		&& CConvertibleTo<TOptional<T>, TFunction_ArgDecay<Function, 1>>
 	;
+
+	/** @brief Concept describing a function which can be a change listener on a TState */
+	template <typename Function, typename T>
+	concept CChangeListener = CChangeNextOnlyListener<Function, T> || CChangeNextPreviousListener<Function, T>;
 
 	/** @brief Convenience alias for thread safe states */
 	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
