@@ -84,11 +84,7 @@ namespace Mcro::Slate
 	 *	Slate declarative syntax.
 	 */
 	template <CWidgetOrSlot T>
-	using TAttributeBlock = TUniqueFunction<TArgumentsOf<T>&(TArgumentsOf<T>&)>;
-
-	/** @brief Same as TAttributeBlock but allows to make copies of the functor */
-	template <CWidgetOrSlot T>
-	using TAttributeBlockCopyable = TFunction<TArgumentsOf<T>&(TArgumentsOf<T>&)>;
+	using TAttributeBlock = TFunction<TArgumentsOf<T>&(TArgumentsOf<T>&)>;
 
 	/** @brief An attribute block which does nothing */
 	template <CWidgetOrSlot T>

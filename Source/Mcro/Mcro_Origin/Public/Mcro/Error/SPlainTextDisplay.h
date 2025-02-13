@@ -22,7 +22,7 @@ namespace Mcro::Error
 	{
 	public:
 		SLATE_BEGIN_ARGS(SPlainTextDisplay) {}
-			SLATE_ARGUMENT(IErrorRef, Error);
+			SLATE_ARGUMENT(IErrorPtr, Error);
 		SLATE_END_ARGS()
 
 		void Construct(const FArguments& inArgs);
