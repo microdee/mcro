@@ -335,7 +335,7 @@ namespace Mcro::Delegates
 			const UObject* boundObject = nullptr,
 			FName const& boundFunctionName = NAME_None
 		) {
-			const FEventPolicy actualPolicy = policy.IsDefault() ? DefaultPolicy : policy;
+			const FEventPolicy actualPolicy = policy.With(DefaultPolicy);
 
 			if (bHasBroadcasted && actualPolicy.Belated && actualPolicy.Once)
 			{
