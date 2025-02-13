@@ -11,16 +11,15 @@
 
 #pragma once
 #include "CoreMinimal.h"
-#include "Once.h"
 #include "Async/Future.h"
 #include "Mcro/TypeName.h"
-#include "Mcro/Concepts.h"
+#include "Mcro/Delegates/EventDelegate.h"
 
 DECLARE_LOG_CATEGORY_CLASS(LogAutoModularFeature, Log, Log);
 
 namespace Mcro::AutoModularFeature
 {
-	using namespace Mcro::Concepts;
+	using namespace Mcro::Delegates;
 	using namespace Mcro::TypeName;
 
 	/** @brief Tagging an auto feature (DO NOT USE MANUALLY, inherited by TAutoModularFeature) */
@@ -93,6 +92,13 @@ namespace Mcro::AutoModularFeature
 		using Feature = FeatureIn;
 		using AutoModularFeature = TAutoModularFeature;
 
+		/** @brief This event is triggered when an implementation of this feature is created */
+		static TBelatedEventDelegate<void(Feature*)>& OnRegistered()
+		{
+			static TBelatedEventDelegate<void(Feature*)> event;
+			return event;
+		}
+
 		/** @brief Get the name of the feature */
 		static FORCEINLINE const FName& FeatureName()
 		{
@@ -147,6 +153,7 @@ namespace Mcro::AutoModularFeature
 				*TTypeString<Feature>
 			);
 			IModularFeatures::Get().RegisterModularFeature(FeatureName(), &self);
+			OnRegistered().Broadcast(&self);
 		}
 		
 		virtual ~TAutoModularFeature()
@@ -160,26 +167,23 @@ namespace Mcro::AutoModularFeature
 		 *	there's already one registered.
 		 *	
 		 *	@return  A future completed when the first implementation becomes available, or there's already one
+		 *
+		 *	@warning
+		 *	If no implementations were created throughout the entire execution of the program, it will crash on exit
+		 *	with an unfulfilled promise error. When using this function either handle this scenario early, or
+		 *	use `OnRegistered()` if your particular feature may never be created.
 		 */
 		static FORCEINLINE TFuture<Feature*> GetBelated()
 		{
-			using namespace Mcro::Once;
-
-			if (ImplementationCount())
-			{
-				return MakeFulfilledPromise<Feature*>(&Get()).GetFuture();
-			}
-
 			// Shared promise is required as delegate lambdas are copyable
 			TSharedRef<TPromise<Feature*>> promise = MakeShared<TPromise<Feature*>>();
 			TFuture<Feature*> result = promise->GetFuture();
-			IModularFeatures::Get().OnModularFeatureRegistered().AddLambda(
-				[promise, once = FOnce()](const FName& type, IModularFeature*) mutable 
-				{
-					if (type == FeatureName() && once)
-						promise->SetValue(&Get());
-				}
-			);
+
+			OnRegistered().Add(InferDelegate::From([promise](Feature* feature) mutable
+			{
+				promise->SetValue(feature);
+			}), {.Once = true});
+			
 			return result;
 		}
 	};

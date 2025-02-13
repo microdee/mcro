@@ -24,6 +24,14 @@ public:
 	FTestFeatureImplementation() { Register(); }
 };
 
+class ITestBelatedFeature : public TAutoModularFeature<ITestBelatedFeature> { };
+
+class FTestBelatedFeatureImplementation : public ITestBelatedFeature, public IFeatureImplementation
+{
+public:
+	FTestBelatedFeatureImplementation() { Register(); }
+};
+
 namespace TestImplementation
 {
 	class FTestImplementationInNamespace : public ITestFeature, public IFeatureImplementation
@@ -74,12 +82,12 @@ void FMcroAutoModularFeatures_Spec::Define()
 
 		LatentIt(TEXT_"should be available via TFuture", 30_mSec, [this](FDoneDelegate const& done)
 		{
-			ITestFeature::GetBelated().Next([this, &done](ITestFeature*)
+			ITestBelatedFeature::GetBelated().Next([this, &done](ITestBelatedFeature*)
 			{
 				(void) done.ExecuteIfBound();
 			});
 			
-			FTestFeatureImplementation implementation {};
+			FTestBelatedFeatureImplementation implementation {};
 		});
 	});
 }
