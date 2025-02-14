@@ -82,6 +82,56 @@ FCanFail FK4ADevice::Tick_Sync()
 }
 ```
 
+<details><summary>Output log of an example test error</summary>
+
+```log
+Display      LogTemp                   Type: Mcro::Test::FTestSimpleError
+Display      LogTemp                   Severity: Recoverable
+Display      LogTemp                   Message: |
+Display      LogTemp                     This is one test error
+Display      LogTemp                   Details: |
+Display      LogTemp                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Parturient maximus donec penatibus lectus non
+Display      LogTemp                     conubia amet condimentum. Tincidunt et iaculis efficitur integer, pulvinar phasellus. Mauris nisl
+Display      LogTemp                     parturient pharetra potenti aptent phasellus pharetra pellentesque. Leo aliquam vulputate pellentesque
+Display      LogTemp                     sapien gravida aptent facilisis tempus nec. Dolor aenean auctor penatibus iaculis dui justo integer
+Display      LogTemp                     porta. Sed vivamus porta sagittis nulla; sollicitudin class convallis mattis. Egestas lobortis nullam
+Display      LogTemp                     sed interdum ultricies donec.
+Display      LogTemp                   CodeContext: |
+Display      LogTemp                     D = A + B + C
+Display      LogTemp                   ErrorPropagation:
+Display      LogTemp                     - "class TSharedRef<class Mcro::Test::FTestSimpleError,1> __cdecl CommonTestError(void) @ D:\\projects\\people\\olga\\olganect\\olganect\\Plugins\\Yanui\\Source\\Mcro\\Mcro_Yn\\Private\\Mcro\\Tests\\Error.Spec.cpp : 40"
+Display      LogTemp                     - "auto __cdecl FMcroError_Spec::Define::<lambda_1>::()::<lambda_1>::operator ()(void) const @ D:\\projects\\people\\olga\\olganect\\olganect\\Plugins\\Yanui\\Source\\Mcro\\Mcro_Yn\\Private\\Mcro\\Tests\\Error.Spec.cpp : 73"
+Display      LogTemp                   InnerErrors:
+Display      LogTemp                     Appendix Foo: |
+Display      LogTemp                       Lorem ipsum
+Display      LogTemp                     Appendix Bar: |
+Display      LogTemp                       dolor sit amet consectetur
+Display      LogTemp                     Mcro::Error::FCppStackTrace: |
+Display      LogTemp                       0x000001adda3b8e69 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!CommonTestError() [D:\projects\people\olga\olganect\olganect\Plugins\Yanui\Source\Mcro\Mcro_Yn\Private\Mcro\Tests\Error.Spec.cpp:27]
+Display      LogTemp                       0x000001adda3b7763 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!``FMcroError_Spec::Define'::`2'::<lambda_1>::operator()'::`2'::<lambda_1>::operator()() [D:\projects\people\olga\olganect\olganect\Plugins\Yanui\Source\Mcro\Mcro_Yn\Private\Mcro\Tests\Error.Spec.cpp:60]
+Display      LogTemp                       0x000001adda3b881b UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!UE::Core::Private::Function::TFunctionRefCaller<``FMcroError_Spec::Define'::`2'::<lambda_1>::operator()'::`2'::<lambda_1>,void>::Call() [D:\ue\UE_5.5\Engine\Source\Runtime\Core\Public\Templates\Function.h:321]
+Display      LogTemp                       0x000001adda393fd8 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!UE::Core::Private::Function::TFunctionRefBase<UE::Core::Private::Function::TFunctionStorage<0>,void __cdecl(void)>::operator()() [D:\ue\UE_5.5\Engine\Source\Runtime\Core\Public\Templates\Function.h:471]
+Display      LogTemp                       0x000001adda3a6264 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!FAutomationSpecBase::FSingleExecuteLatentCommand::Update() [D:\ue\UE_5.5\Engine\Source\Runtime\Core\Public\Misc\AutomationTest.h:2813]
+Display      LogTemp                       0x00007ffc4b815270 UnrealEditor-Core.dll!FAutomationTestFramework::ExecuteLatentCommands() [D:\build\++UE5\Sync\Engine\Source\Runtime\Core\Private\Misc\AutomationTest.cpp:626]
+Display      LogTemp                       0x000001ade2471393 UnrealEditor-AutomationWorker.dll!FAutomationWorkerModule::Tick() [D:\build\++UE5\Sync\Engine\Source\Runtime\AutomationWorker\Private\AutomationWorkerModule.cpp:69]
+Display      LogTemp                       0x00007ff6b7bc8118 UnrealEditor-Win64-DebugGame.exe!FEngineLoop::Tick() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\LaunchEngineLoop.cpp:6046]
+Display      LogTemp                       0x00007ff6b7be57ac UnrealEditor-Win64-DebugGame.exe!GuardedMain() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Launch.cpp:188]
+Display      LogTemp                       0x00007ff6b7be589a UnrealEditor-Win64-DebugGame.exe!GuardedMainWrapper() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Windows\LaunchWindows.cpp:123]
+Display      LogTemp                       0x00007ff6b7be9114 UnrealEditor-Win64-DebugGame.exe!LaunchWindowsStartup() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Windows\LaunchWindows.cpp:277]
+Display      LogTemp                       0x00007ff6b7bfbd04 UnrealEditor-Win64-DebugGame.exe!WinMain() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Windows\LaunchWindows.cpp:317]
+Display      LogTemp                       0x00007ff6b7bff0ca UnrealEditor-Win64-DebugGame.exe!__scrt_common_main_seh() [D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288]
+Display      LogTemp                       0x00007ffd072c259d KERNEL32.DLL!UnknownFunction []
+Display      LogTemp                       0x00007ffd0822af38 ntdll.dll!UnknownFunction []
+```
+
+</details>
+
+<details><summary>When everything else fails we can display the error to the user</summary>
+
+![](Docs/Images/IErrorDialog.jpg)
+
+</details>
+
 ### Text macros without parentheses
 
 ```Cpp
