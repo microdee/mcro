@@ -481,7 +481,7 @@ Did your thing ever load after an event which your thing depends on, but now you
 #include "Mcro/Common.h"
 using namespace Mcro::Common::With::InferDelegate;
 
-// TBelatedEventDelegate is an alias for TEventDelegate<Signature, EEventPolicy::Belated>
+// TBelatedEventDelegate is an alias for TEventDelegate<Signature, {.Belated = true}>
 TBelatedEventDelegate<void(int)> SomeEvent;
 
 // Broadcast first
@@ -506,7 +506,7 @@ SomeOtherEvent.Add(
     {
         UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
     }),
-    EEventPolicy::Belated
+    {.Belated = true}
 );
 // -> The last argument this event broadcasted with: 1337
 ```
@@ -525,7 +525,7 @@ SomeFrequentEvent.Add(
     {
         UE_LOG(LogTemp, Display, TEXT_"This value is printed only once: %d", value);
     }),
-    EEventPolicy::Once
+    {.Once = true}
 );
 
 SomeFrequentEvent.Broadcast(1);
@@ -665,14 +665,14 @@ using namespace Mcro::Common::With::InferDelegate;
 
 struct FMyStuff
 {
-    TState<int, EStatePolicy::StorePrevious> State {-1};
+    TState<int, {.StorePrevious = true}> State {-1};
 
     FMyStuff()
     {
-        // Get previous values as well when `EStatePolicy::StorePrevious` flag is active
+        // Get previous values as well when `StorePrevious` flag is active
         State.OnChange([](int next, TOptional<int> previous)
         {
-            // If `EStatePolicy::StorePrevious` flag is active we should always have a value in `previous`
+            // If `StorePrevious` flag is active we should always have a value in `previous`
             // so we should never see -2
             UE_LOG(LogTemp, Display, TEXT_"Changed from %d to %d", previous.Get(-2), next);
         });
@@ -680,7 +680,7 @@ struct FMyStuff
         // Listen to change only the first time
         State.OnChange(
             [](int next) { UE_LOG(LogTemp, Display, TEXT_"The first changed value is %d", next); },
-            EEventPolicy::Once
+            {.Once = true}
         );
     }
 
@@ -714,7 +714,7 @@ struct FFoobar : TSharedFromThis<FFoobar>
         // (nothing is logged as previous update was also 2)
         MyStuff.OnChange(
             [](int next) { UE_LOG(LogTemp, Display, TEXT_"Arriving late %d", next); },
-            EEventPolicy::Belated
+            {.Belated = true}
         );
         // -> Arriving late 2
         MyStuff.Update(3);
