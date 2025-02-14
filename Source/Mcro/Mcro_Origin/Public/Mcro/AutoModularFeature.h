@@ -93,7 +93,7 @@ namespace Mcro::AutoModularFeature
 		using AutoModularFeature = TAutoModularFeature;
 
 		/** @brief This event is triggered when an implementation of this feature is created */
-		static TBelatedEventDelegate<void(Feature*)>& OnRegistered()
+		static auto OnRegistered() -> TBelatedEventDelegate<void(Feature*)>&
 		{
 			static TBelatedEventDelegate<void(Feature*)> event;
 			return event;
