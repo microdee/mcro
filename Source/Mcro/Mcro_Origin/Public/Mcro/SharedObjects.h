@@ -150,4 +150,39 @@ namespace Mcro::SharedObjects
 	{
 		return StaticCastSharedRef<T>(self->AsShared());
 	}
+
+	/**
+	 *	@brief
+	 *	A simple mutable shared storage of any value.
+	 *
+	 *	One particular use case for this may be delegates which may remove themselves once invoked. For example:
+	 *	@code
+	 *	auto once = MakeSharedDelegateHandle();
+	 *	once->Value = MyEvent.AddLambda([this, once]
+	 *	{
+	 *		// execute something only once.
+	 *		MyEvent.Remove(once->Value);
+	 *	});
+	 *	@endcode
+	 */
+	template <CDefaultInitializable T>
+	struct TSharedStorage
+	{
+		T Value;
+	};
+	
+	template <CDefaultInitializable T>
+	using TSharedStoragePtr = TSharedPtr<TSharedStorage<T>>;
+	
+	template <CDefaultInitializable T>
+	using TSharedStorageRef = TSharedRef<TSharedStorage<T>>;
+	
+	template <CDefaultInitializable T>
+	using TSharedStorageWeakPtr = TWeakPtr<TSharedStorage<T>>;
+
+	/** @brief A simple convenience wrapper around making FDelegateHandles shared */
+	FORCEINLINE TSharedStorageRef<FDelegateHandle> MakeSharedDelegateHandle()
+	{
+		return MakeShared<TSharedStorage<FDelegateHandle>>();
+	}
 }

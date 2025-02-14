@@ -19,6 +19,7 @@
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Observable.Fwd.h"
 #include "Mcro/TextMacros.h"
+#include "Mcro/Delegates/EventDelegate.h"
 
 #include "Mcro/LibraryIncludes/Start.h"
 #include "yaml-cpp/yaml.h"
@@ -33,6 +34,7 @@ namespace Mcro::Error
 	using namespace Mcro::Types;
 	using namespace Mcro::FunctionTraits;
 	using namespace Mcro::SharedObjects;
+	using namespace Mcro::Delegates;
 
 	/**
 	 *	@brief  A base class for a structured error handling and reporting with modular architecture and fluent API.
@@ -142,6 +144,15 @@ namespace Mcro::Error
 		{
 			return MakeShareableInit(newError, Forward<Args>(args)...)->WithType();
 		}
+
+		/**
+		 *	@brief
+		 *	When `Report` is called on an error this event is triggered, allowing issue tracking systems to react on
+		 *	IError's which are deemed "ready".
+		 *
+		 *	`ERROR_LOG`, `ERROR_CLOG` and `FErrorManager::DisplayError` automatically report their input error.
+		 */
+		static auto OnErrorReported() -> TEventDelegate<void(IErrorRef)>&;
 
 		FORCEINLINE EErrorSeverity                  GetSeverity() const        { return Severity; }
 		FORCEINLINE int32                           GetSeverityInt() const     { return static_cast<int32>(Severity); }
@@ -499,9 +510,29 @@ namespace Mcro::Error
 		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self>
-		SelfRef<Self> WithLocation(this Self&& self, std::source_location location = std::source_location::current())
+		SelfRef<Self> WithLocation(this Self&& self, std::source_location const& location = std::source_location::current())
 		{
 			self.ErrorPropagation.Add(location);
+			return self.SharedThis(&self);
+		}
+
+		/**
+		 *	@brief
+		 *	Report this error to the global `IError::OnErrorReported` event once it is deemed "ready", so an issue
+		 *	tracking system can handle important error unintrusively. Make sure this is the last modification on the
+		 *	error. Only call it once no further information can be added and on the top-most main error in case of
+		 *	aggregate errors.
+		 *	
+		 *	@tparam  Self       Deducing this
+		 *	@param   condition  Only report errors when this condition is satisfied
+		 *	@return  Self for further fluent API setup
+		 */
+		template <typename Self>
+		SelfRef<Self> Report(this Self&& self, bool condition = true)
+		{
+			if (condition)
+				OnErrorReported().Broadcast(self.SharedThis(&self));
+			
 			return self.SharedThis(&self);
 		}
 	};
@@ -612,12 +643,14 @@ namespace Mcro::Error
 #define ERROR_LOG(categoryName, verbosity, error)        \
 	UE_LOG(categoryName, verbosity, TEXT_"%s", *((error) \
 		->WithLocation()                                 \
-		->ToString())                                    \
-	)                                                   //
+		->Report()                                       \
+		->ToString()                                     \
+	))                                                  //
 
 #define ERROR_CLOG(condition, categoryName, verbosity, error)        \
 	UE_CLOG(condition, categoryName, verbosity, TEXT_"%s", *((error) \
 		->WithLocation()                                             \
+		->Report()                                                   \
 		->ToString()                                                 \
 	))                                                              //
 

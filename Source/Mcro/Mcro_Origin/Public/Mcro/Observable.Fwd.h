@@ -25,38 +25,81 @@ namespace Mcro::Observable
 	using namespace Mcro::FunctionTraits;
 
 	/** @brief Flags expressing how TState should handle object comparison and lifespan */
-	enum EStatePolicy
+	struct FStatePolicy
 	{
 		/**
 		 *	@brief
 		 *	When the object inside TState is != comparable TState wull only emit change events when the submitted
 		 *	value differs from the existing one.
 		 */
-		NotifyOnChangeOnly = 0,
+		bool NotifyOnChangeOnly = false;
 
 		/** @brief Always emit change notification when a value is set on TState and don't attempt to compare them */
-		AlwaysNotify = 1 << 0,
+		bool AlwaysNotify = false;
 
-		/** @brief Always emit change notification when a value is set on TState and don't attempt to compare them */
-		StorePrevious = 1 << 1,
+		/** @brief Store previous value as well. If the value is equality comparable store only when it's changed. */
+		bool StorePrevious = false;
 
 		/**
 		 *	@brief
-		 *	Enable mutexes during modifications, notifications and expose a public critical section for users
+		 *	If the state value is equality comparable, store the previous value even when that's equal to the new value.
+		 *	This flag doesn't do anything unless StorePrevious is also true.
+		 */
+		bool AlwaysStorePrevious = false;
+
+		/**
+		 *	@brief
+		 *	Enable mutexes during modifications, notifications and expose a public read-lock for users
 		 *	of the state.
 		 */
-		ThreadSafeState = 1 << 2
+		bool ThreadSafe = false;
+
+		/** @brief Merge two policy flags */
+		FORCEINLINE constexpr FStatePolicy With(FStatePolicy const& other) const
+		{
+			return {
+				NotifyOnChangeOnly  || other.NotifyOnChangeOnly,
+				AlwaysNotify        || other.AlwaysNotify,
+				StorePrevious       || other.StorePrevious,
+				AlwaysStorePrevious || other.AlwaysStorePrevious,
+				ThreadSafe          || other.ThreadSafe
+			};
+		}
+
+		FORCEINLINE friend constexpr bool operator == (FStatePolicy const& lhs, FStatePolicy const& rhs)
+		{
+			return lhs.NotifyOnChangeOnly  == rhs.NotifyOnChangeOnly
+				&& lhs.AlwaysNotify        == rhs.AlwaysNotify
+				&& lhs.StorePrevious       == rhs.StorePrevious
+				&& lhs.AlwaysStorePrevious == rhs.AlwaysStorePrevious
+				&& lhs.ThreadSafe          == rhs.ThreadSafe
+			;
+		}
+
+		FORCEINLINE friend constexpr bool operator != (FStatePolicy const& lhs, FStatePolicy const& rhs)
+		{
+			return !(lhs == rhs);
+		}
+
+		/** @brief Is this instance equivalent to a default constructed one */
+		FORCEINLINE constexpr bool IsDefault() const
+		{
+			return *this == FStatePolicy();
+		}
 	};
 
 	struct IStateTag {};
 
 	template <typename T>
-	inline constexpr int32 StatePolicyFor =
+	inline constexpr FStatePolicy StatePolicyFor =
 		CClass<T>
 			? CCoreEqualityComparable<T>
-				? NotifyOnChangeOnly
-				: AlwaysNotify
-			: StorePrevious | NotifyOnChangeOnly;
+				? FStatePolicy {.NotifyOnChangeOnly = true}
+				: FStatePolicy {.AlwaysNotify = true}
+			: FStatePolicy {.NotifyOnChangeOnly = true, .StorePrevious = true};
+
+	template <>
+	inline constexpr FStatePolicy StatePolicyFor<bool> = {.NotifyOnChangeOnly = true, .StorePrevious = false}; 
 	
 	template <typename T>
 	struct IState;
@@ -64,7 +107,7 @@ namespace Mcro::Observable
 	template <typename T>
 	struct TChangeData;
 	
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
+	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
 	struct TState;
 
 	/**
@@ -92,38 +135,53 @@ namespace Mcro::Observable
 	using TStateWeakPtr = TWeakPtr<IState<T>>;
 
 	/** @brief Convenience alias for declaring a state as a shared reference. Use this only as object members */
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
+	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
 	using TDeclareStateRef = TSharedRef<TState<T, DefaultPolicy>>;
 
 	/** @brief Convenience alias for declaring a state as a shared pointer. Use this only as object members */
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T>>
+	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
 	using TDeclareStatePtr = TSharedPtr<TState<T, DefaultPolicy>>;
+
+	/** @brief Convenience alias for declaring a thread-safe state as a shared reference. Use this only as object members */
+	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
+	using TDeclareStateTSRef = TSharedRef<TState<T, DefaultPolicy.With({.ThreadSafe = true})>>;
+
+	/** @brief Convenience alias for declaring a thread-safe state as a shared pointer. Use this only as object members */
+	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
+	using TDeclareStateTSPtr = TSharedPtr<TState<T, DefaultPolicy.With({.ThreadSafe = true})>>;
 
 	/** @brief Concept constraining given type to a state */
 	template <typename T>
 	concept CState = CDerivedFrom<T, IStateTag>;
 
-	/** @brief Concept describing a function which can be a change listener on a TState */
-	template <typename Function, typename T>
-	concept CChangeListener = CFunctionLike<Function>
-		&& TFunction_ArgCount<Function> > 0
-		&& CConvertibleTo<T, TFunction_ArgDecay<Function, 0>>
-	;
+	namespace Detail
+	{
+		template <typename Function, typename T>
+		concept CChangeListenerCandidate = CFunctionLike<Function>
+			&& TFunction_ArgCount<Function> > 0
+			&& CConvertibleTo<T, TFunction_ArgDecay<Function, 0>>
+		;
+	}
+
 
 	/** @brief Concept describing a function which can listen to changes to the current value of a TState only */
 	template <typename Function, typename T>
-	concept CChangeNextOnlyListener = CChangeListener<Function, T> && TFunction_ArgCount<Function> == 1;
+	concept CChangeNextOnlyListener = Detail::CChangeListenerCandidate<Function, T> && TFunction_ArgCount<Function> == 1;
 
 	/** @brief Concept describing a function which can listen to changes to the current and the previous values of a TState */
 	template <typename Function, typename T>
-	concept CChangeNextPreviousListener = CChangeListener<Function, T>
+	concept CChangeNextPreviousListener = Detail::CChangeListenerCandidate<Function, T>
 		&& TFunction_ArgCount<Function> == 2
 		&& CConvertibleTo<TOptional<T>, TFunction_ArgDecay<Function, 1>>
 	;
 
+	/** @brief Concept describing a function which can be a change listener on a TState */
+	template <typename Function, typename T>
+	concept CChangeListener = CChangeNextOnlyListener<Function, T> || CChangeNextPreviousListener<Function, T>;
+
 	/** @brief Convenience alias for thread safe states */
-	template <typename T, int32 DefaultPolicy = StatePolicyFor<T> | ThreadSafeState>
-	using TStateTS = TState<T, DefaultPolicy>;
+	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
+	using TStateTS = TState<T, DefaultPolicy.With({.ThreadSafe = true})>;
 
 	/** @brief Convenience alias for boolean states */
 	using FBool = TState<bool>;

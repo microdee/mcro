@@ -24,7 +24,7 @@ namespace Mcro::Error
 		ChildSlot
 		[
 			SNew(SVerticalBox)
-			+ Row()[ SeverityWidget(inArgs._Error) ]
+			+ Row()[ SeverityWidget(inArgs._Error.ToSharedRef()) ]
 			+ Row()[ inArgs._PostSeverity.Widget ]
 			+ Row()[ OptionalTextWidget(inArgs._Error->GetMessage()) ]
 			+ Row()[ inArgs._PostMessage.Widget ]
@@ -34,13 +34,14 @@ namespace Mcro::Error
 			+ Row()[ inArgs._PostCodeContext.Widget ]
 			+ Row()[ ExpandableTextWidget(INVTEXT_"Error Propagation", inArgs._Error->GetErrorPropagationJoined()) ]
 			+ Row()[ inArgs._PostErrorPropagation.Widget ]
-			+ TSlots(inArgs._Error.Get(), [&](const FNamedError& inner)
+			+ TSlots(inArgs._Error.ToSharedRef().Get(), [&](const FNamedError& inner)
 			{
 				return MoveTemp(Row()
 				[
 					SNew(SExpandableArea)
 					. AreaTitle(FText::FromString(inner.Key))
 					. InitiallyCollapsed(true)
+					. Padding(FMargin(20, 0, 0, 0))
 					. BodyContent()
 					[
 						inner.Value->CreateErrorWidget()
@@ -56,8 +57,9 @@ namespace Mcro::Error
 		return [&](SEditableTextBox::FArguments& args) -> auto&
 		{
 			return args
+			. IsReadOnly(true)
 			. Text(FText::FromString(text))
-			. Font(FCoreStyle::GetDefaultFontStyle("Mono", 12));
+			. Font(FCoreStyle::GetDefaultFontStyle("Mono", 9));
 		};
 	}
 
@@ -66,8 +68,9 @@ namespace Mcro::Error
 		return [&](SEditableTextBox::FArguments& args) -> auto&
 		{
 			return args
+			. IsReadOnly(true)
 			. Text(FText::FromStringView(text))
-			. Font(FCoreStyle::GetDefaultFontStyle("Mono", 12));
+			. Font(FCoreStyle::GetDefaultFontStyle("Mono", 9));
 		};
 	}
 
@@ -90,15 +93,6 @@ namespace Mcro::Error
 
 	auto SErrorDisplay::ExpandableText(const FText& title, const FString& text) -> TAttributeBlock<SExpandableArea>
 	{
-		return ExpandableText(title, text, Text(text));
-	}
-
-	auto SErrorDisplay::ExpandableText(
-		const FText& title,
-		const FString& text,
-		const TAttributeBlock<SEditableTextBox>& textAttributes
-	) -> TAttributeBlock<SExpandableArea>
-	{
 		return [&](SExpandableArea::FArguments& args) -> auto&
 		{
 			using namespace AttributeAppend;
@@ -108,7 +102,7 @@ namespace Mcro::Error
 				. InitiallyCollapsed(true)
 				. BodyContent()
 				[
-					SNew(SEditableTextBox) / textAttributes
+					SNew(SEditableTextBox) / Text(text)
 				];
 		};
 	}

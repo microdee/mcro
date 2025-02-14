@@ -60,6 +60,56 @@ FCanFail FK4ADevice::Tick_Sync()
 }
 ```
 
+<details><summary>Output log of an example test error</summary>
+
+```log
+Display      LogTemp                   Type: Mcro::Test::FTestSimpleError
+Display      LogTemp                   Severity: Recoverable
+Display      LogTemp                   Message: |
+Display      LogTemp                     This is one test error
+Display      LogTemp                   Details: |
+Display      LogTemp                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Parturient maximus donec penatibus lectus non
+Display      LogTemp                     conubia amet condimentum. Tincidunt et iaculis efficitur integer, pulvinar phasellus. Mauris nisl
+Display      LogTemp                     parturient pharetra potenti aptent phasellus pharetra pellentesque. Leo aliquam vulputate pellentesque
+Display      LogTemp                     sapien gravida aptent facilisis tempus nec. Dolor aenean auctor penatibus iaculis dui justo integer
+Display      LogTemp                     porta. Sed vivamus porta sagittis nulla; sollicitudin class convallis mattis. Egestas lobortis nullam
+Display      LogTemp                     sed interdum ultricies donec.
+Display      LogTemp                   CodeContext: |
+Display      LogTemp                     D = A + B + C
+Display      LogTemp                   ErrorPropagation:
+Display      LogTemp                     - "class TSharedRef<class Mcro::Test::FTestSimpleError,1> __cdecl CommonTestError(void) @ [...]\\Mcro\\Mcro_Yn\\Private\\Mcro\\Tests\\Error.Spec.cpp : 40"
+Display      LogTemp                     - "auto __cdecl FMcroError_Spec::Define::<lambda_1>::()::<lambda_1>::operator ()(void) const @ [...]\\Mcro\\Mcro_Yn\\Private\\Mcro\\Tests\\Error.Spec.cpp : 73"
+Display      LogTemp                   InnerErrors:
+Display      LogTemp                     Appendix Foo: |
+Display      LogTemp                       Lorem ipsum
+Display      LogTemp                     Appendix Bar: |
+Display      LogTemp                       dolor sit amet consectetur
+Display      LogTemp                     Mcro::Error::FCppStackTrace: |
+Display      LogTemp                       0x000001adda3b8e69 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!CommonTestError() [[...]\Mcro\Mcro_Yn\Private\Mcro\Tests\Error.Spec.cpp:27]
+Display      LogTemp                       0x000001adda3b7763 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!``FMcroError_Spec::Define'::`2'::<lambda_1>::operator()'::`2'::<lambda_1>::operator()() [[...]\Mcro\Mcro_Yn\Private\Mcro\Tests\Error.Spec.cpp:60]
+Display      LogTemp                       0x000001adda3b881b UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!UE::Core::Private::Function::TFunctionRefCaller<``FMcroError_Spec::Define'::`2'::<lambda_1>::operator()'::`2'::<lambda_1>,void>::Call() [D:\ue\UE_5.5\Engine\Source\Runtime\Core\Public\Templates\Function.h:321]
+Display      LogTemp                       0x000001adda393fd8 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!UE::Core::Private::Function::TFunctionRefBase<UE::Core::Private::Function::TFunctionStorage<0>,void __cdecl(void)>::operator()() [D:\ue\UE_5.5\Engine\Source\Runtime\Core\Public\Templates\Function.h:471]
+Display      LogTemp                       0x000001adda3a6264 UnrealEditor-Mcro_Yn-Win64-DebugGame.dll!FAutomationSpecBase::FSingleExecuteLatentCommand::Update() [D:\ue\UE_5.5\Engine\Source\Runtime\Core\Public\Misc\AutomationTest.h:2813]
+Display      LogTemp                       0x00007ffc4b815270 UnrealEditor-Core.dll!FAutomationTestFramework::ExecuteLatentCommands() [D:\build\++UE5\Sync\Engine\Source\Runtime\Core\Private\Misc\AutomationTest.cpp:626]
+Display      LogTemp                       0x000001ade2471393 UnrealEditor-AutomationWorker.dll!FAutomationWorkerModule::Tick() [D:\build\++UE5\Sync\Engine\Source\Runtime\AutomationWorker\Private\AutomationWorkerModule.cpp:69]
+Display      LogTemp                       0x00007ff6b7bc8118 UnrealEditor-Win64-DebugGame.exe!FEngineLoop::Tick() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\LaunchEngineLoop.cpp:6046]
+Display      LogTemp                       0x00007ff6b7be57ac UnrealEditor-Win64-DebugGame.exe!GuardedMain() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Launch.cpp:188]
+Display      LogTemp                       0x00007ff6b7be589a UnrealEditor-Win64-DebugGame.exe!GuardedMainWrapper() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Windows\LaunchWindows.cpp:123]
+Display      LogTemp                       0x00007ff6b7be9114 UnrealEditor-Win64-DebugGame.exe!LaunchWindowsStartup() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Windows\LaunchWindows.cpp:277]
+Display      LogTemp                       0x00007ff6b7bfbd04 UnrealEditor-Win64-DebugGame.exe!WinMain() [D:\build\++UE5\Sync\Engine\Source\Runtime\Launch\Private\Windows\LaunchWindows.cpp:317]
+Display      LogTemp                       0x00007ff6b7bff0ca UnrealEditor-Win64-DebugGame.exe!__scrt_common_main_seh() [D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288]
+Display      LogTemp                       0x00007ffd072c259d KERNEL32.DLL!UnknownFunction []
+Display      LogTemp                       0x00007ffd0822af38 ntdll.dll!UnknownFunction []
+```
+
+</details>
+
+<details><summary>When everything else fails we can display the error to the user</summary>
+
+![](IErrorDialog.jpg)
+
+</details>
+
 ### Text macros without parentheses
 
 <div class="tabbed">
@@ -108,7 +158,7 @@ One of the oldest eye-sores I have with Unreal Engine source code is the `TEXT()
 
 The earlier was even a suggestion of Microsoft [when they announced their standard compliant new preprocessor](https://learn.microsoft.com/en-us/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-170#lval), and asked the general public to stop exploiting the behaviors of the old one.
 
-In code these macros are referred to fake text/string literals.
+In code these macros are referred to as fake text/string literals.
 
 ### String formatting literals
 
@@ -431,7 +481,7 @@ Did your thing ever load after an event which your thing depends on, but now you
 #include "Mcro/Common.h"
 using namespace Mcro::Common::With::InferDelegate;
 
-// TBelatedEventDelegate is an alias for TEventDelegate<Signature, BelatedInvoke>
+// TBelatedEventDelegate is an alias for TEventDelegate<Signature, EEventPolicy::Belated>
 TBelatedEventDelegate<void(int)> SomeEvent;
 
 // Broadcast first
@@ -456,7 +506,7 @@ SomeOtherEvent.Add(
     {
         UE_LOG(LogTemp, Display, TEXT_"The last argument this event broadcasted with: %d", value);
     }),
-    BelatedInvoke
+    EEventPolicy::Belated
 );
 // -> The last argument this event broadcasted with: 1337
 ```
@@ -475,7 +525,7 @@ SomeFrequentEvent.Add(
     {
         UE_LOG(LogTemp, Display, TEXT_"This value is printed only once: %d", value);
     }),
-    InvokeOnce
+    EEventPolicy::Once
 );
 
 SomeFrequentEvent.Broadcast(1);
@@ -615,14 +665,14 @@ using namespace Mcro::Common::With::InferDelegate;
 
 struct FMyStuff
 {
-    TState<int, StorePrevious> State {-1};
+    TState<int, EStatePolicy::StorePrevious> State {-1};
 
     FMyStuff()
     {
-        // Get previous values as well when `StorePrevious` flag is active
+        // Get previous values as well when `EStatePolicy::StorePrevious` flag is active
         State.OnChange([](int next, TOptional<int> previous)
         {
-            // If `StorePrevious` flag is active we should always have a value in `previous`
+            // If `EStatePolicy::StorePrevious` flag is active we should always have a value in `previous`
             // so we should never see -2
             UE_LOG(LogTemp, Display, TEXT_"Changed from %d to %d", previous.Get(-2), next);
         });
@@ -630,7 +680,7 @@ struct FMyStuff
         // Listen to change only the first time
         State.OnChange(
             [](int next) { UE_LOG(LogTemp, Display, TEXT_"The first changed value is %d", next); },
-            InvokeOnce
+            EEventPolicy::Once
         );
     }
 
@@ -664,7 +714,7 @@ struct FFoobar : TSharedFromThis<FFoobar>
         // (nothing is logged as previous update was also 2)
         MyStuff.OnChange(
             [](int next) { UE_LOG(LogTemp, Display, TEXT_"Arriving late %d", next); },
-            BelatedInvoke
+            EEventPolicy::Belated
         );
         // -> Arriving late 2
         MyStuff.Update(3);
@@ -795,32 +845,6 @@ void Construct(FArguments const& inArgs)
 }
 ```
 
-### Text interop
-
-The `Mcro::Text` namespace provides some handy text templating and conversion utilities and interop between Unreal string and std::strings for third-party libraries.
-
-```Cpp
-#include "Mcro/CommonCore";
-using namespace Mcro::Common;
-
-// Accept many string types at once
-template <CStringOrViewOrName String>
-bool GetSomethingCommon(String&& input) { ... }
-// Work with std::string types
-template <CStdStringOrViewInvariant String>
-size_t GetLength(String&& input) { return input.size(); }
-```
-
-```Cpp
-// Type alias for choosing a std::string which is best matching the current TCHAR.
-FStdString foo(TEXT_"bar"); // -> std::wstring (on Windows at least)
-```
-
-```Cpp
-FString foo(TEXT_"bar");
-std::string fooNarrow = StdConvertUtf8(foo);
-```
-
 ### ISPC parallel tasks support
 
 `McroISPC` module gives support for `task` and `launch` keywords of the ISPC language
@@ -850,7 +874,7 @@ export void MakeLookupUV(
 ### Last but not least
 
 * [Dynamic ↔ Native (multicast) delegate interop](@ref Mcro/Delegates/AsNative.h)
-* [Event multiplexing to virtual function, native event, dynamic event](@ref Mcro/Delegates/EventMultiplex.h)
+* [Text interop and conversion utilities](@ref Mcro/Text.h)
 * [Object binding and promises for `AsyncTask`](@ref Mcro/Threading.h)
 * [Bullet-proof third-party library include guards.](@ref Mcro/LibraryIncludes/Start.h)
 * Rudimentary rendering utilities

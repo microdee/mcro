@@ -25,7 +25,7 @@ namespace Mcro::Error
 		
 		SLATE_BEGIN_ARGS(SErrorDisplay)
 		{}
-			SLATE_ARGUMENT(IErrorRef, Error);
+			SLATE_ARGUMENT(IErrorPtr, Error);
 			SLATE_NAMED_SLOT(FArguments, PostSeverity);
 			SLATE_NAMED_SLOT(FArguments, PostMessage);
 			SLATE_NAMED_SLOT(FArguments, PostDetails);
@@ -41,13 +41,8 @@ namespace Mcro::Error
 		static auto Text(const FStringView& text)           -> Slate::TAttributeBlock<SEditableTextBox>;
 		static auto OptionalText(const FString& text)       -> Slate::TAttributeBlock<SEditableTextBox>;
 		static auto OptionalTextWidget(const FString& text) -> TSharedRef<SEditableTextBox>;
-		
-		static auto ExpandableText(const FText& title, const FString& text) -> Slate::TAttributeBlock<SExpandableArea>; 
-		static auto ExpandableText(
-			const FText& title,
-			const FString& text,
-			const Slate::TAttributeBlock<SEditableTextBox>& textAttributes
-		) -> Slate::TAttributeBlock<SExpandableArea>;
+		 
+		static auto ExpandableText(const FText& title, const FString& text) -> Slate::TAttributeBlock<SExpandableArea>;
 		static auto ExpandableTextWidget(const FText& title, const FString& text) -> TSharedRef<SExpandableArea>;
 		
 		static auto Severity(const IErrorRef& error)        -> Slate::TAttributeBlock<STextBlock>;

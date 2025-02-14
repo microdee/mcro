@@ -20,10 +20,7 @@ using FTestDelegateWithArray = TDelegate<int32(TArray<FString>&)>;
 
 DECLARE_DYNAMIC_DELEGATE_OneParam(FTestDynamicDelegate, int32, Argument);
 DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(int32, FTestDynamicDelegateRetVal, int32, Argument);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTestDynamicMulticastDelegate, int32, Argument);
-
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMultiplexed, FString const&, argument);
-MCRO_DYNAMIC_RETURN(FOnMultiplexed, int32);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTestDynamicMulticastDelegate);
 
 UCLASS()
 class UDynamicDelegateTestClass : public UObject
@@ -51,19 +48,5 @@ public:
 	FTestDynamicMulticastDelegate Event;
 
 	UFUNCTION()
-	void DynamicDelegateBinding(int32 argument);
-
-	UFUNCTION()
-	int32 DynamicDelegateRetValBinding(int32 argument);
-
-	UFUNCTION()
-	void OnEventTriggered(int32 argument);
-
-	UFUNCTION()
-	int32 OnMultiplexed(FString const& argument);
-
-	UPROPERTY()
-	FOnMultiplexed OnMultiplexedEvent;
-
-	MCRO_DYNAMIC_EVENT_MULTIPLEX(OnMultiplexed);
+	void DynamicDelegateBinding();
 };

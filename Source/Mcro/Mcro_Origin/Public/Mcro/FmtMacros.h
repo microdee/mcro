@@ -31,25 +31,33 @@
 template <size_t N>
 FString operator % (FStringFormatOrderedArguments&& args, const TCHAR(& format)[N])
 {
-	return FString::Format(format, args);
+	FString result = FString::Format(format, args);
+	result.TrimToNullTerminator();
+	return result;
 }
 
 template <size_t N>
 FString operator % (const TCHAR(& format)[N], FStringFormatOrderedArguments&& args)
 {
-	return FString::Format(format, args);
+	FString result = FString::Format(format, args);
+	result.TrimToNullTerminator();
+	return result;
 }
 
 template <size_t N>
 FString operator % (FStringFormatNamedArguments&& args, const TCHAR(& format)[N])
 {
-	return FString::Format(format, args);
+	FString result = FString::Format(format, args);
+	result.TrimToNullTerminator();
+	return result;
 }
 
 template <size_t N>
 FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args)
 {
-	return FString::Format(format, args);
+	FString result = FString::Format(format, args);
+	result.TrimToNullTerminator();
+	return result;
 }
 
 #define MCRO_FMT_NAMED_ARG_TRANSFORM(s, data, elem) BOOST_PP_EXPAND(MCRO_FMT_NAMED_ARG elem)

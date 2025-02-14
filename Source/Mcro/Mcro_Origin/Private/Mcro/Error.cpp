@@ -54,14 +54,14 @@ namespace Mcro::Error
 	void IError::AddError(const FString& name, const TSharedRef<IError>& error, const FString& typeOverride)
 	{
 		FString type = typeOverride.IsEmpty() ? error->GetType().ToString() : typeOverride;
-		FString key = Join(TEXT_" ", type.Replace(TEXT_"::", TEXT_"."), name);
+		FString key = Join(TEXT_" ", type, name);
 		FString keyUnique = key;
 		for (int i = 1; i <= 100 && InnerErrors.Contains(keyUnique); ++i)
 		{
 			check(i < 100);
 			keyUnique = FMT_(key, i) "{0} {1}";
 		}
-		InnerErrors[keyUnique] = error;
+		InnerErrors.Add(keyUnique, error);
 	}
 
 	void IError::AddAppendix(const FString& name, const FString& text, const FString& type)
@@ -126,6 +126,12 @@ namespace Mcro::Error
 		YAML::Emitter output;
 		SerializeYaml(output, true);
 		return output.c_str();
+	}
+
+	auto IError::OnErrorReported() -> TEventDelegate<void(IErrorRef)>&
+	{
+		static TEventDelegate<void(IErrorRef)> event;
+		return event;
 	}
 
 	TArray<FString> IError::GetErrorPropagation() const
