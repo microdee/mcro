@@ -16,19 +16,16 @@ var annotated_dup =
         ] ]
       ] ],
       [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", [
+        [ "FEventPolicy", "d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html", "d2/da4/structMcro_1_1Delegates_1_1FEventPolicy" ],
         [ "TDynamicMethodPtr_Struct", "d6/d84/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct.html", null ],
         [ "TDynamicMethodPtr_Struct< Dynamic >", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4.html", "da/d4a/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct_3_01Dynamic_01_4" ],
         [ "TDynamicSignature_Struct", "d9/d42/structMcro_1_1Delegates_1_1TDynamicSignature__Struct.html", null ],
         [ "TDynamicSignature_Struct< Dynamic >", "d0/da4/structMcro_1_1Delegates_1_1TDynamicSignature__Struct_3_01Dynamic_01_4.html", "d0/da4/structMcro_1_1Delegates_1_1TDynamicSignature__Struct_3_01Dynamic_01_4" ],
         [ "TEventDelegate", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
-        [ "TEventDelegate< void(Args...), DefaultInvokeMode >", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4" ],
-        [ "TEventMultiplex", "d3/d41/classMcro_1_1Delegates_1_1TEventMultiplex.html", null ],
-        [ "TEventMultiplex< Return(Args...)>", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4.html", "d8/d25/classMcro_1_1Delegates_1_1TEventMultiplex_3_01Return_07Args_8_8_8_08_4" ],
+        [ "TEventDelegate< void(Args...), DefaultPolicy >", "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html", "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4" ],
         [ "TNative_Struct", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
         [ "TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4" ],
-        [ "TNativeEvent_Struct", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ],
-        [ "TNativeMultiplex_Struct", "dd/db7/structMcro_1_1Delegates_1_1TNativeMultiplex__Struct.html", "dd/db7/structMcro_1_1Delegates_1_1TNativeMultiplex__Struct" ],
-        [ "TReturnOverride_Struct", "d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html", "d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct" ]
+        [ "TNativeEvent_Struct", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ]
       ] ],
       [ "Dll", "d6/dcf/namespaceMcro_1_1Dll.html", [
         [ "FScopedDll", "d0/d03/structMcro_1_1Dll_1_1FScopedDll.html", "d0/d03/structMcro_1_1Dll_1_1FScopedDll" ],
@@ -74,6 +71,7 @@ var annotated_dup =
         [ "TObserveModule", "d3/d30/structMcro_1_1Modules_1_1TObserveModule.html", "d3/d30/structMcro_1_1Modules_1_1TObserveModule" ]
       ] ],
       [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
+        [ "FStatePolicy", "dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html", "dc/dd1/structMcro_1_1Observable_1_1FStatePolicy" ],
         [ "IState", "d8/d30/structMcro_1_1Observable_1_1IState.html", "d8/d30/structMcro_1_1Observable_1_1IState" ],
         [ "IStateTag", "d7/df8/structMcro_1_1Observable_1_1IStateTag.html", null ],
         [ "TChangeData", "dd/dcf/structMcro_1_1Observable_1_1TChangeData.html", "dd/dcf/structMcro_1_1Observable_1_1TChangeData" ],
@@ -86,6 +84,9 @@ var annotated_dup =
         [ "Textures", "d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html", [
           [ "TTextureSize", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize" ]
         ] ]
+      ] ],
+      [ "SharedObjects", "db/d9b/namespaceMcro_1_1SharedObjects.html", [
+        [ "TSharedStorage", "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html", "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage" ]
       ] ],
       [ "Slate", "df/df4/namespaceMcro_1_1Slate.html", [
         [ "TArgumentsOf_S", "de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html", null ],

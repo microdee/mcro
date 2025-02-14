@@ -113,6 +113,7 @@ $(function(){initNavTree('db/d9b/namespaceMcro_1_1SharedObjects.html','../../');
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -123,6 +124,12 @@ $(function(){initNavTree('db/d9b/namespaceMcro_1_1SharedObjects.html','../../');
 <p>Utilities for TSharedPtr/Ref and related.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple mutable shared storage of any value.  <a href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d69/conceptMcro_1_1SharedObjects_1_1CSharedInitializeable.html">CSharedInitializeable</a></td></tr>
@@ -143,6 +150,15 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a9688d16467e2840873a3a34bd2b251f2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9688d16467e2840873a3a34bd2b251f2">TWeakPtrFrom</a> = TWeakPtr&lt;typename T::ElementType, T::Mode&gt;</td></tr>
 <tr class="memdesc:a9688d16467e2840873a3a34bd2b251f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy thread-safety from other shared object type.  <br /></td></tr>
 <tr class="separator:a9688d16467e2840873a3a34bd2b251f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa38c5504940d03ffd79ce32d31d136c" id="r_afa38c5504940d03ffd79ce32d31d136c"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable T&gt; </td></tr>
+<tr class="memitem:afa38c5504940d03ffd79ce32d31d136c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afa38c5504940d03ffd79ce32d31d136c">TSharedStoragePtr</a> = TSharedPtr&lt;<a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a>&lt;T&gt;&gt;</td></tr>
+<tr class="separator:afa38c5504940d03ffd79ce32d31d136c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86def67b6d22e604a7d75cf7d1e2b862" id="r_a86def67b6d22e604a7d75cf7d1e2b862"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable T&gt; </td></tr>
+<tr class="memitem:a86def67b6d22e604a7d75cf7d1e2b862"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a86def67b6d22e604a7d75cf7d1e2b862">TSharedStorageRef</a> = TSharedRef&lt;<a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a>&lt;T&gt;&gt;</td></tr>
+<tr class="separator:a86def67b6d22e604a7d75cf7d1e2b862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef090d5670da1afa684f93a5f42d7fa3" id="r_aef090d5670da1afa684f93a5f42d7fa3"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable T&gt; </td></tr>
+<tr class="memitem:aef090d5670da1afa684f93a5f42d7fa3"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aef090d5670da1afa684f93a5f42d7fa3">TSharedStorageWeakPtr</a> = TWeakPtr&lt;<a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a>&lt;T&gt;&gt;</td></tr>
+<tr class="separator:aef090d5670da1afa684f93a5f42d7fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -168,6 +184,9 @@ requires std::is_lvalue_reference_v&lt;ResultArg&gt;</td></tr>
 <tr class="memitem:ab98aebf22da1767f81c9db02538f4736"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab98aebf22da1767f81c9db02538f4736">WeakSelf</a> (T *self) -&gt; TWeakPtr&lt; T, Mode &gt;</td></tr>
 <tr class="memdesc:ab98aebf22da1767f81c9db02538f4736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code> but returning a weak pointer instead.  <br /></td></tr>
 <tr class="separator:ab98aebf22da1767f81c9db02538f4736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a437570c02890882619ef8f18ff223" id="r_ab8a437570c02890882619ef8f18ff223"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="#a86def67b6d22e604a7d75cf7d1e2b862">TSharedStorageRef</a>&lt; FDelegateHandle &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a437570c02890882619ef8f18ff223">MakeSharedDelegateHandle</a> ()</td></tr>
+<tr class="memdesc:ab8a437570c02890882619ef8f18ff223"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple convenience wrapper around making FDelegateHandles shared.  <br /></td></tr>
+<tr class="separator:ab8a437570c02890882619ef8f18ff223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities for TSharedPtr/Ref and related. </p>
@@ -209,6 +228,60 @@ template&lt;CSharedOrWeak T&gt; </div>
 <p>Copy thread-safety from other shared object type. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00030">30</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="afa38c5504940d03ffd79ce32d31d136c" name="afa38c5504940d03ffd79ce32d31d136c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa38c5504940d03ffd79ce32d31d136c">&#9670;&#160;</a></span>TSharedStoragePtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDefaultInitializable T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#afa38c5504940d03ffd79ce32d31d136c">Mcro::SharedObjects::TSharedStoragePtr</a> = TSharedPtr&lt;<a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a>&lt;T&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00175">175</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="a86def67b6d22e604a7d75cf7d1e2b862" name="a86def67b6d22e604a7d75cf7d1e2b862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86def67b6d22e604a7d75cf7d1e2b862">&#9670;&#160;</a></span>TSharedStorageRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDefaultInitializable T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a86def67b6d22e604a7d75cf7d1e2b862">Mcro::SharedObjects::TSharedStorageRef</a> = TSharedRef&lt;<a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a>&lt;T&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00178">178</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="aef090d5670da1afa684f93a5f42d7fa3" name="aef090d5670da1afa684f93a5f42d7fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef090d5670da1afa684f93a5f42d7fa3">&#9670;&#160;</a></span>TSharedStorageWeakPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDefaultInitializable T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aef090d5670da1afa684f93a5f42d7fa3">Mcro::SharedObjects::TSharedStorageWeakPtr</a> = TWeakPtr&lt;<a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a>&lt;T&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00181">181</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>
@@ -307,6 +380,27 @@ requires CSharedInitializeable&lt;T, Args...&gt;</div>
 <p>This works around the annoyance of TSharedFromThis objects cannot use their shared pointers in their constructor, braking RAII in some cases. Of course this is only achievable if the object cooperates and implements an Initialize method. It's important that Initialize should not be virtual so derived classes can hide them with their own overload. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00064">64</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8a437570c02890882619ef8f18ff223" name="ab8a437570c02890882619ef8f18ff223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a437570c02890882619ef8f18ff223">&#9670;&#160;</a></span>MakeSharedDelegateHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="#a86def67b6d22e604a7d75cf7d1e2b862">TSharedStorageRef</a>&lt; FDelegateHandle &gt; Mcro::SharedObjects::MakeSharedDelegateHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A simple convenience wrapper around making FDelegateHandles shared. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00184">184</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>

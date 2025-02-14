@@ -113,18 +113,26 @@ $(function(){initNavTree('d6/da2/namespaceMcro_1_1Observable.html','../../'); in
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Observable Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dae/namespaceMcro_1_1Observable_1_1Detail.html">Detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags expressing how <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> should handle object comparison and lifespan.  <a href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public API and base class for <code><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a></code> which shouldn't concern with policy flags or thread safety.  <a href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +142,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan is managed entirely by <code><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a></code>  <a href="../../dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage wrapper for any value which state needs to be tracked or their change needs to be observed. By default, <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> is not thread-safe unless ThreadSafeState policy is active in DefaultPolicy.  <a href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage wrapper for any value which state needs to be tracked or their change needs to be observed. By default, <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> is not thread-safe unless EStatePolicy::ThreadSafe policy is active in DefaultPolicy.  <a href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
@@ -142,14 +150,14 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0a/conceptMcro_1_1Observable_1_1CState.html">CState</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining given type to a state. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html">CChangeListener</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept describing a function which can be a change listener on a TState. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html">CChangeNextOnlyListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept describing a function which can listen to changes to the current value of a TState only. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/conceptMcro_1_1Observable_1_1CChangeNextPreviousListener.html">CChangeNextPreviousListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept describing a function which can listen to changes to the current and the previous values of a TState. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html">CChangeListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept describing a function which can be a change listener on a TState. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -166,34 +174,32 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a34bb6e75dbcf9bcc85809fed5fe29465"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a34bb6e75dbcf9bcc85809fed5fe29465">TStateWeakPtr</a> = TWeakPtr&lt;<a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt;T&gt;&gt;</td></tr>
 <tr class="memdesc:a34bb6e75dbcf9bcc85809fed5fe29465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for weak pointer to a base type of <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a>. Use this in APIs which may modify or get the value of a state declared elsewhere.  <br /></td></tr>
 <tr class="separator:a34bb6e75dbcf9bcc85809fed5fe29465"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b6ab2cf4dec63d29a551a5cb01c3416" id="r_a8b6ab2cf4dec63d29a551a5cb01c3416"><td class="memTemplParams" colspan="2">template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
+<tr class="memitem:a8b6ab2cf4dec63d29a551a5cb01c3416" id="r_a8b6ab2cf4dec63d29a551a5cb01c3416"><td class="memTemplParams" colspan="2">template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
 <tr class="memitem:a8b6ab2cf4dec63d29a551a5cb01c3416"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8b6ab2cf4dec63d29a551a5cb01c3416">TDeclareStateRef</a> = TSharedRef&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy&gt;&gt;</td></tr>
 <tr class="memdesc:a8b6ab2cf4dec63d29a551a5cb01c3416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for declaring a state as a shared reference. Use this only as object members.  <br /></td></tr>
 <tr class="separator:a8b6ab2cf4dec63d29a551a5cb01c3416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b106e67997b005b66b7dd6923e6e72a" id="r_a3b106e67997b005b66b7dd6923e6e72a"><td class="memTemplParams" colspan="2">template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
+<tr class="memitem:a3b106e67997b005b66b7dd6923e6e72a" id="r_a3b106e67997b005b66b7dd6923e6e72a"><td class="memTemplParams" colspan="2">template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
 <tr class="memitem:a3b106e67997b005b66b7dd6923e6e72a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3b106e67997b005b66b7dd6923e6e72a">TDeclareStatePtr</a> = TSharedPtr&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy&gt;&gt;</td></tr>
 <tr class="memdesc:a3b106e67997b005b66b7dd6923e6e72a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for declaring a state as a shared pointer. Use this only as object members.  <br /></td></tr>
 <tr class="separator:a3b106e67997b005b66b7dd6923e6e72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0081e3e627a286a4bedf5a45e5e83b7" id="r_af0081e3e627a286a4bedf5a45e5e83b7"><td class="memTemplParams" colspan="2">template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt; | ThreadSafeState&gt; </td></tr>
-<tr class="memitem:af0081e3e627a286a4bedf5a45e5e83b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af0081e3e627a286a4bedf5a45e5e83b7">TStateTS</a> = <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy&gt;</td></tr>
-<tr class="memdesc:af0081e3e627a286a4bedf5a45e5e83b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for thread safe states.  <br /></td></tr>
-<tr class="separator:af0081e3e627a286a4bedf5a45e5e83b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf490ce6148e9ebe6b13ace44e776a6" id="r_a5cf490ce6148e9ebe6b13ace44e776a6"><td class="memTemplParams" colspan="2">template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
+<tr class="memitem:a5cf490ce6148e9ebe6b13ace44e776a6"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5cf490ce6148e9ebe6b13ace44e776a6">TDeclareStateTSRef</a> = TSharedRef&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy.With({.ThreadSafe = true})&gt;&gt;</td></tr>
+<tr class="memdesc:a5cf490ce6148e9ebe6b13ace44e776a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for declaring a thread-safe state as a shared reference. Use this only as object members.  <br /></td></tr>
+<tr class="separator:a5cf490ce6148e9ebe6b13ace44e776a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc3e7150a7187be7ce72159f4b36c8a" id="r_a2cc3e7150a7187be7ce72159f4b36c8a"><td class="memTemplParams" colspan="2">template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
+<tr class="memitem:a2cc3e7150a7187be7ce72159f4b36c8a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2cc3e7150a7187be7ce72159f4b36c8a">TDeclareStateTSPtr</a> = TSharedPtr&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy.With({.ThreadSafe = true})&gt;&gt;</td></tr>
+<tr class="memdesc:a2cc3e7150a7187be7ce72159f4b36c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for declaring a thread-safe state as a shared pointer. Use this only as object members.  <br /></td></tr>
+<tr class="separator:a2cc3e7150a7187be7ce72159f4b36c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f63cc1b180a9a0bfb6406dc4616dfd" id="r_ae9f63cc1b180a9a0bfb6406dc4616dfd"><td class="memTemplParams" colspan="2">template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </td></tr>
+<tr class="memitem:ae9f63cc1b180a9a0bfb6406dc4616dfd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae9f63cc1b180a9a0bfb6406dc4616dfd">TStateTS</a> = <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy.With({.ThreadSafe = true})&gt;</td></tr>
+<tr class="memdesc:ae9f63cc1b180a9a0bfb6406dc4616dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for thread safe states.  <br /></td></tr>
+<tr class="separator:ae9f63cc1b180a9a0bfb6406dc4616dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf83080387800fa9954ac2993b6c8c1" id="r_afdf83080387800fa9954ac2993b6c8c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdf83080387800fa9954ac2993b6c8c1">FBool</a> = <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;bool&gt;</td></tr>
 <tr class="memdesc:afdf83080387800fa9954ac2993b6c8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for boolean states.  <br /></td></tr>
 <tr class="separator:afdf83080387800fa9954ac2993b6c8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f18ac4acdcd70bc447d7758c7a3e45e" id="r_a6f18ac4acdcd70bc447d7758c7a3e45e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f18ac4acdcd70bc447d7758c7a3e45e">FBoolTS</a> = <a class="el" href="#af0081e3e627a286a4bedf5a45e5e83b7">TStateTS</a>&lt;bool&gt;</td></tr>
+<tr class="memitem:a6f18ac4acdcd70bc447d7758c7a3e45e" id="r_a6f18ac4acdcd70bc447d7758c7a3e45e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f18ac4acdcd70bc447d7758c7a3e45e">FBoolTS</a> = <a class="el" href="#ae9f63cc1b180a9a0bfb6406dc4616dfd">TStateTS</a>&lt;bool&gt;</td></tr>
 <tr class="memdesc:a6f18ac4acdcd70bc447d7758c7a3e45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for thread-safe boolean states.  <br /></td></tr>
 <tr class="separator:a6f18ac4acdcd70bc447d7758c7a3e45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a2fe69b38b2bfee60af6ed91851d3acf1" id="r_a2fe69b38b2bfee60af6ed91851d3acf1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fe69b38b2bfee60af6ed91851d3acf1">EStatePolicy</a> { <a class="el" href="#a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14">NotifyOnChangeOnly</a> = 0
-, <a class="el" href="#a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04">AlwaysNotify</a> = 1 &lt;&lt; 0
-, <a class="el" href="#a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5">StorePrevious</a> = 1 &lt;&lt; 1
-, <a class="el" href="#a2fe69b38b2bfee60af6ed91851d3acf1adbd9b3b6bfbc82f155fa7480d9e5a011">ThreadSafeState</a> = 1 &lt;&lt; 2
- }</td></tr>
-<tr class="memdesc:a2fe69b38b2bfee60af6ed91851d3acf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags expressing how TState should handle object comparison and lifespan.  <a href="#a2fe69b38b2bfee60af6ed91851d3acf1">More...</a><br /></td></tr>
-<tr class="separator:a2fe69b38b2bfee60af6ed91851d3acf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -206,11 +212,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab0ba683d18470b5211fee3302eea7738" id="r_ab0ba683d18470b5211fee3302eea7738"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ab0ba683d18470b5211fee3302eea7738"><td class="memTemplItemLeft" align="right" valign="top">constexpr int32&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab0ba683d18470b5211fee3302eea7738">StatePolicyFor</a></td></tr>
-<tr class="separator:ab0ba683d18470b5211fee3302eea7738"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a822780667f7d30eacc574fc085ee0a36" id="r_a822780667f7d30eacc574fc085ee0a36"><td class="memItemLeft" align="right" valign="top">concept&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a822780667f7d30eacc574fc085ee0a36">TFunction_ArgDecay&lt; Function, 0 &gt;</a></td></tr>
-<tr class="separator:a822780667f7d30eacc574fc085ee0a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b3ff14fd44daf182c9a1c11b2170c8" id="r_af5b3ff14fd44daf182c9a1c11b2170c8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af5b3ff14fd44daf182c9a1c11b2170c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af5b3ff14fd44daf182c9a1c11b2170c8">StatePolicyFor</a></td></tr>
+<tr class="separator:af5b3ff14fd44daf182c9a1c11b2170c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50ed1f2a03e04ebeefc61641060a43d" id="r_af50ed1f2a03e04ebeefc61641060a43d"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:af50ed1f2a03e04ebeefc61641060a43d"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af50ed1f2a03e04ebeefc61641060a43d">StatePolicyFor&lt; bool &gt;</a> = {.NotifyOnChangeOnly = true, .StorePrevious = false}</td></tr>
+<tr class="separator:af50ed1f2a03e04ebeefc61641060a43d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="afdf83080387800fa9954ac2993b6c8c1" name="afdf83080387800fa9954ac2993b6c8c1"></a>
@@ -227,7 +234,7 @@ Variables</h2></td></tr>
 
 <p>Convenience alias for boolean states. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00129">129</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00187">187</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -238,14 +245,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a6f18ac4acdcd70bc447d7758c7a3e45e">Mcro::Observable::FBoolTS</a> = <a class="el" href="#af0081e3e627a286a4bedf5a45e5e83b7">TStateTS</a>&lt;bool&gt;</td>
+          <td class="memname">using <a class="el" href="#a6f18ac4acdcd70bc447d7758c7a3e45e">Mcro::Observable::FBoolTS</a> = <a class="el" href="#ae9f63cc1b180a9a0bfb6406dc4616dfd">TStateTS</a>&lt;bool&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Convenience alias for thread-safe boolean states. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00132">132</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00190">190</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -255,7 +262,7 @@ Variables</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
+template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="#a3b106e67997b005b66b7dd6923e6e72a">Mcro::Observable::TDeclareStatePtr</a> = TSharedPtr&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy&gt;&gt;</td>
@@ -265,7 +272,7 @@ template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div
 
 <p>Convenience alias for declaring a state as a shared pointer. Use this only as object members. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00100">100</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00143">143</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -275,7 +282,7 @@ template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
+template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="#a8b6ab2cf4dec63d29a551a5cb01c3416">Mcro::Observable::TDeclareStateRef</a> = TSharedRef&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy&gt;&gt;</td>
@@ -285,7 +292,47 @@ template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div
 
 <p>Convenience alias for declaring a state as a shared reference. Use this only as object members. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00096">96</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00139">139</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+
+</div>
+</div>
+<a id="a2cc3e7150a7187be7ce72159f4b36c8a" name="a2cc3e7150a7187be7ce72159f4b36c8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc3e7150a7187be7ce72159f4b36c8a">&#9670;&#160;</a></span>TDeclareStateTSPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a2cc3e7150a7187be7ce72159f4b36c8a">Mcro::Observable::TDeclareStateTSPtr</a> = TSharedPtr&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy.With({.ThreadSafe = true})&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience alias for declaring a thread-safe state as a shared pointer. Use this only as object members. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00151">151</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+
+</div>
+</div>
+<a id="a5cf490ce6148e9ebe6b13ace44e776a6" name="a5cf490ce6148e9ebe6b13ace44e776a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf490ce6148e9ebe6b13ace44e776a6">&#9670;&#160;</a></span>TDeclareStateTSRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a5cf490ce6148e9ebe6b13ace44e776a6">Mcro::Observable::TDeclareStateTSRef</a> = TSharedRef&lt;<a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy.With({.ThreadSafe = true})&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience alias for declaring a thread-safe state as a shared reference. Use this only as object members. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00147">147</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -305,7 +352,7 @@ template&lt;typename T &gt; </div>
 
 <p>Convenience alias for shared pointer to a base type of <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a>. Use this in APIs which may modify or get the value of a state declared elsewhere. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00084">84</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00127">127</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -325,27 +372,27 @@ template&lt;typename T &gt; </div>
 
 <p>Convenience alias for shared reference to a base type of <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a>. Use this in APIs which may modify or get the value of a state declared elsewhere. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00076">76</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00119">119</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
-<a id="af0081e3e627a286a4bedf5a45e5e83b7" name="af0081e3e627a286a4bedf5a45e5e83b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0081e3e627a286a4bedf5a45e5e83b7">&#9670;&#160;</a></span>TStateTS</h2>
+<a id="ae9f63cc1b180a9a0bfb6406dc4616dfd" name="ae9f63cc1b180a9a0bfb6406dc4616dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f63cc1b180a9a0bfb6406dc4616dfd">&#9670;&#160;</a></span>TStateTS</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int32 DefaultPolicy = StatePolicyFor&lt;T&gt; | ThreadSafeState&gt; </div>
+template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> DefaultPolicy = StatePolicyFor&lt;T&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#af0081e3e627a286a4bedf5a45e5e83b7">Mcro::Observable::TStateTS</a> = <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy&gt;</td>
+          <td class="memname">using <a class="el" href="#ae9f63cc1b180a9a0bfb6406dc4616dfd">Mcro::Observable::TStateTS</a> = <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;T, DefaultPolicy.With({.ThreadSafe = true})&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Convenience alias for thread safe states. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00126">126</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00184">184</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -365,36 +412,7 @@ template&lt;typename T &gt; </div>
 
 <p>Convenience alias for weak pointer to a base type of <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a>. Use this in APIs which may modify or get the value of a state declared elsewhere. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00092">92</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a2fe69b38b2bfee60af6ed91851d3acf1" name="a2fe69b38b2bfee60af6ed91851d3acf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fe69b38b2bfee60af6ed91851d3acf1">&#9670;&#160;</a></span>EStatePolicy</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="#a2fe69b38b2bfee60af6ed91851d3acf1">Mcro::Observable::EStatePolicy</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Flags expressing how <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> should handle object comparison and lifespan. </p>
-<table class="fieldtable">
-<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14" name="a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14"></a>NotifyOnChangeOnly&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>When the object inside <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> is != comparable <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> wull only emit change events when the submitted value differs from the existing one. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04" name="a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04"></a>AlwaysNotify&#160;</td><td class="fieldinit">1 &lt;&lt; 0&#160;</td><td class="fielddoc"><p>Always emit change notification when a value is set on <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> and don't attempt to compare them. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5" name="a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5"></a>StorePrevious&#160;</td><td class="fieldinit">1 &lt;&lt; 1&#160;</td><td class="fielddoc"><p>Always emit change notification when a value is set on <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> and don't attempt to compare them. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2fe69b38b2bfee60af6ed91851d3acf1adbd9b3b6bfbc82f155fa7480d9e5a011" name="a2fe69b38b2bfee60af6ed91851d3acf1adbd9b3b6bfbc82f155fa7480d9e5a011"></a>ThreadSafeState&#160;</td><td class="fieldinit">1 &lt;&lt; 2&#160;</td><td class="fielddoc"><p>Enable mutexes during modifications, notifications and expose a public critical section for users of the state. </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00028">28</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00135">135</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
@@ -420,7 +438,7 @@ template&lt;typename LeftValue , CPartiallyOrderedWith&lt; LeftValue &gt; RightV
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00396">396</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00404">404</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -445,13 +463,13 @@ template&lt;typename LeftValue , CWeaklyEqualityComparableWith&lt; LeftValue &gt
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00390">390</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00398">398</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ab0ba683d18470b5211fee3302eea7738" name="ab0ba683d18470b5211fee3302eea7738"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0ba683d18470b5211fee3302eea7738">&#9670;&#160;</a></span>StatePolicyFor</h2>
+<a id="af5b3ff14fd44daf182c9a1c11b2170c8" name="af5b3ff14fd44daf182c9a1c11b2170c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b3ff14fd44daf182c9a1c11b2170c8">&#9670;&#160;</a></span>StatePolicyFor</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,7 +480,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32 Mcro::Observable::StatePolicyFor</td>
+          <td class="memname"><a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> Mcro::Observable::StatePolicyFor</td>
         </tr>
       </table>
   </td>
@@ -474,30 +492,38 @@ template&lt;typename T &gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">        CClass&lt;T&gt;</div>
 <div class="line">            ? CCoreEqualityComparable&lt;T&gt;</div>
-<div class="line">                ? <a class="code hl_enumvalue" href="#a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14">NotifyOnChangeOnly</a></div>
-<div class="line">                : <a class="code hl_enumvalue" href="#a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04">AlwaysNotify</a></div>
-<div class="line">            : <a class="code hl_enumvalue" href="#a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5">StorePrevious</a> | <a class="code hl_enumvalue" href="#a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14">NotifyOnChangeOnly</a></div>
-<div class="ttc" id="anamespaceMcro_1_1Observable_html_a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04"><div class="ttname"><a href="#a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04">Mcro::Observable::AlwaysNotify</a></div><div class="ttdeci">@ AlwaysNotify</div><div class="ttdoc">Always emit change notification when a value is set on TState and don't attempt to compare them.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/da3/Observable_8Fwd_8h_source.html#l00038">Observable.Fwd.h:38</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Observable_html_a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14"><div class="ttname"><a href="#a2fe69b38b2bfee60af6ed91851d3acf1aaefc09ca4f4414cac5c566958e305e14">Mcro::Observable::NotifyOnChangeOnly</a></div><div class="ttdeci">@ NotifyOnChangeOnly</div><div class="ttdoc">When the object inside TState is != comparable TState wull only emit change events when the submitted...</div><div class="ttdef"><b>Definition</b> <a href="../../dc/da3/Observable_8Fwd_8h_source.html#l00035">Observable.Fwd.h:35</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Observable_html_a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5"><div class="ttname"><a href="#a2fe69b38b2bfee60af6ed91851d3acf1af77639b04331ccd641b48e5e378bf5b5">Mcro::Observable::StorePrevious</a></div><div class="ttdeci">@ StorePrevious</div><div class="ttdoc">Always emit change notification when a value is set on TState and don't attempt to compare them.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/da3/Observable_8Fwd_8h_source.html#l00041">Observable.Fwd.h:41</a></div></div>
+<div class="line">                ? FStatePolicy {.NotifyOnChangeOnly = <span class="keyword">true</span>}</div>
+<div class="line">                : <a class="code hl_struct" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> {.AlwaysNotify = <span class="keyword">true</span>}</div>
+<div class="line">            : FStatePolicy {.NotifyOnChangeOnly = <span class="keyword">true</span>, .StorePrevious = <span class="keyword">true</span>}</div>
+<div class="ttc" id="astructMcro_1_1Observable_1_1FStatePolicy_html"><div class="ttname"><a href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">Mcro::Observable::FStatePolicy</a></div><div class="ttdoc">Flags expressing how TState should handle object comparison and lifespan.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/da3/Observable_8Fwd_8h_source.html#l00028">Observable.Fwd.h:29</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00054">54</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00094">94</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>
-<a id="a822780667f7d30eacc574fc085ee0a36" name="a822780667f7d30eacc574fc085ee0a36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a822780667f7d30eacc574fc085ee0a36">&#9670;&#160;</a></span>TFunction_ArgDecay&lt; Function, 0 &gt;</h2>
+<a id="af50ed1f2a03e04ebeefc61641060a43d" name="af50ed1f2a03e04ebeefc61641060a43d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50ed1f2a03e04ebeefc61641060a43d">&#9670;&#160;</a></span>StatePolicyFor&lt; bool &gt;</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">concept <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a82df24ef777eab6608b9776e4bebbb84">Mcro::Observable::TFunction_ArgDecay</a>&lt; Function, 0 &gt;</td>
+          <td class="memname"><a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html">FStatePolicy</a> <a class="el" href="#af5b3ff14fd44daf182c9a1c11b2170c8">Mcro::Observable::StatePolicyFor</a>&lt; bool &gt; = {.NotifyOnChangeOnly = true, .StorePrevious = false}</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00054">54</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html#l00102">102</a> of file <a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Observable.Fwd.h</a>.</p>
 
 </div>
 </div>

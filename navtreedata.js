@@ -37,12 +37,11 @@ var NAVTREE =
       [ "Function Traits", "index.html#autotoc_md16", null ],
       [ "Concepts", "index.html#autotoc_md17", null ],
       [ "Extending the Slate declarative syntax", "index.html#autotoc_md18", null ],
-      [ "Text interop", "index.html#autotoc_md19", null ],
-      [ "ISPC parallel tasks support", "index.html#autotoc_md20", null ],
-      [ "Last but not least", "index.html#autotoc_md21", null ]
+      [ "ISPC parallel tasks support", "index.html#autotoc_md19", null ],
+      [ "Last but not least", "index.html#autotoc_md20", null ]
     ] ],
-    [ "What's a proto-plugin", "index.html#autotoc_md22", null ],
-    [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md23", null ],
+    [ "What's a proto-plugin", "index.html#autotoc_md21", null ],
+    [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md22", null ],
     [ "Legal", "index.html#Legal", null ],
     [ "Attribution", "da/dfb/Attribution.html", [
       [ "Tabler Icons", "da/dfb/Attribution.html#autotoc_md0", null ],
@@ -63,8 +62,7 @@ var NAVTREE =
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Concepts", "concepts.html", "concepts" ],
@@ -98,12 +96,12 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d2/d44/Mcro__Origin_2Public_2Mcro_2Rendering_2Textures_8h_source.html",
-"d4/d63/conceptMcro_1_1Slate_1_1CSlot.html",
-"d6/dd2/namespaceMcro_1_1Delegates_1_1InferDelegate.html#a7b9c023938bafd10549c0571e09cc698",
-"d8/d30/structMcro_1_1Observable_1_1IState.html#a858442436ae53e29c8aad993249f9a99",
-"db/d31/Traits_8h.html#a46933d598dfed18f71d53768945f7ca1",
-"dd/d58/namespaceMcro_1_1Error.html",
-"df/d47/conceptMcro_1_1FunctionTraits_1_1CFunction__IsMember.html"
+"d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html",
+"d7/d12/structMcro_1_1Templates_1_1TTemplate_1_1Parameters_3_01Template_3_01Params_8_8_8_01_4_01_4.html#afbe1d7df81804bd27db692a7c565a778",
+"d8/d6f/namespaceMcro_1_1Text.html#a0946af2883cd0f4b2c7b88d9f3b00f76",
+"db/d82/conceptMcro_1_1Concepts_1_1CClass.html",
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a1b010a6a778285dc6c4cde30f7abe789",
+"df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

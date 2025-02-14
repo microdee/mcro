@@ -6,12 +6,13 @@ var searchData=
   ['invoke_3',['Invoke',['../d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html#abe1b8a4f92f10e5a228265df8978458a',1,'Mcro::Text::Macros::TStringPrintfLiteral']]],
   ['invokewithtuple_4',['InvokeWithTuple',['../d5/de0/namespaceMcro_1_1FunctionTraits.html#a5f4d5cc1d9b4a9a6f7e9aeb1173f459e',1,'Mcro::FunctionTraits::InvokeWithTuple(Function &amp;&amp;function, TFunction_Arguments&lt; Function &gt; const &amp;arguments)'],['../d5/de0/namespaceMcro_1_1FunctionTraits.html#a87852d718661d6fa3beff61ad2731ed4',1,'Mcro::FunctionTraits::InvokeWithTuple(Object *object, Function &amp;&amp;function, TFunction_Arguments&lt; Function &gt; const &amp;arguments)']]],
   ['invokewithtuple_5fimpl_5',['InvokeWithTuple_Impl',['../d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html#a07052fee3055eb44fcade81e9954d966',1,'Mcro::FunctionTraits::Detail::InvokeWithTuple_Impl(Function &amp;&amp;function, TFunction_Arguments&lt; Function &gt; const &amp;arguments, std::index_sequence&lt; Sequence... &gt; &amp;&amp;)'],['../d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html#a39610f54e8281b74f63ea18020fbf00b',1,'Mcro::FunctionTraits::Detail::InvokeWithTuple_Impl(Object *object, Function &amp;&amp;function, TFunction_Arguments&lt; Function &gt; const &amp;arguments, std::index_sequence&lt; Sequence... &gt; &amp;&amp;)']]],
-  ['isbroadcasted_6',['IsBroadcasted',['../d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html#a874c1473453f5c5a426a75e803fe617f',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultInvokeMode &gt;']]],
-  ['isinthread_7',['IsInThread',['../d6/d0a/namespaceMcro_1_1Threading.html#a0ff4c3b42a69749fcf7c27ac2f549a12',1,'Mcro::Threading']]],
-  ['ispcalloc_8',['ISPCAlloc',['../d7/d43/IspcParallelism_8h.html#a41c6e7c29d32736f74f9a94d1a19290b',1,'IspcParallelism.h']]],
-  ['ispclaunch_9',['ISPCLaunch',['../d7/d43/IspcParallelism_8h.html#a82ceee6f1194011e68f969209253edd9',1,'IspcParallelism.h']]],
-  ['ispcsync_10',['ISPCSync',['../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a',1,'IspcParallelism.h']]],
-  ['isrunningpie_11',['IsRunningPIE',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8',1,'Mcro::AssertMacros::Detail']]],
-  ['istriggered_12',['IsTriggered',['../d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e',1,'Mcro::Once::FOnce']]],
-  ['isvisible_13',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]]
+  ['isbroadcasted_6',['IsBroadcasted',['../de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#adebe31dee77b8964a18dc2b06cf62bc7',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultPolicy &gt;']]],
+  ['isdefault_7',['IsDefault',['../d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html#a9822323306fb0f3abf8b7f580648a6eb',1,'Mcro::Delegates::FEventPolicy::IsDefault()'],['../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#ad00b9d5b4b1866539981e2c9a6687a08',1,'Mcro::Observable::FStatePolicy::IsDefault()']]],
+  ['isinthread_8',['IsInThread',['../d6/d0a/namespaceMcro_1_1Threading.html#a0ff4c3b42a69749fcf7c27ac2f549a12',1,'Mcro::Threading']]],
+  ['ispcalloc_9',['ISPCAlloc',['../d7/d43/IspcParallelism_8h.html#a41c6e7c29d32736f74f9a94d1a19290b',1,'IspcParallelism.h']]],
+  ['ispclaunch_10',['ISPCLaunch',['../d7/d43/IspcParallelism_8h.html#a82ceee6f1194011e68f969209253edd9',1,'IspcParallelism.h']]],
+  ['ispcsync_11',['ISPCSync',['../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a',1,'IspcParallelism.h']]],
+  ['isrunningpie_12',['IsRunningPIE',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8',1,'Mcro::AssertMacros::Detail']]],
+  ['istriggered_13',['IsTriggered',['../d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e',1,'Mcro::Once::FOnce']]],
+  ['isvisible_14',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]]
 ];

@@ -85,10 +85,13 @@ var concepts =
         [ "CInstanceMethod", "d3/d38/conceptMcro_1_1FunctionTraits_1_1CInstanceMethod.html", null ]
       ] ],
       [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
+        [ "Detail", "db/dae/namespaceMcro_1_1Observable_1_1Detail.html", [
+          [ "CChangeListenerCandidate", "dd/ddb/conceptMcro_1_1Observable_1_1Detail_1_1CChangeListenerCandidate.html", null ]
+        ] ],
         [ "CState", "d7/d0a/conceptMcro_1_1Observable_1_1CState.html", null ],
-        [ "CChangeListener", "d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html", null ],
         [ "CChangeNextOnlyListener", "d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html", null ],
-        [ "CChangeNextPreviousListener", "d5/d03/conceptMcro_1_1Observable_1_1CChangeNextPreviousListener.html", null ]
+        [ "CChangeNextPreviousListener", "d5/d03/conceptMcro_1_1Observable_1_1CChangeNextPreviousListener.html", null ],
+        [ "CChangeListener", "d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html", null ]
       ] ],
       [ "Rendering", "de/dde/namespaceMcro_1_1Rendering.html", [
         [ "Textures", "d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html", [

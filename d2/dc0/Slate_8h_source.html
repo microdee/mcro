@@ -208,205 +208,201 @@ $(function(){initNavTree('d2/dc0/Slate_8h_source.html','../../'); initResizable(
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     *  Slate declarative syntax.</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlot T&gt;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">   87</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">TAttributeBlock</a> = TUniqueFunction&lt;TArgumentsOf&lt;T&gt;&amp;(<a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c">TArgumentsOf&lt;T&gt;</a>&amp;)&gt;;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#aaea57e65d8acb043aa7f59ff6243b6ea">   87</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aaea57e65d8acb043aa7f59ff6243b6ea">TAttributeBlock</a> = TFunction&lt;TArgumentsOf&lt;T&gt;&amp;(<a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c">TArgumentsOf&lt;T&gt;</a>&amp;)&gt;;</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">    /** @brief Same as TAttributeBlock but allows to make copies of the functor */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">    /** @brief An attribute block which does nothing */</span></div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlot T&gt;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#ab623f84b4dbfa9d4a035bb30a6c41c1f">   91</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#ab623f84b4dbfa9d4a035bb30a6c41c1f">TAttributeBlockCopyable</a> = TFunction&lt;TArgumentsOf&lt;T&gt;&amp;(<a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c">TArgumentsOf&lt;T&gt;</a>&amp;)&gt;;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#adba6429557e3488308fed73737a033f1">   91</a></span>    <a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aaea57e65d8acb043aa7f59ff6243b6ea">TAttributeBlock&lt;T&gt;</a> <a class="code hl_variable" href="../../df/df4/namespaceMcro_1_1Slate.html#adba6429557e3488308fed73737a033f1">InertAttributeBlock</a> = [](<a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c">TArgumentsOf&lt;T&gt;</a>&amp; args) -&gt; <span class="keyword">auto</span>&amp; { <span class="keywordflow">return</span> args; };</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">    /** @brief An attribute block which does nothing */</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlot T&gt;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#adba6429557e3488308fed73737a033f1">   95</a></span>    <a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">TAttributeBlock&lt;T&gt;</a> <a class="code hl_variable" href="../../df/df4/namespaceMcro_1_1Slate.html#adba6429557e3488308fed73737a033f1">InertAttributeBlock</a> = [](<a class="code hl_typedef" href="../../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c">TArgumentsOf&lt;T&gt;</a>&amp; args) -&gt; <span class="keyword">auto</span>&amp; { <span class="keywordflow">return</span> args; };</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"></span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">     *  Attribute block appending operator is keen to getting selected when it shouldn&#39;t be, this is why it&#39;s in its own</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">     *  explicit namespace.</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     *  This an issue being actively investigated</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     */</span></div>
-<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html">  104</a></span>    <span class="keyword">namespace </span>AttributeAppend</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="comment"></span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">     *  The &quot;append attribute block&quot; operator which allows pre-defined &quot;blocks of slate attributes&quot; naturally fit inside</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">     *  the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">     *  mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     *  flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     *  composition more comfortable.</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     *  @todo</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     *  This template is being instantiated for invalid cases even when valid cases are present in global scope. This is</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     *  most probably because of ADL and may need API redesign to mitigate it.</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">     *  @tparam  Arguments   Right hand side FArguments or FSlotArguments</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">     *  @tparam  AttrBlock   The type of the attribute block function</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">     *  @param   args        l-value reference right hand side FArguments or FSlotArguments</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">     *  @param   attributes  An attribute block function</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">     *  @return  The same reference as args or a new slot if that has been added inside the attribute block</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlotArguments Arguments, CFunctionLike AttrBlock&gt;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">requires</span> (</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount&lt;AttrBlock&gt;</a> == 1</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        &amp;&amp; CSameAs&lt;Arguments&amp;, TFunction_Arg&lt;AttrBlock, 0&gt;&gt;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    )</div>
-<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html#a1ed9827dcd830181b3983ee8013c713b">  130</a></span>    <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;AttrBlock&gt;</a> <span class="keyword">operator</span> / (Arguments&amp; args, <span class="keyword">const</span> AttrBlock&amp; attributes)</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> attributes(args);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     *  Attribute block appending operator is keen to getting selected when it shouldn&#39;t be, this is why it&#39;s in its own</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     *  explicit namespace.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     *  This an issue being actively investigated</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html">  100</a></span>    <span class="keyword">namespace </span>AttributeAppend</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="comment"></span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     *  The &quot;append attribute block&quot; operator which allows pre-defined &quot;blocks of slate attributes&quot; naturally fit inside</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     *  the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">     *  mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     *  flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">     *  composition more comfortable.</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">     *  @todo</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     *  This template is being instantiated for invalid cases even when valid cases are present in global scope. This is</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     *  most probably because of ADL and may need API redesign to mitigate it.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     *  @tparam  Arguments   Right hand side FArguments or FSlotArguments</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     *  @tparam  AttrBlock   The type of the attribute block function</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     *  @param   args        l-value reference right hand side FArguments or FSlotArguments</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">     *  @param   attributes  An attribute block function</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">     *  @return  The same reference as args or a new slot if that has been added inside the attribute block</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlotArguments Arguments, CFunctionLike AttrBlock&gt;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keyword">requires</span> (</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount&lt;AttrBlock&gt;</a> == 1</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        &amp;&amp; CSameAs&lt;Arguments&amp;, TFunction_Arg&lt;AttrBlock, 0&gt;&gt;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    )</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html#a1ed9827dcd830181b3983ee8013c713b">  126</a></span>    <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;AttrBlock&gt;</a> <span class="keyword">operator</span> / (Arguments&amp; args, <span class="keyword">const</span> AttrBlock&amp; attributes)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> attributes(args);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"></span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     *  @brief</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">     *  The &quot;append attribute block&quot; operator which allows pre-defined &quot;blocks of slate attributes&quot; naturally fit inside</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">     *  the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">     *  mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     *  flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     *  composition more comfortable.</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">     *  @todo</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">     *  This template is being instantiated for invalid cases even when valid cases are present in global scope. This is</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">     *  most probably because of ADL and may need API redesign to mitigate it.</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">     *  @tparam  Arguments   Right hand side FArguments or FSlotArguments</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">     *  @tparam  AttrBlock   The type of the attribute block function</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">     *  @param   args        r-value reference right hand side FArguments or FSlotArguments</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">     *  @param   attributes  An attribute block function</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">     *  @return  The same reference as args or a new slot if that has been added inside the attribute block</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlotArguments Arguments, CFunctionLike AttrBlock&gt;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">requires</span> (</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount&lt;AttrBlock&gt;</a> == 1</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        &amp;&amp; CSameAs&lt;Arguments&amp;, TFunction_Arg&lt;AttrBlock, 0&gt;&gt;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    )</div>
-<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html#ab159964f444a8b1882d4773d7e353627">  158</a></span>    <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;AttrBlock&gt;</a> <span class="keyword">operator</span> / (Arguments&amp;&amp; args, <span class="keyword">const</span> AttrBlock&amp; attributes)</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">return</span> attributes(args);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"></span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">     *  @brief</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">     *  The &quot;append attribute block&quot; operator which allows pre-defined &quot;blocks of slate attributes&quot; naturally fit inside</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">     *  the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">     *  mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     *  flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">     *  composition more comfortable.</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">     *  @todo</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     *  This template is being instantiated for invalid cases even when valid cases are present in global scope. This is</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     *  most probably because of ADL and may need API redesign to mitigate it.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">     *  @tparam  Arguments   Right hand side FArguments or FSlotArguments</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">     *  @tparam  AttrBlock   The type of the attribute block function</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">     *  @param   args        r-value reference right hand side FArguments or FSlotArguments</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">     *  @param   attributes  An attribute block function</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">     *  @return  The same reference as args or a new slot if that has been added inside the attribute block</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getOrSlotArguments Arguments, CFunctionLike AttrBlock&gt;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">requires</span> (</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount&lt;AttrBlock&gt;</a> == 1</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        &amp;&amp; CSameAs&lt;Arguments&amp;, TFunction_Arg&lt;AttrBlock, 0&gt;&gt;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    )</div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html#ab159964f444a8b1882d4773d7e353627">  154</a></span>    <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;AttrBlock&gt;</a> <span class="keyword">operator</span> / (Arguments&amp;&amp; args, <span class="keyword">const</span> AttrBlock&amp; attributes)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">return</span> attributes(args);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
 </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
 </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment"></span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">     *  @brief  Add multiple slots at the same time with the declarative syntax derived from an input data array.</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">     *  </span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">     *  @code</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">     *  void SMyWidget::Construct(const FArguments&amp; args)</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     *  {</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     *      using namespace Mcro::Slate;</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     *      </span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     *      ChildSlot</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">     *      [</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">     *          SNew(SVerticalBox)</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">     *          + TSlots(args._DataArray, [](const FMyData&amp; data)</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">     *          {</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">     *              FText dataText = FText::FromString(data.ToString());</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">     *              return SVerticalBox::Slot()</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">     *                  . HAlign(HAlign_Fill)</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">     *                  . AutoHeight()</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">     *                  [</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">     *                      SNew(STextBlock)</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">     *                      . Text(dataText)</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">     *                  ];</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     *          })</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     *          + SVerticalBox::Slot()</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     *          . HAlign(HAlign_Fill)</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">     *          . AutoHeight()</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">     *          [</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">     *              SNew(STextBlock)</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">     *              . Text(INVTEXT_&quot;Footer after the list of data&quot;)</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">     *          ]</span></div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">     *      ];</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">     *  }</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">     *  @endcode</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keyword">template</span> &lt;</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        CRange Range,</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        CFunctionLike Transform,</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        CFunctionLike OnEmpty = TUniqueFunction&lt;TFunction_Return&lt;Transform&gt;()&gt;,</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        CSlotArguments SlotArguments = <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;Transform&gt;</a></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    &gt;</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keyword">requires</span> (<a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount&lt;Transform&gt;</a> == 1)</div>
-<div class="foldopen" id="foldopen00205" data-start="{" data-end="};">
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">  205</a></span>    <span class="keyword">struct</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    {</div>
-<div class="foldopen" id="foldopen00207" data-start="{" data-end="}">
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7">  207</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7">TSlots</a>(<span class="keyword">const</span> Range&amp; range, Transform&amp;&amp; transform, TOptional&lt;OnEmpty&gt;&amp;&amp; onEmpty = {})</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            : RangeRef(range)</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            , TransformStorage(MoveTemp(transform))</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            , OnEmptyStorage(MoveTemp(onEmpty))</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        {}</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"></span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">     *  @brief  Add multiple slots at the same time with the declarative syntax derived from an input data array.</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">     *  </span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">     *  void SMyWidget::Construct(const FArguments&amp; args)</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">     *  {</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">     *      using namespace Mcro::Slate;</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">     *      </span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">     *      ChildSlot</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     *      [</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     *          SNew(SVerticalBox)</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     *          + TSlots(args._DataArray, [](const FMyData&amp; data)</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     *          {</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">     *              FText dataText = FText::FromString(data.ToString());</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">     *              return SVerticalBox::Slot()</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">     *                  . HAlign(HAlign_Fill)</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">     *                  . AutoHeight()</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">     *                  [</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">     *                      SNew(STextBlock)</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">     *                      . Text(dataText)</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">     *                  ];</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">     *          })</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">     *          + SVerticalBox::Slot()</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">     *          . HAlign(HAlign_Fill)</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">     *          . AutoHeight()</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     *          [</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     *              SNew(STextBlock)</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     *              . Text(INVTEXT_&quot;Footer after the list of data&quot;)</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">     *          ]</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">     *      ];</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">     *  }</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        CRange Range,</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        CFunctionLike Transform,</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        CFunctionLike OnEmpty = TUniqueFunction&lt;TFunction_Return&lt;Transform&gt;()&gt;,</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        CSlotArguments SlotArguments = <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return&lt;Transform&gt;</a></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    &gt;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keyword">requires</span> (<a class="code hl_variable" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount&lt;Transform&gt;</a> == 1)</div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="};">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">  201</a></span>    <span class="keyword">struct</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    {</div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7">  203</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7">TSlots</a>(<span class="keyword">const</span> Range&amp; range, Transform&amp;&amp; transform, TOptional&lt;OnEmpty&gt;&amp;&amp; onEmpty = {})</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            : RangeRef(range)</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            , TransformStorage(MoveTemp(transform))</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            , OnEmptyStorage(MoveTemp(onEmpty))</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        {}</div>
 </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abb2a8063fa22089208d1f892f7dc2fef">  213</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abb2a8063fa22089208d1f892f7dc2fef">TSlots</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="foldopen" id="foldopen00214" data-start="{" data-end="}">
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6">  214</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6">TSlots</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) noexcept</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            : RangeRef(o.RangeRef),</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>              TransformStorage(MoveTemp(o.TransformStorage)),</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>              OnEmptyStorage(MoveTemp(o.OnEmptyStorage))</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abb2a8063fa22089208d1f892f7dc2fef">  209</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abb2a8063fa22089208d1f892f7dc2fef">TSlots</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6">  210</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6">TSlots</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) noexcept</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            : RangeRef(o.RangeRef),</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>              TransformStorage(MoveTemp(o.TransformStorage)),</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>              OnEmptyStorage(MoveTemp(o.OnEmptyStorage))</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        {</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        }</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a603bef6750eef06ce0f16ea7174cddf0">  221</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a603bef6750eef06ce0f16ea7174cddf0">operator=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36">  222</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36">operator=</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;o)</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            RangeRef = o.RangeRef;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            TransformStorage = MoveTemp(o.TransformStorage);</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            OnEmptyStorage = MoveTemp(o.OnEmptyStorage);</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a603bef6750eef06ce0f16ea7174cddf0">  217</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a603bef6750eef06ce0f16ea7174cddf0">operator=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00218" data-start="{" data-end="}">
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36">  218</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36">operator=</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;o)</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            RangeRef = o.RangeRef;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            TransformStorage = MoveTemp(o.TransformStorage);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            OnEmptyStorage = MoveTemp(o.OnEmptyStorage);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        }</div>
 </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getArguments Arguments&gt;</div>
-<div class="foldopen" id="foldopen00233" data-start="{" data-end="}">
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057">  233</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057">Append</a>(Arguments&amp; args)</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keywordflow">if</span> (RangeRef.begin() == RangeRef.end() &amp;&amp; OnEmptyStorage.IsSet())</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            {</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                args + OnEmptyStorage.GetValue()();</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getArguments Arguments&gt;</div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057">  229</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057">Append</a>(Arguments&amp; args)</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            <span class="keywordflow">if</span> (RangeRef.begin() == RangeRef.end() &amp;&amp; OnEmptyStorage.IsSet())</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                args + OnEmptyStorage.GetValue()();</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = RangeRef.begin(); it != RangeRef.end(); ++it)</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                args + TransformStorage(*it);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        }</div>
+</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = RangeRef.begin(); it != RangeRef.end(); ++it)</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                args + TransformStorage(*it);</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keyword">const</span> Range&amp; RangeRef;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        Transform TransformStorage;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        TOptional&lt;OnEmpty&gt; OnEmptyStorage;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    };</div>
 </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keyword">const</span> Range&amp; RangeRef;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        Transform TransformStorage;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        TOptional&lt;OnEmpty&gt; OnEmptyStorage;</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    };</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment"></span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">    /** @copydoc TSlots */</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        CRange Range,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        CFunctionLike Transform,</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        CFunctionLike OnEmpty,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        CSlotArguments SlotArguments,</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        CWidgetArguments Arguments</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    &gt;</div>
+<div class="foldopen" id="foldopen00255" data-start="{" data-end="}">
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a7348096a37394a510b64ac274c6bd693">  255</a></span>    Arguments&amp; <a class="code hl_function" href="../../df/df4/namespaceMcro_1_1Slate.html#a7348096a37394a510b64ac274c6bd693">operator + </a>(Arguments&amp; args, <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots&lt;Range, Transform, OnEmpty, SlotArguments&gt;</a>&amp;&amp; slots)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    {</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        slots.Append(args);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">return</span> args;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    }</div>
 </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment"></span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">    /** @copydoc TSlots */</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keyword">template</span> &lt;</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        CRange Range,</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        CFunctionLike Transform,</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        CFunctionLike OnEmpty,</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        CSlotArguments SlotArguments,</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        CWidgetArguments Arguments</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    &gt;</div>
-<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a7348096a37394a510b64ac274c6bd693">  259</a></span>    Arguments&amp; <a class="code hl_function" href="../../df/df4/namespaceMcro_1_1Slate.html#a7348096a37394a510b64ac274c6bd693">operator + </a>(Arguments&amp; args, <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots&lt;Range, Transform, OnEmpty, SlotArguments&gt;</a>&amp;&amp; slots)</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    {</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        slots.Append(args);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">return</span> args;</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    }</div>
-</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment"></span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment">    /** @brief Convenience function for typing less when widget visibility depends on a boolean */</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">  266</a></span>    MCRO_API EVisibility <a class="code hl_function" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">IsVisible</a>(<span class="keywordtype">bool</span> visible, EVisibility hiddenState = EVisibility::Collapsed);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>}</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment"></span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment">    /** @brief Convenience function for typing less when widget visibility depends on a boolean */</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">  262</a></span>    MCRO_API EVisibility <a class="code hl_function" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">IsVisible</a>(<span class="keywordtype">bool</span> visible, EVisibility hiddenState = EVisibility::Collapsed);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>}</div>
 </div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="../../d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Slate_1_1CSlotArguments_html"><div class="ttname"><a href="../../d4/db1/conceptMcro_1_1Slate_1_1CSlotArguments.html">Mcro::Slate::CSlotArguments</a></div><div class="ttdoc">Constraining given type to the arguments of a slot</div><div class="ttdef"><b>Definition</b> <a href="#l00047">Slate.h:47</a></div></div>
@@ -420,21 +416,20 @@ $(function(){initNavTree('d2/dc0/Slate_8h_source.html','../../'); initResizable(
 <div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a3d1efdc66989051df52ae194e6a8ab6a"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">Mcro::FunctionTraits::TFunction_Return</a></div><div class="ttdeci">typename TFunctionTraits&lt; std::decay_t&lt; T &gt; &gt;::Return TFunction_Return</div><div class="ttdoc">Shorthand for getting a function return type.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00154">FunctionTraits.h:154</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a506fd8e26fa2dc6ef87c855f741a36dc"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">Mcro::FunctionTraits::TFunction_ArgCount</a></div><div class="ttdeci">constexpr size_t TFunction_ArgCount</div><div class="ttdoc">Shorthand for getting a function argument count.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00150">FunctionTraits.h:150</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdoc">Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...</div><div class="ttdef"><b>Definition</b> <a href="#l00021">Slate.h:22</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html_a0a93c9ab0e9db18e32d30eab8bde6323"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#a0a93c9ab0e9db18e32d30eab8bde6323">Mcro::Slate::TAttributeBlock</a></div><div class="ttdeci">TUniqueFunction&lt; TArgumentsOf&lt; T &gt; &amp;(TArgumentsOf&lt; T &gt; &amp;)&gt; TAttributeBlock</div><div class="ttdoc">Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and re...</div><div class="ttdef"><b>Definition</b> <a href="#l00087">Slate.h:87</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Slate_html_a4fa0c2bf1d38dc606f82a421bb902d3e"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">Mcro::Slate::IsVisible</a></div><div class="ttdeci">MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState=EVisibility::Collapsed)</div><div class="ttdoc">Convenience function for typing less when widget visibility depends on a boolean.</div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html_a7348096a37394a510b64ac274c6bd693"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#a7348096a37394a510b64ac274c6bd693">Mcro::Slate::operator+</a></div><div class="ttdeci">Arguments &amp; operator+(Arguments &amp;args, TSlots&lt; Range, Transform, OnEmpty, SlotArguments &gt; &amp;&amp;slots)</div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="#l00259">Slate.h:259</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html_a7348096a37394a510b64ac274c6bd693"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#a7348096a37394a510b64ac274c6bd693">Mcro::Slate::operator+</a></div><div class="ttdeci">Arguments &amp; operator+(Arguments &amp;args, TSlots&lt; Range, Transform, OnEmpty, SlotArguments &gt; &amp;&amp;slots)</div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="#l00255">Slate.h:255</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Slate_html_aa66b342e730e31577a2035b642c7270c"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#aa66b342e730e31577a2035b642c7270c">Mcro::Slate::TArgumentsOf</a></div><div class="ttdeci">typename TArgumentsOf_S&lt; T &gt;::Type TArgumentsOf</div><div class="ttdoc">Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments)</div><div class="ttdef"><b>Definition</b> <a href="#l00078">Slate.h:78</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html_ab623f84b4dbfa9d4a035bb30a6c41c1f"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#ab623f84b4dbfa9d4a035bb30a6c41c1f">Mcro::Slate::TAttributeBlockCopyable</a></div><div class="ttdeci">TFunction&lt; TArgumentsOf&lt; T &gt; &amp;(TArgumentsOf&lt; T &gt; &amp;)&gt; TAttributeBlockCopyable</div><div class="ttdoc">Same as TAttributeBlock but allows to make copies of the functor.</div><div class="ttdef"><b>Definition</b> <a href="#l00091">Slate.h:91</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html_adba6429557e3488308fed73737a033f1"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#adba6429557e3488308fed73737a033f1">Mcro::Slate::InertAttributeBlock</a></div><div class="ttdeci">TAttributeBlock&lt; T &gt; InertAttributeBlock</div><div class="ttdoc">An attribute block which does nothing.</div><div class="ttdef"><b>Definition</b> <a href="#l00095">Slate.h:95</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html_aaea57e65d8acb043aa7f59ff6243b6ea"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#aaea57e65d8acb043aa7f59ff6243b6ea">Mcro::Slate::TAttributeBlock</a></div><div class="ttdeci">TFunction&lt; TArgumentsOf&lt; T &gt; &amp;(TArgumentsOf&lt; T &gt; &amp;)&gt; TAttributeBlock</div><div class="ttdoc">Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and re...</div><div class="ttdef"><b>Definition</b> <a href="#l00087">Slate.h:87</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html_adba6429557e3488308fed73737a033f1"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html#adba6429557e3488308fed73737a033f1">Mcro::Slate::InertAttributeBlock</a></div><div class="ttdeci">TAttributeBlock&lt; T &gt; InertAttributeBlock</div><div class="ttdoc">An attribute block which does nothing.</div><div class="ttdef"><b>Definition</b> <a href="#l00091">Slate.h:91</a></div></div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4_html_abd9f49092c46437a4e99811aebd8cef5"><div class="ttname"><a href="../../d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html#abd9f49092c46437a4e99811aebd8cef5">Mcro::Slate::TArgumentsOf_S&lt; T &gt;::Type</a></div><div class="ttdeci">typename T::FArguments Type</div><div class="ttdef"><b>Definition</b> <a href="#l00067">Slate.h:67</a></div></div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TArgumentsOf__S_html"><div class="ttname"><a href="../../de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html">Mcro::Slate::TArgumentsOf_S</a></div><div class="ttdef"><b>Definition</b> <a href="#l00062">Slate.h:62</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="#l00205">Slate.h:206</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a2020d1ba2486fa7367a532b2cadc2e36"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00222">Slate.h:222</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="#l00201">Slate.h:202</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a2020d1ba2486fa7367a532b2cadc2e36"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00218">Slate.h:218</a></div></div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a603bef6750eef06ce0f16ea7174cddf0"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a603bef6750eef06ce0f16ea7174cddf0">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(const TSlots &amp;)=delete</div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a61810989e916511933d6a3872a051df7"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(const Range &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="#l00207">Slate.h:207</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a9468fb7a4c0d3410c620e9f4d3fdc2c6"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00214">Slate.h:214</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a61810989e916511933d6a3872a051df7"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(const Range &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="#l00203">Slate.h:203</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a9468fb7a4c0d3410c620e9f4d3fdc2c6"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00210">Slate.h:210</a></div></div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_abb2a8063fa22089208d1f892f7dc2fef"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abb2a8063fa22089208d1f892f7dc2fef">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(const TSlots &amp;)=delete</div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_ac7231752744cb3e3fc3a17e77febc057"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057">Mcro::Slate::TSlots::Append</a></div><div class="ttdeci">void Append(Arguments &amp;args)</div><div class="ttdef"><b>Definition</b> <a href="#l00233">Slate.h:233</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_ac7231752744cb3e3fc3a17e77febc057"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057">Mcro::Slate::TSlots::Append</a></div><div class="ttdeci">void Append(Arguments &amp;args)</div><div class="ttdef"><b>Definition</b> <a href="#l00229">Slate.h:229</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

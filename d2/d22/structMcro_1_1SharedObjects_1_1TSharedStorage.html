@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11"/>
   <meta name="generator" content="Doxygen 1.12.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MCRO: Mcro::Delegates::TReturnOverride_Struct&lt; Dynamic &gt; Struct Template Reference</title>
+  <title>MCRO: Mcro::SharedObjects::TSharedStorage&lt; T &gt; Struct Template Reference</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../../jquery.js"></script>
   <script type="text/javascript" src="../../dynsections.js"></script>
@@ -86,7 +86,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html','../../'); initResizable(true); });
+$(function(){initNavTree('d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -113,50 +113,61 @@ $(function(){initNavTree('d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Str
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a>  </div>
-  <div class="headertitle"><div class="title">Mcro::Delegates::TReturnOverride_Struct&lt; Dynamic &gt; Struct Template Reference</div></div>
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle"><div class="title">Mcro::SharedObjects::TSharedStorage&lt; T &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a>&gt;</code></p>
+<p>A simple mutable shared storage of any value.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a64acb1971d1d6bfb5576d1b0c1af844f" id="r_a64acb1971d1d6bfb5576d1b0c1af844f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64acb1971d1d6bfb5576d1b0c1af844f">Type</a> = void</td></tr>
-<tr class="separator:a64acb1971d1d6bfb5576d1b0c1af844f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:ae458a97428237b23490dfbc133423701" id="r_ae458a97428237b23490dfbc133423701"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae458a97428237b23490dfbc133423701">Value</a></td></tr>
+<tr class="separator:ae458a97428237b23490dfbc133423701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;CDynamicMulticastDelegate Dynamic&gt;<br />
-struct Mcro::Delegates::TReturnOverride_Struct&lt; Dynamic &gt;</div>
-<p class="definition">Definition at line <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html#l00117">117</a> of file <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a64acb1971d1d6bfb5576d1b0c1af844f" name="a64acb1971d1d6bfb5576d1b0c1af844f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64acb1971d1d6bfb5576d1b0c1af844f">&#9670;&#160;</a></span>Type</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;CDefaultInitializable T&gt;<br />
+struct Mcro::SharedObjects::TSharedStorage&lt; T &gt;</div><p>A simple mutable shared storage of any value. </p>
+<p>One particular use case for this may be delegates which may remove themselves once invoked. For example: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> once = <a class="code hl_function" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#ab8a437570c02890882619ef8f18ff223">MakeSharedDelegateHandle</a>();</div>
+<div class="line">once-&gt;Value = MyEvent.AddLambda([<span class="keyword">this</span>, once]</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// execute something only once.</span></div>
+<div class="line">    MyEvent.Remove(once-&gt;Value);</div>
+<div class="line">});</div>
+<div class="ttc" id="anamespaceMcro_1_1SharedObjects_html_ab8a437570c02890882619ef8f18ff223"><div class="ttname"><a href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#ab8a437570c02890882619ef8f18ff223">Mcro::SharedObjects::MakeSharedDelegateHandle</a></div><div class="ttdeci">FORCEINLINE TSharedStorageRef&lt; FDelegateHandle &gt; MakeSharedDelegateHandle()</div><div class="ttdoc">A simple convenience wrapper around making FDelegateHandles shared.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d3e/SharedObjects_8h_source.html#l00184">SharedObjects.h:184</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00169">169</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="ae458a97428237b23490dfbc133423701" name="ae458a97428237b23490dfbc133423701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae458a97428237b23490dfbc133423701">&#9670;&#160;</a></span>Value</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDynamicMulticastDelegate Dynamic&gt; </div>
+template&lt;CDefaultInitializable T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html">Mcro::Delegates::TReturnOverride_Struct</a>&lt; Dynamic &gt;::Type = void</td>
+          <td class="memname">T <a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">Mcro::SharedObjects::TSharedStorage</a>&lt; T &gt;::Value</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html#l00119">119</a> of file <a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00171">171</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>Mcro_Origin/Public/Mcro/Delegates/<a class="el" href="../../df/d7c/EventMultiplex_8h_source.html">EventMultiplex.h</a></li>
+<li>Mcro_Origin/Public/Mcro/<a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></li><li class="navelem"><a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html">Delegates</a></li><li class="navelem"><a class="el" href="../../d8/d02/structMcro_1_1Delegates_1_1TReturnOverride__Struct.html">TReturnOverride_Struct</a></li>
+    <li class="navelem"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></li><li class="navelem"><a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html">SharedObjects</a></li><li class="navelem"><a class="el" href="../../d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html">TSharedStorage</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

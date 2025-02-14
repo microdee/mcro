@@ -1,21 +1,15 @@
 var EventDelegate_8h =
 [
-    [ "Mcro::Delegates::TEventDelegate< Function, DefaultInvokeMode >", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
-    [ "Mcro::Delegates::TEventDelegate< void(Args...), DefaultInvokeMode >", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html", "d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4" ],
-    [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultSettings >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ],
-    [ "TBelatedEventDelegate", "df/d51/EventDelegate_8h.html#a3e8b41a8185b9ceb9e88c7bee2b0eda9", null ],
-    [ "TBelatedRetainingEventDelegate", "df/d51/EventDelegate_8h.html#a2bc627d5f17e3d9d2cd279b92c826d91", null ],
-    [ "TNativeEvent", "df/d51/EventDelegate_8h.html#a40a24d2c1ef6ce69f341ae398603bfb0", null ],
-    [ "TOneTimeBelatedEventDelegate", "df/d51/EventDelegate_8h.html#a1bb8edb79783b286d61d47f18255756d", null ],
-    [ "TOneTimeEventDelegate", "df/d51/EventDelegate_8h.html#a45afbfc1d2eebbae49ce979f4a10babf", null ],
-    [ "TOneTimeRetainingBelatedEventDelegate", "df/d51/EventDelegate_8h.html#af1698345adb519935325d5365622a866", null ],
-    [ "TOneTimeRetainingEventDelegate", "df/d51/EventDelegate_8h.html#aad87c3e51be816177df61064a1ed0e9d", null ],
-    [ "TRetainingEventDelegate", "df/d51/EventDelegate_8h.html#a296bf36d12d1da60e9eb180aab8914cd", null ],
-    [ "EInvokeMode", "df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77", [
-      [ "DefaultInvocation", "df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77a79b3d80a7d4a3d62a5c5aba8435665f5", null ],
-      [ "InvokeOnce", "df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77ae7709cc6e00d5e1ac96bc00a38f4bd1b", null ],
-      [ "BelatedInvoke", "df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77ab809cf5d82dfc014a733a335a29caeb3", null ],
-      [ "CopyArguments", "df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77ac31d2d53f1f7933c0a1423ca896c0d7e", null ],
-      [ "ThreadSafeEvent", "df/d51/EventDelegate_8h.html#aab1ceef50a2938ef8abc61f78ff30e77a8bd8517876c0e68d4fd51f2cdfc36284", null ]
-    ] ]
+    [ "Mcro::Delegates::FEventPolicy", "d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html", "d2/da4/structMcro_1_1Delegates_1_1FEventPolicy" ],
+    [ "Mcro::Delegates::TEventDelegate< Function, DefaultPolicy >", "d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html", null ],
+    [ "Mcro::Delegates::TEventDelegate< void(Args...), DefaultPolicy >", "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html", "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4" ],
+    [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultPolicy >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct" ],
+    [ "TBelatedEventDelegate", "df/d51/EventDelegate_8h.html#a1ed88f4e580e4f2a50311f4cd6054cba", null ],
+    [ "TBelatedRetainingEventDelegate", "df/d51/EventDelegate_8h.html#ab7e15f1661282dffb343fc53e0912d18", null ],
+    [ "TNativeEvent", "df/d51/EventDelegate_8h.html#a0c599c1abc289ee065a4f38f07321579", null ],
+    [ "TOneTimeBelatedEventDelegate", "df/d51/EventDelegate_8h.html#a84745a0d03f9e163ced9c23c076e0c4f", null ],
+    [ "TOneTimeEventDelegate", "df/d51/EventDelegate_8h.html#a1372e31c8eedd64df592b27467c455b6", null ],
+    [ "TOneTimeRetainingBelatedEventDelegate", "df/d51/EventDelegate_8h.html#ab39e3f6d6f0c3537e6a47ba3529ae897", null ],
+    [ "TOneTimeRetainingEventDelegate", "df/d51/EventDelegate_8h.html#ac9cd4882259efda52d54b187dd35f276", null ],
+    [ "TRetainingEventDelegate", "df/d51/EventDelegate_8h.html#aaa60dfb1f660b95319ea817ff93116aa", null ]
 ];

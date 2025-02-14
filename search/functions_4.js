@@ -8,6 +8,6 @@ var searchData=
   ['enumtoname_5',['EnumToName',['../db/d56/namespaceMcro_1_1Enums.html#a4a7a8e3d462ff1674dae15eded112040',1,'Mcro::Enums']]],
   ['enumtostringcopy_6',['EnumToStringCopy',['../db/d56/namespaceMcro_1_1Enums.html#acdbec510416e2e30ec7bd20606111554',1,'Mcro::Enums']]],
   ['enumtostringview_7',['EnumToStringView',['../db/d56/namespaceMcro_1_1Enums.html#a69c04c24701d5bae44ab56caee4611ba',1,'Mcro::Enums']]],
-  ['expandabletext_8',['ExpandableText',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af6b17c9dbdff229bb56689e5e1214dfc',1,'Mcro::Error::SErrorDisplay::ExpandableText(const FText &amp;title, const FString &amp;text) -&gt; Slate::TAttributeBlock&lt; SExpandableArea &gt;'],['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#a8de51f6d4224714cf96fed9a9a19ee7c',1,'Mcro::Error::SErrorDisplay::ExpandableText(const FText &amp;title, const FString &amp;text, const Slate::TAttributeBlock&lt; SEditableTextBox &gt; &amp;textAttributes) -&gt; Slate::TAttributeBlock&lt; SExpandableArea &gt;']]],
+  ['expandabletext_8',['ExpandableText',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af6b17c9dbdff229bb56689e5e1214dfc',1,'Mcro::Error::SErrorDisplay']]],
   ['expandabletextwidget_9',['ExpandableTextWidget',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af319b0098ed0225671ba0eef11d10332',1,'Mcro::Error::SErrorDisplay']]]
 ];

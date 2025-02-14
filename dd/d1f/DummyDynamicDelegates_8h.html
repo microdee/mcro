@@ -141,12 +141,8 @@ Functions</h2></td></tr>
 <tr class="separator:ad3cea0073f2e44caa126d1a1deebb714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5c7190512edb24d02d74c8b69928632" id="r_ae5c7190512edb24d02d74c8b69928632"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5c7190512edb24d02d74c8b69928632">DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam</a> (int32, FTestDynamicDelegateRetVal, int32, Argument)</td></tr>
 <tr class="separator:ae5c7190512edb24d02d74c8b69928632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9622f1bbd94a45185abe73cbc2e37fce" id="r_a9622f1bbd94a45185abe73cbc2e37fce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9622f1bbd94a45185abe73cbc2e37fce">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</a> (FTestDynamicMulticastDelegate, int32, Argument)</td></tr>
-<tr class="separator:a9622f1bbd94a45185abe73cbc2e37fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd54d88363e1dae90ef09149b871d5a8" id="r_afd54d88363e1dae90ef09149b871d5a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd54d88363e1dae90ef09149b871d5a8">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</a> (FOnMultiplexed, FString const &amp;, argument)</td></tr>
-<tr class="separator:afd54d88363e1dae90ef09149b871d5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b896dc537a31a0ce4dbbe6f7ca703d4" id="r_a7b896dc537a31a0ce4dbbe6f7ca703d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b896dc537a31a0ce4dbbe6f7ca703d4">MCRO_DYNAMIC_RETURN</a> (FOnMultiplexed, int32)</td></tr>
-<tr class="separator:a7b896dc537a31a0ce4dbbe6f7ca703d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5afc94f910b3fb2995436473d0718826" id="r_a5afc94f910b3fb2995436473d0718826"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5afc94f910b3fb2995436473d0718826">DECLARE_DYNAMIC_MULTICAST_DELEGATE</a> (FTestDynamicMulticastDelegate)</td></tr>
+<tr class="separator:a5afc94f910b3fb2995436473d0718826"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
@@ -229,73 +225,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afd54d88363e1dae90ef09149b871d5a8" name="afd54d88363e1dae90ef09149b871d5a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd54d88363e1dae90ef09149b871d5a8">&#9670;&#160;</a></span>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam() <span class="overload">[1/2]</span></h2>
+<a id="a5afc94f910b3fb2995436473d0718826" name="a5afc94f910b3fb2995436473d0718826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5afc94f910b3fb2995436473d0718826">&#9670;&#160;</a></span>DECLARE_DYNAMIC_MULTICAST_DELEGATE()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam </td>
+          <td class="memname">DECLARE_DYNAMIC_MULTICAST_DELEGATE </td>
           <td>(</td>
-          <td class="paramtype">FOnMultiplexed</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">FTestDynamicMulticastDelegate</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">FString const &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">argument</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9622f1bbd94a45185abe73cbc2e37fce" name="a9622f1bbd94a45185abe73cbc2e37fce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9622f1bbd94a45185abe73cbc2e37fce">&#9670;&#160;</a></span>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam </td>
-          <td>(</td>
-          <td class="paramtype">FTestDynamicMulticastDelegate</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Argument</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7b896dc537a31a0ce4dbbe6f7ca703d4" name="a7b896dc537a31a0ce4dbbe6f7ca703d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b896dc537a31a0ce4dbbe6f7ca703d4">&#9670;&#160;</a></span>MCRO_DYNAMIC_RETURN()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCRO_DYNAMIC_RETURN </td>
-          <td>(</td>
-          <td class="paramtype">FOnMultiplexed</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

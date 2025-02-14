@@ -131,6 +131,12 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aead5b2b64ccf3590fcc78b797a1f7236" id="r_aead5b2b64ccf3590fcc78b797a1f7236"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aead5b2b64ccf3590fcc78b797a1f7236">bImportantToRead</a> = false</td></tr>
 <tr class="memdesc:aead5b2b64ccf3590fcc78b797a1f7236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables an extra checkbox which reminds the user to please do not immediately dismiss the error.  <br /></td></tr>
 <tr class="separator:aead5b2b64ccf3590fcc78b797a1f7236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ebc2d293431a8574a0877e5c986de9" id="r_aa1ebc2d293431a8574a0877e5c986de9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1ebc2d293431a8574a0877e5c986de9">bBreakDebugger</a> = true</td></tr>
+<tr class="memdesc:aa1ebc2d293431a8574a0877e5c986de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set this to false if for any reason you don't need the debugger to break before displaying the error to the user.  <br /></td></tr>
+<tr class="separator:aa1ebc2d293431a8574a0877e5c986de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ed6517fca03662aeb46d94bc04be42" id="r_a60ed6517fca03662aeb46d94bc04be42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60ed6517fca03662aeb46d94bc04be42">bLogError</a> = true</td></tr>
+<tr class="memdesc:a60ed6517fca03662aeb46d94bc04be42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set this to false if for any reason you don't need the error to be logged before displaying it to the user.  <br /></td></tr>
+<tr class="separator:a60ed6517fca03662aeb46d94bc04be42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ef490790214ee6dd0ed4d75ccf22a83" id="r_a1ef490790214ee6dd0ed4d75ccf22a83"><td class="memItemLeft" align="right" valign="top">TSharedPtr&lt; const SWidget &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ef490790214ee6dd0ed4d75ccf22a83">Parent</a> = {}</td></tr>
 <tr class="memdesc:a1ef490790214ee6dd0ed4d75ccf22a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optionally set a parent widget for the modal window of the error. By default if not specified here the main editor window is used, or the main gameplay viewport.  <br /></td></tr>
 <tr class="separator:a1ef490790214ee6dd0ed4d75ccf22a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +144,7 @@ Data Fields</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Control how an error is being displayed. Use C++ 20 designated initializers for convenience. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00042">42</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00044">44</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a57af1e4df965e562dfee1163ae219453" name="a57af1e4df965e562dfee1163ae219453"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57af1e4df965e562dfee1163ae219453">&#9670;&#160;</a></span>bAsync</h2>
@@ -154,7 +160,25 @@ Data Fields</h2></td></tr>
 
 <p>The error message will not block the engine tick. This is useful for errors happening in the editor so even if PIE session is aborted due to an error, the developer can cross-check their assets with the error still open. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00050">50</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00052">52</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+
+</div>
+</div>
+<a id="aa1ebc2d293431a8574a0877e5c986de9" name="aa1ebc2d293431a8574a0877e5c986de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ebc2d293431a8574a0877e5c986de9">&#9670;&#160;</a></span>bBreakDebugger</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Mcro::Error::FErrorManager::FDisplayErrorArgs::bBreakDebugger = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set this to false if for any reason you don't need the debugger to break before displaying the error to the user. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00062">62</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 
 </div>
 </div>
@@ -172,7 +196,25 @@ Data Fields</h2></td></tr>
 
 <p>Enables an extra checkbox which reminds the user to please do not immediately dismiss the error. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00053">53</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00055">55</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a60ed6517fca03662aeb46d94bc04be42" name="a60ed6517fca03662aeb46d94bc04be42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ed6517fca03662aeb46d94bc04be42">&#9670;&#160;</a></span>bLogError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Mcro::Error::FErrorManager::FDisplayErrorArgs::bLogError = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set this to false if for any reason you don't need the error to be logged before displaying it to the user. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00068">68</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +232,7 @@ Data Fields</h2></td></tr>
 
 <p>Optionally set a parent widget for the modal window of the error. By default if not specified here the main editor window is used, or the main gameplay viewport. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00060">60</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/db6/ErrorManager_8h_source.html#l00075">75</a> of file <a class="el" href="../../d1/db6/ErrorManager_8h_source.html">ErrorManager.h</a>.</p>
 
 </div>
 </div>

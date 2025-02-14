@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['alwaysnotify_0',['AlwaysNotify',['../d6/da2/namespaceMcro_1_1Observable.html#a2fe69b38b2bfee60af6ed91851d3acf1a32aefde97416f3e9dc8a937e836c8b04',1,'Mcro::Observable']]]
+  ['crashing_0',['Crashing',['../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302cae861703944e71824ec75761573313979',1,'Mcro::Error']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mutexlock_0',['MutexLock',['../d3/d11/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultInvokeMode_01_4.html#a99b94db3888faa1b351ceb99b84cd820',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultInvokeMode &gt;']]]
+  ['mutexlock_0',['MutexLock',['../de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a25bf892b4e6bf957bfd9ee745dac37a8',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultPolicy &gt;']]]
 ];
