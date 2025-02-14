@@ -570,7 +570,7 @@ Advanced TEventDelegate</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dc/d33/Common_8h.html">Mcro/Common.h</a>&quot;</span></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="da/da9/namespaceMcro_1_1Common_1_1With_1_1InferDelegate.html">Mcro::Common::With::InferDelegate</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// TBelatedEventDelegate is an alias for TEventDelegate&lt;Signature, EEventPolicy::Belated&gt;</span></div>
+<div class="line"><span class="comment">// TBelatedEventDelegate is an alias for TEventDelegate&lt;Signature, {.Belated = true}&gt;</span></div>
 <div class="line"><a class="code hl_class" href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">TBelatedEventDelegate</a>&lt;void(<span class="keywordtype">int</span>)&gt; SomeEvent;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Broadcast first</span></div>
@@ -595,7 +595,7 @@ Advanced TEventDelegate</h2>
 <div class="line">    {</div>
 <div class="line">        UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;The last argument this event broadcasted with: %d&quot;</span>, value);</div>
 <div class="line">    }),</div>
-<div class="line">    EEventPolicy::Belated</div>
+<div class="line">    {.Belated = <span class="keyword">true</span>}</div>
 <div class="line">);</div>
 <div class="line"><span class="comment">// -&gt; The last argument this event broadcasted with: 1337</span></div>
 <div class="ttc" id="aclassMcro_1_1Delegates_1_1TEventDelegate_html"><div class="ttname"><a href="d4/d51/classMcro_1_1Delegates_1_1TEventDelegate.html">Mcro::Delegates::TEventDelegate</a></div><div class="ttdoc">&quot;Extension&quot; of a common TMulticastDelegate. It allows to define optional &quot;flags&quot; when adding a bindin...</div><div class="ttdef"><b>Definition</b> <a href="df/d51/EventDelegate_8h_source.html#l00102">EventDelegate.h:102</a></div></div>
@@ -612,7 +612,7 @@ Advanced TEventDelegate</h2>
 <div class="line">    {</div>
 <div class="line">        UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;This value is printed only once: %d&quot;</span>, value);</div>
 <div class="line">    }),</div>
-<div class="line">    EEventPolicy::Once</div>
+<div class="line">    {.Once = <span class="keyword">true</span>}</div>
 <div class="line">);</div>
 <div class="line"> </div>
 <div class="line">SomeFrequentEvent.Broadcast(1);</div>
@@ -730,14 +730,14 @@ Observable TState</h2>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyStuff</div>
 <div class="line">{</div>
-<div class="line">    <a class="code hl_struct" href="d7/d5e/structMcro_1_1Observable_1_1TState.html">TState&lt;int, EStatePolicy::StorePrevious&gt;</a> State {-1};</div>
+<div class="line">    <a class="code hl_struct" href="d7/d5e/structMcro_1_1Observable_1_1TState.html">TState</a>&lt;int, {.StorePrevious = <span class="keyword">true</span>}&gt; State {-1};</div>
 <div class="line"> </div>
 <div class="line">    FMyStuff()</div>
 <div class="line">    {</div>
-<div class="line">        <span class="comment">// Get previous values as well when `EStatePolicy::StorePrevious` flag is active</span></div>
+<div class="line">        <span class="comment">// Get previous values as well when `StorePrevious` flag is active</span></div>
 <div class="line">        State.<a class="code hl_function" href="d8/d30/structMcro_1_1Observable_1_1IState.html#a23f41c6aee23625a0590fd33af599873">OnChange</a>([](<span class="keywordtype">int</span> next, TOptional&lt;int&gt; previous)</div>
 <div class="line">        {</div>
-<div class="line">            <span class="comment">// If `EStatePolicy::StorePrevious` flag is active we should always have a value in `previous`</span></div>
+<div class="line">            <span class="comment">// If `StorePrevious` flag is active we should always have a value in `previous`</span></div>
 <div class="line">            <span class="comment">// so we should never see -2</span></div>
 <div class="line">            UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Changed from %d to %d&quot;</span>, previous.Get(-2), next);</div>
 <div class="line">        });</div>
@@ -745,7 +745,7 @@ Observable TState</h2>
 <div class="line">        <span class="comment">// Listen to change only the first time</span></div>
 <div class="line">        State.OnChange(</div>
 <div class="line">            [](<span class="keywordtype">int</span> next) { UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;The first changed value is %d&quot;</span>, next); },</div>
-<div class="line">            EEventPolicy::Once</div>
+<div class="line">            {.Once = <span class="keyword">true</span>}</div>
 <div class="line">        );</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -779,7 +779,7 @@ Observable TState</h2>
 <div class="line">        <span class="comment">// (nothing is logged as previous update was also 2)</span></div>
 <div class="line">        MyStuff.OnChange(</div>
 <div class="line">            [](<span class="keywordtype">int</span> next) { UE_LOG(LogTemp, Display, <a class="code hl_define" href="d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Arriving late %d&quot;</span>, next); },</div>
-<div class="line">            EEventPolicy::Belated</div>
+<div class="line">            {.Belated = <span class="keyword">true</span>}</div>
 <div class="line">        );</div>
 <div class="line">        <span class="comment">// -&gt; Arriving late 2</span></div>
 <div class="line">        MyStuff.Update(3);</div>
