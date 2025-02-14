@@ -25,13 +25,15 @@ namespace Mcro::AssertMacros::Detail
 		EErrorSeverity severity,
 		FString const& codeContext,
 		bool async, bool important,
-		TUniqueFunction<void(IErrorRef const&)>&& extraSetup
+		TUniqueFunction<void(IErrorRef const&)>&& extraSetup,
+		std::source_location const& location
 	) {
 		auto error = IError::Make(new FAssertion())
 			->WithSeverity(severity)
 			->WithMessage(TEXT_"Program has hit an assertion")
 			->WithCodeContext(codeContext)
 			->WithCppStackTrace({}, true, 1)
+			->WithLocation(location)
 			->WithBlueprintStackTrace({}, IsInGameThread());
 		
 		extraSetup(error);

@@ -38,7 +38,8 @@ namespace Mcro::AssertMacros
 			EErrorSeverity severity,
 			FString const& codeContext,
 			bool async, bool important,
-			TUniqueFunction<void(IErrorRef const&)>&& extraSetup
+			TUniqueFunction<void(IErrorRef const&)>&& extraSetup,
+			std::source_location const& location = std::source_location::current()
 		);
 		MCRO_API bool IsRunningPIE();
 		MCRO_API void StopPie();

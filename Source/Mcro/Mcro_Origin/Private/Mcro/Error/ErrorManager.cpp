@@ -21,6 +21,8 @@ DECLARE_LOG_CATEGORY_CLASS(LogErrorManager, Log, Log);
 
 namespace Mcro::Error
 {
+	using namespace Mcro::Delegates::InferDelegate;
+	
 	FErrorManager& FErrorManager::Get()
 	{
 		static FErrorManager Singleton {};
@@ -29,20 +31,24 @@ namespace Mcro::Error
 
 	struct FErrorHeaderStyle
 	{
-		FLinearColor BackgroundColor {};
-		FLinearColor FontColor {};
+		FColor BackgroundColor {};
+		FColor FontColor {};
 		int32 FontSize = 14;
 	};
 
 	auto FErrorManager::DisplayError(IErrorRef const& error, FDisplayErrorArgs const& args) -> TFuture<EDisplayErrorResult>
 	{
-		UE_LOG(
+		UE_CLOG(
+			args.bLogError,
 			LogErrorManager, Error,
 			TEXT_"Displaying error %s:",
 			*error->GetType().ToString()
 		);
-		ERROR_LOG(LogErrorManager, Error, error);
-		UE_DEBUG_BREAK();
+		ERROR_CLOG(args.bLogError && !bIsDisplayingError, LogErrorManager, Error, error);
+		if (args.bBreakDebugger)
+		{
+			UE_DEBUG_BREAK();
+		}
 
 		if (bIsDisplayingError)
 		{
@@ -86,43 +92,43 @@ namespace Mcro::Error
 		{
 		case EErrorSeverity::ErrorComponent:
 			headerStyle = {
-				FLinearColor(0.20f, 0.20f, 0.20f, 1.00f),
-				FLinearColor(0.66f, 0.66f, 0.66f, 1.00f),
+				FColor(51, 51, 51, 255),
+				FColor(169, 169, 169, 255),
 				14
 			};
 			break;
 		case EErrorSeverity::Recoverable:
 			headerStyle = {
-				FLinearColor(0.13f, 0.37f, 0.14f, 1.00f),
-				FLinearColor::White,
+				FColor(32, 94, 36, 255),
+				FColor::White,
 				21
 			};
 			break;
 		case EErrorSeverity::Fatal:
 			headerStyle = {
-				FLinearColor(0.61f, 0.23f, 0.00f, 1.00f),
-				FLinearColor::White,
+				FColor(203, 72, 0, 255),
+				FColor::White,
 				21
 			};
 			break;
 		case EErrorSeverity::Crashing:
 			headerStyle = {
-				FLinearColor(0.69f, 0.00f, 0.00f, 1.00f),
-				FLinearColor::White,
+				FColor(177, 0, 0, 255),
+				FColor::White,
 				21
 			};
 			break;
 		}
 
-		TSharedPtr<SWindow> modalWindow;
 		TSharedPtr<SCheckBox> pleaseRead;
-		SAssignNew(modalWindow, SWindow)
+		SAssignNew(ModalWindow, SWindow)
 			. Style(&style.GetWidgetStyle<FWindowStyle>(TEXT_"Window"))
 			. Title(FText::FromString(title))
 			. Type(EWindowType::Normal)
 			. AutoCenter(EAutoCenter::PreferredWorkArea)
 			. SizingRule(ESizingRule::UserSized)
 			. IsTopmostWindow(true)
+			. HasCloseButton(false)
 			. ClientSize({700.f, 700.f})
 			[
 				SNew(SBox)
@@ -147,11 +153,11 @@ namespace Mcro::Error
 					[
 						SNew(SBorder)
 						. Padding(FMargin(10.f, 14.f))
-						. BorderImage(new FSlateColorBrush(headerStyle.BackgroundColor))
+						. BorderImage(new FSlateColorBrush(FLinearColor::FromSRGBColor(headerStyle.BackgroundColor)))
 						[
 							SNew(STextBlock)
 							. Font(FCoreStyle::GetDefaultFontStyle("BoldItalic", headerStyle.FontSize))
-							. ColorAndOpacity(headerStyle.FontColor)
+							. ColorAndOpacity(FLinearColor::FromSRGBColor(headerStyle.FontColor))
 							. SimpleTextMode(true)
 							. Text(FText::FromString(title))
 						]
@@ -162,6 +168,7 @@ namespace Mcro::Error
 					. AutoHeight()
 					[
 						SNew(STextBlock)
+						. AutoWrapText(true)
 						. Text(INVTEXT_
 							"Unfortunately this application has ran into a problem it could not handle automatically."
 							" There can be a wide spectrum of reasons which this error summary aims to narrow down."
@@ -203,34 +210,8 @@ namespace Mcro::Error
 							]
 						]
 						+ SHorizontalBox::Slot()
-						. HAlign(HAlign_Left)
-						. AutoWidth()
-						[
-							SNew(SButton)
-							. Text(INVTEXT_"Dismiss")
-							. ToolTipText_Lambda([weakPleaseRead = pleaseRead.ToWeakPtr(), important = args.bImportantToRead]
-							{
-								if (auto pleaseRead = weakPleaseRead.Pin())
-								if (important && !pleaseRead->IsChecked())
-									return INVTEXT_
-										"Please confirm that you have read this error summary by ticking the checkbox"
-										" to the left."
-									;
-								return INVTEXT_"Once done reading dismiss this error summary.";
-							})
-							. IsEnabled_Lambda([weakPleaseRead = pleaseRead.ToWeakPtr(), important = args.bImportantToRead]
-							{
-								if (auto pleaseRead = weakPleaseRead.Pin())
-									return pleaseRead->IsChecked() || !important;
-								return true;
-							})
-							. OnClicked_Lambda([weakWindow = modalWindow.ToWeakPtr()]
-							{
-								if (auto window = weakWindow.Pin())
-									window->RequestDestroyWindow();
-								return FReply::Handled();
-							})
-						]
+						. HAlign(HAlign_Fill)
+						[ SNew(SSpacer) ]
 						+ SHorizontalBox::Slot()
 						. HAlign(HAlign_Right)
 						. AutoWidth()
@@ -244,20 +225,59 @@ namespace Mcro::Error
 								return FReply::Handled();
 							})
 						]
+						+ SHorizontalBox::Slot()
+						. HAlign(HAlign_Left)
+						. AutoWidth()
+						[
+							SNew(SButton)
+							. Text(INVTEXT_"Dismiss")
+							. ToolTipText_Lambda([weakPleaseRead = pleaseRead.ToWeakPtr(), important = args.bImportantToRead]
+							{
+								if (auto pleaseRead = weakPleaseRead.Pin())
+									if (important && !pleaseRead->IsChecked())
+										return INVTEXT_
+											"Please confirm that you have read this error summary by ticking the checkbox"
+											" to the left."
+										;
+									return INVTEXT_"Once done reading, dismiss this error summary.";
+							})
+							. IsEnabled_Lambda([weakPleaseRead = pleaseRead.ToWeakPtr(), important = args.bImportantToRead]
+							{
+								if (auto pleaseRead = weakPleaseRead.Pin())
+									return pleaseRead->IsChecked() || !important;
+								return true;
+							})
+							. OnClicked_Lambda([this]
+							{
+								ModalWindow->RequestDestroyWindow();
+								return FReply::Handled();
+							})
+						]
 					]
 				]
 			]
 		;
-
-		slate.AddModalWindow(modalWindow.ToSharedRef(), parent, args.bAsync);
 		
-		bIsDisplayingError = false;
+		ModalWindow->SetOnWindowClosed(From([this](TSharedRef<SWindow> const& window)
+		{
+			ModalWindow.Reset();
+			bIsDisplayingError = false;
+			OnErrorDialogDismissed.Broadcast();
+		}));
+		
+		if (args.bAsync)
+			slate.AddWindow(ModalWindow.ToSharedRef(), true);
+		else
+			slate.AddModalWindow(ModalWindow.ToSharedRef(), parent, false);
+
 		return Displayed;
 	}
 
 	auto FErrorManager::InferParentWidget() -> TSharedPtr<const SWidget>
 	{
-		TSharedPtr<SWindow> parentWindow {};
+		TSharedPtr<SWindow> parentWindow = FSlateApplication::Get().GetActiveTopLevelRegularWindow();
+		if (parentWindow) return parentWindow;
+		
 #if WITH_EDITOR
 		if (FModuleManager::Get().IsModuleLoaded("MainFrame"))
 		{

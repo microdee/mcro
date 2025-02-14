@@ -17,6 +17,8 @@
 
 namespace Mcro::Error
 {
+	using namespace Mcro::Delegates;
+	
 	/** @brief Global facilities for IError handling, including displaying them to the user, trigger error events, etc */
 	class MCRO_API FErrorManager
 	{
@@ -54,6 +56,19 @@ namespace Mcro::Error
 
 			/**
 			 *	@brief
+			 *	Set this to false if for any reason you don't need the debugger to break before displaying the error
+			 *	to the user.
+			 */
+			bool bBreakDebugger = true;
+
+			/**
+			 *	@brief
+			 *	Set this to false if for any reason you don't need the error to be logged before displaying it to the user.
+			 */
+			bool bLogError = true;
+
+			/**
+			 *	@brief
 			 *	Optionally set a parent widget for the modal window of the error. By default if not specified here the
 			 *	main editor window is used, or the main gameplay viewport.
 			 */
@@ -86,11 +101,14 @@ namespace Mcro::Error
 		 */
 		auto DisplayError(IErrorRef const& error, FDisplayErrorArgs const& args) -> TFuture<EDisplayErrorResult>;
 
+		TEventDelegate<void()> OnErrorDialogDismissed;
+
 	private:
 		
 		auto DisplayError_MainThread(IErrorRef const& error, FDisplayErrorArgs const& args) -> EDisplayErrorResult;
 		auto InferParentWidget() -> TSharedPtr<const SWidget>;
-		
+
+		TSharedPtr<SWindow> ModalWindow;
 		FThreadSafeBool bIsDisplayingError;
 	};
 }
