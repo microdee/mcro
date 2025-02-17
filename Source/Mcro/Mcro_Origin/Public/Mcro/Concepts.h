@@ -242,7 +242,7 @@ namespace Mcro::Concepts
 	template<typename T>
 	concept CNonChar = !CChar<T>;
 
-	//// Simople objects
+	//// Simple objects
 
 	template <typename T>
 	concept CPointer = std::is_pointer_v<std::decay_t<T>>;
