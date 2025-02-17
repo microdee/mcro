@@ -40,58 +40,86 @@ void Test()
 	[](auto&&){} (ranges::end(bitArrayA));
 	[](auto&&){} (views::concat(bitArrayA, bitArrayB) | views::take(10));
 
-	TChunkedArray<int32> acr;
-	TChunkedArray<int32> bcr;
+	TChunkedArray<int32> chunkedArrayA;
+	TChunkedArray<int32> chunkedArrayB;
+	[](auto&&){} (ranges::begin(chunkedArrayA));
+	[](auto&&){} (ranges::end(chunkedArrayA));
+	[](auto&&){} (views::concat(chunkedArrayA, chunkedArrayB) | views::take(10));
 
-	TSparseArray<int32> aspr;
-	TSparseArray<int32> bspr;
+	TSparseArray<int32> sparseArrayA;
+	TSparseArray<int32> sparseArrayB;
+	[](auto&&){} (ranges::begin(sparseArrayA));
+	[](auto&&){} (ranges::end(sparseArrayA));
+	[](auto&&){} (views::concat(sparseArrayA, sparseArrayB) | views::take(10));
 
-	TStaticArray<int32, 1> asr {0};
-	TStaticArray<int32, 1> bsr {0};
+	TStaticArray<int32, 1> staticArrayA {0};
+	TStaticArray<int32, 1> staticArrayB {0};
+	[](auto&&){} (ranges::begin(staticArrayA));
+	[](auto&&){} (ranges::end(staticArrayA));
+	[](auto&&){} (views::concat(staticArrayA, staticArrayB) | views::take(10));
 
-	TIndirectArray<int32> air;
-	TIndirectArray<int32> bir;
+	TIndirectArray<int32> indirectArrayA;
+	TIndirectArray<int32> indirectArrayB;
+	[](auto&&){} (ranges::begin(indirectArrayA));
+	[](auto&&){} (ranges::end(indirectArrayA));
+	[](auto&&){} (views::concat(indirectArrayA, indirectArrayB) | views::take(10));
 	
-	TMap<int32, int32> am;
-	TMap<int32, int32> bm;
+	TMap<int32, int32> mapA;
+	TMap<int32, int32> mapB;
+	[](auto&&){} (ranges::begin(mapA));
+	[](auto&&){} (ranges::end(mapA));
+	[](auto&&){} (views::concat(mapA, mapB) | views::take(10));
 	
 	// non-comparable
-	TSortedMap<int32, int32> a_sm;
-	TSortedMap<int32, int32> b_sm;
+	TSortedMap<int32, int32> sortedMapA;
+	TSortedMap<int32, int32> sortedMapB;
+	[](auto&&){} (ranges::begin(sortedMapA));
+	[](auto&&){} (ranges::end(sortedMapA));
+	[](auto&&){} (views::concat(sortedMapA, sortedMapB) | views::take(10));
+	auto d = ::end(sortedMapA) - ::begin(sortedMapA);
 	
-	TQueue<int32> aq;
-	TQueue<int32> bq;
-	
-	TRingBuffer<int32> arb;
-	TRingBuffer<int32> brb;
+	TRingBuffer<int32> ringBufferA;
+	TRingBuffer<int32> ringBufferB;
+	[](auto&&){} (ranges::begin(ringBufferA));
+	[](auto&&){} (ranges::end(ringBufferA));
+	[](auto&&){} (views::concat(ringBufferA, ringBufferB) | views::take(10));
 
 	// non-comparable
-	TDeque<int32> adq;
-	TDeque<int32> bdq;
+	TDeque<int32> dequeA;
+	TDeque<int32> dequeB;
+	[](auto&&){} (ranges::begin(dequeA));
+	[](auto&&){} (ranges::end(dequeA));
+	[](auto&&){} (views::concat(dequeA, dequeB) | views::take(10));
 
 	// non-comparable
 	// TIntrusiveDoubleLinkedList<int32> aidll;
 	// TIntrusiveDoubleLinkedList<int32> bidll;
 
-	// non-comparable
-	TLinkedList<int32> all;
-	TLinkedList<int32> bll;
-
-	// non-comparable
-	TDoubleLinkedList<int32> adll;
-	TDoubleLinkedList<int32> bdll;
+	// T[Double]LinkedList is not supported as it defines begin/end functions as friends, and so we cannot overload that
+	// TLinkedList<int32> linkedListA;
+	// TLinkedList<int32> linkedListB;
+	// [](auto&&){} (ranges::begin(linkedListA));
+	// [](auto&&){} (ranges::end(linkedListA));
+	// [](auto&&){} (views::concat(linkedListA, linkedListB) | views::take(10));
 	
 	// non-comparable
-	TLruCache<int32, int32> alruc;
-	TLruCache<int32, int32> blruc;
+	TLruCache<int32, int32> lruCacheA;
+	TLruCache<int32, int32> lruCacheB;
+	[](auto&&){} (ranges::begin(lruCacheA));
+	[](auto&&){} (ranges::end(lruCacheA));
+	[](auto&&){} (views::concat(lruCacheA, lruCacheB) | views::take(10));
 
 	// non-comparable
-	TPagedArray<int32> apr;
-	TPagedArray<int32> bpr;
+	TPagedArray<int32> pagedArrayA;
+	TPagedArray<int32> pagedArrayB;
+	[](auto&&){} (ranges::begin(pagedArrayA));
+	[](auto&&){} (ranges::end(pagedArrayA));
+	[](auto&&){} (views::concat(pagedArrayA, pagedArrayB) | views::take(10));
 
 	// no iterators (needs custom iterators)
-	// TCircularBuffer
+	// TQueue
 	// FBinaryHeap
+	// TCircularBuffer
 	// TCircularQueue
 	// TConsumeAllMpmcQueue
 	// TDiscardableKeyValueCache

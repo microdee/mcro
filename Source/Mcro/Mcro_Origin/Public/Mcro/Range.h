@@ -15,7 +15,7 @@
  *	@file
  *	@brief
  *	Bring modern declarative range operations like views and actions to the Unreal C++ arsenal. This header is
- *	responsible for bridging compatibility between Unreal collections and range-v3/std::ranges.
+ *	responsible for bridging compatibility between Unreal containers and range-v3/std::ranges.
  */
 
 #include "CoreMinimal.h"
@@ -63,10 +63,10 @@ template <typename T, uint32 N, uint32 A> size_t size(TStaticArray<T, N, A> cons
 template <typename T>
 using TExtendedIndirectArrayIterator = Mcro::Range::TExtendedIterator<T, Mcro::Range::FExtendedIteratorPolicy{.DereferencePointerToPointer = true}>; 
 
-template <typename T, typename A> auto begin(TIndirectArray<T, A>&       r) -> TExtendedIndirectArrayIterator<      T*> { return r.GetData(); }
-template <typename T, typename A> auto begin(TIndirectArray<T, A> const& r) -> TExtendedIndirectArrayIterator<const T*> { return r.GetData(); }
-template <typename T, typename A> auto end  (TIndirectArray<T, A>&       r) -> TExtendedIndirectArrayIterator<      T*> { return r.GetData() + r.Num(); }
-template <typename T, typename A> auto end  (TIndirectArray<T, A> const& r) -> TExtendedIndirectArrayIterator<const T*> { return r.GetData() + r.Num(); }
+template <typename T, typename A> auto begin(TIndirectArray<T, A>&       r) -> TExtendedIndirectArrayIterator<      T**> { return r.GetData(); }
+template <typename T, typename A> auto begin(TIndirectArray<T, A> const& r) -> TExtendedIndirectArrayIterator<const T**> { return r.GetData(); }
+template <typename T, typename A> auto end  (TIndirectArray<T, A>&       r) -> TExtendedIndirectArrayIterator<      T**> { return r.GetData() + r.Num(); }
+template <typename T, typename A> auto end  (TIndirectArray<T, A> const& r) -> TExtendedIndirectArrayIterator<const T**> { return r.GetData() + r.Num(); }
 template <typename T, typename A> size_t size(TIndirectArray<T, A> const& r) { return static_cast<size_t>(r.Num()); }
 
 // TSet (GetIndex-able)
@@ -160,12 +160,12 @@ template <typename T, uint32 A> auto end  (TResourceArray<T, A>&       r) ->    
 template <typename T, uint32 A> auto end  (TResourceArray<T, A> const& r) -> const T* { return r.GetData() + r.Num(); }
 template <typename T, uint32 A> size_t size(TResourceArray<T, A> const& r) { return static_cast<size_t>(r.Num()); }
 
-// TLinkedList (warning, non-comparable)
-template <typename T> auto begin(TLinkedList<T>&       r) -> TIteratorExtension<TLinkedList<T>> { return r.begin(); }
-template <typename T> auto begin(TLinkedList<T> const& r) -> TIteratorExtension<TLinkedList<T>> { return r.begin(); }
-template <typename T> auto end  (TLinkedList<T>&       r) -> TIteratorExtension<TLinkedList<T>> { return r.end(); }
-template <typename T> auto end  (TLinkedList<T> const& r) -> TIteratorExtension<TLinkedList<T>> { return r.end(); }
-template <typename T> size_t size(TLinkedList<T> const& r) { return static_cast<size_t>(r.Num()); }
+// T[Double]LinkedList is not supported as it defines begin/end functions as friends, and so we cannot overload that
+// template <typename T> auto begin(TLinkedList<T>&       r) -> TIteratorExtension<TLinkedList<T>> { return r.begin(); }
+// template <typename T> auto begin(TLinkedList<T> const& r) -> TIteratorExtension<TLinkedList<T>> { return r.begin(); }
+// template <typename T> auto end  (TLinkedList<T>&       r) -> TIteratorExtension<TLinkedList<T>> { return r.end(); }
+// template <typename T> auto end  (TLinkedList<T> const& r) -> TIteratorExtension<TLinkedList<T>> { return r.end(); }
+// template <typename T> size_t size(TLinkedList<T> const& r) { return static_cast<size_t>(r.Num()); }
 
 // TLruCache (warning, non-comparable)
 template <typename K, typename V, typename C> auto begin(TLruCache<K, V, C>&       r) -> TIteratorExtension<TLruCache<K, V, C>> { return r.begin(); }

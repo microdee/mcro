@@ -14,6 +14,7 @@
 #include "CoreMinimal.h"
 
 #include "Mcro/Concepts.h"
+#include "Mcro/TypeName.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Void.h"
@@ -22,6 +23,7 @@ namespace Mcro::Range
 {
 	using namespace Mcro::Concepts;
 	using namespace Mcro::SharedObjects;
+	using namespace Mcro::TypeName;
 
 	enum class EIteratorDirection
 	{
@@ -164,10 +166,12 @@ namespace Mcro::Range
 	template <CIsIteratorStep<EIteratorStep::Single> T>
 	struct TIteratorJumpForward_Struct<T>
 	{
-		T& operator () (T& iterator, size_t steps)
+		T& operator () (T& iterator, size_t steps) const
 		{
-			UE_STATIC_ASSERT_WARN(false,
-				"Given iterator can only be incremented in single steps, and therefore can only be incremented in O(N) time!"
+			ensureMsgf(false, TEXT_
+				"Given iterator %s can only be incremented in single steps, and therefore can only be incremented in"
+				" O(N) time!",
+				TTypeName<T>.GetData()
 			);
 			for (size_t i=0; i<steps; ++i)
 				++iterator;
@@ -178,7 +182,7 @@ namespace Mcro::Range
 	template <CIsIteratorStep<EIteratorStep::Jump> T>
 	struct TIteratorJumpForward_Struct<T>
 	{
-		T& operator () (T& iterator, size_t steps)
+		T& operator () (T& iterator, size_t steps) const
 		{
 			return iterator += steps;
 		}
@@ -193,10 +197,12 @@ namespace Mcro::Range
 	template <CIteratorFeature<EIteratorDirection::Bidirectional, EIteratorStep::Single> T>
 	struct TIteratorJumpBackward_Struct<T>
 	{
-		T& operator () (T& iterator, size_t steps)
+		T& operator () (T& iterator, size_t steps) const
 		{
-			UE_STATIC_ASSERT_WARN(false,
-				"Given iterator can only be decremented in single steps, and therefore can only be decremented in O(N) time!"
+			ensureMsgf(false, TEXT_
+				"Given iterator %s can only be decremented in single steps, and therefore can only be decremented in"
+				" O(N) time!",
+				TTypeName<T>.GetData()
 			);
 			for (size_t i=0; i<steps; ++i)
 				--iterator;
@@ -207,7 +213,7 @@ namespace Mcro::Range
 	template <CIteratorFeature<EIteratorDirection::Bidirectional, EIteratorStep::Jump> T>
 	struct TIteratorJumpBackward_Struct<T>
 	{
-		T& operator () (T& iterator, size_t steps)
+		T& operator () (T& iterator, size_t steps) const
 		{
 			return iterator -= steps;
 		}
@@ -275,7 +281,7 @@ namespace Mcro::Range
 	requires CTotallyOrdered<T>
 	struct TIteratorCompare_Struct<T>
 	{
-		auto operator () (T const& l, T const& r)
+		auto operator () (T const& l, T const& r) const
 		{
 			return l <=> r;
 		}
@@ -285,7 +291,7 @@ namespace Mcro::Range
 	requires CHasElementIndex<T>
 	struct TIteratorCompare_Struct<T>
 	{
-		auto operator () (T const& l, T const& r)
+		auto operator () (T const& l, T const& r) const
 		{
 			return l.ElementIndex <=> r.ElementIndex;
 		}
@@ -295,7 +301,7 @@ namespace Mcro::Range
 	requires CHasGetIndex<T>
 	struct TIteratorCompare_Struct<T>
 	{
-		auto operator () (T const& l, T const& r)
+		auto operator () (T const& l, T const& r) const
 		{
 			return l.GetIndex() <=> r.GetIndex();
 		}
@@ -310,15 +316,19 @@ namespace Mcro::Range
 	template <CBasicForwardIterator T>
 	struct TIteratorComputeDistance_Struct<T>
 	{
-		size_t operator () (T const& l, T const& r)
+		size_t operator () (T const& l, T const& r) const
 		{
-			UE_STATIC_ASSERT_WARN(false,
-				"Given iterator doesn't expose public state about its logical position within the range. Computing"
-				" the distance between two may take O(N) time, where N is the singular steps between the two positions."
+			ensureMsgf(false, TEXT_
+				"Given iterator %s doesn't expose public state about its logical position within the range. Computing"
+				" the distance between two may take O(N) time, where N is the singular steps between the two actual"
+				" positions.",
+				TTypeName<T>.GetData()
 			);
-			UE_STATIC_ASSERT_WARN(CTotallyOrdered<T>,
-				"Given iterator wasn't relationally comparable. It is assumed that the right iterator is bigger than"
-				" the left one. The program may freeze otherwise!"
+			
+			ensureMsgf(CTotallyOrdered<T>, TEXT_
+				"Given iterator %s wasn't relationally comparable. It is assumed that the right iterator is bigger than"
+				" the left one. The program may freeze otherwise!",
+				TTypeName<T>.GetData()
 			);
 
 			T left = l;
@@ -334,20 +344,20 @@ namespace Mcro::Range
 			{
 				if (!IteratorEquals(left, right)) return i;
 				ensureAlwaysMsgf(i < 1000000, TEXT_
-					"Computing distance between two minimal iterators took longer than a million steps."
-					" Maybe use a different collection type which can provide iterator distance in O(1) time, or heed"
-					" the above warnings and make sure the right iterator is bigger than the left one."
+					"Computing distance between two minimal iterators %s took longer than a million steps."
+					" Maybe use a different container type which can provide iterator distance in O(1) time, or heed"
+					" the above warnings and make sure the right iterator is bigger than the left one.",
+					TTypeName<T>.GetData()
 				);
 				++i;
 			}
-			return 0;
 		}
 	};
 	
 	template <CStdDistanceCompatible T>
 	struct TIteratorComputeDistance_Struct<T>
 	{
-		auto operator () (T const& l, T const& r)
+		auto operator () (T const& l, T const& r) const
 		{
 			return std::distance(l, r);
 		}
@@ -356,7 +366,7 @@ namespace Mcro::Range
 	template <CHasElementIndex T>
 	struct TIteratorComputeDistance_Struct<T>
 	{
-		auto operator () (T const& l, T const& r)
+		auto operator () (T const& l, T const& r) const
 		{
 			return r.ElementIndex - l.ElementIndex;
 		}
@@ -365,7 +375,7 @@ namespace Mcro::Range
 	template <CHasGetIndex T>
 	struct TIteratorComputeDistance_Struct<T>
 	{
-		auto operator () (T const& l, T const& r)
+		auto operator () (T const& l, T const& r) const
 		{
 			return r.GetIndex() - l.GetIndex();
 		}
@@ -517,7 +527,7 @@ namespace Mcro::Range
 		template <CIteratorComparable = Iterator>
 		friend auto operator <=> (TExtendedIterator const& l, TExtendedIterator const& r)
 		{
-			return TIteratorCompare<Iterator>(l, r);
+			return TIteratorCompare<Iterator>(l.BaseIterator, r.BaseIterator);
 		}
 
 	private:
