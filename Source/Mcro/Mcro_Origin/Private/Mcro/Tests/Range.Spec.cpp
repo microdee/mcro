@@ -12,7 +12,6 @@
 #include "CoreMinimal.h"
 #include "Mcro/Range.h"
 #include "Containers/Deque.h"
-#include "Containers/IntrusiveDoubleLinkedList.h"
 #include "Containers/LruCache.h"
 #include "Containers/PagedArray.h"
 #include "Containers/RingBuffer.h"
@@ -21,14 +20,25 @@ using namespace Mcro::Range;
 
 void Test()
 {
-	TSet<int32> as;
-	TSet<int32> bs;
+	using namespace ranges;
+	
+	TSet<int32> setA;
+	TSet<int32> setB;
+	[](auto&&){} (ranges::begin(setA));
+	[](auto&&){} (ranges::end(setA));
+	[](auto&&){} (views::concat(setA, setB) | views::take(10));
 
-	TArray<int32> ar;
-	const TArray<int32> br;
+	TArray<int32> arrayA;
+	TArray<int32> arrayB;
+	[](auto&&){} (ranges::begin(arrayA));
+	[](auto&&){} (ranges::end(arrayA));
+	[](auto&&){} (views::concat(arrayA, arrayB) | views::take(10));
 
-	TBitArray<> abr;
-	TBitArray<> bbr;
+	TBitArray<> bitArrayA;
+	TBitArray<> bitArrayB;
+	[](auto&&){} (ranges::begin(bitArrayA));
+	[](auto&&){} (ranges::end(bitArrayA));
+	[](auto&&){} (views::concat(bitArrayA, bitArrayB) | views::take(10));
 
 	TChunkedArray<int32> acr;
 	TChunkedArray<int32> bcr;
@@ -90,23 +100,5 @@ void Test()
 	// TStaticBitArray
 	// TStridedView
 	// TTripleBuffer
-	
-
-	auto i = begin(am);
-
-	static_assert(CBasicForwardIterator<decltype(i)>);
-	static_assert(concepts::type<ranges::iter_difference_t<decltype(i)>>);
-	static_assert(ranges::weakly_incrementable_concept_<decltype(i)>);
-	static_assert(ranges::input_iterator<decltype(i)>);
-	static_assert(ranges::readable_concept_<decltype(i)>);
-	static_assert(ranges::move_constructible<decltype(i)>);
-
-	// bool compare = as.begin() < as.end();
-
-	using namespace ranges;
-
-	auto rb = ranges::begin(am);
-	auto re = ranges::end(am);
-	auto r = views::concat(as, bs) | views::take(10);
 
 }
