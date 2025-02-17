@@ -39,12 +39,26 @@ namespace Mcro::Range
 
 	/** @brief The most basic minimal iterator which can only proceed forward one element at a time */
 	template <typename T>
-	concept CBasicForwardIterator = CPointer<T> || requires(T& i, T& other)
+	concept CBasicForwardIteratorBase = CPointer<T> || requires(T& i) { ++i; *i; };
+
+	template <typename T>
+	concept CHasEquals = requires (T& a, T& b) { a == b; };
+
+	template <typename T>
+	concept CHasNotEquals = requires (T& a, T& b) { a != b; };
+
+	template <typename T>
+	concept CBasicForwardIterator = CBasicForwardIteratorBase<T>
+		&& (CHasEquals<T> || CHasNotEquals<T>)
+	;
+
+	template <CBasicForwardIterator T>
+	bool IteratorEquals(T const& l, T const& r)
 	{
-		++i;
-		*i;
-		i == other;
-	};
+		if constexpr (CHasEquals<T>)
+			return l == r;
+		return !(l != r);
+	}
 
 	template <typename T>
 	concept CHasMemberAccessOperator = requires(T& i) { i.operator->(); };
@@ -318,7 +332,7 @@ namespace Mcro::Range
 			size_t i = 0;
 			for (;;)
 			{
-				if (left != right) return i;
+				if (!IteratorEquals(left, right)) return i;
 				ensureAlwaysMsgf(i < 1000000, TEXT_
 					"Computing distance between two minimal iterators took longer than a million steps."
 					" Maybe use a different collection type which can provide iterator distance in O(1) time, or heed"
@@ -492,12 +506,12 @@ namespace Mcro::Range
 
 		friend bool operator == (TExtendedIterator const& l, TExtendedIterator const& r)
 		{
-			return l.BaseIterator == r.BaseIterator;
+			return IteratorEquals(l.BaseIterator, r.BaseIterator);
 		}
 
 		friend bool operator != (TExtendedIterator const& l, TExtendedIterator const& r)
 		{
-			return l.BaseIterator != r.BaseIterator;
+			return !IteratorEquals(l.BaseIterator, r.BaseIterator);
 		}
 
 		template <CIteratorComparable = Iterator>
