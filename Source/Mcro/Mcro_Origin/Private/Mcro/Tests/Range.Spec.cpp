@@ -92,20 +92,21 @@ void Test()
 	// TTripleBuffer
 	
 
-	auto mi = begin(am);
-	auto i = as.begin();
-	
-	static_assert(concepts::type<ranges::iter_difference_t<TExtendedIterator<decltype(i)>>>);
-	static_assert(ranges::weakly_incrementable_concept_<TExtendedIterator<decltype(i)>>);
-	static_assert(ranges::input_iterator<TExtendedIterator<decltype(i)>>);
-	static_assert(ranges::readable_concept_<TExtendedIterator<decltype(i)>>);
+	auto i = begin(am);
+
+	static_assert(CBasicForwardIterator<decltype(i)>);
+	static_assert(concepts::type<ranges::iter_difference_t<decltype(i)>>);
+	static_assert(ranges::weakly_incrementable_concept_<decltype(i)>);
+	static_assert(ranges::input_iterator<decltype(i)>);
+	static_assert(ranges::readable_concept_<decltype(i)>);
+	static_assert(ranges::move_constructible<decltype(i)>);
 
 	// bool compare = as.begin() < as.end();
 
 	using namespace ranges;
 
-	auto rb = ranges::begin(bs);
-	auto re = ranges::end(bs);
-	auto r = views::concat(ar, br) | views::take(10);
+	auto rb = ranges::begin(am);
+	auto re = ranges::end(am);
+	auto r = views::concat(as, bs) | views::take(10);
 
 }

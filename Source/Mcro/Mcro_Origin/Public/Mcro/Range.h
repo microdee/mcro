@@ -447,6 +447,9 @@ namespace Mcro::Range
 			return previous;
 		}
 
+		auto operator -> ()       { return BaseIterator.operator->(); }
+		auto operator -> () const { return BaseIterator.operator->(); }
+
 		auto operator * () -> value_type const&
 		{
 			if constexpr (Policy.DereferencePointerToPointer)
@@ -572,7 +575,7 @@ template <typename T, typename K, typename A> auto end(  TSet<T, K, A> const& r)
 
 // TMapBase
 // TMap and variants doesn't allow zero-copy view on its pairs with a capable enough iterator, however it has the
-// internal TSet stored as a protected member Pairs and so we can access it via exploiting the fact that TMapBase
+// internal TSet stored as a protected member Pairs, and so we can access it via exploiting the fact that TMapBase
 // friends its template specializations. So we can use a dummy TMapBase to access that internal TSet.
 struct FMapPairsAccessTag {};
 
@@ -595,7 +598,13 @@ public:
 
 using FMapPairsAccess = TMapBase<FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag>;
 
-template<typename K, typename V, typename A, typename F> auto begin(TMapBase<K, V, A, F>&       map) { return begin(FMapPairsAccess::GetPairs(map)); }
-template<typename K, typename V, typename A, typename F> auto begin(TMapBase<K, V, A, F> const& map) { return begin(FMapPairsAccess::GetPairs(map)); }
-template<typename K, typename V, typename A, typename F> auto end(  TMapBase<K, V, A, F>&       map) { return end(  FMapPairsAccess::GetPairs(map)); }
-template<typename K, typename V, typename A, typename F> auto end(  TMapBase<K, V, A, F> const& map) { return end(  FMapPairsAccess::GetPairs(map)); }
+// TMap
+template<typename K, typename V, typename A, typename F> auto begin(TMap<K, V, A, F>&       map) { return begin(FMapPairsAccess::GetPairs(map)); }
+template<typename K, typename V, typename A, typename F> auto begin(TMap<K, V, A, F> const& map) { return begin(FMapPairsAccess::GetPairs(map)); }
+template<typename K, typename V, typename A, typename F> auto end(  TMap<K, V, A, F>&       map) { return end(  FMapPairsAccess::GetPairs(map)); }
+template<typename K, typename V, typename A, typename F> auto end(  TMap<K, V, A, F> const& map) { return end(  FMapPairsAccess::GetPairs(map)); }
+// TMultiMap
+template<typename K, typename V, typename A, typename F> auto begin(TMultiMap<K, V, A, F>&       map) { return begin(FMapPairsAccess::GetPairs(map)); }
+template<typename K, typename V, typename A, typename F> auto begin(TMultiMap<K, V, A, F> const& map) { return begin(FMapPairsAccess::GetPairs(map)); }
+template<typename K, typename V, typename A, typename F> auto end(  TMultiMap<K, V, A, F>&       map) { return end(  FMapPairsAccess::GetPairs(map)); }
+template<typename K, typename V, typename A, typename F> auto end(  TMultiMap<K, V, A, F> const& map) { return end(  FMapPairsAccess::GetPairs(map)); }
