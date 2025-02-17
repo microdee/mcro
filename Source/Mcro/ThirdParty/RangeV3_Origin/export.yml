@@ -1,0 +1,6 @@
+link:
+  - file: RangeV3.tp.yml
+  - dir: LibraryFiles
+copy:
+  - { file: RangeV3_Origin.Build.cs, procContent: true }
+  - { file: RangeV3_Origin.*.Build.cs, procContent: true }

@@ -1,0 +1,8 @@
+name: range-v3
+source: https://github.com/ericniebler/range-v3
+project: https://ericniebler.github.io/range-v3/
+authors:
+    - Eric Niebler (https://ericniebler.com)
+license: Boost Software License 1.0 (https://github.com/ericniebler/range-v3/blob/master/LICENSE.txt)
+reasoning: |
+    To have a "nice" declarative way to handle views on collections
