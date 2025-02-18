@@ -18,11 +18,22 @@
 
 #include "Mcro/Concepts.h"
 #include "Mcro/FunctionTraits.h"
+#include "Mcro/TypeName.h"
+
+#ifndef MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION
+/**
+ *	@brief
+ *	If this flag is on, then the default string conversion behavior is returning the result of `TTypeName` and
+ *	triggering an ensure. Otherwise, a missing function will result in a compile error.
+ */
+#define MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION 0
+#endif
 
 /** @brief Mixed text utilities and type traits */
 namespace Mcro::Text
 {
 	using namespace Mcro::Concepts;
+	using namespace Mcro::TypeName;
 
 	/** @brief Unreal style alias for STL strings */
 	template <
@@ -272,7 +283,20 @@ namespace Mcro::Text
 	};
 
 	template <typename T>
-	struct TAsFormatArgument {};
+	struct TAsFormatArgument
+	{
+#if MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION
+		template <CConvertibleToDecayed<T> Arg>
+		FStringView operator () (Arg&& left) const
+		{
+			ensureAlwaysMsgf(false,
+				TEXT("Given type %s couldn't be converted to a string. Typename is returned instead"),
+				TTypeName<T>.GetData()
+			);
+			return TTypeName<T>;
+		}
+#endif
+	};
 
 	/** @brief A type which can be used with FStringFormatArg via a `TAsFormatArgument` specialization. */
 	template <typename T>
