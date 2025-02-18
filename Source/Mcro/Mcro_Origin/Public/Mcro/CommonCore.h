@@ -32,6 +32,7 @@
 #include "Mcro/Once.h"
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Text.h"
+#include "Mcro/Text/TupleAsString.h"
 #include "Mcro/Threading.h"
 #include "Mcro/Types.h"
 #include "Mcro/Void.h"
