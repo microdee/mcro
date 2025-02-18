@@ -12,10 +12,84 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Mcro/Concepts.h"
+
+#include "Mcro/LibraryIncludes/Start.h"
+#include "range/v3/all.hpp"
+#include "Mcro/LibraryIncludes/End.h"
 
 /** @brief Templating utilities for manipulating `TTuple`s */
 namespace Mcro::Tuples
 {
+	using namespace Mcro::Concepts;
+
+	template <typename>
+	constexpr bool TIsStdArray = false;
+
+	template <typename T, size_t S>
+	constexpr bool TIsStdArray<std::array<T, S>> = true;
+
+	template <typename>
+	constexpr bool TIsStdSubRange = false;
+
+	template <class I, class S, std::ranges::subrange_kind K>
+	constexpr bool TIsStdSubRange<std::ranges::subrange<I, S, K>> = true;
+
+	template <typename>
+	constexpr bool TIsRangeV3SubRange = false;
+
+	template <class I, class S, ranges::subrange_kind K>
+	constexpr bool TIsRangeV3SubRange<ranges::subrange<I, S, K>> = true;
+
+	template <typename>
+	constexpr bool TIsStdTuple = false;
+
+	template <typename... Args>
+	constexpr bool TIsStdTuple<std::tuple<Args...>> = true;
+
+	template <typename>
+	constexpr bool TIsStdPair = false;
+
+	template <typename... Args>
+	constexpr bool TIsStdPair<std::pair<Args...>> = true;
+
+	template <typename>
+	constexpr bool TIsRangeV3Tuple = false;
+
+	template <typename... Args>
+	constexpr bool TIsRangeV3Tuple<ranges::common_tuple<Args...>> = true;
+
+	template <typename>
+	constexpr bool TIsRangeV3Pair = false;
+
+	template <typename... Args>
+	constexpr bool TIsRangeV3Pair<ranges::common_pair<Args...>> = true;
+
+	template <typename T>
+	concept CStdTupleLike = TIsStdTuple<T> || TIsStdPair<T> || TIsStdArray<T> || TIsStdSubRange<T>;
+
+	template <typename T>
+	concept CRangeV3TupleLike = TIsRangeV3Tuple<T> || TIsRangeV3Pair<T> || TIsRangeV3SubRange<T>;
+
+	template <typename T>
+	concept CStdPairLike = CStdTupleLike<T> && std::tuple_size_v<std::remove_cvref_t<T>> == 2;
+
+	template <typename T>
+	concept CRangeV3PairLike = CRangeV3TupleLike<T> && std::tuple_size_v<std::remove_cvref_t<T>> == 2;
+
+	template <typename T, typename... Args>
+	concept CTupleConvertsToArgs =
+		CConvertibleToDecayed<T, TTuple<Args...>>
+		|| CConvertibleToDecayed<T, std::tuple<Args...>>
+		|| CConvertibleToDecayed<T, ranges::common_tuple<Args...>>
+	;
+
+	template <typename T>
+	concept CUnrealTuple = TIsTuple_V<T>;
+
+	template <typename T>
+	concept CTupleInvariant = CStdTupleLike<T> || CRangeV3TupleLike<T> || CUnrealTuple<T>;
+	
 	/** @brief Compose one tuple out of the elements of another tuple based on the input index parameter pack */
 	template <typename Tuple, size_t... Indices>
 	using TComposeFrom = TTuple<typename TTupleElement<Indices, Tuple>::Type...>;
