@@ -16,6 +16,15 @@
  *	@brief
  *	Bring modern declarative range operations like views and actions to the Unreal C++ arsenal. This header is
  *	responsible for bridging compatibility between Unreal containers and range-v3/std::ranges.
+ *
+ *	The official documentation is quite barebones and doesn't go to great lengths explaining how individual features in
+ *	the range-v3 library behave exactly. For a more explanatory documentation I found this website
+ *	https://lukasfro.github.io/range-v3-doc/chapter_01/01_introduction.html by **PhD Lukas Fröhlich** which lists
+ *	views with examples and precise descriptions. Although, as the original documentation, that is also "incomplete".
+ *
+ *	Please consider the [potentials and pitfals](https://lukasfro.github.io/range-v3-doc/chapter_03/03_02_pitfalls.html)
+ *	and the [tips & tricks](https://lukasfro.github.io/range-v3-doc/chapter_03/03_01_tips_tricks.html) when using
+ *	range-v3 in your program.
  */
 
 #include "CoreMinimal.h"
