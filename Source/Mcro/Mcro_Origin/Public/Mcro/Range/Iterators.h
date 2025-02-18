@@ -19,6 +19,18 @@
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Void.h"
 
+#ifndef MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION
+/**
+ *	@brief
+ *	Iterators which can only step one item at a time, and/or doesn't expose difference computation can have the jump
+ *	and difference features emulated at the cost of expensive O(N) time operations. Turning this feature off ensures
+ *	stricter policy about this when working with Unreal containers and range-v3
+ *
+ *	When this flag is on, a runtime ensure is still triggered.
+ */
+#define MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION 1
+#endif
+
 namespace Mcro::Range
 {
 	using namespace Mcro::Concepts;
@@ -173,9 +185,10 @@ namespace Mcro::Range
 	template <CIsIteratorStep<EIteratorStep::Single> T>
 	struct TIteratorJumpForward_Struct<T>
 	{
+#if MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION
 		T& operator () (T& iterator, size_t steps) const
 		{
-			ensureMsgf(false, TEXT_
+			ensureAlwaysMsgf(false, TEXT_
 				"Given iterator %s can only be incremented in single steps, and therefore can only be incremented in"
 				" O(N) time!",
 				TTypeName<T>.GetData()
@@ -184,6 +197,7 @@ namespace Mcro::Range
 				++iterator;
 			return iterator;
 		}
+#endif
 	};
 	
 	template <CIsIteratorStep<EIteratorStep::Jump> T>
@@ -204,9 +218,10 @@ namespace Mcro::Range
 	template <CIteratorFeature<EIteratorDirection::Bidirectional, EIteratorStep::Single> T>
 	struct TIteratorJumpBackward_Struct<T>
 	{
+#if MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION
 		T& operator () (T& iterator, size_t steps) const
 		{
-			ensureMsgf(false, TEXT_
+			ensureAlwaysMsgf(false, TEXT_
 				"Given iterator %s can only be decremented in single steps, and therefore can only be decremented in"
 				" O(N) time!",
 				TTypeName<T>.GetData()
@@ -215,6 +230,7 @@ namespace Mcro::Range
 				--iterator;
 			return iterator;
 		}
+#endif
 	};
 	
 	template <CIteratorFeature<EIteratorDirection::Bidirectional, EIteratorStep::Jump> T>
@@ -323,16 +339,17 @@ namespace Mcro::Range
 	template <CBasicForwardIterator T>
 	struct TIteratorComputeDistance_Struct<T>
 	{
-		size_t operator () (T const& l, T const& r) const
+#if MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION
+		int64 operator () (T const& l, T const& r) const
 		{
-			ensureMsgf(false, TEXT_
+			ensureAlwaysMsgf(false, TEXT_
 				"Given iterator %s doesn't expose public state about its logical position within the range. Computing"
 				" the distance between two may take O(N) time, where N is the singular steps between the two actual"
 				" positions.",
 				TTypeName<T>.GetData()
 			);
 			
-			ensureMsgf(CTotallyOrdered<T>, TEXT_
+			ensureAlwaysMsgf(CTotallyOrdered<T>, TEXT_
 				"Given iterator %s wasn't relationally comparable. It is assumed that the right iterator is bigger than"
 				" the left one. The program may freeze otherwise!",
 				TTypeName<T>.GetData()
@@ -346,7 +363,7 @@ namespace Mcro::Range
 				right = l;
 			}
 			
-			size_t i = 0;
+			int64 i = 0;
 			for (;;)
 			{
 				if (!IteratorEquals(left, right)) return i;
@@ -359,6 +376,7 @@ namespace Mcro::Range
 				++i;
 			}
 		}
+#endif
 	};
 	
 	template <CStdDistanceCompatible T>
