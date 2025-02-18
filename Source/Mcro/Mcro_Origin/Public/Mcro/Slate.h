@@ -192,7 +192,7 @@ namespace Mcro::Slate
 	 *	@endcode
 	 */
 	template <
-		CRange Range,
+		CRangeMember Range,
 		CFunctionLike Transform,
 		CFunctionLike OnEmpty = TUniqueFunction<TFunction_Return<Transform>()>,
 		CSlotArguments SlotArguments = TFunction_Return<Transform>
@@ -246,7 +246,7 @@ namespace Mcro::Slate
 
 	/** @copydoc TSlots */
 	template <
-		CRange Range,
+		CRangeMember Range,
 		CFunctionLike Transform,
 		CFunctionLike OnEmpty,
 		CSlotArguments SlotArguments,

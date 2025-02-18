@@ -35,7 +35,7 @@
 
 /** @brief Bring modern declarative range operations like views and actions to the Unreal C++ arsenal */
 
-template <Mcro::Concepts::CRange Container, Mcro::Range::FExtendedIteratorPolicy Policy = {}>
+template <Mcro::Concepts::CRangeMember Container, Mcro::Range::FExtendedIteratorPolicy Policy = {}>
 using TIteratorExtension = Mcro::Range::TExtendedIterator<decltype(DeclVal<Container>().begin()), Policy>;
 
 // TArray (pointer)
@@ -119,7 +119,9 @@ template <typename CharType> auto begin(TStringView<CharType> const& string) -> 
 template <typename CharType> auto end  (TStringView<CharType> const& string) -> const CharType* { return string.GetData() + string.Len(); }
 template <typename CharType> size_t size(TStringView<CharType> const& string) { return static_cast<size_t>(string.Len()); }
 
+FORCEINLINE auto begin(FString&       string) -> const TCHAR* { return *string; }
 FORCEINLINE auto begin(FString const& string) -> const TCHAR* { return *string; }
+FORCEINLINE auto end  (FString&       string) -> const TCHAR* { return *string + string.Len(); }
 FORCEINLINE auto end  (FString const& string) -> const TCHAR* { return *string + string.Len(); }
 FORCEINLINE auto begin(FString&&      string) -> Mcro::Range::FTempStringIterator { return {Forward<FString>(string), false}; }
 FORCEINLINE auto end  (FString&&      string) -> Mcro::Range::FTempStringIterator { return {Forward<FString>(string), true}; }
