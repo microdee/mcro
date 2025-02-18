@@ -15,9 +15,12 @@
 #include <ranges>
 
 #include "CoreMinimal.h"
+
 #include "Mcro/Concepts.h"
 #include "Mcro/Range/Iterators.h"
+#include "Mcro/Text/TupleAsString.h"
 #include "Mcro/Templates.h"
+#include "Mcro/Text.h"
 
 #include "Mcro/LibraryIncludes/Start.h"
 #include "range/v3/all.hpp"
@@ -25,45 +28,63 @@
 
 namespace Mcro::Range
 {
-	using namespace Mcro::Concepts;
 	using namespace Mcro::Templates;
+	
+	namespace Detail
+	{
+		template <CRangeMember Range>
+		struct TExplicitSeparator
+		{
+			TExplicitSeparator(Range const& range, const TCHAR* separator)
+				: Storage(range)
+				, Separator(separator)
+			{}
+			
+			auto begin() const { return Storage.begin(); }
+			auto end() const { return Storage.end(); }
 
-	template <typename>
-	constexpr bool TIsStdArray = false;
-
-	template <typename T, size_t S>
-	constexpr bool TIsStdArray<std::array<T, S>> = true;
-
-	template <typename>
-	constexpr bool TIsStdSubRange = false;
-
-	template <class I, class S, std::ranges::subrange_kind K>
-	constexpr bool TIsStdSubRange<std::ranges::subrange<I, S, K>> = true;
-
-	template <typename>
-	constexpr bool TIsRangeV3SubRange = false;
-
-	template <class I, class S, ranges::subrange_kind K>
-	constexpr bool TIsRangeV3SubRange<ranges::subrange<I, S, K>> = true;
-
+			FString GetSeparator() const { return Separator; }
+			
+		private:
+			Range const& Storage;
+			FString Separator;
+		};
+	}
+	
+	/**
+	 *	@brief
+	 *	Specialize this template to specify a default item separator sequence for a range type when converting it to a
+	 *	string.
+	 */
 	template <typename T>
-	concept CStdTupleLike =
-		CIsTemplate<T, std::tuple>
-		|| CIsTemplate<T, std::pair>
-		|| TIsStdArray<T>
-		|| TIsStdSubRange<T>
-		|| TIsRangeV3SubRange<T>
-	;
+	struct TContainerAsStringSeparator
+	{
+		static FStringView Get(T&&)
+		{
+			static auto separator = TEXTVIEW_", ";
+			return separator;
+		}
+	};
 
-	template <typename T>
-	concept CStdPairLike = CStdTupleLike<T> && std::tuple_size_v<std::remove_cvref_t<T>> == 2;
+	template <CRangeMember Range>
+	struct TContainerAsStringSeparator<Detail::TExplicitSeparator<Range>>
+	{
+		static FString Get(Detail::TExplicitSeparator<Range>&& from)
+		{
+			return from.GetSeparator();
+		}
+	};
 
-	template <typename T, typename... Args>
-	concept CTupleConvertsToArgs =
-		CConvertibleToDecayed<T, TTuple<Args...>>
-		|| CConvertibleToDecayed<T, std::tuple<Args...>>
-	;
-
+	/** @brief  Specify a separator sequence for a range when converting it to a string */
+	template <typename = void>
+	auto SeparatedBy(const TCHAR* separator)
+	{
+		return ranges::make_pipeable([separator](auto&& range)
+		{
+			return Detail::TExplicitSeparator(range, separator);
+		});
+	}
+	
 	/**
 	 *	@brief  Render a range as the given container.
 	 *
@@ -152,7 +173,7 @@ namespace Mcro::Range
 			auto endIt = Storage.end(); 
 			for (Value const& value : range)
 			{
-				if (it == endIt)
+				if (IteratorEquals(it, endIt))
 					Storage.Add(value);
 				else
 				{
@@ -232,6 +253,17 @@ namespace Mcro::Range
 		
 		template <
 			CRangeMember From,
+			CRangeV3PairLike Value = TRangeElementType<From>,
+			typename MapType = TMap<std::tuple_element_t<0, Value>, std::tuple_element_t<1, Value>>
+		>
+		static void Convert(From&& range, MapType& result)
+		{
+			for (Value const& value : range)
+				result.Add(ranges::get<0>(value), ranges::get<1>(value));
+		}
+		
+		template <
+			CRangeMember From,
 			CRangeMember InnerRange = TRangeElementType<From>,
 			typename Value = TRangeElementType<InnerRange>,
 			typename MapType = TMap<Value, Value>
@@ -242,10 +274,10 @@ namespace Mcro::Range
 			{
 				// TODO: support TMultiMap
 				auto it = innerRange.begin();
-				if (it == innerRange.end()) continue;
+				if (IteratorEquals(it, innerRange.end())) continue;
 				Value const& key = *it;
 				++it;
-				if (it == innerRange.end()) continue;
+				if (IteratorEquals(it, innerRange.end())) continue;
 				Value const& value = *it;
 				result.Add(key, value);
 			}
@@ -350,4 +382,6 @@ namespace Mcro::Range
 			return functor.Storage;
 		}
 	};
+
+	
 }
