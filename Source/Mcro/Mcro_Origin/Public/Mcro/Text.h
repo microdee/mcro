@@ -14,6 +14,8 @@
 #include <string>
 
 #include "CoreMinimal.h"
+#include "Text.h"
+
 #include "Mcro/Concepts.h"
 #include "Mcro/FunctionTraits.h"
 
@@ -269,14 +271,14 @@ namespace Mcro::Text
 		{ t.ToString() } -> CDirectStringFormatArgument;
 	};
 
-	/** @brief An empty tag struct used to extend rigid types to be used in string formatting */
-	struct FStringFormatTag {};
+	template <typename T>
+	struct TAsFormatArgument {};
 
-	/** @brief A type which can be used with FStringFormatArg via a `% FStringFormatTag()` operator. */
+	/** @brief A type which can be used with FStringFormatArg via a `TAsFormatArgument` specialization. */
 	template <typename T>
 	concept CHasStringFormatArgumentConversion = !CDirectStringFormatArgument<T> && requires(T&& t)
 	{
-		{ t % FStringFormatTag() } -> CDirectStringFormatArgument;
+		{ TAsFormatArgument<T>()(t) } -> CDirectStringFormatArgument;
 	};
 
 	/** @brief A type which can be converted to FStringFormatArg via any method. */
@@ -285,42 +287,58 @@ namespace Mcro::Text
 		|| CHasToString<T>
 		|| CHasStringFormatArgumentConversion<T>
 	;
-	
+
 	template <CDirectStringFormatArgument Operand>
-	Operand operator % (Operand&& left, FStringFormatTag&&)
+	struct TAsFormatArgument<Operand>
 	{
-		return left;
-	}
+		template <CConvertibleToDecayed<Operand> Arg>
+		Operand operator () (Arg&& left) const { return left; }
+	};
 
 	template <CHasToString Operand>
-	auto operator % (Operand&& left, FStringFormatTag&&)
+	struct TAsFormatArgument<Operand>
 	{
-		return left.ToString();
-	}
+		template <CConvertibleToDecayed<Operand> Arg>
+		auto operator () (Arg&& left) const { return left.ToString(); }
+	};
 
 	template <typename CharType>
-	const CharType* operator % (TStdString<CharType> const& left, FStringFormatTag&&)
+	struct TAsFormatArgument<TStdString<CharType>>
 	{
-		return left.c_str();
-	}
+		const CharType* operator () (TStdString<CharType> const& left) const
+		{
+			return left.c_str();
+		}
+	};
 
-	FORCEINLINE FStringView operator % (FStdStringView const& left, FStringFormatTag&&)
+	template <>
+	struct TAsFormatArgument<FStdStringView>
 	{
-		return UnrealView(left);
-	}
+		FStringView operator () (FStdStringView const& left) const
+		{
+			return UnrealView(left);
+		}
+	};
 
 	template <CStdStringViewInvariant Operand>
 	requires (!CSameAsDecayed<Operand, FStdStringView>)
-	FString operator % (Operand&& left, FStringFormatTag&&)
+	struct TAsFormatArgument<Operand>
 	{
-		return UnrealConvert(left);
+		template <CConvertibleToDecayed<Operand> Arg>
+		auto operator () (Arg&& left) const { return UnrealConvert(left); }
+	};
+
+	template <CStringFormatArgument T>
+	auto AsFormatArgument(T&& input)
+	{
+		return TAsFormatArgument<T>()(input);
 	}
 
 	/**
 	 *	@brief  Attempt to convert anything to string which can tell via some method how to do so
 	 *
-	 *	This may be more expensive to directly use than an already existing designated string conversion for a given
-	 *	type, because it uses `FStringFormatArg` and `% FStringFormatTag()` as intermediate steps. However, this can be
+	 *	This may be more expensive than directly using an already existing designated string conversion for a given
+	 *	type, because it uses `FStringFormatArg` and a `TAsFormatArgument` as intermediate steps. However, this can be
 	 *	still useful for types where such conversion doesn't already exist or when using this in a template.
 	 *
 	 *	It's still much faster than using `FMT_(myVar) "{0}"`
@@ -328,7 +346,7 @@ namespace Mcro::Text
 	template <CStringFormatArgument T>
 	FString AsString(T&& input)
 	{
-		FStringFormatArg format(input % FStringFormatTag());
+		FStringFormatArg format(AsFormatArgument(input));
 		return MoveTemp(format.StringValue);
 	}
 
@@ -341,7 +359,7 @@ namespace Mcro::Text
 	template <CStringFormatArgument... Args>
 	FStringFormatOrderedArguments OrderedArguments(Args&&... args)
 	{
-		return FStringFormatOrderedArguments { FStringFormatArg(args % FStringFormatTag()) ... };
+		return FStringFormatOrderedArguments { FStringFormatArg(AsFormatArgument(args)) ... };
 	}
 
 	/**
@@ -354,7 +372,7 @@ namespace Mcro::Text
 	FStringFormatNamedArguments NamedArguments(TTuple<FString, Args>... args)
 	{
 		return FStringFormatNamedArguments {
-			{ args.template Get<0>(), FStringFormatArg(args.template Get<1>() % FStringFormatTag()) }
+			{ args.template Get<0>(), FStringFormatArg(AsFormatArgument(args.template Get<1>())) }
 			...
 		};
 	}
