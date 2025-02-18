@@ -76,8 +76,8 @@ namespace Mcro::Templates
 	 *	considered seriously, template traits only work with templates which only have type-parameters. Non-type
 	 *	parameters even when a default is specified for them will result in compile error.
 	 */
-	template <template <typename...> typename Template, typename T>
-	concept CIsTemplate = TTemplate<Template>::template Match<T>::Value;
+	template <typename T, template <typename...> typename Template>
+	concept CIsTemplate = TTemplate<Template>::template Match<T>;
 
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CConstType T>

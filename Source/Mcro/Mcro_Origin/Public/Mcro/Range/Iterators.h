@@ -156,9 +156,13 @@ namespace Mcro::Range
 	template <typename T, EIteratorDirection Direction, EIteratorStep Step>
 	concept CIteratorFeature = CIsIteratorDirection<T, Direction> && CIsIteratorStep<T, Step>;
 
-	/** @brief return the iterator's associated content type when they're dereferenced. It preserves qualifiers. */
+	/** @brief return the iterator's associated content type when they're dereferenced. */
 	template <CBasicForwardIterator T>
 	using TIteratorElementType = std::decay_t<decltype(*DeclVal<T>())>;
+
+	/** @brief return a range's associated content type determined by dereferencing their iterator. */
+	template <CRangeMember T>
+	using TRangeElementType = TIteratorElementType<decltype(DeclVal<T>().begin())>;
 
 	template <typename T>
 	struct TIteratorJumpForward_Struct {};
