@@ -33,6 +33,18 @@ void Test()
 	[](auto&&){} (ranges::begin(arrayA));
 	[](auto&&){} (ranges::end(arrayA));
 	[](auto&&){} (views::concat(arrayA, arrayB) | views::take(10));
+	[](auto&&){} (views::concat(arrayA, arrayB)
+		| views::take(10)
+	);
+
+	views::ints(0, unreachable)
+		| views::transform([](int a) { return a * a; })
+		| views::take(10);
+	
+	auto vi = views::for_each(
+		views::ints(1, 6),
+		[](int i) { return yield_from(views::repeat_n(i, i)); }
+	) | to<std::vector>();
 
 	TBitArray<> bitArrayA;
 	TBitArray<> bitArrayB;
@@ -90,6 +102,12 @@ void Test()
 	[](auto&&){} (ranges::begin(dequeA));
 	[](auto&&){} (ranges::end(dequeA));
 	[](auto&&){} (views::concat(dequeA, dequeB) | views::take(10));
+
+	FString stringA;
+	FString stringB;
+	[](auto&&){} (ranges::begin(stringA));
+	[](auto&&){} (ranges::end(stringA));
+	[](auto&&){} (views::concat(stringA, stringB) | views::take(10));
 
 	// non-comparable
 	// TIntrusiveDoubleLinkedList<int32> aidll;
