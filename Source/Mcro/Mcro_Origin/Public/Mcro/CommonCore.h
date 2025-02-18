@@ -37,6 +37,9 @@
 #include "Mcro/Void.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/FmtMacros.h"
+#include "Mcro/Range.h"
+#include "Mcro/Range/Conversion.h"
+#include "Mcro/Zero.h"
 
 /** @brief Use this namespace for the minimal utilities MCRO has to offer */
 namespace Mcro::CommonCore
@@ -54,6 +57,7 @@ namespace Mcro::CommonCore
 	using namespace Mcro::Text;
 	using namespace Mcro::Threading;
 	using namespace Mcro::Types;
+	using namespace Mcro::Range;
 }
 
 /** @brief Use this namespace for all the common features MCRO has to offer */
