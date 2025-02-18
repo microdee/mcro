@@ -321,9 +321,6 @@ namespace Mcro::Concepts
 	template <typename T>
 	concept CRangeMember = requires(std::decay_t<T> const& t) { t.begin(); t.end(); };
 
-	template <typename T>
-	concept CUnrealRange = CRangeMember<T> && requires() { &T::Add; };
-
 	// use in decltype
 	template <typename T> T DecayPtr(T*);
 }

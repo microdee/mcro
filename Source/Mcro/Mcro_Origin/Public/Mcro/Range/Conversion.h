@@ -107,6 +107,12 @@ namespace Mcro::Range
 		{
 			return functor.Convert(range);
 		}
+		
+		template <CRangeMember From>
+		auto Render(From&& range) const
+		{
+			return Convert(range);
+		}
 	};
 
 	/**
@@ -272,6 +278,7 @@ namespace Mcro::Range
 		}
 
 	public:
+		template <CIsTemplate<TMap> Target>
 		friend class OutputToMap;
 		
 		RenderAsMap() {};
@@ -280,6 +287,12 @@ namespace Mcro::Range
 		friend auto operator | (From&& range, RenderAsMap&& functor)
 		{
 			return functor.Convert(range);
+		}
+		
+		template <CRangeMember From>
+		auto Render(From&& range) const
+		{
+			return Convert(range);
 		}
 	};
 

@@ -163,6 +163,9 @@ namespace Mcro::Range
 	/** @brief return a range's associated content type determined by dereferencing their iterator. */
 	template <CRangeMember T>
 	using TRangeElementType = TIteratorElementType<decltype(DeclVal<T>().begin())>;
+	
+	template <typename T>
+	concept CUnrealRange = CRangeMember<T> && requires(T& cont, TRangeElementType<T> const& item) { cont.Add(item); };
 
 	template <typename T>
 	struct TIteratorJumpForward_Struct {};

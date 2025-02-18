@@ -10,11 +10,9 @@
  */
 
 #include "CoreMinimal.h"
-#include "Mcro/Tuples.h"
-#include "Mcro/Concepts.h"
+#include "Mcro/CommonCore.h"
 
-using namespace Mcro::Tuples;
-using namespace Mcro::Concepts;
+using namespace Mcro::Common;
 
 // TSkip should produce a tuple without the first N arguments of input tuple
 static_assert(CSameAs<
