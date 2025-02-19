@@ -55,21 +55,21 @@ namespace Mcro::Range
 	template <typename T>
 	concept CBasicForwardIteratorBase = CPointer<T> || requires(T& i) { ++i; *i; };
 
-	template <typename T>
-	concept CHasEquals = requires (T& a, T& b) { a == b; };
+	template <typename L, typename R>
+	concept CHasEquals = requires (L& a, R& b) { a == b; };
 
-	template <typename T>
-	concept CHasNotEquals = requires (T& a, T& b) { a != b; };
+	template <typename L, typename R>
+	concept CHasNotEquals = requires (L& a, R& b) { a != b; };
 
 	template <typename T>
 	concept CBasicForwardIterator = CBasicForwardIteratorBase<T>
-		&& (CHasEquals<T> || CHasNotEquals<T>)
+		&& (CHasEquals<T, T> || CHasNotEquals<T, T>)
 	;
 
-	template <CBasicForwardIterator T>
-	bool IteratorEquals(T const& l, T const& r)
+	template <typename L, typename R>
+	bool IteratorEquals(L const& l, R const& r)
 	{
-		if constexpr (CHasEquals<T>)
+		if constexpr (CHasEquals<L, R>)
 			return l == r;
 		return !(l != r);
 	}
