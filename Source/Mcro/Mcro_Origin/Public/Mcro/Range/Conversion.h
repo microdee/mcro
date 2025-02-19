@@ -60,10 +60,9 @@ namespace Mcro::Range
 	template <typename T>
 	struct TContainerAsStringSeparator
 	{
-		static FStringView Get(T&&)
+		static FString Get(T&&)
 		{
-			static auto separator = TEXTVIEW_", ";
-			return separator;
+			return TEXT_", ";
 		}
 	};
 
