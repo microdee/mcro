@@ -88,7 +88,63 @@ namespace Mcro::Tuples
 	concept CUnrealTuple = TIsTuple_V<T>;
 
 	template <typename T>
-	concept CTupleInvariant = CStdTupleLike<T> || CRangeV3TupleLike<T> || CUnrealTuple<T>;
+	concept CStdOrRangeV3Tuple = CStdTupleLike<T> || CRangeV3TupleLike<T>;
+
+	template <typename T>
+	concept CTuple = CStdTupleLike<T> || CRangeV3TupleLike<T> || CUnrealTuple<T>;
+
+	template <size_t I, CStdTupleLike T>
+	decltype(auto) GetItem(T&& tuple)
+	{
+		return std::get<I>(Forward<T>(tuple));
+	}
+
+	template <size_t I, CRangeV3TupleLike T>
+	decltype(auto) GetItem(T&& tuple)
+	{
+		return ranges::get<I>(Forward<T>(tuple));
+	}
+
+	template <size_t I, CUnrealTuple T>
+	decltype(auto) GetItem(T&& tuple)
+	{
+		return tuple.template Get<I>();
+	}
+
+	template <CStdOrRangeV3Tuple T>
+	consteval size_t GetSize()
+	{
+		return std::tuple_size_v<std::decay_t<T>>;
+	}
+
+	template <CUnrealTuple T>
+	consteval size_t GetSize()
+	{
+		return TTupleArity<std::decay_t<T>>::Value;
+	}
+
+	template <CTuple T>
+	using TIndexSequenceForTuple = std::make_index_sequence<GetSize<T>()>;
+
+	template <size_t, typename>
+	struct TTypeAt_Struct {};
+
+	template <size_t I, CStdOrRangeV3Tuple T>
+	struct TTypeAt_Struct<I, T>
+	{
+		using Type = std::tuple_element_t<I, T>;
+	};
+
+	template <size_t I, CUnrealTuple T>
+	struct TTypeAt_Struct<I, T>
+	{
+		using Type = typename TTupleElement<I, T>::Type;
+	};
+
+	template <size_t I, CTuple T>
+	using TTypeAt = typename TTypeAt_Struct<I, T>::Type;
+
+	// TODO: Make these templates compatible with STL and Range-V3 tuples as well
 	
 	/** @brief Compose one tuple out of the elements of another tuple based on the input index parameter pack */
 	template <typename Tuple, size_t... Indices>
