@@ -9,6 +9,7 @@ Reason of inclusion:
 Have an easy way to decorate the C++ UI with resolution independent nice icons without the need
 for exporting them as PNG's for all the possible sizes, or without the need to go through
 Unreal's own asset pipeline in the editor.
+
 ## [Compile Time Regular Expression](https://compile-time.re)
 
 * Authors:
@@ -38,6 +39,17 @@ In compile time non-the less! Unreal's own included Regex library pales in compa
 Reason of inclusion:  
 Serialize/deserialize C++ enums in human readable form without the need to use UENUM macros and
 UAT generated headers.
+
+## [range-v3](https://ericniebler.github.io/range-v3/)
+
+* Authors:
+  * Eric Niebler (https://ericniebler.com)
+* License: Boost Software License 1.0 (https://github.com/ericniebler/range-v3/blob/master/LICENSE.txt)
+* [Source code](https://github.com/ericniebler/range-v3)
+
+Reason of inclusion:  
+To have a "nice" declarative way to handle views for Unreal containers
+
 ## [yaml-cpp](https://github.com/jbeder/yaml-cpp)
 
 * Authors:
@@ -47,6 +59,7 @@ UAT generated headers.
 
 Reason of inclusion:  
 A YAML parser and emitter in C++. Unreal Engine doesn't provide one.
+
 ## [Intel ISPC Tasksys](https://ispc.github.io)
 
 * Authors:

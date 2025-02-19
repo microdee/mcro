@@ -73,6 +73,7 @@ public interface IMcroLicenseRegion : INukeBuild
                 var authors = attribution.Authors.Select(a => "  * " + a).JoinNewLine();
                 var markdown =
                     $"""
+                    
                     ## [{attribution.Name}]({attribution.Project})
 
                     * Authors:

@@ -15,6 +15,107 @@ Here are some code appetizers without going too deep into their details. The dem
 
 *(symbols in source code are clickable!)*
 
+### Range-V3 for Unreal Containers
+
+In vanilla Unreal working with containers is an imperative endeavor where if we need to manipulate them intermediate steps are usually stored in other containers. MCRO on the other hand brings in lazy-evaluated declarative range manipulation via the great [Range-V3](https://github.com/ericniebler/range-v3) library.
+
+
+<div class="tabbed">
+
+<ul>
+
+<li>
+
+<b class="tab-title">Range-V3:</b>
+
+```Cpp
+#include "Mcro/CommonCore.h"
+using namespace Mcro::Common;
+using namespace ranges;
+
+enum class EFoobar { Foo, Bar };
+
+TArray<int32> myKeys {1, 2, 0, 0, -3, 3, 0, 4, 5};
+TSet<EFoobar> myValues {EFoobar::Foo, EFoobar::Bar};
+
+auto myMap = myKeys
+    | views::filter([](int32 key) { return key > 0; })
+    | views::transform([](int32 key) { return FString::FromInt(key); })
+    | Zip(myValues | views::cycle)
+    | RenderAsMap();
+
+// -> TMap<FString, EFoobar> { {"1", Foo}, {"2", Bar}, {"3", Foo}, {"4", Bar}, {"5", Foo} }
+```
+
+</li>
+
+<li>
+
+<b class="tab-title">Vanilla:</b>
+
+```Cpp
+//
+
+
+
+enum class EFoobar { Foo, Bar };
+
+TArray<int32> myKeys {1, 2, 0, 0, -3, 3, 0, 4, 5};
+TSet<EFoobar> myValues {EFoobar::Foo, EFoobar::Bar};
+
+TArray<int32> myKeysFiltered = myKeys.FilterByPredicate([](int32 key) { return key > 0; });
+TArray<FString> myKeyStrings;
+Algo::Transform(myKeysFiltered, myKeyStrings, [](int32 key) { return FString::FromInt(key); });
+
+TMap<FString, EFoobar> myMap;
+for (int i = 0; i < myKeyStrings.Num(); ++i)
+{
+    myMap.Add(myKeyStrings[i], myValues[i % myValues.Num()]);
+}
+
+// -> TMap<FString, EFoobar> { {"1", Foo}, {"2", Bar}, {"3", Foo}, {"4", Bar}, {"5", Foo} }
+```
+
+</li>
+
+</ul>
+
+</div>
+
+Notice how we didn't need to specify the TMap type, where both the key and value types were deduced from how the input ranges were manipulated before.
+
+Not yet impressed? No problem:
+
+```Cpp
+TArray<int32> mySetCopy;
+TArray<int32> myArray;
+
+// Prepare for some amount of elements, but it's optional at the cost of some performance
+myArray.SetNumUninitialized(6);
+
+// this here does nothing yet, as it's lazily evaluated, and in its current form, represents an infinite range
+auto squares = views::ints(0)
+    | views::transform([](int32 i) { return i*i; });
+
+auto mySet = squares
+    | views::take(5)       // <- so we don't have infinite loop when evaluating
+    | RenderAs<TSet>()     // <- the sequence of views is evaluated here
+    | OutputTo(mySetCopy); // <- duplicate in one go
+                           //    (this is also faster than RenderAs given the container is big enough)
+// mySet     -> TSet<int32>   {0, 1, 4, 9, 16}
+// mySetCopy -> TArray<int32> {0, 1, 4, 9, 16}
+
+squares
+    | views::take(6)    // <- take a different amount this time
+    | OutputTo(myArray) // <- the sequence of views is evaluated here again
+// myArray -> TArray<int32> {0, 1, 4, 9, 16, 25}
+
+```
+
+Notice how `RenderAs` could deduce the full type of `TSet` from its preceeding operations. This works with many Unreal container.
+
+This is just the very tip of the iceberg what this pattern of collection handling can introduce.
+
 ### Error handling
 
 An elegant workflow for dealing with code which can and probably will fail. It allows the developer to record the circumstances of an error, record its propagation accross components which are affected, add suggestions to the user or fellow developers for fixing the error, and display that with a modal Slate window, or print it into logs following a YAML structure.
@@ -367,6 +468,30 @@ As a personal opinion this is very rarely more readable than the trailing counte
 </div>
 
 Notice how `FMT` macros decide named vs. ordered arguments based on the argument listing syntax alone, and the developer doesn't have to type out if they want named or ordered formatting.
+
+#### Ranges as strings
+
+But wait there's more, remember ranges? They can be automatically converted to string as well:
+
+```Cpp
+using namespace ranges;
+enum class EFoo { Foo, Bar, Wee, Yo };
+
+TArray<EFoo> array = MyEnumList(); // imagine this function just lists all the entries in EFoo
+
+FString enumsA = TEXT_"A list of enums: {0}" _FMT(array);
+// -> "A list of enums: Foo, Bar, Wee, Yo"
+
+FString enumsB = TEXT_"Don't like commas? No problem: {0}" _FMT(
+    array | views::take(2) | SeparatedBy(TEXT_" and ")
+);
+// -> "Don't like commas? No problem: Foo and Bar"
+
+FString enumsC = TEXT_"Or just glued together: {0}" _FMT(
+    array | views::take(2) | SeparatedBy({})
+);
+// -> "Or just glued together: FooBar"
+```
 
 ### Delegate type inference
 
@@ -761,10 +886,6 @@ namespace Mcro::UObjects::Init
 }
 ```
 
-### Concepts
-
-There's a copy of the C++ 20 STL Concepts library in `Mcro::Concepts` namespace but with more Unreal friendly nameing. Also it adds some conveniance concepts, like `*Decayed` versions of type constraints, or some Unreal specific constraints like `CSharedRefOrPtr` or `CUObject`
-
 ### Extending the Slate declarative syntax
 
 `Mcro::Slate::AttributeAppend` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
@@ -877,7 +998,6 @@ export void MakeLookupUV(
 * [Text interop and conversion utilities](@ref Mcro/Text.h)
 * [Object binding and promises for `AsyncTask`](@ref Mcro/Threading.h)
 * [Bullet-proof third-party library include guards.](@ref Mcro/LibraryIncludes/Start.h)
-* Rudimentary rendering utilities
 * [In-place lambda initializers](@ref Mcro/Construct.h) for both [C++ objects](@ref Mcro::SharedObjects::ConstructShared) and [UObjects](@ref Mcro/UObjects/Init.h)
 * [RAII DLL loaders](@ref Mcro/Dll.h)
 * [`IObservableModule`](@ref Mcro/Modules.h)
