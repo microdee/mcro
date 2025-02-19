@@ -10,13 +10,15 @@
  */
 
 #include "CoreMinimal.h"
-#include "Mcro/Range.h"
+#include "Mcro/Common.h"
 #include "Containers/Deque.h"
 #include "Containers/LruCache.h"
 #include "Containers/PagedArray.h"
 #include "Containers/RingBuffer.h"
 
 using namespace Mcro::Range;
+
+static_assert(CRangeV3PairLike<ranges::common_pair<bool, bool>>);
 
 void Test()
 {
@@ -37,14 +39,24 @@ void Test()
 		| views::take(10)
 	);
 
-	views::ints(0, unreachable)
+	auto stuff = views::ints(0, unreachable)
 		| views::transform([](int a) { return a * a; })
-		| views::take(10);
+		| views::take(10)
+		| RenderAs<TArray>()
+		| OutputTo(arrayB)
+	;
+
+	auto stuff2 = views::ints(0, unreachable)
+		| views::transform([](int a) { return a * a; })
+		| views::take(10)
+		| SeparatedBy(TEXT_"\n")
+		| ToString()
+	;
 	
-	auto vi = views::for_each(
+	auto vi =  views::for_each(
 		views::ints(1, 6),
 		[](int i) { return yield_from(views::repeat_n(i, i)); }
-	) | to<std::vector>();
+	).begin<>();
 
 	TBitArray<> bitArrayA;
 	TBitArray<> bitArrayB;

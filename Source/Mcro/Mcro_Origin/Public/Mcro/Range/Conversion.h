@@ -29,13 +29,14 @@
 namespace Mcro::Range
 {
 	using namespace Mcro::Templates;
+	using namespace Mcro::Concepts;
 	
 	namespace Detail
 	{
 		template <CRangeMember Range>
-		struct TExplicitSeparator
+		struct TRangeStringConversion
 		{
-			TExplicitSeparator(Range const& range, const TCHAR* separator)
+			TRangeStringConversion(Range const& range, const TCHAR* separator)
 				: Storage(range)
 				, Separator(separator)
 			{}
@@ -67,23 +68,126 @@ namespace Mcro::Range
 	};
 
 	template <CRangeMember Range>
-	struct TContainerAsStringSeparator<Detail::TExplicitSeparator<Range>>
+	struct TContainerAsStringSeparator<Detail::TRangeStringConversion<Range>>
 	{
-		static FString Get(Detail::TExplicitSeparator<Range>&& from)
+		static FString Get(Detail::TRangeStringConversion<Range>&& from)
 		{
 			return from.GetSeparator();
 		}
 	};
 
 	/** @brief  Specify a separator sequence for a range when converting it to a string */
-	template <typename = void>
-	auto SeparatedBy(const TCHAR* separator)
+	FORCEINLINE auto SeparatedBy(const TCHAR* separator)
 	{
 		return ranges::make_pipeable([separator](auto&& range)
 		{
-			return Detail::TExplicitSeparator(range, separator);
+			return Detail::TRangeStringConversion(range, separator);
 		});
 	}
+
+	namespace Detail
+	{
+		template <typename CharType>
+		void CopyCharactersToBuffer(CharType const& value, int32 chunks, int32& position, TArray<CharType>& buffer)
+		{
+			if (buffer.Num() == position) buffer.AddZeroed(chunks);
+			buffer[position] = value;
+			++position;
+		}
+
+		template <CStringOrView String>
+		void CopyStringToBufferUnsafe(String const& value, int32& position, TArray<TCHAR>& buffer)
+		{
+			FMemory::Memcpy(buffer.GetData() + position, GetData(value), value.Len() * sizeof(TCHAR));
+			position += value.Len();
+		}
+
+		template <CStringOrView String>
+		void CopyStringItemToBuffer(String const& value, FString const& separator, int32 chunks, int32& position, TArray<TCHAR>& buffer)
+		{
+			int nextLength = value.Len() + separator.Len();
+				
+			if (buffer.Num() <= position + nextLength) buffer.AddZeroed(chunks);
+			if (!separator.IsEmpty())
+				CopyStringToBufferUnsafe(separator, position, buffer);
+			CopyStringToBufferUnsafe(value, position, buffer);
+		}
+	}
+
+	template <CRangeMember Range>
+	FString ToString(Range&& range)
+	{
+		using ElementType = TRangeElementType<Range>;
+		
+		if (IteratorEquals(range.begin(), range.end()))
+			return {};
+
+		constexpr int chunks = 16384;
+		int32 position = 0;
+		FString separator = TContainerAsStringSeparator<Range>::Get(range);
+
+		if constexpr (CCurrentChar<ElementType>)
+		{
+			TArray<TCHAR> buffer;
+			for (ElementType const& character : range)
+			{
+				Detail::CopyCharactersToBuffer(character, chunks, position, buffer);
+			}
+			return FString::ConstructFromPtrSize(buffer.GetData(), position);
+		}
+		else if constexpr (CChar<ElementType>)
+		{
+			TArray<ElementType> buffer;
+			for (ElementType const& character : range)
+			{
+				Detail::CopyCharactersToBuffer(character, chunks, position, buffer);
+			}
+			TStdStringView<ElementType> stringView(buffer.GetData(), position);
+			return UnrealConvert(stringView);
+		}
+		else if constexpr (CStringOrView<ElementType>)
+		{
+			TArray<TCHAR> buffer;
+			for (auto it = range.begin(); !IteratorEquals(it, range.end()); ++it)
+			{
+				ElementType const& value = *it;
+				bool isFirst = IteratorEquals(it, range.begin());
+				Detail::CopyStringItemToBuffer(value, isFirst ? FString() : separator, chunks, position, buffer);
+			}
+			return FString::ConstructFromPtrSize(buffer.GetData(), position);
+		}
+		else
+		{
+			TArray<TCHAR> buffer;
+			for (auto it = range.begin(); !IteratorEquals(it, range.end()); ++it)
+			{
+				ElementType const& value = *it;
+				FString valueString = AsString(value);
+				
+				bool isFirst = IteratorEquals(it, range.begin());
+				Detail::CopyStringItemToBuffer(valueString, isFirst ? FString() : separator, chunks, position, buffer);
+			}
+			return FString::ConstructFromPtrSize(buffer.GetData(), position);
+		}
+	}
+
+	FORCEINLINE auto ToString()
+	{
+		return ranges::make_pipeable([](auto&& range) { return ToString(range); });
+	}
+
+	template <CRangeMember Operand>
+	requires (
+		!CDirectStringFormatArgument<Operand>
+		&& !CHasToString<Operand>
+	)
+	struct TAsFormatArgument<Operand>
+	{
+		template <CConvertibleToDecayed<Operand> Arg>
+		FString operator () (Arg&& left) const { return ToString(left); }
+	};
+
+	
 	
 	/**
 	 *	@brief  Render a range as the given container.
@@ -230,36 +334,14 @@ namespace Mcro::Range
 	{
 		template <
 			CRangeMember From,
-			typename Value = TRangeElementType<From>,
-			typename MapType = TMap<TTupleElement<0, Value>, TTupleElement<1, Value>>
+			CTuple Value = TRangeElementType<From>,
+			typename MapType = TMap<TTypeAt<0, Value>, TTypeAt<1, Value>>
 		>
-		requires (TIsTuple_V<Value> && TTupleArity<Value>::Value >= 2)
+		requires (GetSize<Value>() >= 2)
 		static void Convert(From&& range, MapType& result)
 		{
 			for (Value const& value : range)
-				result.Add(value.template Get<0>(), value.template Get<1>());
-		}
-		
-		template <
-			CRangeMember From,
-			CStdPairLike Value = TRangeElementType<From>,
-			typename MapType = TMap<std::tuple_element_t<0, Value>, std::tuple_element_t<1, Value>>
-		>
-		static void Convert(From&& range, MapType& result)
-		{
-			for (Value const& value : range)
-				result.Add(std::get<0>(value), std::get<1>(value));
-		}
-		
-		template <
-			CRangeMember From,
-			CRangeV3PairLike Value = TRangeElementType<From>,
-			typename MapType = TMap<std::tuple_element_t<0, Value>, std::tuple_element_t<1, Value>>
-		>
-		static void Convert(From&& range, MapType& result)
-		{
-			for (Value const& value : range)
-				result.Add(ranges::get<0>(value), ranges::get<1>(value));
+				result.Add(GetItem<0>(value), GetItem<1>(value));
 		}
 		
 		template <
@@ -285,10 +367,10 @@ namespace Mcro::Range
 		
 		template <
 			CRangeMember From,
-			typename Value = TRangeElementType<From>,
-			typename MapType = TMap<TTupleElement<0, Value>, TTupleElement<1, Value>>
+			CTuple Value = TRangeElementType<From>,
+			typename MapType = TMap<TTypeAt<0, Value>, TTypeAt<1, Value>>
 		>
-		requires (TIsTuple_V<Value> && TTupleArity<Value>::Value >= 2)
+		requires (GetSize<Value>() >= 2)
 		MapType Convert(From&& range) const
 		{
 			MapType result;
