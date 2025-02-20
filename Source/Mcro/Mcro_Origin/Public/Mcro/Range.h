@@ -25,6 +25,52 @@
  *	Please consider the [potentials and pitfals](https://lukasfro.github.io/range-v3-doc/chapter_03/03_02_pitfalls.html)
  *	and the [tips & tricks](https://lukasfro.github.io/range-v3-doc/chapter_03/03_01_tips_tricks.html) when using
  *	range-v3 in your program.
+ *
+ *	@remarks
+ *	Fully supported Unreal containers:
+ *	- TArray
+ *	- TMap
+ *	- TMultiMap
+ *	- TSet
+ *	- FString (`TCHAR` array)
+ *	- TBasicArray
+ *	- TBitArray
+ *	- TChunkedArray
+ *	- TMRUArray
+ *	- TResourceArray
+ *	- TSparseArray
+ *	- TStaticArray
+ *	- TIndirectArray
+ *	- TRingBuffer
+ *	@remarks
+ *	Unreal containers where some iterator features may have low-performance emulation (can be restricted with a
+ *	preprocessor flag)
+ *	- TDeque
+ *	- TLruCache
+ *	- TPagedArray
+ *	- TSortedMap
+ *	
+ *	@warning
+ *	Unsupported containers (they're not iterable or other various issues)
+ *	- Most queue containers:
+ *	  - TQueue
+ *	  - TCircularQueue
+ *	  - TConsumeAllMpmcQueue
+ *	  - etc...
+ *	- TCircularBuffer
+ *	- TLinkedList
+ *	- TDoubleLinkedList
+ *	- TIntrusiveDoubleLinkedList
+ *	- TDiscardableKeyValueCache
+ *	- TStaticHashTable
+ *	- FHashTable
+ *	- TStaticBitArray
+ *	- TStridedView (use `ranges::views::stride`)
+ *	- TTripleBuffer
+ *	@warning
+ *	You may need to convert these to either a fully supported container, or write your own iterator for them. MCRO
+ *	provides `Mcro::Ranges::TExtendedIterator` which can automatically make a simple bare-minimum iterator into a fully
+ *	STL compliant one.
  */
 
 #include "CoreMinimal.h"
