@@ -33,12 +33,10 @@ namespace Mcro::Range
 
 	struct FRangeStringFormatOptions
 	{
-		FString Start { TEXT_"[" };
-		FString End { TEXT_"]" };
+		FString Start     { TEXT_"[" };
+		FString End       { TEXT_"]" };
 		FString Separator { TEXT_", " };
 	};
-
-	constexpr FRangeStringFormatOptions NoDecoratorFormatOptions = {{}, {}, {}};
 	
 	namespace Detail
 	{
@@ -58,29 +56,6 @@ namespace Mcro::Range
 			Range const& Storage;
 		};
 	}
-	
-	/**
-	 *	@brief
-	 *	Specialize this template to specify a default item separator sequence for a range type when converting it to a
-	 *	string.
-	 */
-	template <typename T>
-	struct TRangeStringFormatOptions
-	{
-		static FRangeStringFormatOptions Get(T&&)
-		{
-			return {};
-		}
-	};
-
-	template <CRangeMember Range>
-	struct TRangeStringFormatOptions<Detail::TRangeWithStringFormat<Range>>
-	{
-		static FRangeStringFormatOptions Get(Detail::TRangeWithStringFormat<Range>&& from)
-		{
-			return from.Options;
-		}
-	};
 
 	/** @brief Specify a separator sequence for a range when converting it to a string */
 	FORCEINLINE auto Separator(FString const& separator)
@@ -151,10 +126,10 @@ namespace Mcro::Range
 		{
 			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
 			{
-				range.Options = NoDecoratorFormatOptions;
+				range.Options = {{}, {}, {}};
 				return range;
 			}
-			else return Detail::TRangeWithStringFormat(range, NoDecoratorFormatOptions);
+			else return Detail::TRangeWithStringFormat(range, {{}, {}, {}});
 		});
 	}
 
@@ -210,7 +185,10 @@ namespace Mcro::Range
 
 		constexpr int chunks = 16384;
 		int32 position = 0;
-		FRangeStringFormatOptions rangeFormatOptions = TRangeStringFormatOptions<Range>::Get(range);
+		FRangeStringFormatOptions rangeFormatOptions;
+		
+		if constexpr (CIsTemplate<Range, Detail::TRangeWithStringFormat>)
+			rangeFormatOptions = range.Options;
 
 		if constexpr (CChar<ElementType>)
 		{

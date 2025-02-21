@@ -92,7 +92,7 @@ namespace Mcro::Tuples
 	;
 
 	template <typename T>
-	concept CUnrealTuple = TIsTuple_V<T>;
+	concept CUnrealTuple = TIsTuple_V<std::decay_t<T>>;
 
 	template <typename T>
 	concept CStdOrRangeV3Tuple = CStdTupleLike<T> || CRangeV3TupleLike<T>;

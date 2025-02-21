@@ -24,7 +24,7 @@ namespace Mcro::Text
 	struct TAsFormatArgument<Operand>
 	{
 		template <typename Tuple, size_t... Indices>
-		FString Render(Tuple const& tuple, std::index_sequence<Indices...>&&)
+		static FString Render(Tuple const& tuple, std::index_sequence<Indices...>&&)
 		{
 			auto body = Join(TEXT_", ", AsString(GetItem<Indices>(tuple))...);
 			return TEXT_"(" + body + TEXT_")";

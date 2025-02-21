@@ -307,12 +307,14 @@ namespace Mcro::Text
 
 	/** @brief A type which can be converted to FStringFormatArg via any method. */
 	template <typename T>
-	concept CStringFormatArgument = CDirectStringFormatArgument<T>
-		|| CHasToString<T>
-		|| CHasStringFormatArgumentConversion<T>
+	concept CStringFormatArgument =
+		CDirectStringFormatArgument<std::decay_t<T>>
+		|| CHasToString<std::decay_t<T>>
+		|| CHasStringFormatArgumentConversion<std::decay_t<T>>
 	;
 
 	template <CDirectStringFormatArgument Operand>
+	requires (!CEnum<Operand>)
 	struct TAsFormatArgument<Operand>
 	{
 		template <CConvertibleToDecayed<Operand> Arg>
@@ -355,7 +357,7 @@ namespace Mcro::Text
 	template <CStringFormatArgument T>
 	auto AsFormatArgument(T&& input)
 	{
-		return TAsFormatArgument<T>()(input);
+		return TAsFormatArgument<std::decay_t<T>>()(input);
 	}
 
 	/**

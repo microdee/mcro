@@ -77,7 +77,7 @@ namespace Mcro::Templates
 	 *	parameters even when a default is specified for them will result in compile error.
 	 */
 	template <typename T, template <typename...> typename Template>
-	concept CIsTemplate = TTemplate<Template>::template Match<T>;
+	concept CIsTemplate = TTemplate<Template>::template Match<std::decay_t<T>>;
 
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CConstType T>

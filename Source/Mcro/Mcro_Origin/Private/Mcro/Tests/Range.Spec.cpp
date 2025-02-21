@@ -72,25 +72,46 @@ void FMcroRange_Spec::Define()
 		{
 			TArray payload { NAME_"Foo", NAME_"Bar", NAME_"Asd" };
 			TestEqualSensitive(
-				TEXT_"Default output",
+				TEXT_"Default decorated",
 				payload | RenderAsString(),
 				TEXT_"[Foo, Bar, Asd]"
 			);
+			
 			TestEqualSensitive(
-				TEXT_"Separated by nothing",
-				payload | Separator({}) | Enclosure({}, {}) | RenderAsString(),
+				TEXT_"Decorated with nothing",
+				payload | NoDecorators() | RenderAsString(),
 				TEXT_"FooBarAsd"
 			);
+			
 			TestEqualSensitive(
-				TEXT_"Separated by something",
-				payload | Separator(TEXT_" and ") | RenderAsString(),
-				TEXT_"Foo and Bar and Asd"
+				TEXT_"Combining Decorators",
+				payload
+					| Separator(TEXT_" and ")
+					| Enclosure(TEXT_"!", TEXT_"?")
+					| RenderAsString(),
+				TEXT_"!Foo and Bar and Asd?"
 			);
+			
 			TestEqualSensitive(
 				TEXT_"Via FMT macro",
-				TEXT_"stuff: {0}" _FMT(payload | Separator({})),
+				TEXT_"stuff: {0}" _FMT(payload | NoDecorators()),
 				TEXT_"stuff: FooBarAsd"
-				
+			);
+		});
+		It(TEXT_"TMap", [this]
+		{
+			TMap<EPixelFormat, FName> payload
+			{
+				{PF_R8G8, NAME_"Ech"},
+				{PF_DXT1, NAME_"OK"},
+				{PF_DXT3, NAME_"Nice"},
+				{PF_DXT5, NAME_"Great"}
+			};
+
+			TestEqualSensitive(
+				TEXT_"Correctly handle tuples",
+				payload | NoEnclosure() | RenderAsString(),
+				TEXT_"(PF_R8G8, Ech), (PF_DXT1, OK), (PF_DXT3, Nice), (PF_DXT5, Great)"
 			);
 		});
 	});
