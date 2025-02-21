@@ -66,10 +66,17 @@ namespace Mcro::Tuples
 	constexpr bool TIsRangeV3Pair<ranges::common_pair<Args...>> = true;
 
 	template <typename T>
-	concept CStdTupleLike = TIsStdTuple<T> || TIsStdPair<T> || TIsStdArray<T> || TIsStdSubRange<T>;
+	concept CStdTupleLike =
+		TIsStdTuple<std::decay_t<T>>
+		|| TIsStdPair<std::decay_t<T>>
+		|| TIsStdArray<std::decay_t<T>>
+		|| TIsStdSubRange<std::decay_t<T>>;
 
 	template <typename T>
-	concept CRangeV3TupleLike = TIsRangeV3Tuple<T> || TIsRangeV3Pair<T> || TIsRangeV3SubRange<T>;
+	concept CRangeV3TupleLike =
+		TIsRangeV3Tuple<std::decay_t<T>>
+		|| TIsRangeV3Pair<std::decay_t<T>>
+		|| TIsRangeV3SubRange<std::decay_t<T>>;
 
 	template <typename T>
 	concept CStdPairLike = CStdTupleLike<T> && std::tuple_size_v<std::remove_cvref_t<T>> == 2;
@@ -143,6 +150,9 @@ namespace Mcro::Tuples
 
 	template <size_t I, CTuple T>
 	using TTypeAt = typename TTypeAt_Struct<I, T>::Type;
+
+	template <size_t I, CTuple T>
+	using TTypeAtDecayed = std::decay_t<typename TTypeAt_Struct<I, T>::Type>;
 
 	// TODO: Make these templates compatible with STL and Range-V3 tuples as well
 	

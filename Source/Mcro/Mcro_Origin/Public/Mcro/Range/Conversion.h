@@ -30,25 +30,32 @@ namespace Mcro::Range
 {
 	using namespace Mcro::Templates;
 	using namespace Mcro::Concepts;
+
+	struct FRangeStringFormatOptions
+	{
+		FString Start { TEXT_"[" };
+		FString End { TEXT_"]" };
+		FString Separator { TEXT_", " };
+	};
+
+	constexpr FRangeStringFormatOptions NoDecoratorFormatOptions = {{}, {}, {}};
 	
 	namespace Detail
 	{
 		template <CRangeMember Range>
-		struct TRangeStringConversion
+		struct TRangeWithStringFormat
 		{
-			TRangeStringConversion(Range const& range, const TCHAR* separator)
+			TRangeWithStringFormat(Range const& range, FRangeStringFormatOptions const& options)
 				: Storage(range)
-				, Separator(separator)
+				, Options(options)
 			{}
 			
 			auto begin() const { return Storage.begin(); }
 			auto end() const { return Storage.end(); }
-
-			FString GetSeparator() const { return Separator; }
 			
+			FRangeStringFormatOptions Options;
 		private:
 			Range const& Storage;
-			FString Separator;
 		};
 	}
 	
@@ -58,29 +65,96 @@ namespace Mcro::Range
 	 *	string.
 	 */
 	template <typename T>
-	struct TContainerAsStringSeparator
+	struct TRangeStringFormatOptions
 	{
-		static FString Get(T&&)
+		static FRangeStringFormatOptions Get(T&&)
 		{
-			return TEXT_", ";
+			return {};
 		}
 	};
 
 	template <CRangeMember Range>
-	struct TContainerAsStringSeparator<Detail::TRangeStringConversion<Range>>
+	struct TRangeStringFormatOptions<Detail::TRangeWithStringFormat<Range>>
 	{
-		static FString Get(Detail::TRangeStringConversion<Range>&& from)
+		static FRangeStringFormatOptions Get(Detail::TRangeWithStringFormat<Range>&& from)
 		{
-			return from.GetSeparator();
+			return from.Options;
 		}
 	};
 
-	/** @brief  Specify a separator sequence for a range when converting it to a string */
-	FORCEINLINE auto SeparatedBy(const TCHAR* separator)
+	/** @brief Specify a separator sequence for a range when converting it to a string */
+	FORCEINLINE auto Separator(FString const& separator)
 	{
-		return ranges::make_pipeable([separator](auto&& range)
+		return ranges::make_pipeable([separator] <CRangeMember Input> (Input&& range)
 		{
-			return Detail::TRangeStringConversion(range, separator);
+			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			{
+				range.Options.Separator = separator;
+				return range;
+			}
+			else return Detail::TRangeWithStringFormat(range, {.Separator = separator});
+		});
+	}
+
+	/** @brief Specify a start and an end sequence enclosing this range when converting it to a string */
+	FORCEINLINE auto Enclosure(FString const& start, FString const& end)
+	{
+		return ranges::make_pipeable([=] <CRangeMember Input> (Input&& range)
+		{
+			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			{
+				range.Options.Start = start;
+				range.Options.End = end;
+				return range;
+			}
+			else return Detail::TRangeWithStringFormat(range, {.Start = start, .End = end});
+		});
+	};
+
+	/** @brief Don't use a separator when this range is rendered to a string */
+	FORCEINLINE auto NoSeparator()
+	{
+		return ranges::make_pipeable([] <CRangeMember Input> (Input&& range)
+		{
+			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			{
+				range.Options.Separator = {};
+				return range;
+			}
+			else return Detail::TRangeWithStringFormat(range, {.Separator = {}});
+		});
+	}
+
+	/** @brief Don't enclose this range in anything when it's rendered to a string */
+	FORCEINLINE auto NoEnclosure()
+	{
+		return ranges::make_pipeable([] <CRangeMember Input> (Input&& range)
+		{
+			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			{
+				range.Options.Start = {};
+				range.Options.End = {};
+				return range;
+			}
+			else return Detail::TRangeWithStringFormat(range, {.Start = {}, .End = {}});
+		});
+	}
+
+	/**
+	 *	@brief
+	 *	Don't insert anything else than the contents of the input range when that is rendered as a string just append
+	 *	each item one after the other.
+	 */
+	FORCEINLINE auto NoDecorators()
+	{
+		return ranges::make_pipeable([] <CRangeMember Input> (Input&& range)
+		{
+			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			{
+				range.Options = NoDecoratorFormatOptions;
+				return range;
+			}
+			else return Detail::TRangeWithStringFormat(range, NoDecoratorFormatOptions);
 		});
 	}
 
@@ -113,8 +187,21 @@ namespace Mcro::Range
 		}
 	}
 
+	/**
+	 *	@brief  Render an input range as a string.
+	 *
+	 *	For ranges of any char type, the output is an uninterrupted string of them. Other char types than TCHAR will
+	 *	be converted to the encoding of the current TCHAR.
+	 *
+	 *	For ranges of strings and string-views individual items will be directly copy-appended to the output separated
+	 *	by `, ` (unless another separator sequence is set via `Separator`)
+	 *
+	 *	For anything else, `Mcro::Text::AsString` is used. In fact this function serves as the basis for `AsString` for
+	 *	any range type. Like for strings, any other type is separated by `, ` (unless another separator sequence is set
+	 *	via `Separator`). For convenience a piped version is also provided of this function.
+	 */
 	template <CRangeMember Range>
-	FString ToString(Range&& range)
+	FString RenderAsString(Range&& range)
 	{
 		using ElementType = TRangeElementType<Range>;
 		
@@ -123,26 +210,21 @@ namespace Mcro::Range
 
 		constexpr int chunks = 16384;
 		int32 position = 0;
-		FString separator = TContainerAsStringSeparator<Range>::Get(range);
+		FRangeStringFormatOptions rangeFormatOptions = TRangeStringFormatOptions<Range>::Get(range);
 
-		if constexpr (CCurrentChar<ElementType>)
-		{
-			TArray<TCHAR> buffer;
-			for (ElementType const& character : range)
-			{
-				Detail::CopyCharactersToBuffer(character, chunks, position, buffer);
-			}
-			return FString::ConstructFromPtrSize(buffer.GetData(), position);
-		}
-		else if constexpr (CChar<ElementType>)
+		if constexpr (CChar<ElementType>)
 		{
 			TArray<ElementType> buffer;
 			for (ElementType const& character : range)
-			{
 				Detail::CopyCharactersToBuffer(character, chunks, position, buffer);
+			
+			if constexpr (CCurrentChar<ElementType>)
+				return FString::ConstructFromPtrSize(buffer.GetData(), position);
+			else
+			{
+				TStdStringView<ElementType> stringView(buffer.GetData(), position);
+				return UnrealConvert(stringView);
 			}
-			TStdStringView<ElementType> stringView(buffer.GetData(), position);
-			return UnrealConvert(stringView);
 		}
 		else if constexpr (CStringOrView<ElementType>)
 		{
@@ -151,9 +233,15 @@ namespace Mcro::Range
 			{
 				ElementType const& value = *it;
 				bool isFirst = IteratorEquals(it, range.begin());
-				Detail::CopyStringItemToBuffer(value, isFirst ? FString() : separator, chunks, position, buffer);
+				Detail::CopyStringItemToBuffer(
+					value,
+					isFirst ? FString() : rangeFormatOptions.Separator,
+					chunks,
+					position, buffer
+				);
 			}
-			return FString::ConstructFromPtrSize(buffer.GetData(), position);
+			FString output = FString::ConstructFromPtrSize(buffer.GetData(), position);
+			return rangeFormatOptions.Start + output + rangeFormatOptions.End;
 		}
 		else
 		{
@@ -162,31 +250,24 @@ namespace Mcro::Range
 			{
 				ElementType const& value = *it;
 				FString valueString = AsString(value);
-				
+
 				bool isFirst = IteratorEquals(it, range.begin());
-				Detail::CopyStringItemToBuffer(valueString, isFirst ? FString() : separator, chunks, position, buffer);
+				Detail::CopyStringItemToBuffer(
+					valueString,
+					isFirst ? FString() : rangeFormatOptions.Separator,
+					chunks,
+					position, buffer
+				);
 			}
-			return FString::ConstructFromPtrSize(buffer.GetData(), position);
+			FString output = FString::ConstructFromPtrSize(buffer.GetData(), position);
+			return rangeFormatOptions.Start + output + rangeFormatOptions.End;
 		}
 	}
 
-	FORCEINLINE auto ToString()
+	FORCEINLINE auto RenderAsString()
 	{
-		return ranges::make_pipeable([](auto&& range) { return ToString(range); });
+		return ranges::make_pipeable([](auto&& range) { return RenderAsString(range); });
 	}
-
-	template <CRangeMember Operand>
-	requires (
-		!CDirectStringFormatArgument<Operand>
-		&& !CHasToString<Operand>
-	)
-	struct TAsFormatArgument<Operand>
-	{
-		template <CConvertibleToDecayed<Operand> Arg>
-		FString operator () (Arg&& left) const { return ToString(left); }
-	};
-
-	
 	
 	/**
 	 *	@brief  Render a range as the given container.
@@ -334,7 +415,7 @@ namespace Mcro::Range
 		template <
 			CRangeMember From,
 			CTuple Value = TRangeElementType<From>,
-			typename MapType = TMap<TTypeAt<0, Value>, TTypeAt<1, Value>>
+			typename MapType = TMap<TTypeAtDecayed<0, Value>, TTypeAtDecayed<1, Value>>
 		>
 		requires (GetSize<Value>() >= 2)
 		static void Convert(From&& range, MapType& result)
@@ -367,7 +448,7 @@ namespace Mcro::Range
 		template <
 			CRangeMember From,
 			CTuple Value = TRangeElementType<From>,
-			typename MapType = TMap<TTypeAt<0, Value>, TTypeAt<1, Value>>
+			typename MapType = TMap<TTypeAtDecayed<0, Value>, TTypeAtDecayed<1, Value>>
 		>
 		requires (GetSize<Value>() >= 2)
 		MapType Convert(From&& range) const
@@ -463,6 +544,20 @@ namespace Mcro::Range
 			return functor.Storage;
 		}
 	};
+}
 
+namespace Mcro::Text
+{
+	using namespace Mcro::Range;
 	
+	template <CRangeMember Operand>
+	requires (
+		!CDirectStringFormatArgument<Operand>
+		&& !CHasToString<Operand>
+	)
+	struct TAsFormatArgument<Operand>
+	{
+		template <CConvertibleToDecayed<Operand> Arg>
+		FString operator () (Arg&& left) const { return RenderAsString(left); }
+	};
 }

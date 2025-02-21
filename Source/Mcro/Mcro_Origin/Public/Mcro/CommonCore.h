@@ -40,6 +40,7 @@
 #include "Mcro/FmtMacros.h"
 #include "Mcro/Range.h"
 #include "Mcro/Range/Conversion.h"
+#include "Mcro/Range/Views.h"
 #include "Mcro/Zero.h"
 
 /** @brief Use this namespace for the minimal utilities MCRO has to offer */

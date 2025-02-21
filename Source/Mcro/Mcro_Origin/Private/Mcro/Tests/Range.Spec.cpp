@@ -16,9 +16,86 @@
 #include "Containers/PagedArray.h"
 #include "Containers/RingBuffer.h"
 
-using namespace Mcro::Range;
+using namespace Mcro::Common;
+using namespace ranges;
 
-static_assert(CRangeV3PairLike<ranges::common_pair<bool, bool>>);
+DEFINE_SPEC(
+	FMcroRange_Spec,
+	TEXT_"Mcro.Range",
+	EAutomationTestFlags_ApplicationContextMask
+	| EAutomationTestFlags::CriticalPriority
+	| EAutomationTestFlags::ProductFilter
+);
+
+void FMcroRange_Spec::Define()
+{
+	Describe(TEXT_"Range-V3 should support Unreal container", [this]
+	{
+		It(TEXT_"TArray", [this]
+		{
+			TArray containerA {0, 1, 2, 3, 4};
+			TArray containerB {5, 6, 7, 8, 9};
+
+			TestTrue(
+				TEXT_"Matches concat",
+				containerA | Concat(containerB) | MatchOrdered(views::ints(0, 10))
+			);
+		});
+		
+		It(TEXT_"TSet", [this]
+		{
+			TSet containerA {0, 1, 2, 3, 4};
+			TSet containerB {5, 6, 7, 8, 9};
+			auto result = containerA | Concat(containerB) | RenderAs<TSet>();
+			TestTrue(
+				TEXT_"Matches concat",
+				views::ints(0, 10) | AllOf([&](int32 i)
+				{
+					return result.Contains(i);
+				})
+			);
+		});
+		
+		It(TEXT_"TMap", [this]
+		{
+			TArray containerA {0, 1, 2, 3, 4};
+			TArray containerB {5, 6, 7, 8, 9};
+			auto result = containerA | Zip(containerB) | RenderAsMap();
+			for (int i = 0; i < 5; ++i)
+				TestEqual(TEXT_"Map got zipped", result[i], i + 5);
+		});
+	});
+
+	Describe(TEXT_"Serialize ranges to string", [this]
+	{
+		It(TEXT_"Simple array", [this]
+		{
+			TArray payload { NAME_"Foo", NAME_"Bar", NAME_"Asd" };
+			TestEqualSensitive(
+				TEXT_"Default output",
+				payload | RenderAsString(),
+				TEXT_"[Foo, Bar, Asd]"
+			);
+			TestEqualSensitive(
+				TEXT_"Separated by nothing",
+				payload | Separator({}) | Enclosure({}, {}) | RenderAsString(),
+				TEXT_"FooBarAsd"
+			);
+			TestEqualSensitive(
+				TEXT_"Separated by something",
+				payload | Separator(TEXT_" and ") | RenderAsString(),
+				TEXT_"Foo and Bar and Asd"
+			);
+			TestEqualSensitive(
+				TEXT_"Via FMT macro",
+				TEXT_"stuff: {0}" _FMT(payload | Separator({})),
+				TEXT_"stuff: FooBarAsd"
+				
+			);
+		});
+	});
+}
+
 
 void Test()
 {
@@ -30,7 +107,7 @@ void Test()
 	[](auto&&){} (ranges::end(setA));
 	[](auto&&){} (views::concat(setA, setB) | views::take(10));
 
-	TArray<int32> arrayA;
+	TArray<int32> arrayA;	
 	TArray<int32> arrayB;
 	[](auto&&){} (ranges::begin(arrayA));
 	[](auto&&){} (ranges::end(arrayA));
@@ -49,14 +126,16 @@ void Test()
 	auto stuff2 = views::ints(0, unreachable)
 		| views::transform([](int a) { return a * a; })
 		| views::take(10)
-		| SeparatedBy(TEXT_"\n")
-		| ToString()
+		| Separator(TEXT_"\n")
+		| RenderAsString()
 	;
 	
-	auto vi =  views::for_each(
+	auto vi = views::for_each(
 		views::ints(1, 6),
 		[](int i) { return yield_from(views::repeat_n(i, i)); }
-	).begin<>();
+	);
+
+	static_assert(CRangeMember<decltype(vi)>);
 
 	TBitArray<> bitArrayA;
 	TBitArray<> bitArrayB;
@@ -100,7 +179,6 @@ void Test()
 	[](auto&&){} (ranges::begin(sortedMapA));
 	[](auto&&){} (ranges::end(sortedMapA));
 	[](auto&&){} (views::concat(sortedMapA, sortedMapB) | views::take(10));
-	auto d = ::end(sortedMapA) - ::begin(sortedMapA);
 	
 	TRingBuffer<int32> ringBufferA;
 	TRingBuffer<int32> ringBufferB;

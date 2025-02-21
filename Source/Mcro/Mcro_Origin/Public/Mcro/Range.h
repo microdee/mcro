@@ -33,6 +33,7 @@
  *	- TMultiMap
  *	- TSet
  *	- FString (`TCHAR` array)
+ *	- TStringView (given char-type)
  *	- TBasicArray
  *	- TBitArray
  *	- TChunkedArray
@@ -83,10 +84,6 @@
 #include "Containers/RingBuffer.h"
 
 #include "Mcro/Range/Iterators.h"
-
-#include "Mcro/LibraryIncludes/Start.h"
-#include "range/v3/all.hpp"
-#include "Mcro/LibraryIncludes/End.h"
 
 /** @brief Bring modern declarative range operations like views and actions to the Unreal C++ arsenal */
 
