@@ -4,7 +4,7 @@
 
 <img src="proto-logo-0.webp" width=400 />
 
-A C++23 utility proto-plugin for Unreal Engine, for a more civilized age.
+A C++23 utilities Unreal Engine proto-plugin, for a more civilized age.
 
 </div>
 
@@ -902,11 +902,11 @@ namespace Mcro::UObjects::Init
 
 ### Extending the Slate declarative syntax
 
-`Mcro::Slate::AttributeAppend` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
+`TAttributeBlock` adds the `/` operator to be used in Slate UI declarations, which can work with functions describing a common block of attributes for given widget.
 
 ```Cpp
 #include "Mcro/Common";
-using namespace Mcro::Common::With::AttributeAppend;
+using namespace Mcro::Common;
 
 // Define a reusable block of attributes
 auto Text(FString const& text) -> TAttributeBlock<STextBlock>
@@ -951,7 +951,7 @@ auto ExpandableText(
 }
 ```
 
-Or add slots right in the Slate declarative syntax derived from an input array:
+Or add slots right in the Slate declarative syntax derived from an input range:
 
 ```Cpp
 // This is just a convenience function so we don't repeat ourselves
