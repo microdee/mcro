@@ -20,7 +20,6 @@ namespace Mcro::Error
 	void SPlainTextDisplay::Construct(const FArguments& inArgs)
 	{
 		using namespace Mcro::Slate;
-		using namespace AttributeAppend;
 		ChildSlot
 		[
 			SNew(SEditableTextBox)

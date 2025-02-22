@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/FunctionTraits.h"
+#include "Mcro/Range/Iterators.h"
 
 /**
  *	@brief
@@ -79,84 +80,76 @@ namespace Mcro::Slate
 
 	/**
 	 *	@brief
-	 *	Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and returns the
+	 *	An attribute block functor which takes in reference of FArguments or FSlotArguments and returns the
+	 *	same reference but presumably setting some Slate attributes before that. This is useful for modularizing the
+	 *	Slate declarative syntax.
+	 *
+	 *	Use `TAttributeBlock` alias for your functions for better convenience
+	 */
+	template <CWidgetOrSlotArguments T>
+	struct TAttributeBlockFunctor
+	{
+		using Function = TFunction<T&(T&)>;
+
+		template <CConvertibleToDecayed<Function> Arg>
+		TAttributeBlockFunctor(Arg&& function) : Storage(Forward<Arg>(function)) {}
+
+		Function Storage;
+
+		T& operator () (T& args) const
+		{
+			return Storage(args);
+		}
+		
+		/**
+		 *	@brief
+		 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit
+		 *	inside the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either
+		 *	explicit mutations on widgets after they were created or as entirely separate compound widgets. Either way
+		 *	breaks the flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims
+		 *	to make widget composition more comfortable.
+		 *	
+		 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
+		 *	@param   args        r-value reference right hand side FArguments or FSlotArguments
+		 *	@param   attributes  An attribute block function
+		 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
+		 */
+		friend T& operator / (TIdentity_T<T>&& args, TAttributeBlockFunctor const& attributes)
+		{
+			return attributes(args);
+		}
+		
+		/**
+		 *	@brief
+		 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit
+		 *	inside the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either
+		 *	explicit mutations on widgets after they were created or as entirely separate compound widgets. Either way
+		 *	breaks the flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims
+		 *	to make widget composition more comfortable.
+		 *	
+		 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
+		 *	@param   args        l-value reference right hand side FArguments or FSlotArguments
+		 *	@param   attributes  An attribute block function
+		 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
+		 */
+		friend T& operator / (T& args, TAttributeBlockFunctor const& attributes)
+		{
+			return attributes(args);
+		}
+	};
+
+	/**
+	 *	@brief
+	 *	An attribute block functor which takes in reference of FArguments or FSlotArguments and returns the
 	 *	same reference but presumably setting some Slate attributes before that. This is useful for modularizing the
 	 *	Slate declarative syntax.
 	 */
 	template <CWidgetOrSlot T>
-	using TAttributeBlock = TFunction<TArgumentsOf<T>&(TArgumentsOf<T>&)>;
+	using TAttributeBlock = TAttributeBlockFunctor<TArgumentsOf<T>>;
 
 	/** @brief An attribute block which does nothing */
 	template <CWidgetOrSlot T>
 	TAttributeBlock<T> InertAttributeBlock = [](TArgumentsOf<T>& args) -> auto& { return args; };
-
-	/**
-	 *	@brief
-	 *	Attribute block appending operator is keen to getting selected when it shouldn't be, this is why it's in its own
-	 *	explicit namespace.
-	 *
-	 *	This an issue being actively investigated
-	 */
-	namespace AttributeAppend
-	{
-		
-	/**
-	 *	@brief
-	 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit inside
-	 *	the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit
-	 *	mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the
-	 *	flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget
-	 *	composition more comfortable.
-	 *
-	 *	@todo
-	 *	This template is being instantiated for invalid cases even when valid cases are present in global scope. This is
-	 *	most probably because of ADL and may need API redesign to mitigate it.
-	 *	
-	 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
-	 *	@tparam  AttrBlock   The type of the attribute block function
-	 *	@param   args        l-value reference right hand side FArguments or FSlotArguments
-	 *	@param   attributes  An attribute block function
-	 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
-	 */
-	template <CWidgetOrSlotArguments Arguments, CFunctionLike AttrBlock>
-	requires (
-		TFunction_ArgCount<AttrBlock> == 1
-		&& CSameAs<Arguments&, TFunction_Arg<AttrBlock, 0>>
-	)
-	TFunction_Return<AttrBlock> operator / (Arguments& args, const AttrBlock& attributes)
-	{
-		return attributes(args);
-	}
-
-	/**
-	 *	@brief
-	 *	The "append attribute block" operator which allows pre-defined "blocks of slate attributes" naturally fit inside
-	 *	the Slate declarative syntax. Traditionally repeated structures in Slate were expressed as either explicit
-	 *	mutations on widgets after they were created or as entirely separate compound widgets. Either way breaks the
-	 *	flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims to make widget
-	 *	composition more comfortable.
-	 *
-	 *	@todo
-	 *	This template is being instantiated for invalid cases even when valid cases are present in global scope. This is
-	 *	most probably because of ADL and may need API redesign to mitigate it.
-	 *	
-	 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
-	 *	@tparam  AttrBlock   The type of the attribute block function
-	 *	@param   args        r-value reference right hand side FArguments or FSlotArguments
-	 *	@param   attributes  An attribute block function
-	 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
-	 */
-	template <CWidgetOrSlotArguments Arguments, CFunctionLike AttrBlock>
-	requires (
-		TFunction_ArgCount<AttrBlock> == 1
-		&& CSameAs<Arguments&, TFunction_Arg<AttrBlock, 0>>
-	)
-	TFunction_Return<AttrBlock> operator / (Arguments&& args, const AttrBlock& attributes)
-	{
-		return attributes(args);
-	}
-	
-	}
 
 	/**
 	 *	@brief  Add multiple slots at the same time with the declarative syntax derived from an input data array.
@@ -195,7 +188,7 @@ namespace Mcro::Slate
 		CRangeMember Range,
 		CFunctionLike Transform,
 		CFunctionLike OnEmpty = TUniqueFunction<TFunction_Return<Transform>()>,
-		CSlotArguments SlotArguments = TFunction_Return<Transform>
+		CSlotArguments = TFunction_Return<Transform>
 	>
 	requires (TFunction_ArgCount<Transform> == 1)
 	struct TSlots
@@ -208,9 +201,9 @@ namespace Mcro::Slate
 
 		TSlots(const TSlots&) = delete;
 		TSlots(TSlots&& o) noexcept
-			: RangeRef(o.RangeRef),
-			  TransformStorage(MoveTemp(o.TransformStorage)),
-			  OnEmptyStorage(MoveTemp(o.OnEmptyStorage))
+			: RangeRef(o.RangeRef)
+			, TransformStorage(MoveTemp(o.TransformStorage))
+			, OnEmptyStorage(MoveTemp(o.OnEmptyStorage))
 		{
 		}
 
@@ -228,14 +221,23 @@ namespace Mcro::Slate
 		template <CWidgetArguments Arguments>
 		void Append(Arguments& args)
 		{
-			if (RangeRef.begin() == RangeRef.end() && OnEmptyStorage.IsSet())
+			using namespace Mcro::Range;
+			if (IteratorEquals(RangeRef.begin(), RangeRef.end()) && OnEmptyStorage.IsSet())
 			{
 				args + OnEmptyStorage.GetValue()();
 				return;
 			}
 
-			for (auto it = RangeRef.begin(); it != RangeRef.end(); ++it)
+			for (auto it = RangeRef.begin(); !IteratorEquals(it, RangeRef.end()); ++it)
 				args + TransformStorage(*it);
+		}
+
+		/** @copydoc TSlots */
+		template <CWidgetArguments Arguments>
+		friend Arguments& operator + (Arguments& args, TSlots&& slots)
+		{
+			slots.Append(args);
+			return args;
 		}
 
 	private:
@@ -243,20 +245,6 @@ namespace Mcro::Slate
 		Transform TransformStorage;
 		TOptional<OnEmpty> OnEmptyStorage;
 	};
-
-	/** @copydoc TSlots */
-	template <
-		CRangeMember Range,
-		CFunctionLike Transform,
-		CFunctionLike OnEmpty,
-		CSlotArguments SlotArguments,
-		CWidgetArguments Arguments
-	>
-	Arguments& operator + (Arguments& args, TSlots<Range, Transform, OnEmpty, SlotArguments>&& slots)
-	{
-		slots.Append(args);
-		return args;
-	}
 
 	/** @brief Convenience function for typing less when widget visibility depends on a boolean */
 	MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState = EVisibility::Collapsed);

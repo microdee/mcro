@@ -25,8 +25,7 @@ namespace Mcro::Error
 
 	TSharedRef<SErrorDisplay> FCppException::CreateErrorWidget()
 	{
-		using namespace Slate;
-		using namespace Slate::AttributeAppend;
+		using namespace Mcro::Slate;
 		
 		return SNew(SErrorDisplay)
 			. Error(SharedThis(this))
