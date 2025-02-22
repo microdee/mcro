@@ -20,7 +20,6 @@
 
 #include "CoreMinimal.h"
 #include "UnrealCtre.h"
-#include "Mcro/Text.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/Platform.h"
 
@@ -54,10 +53,10 @@
  *	@return  string view of the name of the type
  */
 template <typename T>
-consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()
+consteval std::basic_string_view<TCHAR> GetCompileTimeTypeName()
 {
 	using namespace Mcro::Text;
-	FStdStringView thisFunctionName { TEXT(PRETTY_FUNC) };
+	std::basic_string_view<TCHAR> thisFunctionName { TEXT(PRETTY_FUNC) };
 	
 #if MCRO_COMPILER_GCC || MCRO_COMPILER_CLANG
 	
@@ -86,11 +85,11 @@ consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()
 	auto result = ctre::search<TEXT(MCRO_EXPLICIT_TYPE_EXTRACT_REGEX)>(thisFunctionName);
 #endif
 	
-	FStdStringView output = result.get<TEXT_"TYPE">().to_view();
+	std::basic_string_view<TCHAR> output = result.get<TEXT_"TYPE">().to_view();
 	size_t size = output.size();
 	size /= output.size() > 0; // Fail compilation with division-by-zero if we couldn't extract a typename
 	
-	return size ? output : FStdStringView();
+	return size ? output : std::basic_string_view<TCHAR>();
 }
 
 /** Convert types to string */
@@ -150,7 +149,7 @@ namespace Mcro::TypeName
 
 	/** @see TTypeName */
 	template <typename T>
-	constexpr FStdStringView TTypeNameStd = GetCompileTimeTypeName<std::decay_t<T>>();
+	constexpr std::basic_string_view<TCHAR> TTypeNameStd = GetCompileTimeTypeName<std::decay_t<T>>();
 
 	/** @see TTypeName */
 	template <typename T>

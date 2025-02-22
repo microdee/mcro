@@ -19,6 +19,7 @@
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Observable.Fwd.h"
 #include "Mcro/TextMacros.h"
+#include "Mcro/Text.h"
 #include "Mcro/Delegates/EventDelegate.h"
 
 #include "Mcro/LibraryIncludes/Start.h"

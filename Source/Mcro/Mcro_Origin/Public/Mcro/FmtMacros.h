@@ -119,9 +119,9 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	- Enums where their entries are serialized as human-readable names
  *
  *	@remarks
- *	To add more supported types overload the `%` operator between your preferred type and `FStringFormatTag`
- *	and return a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example
- *	check `Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
+ *	To add more supported types specialize the `TAsFormatArgument` template functor for your preferred type and return
+ *	a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example check
+ *	`Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
  *	method to get automatic support.
  *
  *	@warning
@@ -169,9 +169,9 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	- Enums where their entries are serialized as human-readable names
  *	
  *	@remarks
- *	To add more supported types overload the `%` operator between your preferred type and `FStringFormatTag`
- *	and return a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example
- *	check `Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
+ *	To add more supported types specialize the `TAsFormatArgument` template functor for your preferred type and return
+ *	a value which is implicitly convertible to `FStringFormatArg` in the `Mcro::Text` namespace. For example check
+ *	`Enums.h` to see how that's done with enums. For your own types you can also implement a `ToString()` member
  *	method to get automatic support.
  *
  *	@warning

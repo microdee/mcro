@@ -34,6 +34,7 @@ public class Mcro_Origin : ModuleRules
 			"Ctre_Origin",
 			"MagicEnum_Origin",
 			"YamlCpp_Origin",
+			"RangeV3_Origin"
 		});
 			
 		

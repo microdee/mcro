@@ -231,18 +231,37 @@ namespace Mcro::Concepts
 	//// String/Text concepts
 
 	template<typename T>
-	concept CCharPtr = CSameAs<std::remove_const_t<T>, TCHAR*>;
+	concept CCurrentChar = CSameAs<std::decay_t<T>, TCHAR>;
 
 	template<typename T>
-	concept CNonCharPtr = !CCharPtr<T>;
+	concept CNonCurrentChar = !CCurrentChar<T>;
 
 	template<typename T>
-	concept CChar = CSameAs<std::remove_const_t<T>, TCHAR>;
+	concept CCurrentCharPtr = CCurrentChar<std::remove_pointer_t<std::decay_t<T>>>;
+
+	template<typename T>
+	concept CNonCurrentCharPtr = !CCurrentCharPtr<T>;
+
+	template<typename T>
+	concept CChar = 
+		CSameAs<std::decay_t<T>, UTF8CHAR>
+		|| CSameAs<std::decay_t<T>, UTF16CHAR>
+		|| CSameAs<std::decay_t<T>, UTF32CHAR>
+		|| CSameAs<std::decay_t<T>, WIDECHAR>
+		|| CSameAs<std::decay_t<T>, UCS2CHAR>
+		|| CSameAs<std::decay_t<T>, ANSICHAR>
+	;
 
 	template<typename T>
 	concept CNonChar = !CChar<T>;
 
-	//// Simople objects
+	template<typename T>
+	concept CCharPtr = CChar<std::remove_pointer_t<std::decay_t<T>>>;
+
+	template<typename T>
+	concept CNonCharPtr = !CCharPtr<T>;
+
+	//// Simple objects
 
 	template <typename T>
 	concept CPointer = std::is_pointer_v<std::decay_t<T>>;
@@ -319,11 +338,7 @@ namespace Mcro::Concepts
 	};
 
 	template <typename T>
-	concept CRange = requires(std::decay_t<T> const& t)
-	{
-		t.begin();
-		t.end();
-	};
+	concept CRangeMember = requires(std::decay_t<T>&& t) { t.begin(); t.end(); };
 
 	// use in decltype
 	template <typename T> T DecayPtr(T*);

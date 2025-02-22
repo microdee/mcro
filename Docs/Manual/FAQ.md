@@ -25,6 +25,10 @@ If
 
 then yes.
 
+> All these templating must be hard on code-completion
+
+I've been developing this library with Rider and their code-completion fairs pretty well with elaborate templates even for new C++ features or when multiple `decltype` expressions are involved. Concept constrained templates even get very readable list of failure causality when substitution fails right in the editor even before compiling.
+
 ## Usage
 
 > Can I use MCRO in my close-sourced commercial project?

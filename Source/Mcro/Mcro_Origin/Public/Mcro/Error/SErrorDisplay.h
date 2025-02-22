@@ -22,9 +22,7 @@ namespace Mcro::Error
 	class MCRO_API SErrorDisplay : public SCompoundWidget
 	{
 	public:
-		
-		SLATE_BEGIN_ARGS(SErrorDisplay)
-		{}
+		SLATE_BEGIN_ARGS(SErrorDisplay) {}
 			SLATE_ARGUMENT(IErrorPtr, Error);
 			SLATE_NAMED_SLOT(FArguments, PostSeverity);
 			SLATE_NAMED_SLOT(FArguments, PostMessage);

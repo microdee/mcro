@@ -13,7 +13,9 @@ public static class UseMcroGraph
 {
     public static ITargetDefinition McroGraph(this ITargetDefinition target) => target
         .After<IMcroLicenseRegion>(_ => _.EnsureMcroLicense, _ => _.RenderMcroAttribution)
-        .After<IUseYamlCpp>();
+        .After<IUseYamlCpp>()
+        .After<IUseRangeV3>()
+    ;
 }
 
 public interface IUseMcro : INukeBuild

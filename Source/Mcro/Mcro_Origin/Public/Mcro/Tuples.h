@@ -12,10 +12,150 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Mcro/Concepts.h"
+
+#include "Mcro/LibraryIncludes/Start.h"
+#include "range/v3/all.hpp"
+#include "Mcro/LibraryIncludes/End.h"
 
 /** @brief Templating utilities for manipulating `TTuple`s */
 namespace Mcro::Tuples
 {
+	using namespace Mcro::Concepts;
+
+	template <typename>
+	constexpr bool TIsStdArray = false;
+
+	template <typename T, size_t S>
+	constexpr bool TIsStdArray<std::array<T, S>> = true;
+
+	template <typename>
+	constexpr bool TIsStdSubRange = false;
+
+	template <class I, class S, std::ranges::subrange_kind K>
+	constexpr bool TIsStdSubRange<std::ranges::subrange<I, S, K>> = true;
+
+	template <typename>
+	constexpr bool TIsRangeV3SubRange = false;
+
+	template <class I, class S, ranges::subrange_kind K>
+	constexpr bool TIsRangeV3SubRange<ranges::subrange<I, S, K>> = true;
+
+	template <typename>
+	constexpr bool TIsStdTuple = false;
+
+	template <typename... Args>
+	constexpr bool TIsStdTuple<std::tuple<Args...>> = true;
+
+	template <typename>
+	constexpr bool TIsStdPair = false;
+
+	template <typename... Args>
+	constexpr bool TIsStdPair<std::pair<Args...>> = true;
+
+	template <typename>
+	constexpr bool TIsRangeV3Tuple = false;
+
+	template <typename... Args>
+	constexpr bool TIsRangeV3Tuple<ranges::common_tuple<Args...>> = true;
+
+	template <typename>
+	constexpr bool TIsRangeV3Pair = false;
+
+	template <typename... Args>
+	constexpr bool TIsRangeV3Pair<ranges::common_pair<Args...>> = true;
+
+	template <typename T>
+	concept CStdTupleLike =
+		TIsStdTuple<std::decay_t<T>>
+		|| TIsStdPair<std::decay_t<T>>
+		|| TIsStdArray<std::decay_t<T>>
+		|| TIsStdSubRange<std::decay_t<T>>;
+
+	template <typename T>
+	concept CRangeV3TupleLike =
+		TIsRangeV3Tuple<std::decay_t<T>>
+		|| TIsRangeV3Pair<std::decay_t<T>>
+		|| TIsRangeV3SubRange<std::decay_t<T>>;
+
+	template <typename T>
+	concept CStdPairLike = CStdTupleLike<T> && std::tuple_size_v<std::remove_cvref_t<T>> == 2;
+
+	template <typename T>
+	concept CRangeV3PairLike = CRangeV3TupleLike<T> && std::tuple_size_v<std::remove_cvref_t<T>> == 2;
+
+	template <typename T, typename... Args>
+	concept CTupleConvertsToArgs =
+		CConvertibleToDecayed<T, TTuple<Args...>>
+		|| CConvertibleToDecayed<T, std::tuple<Args...>>
+		|| CConvertibleToDecayed<T, ranges::common_tuple<Args...>>
+	;
+
+	template <typename T>
+	concept CUnrealTuple = TIsTuple_V<std::decay_t<T>>;
+
+	template <typename T>
+	concept CStdOrRangeV3Tuple = CStdTupleLike<T> || CRangeV3TupleLike<T>;
+
+	template <typename T>
+	concept CTuple = CStdTupleLike<T> || CRangeV3TupleLike<T> || CUnrealTuple<T>;
+
+	template <size_t I, CStdTupleLike T>
+	decltype(auto) GetItem(T&& tuple)
+	{
+		return std::get<I>(Forward<T>(tuple));
+	}
+
+	template <size_t I, CRangeV3TupleLike T>
+	decltype(auto) GetItem(T&& tuple)
+	{
+		return ranges::get<I>(Forward<T>(tuple));
+	}
+
+	template <size_t I, CUnrealTuple T>
+	decltype(auto) GetItem(T&& tuple)
+	{
+		return tuple.template Get<I>();
+	}
+
+	template <CStdOrRangeV3Tuple T>
+	consteval size_t GetSize()
+	{
+		return std::tuple_size_v<std::decay_t<T>>;
+	}
+
+	template <CUnrealTuple T>
+	consteval size_t GetSize()
+	{
+		return TTupleArity<std::decay_t<T>>::Value;
+	}
+
+	template <CTuple T>
+	using TIndexSequenceForTuple = std::make_index_sequence<GetSize<T>()>;
+
+	template <size_t, typename>
+	struct TTypeAt_Struct {};
+
+	template <size_t I, CStdOrRangeV3Tuple T>
+	struct TTypeAt_Struct<I, T>
+	{
+		using Type = std::tuple_element_t<I, T>;
+	};
+
+	template <size_t I, CUnrealTuple T>
+	struct TTypeAt_Struct<I, T>
+	{
+		using Type = typename TTupleElement<I, T>::Type;
+	};
+
+	template <size_t I, CTuple T>
+	using TTypeAt = typename TTypeAt_Struct<I, T>::Type;
+
+	template <size_t I, CTuple T>
+	using TTypeAtDecayed = std::decay_t<typename TTypeAt_Struct<I, T>::Type>;
+
+	// TODO: Make these templates compatible with STL and Range-V3 tuples as well
+	
 	/** @brief Compose one tuple out of the elements of another tuple based on the input index parameter pack */
 	template <typename Tuple, size_t... Indices>
 	using TComposeFrom = TTuple<typename TTupleElement<Indices, Tuple>::Type...>;

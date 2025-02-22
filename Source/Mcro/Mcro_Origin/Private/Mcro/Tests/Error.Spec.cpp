@@ -98,7 +98,7 @@ DEFINE_SPEC(
 	TEXT_"Mcro.Error.UI",
 	EAutomationTestFlags::EditorContext
 	| EAutomationTestFlags::ClientContext
-	| EAutomationTestFlags::CriticalPriority
+	| EAutomationTestFlags::HighPriority
 	| EAutomationTestFlags::ProductFilter
 );
 
