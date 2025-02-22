@@ -1,6 +1,12 @@
 # MCRO {#mainpage}
 
-A C++23 utility proto-plugin for Unreal Engine, for a more civilised age.
+<div align="center">
+
+<img src="proto-logo-0.webp" width=400 />
+
+A C++23 utility proto-plugin for Unreal Engine, for a more civilized age.
+
+</div>
 
 > [!CAUTION]
 > This library is far from being production ready and is not recommended to be used yet at all
@@ -479,16 +485,24 @@ enum class EFoo { Foo, Bar, Wee, Yo };
 
 TArray<EFoo> array = MyEnumList(); // imagine this function just lists all the entries in EFoo
 
+FString result = array | RenderAsString();
+// -> "[Foo, Bar, Wee, Yo]"
+
 FString enumsA = TEXT_"A list of enums: {0}" _FMT(array);
-// -> "A list of enums: Foo, Bar, Wee, Yo"
+// -> "A list of enums: [Foo, Bar, Wee, Yo]"
 
 FString enumsB = TEXT_"Don't like commas? No problem: {0}" _FMT(
-    array | views::take(2) | SeparatedBy(TEXT_" and ")
+    array | views::take(2) | Separator(TEXT_" and ")
 );
-// -> "Don't like commas? No problem: Foo and Bar"
+// -> "Don't like commas? No problem: [Foo and Bar]"
+
+FString enumsB = TEXT_"Don't like square brackets either? {0}" _FMT(
+    array | views::take(2) | Separator(TEXT_" and ") | Enclosure(TEXT_"<", TEXT_">")
+);
+// -> "Don't like square brackets either? <Foo and Bar>"
 
 FString enumsC = TEXT_"Or just glued together: {0}" _FMT(
-    array | views::take(2) | SeparatedBy({})
+    array | views::take(2) | NoDecorators()
 );
 // -> "Or just glued together: FooBar"
 ```
