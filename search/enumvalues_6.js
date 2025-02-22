@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['usefirstworldcontext_0',['UseFirstWorldContext',['../da/d33/namespaceMcro_1_1Subsystems.html#a733d266d03d841b5b9fb34811123bb0fa143c11cdbc7d18399a6e4d2f40c8e76a',1,'Mcro::Subsystems']]],
-  ['usegameviewport_1',['UseGameViewport',['../da/d33/namespaceMcro_1_1Subsystems.html#a733d266d03d841b5b9fb34811123bb0faaedd3663268f869fd0ddb5882857a351',1,'Mcro::Subsystems']]]
+  ['notiterator_0',['NotIterator',['../de/d41/namespaceMcro_1_1Range.html#a4b79fdc67dcd1dceaaeb499c9db348d4a8e98ec3b8df17a3b5c55eb8b27198725',1,'Mcro::Range::NotIterator'],['../de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a8e98ec3b8df17a3b5c55eb8b27198725',1,'Mcro::Range::NotIterator']]]
 ];

@@ -1,9 +1,10 @@
 var structMcro_1_1Slate_1_1TSlots =
 [
-    [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a61810989e916511933d6a3872a051df7", null ],
-    [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#abb2a8063fa22089208d1f892f7dc2fef", null ],
-    [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a9468fb7a4c0d3410c620e9f4d3fdc2c6", null ],
-    [ "Append", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#ac7231752744cb3e3fc3a17e77febc057", null ],
-    [ "operator=", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a603bef6750eef06ce0f16ea7174cddf0", null ],
-    [ "operator=", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a2020d1ba2486fa7367a532b2cadc2e36", null ]
+    [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#aa51caf2054fdd1ab409f39204ce560cd", null ],
+    [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a40db4d6ffb4872ca54bb7a59e833961d", null ],
+    [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84", null ],
+    [ "Append", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f", null ],
+    [ "operator=", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe1bf1664ba09d0fcb9c07906f3fd537", null ],
+    [ "operator=", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a", null ],
+    [ "operator+", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a003fafa668ef964c974b660cbf3f8789", null ]
 ];

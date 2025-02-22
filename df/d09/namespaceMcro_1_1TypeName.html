@@ -124,9 +124,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplItemLeft" align="right" valign="top">constexpr FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a></td></tr>
 <tr class="memdesc:a4b48113b8a32fb7465ce6663edab3aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a friendly string of an input type without using <code>typeid(T).name()</code>.  <br /></td></tr>
 <tr class="separator:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0" id="r_af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af597045724d09ebd9dac4d01b85ed1c0">TTypeNameStd</a> = <a class="el" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
-<tr class="separator:af597045724d09ebd9dac4d01b85ed1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded0b460b40f89f45f61c9e43ee730af" id="r_aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::basic_string_view&lt; TCHAR &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aded0b460b40f89f45f61c9e43ee730af">TTypeNameStd</a> = <a class="el" href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
+<tr class="separator:aded0b460b40f89f45f61c9e43ee730af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5" id="r_ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplItemLeft" align="right" valign="top">const FName&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad61f5399ac5d4b0089b06ca6ee3c82b5">TTypeFName</a> = FName(<a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.Len(), <a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.GetData())</td></tr>
 <tr class="separator:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,7 +152,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9" title="Get a friendly string of an input type without using typeid(T).name().">TTypeName</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00157">157</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00156">156</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -178,15 +178,16 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= FStringView(</div>
-<div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().data(),</div>
-<div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().size()</div>
+<div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().data(),</div>
+<div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().<a class="code hl_function" href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a>()</div>
 <div class="line">    )</div>
-<div class="ttc" id="aTypeName_8h_html_aa25579665ec537022e869b1e5a500337"><div class="ttname"><a href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a></div><div class="ttdeci">consteval Mcro::Text::FStdStringView GetCompileTimeTypeName()</div><div class="ttdoc">Get a string view of the compile time typename.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00057">TypeName.h:57</a></div></div>
+<div class="ttc" id="aRange_8h_html_a21e5ab1a87de28222d4fdba7e0188f35"><div class="ttname"><a href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a></div><div class="ttdeci">size_t size(TArray&lt; T, A &gt; const &amp;r)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/db6/Range_8h_source.html#l00098">Range.h:98</a></div></div>
+<div class="ttc" id="aTypeName_8h_html_a3acea92b332075d8bc16a0fc44b30a51"><div class="ttname"><a href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a></div><div class="ttdeci">consteval std::basic_string_view&lt; TCHAR &gt; GetCompileTimeTypeName()</div><div class="ttdoc">Get a string view of the compile time typename.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00056">TypeName.h:56</a></div></div>
 </div><!-- fragment -->
 <p>Get a friendly string of an input type without using <code>typeid(T).name()</code>. </p>
 <p>Actually this method gives more predictable results across compilers than <code>typeid(T).name()</code> but still not 100% the same. Besides TTypeName can deal with incomplete types as well, whereas <code>typeid(T)</code> cannot (more on this in remarks). While it is more consistent across compilers, it is still not 100% consistent. Take templated types for instance where MSVC compiler will add "class" prefix in front of type arguments where GCC or CLang might not. Because of subtle differences like this, it is strongly discouraged to assume the exact format of the output of TTypeName</p>
 <p>Usage: </p><div class="fragment"><div class="line">FStringView myTypeName = <a class="code hl_variable" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName&lt;FMyType&gt;</a>;</div>
-<div class="ttc" id="anamespaceMcro_1_1TypeName_html_a4b48113b8a32fb7465ce6663edab3aa9"><div class="ttname"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></div><div class="ttdeci">constexpr FStringView TTypeName</div><div class="ttdoc">Get a friendly string of an input type without using typeid(T).name().</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00146">TypeName.h:146</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1TypeName_html_a4b48113b8a32fb7465ce6663edab3aa9"><div class="ttname"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></div><div class="ttdeci">constexpr FStringView TTypeName</div><div class="ttdoc">Get a friendly string of an input type without using typeid(T).name().</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00145">TypeName.h:145</a></div></div>
 </div><!-- fragment --><p>It is useful in templates where a type name should be known in runtime as well. (e.g.: Modular features)</p>
 <dl class="section remark"><dt>Remarks</dt><dd>Note on incomplete types: incomplete types on MSVC are localized to current scope. which means <div class="fragment"><div class="line"><span class="keyword">class </span>I;</div>
 <div class="line"> </div>
@@ -208,12 +209,12 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00146">146</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00145">145</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
-<a id="af597045724d09ebd9dac4d01b85ed1c0" name="af597045724d09ebd9dac4d01b85ed1c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af597045724d09ebd9dac4d01b85ed1c0">&#9670;&#160;</a></span>TTypeNameStd</h2>
+<a id="aded0b460b40f89f45f61c9e43ee730af" name="aded0b460b40f89f45f61c9e43ee730af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded0b460b40f89f45f61c9e43ee730af">&#9670;&#160;</a></span>TTypeNameStd</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +225,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> Mcro::TypeName::TTypeNameStd = <a class="el" href="../../d0/de3/TypeName_8h.html#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td>
+          <td class="memname">std::basic_string_view&lt;TCHAR&gt; Mcro::TypeName::TTypeNameStd = <a class="el" href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td>
         </tr>
       </table>
   </td>
@@ -235,7 +236,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9" title="Get a friendly string of an input type without using typeid(T).name().">TTypeName</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00153">153</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00152">152</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -254,7 +255,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9" title="Get a friendly string of an input type without using typeid(T).name().">TTypeName</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00161">161</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00160">160</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>

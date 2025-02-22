@@ -123,15 +123,23 @@ $(function(){initNavTree('d6/d35/Text_8h.html','../../'); initResizable(true); }
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;CoreMinimal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d8d/Concepts_8h_source.html">Mcro/Concepts.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">Mcro/FunctionTraits.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/de3/TypeName_8h_source.html">Mcro/TypeName.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d6/d35/Text_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">Mcro::Text::FStringFormatTag</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An empty tag struct used to extend rigid types to be used in string formatting.  <a href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html">Mcro::Text::TAsFormatArgument&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4.html">Mcro::Text::TAsFormatArgument&lt; Operand &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert Unreal/STL/Range-V3 tuples to string the following way: <code>(Item0, Item1, Item2, ...)</code>  <a href="../../d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d53/structMcro_1_1Text_1_1TAsFormatArgument_3_01TStdString_3_01CharType_01_4_01_4.html">Mcro::Text::TAsFormatArgument&lt; TStdString&lt; CharType &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4.html">Mcro::Text::TAsFormatArgument&lt; FStdStringView &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -183,7 +191,7 @@ Concepts</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which which provides a <code>ToString()</code> member method. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">Mcro::Text::CHasStringFormatArgumentConversion</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be used with FStringFormatArg via a <code>% FStringFormatTag()</code> operator. <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be used with FStringFormatArg via a <code>TAsFormatArgument</code> specialization. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">Mcro::Text::CStringFormatArgument</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be converted to FStringFormatArg via any method. <br /></td></tr>
@@ -266,21 +274,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1e7b16f541af05b3640eb163179ce00c" id="r_a1e7b16f541af05b3640eb163179ce00c"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c">Mcro::Text::DynamicPrintf</a> (const TCHAR *fmt,...)</td></tr>
 <tr class="memdesc:a1e7b16f541af05b3640eb163179ce00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy of FString::PrintfImpl but not private so it can work with strings which were not literals.  <br /></td></tr>
 <tr class="separator:a1e7b16f541af05b3640eb163179ce00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d42ebafed5e2a3cce94d2ae901e71dc" id="r_a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memTemplParams" colspan="2">template&lt;CDirectStringFormatArgument Operand&gt; </td></tr>
-<tr class="memitem:a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memTemplItemLeft" align="right" valign="top">Operand&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a2d42ebafed5e2a3cce94d2ae901e71dc">Mcro::Text::operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada116a50aedb55bfa6f8202717cfd159" id="r_ada116a50aedb55bfa6f8202717cfd159"><td class="memTemplParams" colspan="2">template&lt;CHasToString Operand&gt; </td></tr>
-<tr class="memitem:ada116a50aedb55bfa6f8202717cfd159"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ada116a50aedb55bfa6f8202717cfd159">Mcro::Text::operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:ada116a50aedb55bfa6f8202717cfd159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e69e28da735a1cda52e00b310795dd" id="r_ad3e69e28da735a1cda52e00b310795dd"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
-<tr class="memitem:ad3e69e28da735a1cda52e00b310795dd"><td class="memTemplItemLeft" align="right" valign="top">const CharType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ad3e69e28da735a1cda52e00b310795dd">Mcro::Text::operator%</a> (<a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; CharType &gt; const &amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:ad3e69e28da735a1cda52e00b310795dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a210730107817d1608fa42b9539ca6c80" id="r_a210730107817d1608fa42b9539ca6c80"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FStringView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a210730107817d1608fa42b9539ca6c80">Mcro::Text::operator%</a> (<a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:a210730107817d1608fa42b9539ca6c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad098102889c26ad24664bc39a0325882" id="r_ad098102889c26ad24664bc39a0325882"><td class="memTemplParams" colspan="2">template&lt;CStdStringViewInvariant Operand&gt; <br />
-requires (!CSameAsDecayed&lt;Operand, <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&gt;)</td></tr>
-<tr class="memitem:ad098102889c26ad24664bc39a0325882"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ad098102889c26ad24664bc39a0325882">Mcro::Text::operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:ad098102889c26ad24664bc39a0325882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbae721347c456d85ee6c3eeec995e1f" id="r_acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
+<tr class="memitem:acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acbae721347c456d85ee6c3eeec995e1f">Mcro::Text::AsFormatArgument</a> (T &amp;&amp;input)</td></tr>
+<tr class="separator:acbae721347c456d85ee6c3eeec995e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946" id="r_acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
 <tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acc2c6d6be5a7c30a3e691ce080068946">Mcro::Text::AsString</a> (T &amp;&amp;input)</td></tr>
 <tr class="memdesc:acc2c6d6be5a7c30a3e691ce080068946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>

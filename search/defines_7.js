@@ -23,6 +23,7 @@ var searchData=
   ['mcro_5fpropagate_5ffail_5f2_20',['MCRO_PROPAGATE_FAIL_2',['../de/dba/Error_8h.html#a6ad3f41996d940cc820308ad5b102ae2',1,'Error.h']]],
   ['mcro_5fpropagate_5ffail_5f3_21',['MCRO_PROPAGATE_FAIL_3',['../de/dba/Error_8h.html#a6c02656a66375f94124ba473e4bf954d',1,'Error.h']]],
   ['mcro_5fquit_5fbody_22',['MCRO_QUIT_BODY',['../db/df5/AssertMacros_8h.html#a45682925d9aa5824efc2734bcbab676c',1,'AssertMacros.h']]],
-  ['mcro_5fthis_5ftype_23',['MCRO_THIS_TYPE',['../d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150',1,'Concepts.h']]],
-  ['mcro_5ftry_5fwith_5fimpl_24',['MCRO_TRY_WITH_IMPL',['../da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7',1,'HResultMacros.h']]]
+  ['mcro_5frange_5fallow_5fbasic_5fiterator_5ffeature_5femulation_23',['MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION',['../d9/d80/Iterators_8h.html#a03606f45c15cab1b550fe9422d477e04',1,'Iterators.h']]],
+  ['mcro_5fthis_5ftype_24',['MCRO_THIS_TYPE',['../d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150',1,'Concepts.h']]],
+  ['mcro_5ftry_5fwith_5fimpl_25',['MCRO_TRY_WITH_IMPL',['../da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7',1,'HResultMacros.h']]]
 ];

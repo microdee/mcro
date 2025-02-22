@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['displayed_0',['Displayed',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a0c66cfaba3034182a4fc645ad6cee90d',1,'Mcro::Error::FErrorManager']]]
+  ['crashing_0',['Crashing',['../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302cae861703944e71824ec75761573313979',1,'Mcro::Error']]]
 ];

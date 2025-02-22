@@ -50,10 +50,14 @@ var concepts =
         [ "CUObject", "d8/d76/conceptMcro_1_1Concepts_1_1CUObject.html", null ],
         [ "CInterface", "d4/d98/conceptMcro_1_1Concepts_1_1CInterface.html", null ],
         [ "CInterfaceUClass", "dd/d6a/conceptMcro_1_1Concepts_1_1CInterfaceUClass.html", null ],
-        [ "CCharPtr", "d7/de6/conceptMcro_1_1Concepts_1_1CCharPtr.html", null ],
-        [ "CNonCharPtr", "d4/d2d/conceptMcro_1_1Concepts_1_1CNonCharPtr.html", null ],
+        [ "CCurrentChar", "da/d95/conceptMcro_1_1Concepts_1_1CCurrentChar.html", null ],
+        [ "CNonCurrentChar", "df/d17/conceptMcro_1_1Concepts_1_1CNonCurrentChar.html", null ],
+        [ "CCurrentCharPtr", "de/d2d/conceptMcro_1_1Concepts_1_1CCurrentCharPtr.html", null ],
+        [ "CNonCurrentCharPtr", "d6/d33/conceptMcro_1_1Concepts_1_1CNonCurrentCharPtr.html", null ],
         [ "CChar", "db/db6/conceptMcro_1_1Concepts_1_1CChar.html", null ],
         [ "CNonChar", "d8/dbb/conceptMcro_1_1Concepts_1_1CNonChar.html", null ],
+        [ "CCharPtr", "d7/de6/conceptMcro_1_1Concepts_1_1CCharPtr.html", null ],
+        [ "CNonCharPtr", "d4/d2d/conceptMcro_1_1Concepts_1_1CNonCharPtr.html", null ],
         [ "CPointer", "db/de5/conceptMcro_1_1Concepts_1_1CPointer.html", null ],
         [ "CClass", "db/d82/conceptMcro_1_1Concepts_1_1CClass.html", null ],
         [ "CUnion", "d0/d70/conceptMcro_1_1Concepts_1_1CUnion.html", null ],
@@ -62,7 +66,7 @@ var concepts =
         [ "CVoid", "d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html", null ],
         [ "CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],
         [ "CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
-        [ "CRange", "d1/d58/conceptMcro_1_1Concepts_1_1CRange.html", null ]
+        [ "CRangeMember", "da/d5a/conceptMcro_1_1Concepts_1_1CRangeMember.html", null ]
       ] ],
       [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", [
         [ "CDynamicDelegate", "dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html", null ],
@@ -92,6 +96,27 @@ var concepts =
         [ "CChangeNextOnlyListener", "d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html", null ],
         [ "CChangeNextPreviousListener", "d5/d03/conceptMcro_1_1Observable_1_1CChangeNextPreviousListener.html", null ],
         [ "CChangeListener", "d4/d9a/conceptMcro_1_1Observable_1_1CChangeListener.html", null ]
+      ] ],
+      [ "Range", "de/d41/namespaceMcro_1_1Range.html", [
+        [ "CHasEquals", "dc/da2/conceptMcro_1_1Range_1_1CHasEquals.html", null ],
+        [ "CHasNotEquals", "d1/da2/conceptMcro_1_1Range_1_1CHasNotEquals.html", null ],
+        [ "CBasicForwardIteratorBase", "d4/df3/conceptMcro_1_1Range_1_1CBasicForwardIteratorBase.html", null ],
+        [ "CBasicForwardIterator", "db/d06/conceptMcro_1_1Range_1_1CBasicForwardIterator.html", null ],
+        [ "CHasMemberAccessOperator", "d6/dd3/conceptMcro_1_1Range_1_1CHasMemberAccessOperator.html", null ],
+        [ "CBasicBidirectionalIterator", "dd/d8f/conceptMcro_1_1Range_1_1CBasicBidirectionalIterator.html", null ],
+        [ "CJumpForwardIterator", "d1/d2f/conceptMcro_1_1Range_1_1CJumpForwardIterator.html", null ],
+        [ "CJumpForwardPlusIterator", "d6/d0d/conceptMcro_1_1Range_1_1CJumpForwardPlusIterator.html", null ],
+        [ "CRandomAccessIterator", "db/db9/conceptMcro_1_1Range_1_1CRandomAccessIterator.html", null ],
+        [ "CRandomAccessPlusMinusIterator", "db/db3/conceptMcro_1_1Range_1_1CRandomAccessPlusMinusIterator.html", null ],
+        [ "CIsIteratorStep", "da/dc4/conceptMcro_1_1Range_1_1CIsIteratorStep.html", null ],
+        [ "CIsIteratorDirection", "d2/d87/conceptMcro_1_1Range_1_1CIsIteratorDirection.html", null ],
+        [ "CIteratorFeature", "d7/dff/conceptMcro_1_1Range_1_1CIteratorFeature.html", null ],
+        [ "CUnrealRange", "d3/d3b/conceptMcro_1_1Range_1_1CUnrealRange.html", null ],
+        [ "CStdDistanceCompatible", "db/dc9/conceptMcro_1_1Range_1_1CStdDistanceCompatible.html", null ],
+        [ "CHasGetIndex", "d3/d06/conceptMcro_1_1Range_1_1CHasGetIndex.html", null ],
+        [ "CHasElementIndex", "d2/dc3/conceptMcro_1_1Range_1_1CHasElementIndex.html", null ],
+        [ "CIteratorComparable", "d5/dfc/conceptMcro_1_1Range_1_1CIteratorComparable.html", null ],
+        [ "CCountableRange", "df/d86/conceptMcro_1_1Range_1_1CCountableRange.html", null ]
       ] ],
       [ "Rendering", "de/dde/namespaceMcro_1_1Rendering.html", [
         [ "Textures", "d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html", [
@@ -135,6 +160,16 @@ var concepts =
         [ "CHasToString", "d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html", null ],
         [ "CHasStringFormatArgumentConversion", "d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html", null ],
         [ "CStringFormatArgument", "d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html", null ]
+      ] ],
+      [ "Tuples", "db/d81/namespaceMcro_1_1Tuples.html", [
+        [ "CStdTupleLike", "da/d73/conceptMcro_1_1Tuples_1_1CStdTupleLike.html", null ],
+        [ "CRangeV3TupleLike", "d0/d8f/conceptMcro_1_1Tuples_1_1CRangeV3TupleLike.html", null ],
+        [ "CStdPairLike", "d7/d3a/conceptMcro_1_1Tuples_1_1CStdPairLike.html", null ],
+        [ "CRangeV3PairLike", "d4/dc4/conceptMcro_1_1Tuples_1_1CRangeV3PairLike.html", null ],
+        [ "CTupleConvertsToArgs", "da/deb/conceptMcro_1_1Tuples_1_1CTupleConvertsToArgs.html", null ],
+        [ "CUnrealTuple", "dd/d00/conceptMcro_1_1Tuples_1_1CUnrealTuple.html", null ],
+        [ "CStdOrRangeV3Tuple", "d9/d88/conceptMcro_1_1Tuples_1_1CStdOrRangeV3Tuple.html", null ],
+        [ "CTuple", "da/d1d/conceptMcro_1_1Tuples_1_1CTuple.html", null ]
       ] ],
       [ "Types", "da/d89/namespaceMcro_1_1Types.html", [
         [ "CHasTypeName", "d3/d31/conceptMcro_1_1Types_1_1CHasTypeName.html", null ]

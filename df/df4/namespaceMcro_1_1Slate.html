@@ -113,7 +113,6 @@ $(function(){initNavTree('df/df4/namespaceMcro_1_1Slate.html','../../'); initRes
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
@@ -126,17 +125,14 @@ $(function(){initNavTree('df/df4/namespaceMcro_1_1Slate.html','../../'); initRes
 <p>Extra functionalities for general <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> programming chores, including enhancements of the <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> declarative syntax.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend.html">AttributeAppend</a></td></tr>
-<tr class="memdesc:d6/df4/namespaceMcro_1_1Slate_1_1AttributeAppend"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribute block appending operator is keen to getting selected when it shouldn't be, this is why it's in its own explicit namespace. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html">TArgumentsOf_S</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html">TArgumentsOf_S&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html">TAttributeBlockFunctor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An attribute block functor which takes in reference of FArguments or FSlotArguments and returns the same reference but presumably setting some <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> attributes before that. This is useful for modularizing the <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> declarative syntax.  <a href="../../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add multiple slots at the same time with the declarative syntax derived from an input data array.  <a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#details">More...</a><br /></td></tr>
@@ -174,17 +170,13 @@ Typedefs</h2></td></tr>
 <tr class="memitem:aa66b342e730e31577a2035b642c7270c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a> = typename <a class="el" href="../../de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html">TArgumentsOf_S</a>&lt;T&gt;::Type</td></tr>
 <tr class="memdesc:aa66b342e730e31577a2035b642c7270c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments)  <br /></td></tr>
 <tr class="separator:aa66b342e730e31577a2035b642c7270c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaea57e65d8acb043aa7f59ff6243b6ea" id="r_aaea57e65d8acb043aa7f59ff6243b6ea"><td class="memTemplParams" colspan="2">template&lt;CWidgetOrSlot T&gt; </td></tr>
-<tr class="memitem:aaea57e65d8acb043aa7f59ff6243b6ea"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aaea57e65d8acb043aa7f59ff6243b6ea">TAttributeBlock</a> = TFunction&lt;<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp;(<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp;)&gt;</td></tr>
-<tr class="memdesc:aaea57e65d8acb043aa7f59ff6243b6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and returns the same reference but presumably setting some <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> attributes before that. This is useful for modularizing the <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> declarative syntax.  <br /></td></tr>
-<tr class="separator:aaea57e65d8acb043aa7f59ff6243b6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab490c8cf1a516e168d4e87f746325feb" id="r_ab490c8cf1a516e168d4e87f746325feb"><td class="memTemplParams" colspan="2">template&lt;CWidgetOrSlot T&gt; </td></tr>
+<tr class="memitem:ab490c8cf1a516e168d4e87f746325feb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab490c8cf1a516e168d4e87f746325feb">TAttributeBlock</a> = <a class="el" href="../../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html">TAttributeBlockFunctor</a>&lt;<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&gt;</td></tr>
+<tr class="memdesc:ab490c8cf1a516e168d4e87f746325feb"><td class="mdescLeft">&#160;</td><td class="mdescRight">An attribute block functor which takes in reference of FArguments or FSlotArguments and returns the same reference but presumably setting some <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> attributes before that. This is useful for modularizing the <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> declarative syntax.  <br /></td></tr>
+<tr class="separator:ab490c8cf1a516e168d4e87f746325feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7348096a37394a510b64ac274c6bd693" id="r_a7348096a37394a510b64ac274c6bd693"><td class="memTemplParams" colspan="2">template&lt;CRange Range, CFunctionLike Transform, CFunctionLike OnEmpty, CSlotArguments SlotArguments, CWidgetArguments Arguments&gt; </td></tr>
-<tr class="memitem:a7348096a37394a510b64ac274c6bd693"><td class="memTemplItemLeft" align="right" valign="top">Arguments &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7348096a37394a510b64ac274c6bd693">operator+</a> (Arguments &amp;args, <a class="el" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&lt; Range, Transform, OnEmpty, SlotArguments &gt; &amp;&amp;slots)</td></tr>
-<tr class="memdesc:a7348096a37394a510b64ac274c6bd693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add multiple slots at the same time with the declarative syntax derived from an input data array.     <br /></td></tr>
-<tr class="separator:a7348096a37394a510b64ac274c6bd693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa0c2bf1d38dc606f82a421bb902d3e" id="r_a4fa0c2bf1d38dc606f82a421bb902d3e"><td class="memItemLeft" align="right" valign="top">MCRO_API EVisibility&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fa0c2bf1d38dc606f82a421bb902d3e">IsVisible</a> (bool visible, EVisibility hiddenState=EVisibility::Collapsed)</td></tr>
 <tr class="memdesc:a4fa0c2bf1d38dc606f82a421bb902d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience function for typing less when widget visibility depends on a boolean.  <br /></td></tr>
 <tr class="separator:a4fa0c2bf1d38dc606f82a421bb902d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +184,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:adba6429557e3488308fed73737a033f1" id="r_adba6429557e3488308fed73737a033f1"><td class="memTemplParams" colspan="2">template&lt;CWidgetOrSlot T&gt; </td></tr>
-<tr class="memitem:adba6429557e3488308fed73737a033f1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#aaea57e65d8acb043aa7f59ff6243b6ea">TAttributeBlock</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adba6429557e3488308fed73737a033f1">InertAttributeBlock</a> = [](<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp; args) -&gt; auto&amp; { return args; }</td></tr>
+<tr class="memitem:adba6429557e3488308fed73737a033f1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#ab490c8cf1a516e168d4e87f746325feb">TAttributeBlock</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adba6429557e3488308fed73737a033f1">InertAttributeBlock</a> = [](<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp; args) -&gt; auto&amp; { return args; }</td></tr>
 <tr class="memdesc:adba6429557e3488308fed73737a033f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">An attribute block which does nothing.  <br /></td></tr>
 <tr class="separator:adba6429557e3488308fed73737a033f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -215,12 +207,12 @@ template&lt;typename T &gt; </div>
 
 <p>Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00078">78</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00079">79</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
-<a id="aaea57e65d8acb043aa7f59ff6243b6ea" name="aaea57e65d8acb043aa7f59ff6243b6ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaea57e65d8acb043aa7f59ff6243b6ea">&#9670;&#160;</a></span>TAttributeBlock</h2>
+<a id="ab490c8cf1a516e168d4e87f746325feb" name="ab490c8cf1a516e168d4e87f746325feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab490c8cf1a516e168d4e87f746325feb">&#9670;&#160;</a></span>TAttributeBlock</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,14 +220,14 @@ template&lt;typename T &gt; </div>
 template&lt;CWidgetOrSlot T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#aaea57e65d8acb043aa7f59ff6243b6ea">Mcro::Slate::TAttributeBlock</a> = TFunction&lt;<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp;(<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp;)&gt;</td>
+          <td class="memname">using <a class="el" href="#ab490c8cf1a516e168d4e87f746325feb">Mcro::Slate::TAttributeBlock</a> = <a class="el" href="../../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html">TAttributeBlockFunctor</a>&lt;<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Alias for an attribute block function which takes in reference of FArguments or FSlotArguments and returns the same reference but presumably setting some <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> attributes before that. This is useful for modularizing the <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> declarative syntax. </p>
+<p>An attribute block functor which takes in reference of FArguments or FSlotArguments and returns the same reference but presumably setting some <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> attributes before that. This is useful for modularizing the <a class="el" href="../../df/df4/namespaceMcro_1_1Slate.html" title="Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...">Slate</a> declarative syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00087">87</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00148">148</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
@@ -263,63 +255,6 @@ template&lt;CWidgetOrSlot T&gt; </div>
 
 </div>
 </div>
-<a id="a7348096a37394a510b64ac274c6bd693" name="a7348096a37394a510b64ac274c6bd693"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7348096a37394a510b64ac274c6bd693">&#9670;&#160;</a></span>operator+()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;CRange Range, CFunctionLike Transform, CFunctionLike OnEmpty, CSlotArguments SlotArguments, CWidgetArguments Arguments&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Arguments &amp; Mcro::Slate::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">Arguments &amp;</td>          <td class="paramname"><span class="paramname"><em>args</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&lt; Range, Transform, OnEmpty, SlotArguments &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>slots</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add multiple slots at the same time with the declarative syntax derived from an input data array.    </p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> SMyWidget::Construct(<span class="keyword">const</span> FArguments&amp; args)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a>;</div>
-<div class="line">    </div>
-<div class="line">    ChildSlot</div>
-<div class="line">    [</div>
-<div class="line">        SNew(SVerticalBox)</div>
-<div class="line">        + <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>(args._DataArray, [](<span class="keyword">const</span> FMyData&amp; data)</div>
-<div class="line">        {</div>
-<div class="line">            FText dataText = FText::FromString(data.ToString());</div>
-<div class="line">            return SVerticalBox::Slot()</div>
-<div class="line">                . HAlign(HAlign_Fill)</div>
-<div class="line">                . AutoHeight()</div>
-<div class="line">                [</div>
-<div class="line">                    SNew(STextBlock)</div>
-<div class="line">                    . Text(dataText)</div>
-<div class="line">                ];</div>
-<div class="line">        })</div>
-<div class="line">        + SVerticalBox::Slot()</div>
-<div class="line">        . HAlign(HAlign_Fill)</div>
-<div class="line">        . AutoHeight()</div>
-<div class="line">        [</div>
-<div class="line">            SNew(STextBlock)</div>
-<div class="line">            . Text(<a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3">INVTEXT_</a><span class="stringliteral">&quot;Footer after the list of data&quot;</span>)</div>
-<div class="line">        ]</div>
-<div class="line">    ];</div>
-<div class="line">}</div>
-<div class="ttc" id="aTextMacros_8h_html_a8e87be3484ebd811a74c494f6cc25ab3"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3">INVTEXT_</a></div><div class="ttdeci">#define INVTEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own INVTEXT macro but this one doesn't require parenthesis arou...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00190">TextMacros.h:190</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdoc">Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00021">Slate.h:22</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00201">Slate.h:202</a></div></div>
-</div><!-- fragment -->    
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00255">255</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="adba6429557e3488308fed73737a033f1" name="adba6429557e3488308fed73737a033f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adba6429557e3488308fed73737a033f1">&#9670;&#160;</a></span>InertAttributeBlock</h2>
@@ -330,14 +265,14 @@ template&lt;CRange Range, CFunctionLike Transform, CFunctionLike OnEmpty, CSlotA
 template&lt;CWidgetOrSlot T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aaea57e65d8acb043aa7f59ff6243b6ea">TAttributeBlock</a>&lt;T&gt; Mcro::Slate::InertAttributeBlock = [](<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp; args) -&gt; auto&amp; { return args; }</td>
+          <td class="memname"><a class="el" href="#ab490c8cf1a516e168d4e87f746325feb">TAttributeBlock</a>&lt;T&gt; Mcro::Slate::InertAttributeBlock = [](<a class="el" href="#aa66b342e730e31577a2035b642c7270c">TArgumentsOf</a>&lt;T&gt;&amp; args) -&gt; auto&amp; { return args; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>An attribute block which does nothing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00091">91</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00152">152</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>

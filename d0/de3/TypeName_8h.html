@@ -126,7 +126,6 @@ $(function(){initNavTree('d0/de3/TypeName_8h.html','../../'); initResizable(true
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;UnrealCtre.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Mcro/Text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/dd0/Platform_8h_source.html">Mcro/Platform.h</a>&quot;</code><br />
 </div>
@@ -146,10 +145,10 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa25579665ec537022e869b1e5a500337" id="r_aa25579665ec537022e869b1e5a500337"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa25579665ec537022e869b1e5a500337"><td class="memTemplItemLeft" align="right" valign="top">consteval <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">Mcro::Text::FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a> ()</td></tr>
-<tr class="memdesc:aa25579665ec537022e869b1e5a500337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string view of the compile time typename.  <br /></td></tr>
-<tr class="separator:aa25579665ec537022e869b1e5a500337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3acea92b332075d8bc16a0fc44b30a51" id="r_a3acea92b332075d8bc16a0fc44b30a51"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3acea92b332075d8bc16a0fc44b30a51"><td class="memTemplItemLeft" align="right" valign="top">consteval std::basic_string_view&lt; TCHAR &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a> ()</td></tr>
+<tr class="memdesc:a3acea92b332075d8bc16a0fc44b30a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string view of the compile time typename.  <br /></td></tr>
+<tr class="separator:a3acea92b332075d8bc16a0fc44b30a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -157,9 +156,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplItemLeft" align="right" valign="top">constexpr FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></td></tr>
 <tr class="memdesc:a4b48113b8a32fb7465ce6663edab3aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a friendly string of an input type without using <code>typeid(T).name()</code>.  <br /></td></tr>
 <tr class="separator:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0" id="r_af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af597045724d09ebd9dac4d01b85ed1c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#af597045724d09ebd9dac4d01b85ed1c0">Mcro::TypeName::TTypeNameStd</a> = <a class="el" href="#aa25579665ec537022e869b1e5a500337">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
-<tr class="separator:af597045724d09ebd9dac4d01b85ed1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded0b460b40f89f45f61c9e43ee730af" id="r_aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::basic_string_view&lt; TCHAR &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af">Mcro::TypeName::TTypeNameStd</a> = <a class="el" href="#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
+<tr class="separator:aded0b460b40f89f45f61c9e43ee730af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5" id="r_ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplItemLeft" align="right" valign="top">const FName&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5">Mcro::TypeName::TTypeFName</a> = FName(<a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.Len(), <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.GetData())</td></tr>
 <tr class="separator:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,13 +186,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00027">27</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00026">26</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa25579665ec537022e869b1e5a500337" name="aa25579665ec537022e869b1e5a500337"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa25579665ec537022e869b1e5a500337">&#9670;&#160;</a></span>GetCompileTimeTypeName()</h2>
+<a id="a3acea92b332075d8bc16a0fc44b30a51" name="a3acea92b332075d8bc16a0fc44b30a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3acea92b332075d8bc16a0fc44b30a51">&#9670;&#160;</a></span>GetCompileTimeTypeName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +203,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#ade4bd6678fc692f8ddf782f9b6611d9b">Mcro::Text::FStdStringView</a> GetCompileTimeTypeName </td>
+          <td class="memname">std::basic_string_view&lt; TCHAR &gt; GetCompileTimeTypeName </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -227,7 +226,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string view of the name of the type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00057">57</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00056">56</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>

@@ -135,8 +135,14 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An empty tag struct used to extend rigid types to be used in string formatting.  <a href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html">TAsFormatArgument</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4.html">TAsFormatArgument&lt; FStdStringView &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4.html">TAsFormatArgument&lt; Operand &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert Unreal/STL/Range-V3 tuples to string the following way: <code>(Item0, Item1, Item2, ...)</code>  <a href="../../d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d53/structMcro_1_1Text_1_1TAsFormatArgument_3_01TStdString_3_01CharType_01_4_01_4.html">TAsFormatArgument&lt; TStdString&lt; CharType &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
@@ -178,7 +184,7 @@ Concepts</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which which provides a <code>ToString()</code> member method. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">CHasStringFormatArgumentConversion</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be used with FStringFormatArg via a <code>% FStringFormatTag()</code> operator. <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be used with FStringFormatArg via a <code>TAsFormatArgument</code> specialization. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">CStringFormatArgument</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be converted to FStringFormatArg via any method. <br /></td></tr>
@@ -207,9 +213,6 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a955d9e714f9b48b713296f57060eea79" id="r_a955d9e714f9b48b713296f57060eea79"><td class="memTemplParams" colspan="2">template&lt;CEnum Operand&gt; </td></tr>
-<tr class="memitem:a955d9e714f9b48b713296f57060eea79"><td class="memTemplItemLeft" align="right" valign="top">FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a955d9e714f9b48b713296f57060eea79">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:a955d9e714f9b48b713296f57060eea79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a135b9b15337f45329dfcf5f575579b" id="r_a6a135b9b15337f45329dfcf5f575579b"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
 <tr class="memitem:a6a135b9b15337f45329dfcf5f575579b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6a135b9b15337f45329dfcf5f575579b">UnrealView</a> (<a class="el" href="#aedf2f7dcd3a9ab3deb63c01fb1f215bf">TStdStringView</a>&lt; CharType &gt; const &amp;stdStr)</td></tr>
 <tr class="memdesc:a6a135b9b15337f45329dfcf5f575579b"><td class="mdescLeft">&#160;</td><td class="mdescRight">View an STL string object via an Unreal <code>TStringView</code>  <br /></td></tr>
@@ -261,21 +264,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1e7b16f541af05b3640eb163179ce00c" id="r_a1e7b16f541af05b3640eb163179ce00c"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7b16f541af05b3640eb163179ce00c">DynamicPrintf</a> (const TCHAR *fmt,...)</td></tr>
 <tr class="memdesc:a1e7b16f541af05b3640eb163179ce00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy of FString::PrintfImpl but not private so it can work with strings which were not literals.  <br /></td></tr>
 <tr class="separator:a1e7b16f541af05b3640eb163179ce00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d42ebafed5e2a3cce94d2ae901e71dc" id="r_a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memTemplParams" colspan="2">template&lt;CDirectStringFormatArgument Operand&gt; </td></tr>
-<tr class="memitem:a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memTemplItemLeft" align="right" valign="top">Operand&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2d42ebafed5e2a3cce94d2ae901e71dc">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:a2d42ebafed5e2a3cce94d2ae901e71dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada116a50aedb55bfa6f8202717cfd159" id="r_ada116a50aedb55bfa6f8202717cfd159"><td class="memTemplParams" colspan="2">template&lt;CHasToString Operand&gt; </td></tr>
-<tr class="memitem:ada116a50aedb55bfa6f8202717cfd159"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ada116a50aedb55bfa6f8202717cfd159">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:ada116a50aedb55bfa6f8202717cfd159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e69e28da735a1cda52e00b310795dd" id="r_ad3e69e28da735a1cda52e00b310795dd"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
-<tr class="memitem:ad3e69e28da735a1cda52e00b310795dd"><td class="memTemplItemLeft" align="right" valign="top">const CharType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad3e69e28da735a1cda52e00b310795dd">operator%</a> (<a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; CharType &gt; const &amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:ad3e69e28da735a1cda52e00b310795dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a210730107817d1608fa42b9539ca6c80" id="r_a210730107817d1608fa42b9539ca6c80"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FStringView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a210730107817d1608fa42b9539ca6c80">operator%</a> (<a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:a210730107817d1608fa42b9539ca6c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad098102889c26ad24664bc39a0325882" id="r_ad098102889c26ad24664bc39a0325882"><td class="memTemplParams" colspan="2">template&lt;CStdStringViewInvariant Operand&gt; <br />
-requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&gt;)</td></tr>
-<tr class="memitem:ad098102889c26ad24664bc39a0325882"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad098102889c26ad24664bc39a0325882">operator%</a> (Operand &amp;&amp;left, <a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;)</td></tr>
-<tr class="separator:ad098102889c26ad24664bc39a0325882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbae721347c456d85ee6c3eeec995e1f" id="r_acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
+<tr class="memitem:acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acbae721347c456d85ee6c3eeec995e1f">AsFormatArgument</a> (T &amp;&amp;input)</td></tr>
+<tr class="separator:acbae721347c456d85ee6c3eeec995e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946" id="r_acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
 <tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acc2c6d6be5a7c30a3e691ce080068946">AsString</a> (T &amp;&amp;input)</td></tr>
 <tr class="memdesc:acc2c6d6be5a7c30a3e691ce080068946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>
@@ -306,7 +297,7 @@ requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf7
 
 <p>cross-TCHAR alias for <code>std::[w]string</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00044">44</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00057">57</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +315,7 @@ requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf7
 
 <p>cross-TCHAR alias for <code>std::[w]string_view</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00047">47</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00060">60</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +331,7 @@ requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf7
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00040">40</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00053">53</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -356,7 +347,7 @@ requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf7
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00041">41</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00054">54</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +367,7 @@ template&lt;class CharT , class Traits  = std::char_traits&lt;CharT&gt;, class A
 
 <p>Unreal style alias for STL strings. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00031">31</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00044">44</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -396,11 +387,32 @@ template&lt;class CharT , class Traits  = std::char_traits&lt;CharT&gt;&gt; </di
 
 <p>Unreal style alias for STL string views. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00038">38</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00051">51</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="acbae721347c456d85ee6c3eeec995e1f" name="acbae721347c456d85ee6c3eeec995e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbae721347c456d85ee6c3eeec995e1f">&#9670;&#160;</a></span>AsFormatArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CStringFormatArgument T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Text::AsFormatArgument </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00358">358</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
 <a id="acc2c6d6be5a7c30a3e691ce080068946" name="acc2c6d6be5a7c30a3e691ce080068946"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc2c6d6be5a7c30a3e691ce080068946">&#9670;&#160;</a></span>AsString()</h2>
 
@@ -419,10 +431,10 @@ template&lt;CStringFormatArgument T&gt; </div>
 </div><div class="memdoc">
 
 <p>Attempt to convert anything to string which can tell via some method how to do so. </p>
-<p>This may be more expensive to directly use than an already existing designated string conversion for a given type, because it uses <code>FStringFormatArg</code> and <code>% FStringFormatTag()</code> as intermediate steps. However, this can be still useful for types where such conversion doesn't already exist or when using this in a template.</p>
+<p>This may be more expensive than directly using an already existing designated string conversion for a given type, because it uses <code>FStringFormatArg</code> and a <code><a class="el" href="../../d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html">TAsFormatArgument</a></code> as intermediate steps. However, this can be still useful for types where such conversion doesn't already exist or when using this in a template.</p>
 <p>It's still much faster than using <code><a class="el" href="../../d2/d0e/FmtMacros_8h.html#ad2ae177448b123d74e4182bc4469fb74" title="Leading fake text literal which makes using FString::Format(...); much more comfortable.">FMT_(myVar)</a> "{0}"</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00329">329</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00373">373</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -472,7 +484,7 @@ template&lt;CStringOrView... Args&gt; </div>
 
 <p>Join the given string arguments with a delimiter and skip empty entries. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00250">250</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00263">263</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -496,156 +508,7 @@ template&lt;CStringFormatArgument... Args&gt; </div>
 <p>Create a named argument list for a string format from input argument tuples. </p>
 <p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00354">354</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
-
-</div>
-</div>
-<a id="a210730107817d1608fa42b9539ca6c80" name="a210730107817d1608fa42b9539ca6c80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a210730107817d1608fa42b9539ca6c80">&#9670;&#160;</a></span>operator%() <span class="overload">[1/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FORCEINLINE FStringView Mcro::Text::operator% </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a> const &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00307">307</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
-
-</div>
-</div>
-<a id="a955d9e714f9b48b713296f57060eea79" name="a955d9e714f9b48b713296f57060eea79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a955d9e714f9b48b713296f57060eea79">&#9670;&#160;</a></span>operator%() <span class="overload">[2/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;CEnum Operand&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">FStringView Mcro::Text::operator% </td>
-          <td>(</td>
-          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d5/d20/Enums_8h_source.html#l00053">53</a> of file <a class="el" href="../../d5/d20/Enums_8h_source.html">Enums.h</a>.</p>
-
-</div>
-</div>
-<a id="a2d42ebafed5e2a3cce94d2ae901e71dc" name="a2d42ebafed5e2a3cce94d2ae901e71dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d42ebafed5e2a3cce94d2ae901e71dc">&#9670;&#160;</a></span>operator%() <span class="overload">[3/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;CDirectStringFormatArgument Operand&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Operand Mcro::Text::operator% </td>
-          <td>(</td>
-          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00290">290</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
-
-</div>
-</div>
-<a id="ada116a50aedb55bfa6f8202717cfd159" name="ada116a50aedb55bfa6f8202717cfd159"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada116a50aedb55bfa6f8202717cfd159">&#9670;&#160;</a></span>operator%() <span class="overload">[4/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;CHasToString Operand&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto Mcro::Text::operator% </td>
-          <td>(</td>
-          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00296">296</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
-
-</div>
-</div>
-<a id="ad098102889c26ad24664bc39a0325882" name="ad098102889c26ad24664bc39a0325882"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad098102889c26ad24664bc39a0325882">&#9670;&#160;</a></span>operator%() <span class="overload">[5/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;CStdStringViewInvariant Operand&gt; <br />
-requires (!CSameAsDecayed&lt;Operand, <a class="el" href="#ade4bd6678fc692f8ddf782f9b6611d9b">FStdStringView</a>&gt;)</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">FString Mcro::Text::operator% </td>
-          <td>(</td>
-          <td class="paramtype">Operand &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00314">314</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
-
-</div>
-</div>
-<a id="ad3e69e28da735a1cda52e00b310795dd" name="ad3e69e28da735a1cda52e00b310795dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3e69e28da735a1cda52e00b310795dd">&#9670;&#160;</a></span>operator%() <span class="overload">[6/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CharType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">const CharType * Mcro::Text::operator% </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a6b647098f833a5da521c5fb456a46ca1">TStdString</a>&lt; CharType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html">FStringFormatTag</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00302">302</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00398">398</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -669,7 +532,7 @@ template&lt;CStringFormatArgument... Args&gt; </div>
 <p>Create an ordered argument list for a string format from input arguments. </p>
 <p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00342">342</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00386">386</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -693,7 +556,7 @@ template&lt;typename ConvertTo &gt; </div>
 
 <p>Create a copy and convert an input FName to the given character type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00243">243</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00256">256</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -717,7 +580,7 @@ template&lt;typename ConvertTo &gt; </div>
 
 <p>Create a copy and convert an input STL string of TCHAR to the given character type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00226">226</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00239">239</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -741,7 +604,7 @@ template&lt;typename ConvertTo &gt; </div>
 
 <p>Create a copy and convert an input Unreal string to the given character type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00209">209</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00222">222</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -810,7 +673,7 @@ template&lt;CStringViewInvariant T&gt; </div>
 
 <p>View an Unreal <code>TStringView</code> via an STL string view. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00158">158</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00171">171</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -833,7 +696,7 @@ template&lt;CConvertibleToDecayed&lt; FString &gt; T&gt; </div>
 
 <p>View an Unreal string via an STL string view. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00165">165</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00178">178</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -856,7 +719,7 @@ template&lt;CStdStringOrViewInvariant T&gt; </div>
 
 <p>Create a copy and convert an input STL string to TCHAR. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00175">175</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00188">188</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -898,7 +761,7 @@ template&lt;CStdStringOrViewInvariant T&gt; </div>
 
 <p>Create a copy and convert an input STL string to TCHAR as an FName. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00191">191</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00204">204</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -948,7 +811,7 @@ template&lt;typename CharType &gt; </div>
 
 <p>View an STL string object via an Unreal <code>TStringView</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00151">151</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00164">164</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>

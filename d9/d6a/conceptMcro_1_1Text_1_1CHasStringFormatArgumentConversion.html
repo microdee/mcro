@@ -116,7 +116,7 @@ $(function(){initNavTree('d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgument
 </div><!--header-->
 <div class="contents">
 
-<p>A type which can be used with FStringFormatArg via a <code>% FStringFormatTag()</code> operator.  
+<p>A type which can be used with FStringFormatArg via a <code>TAsFormatArgument</code> specialization.  
 <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&gt;</code></p>
@@ -124,14 +124,14 @@ $(function(){initNavTree('d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgument
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">Mcro::Text::CHasStringFormatArgumentConversion</a> =  !<a class="code hl_concept" href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">CDirectStringFormatArgument&lt;T&gt;</a> &amp;&amp; <span class="keyword">requires</span>(T&amp;&amp; t)</div>
 <div class="line">    {</div>
-<div class="line">        { t % FStringFormatTag() } -&gt; <a class="code hl_concept" href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">CDirectStringFormatArgument</a>;</div>
+<div class="line">        { TAsFormatArgument&lt;T&gt;()(t) } -&gt; <a class="code hl_concept" href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">CDirectStringFormatArgument</a>;</div>
 <div class="line">    }</div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CDirectStringFormatArgument_html"><div class="ttname"><a href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">Mcro::Text::CDirectStringFormatArgument</a></div><div class="ttdoc">A type which is directly convertible to FStringFormatArg.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00263">Text.h:263</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion_html"><div class="ttname"><a href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">Mcro::Text::CHasStringFormatArgumentConversion</a></div><div class="ttdoc">A type which can be used with FStringFormatArg via a % FStringFormatTag() operator.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00277">Text.h:277</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CDirectStringFormatArgument_html"><div class="ttname"><a href="../../d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html">Mcro::Text::CDirectStringFormatArgument</a></div><div class="ttdoc">A type which is directly convertible to FStringFormatArg.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00276">Text.h:276</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion_html"><div class="ttname"><a href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">Mcro::Text::CHasStringFormatArgumentConversion</a></div><div class="ttdoc">A type which can be used with FStringFormatArg via a TAsFormatArgument specialization.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00303">Text.h:303</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A type which can be used with FStringFormatArg via a <code>% FStringFormatTag()</code> operator. </p>
+<div class="textblock"><p>A type which can be used with FStringFormatArg via a <code>TAsFormatArgument</code> specialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00277">277</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00303">303</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

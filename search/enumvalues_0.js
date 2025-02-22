@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['crashing_0',['Crashing',['../dd/d58/namespaceMcro_1_1Error.html#ac027708dee5eda3aa90338fe0267302cae861703944e71824ec75761573313979',1,'Mcro::Error']]]
+  ['bidirectional_0',['Bidirectional',['../de/d41/namespaceMcro_1_1Range.html#a4b79fdc67dcd1dceaaeb499c9db348d4aabd4328c725637aabedbd02d3b7ffd40',1,'Mcro::Range']]]
 ];

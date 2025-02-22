@@ -30,6 +30,7 @@ var namespaceMcro =
     [ "Modules", "d5/d1b/namespaceMcro_1_1Modules.html", "d5/d1b/namespaceMcro_1_1Modules" ],
     [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", "d6/da2/namespaceMcro_1_1Observable" ],
     [ "Once", "dd/d7f/namespaceMcro_1_1Once.html", "dd/d7f/namespaceMcro_1_1Once" ],
+    [ "Range", "de/d41/namespaceMcro_1_1Range.html", "de/d41/namespaceMcro_1_1Range" ],
     [ "Rendering", "de/dde/namespaceMcro_1_1Rendering.html", "de/dde/namespaceMcro_1_1Rendering" ],
     [ "SharedObjects", "db/d9b/namespaceMcro_1_1SharedObjects.html", "db/d9b/namespaceMcro_1_1SharedObjects" ],
     [ "Slate", "df/df4/namespaceMcro_1_1Slate.html", "df/df4/namespaceMcro_1_1Slate" ],
@@ -42,11 +43,12 @@ var namespaceMcro =
     [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", [
       [ "TTypeFName", "df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5", null ],
       [ "TTypeName", "df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9", null ],
-      [ "TTypeNameStd", "df/d09/namespaceMcro_1_1TypeName.html#af597045724d09ebd9dac4d01b85ed1c0", null ],
+      [ "TTypeNameStd", "df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af", null ],
       [ "TTypeString", "df/d09/namespaceMcro_1_1TypeName.html#a18915ac693fa0f2dd74648286e013b33", null ]
     ] ],
     [ "Types", "da/d89/namespaceMcro_1_1Types.html", "da/d89/namespaceMcro_1_1Types" ],
     [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", "df/d84/namespaceMcro_1_1UObjects" ],
     [ "Windows", "db/de3/namespaceMcro_1_1Windows.html", "db/de3/namespaceMcro_1_1Windows" ],
-    [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", "d5/dba/namespaceMcro_1_1Yaml" ]
+    [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", "d5/dba/namespaceMcro_1_1Yaml" ],
+    [ "Zero", "d0/dd7/namespaceMcro_1_1Zero.html", "d0/dd7/namespaceMcro_1_1Zero" ]
 ];

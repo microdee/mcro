@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['suppressed_5fanothererroropen_0',['Suppressed_AnotherErrorOpen',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a16627f35f1898ba8ad2208f07de09802',1,'Mcro::Error::FErrorManager']]],
-  ['suppressed_5fcannotdisplaymodalwindow_1',['Suppressed_CannotDisplayModalWindow',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd',1,'Mcro::Error::FErrorManager']]]
+  ['jump_0',['Jump',['../de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a101f693f72287a2819a364f64ca1c0ed',1,'Mcro::Range']]],
+  ['jumpbinaryoperators_1',['JumpBinaryOperators',['../de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a9a5009153f858ca1dff766a0c62b93d1',1,'Mcro::Range']]]
 ];

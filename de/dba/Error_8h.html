@@ -129,6 +129,7 @@ $(function(){initNavTree('de/dba/Error_8h.html','../../'); initResizable(true); 
 <code>#include &quot;<a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">Mcro/SharedObjects.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dc/da3/Observable_8Fwd_8h_source.html">Mcro/Observable.Fwd.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Mcro/Text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d51/EventDelegate_8h_source.html">Mcro/Delegates/EventDelegate.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d42/Start_8h_source.html">Mcro/LibraryIncludes/Start.h</a>&quot;</code><br />
 <code>#include &quot;yaml-cpp/yaml.h&quot;</code><br />
@@ -224,12 +225,12 @@ Functions</h2></td></tr>
 <div class="line">            -&gt;AsRecoverable()                                           \</div>
 <div class="line">            -&gt;WithCodeContext(<a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(condition))</div>
 <div class="ttc" id="aMacros_8h_html_a4bf69615cef105529a52fd1a06f84704"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a></div><div class="ttdeci">#define PREPROCESSOR_TO_TEXT(x)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00018">Macros.h:18</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1FAssertion_html"><div class="ttname"><a href="../../d2/dc8/classMcro_1_1Error_1_1FAssertion.html">Mcro::Error::FAssertion</a></div><div class="ttdoc">A simple error type for checking booleans. It adds no extra features to IError.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00541">Error.h:541</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1IError_html_ac2ce5e2b8105f57bb6fb0ff948e9c79d"><div class="ttname"><a href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a></div><div class="ttdeci">static TSharedRef&lt; T &gt; Make(T *newError, Args &amp;&amp;... args)</div><div class="ttdoc">To ensure automatic type reflection use IError::Make instead of manually constructing error objects.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00143">Error.h:143</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1FAssertion_html"><div class="ttname"><a href="../../d2/dc8/classMcro_1_1Error_1_1FAssertion.html">Mcro::Error::FAssertion</a></div><div class="ttdoc">A simple error type for checking booleans. It adds no extra features to IError.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00542">Error.h:542</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1IError_html_ac2ce5e2b8105f57bb6fb0ff948e9c79d"><div class="ttname"><a href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a></div><div class="ttdeci">static TSharedRef&lt; T &gt; Make(T *newError, Args &amp;&amp;... args)</div><div class="ttdoc">To ensure automatic type reflection use IError::Make instead of manually constructing error objects.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00144">Error.h:144</a></div></div>
 </div><!-- fragment -->
 <p>Similar to check() macro, but return an error instead of crashing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00658">658</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00659">659</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -268,7 +269,7 @@ Functions</h2></td></tr>
 <div class="line">    ))</div>
 <div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00051">TextMacros.h:51</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00650">650</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00651">651</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +302,7 @@ Functions</h2></td></tr>
 <div class="line">        -&gt;ToString()                                     \</div>
 <div class="line">    ))</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00643">643</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00644">644</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -320,9 +321,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a6ad3f41996d940cc820308ad5b102ae2">MCRO_PROPAGATE_FAIL_2</a>(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)</div>
-<div class="ttc" id="aError_8h_html_a6ad3f41996d940cc820308ad5b102ae2"><div class="ttname"><a href="#a6ad3f41996d940cc820308ad5b102ae2">MCRO_PROPAGATE_FAIL_2</a></div><div class="ttdeci">#define MCRO_PROPAGATE_FAIL_2(var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00676">Error.h:676</a></div></div>
+<div class="ttc" id="aError_8h_html_a6ad3f41996d940cc820308ad5b102ae2"><div class="ttname"><a href="#a6ad3f41996d940cc820308ad5b102ae2">MCRO_PROPAGATE_FAIL_2</a></div><div class="ttdeci">#define MCRO_PROPAGATE_FAIL_2(var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00677">Error.h:677</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00677">677</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00678">678</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -345,9 +346,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a6c02656a66375f94124ba473e4bf954d">MCRO_PROPAGATE_FAIL_3</a>(<span class="keyword">auto</span>, var, expression)</div>
-<div class="ttc" id="aError_8h_html_a6c02656a66375f94124ba473e4bf954d"><div class="ttname"><a href="#a6c02656a66375f94124ba473e4bf954d">MCRO_PROPAGATE_FAIL_3</a></div><div class="ttdeci">#define MCRO_PROPAGATE_FAIL_3(type, var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00671">Error.h:671</a></div></div>
+<div class="ttc" id="aError_8h_html_a6c02656a66375f94124ba473e4bf954d"><div class="ttname"><a href="#a6c02656a66375f94124ba473e4bf954d">MCRO_PROPAGATE_FAIL_3</a></div><div class="ttdeci">#define MCRO_PROPAGATE_FAIL_3(type, var, expression)</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00672">Error.h:672</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00676">676</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00677">677</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -378,7 +379,7 @@ Functions</h2></td></tr>
 <div class="line">    if (UNLIKELY(var.HasError())) return var.GetError() \</div>
 <div class="line">        -&gt;WithLocation()</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00671">671</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00672">672</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +407,7 @@ Functions</h2></td></tr>
 <li><code>(type, var, expression)</code> Use this when the value of success will be used further below and its local variable should have an explicit type </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00692">692</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00693">693</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>
@@ -427,11 +428,11 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="../../dd/d8f/classMcro_1_1Error_1_1IError.html#ac2ce5e2b8105f57bb6fb0ff948e9c79d">Mcro::Error::IError::Make</a>(<span class="keyword">new</span> <a class="code hl_class" href="../../d4/d68/classMcro_1_1Error_1_1FUnavailable.html">Mcro::Error::FUnavailable</a>()) \</div>
 <div class="line">        -&gt;WithLocation()                                              \</div>
 <div class="line">        -&gt;AsRecoverable()</div>
-<div class="ttc" id="aclassMcro_1_1Error_1_1FUnavailable_html"><div class="ttname"><a href="../../d4/d68/classMcro_1_1Error_1_1FUnavailable.html">Mcro::Error::FUnavailable</a></div><div class="ttdoc">A simple error type denoting that whatever is being accessed is not available like attempting to acce...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00548">Error.h:549</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Error_1_1FUnavailable_html"><div class="ttname"><a href="../../d4/d68/classMcro_1_1Error_1_1FUnavailable.html">Mcro::Error::FUnavailable</a></div><div class="ttdoc">A simple error type denoting that whatever is being accessed is not available like attempting to acce...</div><div class="ttdef"><b>Definition</b> <a href="../../de/dba/Error_8h_source.html#l00549">Error.h:550</a></div></div>
 </div><!-- fragment -->
 <p>Denote that a resource which is asked for doesn't exist. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00666">666</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dba/Error_8h_source.html#l00667">667</a> of file <a class="el" href="../../de/dba/Error_8h_source.html">Error.h</a>.</p>
 
 </div>
 </div>

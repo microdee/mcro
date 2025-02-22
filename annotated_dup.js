@@ -80,6 +80,29 @@ var annotated_dup =
       [ "Once", "dd/d7f/namespaceMcro_1_1Once.html", [
         [ "FOnce", "d9/d70/structMcro_1_1Once_1_1FOnce.html", "d9/d70/structMcro_1_1Once_1_1FOnce" ]
       ] ],
+      [ "Range", "de/d41/namespaceMcro_1_1Range.html", [
+        [ "Detail", "df/dde/namespaceMcro_1_1Range_1_1Detail.html", [
+          [ "TRangeWithStringFormat", "db/d93/structMcro_1_1Range_1_1Detail_1_1TRangeWithStringFormat.html", "db/d93/structMcro_1_1Range_1_1Detail_1_1TRangeWithStringFormat" ]
+        ] ],
+        [ "FExtendedIteratorPolicy", "da/de9/structMcro_1_1Range_1_1FExtendedIteratorPolicy.html", "da/de9/structMcro_1_1Range_1_1FExtendedIteratorPolicy" ],
+        [ "FRangeStringFormatOptions", "df/d34/structMcro_1_1Range_1_1FRangeStringFormatOptions.html", "df/d34/structMcro_1_1Range_1_1FRangeStringFormatOptions" ],
+        [ "FTempStringIterator", "d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html", "d6/d39/structMcro_1_1Range_1_1FTempStringIterator" ],
+        [ "OutputTo", "d0/dcf/classMcro_1_1Range_1_1OutputTo.html", "d0/dcf/classMcro_1_1Range_1_1OutputTo" ],
+        [ "OutputToMap", "d7/d64/classMcro_1_1Range_1_1OutputToMap.html", "d7/d64/classMcro_1_1Range_1_1OutputToMap" ],
+        [ "RenderAs", "d0/d5d/classMcro_1_1Range_1_1RenderAs.html", "d0/d5d/classMcro_1_1Range_1_1RenderAs" ],
+        [ "RenderAsMap", "d8/d57/classMcro_1_1Range_1_1RenderAsMap.html", "d8/d57/classMcro_1_1Range_1_1RenderAsMap" ],
+        [ "TExtendedIterator", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator" ],
+        [ "TIteratorCompare_Struct", "d4/d9e/structMcro_1_1Range_1_1TIteratorCompare__Struct.html", null ],
+        [ "TIteratorCompare_Struct< T >", "df/d88/structMcro_1_1Range_1_1TIteratorCompare__Struct_3_01T_01_4.html", "df/d88/structMcro_1_1Range_1_1TIteratorCompare__Struct_3_01T_01_4" ],
+        [ "TIteratorComputeDistance_Struct", "d2/df0/structMcro_1_1Range_1_1TIteratorComputeDistance__Struct.html", null ],
+        [ "TIteratorComputeDistance_Struct< T >", "d0/d4d/structMcro_1_1Range_1_1TIteratorComputeDistance__Struct_3_01T_01_4.html", "d0/d4d/structMcro_1_1Range_1_1TIteratorComputeDistance__Struct_3_01T_01_4" ],
+        [ "TIteratorDifference_Struct", "d8/de7/structMcro_1_1Range_1_1TIteratorDifference__Struct.html", "d8/de7/structMcro_1_1Range_1_1TIteratorDifference__Struct" ],
+        [ "TIteratorDifference_Struct< T >", "d5/d2e/structMcro_1_1Range_1_1TIteratorDifference__Struct_3_01T_01_4.html", "d5/d2e/structMcro_1_1Range_1_1TIteratorDifference__Struct_3_01T_01_4" ],
+        [ "TIteratorJumpBackward_Struct", "dc/d76/structMcro_1_1Range_1_1TIteratorJumpBackward__Struct.html", null ],
+        [ "TIteratorJumpBackward_Struct< T >", "d9/d4a/structMcro_1_1Range_1_1TIteratorJumpBackward__Struct_3_01T_01_4.html", "d9/d4a/structMcro_1_1Range_1_1TIteratorJumpBackward__Struct_3_01T_01_4" ],
+        [ "TIteratorJumpForward_Struct", "d3/d8f/structMcro_1_1Range_1_1TIteratorJumpForward__Struct.html", null ],
+        [ "TIteratorJumpForward_Struct< T >", "d7/dd9/structMcro_1_1Range_1_1TIteratorJumpForward__Struct_3_01T_01_4.html", "d7/dd9/structMcro_1_1Range_1_1TIteratorJumpForward__Struct_3_01T_01_4" ]
+      ] ],
       [ "Rendering", "de/dde/namespaceMcro_1_1Rendering.html", [
         [ "Textures", "d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html", [
           [ "TTextureSize", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize" ]
@@ -91,6 +114,7 @@ var annotated_dup =
       [ "Slate", "df/df4/namespaceMcro_1_1Slate.html", [
         [ "TArgumentsOf_S", "de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html", null ],
         [ "TArgumentsOf_S< T >", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4" ],
+        [ "TAttributeBlockFunctor", "dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html", "dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor" ],
         [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", "d0/daf/structMcro_1_1Slate_1_1TSlots" ]
       ] ],
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
@@ -106,12 +130,17 @@ var annotated_dup =
           [ "FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag" ],
           [ "TStringPrintfLiteral", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral" ]
         ] ],
-        [ "FStringFormatTag", "df/d0a/structMcro_1_1Text_1_1FStringFormatTag.html", null ]
+        [ "TAsFormatArgument", "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html", null ],
+        [ "TAsFormatArgument< FStdStringView >", "d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4.html", "d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4" ],
+        [ "TAsFormatArgument< Operand >", "d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4.html", "d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4" ],
+        [ "TAsFormatArgument< TStdString< CharType > >", "d4/d53/structMcro_1_1Text_1_1TAsFormatArgument_3_01TStdString_3_01CharType_01_4_01_4.html", "d4/d53/structMcro_1_1Text_1_1TAsFormatArgument_3_01TStdString_3_01CharType_01_4_01_4" ]
       ] ],
       [ "Tuples", "db/d81/namespaceMcro_1_1Tuples.html", [
         [ "TSkip_Struct", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct" ],
         [ "TTake_Struct", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct" ],
-        [ "TTrimEnd_Struct", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct" ]
+        [ "TTrimEnd_Struct", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct" ],
+        [ "TTypeAt_Struct", "d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html", null ],
+        [ "TTypeAt_Struct< I, T >", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4.html", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4" ]
       ] ],
       [ "Types", "da/d89/namespaceMcro_1_1Types.html", [
         [ "IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", "d8/d19/classMcro_1_1Types_1_1IHaveType" ]
@@ -130,8 +159,13 @@ var annotated_dup =
       ] ],
       [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", [
         [ "TScopedRegion", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion" ]
+      ] ],
+      [ "Zero", "d0/dd7/namespaceMcro_1_1Zero.html", [
+        [ "FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", "d4/d5f/structMcro_1_1Zero_1_1FZero" ]
       ] ]
     ] ],
+    [ "FMapPairsAccessTag", "d0/deb/structFMapPairsAccessTag.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", "d3/daf/structFVoid" ],
+    [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", null ],
     [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", "d4/ded/classUDynamicDelegateTestClass" ]
 ];
