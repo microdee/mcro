@@ -330,7 +330,7 @@ namespace Mcro::Concepts
 	template <typename T>
 	concept CNonVoid = !std::is_void_v<T>;
 
-	template<typename T>
+	template <typename T>
 	concept CRefCounted = requires(std::decay_t<T>& t)
 	{
 		t.AddRef();
@@ -339,6 +339,24 @@ namespace Mcro::Concepts
 
 	template <typename T>
 	concept CRangeMember = requires(std::decay_t<T>&& t) { t.begin(); t.end(); };
+
+	template <typename T>
+	concept CValidableMember = requires(std::decay_t<T> t) { { t.IsValid() } -> CBooleanTestable; };
+
+	template <typename T>
+	concept CValidableAdl = requires(std::decay_t<T> t) { { IsValid(t) } -> CBooleanTestable; };
+
+	template <typename T>
+	concept CValidable = CBooleanTestable<T> || CValidableMember<T> || CValidableAdl<T>;
+
+	/** @brief Attempt to test the input object validity through various methods. */
+	template <CValidable T>
+	bool TestValid(T&& input)
+	{
+		     if constexpr (CValidableMember<T>) return input.IsValid();
+		else if constexpr (CValidableAdl<T>)    return IsValid(input);
+		else return static_cast<bool>(input);
+	}
 
 	// use in decltype
 	template <typename T> T DecayPtr(T*);
