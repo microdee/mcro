@@ -37,11 +37,11 @@ namespace Mcro::Slate
 
 	/** @brief Constraining given type to the arguments of either a widget or a slot */
 	template <typename T>
-	concept CWidgetOrSlotArguments = CSameAsDecayed<T, typename T::WidgetArgsType>;
+	concept CWidgetOrSlotArguments = CSameAsDecayed<T, typename std::decay_t<T>::WidgetArgsType>;
 
 	/** @brief Constraining given type to the arguments of a widget  */
 	template <typename T>
-	concept CWidgetArguments = requires(typename T::WidgetType& t) { t; };
+	concept CWidgetArguments = requires(typename std::decay_t<T>::WidgetType& t) { t; };
 
 	/** @brief Constraining given type to the arguments of a slot  */
 	template <typename T>
@@ -193,13 +193,18 @@ namespace Mcro::Slate
 	requires (TFunction_ArgCount<Transform> == 1)
 	struct TSlots
 	{
-		TSlots(const Range& range, Transform&& transform, TOptional<OnEmpty>&& onEmpty = {})
+		TSlots(Range const& range, Transform&& transform, TOptional<OnEmpty>&& onEmpty = {})
+			: RangeRef(const_cast<Range&>(range))
+			, TransformStorage(MoveTemp(transform))
+			, OnEmptyStorage(MoveTemp(onEmpty))
+		{}
+		TSlots(Range& range, Transform&& transform, TOptional<OnEmpty>&& onEmpty = {})
 			: RangeRef(range)
 			, TransformStorage(MoveTemp(transform))
 			, OnEmptyStorage(MoveTemp(onEmpty))
 		{}
 
-		TSlots(const TSlots&) = delete;
+		TSlots(TSlots const&) = delete;
 		TSlots(TSlots&& o) noexcept
 			: RangeRef(o.RangeRef)
 			, TransformStorage(MoveTemp(o.TransformStorage))
@@ -207,7 +212,7 @@ namespace Mcro::Slate
 		{
 		}
 
-		TSlots& operator=(const TSlots&) = delete;
+		TSlots& operator=(TSlots const&) = delete;
 		TSlots& operator=(TSlots&& o) noexcept
 		{
 			if (this == &o)
@@ -241,7 +246,7 @@ namespace Mcro::Slate
 		}
 
 	private:
-		const Range& RangeRef;
+		Range& RangeRef;
 		Transform TransformStorage;
 		TOptional<OnEmpty> OnEmptyStorage;
 	};
