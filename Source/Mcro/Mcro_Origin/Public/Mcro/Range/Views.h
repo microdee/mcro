@@ -155,8 +155,11 @@ namespace Mcro::Range
 		return ranges::make_pipeable([&](auto&& left){ return ranges::any_of(left, pred); });
 	}
 
-	inline constexpr auto FilterValid = ranges::views::filter([]<CValidable T>(T&& item)
+	FORCEINLINE auto FilterValid()
 	{
-		return TestValid(Forward<T>(item));
-	});
+		return ranges::views::filter([]<CValidable T>(T&& item)
+		{
+			return TestValid(Forward<T>(item));
+		});
+	}
 }
