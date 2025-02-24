@@ -15,6 +15,31 @@
 
 using namespace Mcro::Common::With::Literals;
 
+class FTestErrorDisplayExtension : public IErrorDisplayExtension, public IFeatureImplementation
+{
+public:
+	FTestErrorDisplayExtension() { Register(); }
+	
+	virtual TSharedPtr<SWidget> PostMessage(IErrorRef const& error) override
+	{
+		return SNew(STextBlock).Text(INVTEXT_"A sample widget for error display extension");
+	}
+};
+
+class FTestErrorWindowExtension : public IErrorWindowExtension, public IFeatureImplementation
+{
+public:
+	FTestErrorWindowExtension() { Register(); }
+	
+	virtual TSharedPtr<SWidget> PostErrorDisplay(IErrorRef const& error, FDisplayErrorArgs const&) override
+	{
+		return SNew(STextBlock).Text(INVTEXT_"A sample widget for error display extension");
+	}
+};
+
+TUniquePtr<FTestErrorDisplayExtension> GTestErrorDisplayExtension;
+TUniquePtr<FTestErrorWindowExtension> GTestErrorWindowExtension;
+
 namespace Mcro::Test
 {
 	class FTestSimpleError : public IError {};
@@ -104,8 +129,18 @@ DEFINE_SPEC(
 
 void FMcroErrorUI_Spec::Define()
 {
-	xDescribe(TEXT_"FErrorManager", [this]
+	Describe(TEXT_"FErrorManager", [this]
 	{
+		BeforeEach([]
+		{
+			GTestErrorDisplayExtension = MakeUnique<FTestErrorDisplayExtension>();
+			GTestErrorWindowExtension = MakeUnique<FTestErrorWindowExtension>();
+		});
+		AfterEach([]
+		{
+			GTestErrorDisplayExtension.Reset();
+			GTestErrorWindowExtension.Reset();
+		});
 		LatentIt(TEXT_"should display async error", 1_Hour, [this](FDoneDelegate const& done)
 		{
 			auto error = CommonTestError()
@@ -149,7 +184,7 @@ void FMcroErrorUI_Spec::Define()
 		});
 	});
 
-	xDescribe(TEXT_"Assertions", [this]
+	Describe(TEXT_"Assertions", [this]
 	{
 		It(TEXT_"should crash app on assertion failure", [this]
 		{

@@ -17,7 +17,6 @@
 #include "Containers/RingBuffer.h"
 
 using namespace Mcro::Common;
-using namespace ranges;
 
 DEFINE_SPEC(
 	FMcroRange_Spec,
@@ -29,6 +28,7 @@ DEFINE_SPEC(
 
 void FMcroRange_Spec::Define()
 {
+	using namespace ranges;
 	Describe(TEXT_"Range-V3 should support Unreal container", [this]
 	{
 		It(TEXT_"TArray", [this]

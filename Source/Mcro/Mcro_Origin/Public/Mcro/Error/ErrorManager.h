@@ -14,10 +14,58 @@
 #include "CoreMinimal.h"
 #include "Mcro/Error.h"
 #include "Mcro/Delegates/EventDelegate.h"
+#include "Mcro/AutoModularFeature.h"
 
 namespace Mcro::Error
 {
-	using namespace Mcro::Delegates;
+	using namespace Mcro::AutoModularFeature;
+
+	/** @brief Control how an error is being displayed. Use C++ 20 designated initializers for convenience */
+	struct FDisplayErrorArgs
+	{
+		/**
+		 *	@brief
+		 *	The error message will not block the engine tick. This is useful for errors happening in the editor
+		 *	so even if PIE session is aborted due to an error, the developer can cross-check their assets with the
+		 *	error still open.
+		 */
+		bool bAsync = false;
+
+		/** @brief Enables an extra checkbox which reminds the user to please do not immediately dismiss the error */
+		bool bImportantToRead = false;
+
+		/**
+		 *	@brief
+		 *	Set this to false if for any reason you don't need the debugger to break before displaying the error
+		 *	to the user.
+		 */
+		bool bBreakDebugger = true;
+
+		/**
+		 *	@brief
+		 *	Set this to false if for any reason you don't need the error to be logged before displaying it to the user.
+		 */
+		bool bLogError = true;
+
+		/**
+		 *	@brief
+		 *	Optionally set a parent widget for the modal window of the error. By default if not specified here the
+		 *	main editor window is used, or the main gameplay viewport.
+		 */
+		TSharedPtr<const SWidget> Parent = {};
+	};
+
+	/**
+	 *	@brief
+	 *	A modular feature which allows other modules to inject their own UI into error windows displayed to the user.
+	 */
+	class MCRO_API IErrorWindowExtension : public TAutoModularFeature<IErrorWindowExtension>
+	{
+	public:
+		virtual bool SupportsError(IErrorRef const& error, FDisplayErrorArgs const& displayArgs) { return true; };
+		virtual TSharedPtr<SWidget> PreErrorDisplay(IErrorRef const& error, FDisplayErrorArgs const& displayArgs) { return {}; };
+		virtual TSharedPtr<SWidget> PostErrorDisplay(IErrorRef const& error, FDisplayErrorArgs const& displayArgs) { return {}; };
+	};
 	
 	/** @brief Global facilities for IError handling, including displaying them to the user, trigger error events, etc */
 	class MCRO_API FErrorManager
@@ -38,41 +86,6 @@ namespace Mcro::Error
 
 			/** @brief Modal windows couldn't be created at the time, so we couldn't show it to the user either. */
 			Suppressed_CannotDisplayModalWindow,
-		};
-
-		/** @brief Control how an error is being displayed. Use C++ 20 designated initializers for convenience */
-		struct FDisplayErrorArgs
-		{
-			/**
-			 *	@brief
-			 *	The error message will not block the engine tick. This is useful for errors happening in the editor
-			 *	so even if PIE session is aborted due to an error, the developer can cross-check their assets with the
-			 *	error still open.
-			 */
-			bool bAsync = false;
-
-			/** @brief Enables an extra checkbox which reminds the user to please do not immediately dismiss the error */
-			bool bImportantToRead = false;
-
-			/**
-			 *	@brief
-			 *	Set this to false if for any reason you don't need the debugger to break before displaying the error
-			 *	to the user.
-			 */
-			bool bBreakDebugger = true;
-
-			/**
-			 *	@brief
-			 *	Set this to false if for any reason you don't need the error to be logged before displaying it to the user.
-			 */
-			bool bLogError = true;
-
-			/**
-			 *	@brief
-			 *	Optionally set a parent widget for the modal window of the error. By default if not specified here the
-			 *	main editor window is used, or the main gameplay viewport.
-			 */
-			TSharedPtr<const SWidget> Parent = {};
 		};
 
 		/**
