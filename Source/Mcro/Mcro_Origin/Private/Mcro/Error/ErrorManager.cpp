@@ -13,6 +13,9 @@
 #include "Mcro/Error/SErrorDisplay.h"
 #include "Mcro/Threading.h"
 #include "Mcro/FmtMacros.h"
+#include "Mcro/Range.h"
+#include "Mcro/Range/Conversion.h"
+#include "Mcro/Range/Views.h"
 #include "Interfaces/IMainFrameModule.h"
 #include "Styling/StarshipCoreStyle.h"
 #include "HAL/PlatformApplicationMisc.h"
@@ -22,6 +25,7 @@ DECLARE_LOG_CATEGORY_CLASS(LogErrorManager, Log, Log);
 namespace Mcro::Error
 {
 	using namespace Mcro::Delegates::InferDelegate;
+	using namespace Mcro::Range;
 	
 	FErrorManager& FErrorManager::Get()
 	{
@@ -72,6 +76,7 @@ namespace Mcro::Error
 	auto FErrorManager::DisplayError_MainThread(IErrorRef const& error, FDisplayErrorArgs const& args) -> EDisplayErrorResult
 	{
 		using namespace Mcro::Slate;
+		namespace rv = ranges::views;
 		
 		decltype(auto) slate = FSlateApplication::Get();
 		auto canInferParentWidget = [&] { return args.Parent.IsValid() || InferParentWidget().IsValid(); };
@@ -82,6 +87,12 @@ namespace Mcro::Error
 		}
 
 		TSharedPtr<const SWidget> parent = args.Parent ? args.Parent : InferParentWidget();
+		
+		auto allExtensions = IErrorWindowExtension::GetAll();
+		auto extensions = allExtensions
+			| rv::filter([error, &args](IErrorWindowExtension* i) { return i->SupportsError(error, args); })
+			| RenderAs<TArray>()
+		;
 
 		decltype(auto) style = FStarshipCoreStyle::GetCoreStyle();
 
@@ -177,6 +188,25 @@ namespace Mcro::Error
 							"\nThank you for your patience, understanding and cooperation!"
 						)
 					]
+					+ TSlots(
+						extensions
+							| rv::transform([error, &args](IErrorWindowExtension* i)
+							{
+								return i->PreErrorDisplay(error, args);
+							})
+							| FilterValid()
+						,
+						[](TSharedPtr<SWidget> const& i)
+						{
+							return MoveTemp(
+								SVerticalBox::Slot()
+								. VAlign(VAlign_Fill)
+								. Padding(FMargin(0.f, 5.f))
+								. AutoHeight()
+								[ i.ToSharedRef() ]
+							);
+						}
+					)
 					+ SVerticalBox::Slot()
 					. HAlign(HAlign_Fill)
 					. VAlign(VAlign_Fill)
@@ -190,6 +220,25 @@ namespace Mcro::Error
 							error->CreateErrorWidget()
 						]
 					]
+					+ TSlots(
+						extensions
+							| rv::transform([error, &args](IErrorWindowExtension* i)
+							{
+								return i->PostErrorDisplay(error, args);
+							})
+							| FilterValid()
+						,
+						[](TSharedPtr<SWidget> const& i)
+						{
+							return MoveTemp(
+								SVerticalBox::Slot()
+								. VAlign(VAlign_Fill)
+								. Padding(FMargin(0.f, 5.f))
+								. AutoHeight()
+								[ i.ToSharedRef() ]
+							);
+						}
+					)
 					+ SVerticalBox::Slot()
 					. HAlign(HAlign_Fill)
 					. AutoHeight()

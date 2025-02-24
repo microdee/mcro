@@ -56,7 +56,7 @@ namespace Mcro::Modules
 		 */
 		TObserveModule()
 		{
-			auto moduleName = TTypeString<M>.Mid(1);
+			auto moduleName = TTypeString<M>().Mid(1);
 			moduleName.RemoveFromEnd(TEXT_"Module");
 			moduleName.RemoveFromEnd(TEXT_"ModuleInterface");
 			ObserveModule(moduleName);

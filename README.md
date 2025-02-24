@@ -622,9 +622,8 @@ using namespace Mcro::Common;
 
 struct FMyBaseType
 {
-    // returns const-ref to a templated global variable
     template <typename Self>
-    FString const& GetTypeString(this Self&&) const { return TTypeString<Self>; }
+    FString GetTypeString(this Self&&) const { return TTypeString<Self>(); }
 }
 
 struct FMyDerivedType : FMyBaseType {}

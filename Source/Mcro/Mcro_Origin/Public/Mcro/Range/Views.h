@@ -22,6 +22,7 @@ namespace Mcro::Range
 {
 	using namespace Mcro::Concepts;
 
+	/** @brief Make an initializer list compatible with range API's */
 	template <typename T>
 	decltype(auto) Literal(std::initializer_list<T>&& input) { return Forward<std::initializer_list<T>>(input); }
 
@@ -152,5 +153,13 @@ namespace Mcro::Range
 	auto AnyOf(Predicate&& pred)
 	{
 		return ranges::make_pipeable([&](auto&& left){ return ranges::any_of(left, pred); });
+	}
+
+	FORCEINLINE auto FilterValid()
+	{
+		return ranges::views::filter([]<CValidable T>(T&& item)
+		{
+			return TestValid(Forward<T>(item));
+		});
 	}
 }

@@ -53,6 +53,8 @@ void FMcroTypes_Spec::Define()
 		{
 			auto name = TTypeName<FMcroTypes_Spec>;
 			TestEqual(TEXT_"Name matches", name, TEXT_"FMcroTypes_Spec");
+			auto nameString = TTypeString<FMcroTypes_Spec>();
+			TestEqual(TEXT_"Name as string matches", nameString, TEXT_"FMcroTypes_Spec");
 			name = TTypeName<FNonExistent>;
 			TestEqual(TEXT_"Matches incomplete types", name, TEXT_"FNonExistent");
 			name = FTestIncompleteScope::Test();

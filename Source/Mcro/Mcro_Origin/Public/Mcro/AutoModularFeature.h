@@ -100,9 +100,9 @@ namespace Mcro::AutoModularFeature
 		}
 
 		/** @brief Get the name of the feature */
-		static FORCEINLINE const FName& FeatureName()
+		static FORCEINLINE FName FeatureName()
 		{
-			return TTypeFName<Feature>;
+			return TTypeFName<Feature>();
 		}
 
 		/** @return The number of implementations created for this feature */
@@ -149,8 +149,8 @@ namespace Mcro::AutoModularFeature
 			UE_LOG(
 				LogAutoModularFeature, Log,
 				TEXT_"Registering %s as %s feature",
-				*TTypeString<Implementation>,
-				*TTypeString<Feature>
+				*TTypeString<Implementation>(),
+				*TTypeString<Feature>()
 			);
 			IModularFeatures::Get().RegisterModularFeature(FeatureName(), &self);
 			OnRegistered().Broadcast(&self);
