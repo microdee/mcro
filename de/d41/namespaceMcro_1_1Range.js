@@ -57,6 +57,7 @@ var namespaceMcro_1_1Range =
     [ "AnyOf", "de/d41/namespaceMcro_1_1Range.html#a76391b1cafa3aec2ede9e86c046862f1", null ],
     [ "Concat", "de/d41/namespaceMcro_1_1Range.html#a12122be15ffd5067c75609350389cab0", null ],
     [ "Enclosure", "de/d41/namespaceMcro_1_1Range.html#aab68ef6e131c0af63899ccb1dfe76069", null ],
+    [ "FilterValid", "de/d41/namespaceMcro_1_1Range.html#a8e8e7aacbe9f240f0704821c5027e1a6", null ],
     [ "First", "de/d41/namespaceMcro_1_1Range.html#a05033d32723a1ba7b9a0e1aff9dad853", null ],
     [ "First", "de/d41/namespaceMcro_1_1Range.html#aa6f63a082f312621b636204f35febea6", null ],
     [ "IsEmpty", "de/d41/namespaceMcro_1_1Range.html#a6ecf733949f9051ad211e073dd4eb788", null ],

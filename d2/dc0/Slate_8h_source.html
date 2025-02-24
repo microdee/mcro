@@ -155,11 +155,11 @@ $(function(){initNavTree('d2/dc0/Slate_8h_source.html','../../'); initResizable(
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">    /** @brief Constraining given type to the arguments of either a widget or a slot */</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">   40</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">CWidgetOrSlotArguments</a> = CSameAsDecayed&lt;T, typename T::WidgetArgsType&gt;;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">   40</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">CWidgetOrSlotArguments</a> = CSameAsDecayed&lt;T, typename std::decay_t&lt;T&gt;::WidgetArgsType&gt;;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    /** @brief Constraining given type to the arguments of a widget  */</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d4/d18/conceptMcro_1_1Slate_1_1CWidgetArguments.html">   44</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d4/d18/conceptMcro_1_1Slate_1_1CWidgetArguments.html">CWidgetArguments</a> = <span class="keyword">requires</span>(<span class="keyword">typename</span> T::WidgetType&amp; t) { t; };</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d4/d18/conceptMcro_1_1Slate_1_1CWidgetArguments.html">   44</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="../../d4/d18/conceptMcro_1_1Slate_1_1CWidgetArguments.html">CWidgetArguments</a> = <span class="keyword">requires</span>(<span class="keyword">typename</span> std::decay_t&lt;T&gt;::WidgetType&amp; t) { t; };</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">    /** @brief Constraining given type to the arguments of a slot  */</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -327,72 +327,79 @@ $(function(){initNavTree('d2/dc0/Slate_8h_source.html','../../'); initResizable(
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">  194</a></span>    <span class="keyword">struct</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a></div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    {</div>
 <div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#aa51caf2054fdd1ab409f39204ce560cd">  196</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#aa51caf2054fdd1ab409f39204ce560cd">TSlots</a>(<span class="keyword">const</span> Range&amp; range, Transform&amp;&amp; transform, TOptional&lt;OnEmpty&gt;&amp;&amp; onEmpty = {})</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            : RangeRef(range)</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a853bf3c0f38fd9e18536a7fd24222004">  196</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a853bf3c0f38fd9e18536a7fd24222004">TSlots</a>(Range <span class="keyword">const</span>&amp; range, Transform&amp;&amp; transform, TOptional&lt;OnEmpty&gt;&amp;&amp; onEmpty = {})</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            : RangeRef(const_cast&lt;Range&amp;&gt;(range))</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            , TransformStorage(MoveTemp(transform))</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            , OnEmptyStorage(MoveTemp(onEmpty))</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        {}</div>
 </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a40db4d6ffb4872ca54bb7a59e833961d">  202</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a40db4d6ffb4872ca54bb7a59e833961d">TSlots</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84">  203</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84">TSlots</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) noexcept</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            : RangeRef(o.RangeRef)</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            , TransformStorage(MoveTemp(o.TransformStorage))</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            , OnEmptyStorage(MoveTemp(o.OnEmptyStorage))</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        {</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        }</div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad432ff6b044a8905830e480a3991fdbb">  201</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad432ff6b044a8905830e480a3991fdbb">TSlots</a>(Range&amp; range, Transform&amp;&amp; transform, TOptional&lt;OnEmpty&gt;&amp;&amp; onEmpty = {})</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            : RangeRef(range)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            , TransformStorage(MoveTemp(transform))</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            , OnEmptyStorage(MoveTemp(onEmpty))</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        {}</div>
 </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe1bf1664ba09d0fcb9c07906f3fd537">  210</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe1bf1664ba09d0fcb9c07906f3fd537">operator=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a">  211</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a">operator=</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a058c8183b79bcd16493e37d4a74e1dbb">  207</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a058c8183b79bcd16493e37d4a74e1dbb">TSlots</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00208" data-start="{" data-end="}">
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84">  208</a></span>        <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84">TSlots</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) noexcept</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            : RangeRef(o.RangeRef)</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            , TransformStorage(MoveTemp(o.TransformStorage))</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            , OnEmptyStorage(MoveTemp(o.OnEmptyStorage))</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        {</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;o)</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            RangeRef = o.RangeRef;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            TransformStorage = MoveTemp(o.TransformStorage);</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            OnEmptyStorage = MoveTemp(o.OnEmptyStorage);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getArguments Arguments&gt;</div>
-<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f">  222</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f">Append</a>(Arguments&amp; args)</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../de/d41/namespaceMcro_1_1Range.html">Mcro::Range</a>;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keywordflow">if</span> (IteratorEquals(RangeRef.begin(), RangeRef.end()) &amp;&amp; OnEmptyStorage.IsSet())</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                args + OnEmptyStorage.GetValue()();</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = RangeRef.begin(); !IteratorEquals(it, RangeRef.end()); ++it)</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                args + TransformStorage(*it);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe22759a2a45110c6264b6783cd5ca88">  215</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe22759a2a45110c6264b6783cd5ca88">operator=</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a">  216</a></span>        <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp; <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a">operator=</a>(<a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; o) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;o)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            RangeRef = o.RangeRef;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            TransformStorage = MoveTemp(o.TransformStorage);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            OnEmptyStorage = MoveTemp(o.OnEmptyStorage);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        }</div>
 </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment"></span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">        /** @copydoc TSlots */</span></div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getArguments Arguments&gt;</div>
-<div class="foldopen" id="foldopen00237" data-start="{" data-end="};">
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a003fafa668ef964c974b660cbf3f8789">  237</a></span>        <span class="keyword">friend</span> Arguments&amp; operator + (Arguments&amp; args, <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; slots)</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        {</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            slots.Append(args);</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            <span class="keywordflow">return</span> args;</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getArguments Arguments&gt;</div>
+<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f">  227</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f">Append</a>(Arguments&amp; args)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../de/d41/namespaceMcro_1_1Range.html">Mcro::Range</a>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="keywordflow">if</span> (IteratorEquals(RangeRef.begin(), RangeRef.end()) &amp;&amp; OnEmptyStorage.IsSet())</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            {</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                args + OnEmptyStorage.GetValue()();</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            }</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = RangeRef.begin(); !IteratorEquals(it, RangeRef.end()); ++it)</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                args + TransformStorage(*it);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
 </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keyword">const</span> Range&amp; RangeRef;</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        Transform TransformStorage;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        TOptional&lt;OnEmpty&gt; OnEmptyStorage;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    };</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment"></span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">        /** @copydoc TSlots */</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keyword">template</span> &lt;CW<span class="keywordtype">id</span>getArguments Arguments&gt;</div>
+<div class="foldopen" id="foldopen00242" data-start="{" data-end="};">
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a003fafa668ef964c974b660cbf3f8789">  242</a></span>        <span class="keyword">friend</span> Arguments&amp; operator + (Arguments&amp; args, <a class="code hl_struct" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a>&amp;&amp; slots)</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            slots.Append(args);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keywordflow">return</span> args;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        }</div>
 </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment"></span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">    /** @brief Convenience function for typing less when widget visibility depends on a boolean */</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">  250</a></span>    MCRO_API EVisibility <a class="code hl_function" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">IsVisible</a>(<span class="keywordtype">bool</span> visible, EVisibility hiddenState = EVisibility::Collapsed);</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>}</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        Range&amp; RangeRef;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        Transform TransformStorage;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        TOptional&lt;OnEmpty&gt; OnEmptyStorage;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    };</div>
+</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"></span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment">    /** @brief Convenience function for typing less when widget visibility depends on a boolean */</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">  255</a></span>    MCRO_API EVisibility <a class="code hl_function" href="../../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e">IsVisible</a>(<span class="keywordtype">bool</span> visible, EVisibility hiddenState = EVisibility::Collapsed);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>}</div>
 </div>
 <div class="ttc" id="aFunctionTraits_8h_html"><div class="ttname"><a href="../../d7/d25/FunctionTraits_8h.html">FunctionTraits.h</a></div></div>
 <div class="ttc" id="aIterators_8h_html"><div class="ttname"><a href="../../d9/d80/Iterators_8h.html">Iterators.h</a></div></div>
@@ -420,12 +427,13 @@ $(function(){initNavTree('d2/dc0/Slate_8h_source.html','../../'); initResizable(
 <div class="ttc" id="astructMcro_1_1Slate_1_1TAttributeBlockFunctor_html_a338e80661f087053bc03bdbe7777090f"><div class="ttname"><a href="../../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#a338e80661f087053bc03bdbe7777090f">Mcro::Slate::TAttributeBlockFunctor::Storage</a></div><div class="ttdeci">Function Storage</div><div class="ttdef"><b>Definition</b> <a href="#l00097">Slate.h:97</a></div></div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TAttributeBlockFunctor_html_a6e7c6ab9bd2c1493727698127b89ee13"><div class="ttname"><a href="../../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#a6e7c6ab9bd2c1493727698127b89ee13">Mcro::Slate::TAttributeBlockFunctor::Function</a></div><div class="ttdeci">TFunction&lt; T &amp;(T &amp;)&gt; Function</div><div class="ttdef"><b>Definition</b> <a href="#l00092">Slate.h:92</a></div></div>
 <div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">Mcro::Slate::TSlots</a></div><div class="ttdoc">Add multiple slots at the same time with the declarative syntax derived from an input data array.</div><div class="ttdef"><b>Definition</b> <a href="#l00194">Slate.h:195</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a40db4d6ffb4872ca54bb7a59e833961d"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a40db4d6ffb4872ca54bb7a59e833961d">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(const TSlots &amp;)=delete</div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a49d3140ed5db46a5eb1f87435f25f86f"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f">Mcro::Slate::TSlots::Append</a></div><div class="ttdeci">void Append(Arguments &amp;args)</div><div class="ttdef"><b>Definition</b> <a href="#l00222">Slate.h:222</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a5ce933519597df74c139eff7a6d67e84"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00203">Slate.h:203</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_aa51caf2054fdd1ab409f39204ce560cd"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#aa51caf2054fdd1ab409f39204ce560cd">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(const Range &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="#l00196">Slate.h:196</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_abe1bf1664ba09d0fcb9c07906f3fd537"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe1bf1664ba09d0fcb9c07906f3fd537">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(const TSlots &amp;)=delete</div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_ad2adf07a561f5185db169b6c6665818a"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00211">Slate.h:211</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a058c8183b79bcd16493e37d4a74e1dbb"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a058c8183b79bcd16493e37d4a74e1dbb">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(TSlots const &amp;)=delete</div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a49d3140ed5db46a5eb1f87435f25f86f"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f">Mcro::Slate::TSlots::Append</a></div><div class="ttdeci">void Append(Arguments &amp;args)</div><div class="ttdef"><b>Definition</b> <a href="#l00227">Slate.h:227</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a5ce933519597df74c139eff7a6d67e84"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a5ce933519597df74c139eff7a6d67e84">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00208">Slate.h:208</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a853bf3c0f38fd9e18536a7fd24222004"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a853bf3c0f38fd9e18536a7fd24222004">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(Range const &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="#l00196">Slate.h:196</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_abe22759a2a45110c6264b6783cd5ca88"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe22759a2a45110c6264b6783cd5ca88">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(TSlots const &amp;)=delete</div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_ad2adf07a561f5185db169b6c6665818a"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a">Mcro::Slate::TSlots::operator=</a></div><div class="ttdeci">TSlots &amp; operator=(TSlots &amp;&amp;o) noexcept</div><div class="ttdef"><b>Definition</b> <a href="#l00216">Slate.h:216</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_ad432ff6b044a8905830e480a3991fdbb"><div class="ttname"><a href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad432ff6b044a8905830e480a3991fdbb">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(Range &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="#l00201">Slate.h:201</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

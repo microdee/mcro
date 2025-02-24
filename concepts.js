@@ -66,7 +66,10 @@ var concepts =
         [ "CVoid", "d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html", null ],
         [ "CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],
         [ "CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
-        [ "CRangeMember", "da/d5a/conceptMcro_1_1Concepts_1_1CRangeMember.html", null ]
+        [ "CRangeMember", "da/d5a/conceptMcro_1_1Concepts_1_1CRangeMember.html", null ],
+        [ "CValidableMember", "dc/ddc/conceptMcro_1_1Concepts_1_1CValidableMember.html", null ],
+        [ "CValidableAdl", "d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html", null ],
+        [ "CValidable", "df/d4f/conceptMcro_1_1Concepts_1_1CValidable.html", null ]
       ] ],
       [ "Delegates", "d0/dec/namespaceMcro_1_1Delegates.html", [
         [ "CDynamicDelegate", "dd/d77/conceptMcro_1_1Delegates_1_1CDynamicDelegate.html", null ],

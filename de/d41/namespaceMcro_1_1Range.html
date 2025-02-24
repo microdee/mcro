@@ -286,6 +286,7 @@ Functions</h2></td></tr>
 <tr class="separator:a50baefba984ca4a89e199f0608b3427a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceb85c29473696f330fb968d48ccb313" id="r_aceb85c29473696f330fb968d48ccb313"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aceb85c29473696f330fb968d48ccb313"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aceb85c29473696f330fb968d48ccb313">Literal</a> (std::initializer_list&lt; T &gt; &amp;&amp;input)</td></tr>
+<tr class="memdesc:aceb85c29473696f330fb968d48ccb313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an initializer list compatible with range API's.  <br /></td></tr>
 <tr class="separator:aceb85c29473696f330fb968d48ccb313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9053bb44137480906903f575984253e5" id="r_a9053bb44137480906903f575984253e5"><td class="memTemplParams" colspan="2">template&lt;CRangeMember... Ranges&gt; </td></tr>
 <tr class="memitem:a9053bb44137480906903f575984253e5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9053bb44137480906903f575984253e5">Zip</a> (Ranges &amp;&amp;...right)</td></tr>
@@ -332,6 +333,8 @@ requires CConvertibleToDecayed&lt;Value, <a class="el" href="#ab447bff66e2224245
 <tr class="memitem:a76391b1cafa3aec2ede9e86c046862f1" id="r_a76391b1cafa3aec2ede9e86c046862f1"><td class="memTemplParams" colspan="2">template&lt;CFunctionLike Predicate&gt; </td></tr>
 <tr class="memitem:a76391b1cafa3aec2ede9e86c046862f1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a76391b1cafa3aec2ede9e86c046862f1">AnyOf</a> (Predicate &amp;&amp;pred)</td></tr>
 <tr class="separator:a76391b1cafa3aec2ede9e86c046862f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8e7aacbe9f240f0704821c5027e1a6" id="r_a8e8e7aacbe9f240f0704821c5027e1a6"><td class="memItemLeft" align="right" valign="top">FORCEINLINE auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e8e7aacbe9f240f0704821c5027e1a6">FilterValid</a> ()</td></tr>
+<tr class="separator:a8e8e7aacbe9f240f0704821c5027e1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -531,7 +534,7 @@ template&lt;CFunctionLike Predicate&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00146">146</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00147">147</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -552,7 +555,7 @@ template&lt;CFunctionLike Predicate&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00152">152</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00153">153</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +578,7 @@ template&lt;CRangeMember... Ranges&gt; </div>
 
 <p>pipeable version of <code>ranges::views::concat</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00040">40</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00041">41</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -604,6 +607,25 @@ template&lt;CRangeMember... Ranges&gt; </div>
 
 </div>
 </div>
+<a id="a8e8e7aacbe9f240f0704821c5027e1a6" name="a8e8e7aacbe9f240f0704821c5027e1a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8e7aacbe9f240f0704821c5027e1a6">&#9670;&#160;</a></span>FilterValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE auto Mcro::Range::FilterValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00158">158</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+
+</div>
+</div>
 <a id="a05033d32723a1ba7b9a0e1aff9dad853" name="a05033d32723a1ba7b9a0e1aff9dad853"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a05033d32723a1ba7b9a0e1aff9dad853">&#9670;&#160;</a></span>First() <span class="overload">[1/2]</span></h2>
 
@@ -627,7 +649,7 @@ template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;
 
 <p>Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00066">66</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00067">67</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +672,7 @@ template&lt;typename Value &gt; </div>
 
 <p>Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00073">73</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00074">74</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -671,7 +693,7 @@ template&lt;typename Value &gt; </div>
 
 <p>Check if range is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00056">56</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00057">57</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -694,7 +716,7 @@ template&lt;CRangeMember Input&gt; </div>
 
 <p>Check if range is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00050">50</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00051">51</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -740,7 +762,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00026">26</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p>Make an initializer list compatible with range API's. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00027">27</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -782,7 +806,7 @@ requires CConvertibleToDecayed&lt;<a class="el" href="#ab447bff66e222424550776c3
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00092">92</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00093">93</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -813,7 +837,7 @@ requires CConvertibleToDecayed&lt;Value, <a class="el" href="#ab447bff66e2224245
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00117">117</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00118">118</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -848,7 +872,7 @@ template&lt;CRangeMember Right&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00134">134</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00135">135</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -873,7 +897,7 @@ template&lt;typename Value &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00140">140</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00141">141</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -1025,7 +1049,7 @@ template&lt;CRangeMember... Ranges&gt; </div>
 
 <p>pipeable version of <code>ranges::views::zip</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00030">30</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00031">31</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>

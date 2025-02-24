@@ -66,5 +66,9 @@ var namespaceMcro_1_1Concepts =
     [ "CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],
     [ "CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
     [ "CRangeMember", "da/d5a/conceptMcro_1_1Concepts_1_1CRangeMember.html", null ],
-    [ "DecayPtr", "d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89", null ]
+    [ "CValidableMember", "dc/ddc/conceptMcro_1_1Concepts_1_1CValidableMember.html", null ],
+    [ "CValidableAdl", "d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html", null ],
+    [ "CValidable", "df/d4f/conceptMcro_1_1Concepts_1_1CValidable.html", null ],
+    [ "DecayPtr", "d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89", null ],
+    [ "TestValid", "d2/d09/namespaceMcro_1_1Concepts.html#aa495cb61fbaa1c2d8e609cf2d03fb403", null ]
 ];

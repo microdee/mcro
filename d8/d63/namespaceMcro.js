@@ -41,10 +41,10 @@ var namespaceMcro =
     [ "Timespan", "d3/da0/namespaceMcro_1_1Timespan.html", "d3/da0/namespaceMcro_1_1Timespan" ],
     [ "Tuples", "db/d81/namespaceMcro_1_1Tuples.html", "db/d81/namespaceMcro_1_1Tuples" ],
     [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", [
-      [ "TTypeFName", "df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5", null ],
+      [ "TTypeFName", "df/d09/namespaceMcro_1_1TypeName.html#a00ea9dc6e0ddfca18ae89e809da35cd5", null ],
+      [ "TTypeString", "df/d09/namespaceMcro_1_1TypeName.html#aaef8c5d827a17f71828fa75fa98d0303", null ],
       [ "TTypeName", "df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9", null ],
-      [ "TTypeNameStd", "df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af", null ],
-      [ "TTypeString", "df/d09/namespaceMcro_1_1TypeName.html#a18915ac693fa0f2dd74648286e013b33", null ]
+      [ "TTypeNameStd", "df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af", null ]
     ] ],
     [ "Types", "da/d89/namespaceMcro_1_1Types.html", "da/d89/namespaceMcro_1_1Types" ],
     [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", "df/d84/namespaceMcro_1_1UObjects" ],

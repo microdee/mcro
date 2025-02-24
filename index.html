@@ -210,7 +210,7 @@ Range-V3 for Unreal Containers</h2>
 <div class="ttc" id="aCommonCore_8h_html"><div class="ttname"><a href="da/db5/CommonCore_8h.html">CommonCore.h</a></div><div class="ttdoc">This header is a central include for simpler utilities MCRO offers. Higher level features like errors...</div></div>
 <div class="ttc" id="aclassMcro_1_1Range_1_1RenderAsMap_html"><div class="ttname"><a href="d8/d57/classMcro_1_1Range_1_1RenderAsMap.html">Mcro::Range::RenderAsMap</a></div><div class="ttdoc">Render a range of tuples or range of ranges with at least 2 elements as a TMap.</div><div class="ttdef"><b>Definition</b> <a href="db/dcf/Conversion_8h_source.html#l00391">Conversion.h:392</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Common_html"><div class="ttname"><a href="d4/df4/namespaceMcro_1_1Common.html">Mcro::Common</a></div><div class="ttdoc">Use this namespace for all the common features MCRO has to offer.</div><div class="ttdef"><b>Definition</b> <a href="dc/d33/Common_8h_source.html#l00047">Common.h:48</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Range_html_a9053bb44137480906903f575984253e5"><div class="ttname"><a href="de/d41/namespaceMcro_1_1Range.html#a9053bb44137480906903f575984253e5">Mcro::Range::Zip</a></div><div class="ttdeci">auto Zip(Ranges &amp;&amp;...right)</div><div class="ttdoc">pipeable version of ranges::views::zip</div><div class="ttdef"><b>Definition</b> <a href="dc/dc7/Views_8h_source.html#l00030">Views.h:30</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Range_html_a9053bb44137480906903f575984253e5"><div class="ttname"><a href="de/d41/namespaceMcro_1_1Range.html#a9053bb44137480906903f575984253e5">Mcro::Range::Zip</a></div><div class="ttdeci">auto Zip(Ranges &amp;&amp;...right)</div><div class="ttdoc">pipeable version of ranges::views::zip</div><div class="ttdef"><b>Definition</b> <a href="dc/dc7/Views_8h_source.html#l00031">Views.h:31</a></div></div>
 </div><!-- fragment --><p class="interli"></p>
 <p class="endli"></p>
 </li>
@@ -768,9 +768,8 @@ TTypeName</h2>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyBaseType</div>
 <div class="line">{</div>
-<div class="line">    <span class="comment">// returns const-ref to a templated global variable</span></div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Self&gt;</div>
-<div class="line">    FString <span class="keyword">const</span>&amp; GetTypeString(<span class="keyword">this</span> Self&amp;&amp;)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> TTypeString&lt;Self&gt;; }</div>
+<div class="line">    FString GetTypeString(<span class="keyword">this</span> Self&amp;&amp;)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> TTypeString&lt;Self&gt;(); }</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FMyDerivedType : FMyBaseType {}</div>

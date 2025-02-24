@@ -149,6 +149,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a3acea92b332075d8bc16a0fc44b30a51"><td class="memTemplItemLeft" align="right" valign="top">consteval std::basic_string_view&lt; TCHAR &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a> ()</td></tr>
 <tr class="memdesc:a3acea92b332075d8bc16a0fc44b30a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string view of the compile time typename.  <br /></td></tr>
 <tr class="separator:a3acea92b332075d8bc16a0fc44b30a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ea9dc6e0ddfca18ae89e809da35cd5" id="r_a00ea9dc6e0ddfca18ae89e809da35cd5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a00ea9dc6e0ddfca18ae89e809da35cd5"><td class="memTemplItemLeft" align="right" valign="top">FName&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a00ea9dc6e0ddfca18ae89e809da35cd5">Mcro::TypeName::TTypeFName</a> ()</td></tr>
+<tr class="memdesc:a00ea9dc6e0ddfca18ae89e809da35cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>TTypeName</code> converted to FName. This is not cached and a new FName is created every time this is called.  <br /></td></tr>
+<tr class="separator:a00ea9dc6e0ddfca18ae89e809da35cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaef8c5d827a17f71828fa75fa98d0303" id="r_aaef8c5d827a17f71828fa75fa98d0303"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aaef8c5d827a17f71828fa75fa98d0303"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#aaef8c5d827a17f71828fa75fa98d0303">Mcro::TypeName::TTypeString</a> ()</td></tr>
+<tr class="memdesc:aaef8c5d827a17f71828fa75fa98d0303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>TTypeName</code> converted to FString. This is not cached and a new FString is created every time this is called.  <br /></td></tr>
+<tr class="separator:aaef8c5d827a17f71828fa75fa98d0303"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -158,13 +166,8 @@ Variables</h2></td></tr>
 <tr class="separator:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aded0b460b40f89f45f61c9e43ee730af" id="r_aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::basic_string_view&lt; TCHAR &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af">Mcro::TypeName::TTypeNameStd</a> = <a class="el" href="#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
+<tr class="memdesc:aded0b460b40f89f45f61c9e43ee730af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>TTypeName</code> just stored as STL string made during compile time.  <br /></td></tr>
 <tr class="separator:aded0b460b40f89f45f61c9e43ee730af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5" id="r_ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memTemplItemLeft" align="right" valign="top">const FName&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5">Mcro::TypeName::TTypeFName</a> = FName(<a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.Len(), <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.GetData())</td></tr>
-<tr class="separator:ad61f5399ac5d4b0089b06ca6ee3c82b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18915ac693fa0f2dd74648286e013b33" id="r_a18915ac693fa0f2dd74648286e013b33"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a18915ac693fa0f2dd74648286e013b33"><td class="memTemplItemLeft" align="right" valign="top">const FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a18915ac693fa0f2dd74648286e013b33">Mcro::TypeName::TTypeString</a> = FString(<a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.GetData(), <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a>&lt;T&gt;.Len())</td></tr>
-<tr class="separator:a18915ac693fa0f2dd74648286e013b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Convert types to string. </p>

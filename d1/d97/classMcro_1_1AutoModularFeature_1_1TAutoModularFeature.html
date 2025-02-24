@@ -156,9 +156,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a24242cf595bbcb0b97fa64b72f02b5" id="r_a0a24242cf595bbcb0b97fa64b72f02b5"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a24242cf595bbcb0b97fa64b72f02b5">OnRegistered</a> () -&gt; <a class="el" href="../../d0/dec/namespaceMcro_1_1Delegates.html#a1ed88f4e580e4f2a50311f4cd6054cba">TBelatedEventDelegate</a>&lt; void(<a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a> *)&gt; &amp;</td></tr>
 <tr class="memdesc:a0a24242cf595bbcb0b97fa64b72f02b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered when an implementation of this feature is created.  <br /></td></tr>
 <tr class="separator:a0a24242cf595bbcb0b97fa64b72f02b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa40b49070cb710af20efdfd90334902" id="r_aaa40b49070cb710af20efdfd90334902"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE const FName &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa40b49070cb710af20efdfd90334902">FeatureName</a> ()</td></tr>
-<tr class="memdesc:aaa40b49070cb710af20efdfd90334902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the feature.  <br /></td></tr>
-<tr class="separator:aaa40b49070cb710af20efdfd90334902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb82809ffba8a5bcd2ccffa839d9abc9" id="r_aeb82809ffba8a5bcd2ccffa839d9abc9"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE FName&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb82809ffba8a5bcd2ccffa839d9abc9">FeatureName</a> ()</td></tr>
+<tr class="memdesc:aeb82809ffba8a5bcd2ccffa839d9abc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the feature.  <br /></td></tr>
+<tr class="separator:aeb82809ffba8a5bcd2ccffa839d9abc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76dff224b5670cc05a2599fbd4dccb75" id="r_a76dff224b5670cc05a2599fbd4dccb75"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76dff224b5670cc05a2599fbd4dccb75">ImplementationCount</a> ()</td></tr>
 <tr class="separator:a76dff224b5670cc05a2599fbd4dccb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a076cf38a6bf449bc5a98017d4c2df426" id="r_a076cf38a6bf449bc5a98017d4c2df426"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE <a class="el" href="#a2bf3c03c81a8f3df95336a0d11df3f09">Feature</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a076cf38a6bf449bc5a98017d4c2df426">Get</a> ()</td></tr>
@@ -206,7 +206,7 @@ class Mcro::AutoModularFeature::TAutoModularFeature&lt; FeatureIn &gt;</div><p>A
 </div><!-- fragment --><p>Internally the feature name will be identical to the class name. In this case <code>IMyModularFeature</code> will register as "IMyModularFeature". Technically one can get it via </p><div class="fragment"><div class="line">IModularFeatures::Get().GetModularFeature&lt;IMyModularFeature&gt;(<a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;IMyModularFeature&quot;</span>)</div>
 <div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00051">TextMacros.h:51</a></div></div>
 </div><!-- fragment --><p> but it is strongly discouraged for type safety and keeping code simple.</p>
-<dl class="section remark"><dt>Remarks</dt><dd>IMyModularFeature::FeatureName() and <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5">TTypeFName&lt;FMyFeatureImplementation&gt;()</a> can be used for runtime comparison / validation.</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>IMyModularFeature::FeatureName() and <a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#a00ea9dc6e0ddfca18ae89e809da35cd5" title="Same as TTypeName converted to FName. This is not cached and a new FName is created every time this i...">TTypeFName&lt;FMyFeatureImplementation&gt;()</a> can be used for runtime comparison / validation.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">FeatureIn</td><td>Curiously Recurring Template argument of the feature </td></tr>
@@ -283,8 +283,8 @@ template&lt;typename FeatureIn &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaa40b49070cb710af20efdfd90334902" name="aaa40b49070cb710af20efdfd90334902"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa40b49070cb710af20efdfd90334902">&#9670;&#160;</a></span>FeatureName()</h2>
+<a id="aeb82809ffba8a5bcd2ccffa839d9abc9" name="aeb82809ffba8a5bcd2ccffa839d9abc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb82809ffba8a5bcd2ccffa839d9abc9">&#9670;&#160;</a></span>FeatureName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +295,7 @@ template&lt;typename FeatureIn &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static FORCEINLINE const FName &amp; <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">Mcro::AutoModularFeature::TAutoModularFeature</a>&lt; FeatureIn &gt;::FeatureName </td>
+          <td class="memname">static FORCEINLINE FName <a class="el" href="../../d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html">Mcro::AutoModularFeature::TAutoModularFeature</a>&lt; FeatureIn &gt;::FeatureName </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>

@@ -98,16 +98,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#aab031d89b829093d8460587f398f54fc",
-"d3/d3e/SharedObjects_8h.html#ab98aebf22da1767f81c9db02538f4736",
+"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#ac8180201ec6cc347d9402f52745a4bda",
+"d3/d5d/namespaceMcro_1_1Construct.html#ab3b7fdc343af9039784eabd6ecef4b2e",
 "d4/de5/structMcro_1_1Finally_1_1FFinallySyntaxSupport.html#a33bc42bcf07346445a65bdea801909d7",
-"d6/dd0/InitializeOnCopy_8h_source.html",
-"d8/d30/structMcro_1_1Observable_1_1IState.html#aa12689fd2367de0e6efbe1fee8024e46",
-"d9/db6/Range_8h.html#a7e4643644a1262a265a2d91b8ea45801",
-"db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd",
-"dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#a47661ea0b4938bd046379f187c8d243e",
-"de/d41/namespaceMcro_1_1Range.html#a4b79fdc67dcd1dceaaeb499c9db348d4",
-"index.html#autotoc_md9"
+"d6/dcf/namespaceMcro_1_1Dll.html",
+"d8/d30/structMcro_1_1Observable_1_1IState.html#a2768060e60b19357658f922e43a370e0",
+"d9/db6/Range_8h.html#a294ddbd01795eb696666b418deb586f2",
+"db/d81/namespaceMcro_1_1Tuples.html#a26ad914c4d35e206ac5d12cdc185876d",
+"dd/d08/conceptMcro_1_1Concepts_1_1CMoveConstructible.html",
+"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a649669bc585cb7c1222e297071636938",
+"functions_i.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

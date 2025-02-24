@@ -4,7 +4,7 @@ var hierarchy =
       [ "Mcro::Range::TExtendedIterator< Iterator, Policy >", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html", null ]
     ] ],
     [ "Mcro::UObjects::Init::FConstructObjectParameters", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html", null ],
-    [ "Mcro::Error::FErrorManager::FDisplayErrorArgs", "d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html", null ],
+    [ "Mcro::Error::FDisplayErrorArgs", "d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html", null ],
     [ "Mcro::Error::FErrorManager", "db/d8b/classMcro_1_1Error_1_1FErrorManager.html", null ],
     [ "Mcro::Delegates::FEventPolicy", "d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html", null ],
     [ "Mcro::Range::FExtendedIteratorPolicy", "da/de9/structMcro_1_1Range_1_1FExtendedIteratorPolicy.html", null ],
@@ -27,10 +27,18 @@ var hierarchy =
     [ "FVoid", "d3/daf/structFVoid.html", null ],
     [ "Mcro::Zero::FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", null ],
     [ "Mcro::AutoModularFeature::IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", [
+      [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorDisplayExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", [
+        [ "Mcro::Error::IErrorDisplayExtension", "d8/d78/classMcro_1_1Error_1_1IErrorDisplayExtension.html", null ]
+      ] ],
+      [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorWindowExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", [
+        [ "Mcro::Error::IErrorWindowExtension", "d3/deb/classMcro_1_1Error_1_1IErrorWindowExtension.html", null ]
+      ] ],
       [ "Mcro::AutoModularFeature::TAutoModularFeature< FeatureIn >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ]
     ] ],
     [ "Mcro::AutoModularFeature::IFeatureImplementation", "d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html", null ],
     [ "IModularFeature", null, [
+      [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorDisplayExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ],
+      [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorWindowExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ],
       [ "Mcro::AutoModularFeature::TAutoModularFeature< FeatureIn >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ]
     ] ],
     [ "IModuleInterface", null, [

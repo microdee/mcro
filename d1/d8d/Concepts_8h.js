@@ -66,7 +66,11 @@ var Concepts_8h =
     [ "Mcro::Concepts::CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],
     [ "Mcro::Concepts::CRefCounted", "d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html", null ],
     [ "Mcro::Concepts::CRangeMember", "da/d5a/conceptMcro_1_1Concepts_1_1CRangeMember.html", null ],
+    [ "Mcro::Concepts::CValidableMember", "dc/ddc/conceptMcro_1_1Concepts_1_1CValidableMember.html", null ],
+    [ "Mcro::Concepts::CValidableAdl", "d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html", null ],
+    [ "Mcro::Concepts::CValidable", "df/d4f/conceptMcro_1_1Concepts_1_1CValidable.html", null ],
     [ "MCRO_THIS_TYPE", "d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150", null ],
     [ "TExtractedClassName", "d1/d8d/Concepts_8h.html#aaf07db52cc9336cd250ac79dd20d97ce", null ],
-    [ "DecayPtr", "d1/d8d/Concepts_8h.html#ad82cfff038438996ec817f8460d25e89", null ]
+    [ "DecayPtr", "d1/d8d/Concepts_8h.html#ad82cfff038438996ec817f8460d25e89", null ],
+    [ "TestValid", "d1/d8d/Concepts_8h.html#aa495cb61fbaa1c2d8e609cf2d03fb403", null ]
 ];

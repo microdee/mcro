@@ -18,10 +18,8 @@ var searchData=
   ['titeratorjumpbackward_15',['TIteratorJumpBackward',['../de/d41/namespaceMcro_1_1Range.html#adfb00eeba95dd692e9cc11e94bb91c1b',1,'Mcro::Range']]],
   ['titeratorjumpforward_16',['TIteratorJumpForward',['../de/d41/namespaceMcro_1_1Range.html#add6254c42f8938759eb9aa77a87a5877',1,'Mcro::Range']]],
   ['titeratorstep_17',['TIteratorStep',['../de/d41/namespaceMcro_1_1Range.html#a11abe0e796b0c276d30f28a3aed067ba',1,'Mcro::Range']]],
-  ['ttypefname_18',['TTypeFName',['../df/d09/namespaceMcro_1_1TypeName.html#ad61f5399ac5d4b0089b06ca6ee3c82b5',1,'Mcro::TypeName']]],
-  ['ttypename_19',['TTypeName',['../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9',1,'Mcro::TypeName']]],
-  ['ttypenamestd_20',['TTypeNameStd',['../df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af',1,'Mcro::TypeName']]],
-  ['ttypestring_21',['TTypeString',['../df/d09/namespaceMcro_1_1TypeName.html#a18915ac693fa0f2dd74648286e013b33',1,'Mcro::TypeName']]],
-  ['typedexception_22',['TypedException',['../db/d63/classMcro_1_1Error_1_1TCppException.html#a54c8304dba8a9cd2ac2f85eff61c3f1a',1,'Mcro::Error::TCppException']]],
-  ['typename_23',['TypeName',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ac700419c3b277c3e121a4d8125371b93',1,'Mcro::Types::IHaveType']]]
+  ['ttypename_18',['TTypeName',['../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9',1,'Mcro::TypeName']]],
+  ['ttypenamestd_19',['TTypeNameStd',['../df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af',1,'Mcro::TypeName']]],
+  ['typedexception_20',['TypedException',['../db/d63/classMcro_1_1Error_1_1TCppException.html#a54c8304dba8a9cd2ac2f85eff61c3f1a',1,'Mcro::Error::TCppException']]],
+  ['typename_21',['TypeName',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ac700419c3b277c3e121a4d8125371b93',1,'Mcro::Types::IHaveType']]]
 ];

@@ -6,7 +6,7 @@ var searchData=
   ['fcppexception_3',['FCppException',['../db/dfc/classMcro_1_1Error_1_1FCppException.html',1,'Mcro::Error']]],
   ['fcppstacktrace_4',['FCppStackTrace',['../d5/d87/classMcro_1_1Error_1_1FCppStackTrace.html',1,'Mcro::Error']]],
   ['fdefer_5faslocalizable_5fadvanced_5',['FDefer_AsLocalizable_Advanced',['../d3/dd9/structMcro_1_1Text_1_1Macros_1_1FDefer__AsLocalizable__Advanced.html',1,'Mcro::Text::Macros']]],
-  ['fdisplayerrorargs_6',['FDisplayErrorArgs',['../d0/d10/structMcro_1_1Error_1_1FErrorManager_1_1FDisplayErrorArgs.html',1,'Mcro::Error::FErrorManager']]],
+  ['fdisplayerrorargs_6',['FDisplayErrorArgs',['../d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html',1,'Mcro::Error']]],
   ['ferrormanager_7',['FErrorManager',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html',1,'Mcro::Error']]],
   ['feventpolicy_8',['FEventPolicy',['../d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html',1,'Mcro::Delegates']]],
   ['fextendediteratorpolicy_9',['FExtendedIteratorPolicy',['../da/de9/structMcro_1_1Range_1_1FExtendedIteratorPolicy.html',1,'Mcro::Range']]],

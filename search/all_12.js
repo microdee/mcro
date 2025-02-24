@@ -52,8 +52,9 @@ var searchData=
   ['success_49',['Success',['../dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f',1,'Mcro::Error']]],
   ['suffix_20everywhere_50',['What&apos;s up with _Origin suffix everywhere?',['../index.html#autotoc_md24',1,'']]],
   ['support_51',['ISPC parallel tasks support',['../index.html#autotoc_md21',1,'']]],
-  ['suppressed_5fanothererroropen_52',['Suppressed_AnotherErrorOpen',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a16627f35f1898ba8ad2208f07de09802',1,'Mcro::Error::FErrorManager']]],
-  ['suppressed_5fcannotdisplaymodalwindow_53',['Suppressed_CannotDisplayModalWindow',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd',1,'Mcro::Error::FErrorManager']]],
-  ['syntax_54',['Extending the Slate declarative syntax',['../index.html#autotoc_md20',1,'']]],
-  ['systemmessage_55',['SystemMessage',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#ad358f292283c5d39736d10b091d5fa92',1,'Mcro::Windows::Error::FLastError::SystemMessage'],['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#aa5d7fad4cbb353d575cd2bb3d56d34e0',1,'Mcro::Windows::Error::FHresultError::SystemMessage']]]
+  ['supportserror_52',['SupportsError',['../d3/deb/classMcro_1_1Error_1_1IErrorWindowExtension.html#a984ceb0415b57f694a2b8c4c6964e451',1,'Mcro::Error::IErrorWindowExtension::SupportsError()'],['../d8/d78/classMcro_1_1Error_1_1IErrorDisplayExtension.html#a9f3f1c02ac0228daadc15efbd657c180',1,'Mcro::Error::IErrorDisplayExtension::SupportsError()']]],
+  ['suppressed_5fanothererroropen_53',['Suppressed_AnotherErrorOpen',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a16627f35f1898ba8ad2208f07de09802',1,'Mcro::Error::FErrorManager']]],
+  ['suppressed_5fcannotdisplaymodalwindow_54',['Suppressed_CannotDisplayModalWindow',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd',1,'Mcro::Error::FErrorManager']]],
+  ['syntax_55',['Extending the Slate declarative syntax',['../index.html#autotoc_md20',1,'']]],
+  ['systemmessage_56',['SystemMessage',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#ad358f292283c5d39736d10b091d5fa92',1,'Mcro::Windows::Error::FLastError::SystemMessage'],['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#aa5d7fad4cbb353d575cd2bb3d56d34e0',1,'Mcro::Windows::Error::FHresultError::SystemMessage']]]
 ];

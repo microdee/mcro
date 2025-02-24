@@ -122,7 +122,7 @@ $(function(){initNavTree('d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.
 <p><code>#include &lt;<a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">Mcro::Slate::CWidgetOrSlotArguments</a> =  CSameAsDecayed&lt;T, typename T::WidgetArgsType&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">Mcro::Slate::CWidgetOrSlotArguments</a> =  CSameAsDecayed&lt;T, typename std::decay_t&lt;T&gt;::WidgetArgsType&gt;</div>
 <div class="ttc" id="aconceptMcro_1_1Slate_1_1CWidgetOrSlotArguments_html"><div class="ttname"><a href="../../d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html">Mcro::Slate::CWidgetOrSlotArguments</a></div><div class="ttdoc">Constraining given type to the arguments of either a widget or a slot.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00040">Slate.h:40</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Constraining given type to the arguments of either a widget or a slot. </p>

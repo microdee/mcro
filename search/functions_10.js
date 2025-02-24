@@ -24,5 +24,6 @@ var searchData=
   ['stoppie_21',['StopPie',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a349a28c61b3b1d1ea66d9b0e064b1e2e',1,'Mcro::AssertMacros::Detail']]],
   ['stringtoenum_22',['StringToEnum',['../db/d56/namespaceMcro_1_1Enums.html#aef732842e4e7d1deff7f2a76396ca097',1,'Mcro::Enums']]],
   ['submiterror_23',['SubmitError',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a322541ce21c5cdafcdb1c17354d04032',1,'Mcro::AssertMacros::Detail']]],
-  ['success_24',['Success',['../dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f',1,'Mcro::Error']]]
+  ['success_24',['Success',['../dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f',1,'Mcro::Error']]],
+  ['supportserror_25',['SupportsError',['../d3/deb/classMcro_1_1Error_1_1IErrorWindowExtension.html#a984ceb0415b57f694a2b8c4c6964e451',1,'Mcro::Error::IErrorWindowExtension::SupportsError()'],['../d8/d78/classMcro_1_1Error_1_1IErrorDisplayExtension.html#a9f3f1c02ac0228daadc15efbd657c180',1,'Mcro::Error::IErrorDisplayExtension::SupportsError()']]]
 ];
