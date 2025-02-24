@@ -147,17 +147,29 @@ namespace Mcro::TypeName
 		GetCompileTimeTypeName<std::decay_t<T>>().size()
 	);
 
-	/** @see TTypeName */
+	/** @brief Same as `TTypeName` just stored as STL string made during compile time */
 	template <typename T>
 	constexpr std::basic_string_view<TCHAR> TTypeNameStd = GetCompileTimeTypeName<std::decay_t<T>>();
 
-	/** @see TTypeName */
+	/**
+	 *	@brief
+	 *	Same as `TTypeName` converted to FName. This is not cached and a new FName is created every time this is called.
+	 */
 	template <typename T>
-	const FName TTypeFName = FName(TTypeName<T>.Len(), TTypeName<T>.GetData());
+	FName TTypeFName()
+	{
+		return FName(TTypeName<T>.Len(), TTypeName<T>.GetData());
+	}
 
-	/** @see TTypeName */
+	/**
+	 *	@brief
+	 *	Same as `TTypeName` converted to FString. This is not cached and a new FString is created every time this is called.
+	 */
 	template <typename T>
-	const FString TTypeString = FString(TTypeName<T>.GetData(), TTypeName<T>.Len());
+	FString TTypeString()
+	{
+		return FString::ConstructFromPtrSize(TTypeName<T>.GetData(), TTypeName<T>.Len());
+	}
 }
 
 #pragma warning(pop)

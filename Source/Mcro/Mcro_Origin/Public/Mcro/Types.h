@@ -50,7 +50,7 @@ namespace Mcro::Types
 		template <typename Self>
 		void SetType(this Self&& self)
 		{
-			self.TypeName = TTypeFName<Self>;
+			self.TypeName = TTypeFName<Self>();
 		}
 		
 	public:
@@ -81,7 +81,7 @@ namespace Mcro::Types
 		TSharedPtr<Derived> AsExactly(this Self&& self)
 		{
 			if constexpr (CDerivedFrom<Derived, Self>)
-				if (self.TypeName == TTypeFName<Derived>)
+				if (self.TypeName == TTypeFName<Derived>())
 					return StaticCastSharedPtr<Derived>(
 						SharedThis(AsMutablePtr(&self)).ToSharedPtr()
 					);

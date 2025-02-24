@@ -574,7 +574,7 @@ namespace Mcro::Error
 		TMaybe() : Error(IError::Make(new FUnavailable())
 			->WithMessageF(
 				TEXT_"TMaybe has been default initialized, but a Value of %s cannot be default initialized",
-				*TTypeString<T>
+				*TTypeString<T>()
 			)
 		) {}
 

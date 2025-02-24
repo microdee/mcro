@@ -166,7 +166,7 @@ namespace Mcro::Subsystems
 			T* result = Get<T>(args...);
 			
 			ASSERT_CRASH(result,
-				->WithMessageF(TEXT_"Couldn't find required subsystem %s", *TTypeString<T>)
+				->WithMessageF(TEXT_"Couldn't find required subsystem %s", *TTypeString<T>())
 			)
 			
 			return *result;
