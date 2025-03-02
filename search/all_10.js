@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['parallel_20tasks_20support_0',['ISPC parallel tasks support',['../index.html#autotoc_md21',1,'']]],
+  ['parallel_20tasks_20support_0',['ISPC parallel tasks support',['../index.html#autotoc_md22',1,'']]],
   ['parameters_1',['Parameters',['../d3/db8/structMcro_1_1Templates_1_1TTemplate_1_1Parameters.html',1,'Mcro::Templates::TTemplate']]],
   ['parameters_3c_20template_3c_20params_2e_2e_2e_20_3e_20_3e_2',['Parameters&lt; Template&lt; Params... &gt; &gt;',['../d7/d12/structMcro_1_1Templates_1_1TTemplate_1_1Parameters_3_01Template_3_01Params_8_8_8_01_4_01_4.html',1,'Mcro::Templates::TTemplate']]],
   ['parent_3',['Parent',['../d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html#a1f9ac1367eada66dc540eb49136744f1',1,'Mcro::Error::FDisplayErrorArgs']]],
-  ['parentheses_4',['Text macros without parentheses',['../index.html#autotoc_md11',1,'']]],
+  ['parentheses_4',['Text macros without parentheses',['../index.html#autotoc_md12',1,'']]],
   ['plaintextcomponent_2eh_5',['PlainTextComponent.h',['../df/d58/PlainTextComponent_8h.html',1,'']]],
   ['platform_2eh_6',['Platform.h',['../d9/dd0/Platform_8h.html',1,'']]],
-  ['plugin_7',['What&apos;s a proto-plugin',['../index.html#autotoc_md23',1,'']]],
+  ['plugin_7',['What&apos;s a proto-plugin',['../index.html#autotoc_md24',1,'']]],
   ['pointer_8',['pointer',['../d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#a8d93501887ec557371eb585fb0dbdc01',1,'Mcro::Range::TExtendedIterator::pointer'],['../d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html#a96b9f68e98afbc56212216a5adf796b6',1,'Mcro::Range::FTempStringIterator::pointer']]],
   ['policyflags_9',['PolicyFlags',['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a23d3316b7ac21580e61ad46683d18a42',1,'Mcro::Observable::TState']]],
   ['postcodecontext_10',['PostCodeContext',['../d8/d78/classMcro_1_1Error_1_1IErrorDisplayExtension.html#a7702f1d44c477f179827d49ebd4285f6',1,'Mcro::Error::IErrorDisplayExtension']]],
@@ -28,5 +28,5 @@ var searchData=
   ['promiseinthreadboilerplate_25',['PromiseInThreadBoilerplate',['../d8/df3/namespaceMcro_1_1Threading_1_1Detail.html#ae533aeeb4b75adfaa19917760cdf533a',1,'Mcro::Threading::Detail']]],
   ['propagate_5ffail_26',['PROPAGATE_FAIL',['../de/dba/Error_8h.html#a41129ba2fdbe7b114501485451a06227',1,'Error.h']]],
   ['propertyinitcallback_27',['PropertyInitCallback',['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a33dc2531e320ea83c7dc0533dfec77af',1,'Mcro::UObjects::Init::FConstructObjectParameters']]],
-  ['proto_20plugin_28',['What&apos;s a proto-plugin',['../index.html#autotoc_md23',1,'']]]
+  ['proto_20plugin_28',['What&apos;s a proto-plugin',['../index.html#autotoc_md24',1,'']]]
 ];

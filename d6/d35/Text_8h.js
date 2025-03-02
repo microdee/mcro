@@ -16,6 +16,7 @@ var Text_8h =
     [ "Mcro::Text::CStdStringOrViewInvariant", "d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html", null ],
     [ "Mcro::Text::CDirectStringFormatArgument", "d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html", null ],
     [ "Mcro::Text::CHasToString", "d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html", null ],
+    [ "Mcro::Text::CHasPtrToString", "d4/d4f/conceptMcro_1_1Text_1_1CHasPtrToString.html", null ],
     [ "Mcro::Text::CHasStringFormatArgumentConversion", "d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html", null ],
     [ "Mcro::Text::CStringFormatArgument", "d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html", null ],
     [ "FStdString", "d6/d35/Text_8h.html#a28848d61082fc231a19137f8dbd64d9b", null ],

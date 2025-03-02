@@ -162,6 +162,12 @@ Macros</h2></td></tr>
 <tr class="memitem:a6f8cc493be58e5bfe52ffdfd00db3619" id="r_a6f8cc493be58e5bfe52ffdfd00db3619"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f8cc493be58e5bfe52ffdfd00db3619">FORCE_QUIT</a>(returnOnFailure, ...)</td></tr>
 <tr class="memdesc:a6f8cc493be58e5bfe52ffdfd00db3619"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is equivalent to ASSERT_QUIT but if a code path reaches this macro it will always quit.  <br /></td></tr>
 <tr class="separator:a6f8cc493be58e5bfe52ffdfd00db3619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1132d29bb70dda6553920793b30574" id="r_a6c1132d29bb70dda6553920793b30574"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c1132d29bb70dda6553920793b30574">ASSERT_QUIT_NON_ERROR</a>(maybe,  returnOnFailure, ...)</td></tr>
+<tr class="memdesc:a6c1132d29bb70dda6553920793b30574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand of <code>ASSERT_QUIT</code> for TMaybe monads.  <br /></td></tr>
+<tr class="separator:a6c1132d29bb70dda6553920793b30574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f62d37b102b206d9bf3fcfd9d1d0df" id="r_aa9f62d37b102b206d9bf3fcfd9d1d0df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9f62d37b102b206d9bf3fcfd9d1d0df">ASSERT_CRASH_NON_ERROR</a>(maybe, ...)</td></tr>
+<tr class="memdesc:aa9f62d37b102b206d9bf3fcfd9d1d0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand of <code>ASSERT_CRASH</code> for TMaybe monads.  <br /></td></tr>
+<tr class="separator:aa9f62d37b102b206d9bf3fcfd9d1d0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -214,6 +220,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa9f62d37b102b206d9bf3fcfd9d1d0df" name="aa9f62d37b102b206d9bf3fcfd9d1d0df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9f62d37b102b206d9bf3fcfd9d1d0df">&#9670;&#160;</a></span>ASSERT_CRASH_NON_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_CRASH_NON_ERROR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>maybe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a>(maybe, -&gt;WithError(maybe.GetErrorRef()) __VA_ARGS__)</div>
+</div><!-- fragment -->
+<p>Shorthand of <code>ASSERT_CRASH</code> for TMaybe monads. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00169">169</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
+
+</div>
+</div>
 <a id="a317dc938d91eac73bdea39eafe3f8b8a" name="a317dc938d91eac73bdea39eafe3f8b8a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a317dc938d91eac73bdea39eafe3f8b8a">&#9670;&#160;</a></span>ASSERT_QUIT</h2>
 
@@ -254,6 +286,37 @@ Functions</h2></td></tr>
 <div class="line">)</div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00148">148</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
+
+</div>
+</div>
+<a id="a6c1132d29bb70dda6553920793b30574" name="a6c1132d29bb70dda6553920793b30574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1132d29bb70dda6553920793b30574">&#9670;&#160;</a></span>ASSERT_QUIT_NON_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_QUIT_NON_ERROR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>maybe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>returnOnFailure</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a317dc938d91eac73bdea39eafe3f8b8a">ASSERT_QUIT</a>(maybe, returnOnFailure, -&gt;WithError(maybe.GetErrorRef()) __VA_ARGS__)</div>
+</div><!-- fragment -->
+<p>Shorthand of <code>ASSERT_QUIT</code> for TMaybe monads. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00166">166</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
 </div>
 </div>

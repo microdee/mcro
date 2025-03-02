@@ -20,6 +20,7 @@ var namespaceMcro_1_1Text =
     [ "CStdStringOrViewInvariant", "d0/dde/conceptMcro_1_1Text_1_1CStdStringOrViewInvariant.html", null ],
     [ "CDirectStringFormatArgument", "d1/db7/conceptMcro_1_1Text_1_1CDirectStringFormatArgument.html", null ],
     [ "CHasToString", "d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html", null ],
+    [ "CHasPtrToString", "d4/d4f/conceptMcro_1_1Text_1_1CHasPtrToString.html", null ],
     [ "CHasStringFormatArgumentConversion", "d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html", null ],
     [ "CStringFormatArgument", "d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html", null ],
     [ "FStdString", "d8/d6f/namespaceMcro_1_1Text.html#a28848d61082fc231a19137f8dbd64d9b", null ],

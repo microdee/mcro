@@ -9,6 +9,7 @@ var structMcro_1_1Error_1_1TMaybe =
     [ "TMaybe", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a8d6b2d09fccfc6e95804f4bceecab72f", null ],
     [ "TMaybe", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a46c711fc97eb4055769206320de832b7", null ],
     [ "GetError", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#ad42a7934e22efc522e21a75f40ecbf21", null ],
+    [ "GetErrorRef", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a5445928922a04863105954e25582a485", null ],
     [ "GetValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c", null ],
     [ "GetValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4", null ],
     [ "HasError", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#ad56d43612aa68c0ba6d8be5c737c5add", null ],

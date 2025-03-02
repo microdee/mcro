@@ -153,7 +153,17 @@ Usage</h1>
 <blockquote class="doxtable">
 <p>&zwj;Can I use MCRO in my plugin published on FAB for a price? </p>
 </blockquote>
-<p><b>Yes</b>, <em>free of charge, no royalties or anything</em> . Please list MCRO and the <a class="el" href="../../da/dfb/Attribution.html">open-source libraries MCRO uses</a> when you submit your plugin to FAB. MCRO itself is <a class="el" href="../../index.html#Legal">licensed under MPL 2.0</a>. Also it is recommended to compose the MCRO proto-plugin into yours with the help of <a href="https://github.com/microdee/Nuke.Unreal">Nuke.Unreal</a>. </p>
+<p><b>Yes</b>, <em>free of charge, no royalties or anything</em> . Please list MCRO and the <a class="el" href="../../da/dfb/Attribution.html">open-source libraries MCRO uses</a> when you submit your plugin to FAB. MCRO itself is <a class="el" href="../../index.html#Legal">licensed under MPL 2.0</a>. Also it is recommended to compose the MCRO proto-plugin into yours with the help of <a href="https://github.com/microdee/Nuke.Unreal">Nuke.Unreal</a>.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Range-V3</h1>
+<blockquote class="doxtable">
+<p>&zwj;I used them range operations in a very intricate way especially the ones provided with Range-V3 and now I get a horrendous compile error with a templated type raking in thousands of characters length. What should I do? </p>
+</blockquote>
+<p>Sometimes I feel like this while working with Range-V3:</p>
+<div class="image">
+<img src="../../RakeTrick.jpg" alt=""/>
+</div>
+    <p>But in more serious tone many times compile errors I've got with ranges boiled down to 'l-value, r-value reference'~ and 'const / not-const' mismatches in very generic and very advanced templates. For elaborate template instantiations which are extremely long and seems ridiculous, I just opened a code editor and copied the error into it, then organized it around until it was easier to read. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

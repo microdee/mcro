@@ -1,7 +1,9 @@
 var AssertMacros_8h =
 [
     [ "ASSERT_CRASH", "db/df5/AssertMacros_8h.html#aa701f2cd895ccc225e7eaef22640854d", null ],
+    [ "ASSERT_CRASH_NON_ERROR", "db/df5/AssertMacros_8h.html#aa9f62d37b102b206d9bf3fcfd9d1d0df", null ],
     [ "ASSERT_QUIT", "db/df5/AssertMacros_8h.html#a317dc938d91eac73bdea39eafe3f8b8a", null ],
+    [ "ASSERT_QUIT_NON_ERROR", "db/df5/AssertMacros_8h.html#a6c1132d29bb70dda6553920793b30574", null ],
     [ "FORCE_CRASH", "db/df5/AssertMacros_8h.html#a48dadaaff5de49fb994f03ba43a52852", null ],
     [ "FORCE_QUIT", "db/df5/AssertMacros_8h.html#a6f8cc493be58e5bfe52ffdfd00db3619", null ],
     [ "MCRO_ASSERT_CRASH_COMMON", "db/df5/AssertMacros_8h.html#a588ce77d066e07032a97a1fabf9d7cea", null ],

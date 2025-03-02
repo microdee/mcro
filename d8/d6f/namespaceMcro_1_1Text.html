@@ -183,6 +183,9 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc7/conceptMcro_1_1Text_1_1CHasToString.html">CHasToString</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which which provides a <code>ToString()</code> member method. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4f/conceptMcro_1_1Text_1_1CHasPtrToString.html">CHasPtrToString</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which which provides a <code>ToString()</code> member method. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html">CHasStringFormatArgumentConversion</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be used with FStringFormatArg via a <code>TAsFormatArgument</code> specialization. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -409,7 +412,7 @@ template&lt;CStringFormatArgument T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00358">358</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00373">373</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -434,7 +437,7 @@ template&lt;CStringFormatArgument T&gt; </div>
 <p>This may be more expensive than directly using an already existing designated string conversion for a given type, because it uses <code>FStringFormatArg</code> and a <code><a class="el" href="../../d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html">TAsFormatArgument</a></code> as intermediate steps. However, this can be still useful for types where such conversion doesn't already exist or when using this in a template.</p>
 <p>It's still much faster than using <code><a class="el" href="../../d2/d0e/FmtMacros_8h.html#ad2ae177448b123d74e4182bc4469fb74" title="Leading fake text literal which makes using FString::Format(...); much more comfortable.">FMT_(myVar)</a> "{0}"</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00373">373</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00388">388</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -508,7 +511,7 @@ template&lt;CStringFormatArgument... Args&gt; </div>
 <p>Create a named argument list for a string format from input argument tuples. </p>
 <p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00398">398</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00413">413</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +535,7 @@ template&lt;CStringFormatArgument... Args&gt; </div>
 <p>Create an ordered argument list for a string format from input arguments. </p>
 <p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00386">386</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00401">401</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
