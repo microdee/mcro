@@ -161,3 +161,9 @@ namespace Mcro::AssertMacros
 #define ASSERT_QUIT(condition, returnOnFailure, ...) MCRO_ASSERT_CRASH_COMMON(condition, __VA_ARGS__)
 
 #endif
+
+/** @brief Shorthand of `ASSERT_QUIT` for TMaybe monads */
+#define ASSERT_QUIT_NON_ERROR(maybe, returnOnFailure, ...) ASSERT_QUIT(maybe, returnOnFailure, ->WithError(maybe.GetErrorRef()) __VA_ARGS__)
+
+/** @brief Shorthand of `ASSERT_CRASH` for TMaybe monads */
+#define ASSERT_CRASH_NON_ERROR(maybe, ...) ASSERT_CRASH(maybe, ->WithError(maybe.GetErrorRef()) __VA_ARGS__)

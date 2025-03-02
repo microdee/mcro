@@ -20,13 +20,6 @@ namespace Mcro::Range
 		String->Value = MoveTempIfPossible(string);
 	}
 
-	auto FTempStringIterator::operator = (FTempStringIterator other) -> FTempStringIterator&
-	{
-		using std::swap;
-		swap(*this, other);
-		return *this;
-	}
-
 	auto FTempStringIterator::operator ++ () -> FTempStringIterator&
 	{
 		++Current;

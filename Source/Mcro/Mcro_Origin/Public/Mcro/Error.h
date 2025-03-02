@@ -612,6 +612,7 @@ namespace Mcro::Error
 		auto GetValue() const -> T const& { return Value.GetValue(); }
 
 		auto GetError() const -> IErrorPtr { return Error; }
+		auto GetErrorRef() const -> IErrorRef { return Error.ToSharedRef(); }
 
 		operator bool() const { return HasValue(); }
 		

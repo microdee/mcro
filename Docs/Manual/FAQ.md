@@ -38,3 +38,13 @@ I've been developing this library with Rider and their code-completion fairs pre
 > Can I use MCRO in my plugin published on FAB for a price?
 
 **Yes**, *free of charge, no royalties or anything* . Please list MCRO and the [open-source libraries MCRO uses](#Attribution) when you submit your plugin to FAB. MCRO itself is [licensed under MPL 2.0](#Legal). Also it is recommended to compose the MCRO proto-plugin into yours with the help of [Nuke.Unreal](https://github.com/microdee/Nuke.Unreal).
+
+## Range-V3
+
+> I used them range operations in a very intricate way especially the ones provided with Range-V3 and now I get a horrendous compile error with a templated type raking in thousands of characters length. What should I do?
+
+Sometimes I feel like this while working with Range-V3:
+
+![](RakeTrick.jpg)
+
+But in more serious tone many times compile errors I've got with ranges boiled down to 'l-value, r-value reference'~ and 'const / not-const' mismatches in very generic and very advanced templates. For elaborate template instantiations which are extremely long and seems ridiculous, I just opened a code editor and copied the error into it, then organized it around until it was easier to read.

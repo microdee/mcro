@@ -428,7 +428,6 @@ namespace Mcro::Range
 			, Current(other.Current)
 		{}
 
-		auto operator =  (FTempStringIterator other) -> FTempStringIterator&;
 		auto operator ++ ()                -> FTempStringIterator&;
 		auto operator ++ (int)             -> FTempStringIterator;
 		auto operator -- ()                -> FTempStringIterator&;

@@ -217,6 +217,24 @@ namespace Mcro::Concepts
 	template<typename T>
 	concept CSharedFromThis = requires(std::decay_t<T>& t) { { t.AsShared() } -> CSharedRefOrPtr; };
 
+	template<typename T, typename ElementType>
+	concept CSharedPtrOf = CConvertibleToDecayed<T, TSharedPtr<ElementType, std::decay_t<T>::Mode>>;
+
+	template<typename T, typename ElementType>
+	concept CSharedRefOf = CConvertibleToDecayed<T, TSharedRef<ElementType, std::decay_t<T>::Mode>>;
+
+	template<typename T, typename ElementType>
+	concept CWeakPtrOf = CConvertibleToDecayed<T, TWeakPtr<ElementType, std::decay_t<T>::Mode>>;
+
+	template<typename T, typename ElementType>
+	concept CSharedRefOrPtrOf = CSharedRefOf<T, ElementType> || CSharedPtrOf<T, ElementType>;
+
+	template<typename T, typename ElementType>
+	concept CSharedOrWeakOf = CSharedRefOrPtrOf<T, ElementType> || CWeakPtrOf<T, ElementType>;
+
+	template<typename T, typename ElementType>
+	concept CSharedFromThisOf = requires(std::decay_t<T>& t) { { t.AsShared() } -> CSharedRefOrPtrOf<ElementType>; };
+
 	//// UClasses constraining concepts
 
 	template<typename T>

@@ -282,6 +282,13 @@ namespace Mcro::Text
 		{ t.ToString() } -> CDirectStringFormatArgument;
 	};
 
+	/** @brief A type which which provides a `ToString()` member method */
+	template <typename T>
+	concept CHasPtrToString = !CDirectStringFormatArgument<T> && !CHasToString<T> && requires(T t)
+	{
+		{ t->ToString() } -> CDirectStringFormatArgument;
+	};
+
 	template <typename T>
 	struct TAsFormatArgument
 	{
@@ -310,6 +317,7 @@ namespace Mcro::Text
 	concept CStringFormatArgument =
 		CDirectStringFormatArgument<std::decay_t<T>>
 		|| CHasToString<std::decay_t<T>>
+		|| CHasPtrToString<std::decay_t<T>>
 		|| CHasStringFormatArgumentConversion<std::decay_t<T>>
 	;
 
@@ -326,6 +334,13 @@ namespace Mcro::Text
 	{
 		template <CConvertibleToDecayed<Operand> Arg>
 		auto operator () (Arg&& left) const { return left.ToString(); }
+	};
+
+	template <CHasPtrToString Operand>
+	struct TAsFormatArgument<Operand>
+	{
+		template <CConvertibleToDecayed<Operand> Arg>
+		auto operator () (Arg&& left) const { return left->ToString(); }
 	};
 
 	template <typename CharType>
