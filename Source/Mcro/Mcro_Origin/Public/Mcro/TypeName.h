@@ -104,6 +104,44 @@ consteval uint64 GetCompileTimeTypeHash()
 namespace Mcro::TypeName
 {
 	using namespace Mcro::Text;
+
+	/** @brief Group together type info for identification. Can have an invalid state when no type is specified. */
+	struct FType
+	{
+		template <typename T>
+		struct TTag {};
+		
+		template <typename T>
+		constexpr FType(TTag<T>&&)
+			: Name(
+				GetCompileTimeTypeName<std::decay_t<T>>().data(),
+				GetCompileTimeTypeName<std::decay_t<T>>().size()
+			)
+			, Hash(GetCompileTimeTypeHash<T>())
+		{}
+		
+		constexpr FType() {}
+		
+		FStringView Name;
+		uint64 Hash = 0;
+
+		constexpr FStringView ToString() const { return Name; }
+		FString ToStringCopy() const { return FString(Name); }
+
+		constexpr bool IsValid() const { return Hash != 0; }
+		constexpr operator bool() const { return IsValid(); }
+		
+		friend constexpr bool operator == (FType const& left, FType const& right) { return left.Hash == right.Hash; }
+		friend constexpr bool operator != (FType const& left, FType const& right) { return left.Hash != right.Hash; }
+
+		friend constexpr uint32 GetTypeHash(FType const& self)
+		{
+			return static_cast<uint32>(self.Hash) ^ static_cast<uint32>(self.Hash >> 32);
+		}
+	};
+
+	template <typename T>
+	constexpr FType TTypeOf = FType(FType::TTag<T>());
 	
 	/**
 	 *	@brief

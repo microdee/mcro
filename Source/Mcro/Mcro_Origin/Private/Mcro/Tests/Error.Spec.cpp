@@ -101,7 +101,7 @@ void FMcroError_Spec::Define()
 			auto error = CommonTestError()
 				->AsRecoverable();
 			
-			TestEqual(TEXT_"Error Type", error->GetType(), NAME_"Mcro::Test::FTestSimpleError");
+			TestEqual(TEXT_"Error Type", error->GetTypeFName(), NAME_"Mcro::Test::FTestSimpleError");
 			TestEqual(TEXT_"Error Severity", error->GetSeverityString(), TEXTVIEW_"Recoverable");
 			TestEqual(TEXT_"Error Message", error->GetMessage(), STRING_"This is one test error");
 			TestEqual(TEXT_"Error Details", error->GetDetails(), STRING_

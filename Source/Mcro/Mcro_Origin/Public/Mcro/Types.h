@@ -49,14 +49,14 @@ namespace Mcro::Types
 		
 	protected:
 		FName TypeName;
-		uint64 TypeHash = 0;
+		FType TypeInfo;
 
 		/** @brief This function needs to be called on top level derived type for runtime reflection to work */
 		template <typename Self>
 		void SetType(this Self&& self)
 		{
 			self.TypeName = TTypeFName<Self>();
-			self.TypeHash = TTypeHash<Self>;
+			self.TypeInfo = TTypeOf<Self>;
 		}
 		
 	public:
@@ -71,8 +71,9 @@ namespace Mcro::Types
 			return SharedThis(&self);
 		}
 
-		FORCEINLINE FName const& GetType() const { return TypeName; }
-		FORCEINLINE uint64 GetTypeHash() const { return TypeHash; }
+		FORCEINLINE FType const& GetType() const { return TypeInfo; }
+		FORCEINLINE FName const& GetTypeFName() const { return TypeName; }
+		FORCEINLINE FString GetTypeString() const { return TypeName.ToString(); }
 
 		/**
 		 *	@brief  Very simple dynamic casting of this object to a derived top-level type.
@@ -88,7 +89,7 @@ namespace Mcro::Types
 		TSharedPtr<Derived> AsExactly(this Self&& self)
 		{
 			if constexpr (CDerivedFrom<Derived, Self>)
-				if (self.TypeHash == TTypeHash<Derived>)
+				if (self.TypeInfo == TTypeOf<Derived>)
 					return StaticCastSharedPtr<Derived>(
 						SharedThis(AsMutablePtr(&self)).ToSharedPtr()
 					);
