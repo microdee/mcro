@@ -20,6 +20,14 @@ namespace Mcro::Any
 	using namespace Mcro::TypeName;
 	using namespace Mcro::Concepts;
 
+	/**
+	 *	@brief
+	 *	This template is used in `IComponent|FAny::With(TAlias<...>)` so it can have deduced this type and explicit
+	 *	variadic template arguments when specifying multiple aliases.
+	 */
+	template <typename...>
+	struct TAlias {};
+
 	struct FAny;
 
 	/**
@@ -63,7 +71,9 @@ namespace Mcro::Any
 	 *	or even emit them. The best summary I found so far is a stack-overflow answer https://stackoverflow.com/a/77477029
 	 *	Once that's available we can gather base classes in compile time, and do dynamic casting of objects without
 	 *	the need for intrusive extra syntax, or extra work at construction.
-	 *	Currently GCC's `__bases` would be perfect for the job, but other popular compilers don't have similar intrinsics.
+	 *	Currently GCC's `__bases` would be perfect for the job, but other popular compilers don't have similar
+	 *	intrinsics. Once such a feature becomes widely available base classes can be automatically added as aliases for
+	 *	types wrapped in FAny.
 	 */
 	struct MCRO_API FAny
 	{
@@ -115,11 +125,20 @@ namespace Mcro::Any
 				? static_cast<T*>(Storage)
 				: nullptr;
 		}
-
-		template <typename Self, typename... T>
-		decltype(auto) ValidAs(this Self&& self)
+		
+		/** @brief Specify one type the enclosed value can be safely cast to, and is valid to be used with `TryGet`. */
+		template <typename T, typename Self>
+		decltype(auto) WithAlias(this Self&& self)
 		{
-			(ValidTypes.Add(TTypeOf<T>), ...);
+			self.ValidTypes.Add(TTypeOf<T>);
+			return Forward<Self>(self);
+		}
+
+		/** @brief Specify multiple types the enclosed value can be safely cast to, and are valid to be used with `TryGet`. */
+		template <typename Self, typename... T>
+		decltype(auto) With(this Self&& self, TAlias<T...>&&)
+		{
+			(self.ValidTypes.Add(TTypeOf<T>), ...);
 			return Forward<Self>(self);
 		}
 
@@ -130,12 +149,13 @@ namespace Mcro::Any
 	private:
 		static void CopyTypeInfo(FAny* self, const FAny* other);
 		
-		FType MainType {};
-		TSet<FType> ValidTypes {};
 		void* Storage = nullptr;
+		FType MainType {};
 		
+		TFunction<void(FAny* self)> Destruct {};
 		TFunction<void(FAny* self, FAny const& other)> CopyConstruct {};
 		TFunction<void(FAny* self, FAny&& other)> MoveConstruct {};
-		TFunction<void(FAny* self)> Destruct {};
+		
+		TSet<FType> ValidTypes {};
 	};
 }

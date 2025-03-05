@@ -25,14 +25,6 @@ namespace Mcro::Composition
 	using namespace Mcro::Any;
 	using namespace Mcro::Range;
 
-	/**
-	 *	@brief
-	 *	This template is used in `IComponent::With(TAlias<...>)` so it can have deduced this type and explicit
-	 *	variadic template arguments when specifying multiple aliases.
-	 */
-	template <typename...>
-	struct TAlias {};
-
 	class IComposable;
 
 	/**
@@ -160,7 +152,7 @@ namespace Mcro::Composition
 	 *	the need for intrusive extra syntax, or extra work at construction.
 	 *	Currently GCC's `__bases` would be perfect for the job, but other popular compilers don't have similar
 	 *	intrinsics. Once such a feature becomes widely available base classes can be automatically added as aliases for
-	 *	registered components
+	 *	registered components.
 	 */
 	class MCRO_API IComposable
 	{
@@ -176,7 +168,7 @@ namespace Mcro::Composition
 		template <typename ValidAs>
 		void AddComponentAlias(uint64 mainType)
 		{
-			Components[mainType].ValidAs<ValidAs>();
+			Components[mainType].WithAlias<ValidAs>();
 			AddComponentAlias(mainType, TTypeHash<ValidAs>);
 		}
 		
@@ -242,7 +234,7 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		void AddComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			self.template AddComponent<MainType, Self>(new MainType(), facilities);
+			Forward<Self>(self).template AddComponent<MainType, Self>(new MainType(), facilities);
 		}
 
 		/**
@@ -292,7 +284,7 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		auto WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			self.template AddComponent<MainType, Self>(newComponent, facilities);
+			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
 			return self.SharedThis(&self);
 		}
 		
@@ -316,7 +308,7 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		auto WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			self.template AddComponent<MainType, Self>(facilities);
+			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
 			return self.SharedThis(&self);
 		}
 
@@ -345,7 +337,7 @@ namespace Mcro::Composition
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
 		decltype(auto) WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			self.template AddComponent<MainType, Self>(newComponent, facilities);
+			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
 			return Forward<Self>(self);
 		}
 
@@ -369,7 +361,7 @@ namespace Mcro::Composition
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
 		decltype(auto) WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			self.template AddComponent<MainType, Self>(facilities);
+			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
 			return Forward<Self>(self);
 		}
 
@@ -410,7 +402,7 @@ namespace Mcro::Composition
 		template <typename ValidAs, CSharedFromThis Self>
 		auto WithAlias(this Self&& self)
 		{
-			self.template AddAlias<ValidAs>();
+			Forward<Self>(self).template AddAlias<ValidAs>();
 			return self.SharedThis(&self);
 		}
 
@@ -452,7 +444,7 @@ namespace Mcro::Composition
 		requires (!CSharedFromThis<Self>)
 		decltype(auto) WithAlias(this Self&& self)
 		{
-			self.template AddAlias<ValidAs>();
+			Forward<Self>(self).template AddAlias<ValidAs>();
 			return Forward<Self>(self);
 		}
 
@@ -489,7 +481,7 @@ namespace Mcro::Composition
 		template <CSharedFromThis Self, typename... ValidAs>
 		auto With(this Self&& self, TAlias<ValidAs...>&&)
 		{
-			self.template AddAlias<ValidAs...>();
+			Forward<Self>(self).template AddAlias<ValidAs...>();
 			return self.SharedThis(&self);
 		}
 
@@ -527,7 +519,7 @@ namespace Mcro::Composition
 		requires (!CSharedFromThis<Self>)
 		decltype(auto) With(this Self&& self, TAlias<ValidAs...>&&)
 		{
-			self.template AddAlias<ValidAs...>();
+			Forward<Self>(self).template AddAlias<ValidAs...>();
 			return Forward<Self>(self);
 		}
 
