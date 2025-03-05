@@ -38,3 +38,17 @@ public interface IUseMcro : INukeBuild
         );
     }
 }
+
+[ImplicitBuildInterface]
+public interface IImplicitMcroTargets : INukeBuild
+{
+    Target GenerateMcroDocs => _ => _
+        .Triggers<IMcroLicenseRegion>(_ => _.RenderMcroAttribution)
+        .Executes(() =>
+        {
+            ToolResolver.GetPathTool("doxygen")(
+                (this.ScriptFolder() / "Doxyfile").ToString(),
+                workingDirectory: this.ScriptFolder()
+            );
+        });
+}

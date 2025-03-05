@@ -1,3 +1,4 @@
+
 ## [Tabler Icons](https://tabler.io/icons)
 
 * Authors:
@@ -29,6 +30,7 @@ return FDate{ result.get<"year">(), result.get<"month">(), result.get<"day">() }
 
 In compile time non-the less! Unreal's own included Regex library pales in comparison.
 
+
 ## [magic_enum](https://github.com/Neargye/magic_enum)
 
 * Authors:
@@ -59,6 +61,31 @@ To have a "nice" declarative way to handle views for Unreal containers
 
 Reason of inclusion:  
 A YAML parser and emitter in C++. Unreal Engine doesn't provide one.
+
+## [constexpr-xxh3](https://github.com/chys87/constexpr-xxh3)
+
+* Authors:
+  * Chys (https://chys.info)
+* License: BSD 2-Clause License (https://github.com/chys87/constexpr-xxh3/blob/main/LICENSE)
+* [Source code](https://github.com/chys87/constexpr-xxh3)
+
+Reason of inclusion:  
+This allows us to have almost free runtime exact type checking.
+
+## [xxHash](https://xxhash.com)
+
+* Authors:
+  * Yann Collet (http://fastcompression.blogspot.fr/)
+  * Easy as PI 3.14 (https://github.com/easyaspi314)
+  * Takayuki Matsuoka
+  * et. al.
+* License: BSD 2-Clause License (https://github.com/Cyan4973/xxHash/blob/dev/LICENSE)
+* [Source code](https://github.com/Cyan4973/xxHash)
+
+Reason of inclusion:  
+xxHash algorithm is used by another third-party implementation in constexpr time. This allows us to have almost free
+runtime exact type checking.
+
 
 ## [Intel ISPC Tasksys](https://ispc.github.io)
 
