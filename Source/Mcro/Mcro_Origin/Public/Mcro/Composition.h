@@ -144,6 +144,9 @@ namespace Mcro::Composition
 	 *		                                   // at OnComponentRegistered(FExpectedParent& to)
 	 *	;
 	 *	@endcode
+	 *
+	 *	Explicit components can support multiple composable classes via function overloading or templating (with deduced
+	 *	type parameters).
 	 *	
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes
@@ -285,7 +288,7 @@ namespace Mcro::Composition
 		auto WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
-			return self.SharedThis(&self);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 		
 		/**
@@ -309,7 +312,7 @@ namespace Mcro::Composition
 		auto WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
-			return self.SharedThis(&self);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 
 		/**
@@ -403,7 +406,7 @@ namespace Mcro::Composition
 		auto WithAlias(this Self&& self)
 		{
 			Forward<Self>(self).template AddAlias<ValidAs>();
-			return self.SharedThis(&self);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 
 		/**
@@ -482,7 +485,7 @@ namespace Mcro::Composition
 		auto With(this Self&& self, TAlias<ValidAs...>&&)
 		{
 			Forward<Self>(self).template AddAlias<ValidAs...>();
-			return self.SharedThis(&self);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 
 		/**

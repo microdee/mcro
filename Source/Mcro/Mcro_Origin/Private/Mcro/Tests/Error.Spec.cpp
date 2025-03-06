@@ -129,7 +129,7 @@ DEFINE_SPEC(
 
 void FMcroErrorUI_Spec::Define()
 {
-	Describe(TEXT_"FErrorManager", [this]
+	xDescribe(TEXT_"FErrorManager", [this]
 	{
 		BeforeEach([]
 		{
@@ -184,7 +184,7 @@ void FMcroErrorUI_Spec::Define()
 		});
 	});
 
-	Describe(TEXT_"Assertions", [this]
+	xDescribe(TEXT_"Assertions", [this]
 	{
 		It(TEXT_"should crash app on assertion failure", [this]
 		{

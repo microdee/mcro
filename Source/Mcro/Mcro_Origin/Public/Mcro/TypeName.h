@@ -117,7 +117,7 @@ namespace Mcro::TypeName
 				GetCompileTimeTypeName<std::decay_t<T>>().data(),
 				GetCompileTimeTypeName<std::decay_t<T>>().size()
 			)
-			, Hash(GetCompileTimeTypeHash<T>())
+			, Hash(GetCompileTimeTypeHash<std::decay_t<T>>())
 		{}
 		
 		constexpr FType() {}
