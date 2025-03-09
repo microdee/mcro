@@ -94,31 +94,71 @@ namespace Mcro::Composition
 	 *
 	 *	Usage:
 	 *	@code
-	 *	struct IBaseComponent { int A; };
+	 *	//// Given the following types we want to use as components:
 	 *	
-	 *	struct FComponentImplementation : IBaseComponent
+	 *	struct FSimpleComponent { int A = 0; };
+	 *	
+	 *	struct IBaseComponent { int B; };
+	 *	
+	 *	//                                | This allows us not repeating ourselves, more on this later
+	 *	//                                V
+	 *	struct FComponentImplementation : TInherit<IBaseComponent>
 	 *	{
-	 *		FComponentImplementation(int a, int b) : A(a), B(b) {}
-	 *		int B;
+	 *		FComponentImplementation(int b, int c) : B(b), C(c) {}
+	 *		int C;
 	 *	};
-	 *	struct FSimpleComponent { int C; };
-	 *
+	 *	
+	 *	struct IRegularBase { int D; };
+	 *	
+	 *	//                         | We have to repeat this if we want to get components with this base class
+	 *	//                         V
+	 *	struct FRegularInherited : IRegularBase
+	 *	{
+	 *		FRegularInherited(int d, int e) : D(d), E(e) {}
+	 *		int E;
+	 *	};
+	 *	
+	 *	//// Given the following composable type:
+	 *	
 	 *	class FMyComposableType : public IComposable {};
-	 *
-	 *	FMyComposableType MyStuff()
-	 *		.WithComponent(new FComponentImplementation(1, 2)).WithAlias<IBaseComponent>()
-	 *		.WithComponent<FSimpleComponent>()
+	 *	
+	 *	//// Declare their composition at construction:
+	 *	
+	 *	auto MyStuff = FMyComposableType()
+	 *		.WithComponent<FSimpleComponent>()                 // <- Simply add components with their types
+	 *		.WithComponent(new FComponentImplementation(1, 2)) // <- Or simply use new operator
+	 *		                                                   //    (IComposable assumes ownership)
+	 *		                                                   //    Because FComponentImplementation uses TInherit
+	 *		                                                   //    IBaseComponent is not needed to be repeated here
+	 *		.WithComponent(new FRegularInherited(3, 4))        //
+	 *		    .WithAlias<IRegularBase>()                     // <- FRegularInherited cannot tell automatically that it
+	 *		                                                   //    inherits from IRegularBase so we need to specify
+	 *		                                                   //    that here explicitly in case we want to get
+	 *		                                                   //    FRegularInherited component via its base class
 	 *	;
+	 *	
+	 *	//// Get components at runtime:
+	 *	
+	 *	int a = MyStuff.GetComponent<FSimpleComponent>().A; //
+	 *	// -> 0                                             //
+	 *	int b = MyStuff.GetComponent<IBaseComponent>().B;   // <- We can get the component via base class here, only
+	 *	// -> 1                                             //    because it was exposed via TInherit
+	 *	int d = MyStuff.GetComponent<IRegularBase>().D;     // <- We can get the component via base class here, because
+	 *	// -> 3                                             //    we explicitly specified it during registration
+	 *	FVector* v = MyStuff.TryGetComponent<FVector>();    // <- If there's any doubt that a component may not have
+	 *	// -> nullptr; FVector wasn't added as a component  //    been registered, use TryGetComponent instead.
 	 *	@endcode
-	 *
+	 *	
 	 *	As mentioned earlier, components are not required to have any arbitrary type traits, but if they inherit from
 	 *	`IComponent` or `IStrictComponent` they can receive extra information when they're registered for a composable
 	 *	class. The difference between the two is that `IComponent` doesn't mind if it's attached to a composable class
 	 *	it doesn't know about, however it is a compile error if an `IStrictComponent` is attempted to be attached to
 	 *	an incompatible class.
-	 *
+	 *	
 	 *	For example
 	 *	@code
+	 *	//// Given the following types we want to use as components:
+	 *	
 	 *	struct FChillComponent : IComponent
 	 *	{
 	 *		void OnComponentRegistered(FExpectedParent& to) {}
@@ -128,14 +168,18 @@ namespace Mcro::Composition
 	 *	{
 	 *		void OnComponentRegistered(FExpectedParent& to) {}
 	 *	};
-	 *
+	 *	
+	 *	//// Given the following composable types:
+	 *	
 	 *	class FExpectedParent : public IComposable {};
 	 *	class FSomeOtherParent : public IComposable {};
+	 *	
+	 *	//// Declare their composition at construction:
 	 *	
 	 *	auto MyOtherStuff = FExpectedParent()
 	 *		.WithComponent<FChillComponent>()  // OK, and OnComponentRegistered is called
 	 *		.WithComponent<FStrictComponent>() // OK, and OnComponentRegistered is called
-	 *
+	 *	
 	 *	auto MyStuff = FSomeOtherParent()
 	 *		.WithComponent<FChillComponent>()  // OK, but OnComponentRegistered won't be called.
 	 *		
@@ -144,9 +188,29 @@ namespace Mcro::Composition
 	 *		                                   // at OnComponentRegistered(FExpectedParent& to)
 	 *	;
 	 *	@endcode
-	 *
-	 *	Explicit components can support multiple composable classes via function overloading or templating (with deduced
-	 *	type parameters).
+	 *	
+	 *	Explicit components can explicitly support multiple composable classes via function overloading or templating
+	 *	(with deduced type parameters).
+	 *	
+	 *	If a component type uses `TInherit` template or has a `using Bases = TTypes<...>` member alias in a similar way:
+	 *	@code
+	 *	class FMyComponent : public TInherit<IFoo, IBar, IEtc>
+	 *	{
+	 *		// ...
+	 *	}
+	 *	@endcode
+	 *	Then the specified base classes will be automatically registered as component aliases. When this is used for
+	 *	explicit components, `IComponent` or `IStrictComponent` is strongly discouraged to be used in `TInherit`'s
+	 *	parameter pack. So declare inheritance the following way:
+	 *	
+	 *	@code
+	 *	class FMyComponent
+	 *		: public TInherit<IFoo, IBar, IEtc>
+	 *		, public IComponent
+	 *	{
+	 *		// ...
+	 *	}
+	 *	@endcode
 	 *	
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes
@@ -173,6 +237,14 @@ namespace Mcro::Composition
 		{
 			Components[mainType].WithAlias<ValidAs>();
 			AddComponentAlias(mainType, TTypeHash<ValidAs>);
+
+			if constexpr (CHasBases<ValidAs>)
+			{
+				Mcro::Any::Detail::ForEachExplicitBase<typename ValidAs::Bases>([&, this] <typename Base> (TTypes<Base>&&)
+				{
+					AddComponentAlias(mainType, TTypeHash<Base>);
+				});
+			}
 		}
 		
 		ranges::any_view<FAny*> GetExactComponent(uint64 typeHash) const;
@@ -217,6 +289,15 @@ namespace Mcro::Composition
 			
 			self.Components.Add(TTypeHash<MainType>, FAny(newComponent, facilities));
 			self.LastAddedComponentHash = TTypeHash<MainType>;
+
+			if constexpr (CHasBases<MainType>)
+			{
+				Mcro::Any::Detail::ForEachExplicitBase<typename MainType::Bases>([&] <typename Base> (TTypes<Base>&&)
+				{
+					// FAny also deals with CHasBases so we can skip explicitly registering them here
+					self.AddComponentAlias(TTypeHash<MainType>, TTypeHash<Base>);
+				});
+			}
 
 			if constexpr (CCompatibleExplicitComponent<MainType, Self>)
 				newComponent->OnComponentRegistered(self);
@@ -385,7 +466,7 @@ namespace Mcro::Composition
 		 *	;
 		 *	@endcode
 		 *
-		 *	For declaring multiple aliases in one go, use `With(TAlias<...>)` member template method.
+		 *	For declaring multiple aliases in one go, use `With(TTypes<...>)` member template method.
 		 *	
 		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
 		 *
@@ -426,7 +507,7 @@ namespace Mcro::Composition
 		 *	;
 		 *	@endcode
 		 *
-		 *	For declaring multiple aliases in one go, use `With(TAlias<...>)` member template method.
+		 *	For declaring multiple aliases in one go, use `With(TTypes<...>)` member template method.
 		 *	
 		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
 		 *
@@ -482,7 +563,7 @@ namespace Mcro::Composition
 		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
 		 */
 		template <CSharedFromThis Self, typename... ValidAs>
-		auto With(this Self&& self, TAlias<ValidAs...>&&)
+		auto With(this Self&& self, TTypes<ValidAs...>&&)
 		{
 			Forward<Self>(self).template AddAlias<ValidAs...>();
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
@@ -520,7 +601,7 @@ namespace Mcro::Composition
 		 */
 		template <typename Self, typename... ValidAs>
 		requires (!CSharedFromThis<Self>)
-		decltype(auto) With(this Self&& self, TAlias<ValidAs...>&&)
+		decltype(auto) With(this Self&& self, TTypes<ValidAs...>&&)
 		{
 			Forward<Self>(self).template AddAlias<ValidAs...>();
 			return Forward<Self>(self);
