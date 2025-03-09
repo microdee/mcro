@@ -13,20 +13,81 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/TypeName.h"
-#include "Mcro/Concepts.h"
+#include "Mcro/Templates.h"
+#include "Mcro/FunctionTraits.h"
 
 namespace Mcro::Any
 {
 	using namespace Mcro::TypeName;
-	using namespace Mcro::Concepts;
+	using namespace Mcro::Templates;
+	using namespace Mcro::FunctionTraits;
 
 	/**
 	 *	@brief
 	 *	This template is used in `IComponent|FAny::With(TAlias<...>)` so it can have deduced this type and explicit
 	 *	variadic template arguments when specifying multiple aliases.
 	 */
-	template <typename...>
-	struct TAlias {};
+	template <typename... T>
+	struct TTypes {};
+
+	/**
+	 *	@brief
+	 *	Some MCRO utilities allow for intrusive method of declaring inheritance which can be later used to reflect
+	 *	upon base classes of a derived type.
+	 */
+	template <typename T>
+	concept CHasBases = CIsTemplate<typename T::Bases, TTypes>;
+
+	/**
+	 *	@brief
+	 *	Inherit via this template to allow other API to reflect upon the base types of deriving class. Base types are
+	 *	inherited as public. If you want privately inherited base classes, just inherit them as normal.
+	 *
+	 *	Usage:
+	 *	@code
+	 *	class FMyThing : public TInherit<IFoo, IBar, IEtc>
+	 *	{
+	 *		// ...
+	 *	}
+	 *	@endcode
+	 */
+	template <typename... BaseTypes>
+	class TInherit : public BaseTypes...
+	{
+	public:
+		using Bases = TTypes<BaseTypes...>;
+	};
+
+	namespace Detail
+	{
+		template <CIsTemplate<TTypes> Bases, typename Function>
+		void ForEachExplicitBase(Function&& function);
+
+		template <typename T, typename Function>
+		void ForEachExplicitBase_Body(Function&& function)
+		{
+			function(TTypes<T>());
+			if constexpr (CHasBases<T>)
+				ForEachExplicitBase<typename T::Bases>(function);
+		}
+
+		template <CIsTemplate<TTypes> Bases, typename Function, size_t... Indices>
+		void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
+		{
+			(ForEachExplicitBase_Body<TTemplate_Param<TTypes, Bases, Indices>>(Forward<Function>(function)), ...);
+		}
+
+		template <CIsTemplate<TTypes> Bases, typename Function>
+		void ForEachExplicitBase(Function&& function)
+		{
+			ForEachExplicitBase_Impl<Bases>(
+				Forward<Function>(function),
+				std::make_index_sequence<
+					TTemplate_ParamCount<TTypes, Bases>
+				>()
+			);
+		}
+	}
 
 	struct FAny;
 
@@ -62,7 +123,16 @@ namespace Mcro::Any
 	 *
 	 *	Use this with care, the underlying data can be only accessed with the same type as it has been constructed with,
 	 *	or with types provided by `ValidAs`. This means derived classes cannot be accessed with their base types safely
-	 *	and implicitly.
+	 *	and implicitly. MCRO however provides a methods for classes to allow them exposing base types to FAny (and
+	 *	other facilities):
+	 *	@code
+	 *	class FMyThing : public TInherit<IFoo, IBar, IEtc>
+	 *	{
+	 *		// ...
+	 *	}
+	 *	@endcode
+	 *	`TInherit` has a member alias `using Bases = TTypes<...>` and that can be used by FAny to automatically register
+	 *	base classes as compatible ones.
 	 *
 	 *	Enclosed value must be copy and move constructible and assignable.
 	 *
@@ -103,6 +173,14 @@ namespace Mcro::Any
 			})
 		{
 			ValidTypes.Add(MainType);
+			
+			if constexpr (CHasBases<T>)
+			{
+				Detail::ForEachExplicitBase<typename T::Bases>([this] <typename Base> (TTypes<Base>&&)
+				{
+					AddAlias(TTypeOf<Base>);
+				});
+			}
 		}
 
 		FORCEINLINE FAny() {}
@@ -130,15 +208,23 @@ namespace Mcro::Any
 		template <typename T, typename Self>
 		decltype(auto) WithAlias(this Self&& self)
 		{
-			self.ValidTypes.Add(TTypeOf<T>);
+			self.AddAlias(TTypeOf<T>);
+			
+			if constexpr (CHasBases<T>)
+			{
+				Detail::ForEachExplicitBase<typename T::Bases>([&] <typename Base> (TTypes<Base>&&)
+				{
+					self.AddAlias(TTypeOf<Base>);
+				});
+			}
 			return Forward<Self>(self);
 		}
 
 		/** @brief Specify multiple types the enclosed value can be safely cast to, and are valid to be used with `TryGet`. */
 		template <typename Self, typename... T>
-		decltype(auto) With(this Self&& self, TAlias<T...>&&)
+		decltype(auto) With(this Self&& self, TTypes<T...>&&)
 		{
-			(self.ValidTypes.Add(TTypeOf<T>), ...);
+			(self.AddAlias(TTypeOf<T>), ...);
 			return Forward<Self>(self);
 		}
 
@@ -147,6 +233,7 @@ namespace Mcro::Any
 		FORCEINLINE TSet<FType> const& GetValidTypes() const { return ValidTypes; }
 		
 	private:
+		void AddAlias(FType const& alias);
 		static void CopyTypeInfo(FAny* self, const FAny* other);
 		
 		void* Storage = nullptr;

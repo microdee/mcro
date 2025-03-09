@@ -14,15 +14,19 @@
 
 #include "Mcro/CommonCore.h"
 
-struct FAnyTestBase
+namespace Mcro::Test
 {
-	int A = 1;
-};
+	using namespace Mcro::Common;
+	
+	struct FAnyTestBase { int A = 1; };
+	struct FAnyTest : FAnyTestBase { int B = 2; };
 
-struct FAnyTest : FAnyTestBase
-{
-	int B = 2;
-};
+	struct IBaseA {};
+	struct IBaseB {};
+	struct IBaseC {};
+
+	struct FIntrusiveInherit : TInherit<IBaseA, IBaseB, IBaseC> {};
+}
 
 DEFINE_SPEC(
 	FMcroAny_Spec,
@@ -34,7 +38,7 @@ DEFINE_SPEC(
 
 void FMcroAny_Spec::Define()
 {
-	using namespace Mcro::Common;
+	using namespace Mcro::Test;
 
 	Describe(TEXT_"FAny", [this]
 	{
@@ -45,6 +49,16 @@ void FMcroAny_Spec::Define()
 			TestNotNull(TEXT_"Fetch with exact type", payload.TryGet<FAnyTest>());
 			TestNotNull(TEXT_"Fetch with alias type", payload.TryGet<FAnyTestBase>());
 			TestNull(TEXT_"Shouldn't allow unrelated types", payload.TryGet<FVector>());
+		});
+		
+		It(TEXT_"should use intrusive inheritance.", [this]
+		{
+			auto payload = FAny(new FIntrusiveInherit());
+			
+			TestNotNull(TEXT_"Fetch with exact type", payload.TryGet<FIntrusiveInherit>());
+			TestNotNull(TEXT_"Fetch with alias type A", payload.TryGet<IBaseA>());
+			TestNotNull(TEXT_"Fetch with alias type B", payload.TryGet<IBaseB>());
+			TestNotNull(TEXT_"Fetch with alias type C", payload.TryGet<IBaseC>());
 		});
 		
 		It(TEXT_"should be copyable/movable", [this]

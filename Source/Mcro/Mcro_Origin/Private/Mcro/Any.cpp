@@ -30,6 +30,12 @@ namespace Mcro::Any
 		if (static_cast<bool>(Destruct))
 			Destruct(this);
 	}
+	
+	void FAny::AddAlias(FType const& alias)
+	{
+		if (!ValidTypes.Contains(alias))
+			ValidTypes.Add(alias);
+	}
 
 	void FAny::CopyTypeInfo(FAny* self, const FAny* other)
 	{
