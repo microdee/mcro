@@ -1,0 +1,35 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.5.0",
+	"EngineVersion": "",
+	"FriendlyName": "MCRO",
+	"Description": "A C++23 utilities Unreal Engine plugin, for a more civilized age.",
+	"Category": "Code",
+	"EnabledByDefault": true,
+	"CreatedBy": "David Mórász (microdee)",
+	"CreatedByURL": "https://mcro.de",
+	"DocsURL": "https://mcro.de/mcro",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/microdee/mcro/issues",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Modules": [
+		{
+			"Name": "Mcro",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit"
+		},
+		{
+			"Name": "McroWindows",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit",
+            "PlatformAllowList": ["Win64"]
+		},
+		{
+			"Name": "McroISPC",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
