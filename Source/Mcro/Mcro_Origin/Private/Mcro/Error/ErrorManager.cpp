@@ -46,7 +46,7 @@ namespace Mcro::Error
 			args.bLogError,
 			LogErrorManager, Error,
 			TEXT_"Displaying error %s:",
-			*error->GetType().ToString()
+			*error->GetType().ToStringCopy()
 		);
 		ERROR_CLOG(args.bLogError && !bIsDisplayingError, LogErrorManager, Error, error);
 		if (args.bBreakDebugger)

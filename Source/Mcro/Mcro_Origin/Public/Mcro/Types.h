@@ -37,6 +37,10 @@ namespace Mcro::Types
 	 *	Once that's available we can gather base classes in compile time, and do dynamic casting of objects without
 	 *	the need for intrusive extra syntax, or extra work at construction.
 	 *	Currently GCC's `__bases` would be perfect for the job, but other popular compilers don't have similar intrinsics.
+	 *
+	 *	@warning
+	 *	Do not use exact type comparison with serialized data or network communication, as the actual value of the type
+	 *	is different between compilers. Only use this for runtime data. For such scenarios just use Unreal's own UObjects.
 	 */
 	class IHaveType : public TSharedFromThis<IHaveType>
 	{
@@ -45,12 +49,14 @@ namespace Mcro::Types
 		
 	protected:
 		FName TypeName;
+		FType TypeInfo;
 
 		/** @brief This function needs to be called on top level derived type for runtime reflection to work */
 		template <typename Self>
 		void SetType(this Self&& self)
 		{
 			self.TypeName = TTypeFName<Self>();
+			self.TypeInfo = TTypeOf<Self>;
 		}
 		
 	public:
@@ -65,7 +71,9 @@ namespace Mcro::Types
 			return SharedThis(&self);
 		}
 
-		FORCEINLINE FName const& GetType() const { return TypeName; }
+		FORCEINLINE FType const& GetType() const { return TypeInfo; }
+		FORCEINLINE FName const& GetTypeFName() const { return TypeName; }
+		FORCEINLINE FString GetTypeString() const { return TypeName.ToString(); }
 
 		/**
 		 *	@brief  Very simple dynamic casting of this object to a derived top-level type.
@@ -73,7 +81,7 @@ namespace Mcro::Types
 		 *	@tparam Derived
 		 *	Only return the desired type when the current object is exactly that type, and doesn't have deeper
 		 *	inheritance. Proper dynamic casting regarding the entire inheritance tree still without RTTI will come once
-		 *	proposed C++26 value-typed reflection becomes available.
+		 *	proposed C++26 value-typed reflection becomes wide-spread available among popular compilers.
 		 *
 		 *	@return  Object cast to desired type when that's possible (see `Derived`) or nullptr;
 		 */
@@ -81,7 +89,7 @@ namespace Mcro::Types
 		TSharedPtr<Derived> AsExactly(this Self&& self)
 		{
 			if constexpr (CDerivedFrom<Derived, Self>)
-				if (self.TypeName == TTypeFName<Derived>())
+				if (self.TypeInfo == TTypeOf<Derived>)
 					return StaticCastSharedPtr<Derived>(
 						SharedThis(AsMutablePtr(&self)).ToSharedPtr()
 					);

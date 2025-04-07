@@ -53,7 +53,7 @@ namespace Mcro::Error
 
 	void IError::AddError(const FString& name, const TSharedRef<IError>& error, const FString& typeOverride)
 	{
-		FString type = typeOverride.IsEmpty() ? error->GetType().ToString() : typeOverride;
+		FString type = typeOverride.IsEmpty() ? error->GetType().ToStringCopy() : typeOverride;
 		FString key = Join(TEXT_" ", type, name);
 		FString keyUnique = key;
 		for (int i = 1; i <= 100 && InnerErrors.Contains(keyUnique); ++i)

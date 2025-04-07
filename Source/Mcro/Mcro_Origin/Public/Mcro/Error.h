@@ -200,13 +200,13 @@ namespace Mcro::Error
 		 *	@tparam  Self     Deducing this
 		 *	@param   self     Deduced this (not present in calling arguments)
 		 *	@param   input    the message format
-		 *	@param   fmtArgs  format arguments
+		 *	@param   fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
-		template <typename Self, typename... FormatArgs>
+		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithMessageF(this Self&& self, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			self.Message = DynamicPrintf(input, Forward<FormatArgs>(fmtArgs)...);
+			self.Message = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 
@@ -222,7 +222,7 @@ namespace Mcro::Error
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithMessageFC(this Self&& self, bool condition, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			if (condition) self.Message = DynamicPrintf(input, Forward<FormatArgs>(fmtArgs)...);
+			if (condition) self.Message = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 		
@@ -291,13 +291,13 @@ namespace Mcro::Error
 		 *	@tparam  Self     Deducing this
 		 *	@param   self     Deduced this (not present in calling arguments)
 		 *	@param   input    the details text
-		 *	@param   fmtArgs  format arguments
+		 *	@param   fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
-		template <typename Self, typename... FormatArgs>
+		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithDetailsF(this Self&& self, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			self.Details = DynamicPrintf(input, Forward<FormatArgs>(fmtArgs)...);
+			self.Details = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 
@@ -310,13 +310,13 @@ namespace Mcro::Error
 		 *	@param   self       Deduced this (not present in calling arguments)
 		 *	@param   input      the details text
 		 *	@param   condition  Only add details when this condition is satisfied
-		 *	@param   fmtArgs    format arguments
+		 *	@param   fmtArgs    ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
-		template <typename Self, typename... FormatArgs>
+		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithDetailsFC(this Self&& self, bool condition, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			if (condition) self.Details = DynamicPrintf(input, Forward<FormatArgs>(fmtArgs)...);
+			if (condition) self.Details = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 
@@ -435,13 +435,13 @@ namespace Mcro::Error
 		 *	@tparam  Self     Deducing this
 		 *	@param   name     Name of the extra text block
 		 *	@param   text     Value of the extra text block
-		 *	@param   fmtArgs  format arguments
+		 *	@param   fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
-		template <typename Self, typename... FormatArgs>
+		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithAppendixF(this Self&& self, const FString& name, const TCHAR* text, FormatArgs&&... fmtArgs)
 		{
-			self.AddAppendix(name, DynamicPrintf(text, Forward<FormatArgs>(fmtArgs)...));
+			self.AddAppendix(name, FString::Format(text, OrderedArguments(Forward<FormatArgs>(fmtArgs)...)));
 			return self.SharedThis(&self);
 		}
 
@@ -450,15 +450,15 @@ namespace Mcro::Error
 		 *	@tparam  Self       Deducing this
 		 *	@param   name       Name of the extra text block
 		 *	@param   text       Value of the extra text block
-		 *	@param   fmtArgs    format arguments
+		 *	@param   fmtArgs    ordered format arguments
 		 *	@param   condition  Only add inner error when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
-		template <typename Self, typename... FormatArgs>
+		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithAppendixFC(this Self&& self, bool condition, const FString& name, const TCHAR* text, FormatArgs&&... fmtArgs)
 		{
 			if (condition)
-				self.AddAppendix(name, DynamicPrintf(text, Forward<FormatArgs>(fmtArgs)...));
+				self.AddAppendix(name, FString::Format(text, OrderedArguments(Forward<FormatArgs>(fmtArgs)...)));
 			return self.SharedThis(&self);
 		}
 
@@ -573,8 +573,8 @@ namespace Mcro::Error
 		requires (!CDefaultInitializable<T>)
 		TMaybe() : Error(IError::Make(new FUnavailable())
 			->WithMessageF(
-				TEXT_"TMaybe has been default initialized, but a Value of %s cannot be default initialized",
-				*TTypeString<T>()
+				TEXT_"TMaybe has been default initialized, but a Value of {0} cannot be default initialized",
+				TTypeName<T>
 			)
 		) {}
 

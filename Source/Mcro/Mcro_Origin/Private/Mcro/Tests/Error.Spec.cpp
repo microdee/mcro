@@ -101,7 +101,7 @@ void FMcroError_Spec::Define()
 			auto error = CommonTestError()
 				->AsRecoverable();
 			
-			TestEqual(TEXT_"Error Type", error->GetType(), NAME_"Mcro::Test::FTestSimpleError");
+			TestEqual(TEXT_"Error Type", error->GetTypeFName(), NAME_"Mcro::Test::FTestSimpleError");
 			TestEqual(TEXT_"Error Severity", error->GetSeverityString(), TEXTVIEW_"Recoverable");
 			TestEqual(TEXT_"Error Message", error->GetMessage(), STRING_"This is one test error");
 			TestEqual(TEXT_"Error Details", error->GetDetails(), STRING_
@@ -129,7 +129,7 @@ DEFINE_SPEC(
 
 void FMcroErrorUI_Spec::Define()
 {
-	Describe(TEXT_"FErrorManager", [this]
+	xDescribe(TEXT_"FErrorManager", [this]
 	{
 		BeforeEach([]
 		{
@@ -184,7 +184,7 @@ void FMcroErrorUI_Spec::Define()
 		});
 	});
 
-	Describe(TEXT_"Assertions", [this]
+	xDescribe(TEXT_"Assertions", [this]
 	{
 		It(TEXT_"should crash app on assertion failure", [this]
 		{

@@ -101,7 +101,7 @@ CREATE_SUBDIRS         = YES
 # Minimum value: 0, maximum value: 8, default value: 8.
 # This tag requires that the tag CREATE_SUBDIRS is set to YES.
 
-CREATE_SUBDIRS_LEVEL   = 16
+CREATE_SUBDIRS_LEVEL   = 8
 
 # If the ALLOW_UNICODE_NAMES tag is set to YES, Doxygen will allow non-ASCII
 # characters to appear in the names of generated files. If set to NO, non-ASCII

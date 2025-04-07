@@ -97,10 +97,10 @@ namespace Mcro::Concepts
 	template<typename A, typename B>
 	concept CCoreHalfEqualityComparable =
 		requires(const std::remove_reference_t<A>& a, const std::remove_reference_t<B>& b)
-	{
-		{ a == b } -> CBooleanTestable;
-		{ a != b } -> CBooleanTestable;
-	}
+		{
+			{ a == b } -> CBooleanTestable;
+			{ a != b } -> CBooleanTestable;
+		}
 	;
 
 	template<typename A, typename B>
@@ -323,15 +323,13 @@ namespace Mcro::Concepts
 	 *	class MyClass
 	 *	{
 	 *		int myMember;
-	 *	}
+	 *	};
 	 *	
-	 *	CMemberPointerOf<MyClass, &MyClass::myMember> // --> true;
+	 *	CMemberPointerOf<MyClass, &MyClass::myMember>; // --> true;
 	 *	
-	 *	class MyOtherClass
-	 *	{
-	 *	}
+	 *	class MyOtherClass {};
 	 *	
-	 *	CMemberPointerOf<MyOtherClass, &MyClass::myMember> // --> false;
+	 *	CMemberPointerOf<MyOtherClass, &MyClass::myMember>; // --> false;
 	 *	@endcode
 	 */
 	template <typename OwnerObject, typename MemberPointerType>

@@ -17,6 +17,7 @@
 #pragma once
 
 #include <string>
+#include "ConstexprXXH3.h"
 
 #include "CoreMinimal.h"
 #include "UnrealCtre.h"
@@ -92,10 +93,55 @@ consteval std::basic_string_view<TCHAR> GetCompileTimeTypeName()
 	return size ? output : std::basic_string_view<TCHAR>();
 }
 
+template <typename T>
+consteval uint64 GetCompileTimeTypeHash()
+{
+	std::string_view thisFunctionName { PRETTY_FUNC };
+	return constexpr_xxh3::XXH3_64bits_const(thisFunctionName);
+}
+
 /** Convert types to string */
 namespace Mcro::TypeName
 {
 	using namespace Mcro::Text;
+
+	/** @brief Group together type info for identification. Can have an invalid state when no type is specified. */
+	struct FType
+	{
+		template <typename T>
+		struct TTag {};
+		
+		template <typename T>
+		constexpr FType(TTag<T>&&)
+			: Name(
+				GetCompileTimeTypeName<std::decay_t<T>>().data(),
+				GetCompileTimeTypeName<std::decay_t<T>>().size()
+			)
+			, Hash(GetCompileTimeTypeHash<std::decay_t<T>>())
+		{}
+		
+		constexpr FType() {}
+		
+		FStringView Name;
+		uint64 Hash = 0;
+
+		constexpr FStringView ToString() const { return Name; }
+		FString ToStringCopy() const { return FString(Name); }
+
+		constexpr bool IsValid() const { return Hash != 0; }
+		constexpr operator bool() const { return IsValid(); }
+		
+		friend constexpr bool operator == (FType const& left, FType const& right) { return left.Hash == right.Hash; }
+		friend constexpr bool operator != (FType const& left, FType const& right) { return left.Hash != right.Hash; }
+
+		friend constexpr uint32 GetTypeHash(FType const& self)
+		{
+			return static_cast<uint32>(self.Hash) ^ static_cast<uint32>(self.Hash >> 32);
+		}
+	};
+
+	template <typename T>
+	constexpr FType TTypeOf = FType(FType::TTag<T>());
 	
 	/**
 	 *	@brief
@@ -139,7 +185,11 @@ namespace Mcro::TypeName
 	 *	(e.g.: `TTypeName<class I>` of incomplete `I` might not be the same as `TTypeName<I>` somewhere
 	 *	else with `I` being fully defined)
 	 *	
-	 *	@tparam  T  The type to be named
+	*	@tparam  T  The type to be named
+	 *
+	 *	@warning
+	 *	Do not use exact type comparison with serialized data or network communication, as the actual value of the type
+	 *	is different between compilers. Only use this for runtime data. For such scenarios just use Unreal's own UObjects.
 	 */
 	template <typename T>
 	constexpr FStringView TTypeName = FStringView(
@@ -150,6 +200,10 @@ namespace Mcro::TypeName
 	/** @brief Same as `TTypeName` just stored as STL string made during compile time */
 	template <typename T>
 	constexpr std::basic_string_view<TCHAR> TTypeNameStd = GetCompileTimeTypeName<std::decay_t<T>>();
+
+	/** @brief Get a fixed `uint64` hash representation of the given type. Have similar caveats as `TTypeName` */
+	template <typename T>
+	constexpr uint64 TTypeHash = GetCompileTimeTypeHash<T>();
 
 	/**
 	 *	@brief

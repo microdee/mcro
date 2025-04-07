@@ -1,0 +1,8 @@
+﻿name: constexpr-xxh3
+source: https://github.com/chys87/constexpr-xxh3
+project: https://github.com/chys87/constexpr-xxh3
+authors:
+    - Chys (https://chys.info)
+license: BSD 2-Clause License (https://github.com/chys87/constexpr-xxh3/blob/main/LICENSE)
+reasoning: |
+    This allows us to have almost free runtime exact type checking.

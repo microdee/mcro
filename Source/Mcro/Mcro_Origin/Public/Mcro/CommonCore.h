@@ -23,10 +23,12 @@
 
 #include "Mcro/ArrayViews.h"
 #include "Mcro/Badge.h"
+#include "Mcro/Composition.h"
 #include "Mcro/Concepts.h"
 #include "Mcro/Construct.h"
 #include "Mcro/Enums.h"
 #include "Mcro/Finally.h"
+#include "Mcro/FmtMacros.h"
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/InitializeOnCopy.h"
 #include "Mcro/Once.h"
@@ -37,7 +39,6 @@
 #include "Mcro/Types.h"
 #include "Mcro/Void.h"
 #include "Mcro/TextMacros.h"
-#include "Mcro/FmtMacros.h"
 #include "Mcro/Range.h"
 #include "Mcro/Range/Conversion.h"
 #include "Mcro/Range/Views.h"
@@ -48,6 +49,7 @@ namespace Mcro::CommonCore
 {
 	using namespace Mcro::ArrayViews;
 	using namespace Mcro::Badge;
+	using namespace Mcro::Composition;
 	using namespace Mcro::Concepts;
 	using namespace Mcro::Construct;
 	using namespace Mcro::Enums;

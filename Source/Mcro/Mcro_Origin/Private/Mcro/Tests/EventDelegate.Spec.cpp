@@ -12,42 +12,9 @@
 #include "CoreMinimal.h"
 #include "Algo/Count.h"
 #include "Mcro/Common.h"
+#include "TestHelpers.h"
 
 using namespace Mcro::Common::With::InferDelegate;
-
-struct FCopyForbidden : FNoncopyable {};
-
-struct FCopyConstructCounter
-{
-	FCopyConstructCounter() {}
-	FCopyConstructCounter(FCopyConstructCounter const& other)
-		: CopyCount(other.CopyCount + 1)
-	{}
-	FCopyConstructCounter(FCopyConstructCounter&& other) noexcept
-		: MoveCount(other.MoveCount + 1)
-	{}
-
-	auto operator=(FCopyConstructCounter const& other) -> FCopyConstructCounter&
-	{
-		if (this == &other) return *this;
-
-		CopyAssignCount = other.CopyAssignCount + 1;
-		return *this;
-	}
-
-	auto operator=(FCopyConstructCounter&& other) noexcept -> FCopyConstructCounter&
-	{
-		if (this == &other) return *this;
-		
-		MoveAssignCount = other.MoveAssignCount + 1;
-		return *this;
-	}
-
-	int32 CopyCount = 0;
-	int32 MoveCount = 0;
-	int32 CopyAssignCount = 0;
-	int32 MoveAssignCount = 0;
-};
 
 DEFINE_SPEC(
 	FMcroEventDelegate_Spec,

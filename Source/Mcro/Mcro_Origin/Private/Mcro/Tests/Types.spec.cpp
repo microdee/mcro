@@ -60,7 +60,7 @@ void FMcroTypes_Spec::Define()
 			name = FTestIncompleteScope::Test();
 			TestEqual(TEXT_"Confirm strictly scoped incompleteness", name, TEXT_"FTestIncompleteScope::Test::FIncomplete");
 			name = TTypeName<TTestTemplatedType<FMcroTypes_Spec>>;
-#if PLATFORM_WINDOWS
+#if MCRO_COMPILER_MSVC
 			TestEqual(TEXT_"Matches templated types", name, TEXT_"TTestTemplatedType<class FMcroTypes_Spec>");
 #else
 			TestEqual(TEXT_"Matches templated types", name, TEXT_"TTestTemplatedType<FMcroTypes_Spec>");

@@ -298,7 +298,7 @@ namespace Mcro::Text
 		{
 			ensureAlwaysMsgf(false,
 				TEXT("Given type %s couldn't be converted to a string. Typename is returned instead"),
-				TTypeName<T>.GetData()
+				*TTypeString<T>()
 			);
 			return TTypeName<T>;
 		}

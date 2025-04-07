@@ -64,16 +64,37 @@ namespace Mcro::Range
 		CRangeMember Input,
 		typename Value = TRangeElementType<Input>
 	>
-	decltype(auto) First(Input&& range, Value&& def = {})
+	decltype(auto) First(Input&& range, Value&& def)
 	{
 		return IsEmpty(range) ? def : *range.begin();
 	}
 
 	/** @brief Get's the first element of a range or return a provided default value. Same as `*r.begin()` but safer. */
-	template <typename Value>
-	auto First(Value&& def = {})
+	FORCEINLINE auto First(auto&& def)
 	{
 		return ranges::make_pipeable([&](auto&& left){ return First(left, def); });
+	}
+
+	/**
+	 *	@brief
+	 *	Get's the first element of a range or return the default value for the element type. Same as `*r.begin()` but safer.
+	 */
+	template <
+		CRangeMember Input,
+		typename Value = TRangeElementType<Input>
+	>
+	decltype(auto) FirstOrDefault(Input&& range)
+	{
+		return IsEmpty(range) ? Value{} : *range.begin();
+	}
+
+	/**
+	 *	@brief
+	 *	Get's the first element of a range or return the default value for the element type. Same as `*r.begin()` but safer.
+	 */
+	FORCEINLINE auto FirstOrDefault()
+	{
+		return ranges::make_pipeable([&](auto&& left){ return FirstOrDefault(left); });
 	}
 
 	/**

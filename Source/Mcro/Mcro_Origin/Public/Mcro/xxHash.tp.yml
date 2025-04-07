@@ -1,0 +1,13 @@
+﻿name: xxHash
+source: https://github.com/Cyan4973/xxHash
+project: https://xxhash.com
+authors:
+    - Yann Collet (http://fastcompression.blogspot.fr/)
+    - Easy as PI 3.14 (https://github.com/easyaspi314)
+    - Takayuki Matsuoka
+    - et. al.
+license: BSD 2-Clause License (https://github.com/Cyan4973/xxHash/blob/dev/LICENSE)
+reasoning: |
+    xxHash algorithm is used by another third-party implementation in constexpr time. This allows us to have almost free
+    runtime exact type checking.
+    

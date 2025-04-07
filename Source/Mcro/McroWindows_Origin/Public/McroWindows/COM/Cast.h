@@ -28,9 +28,9 @@ namespace Mcro::Windows::COM
 			return IError::Make(new FHresultError(hr, fastError))
 				->AsRecoverable()
 				->WithMessageF(
-					TEXT_"Object of type %s did not implement %s",
-					*TTypeString<From>,
-					*TTypeString<To>
+					TEXT_"Object of type {0} did not implement {1}",
+					TTypeName<From>,
+					TTypeName<To>
 				);
 		return Success();
 	}
