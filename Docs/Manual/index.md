@@ -15,6 +15,12 @@ A C++23 utilities Unreal Engine proto-plugin, for a more civilized age.
 
 [Find the source code at](https://github.com/microdee/mcro)
 
+## Who is this library for?
+
+MCRO (pronounced 'em-cro') is made for C++ developers who may view Unreal Engine as a C++ framework first and as a content creation tool second. It is meant to support development of other plugins, so MCRO on its own has no primary purpose, but to provide building blocks for its dependant plugins.
+
+It also embraces quite elaborate C++ techniques involving templates and synergic combination of language features. The documentation also makes some effort explaining these techniques when used by MCRO, but the library users themselves don't need to go that deep, in order to enjoy many features of MCRO.
+
 ## What MCRO can do?
 
 Here are some code appetizers without going too deep into their details. The demonstrated features usually can do a lot more than what's shown here.
@@ -90,7 +96,7 @@ for (int i = 0; i < myKeyStrings.Num(); ++i)
 
 Notice how we didn't need to specify the TMap type, where both the key and value types were deduced from how the input ranges were manipulated before.
 
-Not yet impressed? No problem:
+Not yet impressed? May this snippet change that:
 
 ```Cpp
 TArray<int32> mySetCopy;
@@ -118,7 +124,7 @@ squares
 
 ```
 
-Notice how `RenderAs` could deduce the full type of `TSet` from its preceeding operations. This works with many Unreal container.
+Notice how `RenderAs` could deduce the full type of `TSet` from its preceeding operations. This works with many Unreal containers.
 
 This is just the very tip of the iceberg what this pattern of collection handling can introduce.
 
@@ -1008,6 +1014,8 @@ export void MakeLookupUV(
 ### Last but not least
 
 * [Dynamic ↔ Native (multicast) delegate interop](@ref Mcro/Delegates/AsNative.h)
+* [Native C++ class composition utilities](@ref Mcro/Composition.h)
+* [`FAny` cloning boost/STL `any` but for Unreal style](@ref Mcro/Any.h)
 * [Text interop and conversion utilities](@ref Mcro/Text.h)
 * [Object binding and promises for `AsyncTask`](@ref Mcro/Threading.h)
 * [Bullet-proof third-party library include guards.](@ref Mcro/LibraryIncludes/Start.h)
