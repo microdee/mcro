@@ -14,8 +14,17 @@ Docs/Doxygen
 **/.nuke/parameters.json
 **/.nuke/temp
 **/.vscode
+
+# NUKE
 **/Nuke.Targets/bin
 **/Nuke.Targets/obj
+/Nuke.Targets
+/Nuke.Targets
+/build.cmd
+/build.ps1
+/build.sh
+/global.json
+/.nuke
 
 # Visual Studio 2015 user specific files
 .vs/
