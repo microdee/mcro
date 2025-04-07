@@ -1,6 +1,12 @@
 var annotated_dup =
 [
     [ "Mcro", "d8/d63/namespaceMcro.html", [
+      [ "Any", "da/dfe/namespaceMcro_1_1Any.html", [
+        [ "FAny", "df/d32/structMcro_1_1Any_1_1FAny.html", "df/d32/structMcro_1_1Any_1_1FAny" ],
+        [ "TAnyTypeFacilities", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities" ],
+        [ "TInherit", "d3/d59/classMcro_1_1Any_1_1TInherit.html", "d3/d59/classMcro_1_1Any_1_1TInherit" ],
+        [ "TTypes", "de/daf/structMcro_1_1Any_1_1TTypes.html", null ]
+      ] ],
       [ "AutoModularFeature", "d3/d71/namespaceMcro_1_1AutoModularFeature.html", [
         [ "IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", null ],
         [ "IFeatureImplementation", "d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html", null ],
@@ -8,6 +14,11 @@ var annotated_dup =
       ] ],
       [ "Badge", "d3/dd6/namespaceMcro_1_1Badge.html", [
         [ "TBadge", "d0/d8f/classMcro_1_1Badge_1_1TBadge.html", null ]
+      ] ],
+      [ "Composition", "de/d16/namespaceMcro_1_1Composition.html", [
+        [ "IComponent", "db/d08/structMcro_1_1Composition_1_1IComponent.html", null ],
+        [ "IComposable", "dc/d01/classMcro_1_1Composition_1_1IComposable.html", "dc/d01/classMcro_1_1Composition_1_1IComposable" ],
+        [ "IStrictComponent", "d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html", null ]
       ] ],
       [ "Concepts", "d2/d09/namespaceMcro_1_1Concepts.html", [
         [ "Detail", "d8/d99/namespaceMcro_1_1Concepts_1_1Detail.html", [
@@ -145,6 +156,9 @@ var annotated_dup =
         [ "TTypeAt_Struct", "d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html", null ],
         [ "TTypeAt_Struct< I, T >", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4.html", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4" ]
       ] ],
+      [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", [
+        [ "FType", "d5/db6/structMcro_1_1TypeName_1_1FType.html", "d5/db6/structMcro_1_1TypeName_1_1FType" ]
+      ] ],
       [ "Types", "da/d89/namespaceMcro_1_1Types.html", [
         [ "IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", "d8/d19/classMcro_1_1Types_1_1IHaveType" ]
       ] ],
@@ -167,6 +181,8 @@ var annotated_dup =
         [ "FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", "d4/d5f/structMcro_1_1Zero_1_1FZero" ]
       ] ]
     ] ],
+    [ "FCopyConstructCounter", "db/da9/structFCopyConstructCounter.html", "db/da9/structFCopyConstructCounter" ],
+    [ "FCopyForbidden", "de/d5a/structFCopyForbidden.html", null ],
     [ "FMapPairsAccessTag", "d0/deb/structFMapPairsAccessTag.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", "d3/daf/structFVoid" ],
     [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", null ],

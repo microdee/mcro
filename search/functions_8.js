@@ -15,6 +15,7 @@ var searchData=
   ['ispcsync_12',['ISPCSync',['../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a',1,'IspcParallelism.h']]],
   ['isrunningpie_13',['IsRunningPIE',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8',1,'Mcro::AssertMacros::Detail']]],
   ['istriggered_14',['IsTriggered',['../d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e',1,'Mcro::Once::FOnce']]],
-  ['isvisible_15',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]],
-  ['iteratorequals_16',['IteratorEquals',['../de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6',1,'Mcro::Range']]]
+  ['isvalid_15',['IsValid',['../df/d32/structMcro_1_1Any_1_1FAny.html#a1f010d88ad1916d4c6552079088ebbfe',1,'Mcro::Any::FAny::IsValid()'],['../d5/db6/structMcro_1_1TypeName_1_1FType.html#ab0cd8510601a912bcbb21ef184e7c57f',1,'Mcro::TypeName::FType::IsValid()']]],
+  ['isvisible_16',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]],
+  ['iteratorequals_17',['IteratorEquals',['../de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6',1,'Mcro::Range']]]
 ];

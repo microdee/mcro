@@ -123,24 +123,22 @@ $(function(){initNavTree('dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.htm
 <div class="line">        std::is_member_pointer_v&lt;MemberPointerType&gt;</div>
 <div class="line">        &amp;&amp; <a class="code hl_concept" href="../../dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html">CSameAsDecayed&lt;OwnerObject, Detail::TExtractedClassName&lt;MemberPointerType&gt;</a>&gt;</div>
 <div class="line">    </div>
-<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMemberPointerOf_html"><div class="ttname"><a href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">Mcro::Concepts::CMemberPointerOf</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/Concepts_8h_source.html#l00338">Concepts.h:338</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CMemberPointerOf_html"><div class="ttname"><a href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">Mcro::Concepts::CMemberPointerOf</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/Concepts_8h_source.html#l00336">Concepts.h:336</a></div></div>
 <div class="ttc" id="aconceptMcro_1_1Concepts_1_1CSameAsDecayed_html"><div class="ttname"><a href="../../dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html">Mcro::Concepts::CSameAsDecayed</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/Concepts_8h_source.html#l00042">Concepts.h:42</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept that returns true if the given member pointer belongs to the class.</p>
 <p>Example: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyClass</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> myMember;</div>
-<div class="line">}</div>
+<div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_concept" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">CMemberPointerOf&lt;MyClass, &amp;MyClass::myMember&gt;</a> <span class="comment">// --&gt; true;</span></div>
+<div class="line"><a class="code hl_concept" href="../../dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html">CMemberPointerOf&lt;MyClass, &amp;MyClass::myMember&gt;</a>; <span class="comment">// --&gt; true;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MyOtherClass</div>
-<div class="line">{</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">class </span>MyOtherClass {};</div>
 <div class="line"> </div>
-<div class="line">CMemberPointerOf&lt;MyOtherClass, &amp;MyClass::myMember&gt; <span class="comment">// --&gt; false;</span></div>
+<div class="line">CMemberPointerOf&lt;MyOtherClass, &amp;MyClass::myMember&gt;; <span class="comment">// --&gt; false;</span></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="../../d1/d8d/Concepts_8h_source.html#l00338">338</a> of file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d8d/Concepts_8h_source.html#l00336">336</a> of file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,5 +1,6 @@
 var namespaceMcro =
 [
+    [ "Any", "da/dfe/namespaceMcro_1_1Any.html", "da/dfe/namespaceMcro_1_1Any" ],
     [ "ArrayViews", "d6/d94/namespaceMcro_1_1ArrayViews.html", [
       [ "MakeByteArrayViewFromTyped", "d6/d94/namespaceMcro_1_1ArrayViews.html#a4e216bc76f5a54e7e9c22c8dd936d7b8", null ],
       [ "MakeTypedArrayViewFromBytes", "d6/d94/namespaceMcro_1_1ArrayViews.html#ab2ed010790595259de748a3fa885aa8e", null ]
@@ -9,6 +10,7 @@ var namespaceMcro =
     [ "Badge", "d3/dd6/namespaceMcro_1_1Badge.html", "d3/dd6/namespaceMcro_1_1Badge" ],
     [ "Common", "d4/df4/namespaceMcro_1_1Common.html", "d4/df4/namespaceMcro_1_1Common" ],
     [ "CommonCore", "df/d6f/namespaceMcro_1_1CommonCore.html", null ],
+    [ "Composition", "de/d16/namespaceMcro_1_1Composition.html", "de/d16/namespaceMcro_1_1Composition" ],
     [ "Concepts", "d2/d09/namespaceMcro_1_1Concepts.html", "d2/d09/namespaceMcro_1_1Concepts" ],
     [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html", [
       [ "Construct", "d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4", null ],
@@ -40,12 +42,7 @@ var namespaceMcro =
     [ "Threading", "d6/d0a/namespaceMcro_1_1Threading.html", "d6/d0a/namespaceMcro_1_1Threading" ],
     [ "Timespan", "d3/da0/namespaceMcro_1_1Timespan.html", "d3/da0/namespaceMcro_1_1Timespan" ],
     [ "Tuples", "db/d81/namespaceMcro_1_1Tuples.html", "db/d81/namespaceMcro_1_1Tuples" ],
-    [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", [
-      [ "TTypeFName", "df/d09/namespaceMcro_1_1TypeName.html#a00ea9dc6e0ddfca18ae89e809da35cd5", null ],
-      [ "TTypeString", "df/d09/namespaceMcro_1_1TypeName.html#aaef8c5d827a17f71828fa75fa98d0303", null ],
-      [ "TTypeName", "df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9", null ],
-      [ "TTypeNameStd", "df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af", null ]
-    ] ],
+    [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", "df/d09/namespaceMcro_1_1TypeName" ],
     [ "Types", "da/d89/namespaceMcro_1_1Types.html", "da/d89/namespaceMcro_1_1Types" ],
     [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", "df/d84/namespaceMcro_1_1UObjects" ],
     [ "Windows", "db/de3/namespaceMcro_1_1Windows.html", "db/de3/namespaceMcro_1_1Windows" ],

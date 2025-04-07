@@ -303,14 +303,20 @@ Functions</h2></td></tr>
 <tr class="memitem:a6ecf733949f9051ad211e073dd4eb788" id="r_a6ecf733949f9051ad211e073dd4eb788"><td class="memItemLeft" align="right" valign="top">FORCEINLINE auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ecf733949f9051ad211e073dd4eb788">IsEmpty</a> ()</td></tr>
 <tr class="memdesc:a6ecf733949f9051ad211e073dd4eb788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if range is empty.  <br /></td></tr>
 <tr class="separator:a6ecf733949f9051ad211e073dd4eb788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05033d32723a1ba7b9a0e1aff9dad853" id="r_a05033d32723a1ba7b9a0e1aff9dad853"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;&gt; </td></tr>
-<tr class="memitem:a05033d32723a1ba7b9a0e1aff9dad853"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a05033d32723a1ba7b9a0e1aff9dad853">First</a> (Input &amp;&amp;range, Value &amp;&amp;def={})</td></tr>
-<tr class="memdesc:a05033d32723a1ba7b9a0e1aff9dad853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
-<tr class="separator:a05033d32723a1ba7b9a0e1aff9dad853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f63a082f312621b636204f35febea6" id="r_aa6f63a082f312621b636204f35febea6"><td class="memTemplParams" colspan="2">template&lt;typename Value &gt; </td></tr>
-<tr class="memitem:aa6f63a082f312621b636204f35febea6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa6f63a082f312621b636204f35febea6">First</a> (Value &amp;&amp;def={})</td></tr>
-<tr class="memdesc:aa6f63a082f312621b636204f35febea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
-<tr class="separator:aa6f63a082f312621b636204f35febea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05829bd24f716518c184070ab39e2d04" id="r_a05829bd24f716518c184070ab39e2d04"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;&gt; </td></tr>
+<tr class="memitem:a05829bd24f716518c184070ab39e2d04"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a05829bd24f716518c184070ab39e2d04">First</a> (Input &amp;&amp;range, Value &amp;&amp;def)</td></tr>
+<tr class="memdesc:a05829bd24f716518c184070ab39e2d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
+<tr class="separator:a05829bd24f716518c184070ab39e2d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afacb1ba0b0348883d680c07660367f68" id="r_afacb1ba0b0348883d680c07660367f68"><td class="memItemLeft" align="right" valign="top">FORCEINLINE auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afacb1ba0b0348883d680c07660367f68">First</a> (auto &amp;&amp;def)</td></tr>
+<tr class="memdesc:afacb1ba0b0348883d680c07660367f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
+<tr class="separator:afacb1ba0b0348883d680c07660367f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a8744231bbe4c343d805e4aafdd420e" id="r_a4a8744231bbe4c343d805e4aafdd420e"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;&gt; </td></tr>
+<tr class="memitem:a4a8744231bbe4c343d805e4aafdd420e"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4a8744231bbe4c343d805e4aafdd420e">FirstOrDefault</a> (Input &amp;&amp;range)</td></tr>
+<tr class="memdesc:a4a8744231bbe4c343d805e4aafdd420e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return the default value for the element type. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
+<tr class="separator:a4a8744231bbe4c343d805e4aafdd420e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc5082ada7af594c4e13656ee8c915f3" id="r_acc5082ada7af594c4e13656ee8c915f3"><td class="memItemLeft" align="right" valign="top">FORCEINLINE auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc5082ada7af594c4e13656ee8c915f3">FirstOrDefault</a> ()</td></tr>
+<tr class="memdesc:acc5082ada7af594c4e13656ee8c915f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return the default value for the element type. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
+<tr class="separator:acc5082ada7af594c4e13656ee8c915f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56a5c2ce849bbf98a553932f8cbc82c3" id="r_a56a5c2ce849bbf98a553932f8cbc82c3"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Left, CRangeMember Right&gt; <br />
 requires CConvertibleToDecayed&lt;<a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Right&gt;, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</td></tr>
 <tr class="memitem:a56a5c2ce849bbf98a553932f8cbc82c3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a56a5c2ce849bbf98a553932f8cbc82c3">MatchOrdered</a> (Left &amp;&amp;left, Right &amp;&amp;right, bool matchOnlyBeginning=false)</td></tr>
@@ -534,7 +540,7 @@ template&lt;CFunctionLike Predicate&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00147">147</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00168">168</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -555,7 +561,7 @@ template&lt;CFunctionLike Predicate&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00153">153</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00174">174</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -622,12 +628,33 @@ template&lt;CRangeMember... Ranges&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00158">158</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00179">179</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
-<a id="a05033d32723a1ba7b9a0e1aff9dad853" name="a05033d32723a1ba7b9a0e1aff9dad853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05033d32723a1ba7b9a0e1aff9dad853">&#9670;&#160;</a></span>First() <span class="overload">[1/2]</span></h2>
+<a id="afacb1ba0b0348883d680c07660367f68" name="afacb1ba0b0348883d680c07660367f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afacb1ba0b0348883d680c07660367f68">&#9670;&#160;</a></span>First() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE auto Mcro::Range::First </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>def</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00073">73</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+
+</div>
+</div>
+<a id="a05829bd24f716518c184070ab39e2d04" name="a05829bd24f716518c184070ab39e2d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05829bd24f716518c184070ab39e2d04">&#9670;&#160;</a></span>First() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,7 +669,7 @@ template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Value &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>def</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+          <td class="paramtype">Value &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>def</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -653,26 +680,47 @@ template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;
 
 </div>
 </div>
-<a id="aa6f63a082f312621b636204f35febea6" name="aa6f63a082f312621b636204f35febea6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6f63a082f312621b636204f35febea6">&#9670;&#160;</a></span>First() <span class="overload">[2/2]</span></h2>
+<a id="acc5082ada7af594c4e13656ee8c915f3" name="acc5082ada7af594c4e13656ee8c915f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5082ada7af594c4e13656ee8c915f3">&#9670;&#160;</a></span>FirstOrDefault() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Value &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto Mcro::Range::First </td>
+          <td class="memname">FORCEINLINE auto Mcro::Range::FirstOrDefault </td>
           <td>(</td>
-          <td class="paramtype">Value &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>def</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get's the first element of a range or return a provided default value. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer. </p>
+<p>Get's the first element of a range or return the default value for the element type. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00074">74</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00095">95</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+
+</div>
+</div>
+<a id="a4a8744231bbe4c343d805e4aafdd420e" name="a4a8744231bbe4c343d805e4aafdd420e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a8744231bbe4c343d805e4aafdd420e">&#9670;&#160;</a></span>FirstOrDefault() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CRangeMember Input, typename Value  = TRangeElementType&lt;Input&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) Mcro::Range::FirstOrDefault </td>
+          <td>(</td>
+          <td class="paramtype">Input &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get's the first element of a range or return the default value for the element type. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00086">86</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -806,7 +854,7 @@ requires CConvertibleToDecayed&lt;<a class="el" href="#ab447bff66e222424550776c3
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00093">93</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00114">114</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -837,7 +885,7 @@ requires CConvertibleToDecayed&lt;Value, <a class="el" href="#ab447bff66e2224245
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00118">118</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00139">139</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -872,7 +920,7 @@ template&lt;CRangeMember Right&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00135">135</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00156">156</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>
@@ -897,7 +945,7 @@ template&lt;typename Value &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00141">141</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00162">162</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
 </div>
 </div>

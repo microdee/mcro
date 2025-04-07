@@ -25,25 +25,26 @@
 var NAVTREE =
 [
   [ "MCRO", "index.html", [
-    [ "What MCRO can do?", "index.html#autotoc_md9", [
-      [ "Range-V3 for Unreal Containers", "index.html#autotoc_md10", null ],
-      [ "Error handling", "index.html#autotoc_md11", null ],
-      [ "Text macros without parentheses", "index.html#autotoc_md12", null ],
-      [ "String formatting literals", "index.html#autotoc_md13", [
-        [ "Ranges as strings", "index.html#autotoc_md14", null ]
+    [ "Who is this library for?", "index.html#autotoc_md11", null ],
+    [ "What MCRO can do?", "index.html#autotoc_md12", [
+      [ "Range-V3 for Unreal Containers", "index.html#autotoc_md13", null ],
+      [ "Error handling", "index.html#autotoc_md14", null ],
+      [ "Text macros without parentheses", "index.html#autotoc_md15", null ],
+      [ "String formatting literals", "index.html#autotoc_md16", [
+        [ "Ranges as strings", "index.html#autotoc_md17", null ]
       ] ],
-      [ "Delegate type inference", "index.html#autotoc_md15", null ],
-      [ "Advanced TEventDelegate", "index.html#autotoc_md16", null ],
-      [ "TTypeName", "index.html#autotoc_md17", null ],
-      [ "Auto modular features", "index.html#autotoc_md18", null ],
-      [ "Observable TState", "index.html#autotoc_md19", null ],
-      [ "Function Traits", "index.html#autotoc_md20", null ],
-      [ "Extending the Slate declarative syntax", "index.html#autotoc_md21", null ],
-      [ "ISPC parallel tasks support", "index.html#autotoc_md22", null ],
-      [ "Last but not least", "index.html#autotoc_md23", null ]
+      [ "Delegate type inference", "index.html#autotoc_md18", null ],
+      [ "Advanced TEventDelegate", "index.html#autotoc_md19", null ],
+      [ "TTypeName", "index.html#autotoc_md20", null ],
+      [ "Auto modular features", "index.html#autotoc_md21", null ],
+      [ "Observable TState", "index.html#autotoc_md22", null ],
+      [ "Function Traits", "index.html#autotoc_md23", null ],
+      [ "Extending the Slate declarative syntax", "index.html#autotoc_md24", null ],
+      [ "ISPC parallel tasks support", "index.html#autotoc_md25", null ],
+      [ "Last but not least", "index.html#autotoc_md26", null ]
     ] ],
-    [ "What's a proto-plugin", "index.html#autotoc_md24", null ],
-    [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md25", null ],
+    [ "What's a proto-plugin", "index.html#autotoc_md27", null ],
+    [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md28", null ],
     [ "Legal", "index.html#Legal", null ],
     [ "Attribution", "da/dfb/Attribution.html", [
       [ "Tabler Icons", "da/dfb/Attribution.html#autotoc_md0", null ],
@@ -51,12 +52,14 @@ var NAVTREE =
       [ "magic_enum", "da/dfb/Attribution.html#autotoc_md2", null ],
       [ "range-v3", "da/dfb/Attribution.html#autotoc_md3", null ],
       [ "yaml-cpp", "da/dfb/Attribution.html#autotoc_md4", null ],
-      [ "Intel ISPC Tasksys", "da/dfb/Attribution.html#autotoc_md5", null ]
+      [ "constexpr-xxh3", "da/dfb/Attribution.html#autotoc_md5", null ],
+      [ "xxHash", "da/dfb/Attribution.html#autotoc_md6", null ],
+      [ "Intel ISPC Tasksys", "da/dfb/Attribution.html#autotoc_md7", null ]
     ] ],
     [ "Bitter Recompense", "da/dc1/FAQ.html", [
-      [ "C++ 23", "da/dc1/FAQ.html#autotoc_md6", null ],
-      [ "Usage", "da/dc1/FAQ.html#autotoc_md7", null ],
-      [ "Range-V3", "da/dc1/FAQ.html#autotoc_md8", null ]
+      [ "C++ 23", "da/dc1/FAQ.html#autotoc_md8", null ],
+      [ "Usage", "da/dc1/FAQ.html#autotoc_md9", null ],
+      [ "Range-V3", "da/dc1/FAQ.html#autotoc_md10", null ]
     ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -99,16 +102,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#ac8180201ec6cc347d9402f52745a4bda",
-"d3/d3e/SharedObjects_8h_source.html",
-"d4/dbf/DelegateFrom_8h.html#af8165bf5ec4aadf17a4de172745cd388",
-"d6/da2/namespaceMcro_1_1Observable.html#afcaf7efaf8250292f79fb50a4f6eaea8",
-"d8/d19/classMcro_1_1Types_1_1IHaveType.html#aec42d04f730d441b8be410710f29f5c9",
-"d9/db6/Range_8h.html#a10f7d6c405d2ef2b4e98d5d9bf463372",
-"db/d56/namespaceMcro_1_1Enums.html#aef732842e4e7d1deff7f2a76396ca097",
-"dc/ddc/conceptMcro_1_1Concepts_1_1CValidableMember.html",
-"de/d2e/namespaceMcro_1_1UObjects_1_1Init.html#adfa8165d9e0cbb73ff1bd19764e63d8b",
-"functions_func_b.html"
+"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#a94c6f5d13c979ecf3dd66fccbf2525ee",
+"d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html",
+"d4/d98/conceptMcro_1_1Concepts_1_1CInterface.html",
+"d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html#a1a0d2aa9ee23c9cd84005b08c64ff1c7",
+"d7/d5e/structMcro_1_1Observable_1_1TState.html#a93d33b3c24c7b29b33d71b6c83ba4515",
+"d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13",
+"d9/ddf/conceptMcro_1_1Concepts_1_1CCopyConstructible.html",
+"db/dcf/Conversion_8h.html#aab68ef6e131c0af63899ccb1dfe76069",
+"dd/d1f/DummyDynamicDelegates_8h_source.html",
+"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#acf0a98d1b1317b949c942ad9d6180532",
+"files.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,9 +1,14 @@
 var hierarchy =
 [
+    [ "BaseTypes...", null, [
+      [ "Mcro::Any::TInherit< BaseTypes >", "d3/d59/classMcro_1_1Any_1_1TInherit.html", null ]
+    ] ],
     [ "std::conditional_t", null, [
       [ "Mcro::Range::TExtendedIterator< Iterator, Policy >", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html", null ]
     ] ],
+    [ "Mcro::Any::FAny", "df/d32/structMcro_1_1Any_1_1FAny.html", null ],
     [ "Mcro::UObjects::Init::FConstructObjectParameters", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html", null ],
+    [ "FCopyConstructCounter", "db/da9/structFCopyConstructCounter.html", null ],
     [ "Mcro::Error::FDisplayErrorArgs", "d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html", null ],
     [ "Mcro::Error::FErrorManager", "db/d8b/classMcro_1_1Error_1_1FErrorManager.html", null ],
     [ "Mcro::Delegates::FEventPolicy", "d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html", null ],
@@ -13,6 +18,7 @@ var hierarchy =
     [ "FMapPairsAccessTag", "d0/deb/structFMapPairsAccessTag.html", null ],
     [ "Mcro::Text::Macros::FNameFakeLiteralTag", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag.html", null ],
     [ "FNoncopyable", null, [
+      [ "FCopyForbidden", "de/d5a/structFCopyForbidden.html", null ],
       [ "Mcro::Finally::FFinally", "d4/d80/structMcro_1_1Finally_1_1FFinally.html", null ]
     ] ],
     [ "Mcro::Once::FOnce", "d9/d70/structMcro_1_1Once_1_1FOnce.html", null ],
@@ -24,6 +30,7 @@ var hierarchy =
     [ "Mcro::Text::Macros::FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", null ],
     [ "Mcro::Text::Macros::FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", null ],
     [ "Mcro::Text::Macros::FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", null ],
+    [ "Mcro::TypeName::FType", "d5/db6/structMcro_1_1TypeName_1_1FType.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", null ],
     [ "Mcro::Zero::FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", null ],
     [ "Mcro::AutoModularFeature::IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", [
@@ -35,6 +42,10 @@ var hierarchy =
       ] ],
       [ "Mcro::AutoModularFeature::TAutoModularFeature< FeatureIn >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ]
     ] ],
+    [ "Mcro::Composition::IComponent", "db/d08/structMcro_1_1Composition_1_1IComponent.html", [
+      [ "Mcro::Composition::IStrictComponent", "d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html", null ]
+    ] ],
+    [ "Mcro::Composition::IComposable", "dc/d01/classMcro_1_1Composition_1_1IComposable.html", null ],
     [ "Mcro::AutoModularFeature::IFeatureImplementation", "d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html", null ],
     [ "IModularFeature", null, [
       [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorDisplayExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ],
@@ -53,6 +64,8 @@ var hierarchy =
     [ "Mcro::Range::OutputToMap< Target >", "d7/d64/classMcro_1_1Range_1_1OutputToMap.html", null ],
     [ "Mcro::Templates::TTemplate< Template >::Parameters< T >", "d3/db8/structMcro_1_1Templates_1_1TTemplate_1_1Parameters.html", null ],
     [ "Mcro::Templates::TTemplate< Template >::Parameters< Template< Params... > >", "d7/d12/structMcro_1_1Templates_1_1TTemplate_1_1Parameters_3_01Template_3_01Params_8_8_8_01_4_01_4.html", null ],
+    [ "Mcro::Templates::TTemplate< Template >::ParametersDecay< T >", "d4/d82/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay.html", null ],
+    [ "Mcro::Templates::TTemplate< Template >::ParametersDecay< Template< Params... > >", "d5/dcb/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay_3_01Template_3_01Params_8_8_8_01_4_01_4.html", null ],
     [ "std::random_access_iterator_tag", null, [
       [ "Mcro::Range::FTempStringIterator", "d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html", null ]
     ] ],
@@ -63,6 +76,7 @@ var hierarchy =
         [ "Mcro::Error::SPlainTextDisplay", "d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html", null ]
       ] ]
     ] ],
+    [ "Mcro::Any::TAnyTypeFacilities< T >", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", null ],
     [ "Mcro::Slate::TArgumentsOf_S< T >", "de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html", null ],
     [ "Mcro::Slate::TArgumentsOf_S< T >", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html", null ],
     [ "Mcro::Text::TAsFormatArgument< T >", "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html", null ],
@@ -144,12 +158,14 @@ var hierarchy =
     [ "Mcro::Tuples::TSkip_Struct< Count, Tuple >", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", null ],
     [ "Mcro::Slate::TSlots< Range, Transform, OnEmpty, CSlotArguments >", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", null ],
     [ "Mcro::Text::Macros::TStringPrintfLiteral< Args >", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", null ],
+    [ "Mcro::TypeName::FType::TTag< T >", "df/d90/structMcro_1_1TypeName_1_1FType_1_1TTag.html", null ],
     [ "Mcro::Tuples::TTake_Struct< Count, Tuple >", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", null ],
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],
     [ "Mcro::Rendering::Textures::TTextureSize< SizeType, InFormatType >", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", null ],
     [ "Mcro::Tuples::TTrimEnd_Struct< Count, Tuple >", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", null ],
     [ "Mcro::Tuples::TTypeAt_Struct< size_t, typename >", "d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html", null ],
     [ "Mcro::Tuples::TTypeAt_Struct< I, T >", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4.html", null ],
+    [ "Mcro::Any::TTypes< T >", "de/daf/structMcro_1_1Any_1_1TTypes.html", null ],
     [ "UObject", null, [
       [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", null ]
     ] ]

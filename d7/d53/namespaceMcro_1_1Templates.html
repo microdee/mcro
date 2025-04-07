@@ -116,7 +116,8 @@ $(function(){initNavTree('d7/d53/namespaceMcro_1_1Templates.html','../../'); ini
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Templates Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -138,10 +139,22 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a0a7110901e690293584da6a8714b17c5" id="r_a0a7110901e690293584da6a8714b17c5"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename T &gt; </td></tr>
-<tr class="memitem:a0a7110901e690293584da6a8714b17c5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0a7110901e690293584da6a8714b17c5">TTemplate_Params</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Parameters&lt;T&gt;::Type</td></tr>
-<tr class="memdesc:a0a7110901e690293584da6a8714b17c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get template type parameters as a tuple.  <br /></td></tr>
-<tr class="separator:a0a7110901e690293584da6a8714b17c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241bd46b03afbda9a1ff974834269279" id="r_a241bd46b03afbda9a1ff974834269279"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </td></tr>
+<tr class="memitem:a241bd46b03afbda9a1ff974834269279"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a241bd46b03afbda9a1ff974834269279">TTemplate_Params</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Parameters&lt;Instance&gt;::Type</td></tr>
+<tr class="memdesc:a241bd46b03afbda9a1ff974834269279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get template type parameters as a tuple.  <br /></td></tr>
+<tr class="separator:a241bd46b03afbda9a1ff974834269279"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad770ce9303677735219f73b76e2fac1b" id="r_ad770ce9303677735219f73b76e2fac1b"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </td></tr>
+<tr class="memitem:ad770ce9303677735219f73b76e2fac1b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad770ce9303677735219f73b76e2fac1b">TTemplate_ParamsDecay</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParametersDecay&lt;Instance&gt;::Type</td></tr>
+<tr class="memdesc:ad770ce9303677735219f73b76e2fac1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get decayed template type parameters as a tuple.  <br /></td></tr>
+<tr class="separator:ad770ce9303677735219f73b76e2fac1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e612b094b330fdbd9d4ed73aced275" id="r_ad1e612b094b330fdbd9d4ed73aced275"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance , int I&gt; </td></tr>
+<tr class="memitem:ad1e612b094b330fdbd9d4ed73aced275"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad1e612b094b330fdbd9d4ed73aced275">TTemplate_Param</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Param&lt;Instance, I&gt;</td></tr>
+<tr class="memdesc:ad1e612b094b330fdbd9d4ed73aced275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a type parameter at a specified position of a templated instance.  <br /></td></tr>
+<tr class="separator:ad1e612b094b330fdbd9d4ed73aced275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbae46b13c3677e544a2cd04a6ebe146" id="r_afbae46b13c3677e544a2cd04a6ebe146"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance , int I&gt; </td></tr>
+<tr class="memitem:afbae46b13c3677e544a2cd04a6ebe146"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afbae46b13c3677e544a2cd04a6ebe146">TTemplate_ParamDecay</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParamDecay&lt;Instance, I&gt;</td></tr>
+<tr class="memdesc:afbae46b13c3677e544a2cd04a6ebe146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a decayed type parameter at a specified position of a templated instance.  <br /></td></tr>
+<tr class="separator:afbae46b13c3677e544a2cd04a6ebe146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -169,21 +182,70 @@ Functions</h2></td></tr>
 <tr class="memitem:ae59b77ac781451dc3fe5acc995d5f320"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae59b77ac781451dc3fe5acc995d5f320">AsMutablePtr</a> (const T *input)</td></tr>
 <tr class="memdesc:ae59b77ac781451dc3fe5acc995d5f320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead.  <br /></td></tr>
 <tr class="separator:ae59b77ac781451dc3fe5acc995d5f320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7cb62bfd4f916f3b1b238771f59a2908" id="r_a7cb62bfd4f916f3b1b238771f59a2908"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </td></tr>
+<tr class="memitem:a7cb62bfd4f916f3b1b238771f59a2908"><td class="memTemplItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7cb62bfd4f916f3b1b238771f59a2908">TTemplate_ParamCount</a> = <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParameterCount&lt;Instance&gt;</td></tr>
+<tr class="memdesc:a7cb62bfd4f916f3b1b238771f59a2908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of template type parameters from a specified templated instance (which only has type parameters)  <br /></td></tr>
+<tr class="separator:a7cb62bfd4f916f3b1b238771f59a2908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace provide some introspection into template instantiations. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Members of this namespace are very limited in usage and therefore should be used with utmost care. Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a0a7110901e690293584da6a8714b17c5" name="a0a7110901e690293584da6a8714b17c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a7110901e690293584da6a8714b17c5">&#9670;&#160;</a></span>TTemplate_Params</h2>
+<a id="ad1e612b094b330fdbd9d4ed73aced275" name="ad1e612b094b330fdbd9d4ed73aced275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e612b094b330fdbd9d4ed73aced275">&#9670;&#160;</a></span>TTemplate_Param</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;template&lt; typename... &gt; typename Template, typename T &gt; </div>
+template&lt;template&lt; typename... &gt; typename Template, typename Instance , int I&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a0a7110901e690293584da6a8714b17c5">Mcro::Templates::TTemplate_Params</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Parameters&lt;T&gt;::Type</td>
+          <td class="memname">using <a class="el" href="#ad1e612b094b330fdbd9d4ed73aced275">Mcro::Templates::TTemplate_Param</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Param&lt;Instance, I&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a type parameter at a specified position of a templated instance. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00115">115</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="afbae46b13c3677e544a2cd04a6ebe146" name="afbae46b13c3677e544a2cd04a6ebe146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbae46b13c3677e544a2cd04a6ebe146">&#9670;&#160;</a></span>TTemplate_ParamDecay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; typename Template, typename Instance , int I&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#afbae46b13c3677e544a2cd04a6ebe146">Mcro::Templates::TTemplate_ParamDecay</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParamDecay&lt;Instance, I&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a decayed type parameter at a specified position of a templated instance. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00126">126</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a241bd46b03afbda9a1ff974834269279" name="a241bd46b03afbda9a1ff974834269279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241bd46b03afbda9a1ff974834269279">&#9670;&#160;</a></span>TTemplate_Params</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a241bd46b03afbda9a1ff974834269279">Mcro::Templates::TTemplate_Params</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Parameters&lt;Instance&gt;::Type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -191,7 +253,28 @@ template&lt;template&lt; typename... &gt; typename Template, typename T &gt; </d
 <p>Get template type parameters as a tuple. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00069">69</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00093">93</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="ad770ce9303677735219f73b76e2fac1b" name="ad770ce9303677735219f73b76e2fac1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad770ce9303677735219f73b76e2fac1b">&#9670;&#160;</a></span>TTemplate_ParamsDecay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ad770ce9303677735219f73b76e2fac1b">Mcro::Templates::TTemplate_ParamsDecay</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParametersDecay&lt;Instance&gt;::Type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get decayed template type parameters as a tuple. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00104">104</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -215,7 +298,7 @@ template&lt;CConstType T&gt; </div>
 
 <p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00084">84</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00153">153</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -238,7 +321,7 @@ template&lt;typename T &gt; </div>
 
 <p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00100">100</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00169">169</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -261,7 +344,7 @@ template&lt;typename T &gt; </div>
 
 <p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00104">104</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00173">173</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +367,7 @@ template&lt;CMutableType T&gt; </div>
 
 <p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00092">92</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00161">161</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +390,7 @@ template&lt;typename T &gt; </div>
 
 <p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00112">112</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00181">181</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +413,37 @@ template&lt;typename T &gt; </div>
 
 <p>Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName*&gt;(...)</code>? use this instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00108">108</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00177">177</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a7cb62bfd4f916f3b1b238771f59a2908" name="a7cb62bfd4f916f3b1b238771f59a2908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb62bfd4f916f3b1b238771f59a2908">&#9670;&#160;</a></span>TTemplate_ParamCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Mcro::Templates::TTemplate_ParamCount = <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParameterCount&lt;Instance&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of template type parameters from a specified templated instance (which only has type parameters) </p>
+<dl class="section warning"><dt>Warning</dt><dd>Until this proposal <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf</a> or equivalent is considered seriously, template traits only work with templates which only have type-parameters. Non-type parameters even when a default is specified for them will result in compile error. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00149">149</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
 
 </div>
 </div>

@@ -1,6 +1,22 @@
 var concepts =
 [
+    [ "constexpr_xxh3", "d6/d7a/namespaceconstexpr__xxh3.html", [
+      [ "ByteType", "d0/d14/conceptconstexpr__xxh3_1_1ByteType.html", null ],
+      [ "BytePtrType", "d9/d9c/conceptconstexpr__xxh3_1_1BytePtrType.html", null ],
+      [ "BytesType", "de/d9d/conceptconstexpr__xxh3_1_1BytesType.html", null ]
+    ] ],
     [ "Mcro", "d8/d63/namespaceMcro.html", [
+      [ "Any", "da/dfe/namespaceMcro_1_1Any.html", [
+        [ "CHasBases", "d5/dd1/conceptMcro_1_1Any_1_1CHasBases.html", null ]
+      ] ],
+      [ "Composition", "de/d16/namespaceMcro_1_1Composition.html", [
+        [ "CComposable", "da/d28/conceptMcro_1_1Composition_1_1CComposable.html", null ],
+        [ "CExplicitComponent", "de/dad/conceptMcro_1_1Composition_1_1CExplicitComponent.html", null ],
+        [ "CStrictComponent", "d6/d53/conceptMcro_1_1Composition_1_1CStrictComponent.html", null ],
+        [ "CCompatibleExplicitComponent", "d0/d86/conceptMcro_1_1Composition_1_1CCompatibleExplicitComponent.html", null ],
+        [ "CCompatibleStrictComponent", "d7/d04/conceptMcro_1_1Composition_1_1CCompatibleStrictComponent.html", null ],
+        [ "CCompatibleComponent", "d1/d51/conceptMcro_1_1Composition_1_1CCompatibleComponent.html", null ]
+      ] ],
       [ "Concepts", "d2/d09/namespaceMcro_1_1Concepts.html", [
         [ "CSameAs", "db/d6d/conceptMcro_1_1Concepts_1_1CSameAs.html", null ],
         [ "CSameAsDecayed", "dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html", null ],

@@ -113,12 +113,19 @@ $(function(){initNavTree('df/d09/namespaceMcro_1_1TypeName.html','../../'); init
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Mcro::TypeName Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Group together type info for identification. Can have an invalid state when no type is specified.  <a href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a00ea9dc6e0ddfca18ae89e809da35cd5" id="r_a00ea9dc6e0ddfca18ae89e809da35cd5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -132,6 +139,9 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a1f93ab42cdd5935621759637994c76e8" id="r_a1f93ab42cdd5935621759637994c76e8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1f93ab42cdd5935621759637994c76e8"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1f93ab42cdd5935621759637994c76e8">TTypeOf</a> = <a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a>(<a class="el" href="../../df/d90/structMcro_1_1TypeName_1_1FType_1_1TTag.html">FType::TTag</a>&lt;T&gt;())</td></tr>
+<tr class="separator:a1f93ab42cdd5935621759637994c76e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9" id="r_a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4b48113b8a32fb7465ce6663edab3aa9"><td class="memTemplItemLeft" align="right" valign="top">constexpr FStringView&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName</a></td></tr>
 <tr class="memdesc:a4b48113b8a32fb7465ce6663edab3aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a friendly string of an input type without using <code>typeid(T).name()</code>.  <br /></td></tr>
@@ -140,6 +150,10 @@ Variables</h2></td></tr>
 <tr class="memitem:aded0b460b40f89f45f61c9e43ee730af"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::basic_string_view&lt; TCHAR &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aded0b460b40f89f45f61c9e43ee730af">TTypeNameStd</a> = <a class="el" href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;()</td></tr>
 <tr class="memdesc:aded0b460b40f89f45f61c9e43ee730af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>TTypeName</code> just stored as STL string made during compile time.  <br /></td></tr>
 <tr class="separator:aded0b460b40f89f45f61c9e43ee730af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5b8794d48a64bbee02a272983b6d8a" id="r_a4b5b8794d48a64bbee02a272983b6d8a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4b5b8794d48a64bbee02a272983b6d8a"><td class="memTemplItemLeft" align="right" valign="top">constexpr uint64&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4b5b8794d48a64bbee02a272983b6d8a">TTypeHash</a> = <a class="el" href="../../d0/de3/TypeName_8h.html#acd67cf60fdf246e1faba3846491eadd5">GetCompileTimeTypeHash</a>&lt;T&gt;()</td></tr>
+<tr class="memdesc:a4b5b8794d48a64bbee02a272983b6d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a fixed <code>uint64</code> hash representation of the given type. Have similar caveats as <code>TTypeName</code>  <br /></td></tr>
+<tr class="separator:a4b5b8794d48a64bbee02a272983b6d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Convert types to string </p>
@@ -163,7 +177,7 @@ template&lt;typename T &gt; </div>
 
 <p>Same as <code>TTypeName</code> converted to FName. This is not cached and a new FName is created every time this is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00159">159</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00213">213</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -186,11 +200,39 @@ template&lt;typename T &gt; </div>
 
 <p>Same as <code>TTypeName</code> converted to FString. This is not cached and a new FString is created every time this is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00169">169</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00223">223</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a4b5b8794d48a64bbee02a272983b6d8a" name="a4b5b8794d48a64bbee02a272983b6d8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5b8794d48a64bbee02a272983b6d8a">&#9670;&#160;</a></span>TTypeHash</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64 Mcro::TypeName::TTypeHash = <a class="el" href="../../d0/de3/TypeName_8h.html#acd67cf60fdf246e1faba3846491eadd5">GetCompileTimeTypeHash</a>&lt;T&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a fixed <code>uint64</code> hash representation of the given type. Have similar caveats as <code>TTypeName</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00206">206</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+
+</div>
+</div>
 <a id="a4b48113b8a32fb7465ce6663edab3aa9" name="a4b48113b8a32fb7465ce6663edab3aa9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">&#9670;&#160;</a></span>TTypeName</h2>
 
@@ -217,12 +259,12 @@ template&lt;typename T &gt; </div>
 <div class="line">        <a class="code hl_function" href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a>&lt;std::decay_t&lt;T&gt;&gt;().<a class="code hl_function" href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a>()</div>
 <div class="line">    )</div>
 <div class="ttc" id="aRange_8h_html_a21e5ab1a87de28222d4fdba7e0188f35"><div class="ttname"><a href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a></div><div class="ttdeci">size_t size(TArray&lt; T, A &gt; const &amp;r)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/db6/Range_8h_source.html#l00098">Range.h:98</a></div></div>
-<div class="ttc" id="aTypeName_8h_html_a3acea92b332075d8bc16a0fc44b30a51"><div class="ttname"><a href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a></div><div class="ttdeci">consteval std::basic_string_view&lt; TCHAR &gt; GetCompileTimeTypeName()</div><div class="ttdoc">Get a string view of the compile time typename.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00056">TypeName.h:56</a></div></div>
+<div class="ttc" id="aTypeName_8h_html_a3acea92b332075d8bc16a0fc44b30a51"><div class="ttname"><a href="../../d0/de3/TypeName_8h.html#a3acea92b332075d8bc16a0fc44b30a51">GetCompileTimeTypeName</a></div><div class="ttdeci">consteval std::basic_string_view&lt; TCHAR &gt; GetCompileTimeTypeName()</div><div class="ttdoc">Get a string view of the compile time typename.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00057">TypeName.h:57</a></div></div>
 </div><!-- fragment -->
 <p>Get a friendly string of an input type without using <code>typeid(T).name()</code>. </p>
 <p>Actually this method gives more predictable results across compilers than <code>typeid(T).name()</code> but still not 100% the same. Besides TTypeName can deal with incomplete types as well, whereas <code>typeid(T)</code> cannot (more on this in remarks). While it is more consistent across compilers, it is still not 100% consistent. Take templated types for instance where MSVC compiler will add "class" prefix in front of type arguments where GCC or CLang might not. Because of subtle differences like this, it is strongly discouraged to assume the exact format of the output of TTypeName</p>
 <p>Usage: </p><div class="fragment"><div class="line">FStringView myTypeName = <a class="code hl_variable" href="#a4b48113b8a32fb7465ce6663edab3aa9">TTypeName&lt;FMyType&gt;</a>;</div>
-<div class="ttc" id="anamespaceMcro_1_1TypeName_html_a4b48113b8a32fb7465ce6663edab3aa9"><div class="ttname"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></div><div class="ttdeci">constexpr FStringView TTypeName</div><div class="ttdoc">Get a friendly string of an input type without using typeid(T).name().</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00145">TypeName.h:145</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1TypeName_html_a4b48113b8a32fb7465ce6663edab3aa9"><div class="ttname"><a href="#a4b48113b8a32fb7465ce6663edab3aa9">Mcro::TypeName::TTypeName</a></div><div class="ttdeci">constexpr FStringView TTypeName</div><div class="ttdoc">Get a friendly string of an input type without using typeid(T).name().</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/TypeName_8h_source.html#l00195">TypeName.h:195</a></div></div>
 </div><!-- fragment --><p>It is useful in templates where a type name should be known in runtime as well. (e.g.: Modular features)</p>
 <dl class="section remark"><dt>Remarks</dt><dd>Note on incomplete types: incomplete types on MSVC are localized to current scope. which means <div class="fragment"><div class="line"><span class="keyword">class </span>I;</div>
 <div class="line"> </div>
@@ -236,15 +278,16 @@ template&lt;typename T &gt; </div>
 <div class="line">    FStringView GetName() { <span class="keywordflow">return</span> TTypeName&lt;class I&gt;; }</div>
 <div class="line">    <span class="comment">// Returns &quot;A::GetName::I&quot;</span></div>
 <div class="line">}</div>
-</div><!-- fragment --> as you can see they are not equal. For sake of simplicity TTypeName only supports incomplete types when they're declared in global scope. Any other case might yield undesired results (e.g.: <code>TTypeName&lt;class I&gt;</code> of incomplete <code>I</code> might not be the same as <code>TTypeName&lt;I&gt;</code> somewhere else with <code>I</code> being fully defined)</dd></dl>
+</div><!-- fragment --> as you can see they are not equal. For sake of simplicity TTypeName only supports incomplete types when they're declared in global scope. <a class="el" href="../../da/dfe/namespaceMcro_1_1Any.html">Any</a> other case might yield undesired results (e.g.: <code>TTypeName&lt;class I&gt;</code> of incomplete <code>I</code> might not be the same as <code>TTypeName&lt;I&gt;</code> somewhere else with <code>I</code> being fully defined)</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type to be named </td></tr>
+    <tr><td class="paramname">T</td><td>The type to be named</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section warning"><dt>Warning</dt><dd>Do not use exact type comparison with serialized data or network communication, as the actual value of the type is different between compilers. Only use this for runtime data. For such scenarios just use Unreal's own <a class="el" href="../../df/d84/namespaceMcro_1_1UObjects.html">UObjects</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00145">145</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00195">195</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +315,33 @@ template&lt;typename T &gt; </div>
 
 <p>Same as <code>TTypeName</code> just stored as STL string made during compile time. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00152">152</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00202">202</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f93ab42cdd5935621759637994c76e8" name="a1f93ab42cdd5935621759637994c76e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f93ab42cdd5935621759637994c76e8">&#9670;&#160;</a></span>TTypeOf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a> Mcro::TypeName::TTypeOf = <a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a>(<a class="el" href="../../df/d90/structMcro_1_1TypeName_1_1FType_1_1TTag.html">FType::TTag</a>&lt;T&gt;())</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/TypeName_8h_source.html#l00144">144</a> of file <a class="el" href="../../d0/de3/TypeName_8h_source.html">TypeName.h</a>.</p>
 
 </div>
 </div>
