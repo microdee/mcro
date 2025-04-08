@@ -1,6 +1,0 @@
-link:
-  - dir: Private/McroWindows
-  - dir: Public/McroWindows
-copy:
-  - { file: McroWindows_Origin.Build.cs, procContent: true }
-  - { file: Private/McroWindows_Origin.cpp, procContent: true }

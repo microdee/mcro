@@ -11,6 +11,6 @@
 
 #include "Modules/ModuleManager.h"
 
-class FMcroModule_Origin : public IModuleInterface {};
+class FMcroModule : public IModuleInterface {};
 
-IMPLEMENT_MODULE(FMcroModule_Origin, Mcro_Origin);
+IMPLEMENT_MODULE(FMcroModule, Mcro);

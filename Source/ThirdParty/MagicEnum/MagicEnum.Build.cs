@@ -1,9 +1,9 @@
 
 using UnrealBuildTool;
 
-public class Ctre_Origin : ModuleRules
+public class MagicEnum : ModuleRules
 {
-	public Ctre_Origin(ReadOnlyTargetRules Target) : base(Target)
+	public MagicEnum(ReadOnlyTargetRules target) : base(target)
 	{
 		Type = ModuleType.External;
 		PublicIncludePaths.Add($"{ModuleDirectory}/Include");

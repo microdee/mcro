@@ -10,19 +10,17 @@
  */
 
 using UnrealBuildTool;
-using ModuleExtensions.Origin;
+using McroBuild;
 
-public class McroWindows_Origin : ModuleRules
+public class McroWindows : ModuleRules
 {
-	public McroWindows_Origin(ReadOnlyTargetRules target) : base(target)
+	public McroWindows(ReadOnlyTargetRules target) : base(target)
 	{
 		if (target.Platform != UnrealTargetPlatform.Win64)
 		{
 			Type = ModuleType.External;
 			return;
 		}
-		
-		this.IsSharedModule();
 		
 		// C++23
 		bUseUnity = false;
@@ -36,7 +34,7 @@ public class McroWindows_Origin : ModuleRules
 			"D3D11RHI",
 			"D3D12RHI",
 			
-			"Mcro_Origin",
+			"Mcro",
 		});
 		
 		PrivateDependencyModuleNames.AddRange(new[]

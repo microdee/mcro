@@ -3,14 +3,14 @@
 using System;
 using UnrealBuildTool;
 
-public partial class RangeV3_Origin : ModuleRules
+public partial class RangeV3 : ModuleRules
 {
 	bool IsDebug;
 	bool PlatformSetup = false;
 	string LibraryConfig;
 	string LibraryPlatform;
 
-	public RangeV3_Origin(ReadOnlyTargetRules target) : base(target)
+	public RangeV3(ReadOnlyTargetRules target) : base(target)
 	{
 		// This is the main module file for using range-v3 in Unreal Engine.
 		// Because each individual platform can carry different requirements for range-v3,

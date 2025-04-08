@@ -2,14 +2,14 @@
 using System;
 using UnrealBuildTool;
 
-public partial class YamlCpp_Origin : ModuleRules
+public partial class YamlCpp : ModuleRules
 {
 	bool IsDebug;
 	bool PlatformSetup = false;
 	string LibraryConfig;
 	string LibraryPlatform;
 
-	public YamlCpp_Origin(ReadOnlyTargetRules target) : base(target)
+	public YamlCpp(ReadOnlyTargetRules target) : base(target)
 	{
 		// This is the main module file for using yaml-cpp in Unreal Engine.
 		// Because each individual platform can carry different requirements for yaml-cpp,

@@ -10,13 +10,12 @@
  */
 
 using UnrealBuildTool;
-using ModuleExtensions.Origin;
+using McroBuild;
 
-public class McroISPC_Origin : ModuleRules
+public class McroISPC : ModuleRules
 {
-	public McroISPC_Origin(ReadOnlyTargetRules Target) : base(Target)
+	public McroISPC(ReadOnlyTargetRules Target) : base(Target)
 	{
-		this.IsSharedModule();
 		bUseUnity = false;
 		
 		PublicDependencyModuleNames.AddRange(new[] {

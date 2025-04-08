@@ -10,14 +10,12 @@
  */
 
 using UnrealBuildTool;
-using ModuleExtensions.Origin;
+using McroBuild;
 
-public class Mcro_Origin : ModuleRules
+public class Mcro : ModuleRules
 {
-	public Mcro_Origin(ReadOnlyTargetRules Target) : base(Target)
+	public Mcro(ReadOnlyTargetRules Target) : base(Target)
 	{
-		this.IsSharedModule();
-		
 		// C++23
 		bUseUnity = false;
 		CppStandard = CppStandardVersion.Latest;
@@ -31,10 +29,10 @@ public class Mcro_Origin : ModuleRules
 			"SlateCore",
 			"Boost",
 			
-			"Ctre_Origin",
-			"MagicEnum_Origin",
-			"YamlCpp_Origin",
-			"RangeV3_Origin"
+			"Ctre",
+			"MagicEnum",
+			"YamlCpp",
+			"RangeV3"
 		});
 			
 		

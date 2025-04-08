@@ -24,7 +24,7 @@ public interface IUseRangeV3 : INukeBuild
         .Executes(() =>
         {
             ((UnrealBuild) this).InstallXRepoLibrary(
-                "range-v3", "", this.ScriptFolder(), "Origin"
+                "range-v3", "", this.ScriptFolder()
             );
         });
 }

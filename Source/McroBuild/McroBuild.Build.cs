@@ -19,7 +19,7 @@ using System.Xml.Serialization;
 using EpicGames.Core;
 using UnrealBuildTool;
 
-namespace ModuleExtensions.Origin
+namespace McroBuild
 {
 	public class RuntimeDependency
 	{
@@ -82,13 +82,6 @@ namespace ModuleExtensions.Origin
 				.Split('_')
 				.SkipLast(1);
 			return string.Join('_', moduleNameComponents);
-		}
-
-		public static void IsSharedModule(this ModuleRules self, bool defineLinkMacro = true)
-		{
-			var moduleBaseName = self.GetBaseModuleName();
-			if (defineLinkMacro)
-				self.PublicDefinitions.Add($"{moduleBaseName.ToUpper()}_API={self.GetType().Name.ToUpper()}_API");
 		}
 
 		public static void UseRuntimeDependencies(this ModuleRules self, bool allowDebugLibraries = true)
