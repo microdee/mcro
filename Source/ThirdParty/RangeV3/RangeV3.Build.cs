@@ -7,6 +7,7 @@ public partial class RangeV3 : ModuleRules
 {
 	bool IsDebug;
 	bool PlatformSetup = false;
+	bool IncludesSetup = false;
 	string LibraryConfig;
 	string LibraryPlatform;
 
@@ -24,33 +25,36 @@ public partial class RangeV3 : ModuleRules
 
 		// Write user defined setup here
 
+		// Set up library headers
+		SetupLibrary_Includes(target);
+
 		// Optional platform specific library setup:
 		
-				if (target.Platform == UnrealTargetPlatform.Win64)
-					SetupLibrary_Win64(target);
+		if (target.Platform == UnrealTargetPlatform.Win64)
+			SetupLibrary_Win64(target);
+		
+		if (target.Platform == UnrealTargetPlatform.Mac)
+			SetupLibrary_Mac(target);
+		
+		if (target.Platform == UnrealTargetPlatform.Linux)
+			SetupLibrary_Linux(target);
+		
+		if (target.Platform == UnrealTargetPlatform.LinuxArm64)
+			SetupLibrary_LinuxArm64(target);
+		
+		if (target.Platform == UnrealTargetPlatform.Android)
+			SetupLibrary_Android(target);
+		
+		if (target.Platform == UnrealTargetPlatform.IOS)
+			SetupLibrary_IOS(target);
+		
+		if (target.Platform == UnrealTargetPlatform.TVOS)
+			SetupLibrary_TVOS(target);
+		
+		if (target.Platform == UnrealTargetPlatform.VisionOS)
+			SetupLibrary_VisionOS(target);
 				
-				if (target.Platform == UnrealTargetPlatform.Mac)
-					SetupLibrary_Mac(target);
-				
-				if (target.Platform == UnrealTargetPlatform.Linux)
-					SetupLibrary_Linux(target);
-				
-				if (target.Platform == UnrealTargetPlatform.LinuxArm64)
-					SetupLibrary_LinuxArm64(target);
-				
-				if (target.Platform == UnrealTargetPlatform.Android)
-					SetupLibrary_Android(target);
-				
-				if (target.Platform == UnrealTargetPlatform.IOS)
-					SetupLibrary_IOS(target);
-				
-				if (target.Platform == UnrealTargetPlatform.TVOS)
-					SetupLibrary_TVOS(target);
-				
-				if (target.Platform == UnrealTargetPlatform.VisionOS)
-					SetupLibrary_VisionOS(target);
-				
-		if (!PlatformSetup)
+		if (!PlatformSetup || !IncludesSetup)
 		{
 			throw new Exception(
 				$"range-v3 was not set up for {target.Platform}."
@@ -59,6 +63,7 @@ public partial class RangeV3 : ModuleRules
 			);
 		}
 	}
+	partial void SetupLibrary_Includes(ReadOnlyTargetRules target);
 	partial void SetupLibrary_Win64(ReadOnlyTargetRules target);
 	partial void SetupLibrary_Mac(ReadOnlyTargetRules target);
 	partial void SetupLibrary_Linux(ReadOnlyTargetRules target);

@@ -6,6 +6,7 @@ public partial class YamlCpp : ModuleRules
 {
 	bool IsDebug;
 	bool PlatformSetup = false;
+	bool IncludesSetup = false;
 	string LibraryConfig;
 	string LibraryPlatform;
 
@@ -22,6 +23,9 @@ public partial class YamlCpp : ModuleRules
 		LibraryPlatform = target.Platform.ToString();
 
 		// Write user defined setup here
+
+		// Set up library headers
+		SetupLibrary_Includes(target);
 
 		// Optional platform specific library setup:
 		
@@ -46,7 +50,7 @@ public partial class YamlCpp : ModuleRules
 				if (target.Platform == UnrealTargetPlatform.TVOS)
 					SetupLibrary_TVOS(target);
 				
-		if (!PlatformSetup)
+		if (!PlatformSetup || !IncludesSetup)
 		{
 			throw new Exception(
 				$"yaml-cpp was not set up for {target.Platform}."
@@ -55,6 +59,7 @@ public partial class YamlCpp : ModuleRules
 			);
 		}
 	}
+	partial void SetupLibrary_Includes(ReadOnlyTargetRules target);
 	partial void SetupLibrary_Win64(ReadOnlyTargetRules target);
 	partial void SetupLibrary_Mac(ReadOnlyTargetRules target);
 	partial void SetupLibrary_Linux(ReadOnlyTargetRules target);
