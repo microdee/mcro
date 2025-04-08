@@ -5,14 +5,9 @@
 # MCRO
 A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
+## [Full documentation](https://mcro.de/mcro)
+
 </div>
-
-[Read the full documentation at](https://mcro.de/mcro)
-
-- [MCRO](#mcro)
-  - [Who is this library for?](#who-is-this-library-for)
-  - [Very high-level plans](#very-high-level-plans)
-  - [Legal](#legal)
 
 ## Who is this library for?
 

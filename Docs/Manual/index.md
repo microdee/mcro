@@ -13,7 +13,7 @@ A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
 [TOC]
 
-[Find the source code at](https://github.com/microdee/mcro)
+**[Source code](https://github.com/microdee/mcro)**
 
 ## Who is this library for?
 
