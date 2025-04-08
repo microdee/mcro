@@ -1,14 +1,9 @@
 using Nuke.Common;
 using Nuke.Common.IO;
-using Nuke.Common.Tooling;
 using Nuke.Cola;
 using Nuke.Cola.BuildPlugins;
-using Nuke.Unreal;
 using Serilog;
-using System;
-using Nuke.Cola.FolderComposition;
 using Nuke.Common.Utilities;
-using Nuke.Cola.Search;
 using YamlDotNet.Serialization;
 using Nuke.Utilities.Text.Yaml;
 using System.Linq;
@@ -64,8 +59,8 @@ public interface IMcroLicenseRegion : INukeBuild
     Target RenderMcroAttribution => _ => _
         .Executes(() =>
         {
-            var target = this.ScriptFolder() / "ATTRIBUTION.md";
-            target.ExistingFile()?.DeleteFile();
+            var target = this.ScriptFolder() / "Docs" / "Manual" / "ATTRIBUTION.md";
+            target.WriteAllText("# Attribution {#Attribution}");
             foreach (var file in this.ScriptFolder().GetFiles("*.tp.yml", 40))
             {
                 Log.Debug("Including {0}", file);

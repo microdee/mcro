@@ -37,7 +37,12 @@ I've been developing this library with Rider and their code-completion fairs pre
 
 > Can I use MCRO in my plugin published on FAB for a price?
 
-**Yes**, *free of charge, no royalties or anything* . Please list MCRO and the [open-source libraries MCRO uses](#Attribution) when you submit your plugin to FAB. MCRO itself is [licensed under MPL 2.0](#Legal). Also it is recommended to compose the MCRO proto-plugin into yours with the help of [Nuke.Unreal](https://github.com/microdee/Nuke.Unreal).
+**Yes**, *free of charge, no royalties or anything* . Please list MCRO and the [open-source libraries MCRO uses](#Attribution) when you submit your plugin to FAB. MCRO itself is [licensed under MPL 2.0](#Legal).
+
+Please use the **Courier Plugin pattern** *(TODO: make this thing)* when publishing your plugin depending on MCRO, so other plugins using it may not break. You can also include a copy of MCRO modules in your plugin, but then only your plugin can use MCRO in the user's project/engine, so that is highly discouraged.
+
+> [!CAUTION]
+> The supporting facilities for the **Courier Plugin pattern** is not yet made at all. For now your only option is copying modules.
 
 ## Range-V3
 

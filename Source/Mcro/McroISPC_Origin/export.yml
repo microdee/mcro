@@ -1,6 +1,0 @@
-link:
-  - dir: Private/McroISPC
-  - dir: Public/McroISPC
-copy:
-  - { file: McroISPC_Origin.Build.cs, procContent: true }
-  - { file: Private/McroISPC_Origin.cpp, procContent: true }

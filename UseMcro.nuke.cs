@@ -18,29 +18,8 @@ public static class UseMcroGraph
     ;
 }
 
-public interface IUseMcro : INukeBuild
-{
-    void UseMcroAt(AbsolutePath pluginFolder, string suffix)
-    {
-        this.ImportFolders(suffix,
-            (this.ScriptFolder() / "Source", pluginFolder, new ExportManifest
-            {
-                Use = { new() { Directory = "**"} }
-            }),
-            (this.ScriptFolder() / "Content", pluginFolder, new ExportManifest
-            {
-                Copy = { new() { Directory = "Slate" }}
-            })
-        );
-
-        (pluginFolder / "Source" / "Mcro" / "Ignore.LicenseRegion.txt").WriteAllText(
-            "This file is here so the Nuke.Cola LicenseRegion feature would not modify licenses in this folder"
-        );
-    }
-}
-
 [ImplicitBuildInterface]
-public interface IImplicitMcroTargets : INukeBuild
+public interface IUseMcro : INukeBuild
 {
     Target GenerateMcroDocs => _ => _
         .Triggers<IMcroLicenseRegion>(_ => _.RenderMcroAttribution)

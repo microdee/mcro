@@ -4,16 +4,16 @@
 
 <img src="proto-logo-0.webp" width=400 />
 
-A C++23 utilities Unreal Engine proto-plugin, for a more civilized age.
+A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
 </div>
 
 > [!CAUTION]
-> This library is far from being production ready and is not recommended to be used yet at all
+> This library is still under active development, nothing is set to stone yet in its updates. Use in production only if you know very well what you're doing.
 
 [TOC]
 
-[Find the source code at](https://github.com/microdee/mcro)
+**[Source code](https://github.com/microdee/mcro)**
 
 ## Who is this library for?
 
@@ -1028,37 +1028,6 @@ export void MakeLookupUV(
 * [YAML utilities](@ref Mcro/Yaml.h) (via [yaml-cpp](https://github.com/jbeder/yaml-cpp))
 * Windows:
   * [`IError` wrapper for `HRESULT` and `GetLastError`](@ref McroWindows/Error/WindowsError.h) extracting human readable error messages from them.
-
-## What's a proto-plugin
-
-This repository is not meant to be used as its own full featured Unreal Plugin, but rather other plugins can compose this one into themselves using the [Folder Composition](https://github.com/microdee/md.Nuke.Cola?tab=readme-ov-file#folder-composition) feature provided by [Nuke.Unreal](https://github.com/microdee/Nuke.Unreal) (via [Nuke.Cola](https://github.com/microdee/md.Nuke.Cola)). The recommended way to use this is via using a simple Nuke.Cola build-plugin which inherits `IUseMcro` for example:
-
-```CSharp
-using Nuke.Common;
-using Nuke.Cola;
-using Nuke.Cola.BuildPlugins;
-using Nuke.Unreal;
-
-[ImplicitBuildInterface]
-public interface IUseMcroInMyProject : IUseMcro
-{
-    Target UseMcro => _ => _
-        .McroGraph()
-        .DependentFor<UnrealBuild>(b => b.Prepare)
-        .Executes(() =>
-        {
-            UseMcroAt(this.ScriptFolder(), "MyProjectSuffix");
-        });
-}
-```
-
-If this seems painful please blame Epic Games who decided to not allow ~~marketplace~~/Fab plugins to depend on each other, or at least depend on free and open source plugins from other sources. So I had to come up with all this "Folder Composition" nonsense so end-users might be able to use multiple of my plugins sharing common dependencies without module name conflicts.
-
-To use MCRO as its own plugin without the need for Nuke.Unreal, see this repository: **(DOESN'T EXIST YET)**
-
-## What's up with _Origin suffix everywhere?
-
-When this proto plugin is imported into other plugins, this suffix is used for disambiguation, in case the end-user uses multiple pre-compiled plugins depending on MCRO. If this seems annoying please refer to the paragraph earlier.
 
 ## Legal {#Legal}
 
