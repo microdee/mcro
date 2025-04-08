@@ -13,6 +13,7 @@
 #include "Mcro/TextMacros.h"
 #include "Windows/WindowsPlatformMisc.h"
 
+#define MCRO_ALLOW_TEXT 1
 #include "Mcro/LibraryIncludes/Start.h"
 #include "comdef.h"
 #include "Mcro/LibraryIncludes/End.h"

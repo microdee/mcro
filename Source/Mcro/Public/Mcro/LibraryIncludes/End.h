@@ -17,43 +17,123 @@
  */
 
 THIRD_PARTY_INCLUDES_END
-PRAGMA_POP_PLATFORM_DEFAULT_PACKING
+// PRAGMA_POP_PLATFORM_DEFAULT_PACKING
+
+#if PLATFORM_WINDOWS && MCRO_ALLOW_WINDOWS_TYPES
+#include "Windows/HideWindowsPlatformAtomics.h"
+#include "Windows/HideWindowsPlatformTypes.h"
+#endif
+
+#undef MCRO_ALLOW_WINDOWS_TYPES
 
 // restore temporary macro undefs
 
+
+#if !MCRO_ALLOW_TEXT
 #pragma pop_macro("TEXT")
+#endif
+#if !MCRO_ALLOW_TRUE
 #pragma pop_macro("TRUE")
+#endif
+#if !MCRO_ALLOW_FALSE
 #pragma pop_macro("FALSE")
+#endif
+#if !MCRO_ALLOW_MAX_uint8
 #pragma pop_macro("MAX_uint8")
+#endif
+#if !MCRO_ALLOW_MAX_uint16
 #pragma pop_macro("MAX_uint16")
+#endif
+#if !MCRO_ALLOW_MAX_uint32
 #pragma pop_macro("MAX_uint32")
+#endif
+#if !MCRO_ALLOW_MAX_int32
 #pragma pop_macro("MAX_int32")
+#endif
+#if !MCRO_ALLOW_CONSTEXPR
 #pragma pop_macro("CONSTEXPR")
+#endif
+#if !MCRO_ALLOW_PI
 #pragma pop_macro("PI")
+#endif
+#if !MCRO_ALLOW_dynamic_cast
 #pragma pop_macro("dynamic_cast")
+#endif
+#if !MCRO_ALLOW_VARARGS
 #pragma pop_macro("VARARGS")
+#endif
+#if !MCRO_ALLOW_CDECL
 #pragma pop_macro("CDECL")
+#endif
+#if !MCRO_ALLOW_STDCALL
 #pragma pop_macro("STDCALL")
+#endif
+#if !MCRO_ALLOW_FORCEINLINE
 #pragma pop_macro("FORCEINLINE")
+#endif
+#if !MCRO_ALLOW_FORCENOINLINE
 #pragma pop_macro("FORCENOINLINE")
+#endif
+#if !MCRO_ALLOW_ABSTRACT
 #pragma pop_macro("ABSTRACT")
+#endif
+#if !MCRO_ALLOW_LINE_TERMINATOR
 #pragma pop_macro("LINE_TERMINATOR")
+#endif
+#if !MCRO_ALLOW_LINE_TERMINATOR_ANSI
 #pragma pop_macro("LINE_TERMINATOR_ANSI")
+#endif
+#if !MCRO_ALLOW_DLLEXPORT
 #pragma pop_macro("DLLEXPORT")
+#endif
+#if !MCRO_ALLOW_DLLIMPORT
 #pragma pop_macro("DLLIMPORT")
+#endif
+#if !MCRO_ALLOW_LIKELY
 #pragma pop_macro("LIKELY")
+#endif
+#if !MCRO_ALLOW_UNLIKELY
 #pragma pop_macro("UNLIKELY")
+#endif
+#if !MCRO_ALLOW_RESTRICT
 #pragma pop_macro("RESTRICT")
+#endif
+#if !MCRO_ALLOW_MOBILE
 #pragma pop_macro("MOBILE")
+#endif
+#if !MCRO_ALLOW_CONSOLE
 #pragma pop_macro("CONSOLE")
-#pragma pop_macro("PLATFORM_WINDOWS")
-#pragma pop_macro("PLATFORM_COMPILER_CLANG")
-#pragma pop_macro("PLATFORM_APPLE")
-#pragma pop_macro("PLATFORM_MAC")
-#pragma pop_macro("PLATFORM_LINUX")
-#pragma pop_macro("PLATFORM_FREEBSD")
-#pragma pop_macro("PLATFORM_UNIX")
+#endif
+#if !MCRO_ALLOW_DEFAULTS
 #pragma pop_macro("DEFAULTS")
+#endif
+
+#undef MCRO_ALLOW_TEXT
+#undef MCRO_ALLOW_TRUE
+#undef MCRO_ALLOW_FALSE
+#undef MCRO_ALLOW_MAX_uint8
+#undef MCRO_ALLOW_MAX_uint16
+#undef MCRO_ALLOW_MAX_uint32
+#undef MCRO_ALLOW_MAX_int32
+#undef MCRO_ALLOW_CONSTEXPR
+#undef MCRO_ALLOW_PI
+#undef MCRO_ALLOW_dynamic_cast
+#undef MCRO_ALLOW_VARARGS
+#undef MCRO_ALLOW_CDECL
+#undef MCRO_ALLOW_STDCALL
+#undef MCRO_ALLOW_FORCEINLINE
+#undef MCRO_ALLOW_FORCENOINLINE
+#undef MCRO_ALLOW_ABSTRACT
+#undef MCRO_ALLOW_LINE_TERMINATOR
+#undef MCRO_ALLOW_LINE_TERMINATOR_ANSI
+#undef MCRO_ALLOW_DLLEXPORT
+#undef MCRO_ALLOW_DLLIMPORT
+#undef MCRO_ALLOW_LIKELY
+#undef MCRO_ALLOW_UNLIKELY
+#undef MCRO_ALLOW_RESTRICT
+#undef MCRO_ALLOW_MOBILE
+#undef MCRO_ALLOW_CONSOLE
+#undef MCRO_ALLOW_DEFAULTS
 
 #pragma warning( pop )
 
@@ -75,9 +155,7 @@ PRAGMA_POP_PLATFORM_DEFAULT_PACKING
 #pragma pop_macro("__GNUC__")
 #endif
 
-#if PLATFORM_WINDOWS
-#include "Windows/HideWindowsPlatformAtomics.h"
-#include "Windows/HideWindowsPlatformTypes.h"
-#endif
+#undef MCRO_HIDE_TEXT
+#undef MCRO_ALLOW_WINDOWS_TYPES
 
 #undef NON_UNREAL_INCLUDE_REGION
