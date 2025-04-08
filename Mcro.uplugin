@@ -4,7 +4,7 @@
 	"VersionName": "0.5.0",
 	"EngineVersion": "",
 	"FriendlyName": "MCRO",
-	"Description": "A C++23 utilities Unreal Engine plugin, for a more civilized age.",
+	"Description": "A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.",
 	"Category": "Code",
 	"EnabledByDefault": true,
 	"CreatedBy": "David Mórász (microdee)",
