@@ -36,14 +36,13 @@ var searchData=
   ['gettypehash_33',['GetTypeHash',['../d5/db6/structMcro_1_1TypeName_1_1FType.html#ac83bd9a29cd35d5c77533028c3a6a670',1,'Mcro::TypeName::FType']]],
   ['gettypestring_34',['GetTypeString',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a12c9edbbcc4cec5d1544f974242e2909',1,'Mcro::Types::IHaveType']]],
   ['getunknownformat_35',['GetUnknownFormat',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#aa9ebe1c1242db5bc8d6b6fa1569f6c3e',1,'Mcro::Rendering::Textures']]],
-  ['getunknownformat_3c_20dxgi_5fformat_20_3e_36',['GetUnknownFormat&lt; DXGI_FORMAT &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#ab67de83fc624ff2816a3887e0af7e8ba',1,'Mcro::Rendering::Textures']]],
-  ['getunknownformat_3c_20epixelformat_20_3e_37',['GetUnknownFormat&lt; EPixelFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a50ba2c45a75d348a14ae61f7880b3135',1,'Mcro::Rendering::Textures']]],
-  ['getunknownformat_3c_20etexturerendertargetformat_20_3e_38',['GetUnknownFormat&lt; ETextureRenderTargetFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a158428feac02ef551351e1de00645413',1,'Mcro::Rendering::Textures']]],
-  ['getvalidtypes_39',['GetValidTypes',['../df/d32/structMcro_1_1Any_1_1FAny.html#aedec2319f7bcdabafbe001f70dbaa9eb',1,'Mcro::Any::FAny']]],
-  ['getvalue_40',['GetValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c',1,'Mcro::Error::TMaybe::GetValue() -&gt; T &amp;'],['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4',1,'Mcro::Error::TMaybe::GetValue() const -&gt; T const &amp;']]],
-  ['github_20com_20chys87_20constexpr_20xxh3_20constexpr_20xxh3_20a_41',['&lt;a href=&quot;https://github.com/chys87/constexpr-xxh3&quot; &gt;constexpr-xxh3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md5',1,'']]],
-  ['github_20com_20jbeder_20yaml_20cpp_20yaml_20cpp_20a_42',['&lt;a href=&quot;https://github.com/jbeder/yaml-cpp&quot; &gt;yaml-cpp&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md4',1,'']]],
-  ['github_20com_20neargye_20magic_5fenum_20magic_5fenum_20a_43',['&lt;a href=&quot;https://github.com/Neargye/magic_enum&quot; &gt;magic_enum&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md2',1,'']]],
-  ['github_20io_20intel_20ispc_20tasksys_20a_44',['&lt;a href=&quot;https://ispc.github.io&quot; &gt;Intel ISPC Tasksys&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md7',1,'']]],
-  ['github_20io_20range_20v3_20range_20v3_20a_45',['&lt;a href=&quot;https://ericniebler.github.io/range-v3/&quot; &gt;range-v3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md3',1,'']]]
+  ['getunknownformat_3c_20epixelformat_20_3e_36',['GetUnknownFormat&lt; EPixelFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a50ba2c45a75d348a14ae61f7880b3135',1,'Mcro::Rendering::Textures']]],
+  ['getunknownformat_3c_20etexturerendertargetformat_20_3e_37',['GetUnknownFormat&lt; ETextureRenderTargetFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a158428feac02ef551351e1de00645413',1,'Mcro::Rendering::Textures']]],
+  ['getvalidtypes_38',['GetValidTypes',['../df/d32/structMcro_1_1Any_1_1FAny.html#aedec2319f7bcdabafbe001f70dbaa9eb',1,'Mcro::Any::FAny']]],
+  ['getvalue_39',['GetValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c',1,'Mcro::Error::TMaybe::GetValue() -&gt; T &amp;'],['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4',1,'Mcro::Error::TMaybe::GetValue() const -&gt; T const &amp;']]],
+  ['github_20com_20chys87_20constexpr_20xxh3_20constexpr_20xxh3_20a_40',['&lt;a href=&quot;https://github.com/chys87/constexpr-xxh3&quot; &gt;constexpr-xxh3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md5',1,'']]],
+  ['github_20com_20jbeder_20yaml_20cpp_20yaml_20cpp_20a_41',['&lt;a href=&quot;https://github.com/jbeder/yaml-cpp&quot; &gt;yaml-cpp&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md4',1,'']]],
+  ['github_20com_20neargye_20magic_5fenum_20magic_5fenum_20a_42',['&lt;a href=&quot;https://github.com/Neargye/magic_enum&quot; &gt;magic_enum&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md2',1,'']]],
+  ['github_20io_20intel_20ispc_20tasksys_20a_43',['&lt;a href=&quot;https://ispc.github.io&quot; &gt;Intel ISPC Tasksys&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md7',1,'']]],
+  ['github_20io_20range_20v3_20range_20v3_20a_44',['&lt;a href=&quot;https://ericniebler.github.io/range-v3/&quot; &gt;range-v3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md3',1,'']]]
 ];

@@ -148,9 +148,7 @@ var hierarchy =
           [ "Mcro::Error::IPlainTextComponent", "d3/d00/classMcro_1_1Error_1_1IPlainTextComponent.html", [
             [ "Mcro::Error::FBlueprintStackTrace", "d8/d83/classMcro_1_1Error_1_1FBlueprintStackTrace.html", null ],
             [ "Mcro::Error::FCppStackTrace", "d5/d87/classMcro_1_1Error_1_1FCppStackTrace.html", null ]
-          ] ],
-          [ "Mcro::Windows::Error::FHresultError", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html", null ],
-          [ "Mcro::Windows::Error::FLastError", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html", null ]
+          ] ]
         ] ]
       ] ]
     ] ],

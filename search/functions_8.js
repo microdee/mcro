@@ -10,12 +10,9 @@ var searchData=
   ['isdefault_7',['IsDefault',['../d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html#a9822323306fb0f3abf8b7f580648a6eb',1,'Mcro::Delegates::FEventPolicy::IsDefault()'],['../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#ad00b9d5b4b1866539981e2c9a6687a08',1,'Mcro::Observable::FStatePolicy::IsDefault()']]],
   ['isempty_8',['IsEmpty',['../de/d41/namespaceMcro_1_1Range.html#a96215570cca44ad4e93ffb56143a7b5b',1,'Mcro::Range::IsEmpty(Input &amp;&amp;range)'],['../de/d41/namespaceMcro_1_1Range.html#a6ecf733949f9051ad211e073dd4eb788',1,'Mcro::Range::IsEmpty()']]],
   ['isinthread_9',['IsInThread',['../d6/d0a/namespaceMcro_1_1Threading.html#a0ff4c3b42a69749fcf7c27ac2f549a12',1,'Mcro::Threading']]],
-  ['ispcalloc_10',['ISPCAlloc',['../d7/d43/IspcParallelism_8h.html#a41c6e7c29d32736f74f9a94d1a19290b',1,'IspcParallelism.h']]],
-  ['ispclaunch_11',['ISPCLaunch',['../d7/d43/IspcParallelism_8h.html#a82ceee6f1194011e68f969209253edd9',1,'IspcParallelism.h']]],
-  ['ispcsync_12',['ISPCSync',['../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a',1,'IspcParallelism.h']]],
-  ['isrunningpie_13',['IsRunningPIE',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8',1,'Mcro::AssertMacros::Detail']]],
-  ['istriggered_14',['IsTriggered',['../d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e',1,'Mcro::Once::FOnce']]],
-  ['isvalid_15',['IsValid',['../df/d32/structMcro_1_1Any_1_1FAny.html#a1f010d88ad1916d4c6552079088ebbfe',1,'Mcro::Any::FAny::IsValid()'],['../d5/db6/structMcro_1_1TypeName_1_1FType.html#ab0cd8510601a912bcbb21ef184e7c57f',1,'Mcro::TypeName::FType::IsValid()']]],
-  ['isvisible_16',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]],
-  ['iteratorequals_17',['IteratorEquals',['../de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6',1,'Mcro::Range']]]
+  ['isrunningpie_10',['IsRunningPIE',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8',1,'Mcro::AssertMacros::Detail']]],
+  ['istriggered_11',['IsTriggered',['../d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e',1,'Mcro::Once::FOnce']]],
+  ['isvalid_12',['IsValid',['../df/d32/structMcro_1_1Any_1_1FAny.html#a1f010d88ad1916d4c6552079088ebbfe',1,'Mcro::Any::FAny::IsValid()'],['../d5/db6/structMcro_1_1TypeName_1_1FType.html#ab0cd8510601a912bcbb21ef184e7c57f',1,'Mcro::TypeName::FType::IsValid()']]],
+  ['isvisible_13',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]],
+  ['iteratorequals_14',['IteratorEquals',['../de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6',1,'Mcro::Range']]]
 ];

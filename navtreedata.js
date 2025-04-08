@@ -43,8 +43,6 @@ var NAVTREE =
       [ "ISPC parallel tasks support", "index.html#autotoc_md25", null ],
       [ "Last but not least", "index.html#autotoc_md26", null ]
     ] ],
-    [ "What's a proto-plugin", "index.html#autotoc_md27", null ],
-    [ "What's up with _Origin suffix everywhere?", "index.html#autotoc_md28", null ],
     [ "Legal", "index.html#Legal", null ],
     [ "Attribution", "da/dfb/Attribution.html", [
       [ "Tabler Icons", "da/dfb/Attribution.html#autotoc_md0", null ],
@@ -102,17 +100,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#a94c6f5d13c979ecf3dd66fccbf2525ee",
-"d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html",
-"d4/d98/conceptMcro_1_1Concepts_1_1CInterface.html",
-"d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html#a1a0d2aa9ee23c9cd84005b08c64ff1c7",
-"d7/d5e/structMcro_1_1Observable_1_1TState.html#a93d33b3c24c7b29b33d71b6c83ba4515",
-"d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13",
-"d9/ddf/conceptMcro_1_1Concepts_1_1CCopyConstructible.html",
-"db/dcf/Conversion_8h.html#aab68ef6e131c0af63899ccb1dfe76069",
-"dd/d1f/DummyDynamicDelegates_8h_source.html",
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#acf0a98d1b1317b949c942ad9d6180532",
-"files.html"
+"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#aaa7a7b3813fbe91673af291260471451",
+"d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4",
+"d4/dbf/DelegateFrom_8h.html#ae76d3762d68c77da68029e23ca2e67e6",
+"d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html#abc69d4279cafdaff9163bad31adc4113",
+"d7/d64/classMcro_1_1Range_1_1OutputToMap.html#a2cf52cab11db61e31a940b99fb6ce7b2",
+"d8/de7/structMcro_1_1Range_1_1TIteratorDifference__Struct.html",
+"da/d52/conceptMcro_1_1Concepts_1_1CScalar.html",
+"db/dfc/classMcro_1_1Error_1_1FCppException.html#a875b062f4e7eb476e6d64c427075c0b4",
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a3f1b9bbfe51a265ef7c437099bfc65be",
+"de/d56/conceptMcro_1_1Concepts_1_1CConvertibleToDecayed.html",
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

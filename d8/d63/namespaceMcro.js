@@ -45,7 +45,6 @@ var namespaceMcro =
     [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", "df/d09/namespaceMcro_1_1TypeName" ],
     [ "Types", "da/d89/namespaceMcro_1_1Types.html", "da/d89/namespaceMcro_1_1Types" ],
     [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", "df/d84/namespaceMcro_1_1UObjects" ],
-    [ "Windows", "db/de3/namespaceMcro_1_1Windows.html", "db/de3/namespaceMcro_1_1Windows" ],
     [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", "d5/dba/namespaceMcro_1_1Yaml" ],
     [ "Zero", "d0/dd7/namespaceMcro_1_1Zero.html", "d0/dd7/namespaceMcro_1_1Zero" ]
 ];

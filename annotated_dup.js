@@ -168,12 +168,6 @@ var annotated_dup =
           [ "TScopeObject", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject.html", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject" ]
         ] ]
       ] ],
-      [ "Windows", "db/de3/namespaceMcro_1_1Windows.html", [
-        [ "Error", "d0/d7b/namespaceMcro_1_1Windows_1_1Error.html", [
-          [ "FHresultError", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError" ],
-          [ "FLastError", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError" ]
-        ] ]
-      ] ],
       [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", [
         [ "TScopedRegion", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion" ]
       ] ],

@@ -35,9 +35,8 @@ var searchData=
   ['gettypefname_32',['GetTypeFName',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a153749bbf2e762141e5b5aa96be85295',1,'Mcro::Types::IHaveType']]],
   ['gettypestring_33',['GetTypeString',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a12c9edbbcc4cec5d1544f974242e2909',1,'Mcro::Types::IHaveType']]],
   ['getunknownformat_34',['GetUnknownFormat',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#aa9ebe1c1242db5bc8d6b6fa1569f6c3e',1,'Mcro::Rendering::Textures']]],
-  ['getunknownformat_3c_20dxgi_5fformat_20_3e_35',['GetUnknownFormat&lt; DXGI_FORMAT &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#ab67de83fc624ff2816a3887e0af7e8ba',1,'Mcro::Rendering::Textures']]],
-  ['getunknownformat_3c_20epixelformat_20_3e_36',['GetUnknownFormat&lt; EPixelFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a50ba2c45a75d348a14ae61f7880b3135',1,'Mcro::Rendering::Textures']]],
-  ['getunknownformat_3c_20etexturerendertargetformat_20_3e_37',['GetUnknownFormat&lt; ETextureRenderTargetFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a158428feac02ef551351e1de00645413',1,'Mcro::Rendering::Textures']]],
-  ['getvalidtypes_38',['GetValidTypes',['../df/d32/structMcro_1_1Any_1_1FAny.html#aedec2319f7bcdabafbe001f70dbaa9eb',1,'Mcro::Any::FAny']]],
-  ['getvalue_39',['GetValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c',1,'Mcro::Error::TMaybe::GetValue() -&gt; T &amp;'],['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4',1,'Mcro::Error::TMaybe::GetValue() const -&gt; T const &amp;']]]
+  ['getunknownformat_3c_20epixelformat_20_3e_35',['GetUnknownFormat&lt; EPixelFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a50ba2c45a75d348a14ae61f7880b3135',1,'Mcro::Rendering::Textures']]],
+  ['getunknownformat_3c_20etexturerendertargetformat_20_3e_36',['GetUnknownFormat&lt; ETextureRenderTargetFormat &gt;',['../d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html#a158428feac02ef551351e1de00645413',1,'Mcro::Rendering::Textures']]],
+  ['getvalidtypes_37',['GetValidTypes',['../df/d32/structMcro_1_1Any_1_1FAny.html#aedec2319f7bcdabafbe001f70dbaa9eb',1,'Mcro::Any::FAny']]],
+  ['getvalue_38',['GetValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c',1,'Mcro::Error::TMaybe::GetValue() -&gt; T &amp;'],['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4',1,'Mcro::Error::TMaybe::GetValue() const -&gt; T const &amp;']]]
 ];

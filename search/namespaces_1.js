@@ -55,11 +55,6 @@ var searchData=
   ['mcro_3a_3auobjects_52',['UObjects',['../df/d84/namespaceMcro_1_1UObjects.html',1,'Mcro']]],
   ['mcro_3a_3auobjects_3a_3ainit_53',['Init',['../de/d2e/namespaceMcro_1_1UObjects_1_1Init.html',1,'Mcro::UObjects']]],
   ['mcro_3a_3auobjects_3a_3ainit_3a_3adetail_54',['Detail',['../dd/dda/namespaceMcro_1_1UObjects_1_1Init_1_1Detail.html',1,'Mcro::UObjects::Init']]],
-  ['mcro_3a_3awindows_55',['Windows',['../db/de3/namespaceMcro_1_1Windows.html',1,'Mcro']]],
-  ['mcro_3a_3awindows_3a_3acom_56',['COM',['../d8/d3a/namespaceMcro_1_1Windows_1_1COM.html',1,'Mcro::Windows']]],
-  ['mcro_3a_3awindows_3a_3aerror_57',['Error',['../d0/d7b/namespaceMcro_1_1Windows_1_1Error.html',1,'Mcro::Windows']]],
-  ['mcro_3a_3awindows_3a_3arendering_58',['Rendering',['../da/d23/namespaceMcro_1_1Windows_1_1Rendering.html',1,'Mcro::Windows']]],
-  ['mcro_3a_3awindows_3a_3arendering_3a_3atextures_59',['Textures',['../d3/d0a/namespaceMcro_1_1Windows_1_1Rendering_1_1Textures.html',1,'Mcro::Windows::Rendering']]],
-  ['mcro_3a_3ayaml_60',['Yaml',['../d5/dba/namespaceMcro_1_1Yaml.html',1,'Mcro']]],
-  ['mcro_3a_3azero_61',['Zero',['../d0/dd7/namespaceMcro_1_1Zero.html',1,'Mcro']]]
+  ['mcro_3a_3ayaml_55',['Yaml',['../d5/dba/namespaceMcro_1_1Yaml.html',1,'Mcro']]],
+  ['mcro_3a_3azero_56',['Zero',['../d0/dd7/namespaceMcro_1_1Zero.html',1,'Mcro']]]
 ];
