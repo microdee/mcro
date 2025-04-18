@@ -42,6 +42,7 @@
 #include "Mcro/Range.h"
 #include "Mcro/Range/Conversion.h"
 #include "Mcro/Range/Views.h"
+#include "Mcro/ValueThunk.h"
 #include "Mcro/Zero.h"
 
 /** @brief Use this namespace for the minimal utilities MCRO has to offer */
@@ -62,6 +63,7 @@ namespace Mcro::CommonCore
 	using namespace Mcro::Threading;
 	using namespace Mcro::Types;
 	using namespace Mcro::Range;
+	using namespace Mcro::ValueThunk;
 }
 
 /** @brief Use this namespace for all the common features MCRO has to offer */
