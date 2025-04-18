@@ -93,17 +93,19 @@ consteval std::basic_string_view<TCHAR> GetCompileTimeTypeName()
 	return size ? output : std::basic_string_view<TCHAR>();
 }
 
-template <typename T>
-consteval uint64 GetCompileTimeTypeHash()
-{
-	std::string_view thisFunctionName { PRETTY_FUNC };
-	return constexpr_xxh3::XXH3_64bits_const(thisFunctionName);
-}
-
 /** Convert types to string */
 namespace Mcro::TypeName
 {
 	using namespace Mcro::Text;
+
+	using FTypeHash = uint64;
+
+	template <typename T>
+	consteval FTypeHash GetCompileTimeTypeHash()
+	{
+		std::string_view thisFunctionName { PRETTY_FUNC };
+		return constexpr_xxh3::XXH3_64bits_const(thisFunctionName);
+	}
 
 	/** @brief Group together type info for identification. Can have an invalid state when no type is specified. */
 	struct FType
@@ -123,7 +125,7 @@ namespace Mcro::TypeName
 		constexpr FType() {}
 		
 		FStringView Name;
-		uint64 Hash = 0;
+		FTypeHash Hash = 0;
 
 		constexpr FStringView ToString() const { return Name; }
 		FString ToStringCopy() const { return FString(Name); }
@@ -203,7 +205,7 @@ namespace Mcro::TypeName
 
 	/** @brief Get a fixed `uint64` hash representation of the given type. Have similar caveats as `TTypeName` */
 	template <typename T>
-	constexpr uint64 TTypeHash = GetCompileTimeTypeHash<T>();
+	constexpr FTypeHash TTypeHash = GetCompileTimeTypeHash<T>();
 
 	/**
 	 *	@brief

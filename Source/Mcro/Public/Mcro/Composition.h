@@ -223,17 +223,17 @@ namespace Mcro::Composition
 	 */
 	class MCRO_API IComposable
 	{
-		uint64 LastAddedComponentHash = 0;
-		mutable TMap<uint64, FAny> Components;
-		mutable TMap<uint64, TArray<uint64>> ComponentAliases;
+		FTypeHash LastAddedComponentHash = 0;
+		mutable TMap<FTypeHash, FAny> Components;
+		mutable TMap<FTypeHash, TArray<FTypeHash>> ComponentAliases;
 
-		bool HasExactComponent(uint64 typeHash) const;
-		bool HasComponentAliasUnchecked(uint64 typeHash) const;
-		bool HasComponentAlias(uint64 typeHash) const;
-		void AddComponentAlias(uint64 mainType, uint64 validAs);
+		bool HasExactComponent(FTypeHash typeHash) const;
+		bool HasComponentAliasUnchecked(FTypeHash typeHash) const;
+		bool HasComponentAlias(FTypeHash typeHash) const;
+		void AddComponentAlias(FTypeHash mainType, FTypeHash validAs);
 		
 		template <typename ValidAs>
-		void AddComponentAlias(uint64 mainType)
+		void AddComponentAlias(FTypeHash mainType)
 		{
 			Components[mainType].WithAlias<ValidAs>();
 			AddComponentAlias(mainType, TTypeHash<ValidAs>);
@@ -247,11 +247,17 @@ namespace Mcro::Composition
 			}
 		}
 		
-		ranges::any_view<FAny*> GetExactComponent(uint64 typeHash) const;
-		ranges::any_view<FAny*> GetAliasedComponents(uint64 typeHash) const;
-		ranges::any_view<FAny*> GetComponentsPrivate(uint64 typeHash) const;
+		ranges::any_view<FAny*> GetExactComponent(FTypeHash typeHash) const;
+		ranges::any_view<FAny*> GetAliasedComponents(FTypeHash typeHash) const;
 		
 	public:
+		
+		/**
+		 *	@brief   Get components determined at runtime
+		 *	@param   typeHash  The runtime determined type-hash the desired components are represented with
+		 *	@return  A type erased range view for all the components matched with given type-hash
+		 */
+		ranges::any_view<FAny*> GetComponentsDynamic(FTypeHash typeHash) const;
 
 		/**
 		 *	@brief
@@ -622,7 +628,7 @@ namespace Mcro::Composition
 		ranges::any_view<T*> GetComponents() const
 		{
 			namespace rv = ranges::views;
-			return GetComponentsPrivate(TTypeHash<T>)
+			return GetComponentsDynamic(TTypeHash<T>)
 				| rv::transform([](FAny* component) { return component->TryGet<T>(); })
 				| FilterValid();
 		}
