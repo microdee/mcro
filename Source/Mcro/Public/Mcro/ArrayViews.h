@@ -18,9 +18,9 @@ namespace Mcro::ArrayViews
 
 	/**
 	 * @brief   Makes a non-owning byte array view of the source typed array.
-	 * @tparam  T          Source type
+	 * @tparam          T  Source type
 	 * @tparam  Allocator  *(optional)* Array allocator
-	 * @param   array      Source array (going out of scope while working with the view will result in undefined behavior)
+	 * @param       array  Source array (going out of scope while working with the view will result in undefined behavior)
 	 * @return  a non-owning byte array view of the source array
 	 */
 	template<typename T, typename Allocator = FDefaultAllocator>
@@ -34,9 +34,9 @@ namespace Mcro::ArrayViews
 
 	/**
 	 * @brief   Makes a non-owning typed array view of the source byte array.
-	 * @tparam  T          Destination type
+	 * @tparam          T  Destination type
 	 * @tparam  Allocator  *(optional)* Array allocator
-	 * @param   array      Source array (going out of scope while working with the view will result in undefined behavior)
+	 * @param       array  Source array (going out of scope while working with the view will result in undefined behavior)
 	 * @return  a non-owning typed array view of the source array
 	 */
 	template<typename T, typename Allocator = FDefaultAllocator>

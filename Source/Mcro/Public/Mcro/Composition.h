@@ -264,8 +264,8 @@ namespace Mcro::Composition
 		 *	Add a component to this composable class.
 		 *
 		 *	@tparam MainType  The exact component type (deduced from `newComponent`
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *	
 		 *	@param newComponent
 		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
@@ -314,8 +314,8 @@ namespace Mcro::Composition
 		 *	Add a default constructed component to this composable class. 
 		 *
 		 *	@tparam MainType  The exact component type
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *
 		 *	@param facilities
 		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
@@ -356,8 +356,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
 		 *
 		 *	@tparam MainType  The exact component type (deduced from `newComponent`
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *	
 		 *	@param newComponent
 		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
@@ -385,8 +385,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
 		 *
 		 *	@tparam MainType  The exact component type
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *
 		 *	@param facilities
 		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
@@ -409,8 +409,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
 		 *
 		 *	@tparam MainType  The exact component type (deduced from `newComponent`
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *	
 		 *	@param newComponent
 		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
@@ -438,8 +438,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
 		 *
 		 *	@tparam MainType  The exact component type
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *
 		 *	@param facilities
 		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`

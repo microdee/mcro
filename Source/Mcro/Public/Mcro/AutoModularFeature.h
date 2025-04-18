@@ -141,7 +141,7 @@ namespace Mcro::AutoModularFeature
 		 *	overrides are not yet known, and "deducing this" is not meant for constructors.
 		 *	
 		 *	@tparam Implementation  Derived type of the implementation
-		 *	@param  self            Pointer to implementation registering itself
+		 *	@param            self  Pointer to implementation registering itself
 		 */
 		template<typename Implementation> requires CDerivedFrom<Implementation, Feature>
 		void Register(this Implementation&& self)

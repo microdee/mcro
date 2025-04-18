@@ -109,8 +109,8 @@ namespace Mcro::Slate
 		 *	breaks the flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims
 		 *	to make widget composition more comfortable.
 		 *	
-		 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
-		 *	@param   args        r-value reference right hand side FArguments or FSlotArguments
+		 *	@tparam   Arguments  Right hand side FArguments or FSlotArguments
+		 *	@param         args  r-value reference right hand side FArguments or FSlotArguments
 		 *	@param   attributes  An attribute block function
 		 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
 		 */
@@ -127,8 +127,8 @@ namespace Mcro::Slate
 		 *	breaks the flow of the declarative syntax and makes using Slate sometimes pretty clunky. This operator aims
 		 *	to make widget composition more comfortable.
 		 *	
-		 *	@tparam  Arguments   Right hand side FArguments or FSlotArguments
-		 *	@param   args        l-value reference right hand side FArguments or FSlotArguments
+		 *	@tparam   Arguments  Right hand side FArguments or FSlotArguments
+		 *	@param         args  l-value reference right hand side FArguments or FSlotArguments
 		 *	@param   attributes  An attribute block function
 		 *	@return  The same reference as args or a new slot if that has been added inside the attribute block
 		 */

@@ -251,7 +251,7 @@ namespace Mcro::Delegates::InferDelegate
 
 	/**
 	 *	@brief  Broadcast a multicast delegate when the returned delegate is executed with a binding object.
-	 *	@param  self       any type of binding object other `From` overloads accept
+	 *	@param       self  any type of binding object other `From` overloads accept
 	 *	@param  multicast  input multicast delegate
 	 *	
 	 *	@todo  Captures... and bound object
@@ -288,7 +288,7 @@ namespace Mcro::Delegates::InferDelegate
 
 	/**
 	 *	@brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.
-	 *	@tparam Dynamic    The type of the input dynamic multicast delegate
+	 *	@tparam   Dynamic  The type of the input dynamic multicast delegate
 	 *	@param  multicast  input dynamic multicast delegate
 	 *	
 	 *	@todo   Captures... and bound object
@@ -307,8 +307,8 @@ namespace Mcro::Delegates::InferDelegate
 
 	/**
 	 *	@brief  Broadcast a dynamic multicast delegate when the returned delegate is executed.
-	 *	@tparam Dynamic    The type of the input dynamic multicast delegate
-	 *	@param  self       any type of binding object other `From` overloads accept
+	 *	@tparam   Dynamic  The type of the input dynamic multicast delegate
+	 *	@param       self  any type of binding object other `From` overloads accept
 	 *	@param  multicast  input dynamic multicast delegate
 	 *	
 	 *	@todo   Captures... and bound object

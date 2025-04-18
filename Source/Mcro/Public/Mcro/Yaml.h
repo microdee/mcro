@@ -27,7 +27,7 @@ namespace Mcro::Yaml
 	/**
 	 *	@brief  RAII friendly region annotation for YAML::Emitter streams
 	 *	@tparam Begin  The YAML region begin tag
-	 *	@tparam End    The YAML region end tag
+	 *	@tparam   End  The YAML region end tag
 	 */
 	template <YAML::EMITTER_MANIP Begin, YAML::EMITTER_MANIP End>
 	class TScopedRegion

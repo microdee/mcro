@@ -45,9 +45,9 @@ namespace Mcro::Delegates
 	 *	}
 	 *	@endcode
 	 *	
-	 *	@tparam Dynamic             The origin type, i.e. the dynamic delegate. Will be auto-deduced.
+	 *	@tparam            Dynamic  The origin type, i.e. the dynamic delegate. Will be auto-deduced.
 	 *	@tparam NativeDelegateType  The target type, i.e. the delegate that you want to produce. Will be auto-deduced from Dynamic.
-	 *	@param dynamicDelegate      The dynamic delegate that will be converted
+	 *	@param     dynamicDelegate  The dynamic delegate that will be converted
 	 */
 	template <
 		CDynamicDelegate Dynamic,
