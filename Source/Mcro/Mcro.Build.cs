@@ -25,6 +25,7 @@ public class Mcro : ModuleRules
 			"Core",
 			"RenderCore",
 			"ApplicationCore",
+			"RHI",
 			"Slate",
 			"SlateCore",
 			"Boost",
@@ -40,6 +41,7 @@ public class Mcro : ModuleRules
 		{
 			"CoreUObject",
 			"Engine",
+			"McroISPC"
 		});
 
 		if (Target.Type == TargetType.Editor)

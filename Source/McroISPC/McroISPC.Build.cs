@@ -21,10 +21,5 @@ public class McroISPC : ModuleRules
 		PublicDependencyModuleNames.AddRange(new[] {
 			"Core",
 		});
-			
-		
-		PrivateDependencyModuleNames.AddRange(new[] {
-			"CoreUObject",
-		});
 	}
 }
