@@ -385,10 +385,17 @@ namespace Mcro::Text
 	 *	It's still much faster than using `FMT_(myVar) "{0}"`
 	 */
 	template <CStringFormatArgument T>
+	requires(!CSameAsDecayed<T, FString>)
 	FString AsString(T&& input)
 	{
 		FStringFormatArg format(AsFormatArgument(input));
 		return MoveTemp(format.StringValue);
+	}
+	
+	template <CSameAsDecayed<FString> T>
+	decltype(auto) AsString(T&& input)
+	{
+		return Forward<T>(input);
 	}
 
 	/**
