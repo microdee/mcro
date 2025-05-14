@@ -44,6 +44,13 @@ namespace Mcro::Modules
 		virtual void ShutdownModule() override;
 	};
 
+	/** @brief A record for the module event listeners */
+	struct MCRO_API FObserveModuleListener
+	{
+		TFunction<void()> OnStartup;
+		TFunction<void()> OnShutdown;
+	};
+
 	/** @brief Use this in global variables to automatically do things on module startup or shutdown */
 	template <CDerivedFrom<IObservableModule> M>
 	struct TObserveModule
@@ -54,17 +61,21 @@ namespace Mcro::Modules
 		 *	`(F|I)Foobar(Module(Interface)?)?` the extracted name will be `Foobar`. If your module doesn't follow this
 		 *	naming use the constructor accepting an FName
 		 */
-		TObserveModule()
+		TObserveModule(FObserveModuleListener&& listeners)
 		{
 			auto moduleName = TTypeString<M>().Mid(1);
 			moduleName.RemoveFromEnd(TEXT_"Module");
 			moduleName.RemoveFromEnd(TEXT_"ModuleInterface");
+			BindListeners(Forward<FObserveModuleListener>(listeners));
+			
 			ObserveModule(moduleName);
+			
 		}
 
 		/** @brief This constructor provides an explicit FName for getting the module */
-		TObserveModule(FName const& moduleName)
+		TObserveModule(FName const& moduleName, FObserveModuleListener&& listeners)
 		{
+			BindListeners(Forward<FObserveModuleListener>(listeners));
 			ObserveModule(moduleName);
 		}
 
@@ -98,6 +109,12 @@ namespace Mcro::Modules
 		
 	private:
 		M* Module = nullptr;
+
+		void BindListeners(FObserveModuleListener&& listeners)
+		{
+			if (listeners.OnStartup) OnStartupModule.Add(InferDelegate::From(listeners.OnStartup));
+			if (listeners.OnShutdown) OnShutdownModule.Add(InferDelegate::From(listeners.OnShutdown));
+		}
 
 		void ObserveModule(FName const& moduleName)
 		{
