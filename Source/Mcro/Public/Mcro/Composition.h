@@ -249,9 +249,23 @@ namespace Mcro::Composition
 		
 		ranges::any_view<FAny*> GetExactComponent(FTypeHash typeHash) const;
 		ranges::any_view<FAny*> GetAliasedComponents(FTypeHash typeHash) const;
+
+	protected:
+		/**
+		 *	@brief
+		 *	Override this function in your composable class to do custom logic when a component is added. A bit of
+		 *	dynamically typed programming is needed through the FAny API.
+		 *
+		 *	This is executed in AddComponent before IComponent::OnComponentRegistered and after automatic aliases has
+		 *	been set up (if they're available). This is not executed with subsequent setup of manual aliases. 
+		 *	
+		 *	@param component  The component being added. Query component type with the FAny API
+		 */
+		virtual void OnComponentAdded(FAny& component) {}
 		
 	public:
-		
+		virtual ~IComposable() = default;
+
 		/**
 		 *	@brief   Get components determined at runtime
 		 *	@param   typeHash  The runtime determined type-hash the desired components are represented with
@@ -293,7 +307,7 @@ namespace Mcro::Composition
 				)
 			);
 			
-			self.Components.Add(TTypeHash<MainType>, FAny(newComponent, facilities));
+			FAny& boxedComponent = self.Components.Add(TTypeHash<MainType>, FAny(newComponent, facilities));
 			self.LastAddedComponentHash = TTypeHash<MainType>;
 
 			if constexpr (CHasBases<MainType>)
@@ -305,6 +319,7 @@ namespace Mcro::Composition
 				});
 			}
 
+			OnComponentAdded(boxedComponent);
 			if constexpr (CCompatibleExplicitComponent<MainType, Self>)
 				newComponent->OnComponentRegistered(self);
 		}
