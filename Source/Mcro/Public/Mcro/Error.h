@@ -713,19 +713,39 @@ namespace Mcro::Error
 		->ToString()                                                 \
 	))                                                              //
 
-/** @brief Similar to check() macro, but return an error instead of crashing */
-#define ASSERT_RETURN(condition)                                        \
-	if (UNLIKELY(!(condition)))                                         \
-		return Mcro::Error::IError::Make(new Mcro::Error::FAssertion()) \
-			->WithLocation()                                            \
-			->AsRecoverable()                                           \
-			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition))         //
+#define MCRO_ASSERT_RETURN_2(condition, error)                  \
+	if (UNLIKELY(!(condition)))                                 \
+		return Mcro::Error::IError::Make(new error)             \
+			->WithLocation()                                    \
+			->AsRecoverable()                                   \
+			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition)) //
 
-/** @brief Denote that a resource which is asked for doesn't exist */
-#define UNAVAILABLE()                                                 \
-	return Mcro::Error::IError::Make(new Mcro::Error::FUnavailable()) \
-		->WithLocation()                                              \
-		->AsRecoverable()                                            //
+#define MCRO_ASSERT_RETURN_1(condition) MCRO_ASSERT_RETURN_2(condition, Mcro::Error::FAssertion())
+
+/**
+ *	@brief  Similar to check() macro, but return an error instead of crashing
+ *	
+ *	The following overloads are available:
+ *	- `(condition, error)` Specify error type to return
+ *	- `(condition)` Return `FAssertion` error
+ */
+#define ASSERT_RETURN(...) MACRO_OVERLOAD(MCRO_ASSERT_RETURN_, __VA_ARGS__)
+
+#define MCRO_UNAVAILABLE_1(error)               \
+	return Mcro::Error::IError::Make(new error) \
+		->WithLocation()                        \
+		->AsRecoverable()                      //
+
+#define MCRO_UNAVAILABLE_0() MCRO_UNAVAILABLE_1(Mcro::Error::FUnavailable())
+
+/**
+ *	@brief  Denote that a resource which is asked for doesn't exist
+ *	
+ *	The following overloads are available:
+ *	- `(error)` Specify error type to return
+ *	- `()` Return `FUnavailable` error
+ */
+#define UNAVAILABLE(...) MACRO_OVERLOAD(MCRO_UNAVAILABLE_, __VA_ARGS__)
 
 #define MCRO_PROPAGATE_FAIL_3(type, var, expression)    \
 	type var = (expression);                            \
