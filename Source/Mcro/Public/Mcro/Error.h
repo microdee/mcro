@@ -72,6 +72,7 @@ namespace Mcro::Error
 		FString Message;
 		FString Details;
 		FString CodeContext;
+		mutable bool bIsRoot = false;
 
 		/** @brief Override this method if inner errors needs custom way of serialization */
 		virtual void SerializeInnerErrors(YAML::Emitter& emitter) const;
@@ -93,7 +94,7 @@ namespace Mcro::Error
 		 *	Override this method if direct members should be serialized differently or extra members are added by
 		 *	derived errors.
 		 */
-		virtual void SerializeMembers(YAML::Emitter& emitter, bool isRoot) const;
+		virtual void SerializeMembers(YAML::Emitter& emitter) const;
 
 		virtual void NotifyState(Observable::IState<IErrorPtr>& state);
 		
@@ -117,9 +118,11 @@ namespace Mcro::Error
 		 *	Override this function to change the method how this error is entirely serialized into a YAML format
 		 *	
 		 *	@param emitter  the YAML node into which the data of this error needs to be appended to
-		 *	@param  isRoot  true when the top level error is being serialized
 		 */
-		virtual void SerializeYaml(YAML::Emitter& emitter, bool isRoot) const;
+		virtual void SerializeYaml(YAML::Emitter& emitter) const;
+
+		/** @brief Overload append operator for YAML::Emitter */
+		friend auto operator << (YAML::Emitter& emitter, IErrorRef const& error) -> YAML::Emitter&;
 
 		/** @brief Render this error as a string using the YAML representation */
 		FString ToString() const;

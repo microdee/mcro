@@ -17,7 +17,7 @@ namespace Mcro::Error
 {
 	using namespace Mcro::Yaml;
 	
-	void IPlainTextComponent::SerializeYaml(YAML::Emitter& emitter, bool isRoot) const
+	void IPlainTextComponent::SerializeYaml(YAML::Emitter& emitter) const
 	{
 		emitter << YAML::Literal << Message;
 	}

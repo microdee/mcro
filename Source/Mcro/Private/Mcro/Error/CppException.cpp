@@ -40,9 +40,9 @@ namespace Mcro::Error
 		return TEXT_"std::exception";
 	}
 
-	void FCppException::SerializeMembers(YAML::Emitter& emitter, bool isRoot) const
+	void FCppException::SerializeMembers(YAML::Emitter& emitter) const
 	{
 		emitter << YAML::Key << "ExceptionType" << YAML::Value << GetExceptionType();
-		IError::SerializeMembers(emitter, isRoot);
+		IError::SerializeMembers(emitter);
 	}
 }

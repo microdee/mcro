@@ -38,7 +38,7 @@ namespace Mcro::Error
 
 	protected:
 		virtual FStringView GetExceptionType() const;
-		virtual void SerializeMembers(YAML::Emitter& emitter, bool isRoot) const override;
+		virtual void SerializeMembers(YAML::Emitter& emitter) const override;
 	};
 
 	/**

@@ -23,7 +23,7 @@ namespace Mcro::Error
 		virtual void AddError(const FString& name, const TSharedRef<IError>& error, const FString& typeOverride = {}) override {}
 		virtual void SerializeInnerErrors(YAML::Emitter&) const override {}
 
-		virtual void SerializeYaml(YAML::Emitter& emitter, bool isRoot) const override;
+		virtual void SerializeYaml(YAML::Emitter& emitter) const override;
 		virtual TSharedRef<SErrorDisplay> CreateErrorWidget() override;
 	};
 	

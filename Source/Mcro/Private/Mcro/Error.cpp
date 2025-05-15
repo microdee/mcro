@@ -29,10 +29,11 @@ namespace Mcro::Error
 	
 	void IError::SerializeInnerErrors(YAML::Emitter& emitter) const
 	{
+		FMap innerErrors(emitter);
 		for (auto const& inner : InnerErrors)
 		{
-			emitter << YAML::Key << inner.Key << YAML::Value;
-			inner.Value->SerializeYaml(emitter, false);
+			inner.Value->bIsRoot = false;
+			emitter << YAML::Key << inner.Key << YAML::Value << inner.Value;
 		}
 	}
 
@@ -79,11 +80,11 @@ namespace Mcro::Error
 		AddError(name, Make(new FBlueprintStackTrace()));
 	}
 
-	void IError::SerializeMembers(YAML::Emitter& emitter, bool isRoot) const
+	void IError::SerializeMembers(YAML::Emitter& emitter) const
 	{
-		if (isRoot)
+		if (bIsRoot)
 			emitter << YAML::Key << "Type" << YAML::Value << TypeName;
-			
+		
 		if (Severity > EErrorSeverity::ErrorComponent)
 			emitter << YAML::Key << "Severity" << YAML::Value << Severity;
 		
@@ -102,18 +103,23 @@ namespace Mcro::Error
 		state.Set(SharedThis(this));
 	}
 
-	void IError::SerializeYaml(YAML::Emitter& emitter, bool isRoot) const
+	void IError::SerializeYaml(YAML::Emitter& emitter) const
 	{
 		FMap errorMap(emitter);
-		SerializeMembers(emitter, isRoot);
+		SerializeMembers(emitter);
 		SerializeErrorPropagation(emitter);
 
 		if (InnerErrors.Num() > 0)
 		{
 			emitter << YAML::Key << "InnerErrors" << YAML::Value;
-			FMap innerErrors(emitter);
 			SerializeInnerErrors(emitter);
 		}
+	}
+
+	auto operator << (YAML::Emitter& emitter, IErrorRef const& error) -> YAML::Emitter&
+	{
+		error->SerializeYaml(emitter);
+		return emitter;
 	}
 
 	FString IError::ToString() const
@@ -123,8 +129,9 @@ namespace Mcro::Error
 
 	std::string IError::ToStringUtf8() const
 	{
+		bIsRoot = true;
 		YAML::Emitter output;
-		SerializeYaml(output, true);
+		SerializeYaml(output);
 		return output.c_str();
 	}
 
