@@ -200,6 +200,16 @@ namespace Mcro::Observable
 		 */
 		virtual TUniquePtr<WriteLockVariant> WriteLock() = 0;
 
+		/** @brief Get the previous value if StorePrevious is enabled and there was at least one change */
+		virtual TOptional<T> const& GetPrevious() const = 0;
+		
+		/**
+		 *	@brief
+		 *	Get the previous value if StorePrevious is enabled and there was at least one change or the current value
+		 *	otherwise.
+		 */
+		virtual T const& GetPreviousOrCurrent() const = 0; 
+
 		template <typename Self>
 		operator T const& (this Self&& self)
 		{
@@ -372,6 +382,16 @@ namespace Mcro::Observable
 		virtual TUniquePtr<WriteLockVariant> WriteLock() override
 		{
 			return MakeUnique<WriteLockVariant>(TInPlaceType<WriteLockType>(), Mutex.Get());
+		}
+
+		virtual TOptional<T> const& GetPrevious() const override
+		{
+			return Value.Previous;
+		}
+		
+		virtual T const& GetPreviousOrCurrent() const override
+		{
+			return Value.Previous.IsSet() ? Value.Previous : Value.Next;
 		}
 		
 		template <CConvertibleTo<T> Other>
