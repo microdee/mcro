@@ -275,6 +275,72 @@ namespace Mcro::FunctionTraits
 		);
 	}
 
+	/** @brief Concept matching the return of a type with compatible return types, disregarding CV-ref qualifiers. */
+	template <typename F, typename Return>
+	concept CFunctionCompatible_ReturnDecay =
+		CFunctionLike<F>
+		&& CConvertibleToDecayed<TFunction_ReturnDecay<F>, Return>
+	;
+	
+	/** @brief Concept matching the return of a type with compatible return types, preserving CV-ref qualifiers. */
+	template <typename F, typename Return>
+	concept CFunctionCompatible_Return =
+		CFunctionLike<F>
+		&& CConvertibleTo<TFunction_Return<F>, Return>
+	;
+
+	/** @brief Concept matching function types with compatible set of arguments, disregarding CV-ref qualifiers. */
+	template <typename F, typename With>
+	concept CFunctionCompatible_ArgumentsDecay =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CConvertibleToDecayed<
+			TFunction_ArgumentsDecay<With>,
+			TFunction_ArgumentsDecay<F>
+		>
+	;
+
+	/** @brief Concept matching function types with compatible set of arguments, preserving CV-ref qualifiers. */
+	template <typename F, typename With>
+	concept CFunctionCompatible_Arguments =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CConvertibleTo<
+			TFunction_Arguments<With>,
+			TFunction_Arguments<F>
+		>
+	;
+
+	/**
+	 *	@brief
+	 *	Concept constraining a function type to another one which arguments and return types are compatible,
+	 *	disregarding CV-ref qualifiers
+	 */
+	template <typename F, typename With>
+	concept CFunctionCompatibleDecay =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CFunctionCompatible_ReturnDecay<F, TFunction_ReturnDecay<With>>
+		&& CFunctionCompatible_ArgumentsDecay<F, With>
+	;
+
+	/**
+	 *	@brief
+	 *	Concept constraining a function type to another one which arguments and return types are compatible,
+	 *	preserving CV-ref qualifiers
+	 */
+	template <typename F, typename With>
+	concept CFunctionCompatible =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CFunctionCompatible_Return<F, TFunction_Return<With>>
+		&& CFunctionCompatible_Arguments<F, With>
+	;
+
+	/** @brief Concept matching function types returning void. */
+	template <typename F>
+	concept CFunctionReturnsVoid = CFunctionLike<F> && std::is_void_v<TFunction_Return<F>>;
+
 	/**
 	 *	@brief
 	 *	Tests if a provided class member function pointer instance (not type!) is indeed an instance member method.
