@@ -13,11 +13,13 @@
 #include "CoreMinimal.h"
 #include "Mcro/Concepts.h"
 #include "Mcro/FunctionTraits.h"
+#include "Mcro/Templates.h"
 
 namespace Mcro::ValueThunk
 {
 	using namespace Mcro::Concepts;
 	using namespace Mcro::FunctionTraits;
+	using namespace Mcro::Templates;
 	
 	/** @brief Options for value thunks */
 	struct FValueThunkOptions
@@ -73,8 +75,7 @@ namespace Mcro::ValueThunk
 		template <CFunctorObject Functor>
 		requires CConvertibleTo<TFunction_ReturnDecay<Functor>, T>
 		TValueThunk(Functor&& value, FValueThunkOptions const& options = {})
-			: bIsSet(true)
-			, Options(options)
+			: Options(options)
 			, Function(Forward<Functor>(value))
 		{};
 
@@ -112,6 +113,25 @@ namespace Mcro::ValueThunk
 		operator T&&      () &&    { return Steal(); }
 
 		bool IsSet() const { return bIsSet; }
+
+		template <CFunctorObject Functor>
+		requires CConvertibleTo<TFunction_ReturnDecay<Functor>, T>
+		TValueThunk& operator = (Functor&& value)
+		{
+			bIsSet = false;
+			Function = value;
+			return *this;
+		}
+
+		template <CConvertibleTo<T> Other>
+		requires (!CIsTemplate<Other, TValueThunk>)
+		TValueThunk& operator = (Other&& value)
+		{
+			bIsSet = true;
+			Function.Reset();
+			Storage = value;
+			return *this;
+		}
 		
 	private:
 		mutable T Storage {};
