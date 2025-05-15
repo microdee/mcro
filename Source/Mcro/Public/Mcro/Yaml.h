@@ -151,17 +151,20 @@ namespace Mcro::Yaml
 			}
 		};
 	}
+}
 
+namespace YAML
+{
 	/**
 	 *	@brief
 	 *	A generic append operator for YAML::Emitter, which attempts to handle containers, tuples and can accept types
 	 *	which are also compatible as a string format argument. In other words this templated append operator overload
 	 *	is a fallback when an explicit one for the given type is not available.
 	 */
-	template <Detail::CYamlAppendHandled T>
-	YAML::Emitter& operator << (YAML::Emitter& out, T const& v)
+	template <Mcro::Yaml::Detail::CYamlAppendHandled T>
+	Emitter& operator << (Emitter& out, T const& v)
 	{
-		return Detail::YamlAppend(out, v);
+		return Mcro::Yaml::Detail::YamlAppend(out, v);
 	}
 }
 
