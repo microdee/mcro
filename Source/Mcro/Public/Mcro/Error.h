@@ -618,6 +618,21 @@ namespace Mcro::Error
 		auto GetErrorRef() const -> IErrorRef { return Error.ToSharedRef(); }
 
 		operator bool() const { return HasValue(); }
+
+		/**
+		 *	@brief  Modify a potential error stored in this monad
+		 *	@tparam     Self  Deducing this
+		 *	@tparam Function  Modifying function type
+		 *	@param      self  Deducing this
+		 *	@param       mod  Input function modifying a potential error
+		 *	@return  Self, preserving qualifiers.
+		 */
+		template <typename Self, CFunctionCompatible_ArgumentsDecay<void(IErrorRef)> Function>
+		Self&& ModifyError(this Self&& self, Function&& mod)
+		{
+			if (self.HasError()) mod(self.GetErrorRef());
+			return Forward<Self>(self);
+		}
 		
 		operator TValueOrError<T, IErrorPtr>() const
 		{
