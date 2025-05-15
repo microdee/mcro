@@ -539,6 +539,28 @@ namespace Mcro::Error
 			
 			return self.SharedThis(&self);
 		}
+
+		/**
+		 *	@brief
+		 *	Call an arbitrary function with this error. Other than cases like invoking macros inline operating on
+		 *	errors (like the inline ERROR_LOG overload) this may have limited use.
+		 *	
+		 *	@tparam     Self  Deducing this. 
+		 *	@tparam Function  Function to call with this error. 
+		 *	@param      self  Deducing this. 
+		 *	@param  function  Function to call with this error. 
+		 *	@return  Self for further fluent API setup
+		 */
+		template <
+			typename Self,
+			CFunctionCompatible_ArgumentsDecay<void(SelfRef<Self>)> Function
+		>
+		SelfRef<Self> AsOperandWith(this Self&& self, Function&& function)
+		{
+			auto sharedSelf = self.SharedThis(&self);
+			function(sharedSelf);
+			return sharedSelf;
+		}
 	};
 
 	/** @brief A simple error type for checking booleans. It adds no extra features to IError */
@@ -660,12 +682,29 @@ namespace Mcro::Error
 	FORCEINLINE FCanFail Success() { return FVoid(); }
 }
 
-#define ERROR_LOG(categoryName, verbosity, error)        \
+#define MCRO_ERROR_LOG_3(categoryName, verbosity, error) \
 	UE_LOG(categoryName, verbosity, TEXT_"%s", *((error) \
 		->WithLocation()                                 \
 		->Report()                                       \
 		->ToString()                                     \
 	))                                                  //
+
+#define MCRO_ERROR_LOG_2(categoryName, verbosity)                         \
+	Report()                                                              \
+	->AsOperandWith([](IErrorRef const& error)                            \
+	{                                                                     \
+		UE_LOG(categoryName, verbosity, TEXT_"%s", *(error->ToString())); \
+	})                                                                   //
+
+/**
+ *	@brief  Convenience macro for logging an error with UE_LOG
+ *
+ *	The following overloads are available:
+ *	- `(categoryName, verbosity, error)` Simply use UE_LOG to log the error
+ *	- `(categoryName, verbosity)` Log the error preceding this macro (use ERROR_LOG inline).
+ *	  `WithLocation` is omitted from this overload
+ */
+#define ERROR_LOG(...) MACRO_OVERLOAD(MCRO_ERROR_LOG_, __VA_ARGS__)
 
 #define ERROR_CLOG(condition, categoryName, verbosity, error)        \
 	UE_CLOG(condition, categoryName, verbosity, TEXT_"%s", *((error) \
