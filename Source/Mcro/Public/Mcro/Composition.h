@@ -630,6 +630,74 @@ namespace Mcro::Composition
 
 		/**
 		 *	@brief
+		 *	Modify a component inline, with a lambda function. The component type is inferred from the function's first
+		 *	argument, and a reference of that component is passed into it. The component must exist before calling this
+		 *	method, or if it doesn't, the application will crash.
+		 *	
+		 *	@tparam Self  Deducing this
+		 *	
+		 *	@tparam Function
+		 *	Function type for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@param self  Deducing this
+		 *	
+		 *	@param function
+		 *	Function for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@return
+		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
+		 */
+		template <
+			CSharedFromThis Self,
+			CFunctionLike Function
+		>
+		requires (TFunction_ArgCount<Function> == 1)
+		auto With(this Self&& self, Function&& function)
+		{
+			function(self.template GetComponent<TFunction_ArgDecay<Function, 0>>());
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+		}
+
+		/**
+		 *	@brief
+		 *	Modify a component inline, with a lambda function. The component type is inferred from the function's first
+		 *	argument, and a reference of that component is passed into it. The component must exist before calling this
+		 *	method, or if it doesn't, the application will crash.
+		 *	
+		 *	@tparam Self  Deducing this
+		 *	
+		 *	@tparam Function
+		 *	Function type for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@param self  Deducing this
+		 *	
+		 *	@param function
+		 *	Function for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@return
+		 *	Perfect-forwarded self.
+		 */
+		template <
+			typename Self,
+			CFunctionLike Function
+		>
+		requires (!CSharedFromThis<Self> && TFunction_ArgCount<Function> == 1)
+		decltype(auto) With(this Self&& self, Function&& function)
+		{
+			function(self.template GetComponent<TFunction_ArgDecay<Function, 0>>());
+			return Forward<Self>(self);
+		}
+
+		/**
+		 *	@brief
 		 *	Get all components added matching~ or aliased by the given type.
 		 *	
 		 *	@tparam T  Desired component type.
