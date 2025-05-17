@@ -74,25 +74,25 @@ void FMcroComposition_Spec::Define()
 		It(TEXT_"should respect type safety.", [this]
 		{
 			auto payload = FComposableSimple()
-				.WithComponent<FSimpleComponent>()
-				.WithComponent<FComponentA>().With(TTypes<FComponentBase, IComponentInterface>())
-				.WithComponent<FComponentB>().With(TTypes<FComponentBase, IComponentInterface>())
-				.WithComponent<FComponentC>().With(TTypes<FComponentBase, IComponentInterface>())
-				.WithComponent<FAutoComponentA>()
-				.WithComponent<FAutoComponentB>()
-				.WithComponent<FAutoComponentC>()
+				.With<FSimpleComponent>()
+				.With<FComponentA>().With(TTypes<FComponentBase, IComponentInterface>())
+				.With<FComponentB>().With(TTypes<FComponentBase, IComponentInterface>())
+				.With<FComponentC>().With(TTypes<FComponentBase, IComponentInterface>())
+				.With<FAutoComponentA>()
+				.With<FAutoComponentB>()
+				.With<FAutoComponentC>()
 			;
-			TestNotNull(TEXT_"FSimpleComponent", payload.TryGetComponent<FSimpleComponent>());
+			TestNotNull(TEXT_"FSimpleComponent", payload.TryGet<FSimpleComponent>());
 			
-			TestNotNull(TEXT_"FComponentA", payload.TryGetComponent<FComponentA>());
-			TestNotNull(TEXT_"FComponentB", payload.TryGetComponent<FComponentB>());
-			TestNotNull(TEXT_"FComponentC", payload.TryGetComponent<FComponentC>());
+			TestNotNull(TEXT_"FComponentA", payload.TryGet<FComponentA>());
+			TestNotNull(TEXT_"FComponentB", payload.TryGet<FComponentB>());
+			TestNotNull(TEXT_"FComponentC", payload.TryGet<FComponentC>());
 			
-			TestNotNull(TEXT_"FAutoComponentA", payload.TryGetComponent<FAutoComponentA>());
-			TestNotNull(TEXT_"FAutoComponentB", payload.TryGetComponent<FAutoComponentB>());
-			TestNotNull(TEXT_"FAutoComponentC", payload.TryGetComponent<FAutoComponentC>());
+			TestNotNull(TEXT_"FAutoComponentA", payload.TryGet<FAutoComponentA>());
+			TestNotNull(TEXT_"FAutoComponentB", payload.TryGet<FAutoComponentB>());
+			TestNotNull(TEXT_"FAutoComponentC", payload.TryGet<FAutoComponentC>());
 			
-			TestNull(TEXT_"Should return null for non-component", payload.TryGetComponent<FVector>());
+			TestNull(TEXT_"Should return null for non-component", payload.TryGet<FVector>());
 
 			auto components = payload.GetComponents<IComponentInterface>() | RenderAs<TArray>();
 			TestEqual(TEXT_"Getting multiple Components",  components.Num(), 6);
@@ -107,13 +107,13 @@ void FMcroComposition_Spec::Define()
 			
 			int counter = 0;
 			auto payload = FComposableSimple { .Confirmation = [&counter]{ ++counter; } }
-				.WithComponent<FChillComponent>()
-				.WithComponent<FStrictComponent>()
+				.With<FChillComponent>()
+				.With<FStrictComponent>()
 			;
 			TestEqual(TEXT_"OnComponentRegistered confirmation", counter, 2);
 
 			auto other = FComposableOther()
-				.WithComponent<FChillComponent>()
+				.With<FChillComponent>()
 				// .WithComponent<FStrictComponent>() // <- shouldn't compile
 			;
 		});
@@ -121,16 +121,16 @@ void FMcroComposition_Spec::Define()
 		It(TEXT_"should respect shared objects.", [this]
 		{
 			auto payload = MakeShared<FSharedComposable>()
-				->WithComponent<FSimpleComponent>()
-				->WithComponent<FAutoComponentA>()
-				->WithComponent<FAutoComponentB>()
-				->WithComponent<FAutoComponentC>()
+				->With<FSimpleComponent>()
+				->With<FAutoComponentA>()
+				->With<FAutoComponentB>()
+				->With<FAutoComponentC>()
 			;
-			TestNotNull(TEXT_"FSimpleComponent", payload->TryGetComponent<FSimpleComponent>());
-			TestNotNull(TEXT_"FAutoComponentA", payload->TryGetComponent<FAutoComponentA>());
-			TestNotNull(TEXT_"FAutoComponentB", payload->TryGetComponent<FAutoComponentB>());
-			TestNotNull(TEXT_"FAutoComponentC", payload->TryGetComponent<FAutoComponentC>());
-			TestNull(TEXT_"Should return null for non-component", payload->TryGetComponent<FVector>());
+			TestNotNull(TEXT_"FSimpleComponent", payload->TryGet<FSimpleComponent>());
+			TestNotNull(TEXT_"FAutoComponentA", payload->TryGet<FAutoComponentA>());
+			TestNotNull(TEXT_"FAutoComponentB", payload->TryGet<FAutoComponentB>());
+			TestNotNull(TEXT_"FAutoComponentC", payload->TryGet<FAutoComponentC>());
+			TestNull(TEXT_"Should return null for non-component", payload->TryGet<FVector>());
 
 			auto components = payload->GetComponents<IComponentInterface>() | RenderAs<TArray>();
 			TestEqual(TEXT_"Getting multiple Components",  components.Num(), 3);

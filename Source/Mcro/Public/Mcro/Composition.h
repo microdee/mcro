@@ -125,28 +125,28 @@ namespace Mcro::Composition
 	 *	//// Declare their composition at construction:
 	 *	
 	 *	auto MyStuff = FMyComposableType()
-	 *		.WithComponent<FSimpleComponent>()                 // <- Simply add components with their types
-	 *		.WithComponent(new FComponentImplementation(1, 2)) // <- Or simply use new operator
-	 *		                                                   //    (IComposable assumes ownership)
-	 *		                                                   //    Because FComponentImplementation uses TInherit
-	 *		                                                   //    IBaseComponent is not needed to be repeated here
-	 *		.WithComponent(new FRegularInherited(3, 4))        //
-	 *		    .WithAlias<IRegularBase>()                     // <- FRegularInherited cannot tell automatically that it
-	 *		                                                   //    inherits from IRegularBase so we need to specify
-	 *		                                                   //    that here explicitly in case we want to get
-	 *		                                                   //    FRegularInherited component via its base class
+	 *		.With<FSimpleComponent>()                 // <- Simply add components with their types
+	 *		.With(new FComponentImplementation(1, 2)) // <- Or simply use new operator
+	 *		                                          //    (IComposable assumes ownership)
+	 *		                                          //    Because FComponentImplementation uses TInherit
+	 *		                                          //    IBaseComponent is not needed to be repeated here
+	 *		.With(new FRegularInherited(3, 4))        //
+	 *		    .WithAlias<IRegularBase>()            // <- FRegularInherited cannot tell automatically that it
+	 *		                                          //    inherits from IRegularBase so we need to specify
+	 *		                                          //    that here explicitly in case we want to get
+	 *		                                          //    FRegularInherited component via its base class
 	 *	;
 	 *	
 	 *	//// Get components at runtime:
 	 *	
-	 *	int a = MyStuff.GetComponent<FSimpleComponent>().A; //
-	 *	// -> 0                                             //
-	 *	int b = MyStuff.GetComponent<IBaseComponent>().B;   // <- We can get the component via base class here, only
-	 *	// -> 1                                             //    because it was exposed via TInherit
-	 *	int d = MyStuff.GetComponent<IRegularBase>().D;     // <- We can get the component via base class here, because
-	 *	// -> 3                                             //    we explicitly specified it during registration
-	 *	FVector* v = MyStuff.TryGetComponent<FVector>();    // <- If there's any doubt that a component may not have
-	 *	// -> nullptr; FVector wasn't added as a component  //    been registered, use TryGetComponent instead.
+	 *	int a = MyStuff.Get<FSimpleComponent>().A; //
+	 *	// -> 0                                    //
+	 *	int b = MyStuff.Get<IBaseComponent>().B;   // <- We can get the component via base class here, only
+	 *	// -> 1                                    //    because it was exposed via TInherit
+	 *	int d = MyStuff.Get<IRegularBase>().D;     // <- We can get the component via base class here, because
+	 *	// -> 3                                    //    we explicitly specified it during registration
+	 *	FVector* v = MyStuff.TryGet<FVector>();    // <- If there's any doubt that a component may not have
+	 *	// -> nullptr; FVector wasn't a component  //    been registered, use TryGet instead.
 	 *	@endcode
 	 *	
 	 *	As mentioned earlier, components are not required to have any arbitrary type traits, but if they inherit from
@@ -177,15 +177,15 @@ namespace Mcro::Composition
 	 *	//// Declare their composition at construction:
 	 *	
 	 *	auto MyOtherStuff = FExpectedParent()
-	 *		.WithComponent<FChillComponent>()  // OK, and OnComponentRegistered is called
-	 *		.WithComponent<FStrictComponent>() // OK, and OnComponentRegistered is called
+	 *		.With<FChillComponent>()  // OK, and OnComponentRegistered is called
+	 *		.With<FStrictComponent>() // OK, and OnComponentRegistered is called
 	 *	
 	 *	auto MyStuff = FSomeOtherParent()
-	 *		.WithComponent<FChillComponent>()  // OK, but OnComponentRegistered won't be called.
+	 *		.With<FChillComponent>()  // OK, but OnComponentRegistered won't be called.
 	 *		
-	 *		.WithComponent<FStrictComponent>() // COMPILE ERROR, CCompatibleComponent concept is not satisfied
-	 *		                                   // because FSomeOtherParent is not convertible to FExpectedParent
-	 *		                                   // at OnComponentRegistered(FExpectedParent& to)
+	 *		.With<FStrictComponent>() // COMPILE ERROR, CCompatibleComponent concept is not satisfied because
+	 *		                          // FSomeOtherParent is not convertible to FExpectedParent at
+	 *		                          // OnComponentRegistered(FExpectedParent& to)
 	 *	;
 	 *	@endcode
 	 *	
@@ -261,10 +261,9 @@ namespace Mcro::Composition
 		 *	
 		 *	@param component  The component being added. Query component type with the FAny API
 		 */
-		virtual void OnComponentAdded(FAny& component) {}
+		TFunction<void(FAny&)> OnComponentAdded;
 		
 	public:
-		virtual ~IComposable() = default;
 
 		/**
 		 *	@brief   Get components determined at runtime
@@ -359,7 +358,7 @@ namespace Mcro::Composition
 		{
 			ASSERT_CRASH(LastAddedComponentHash != 0 && Components.Contains(LastAddedComponentHash),
 				->WithMessage(TEXT_"Component aliases were listed, but no components were added before.")
-				->WithDetails(TEXT_"Make sure `AddAlias` or `WithAlias` is called after `AddComponent` / `WithComponent`.")
+				->WithDetails(TEXT_"Make sure `AddAlias` or `WithAlias` is called after `AddComponent` / `With`.")
 			);
 			(AddComponentAlias<ValidAs>(LastAddedComponentHash), ...);
 		}
@@ -387,7 +386,7 @@ namespace Mcro::Composition
 		 */
 		template <typename MainType, CSharedFromThis Self>
 		requires CCompatibleComponent<MainType, Self>
-		auto WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
+		auto With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
@@ -411,7 +410,7 @@ namespace Mcro::Composition
 		 */
 		template <CDefaultInitializable MainType, CSharedFromThis Self>
 		requires CCompatibleComponent<MainType, Self>
-		auto WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
+		auto With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
@@ -440,7 +439,7 @@ namespace Mcro::Composition
 		 */
 		template <typename MainType, typename Self>
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
-		decltype(auto) WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
+		decltype(auto) With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
 			return Forward<Self>(self);
@@ -464,7 +463,7 @@ namespace Mcro::Composition
 		 */
 		template <CDefaultInitializable MainType, typename Self>
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
-		decltype(auto) WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
+		decltype(auto) With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
 			return Forward<Self>(self);
@@ -481,7 +480,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>()
+		 *		.With<FMyComponent>()
 		 *			.WithAlias<FMyComponentBase>()
 		 *			.WithAlias<IMyComponentInterface>()
 		 *	;
@@ -522,7 +521,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>()
+		 *		.With<FMyComponent>()
 		 *			.WithAlias<FMyComponentBase>()
 		 *			.WithAlias<IMyComponentInterface>()
 		 *	;
@@ -561,7 +560,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>().With(TAlias<
+		 *		.With<FMyComponent>().With(TAlias<
 		 *			FMyComponentBase,
 		 *			IMyComponentInterface
 		 *		>)
@@ -598,7 +597,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>().With(TAlias<
+		 *		.With<FMyComponent>().With(TAlias<
 		 *			FMyComponentBase,
 		 *			IMyComponentInterface
 		 *		>)
@@ -658,7 +657,7 @@ namespace Mcro::Composition
 		requires (TFunction_ArgCount<Function> == 1)
 		auto With(this Self&& self, Function&& function)
 		{
-			function(self.template GetComponent<TFunction_ArgDecay<Function, 0>>());
+			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 
@@ -692,7 +691,7 @@ namespace Mcro::Composition
 		requires (!CSharedFromThis<Self> && TFunction_ArgCount<Function> == 1)
 		decltype(auto) With(this Self&& self, Function&& function)
 		{
-			function(self.template GetComponent<TFunction_ArgDecay<Function, 0>>());
+			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
 			return Forward<Self>(self);
 		}
 
@@ -729,7 +728,7 @@ namespace Mcro::Composition
 		 *	A pointer to the component if one at least exists, nullptr otherwise.
 		 */
 		template <typename T>
-		const T* TryGetComponent() const
+		const T* TryGet() const
 		{
 			return GetComponents<T>() | FirstOrDefault();
 		}
@@ -747,7 +746,7 @@ namespace Mcro::Composition
 		 *	A pointer to the component if one at least exists, nullptr otherwise.
 		 */
 		template <typename T>
-		T* TryGetComponent()
+		T* TryGet()
 		{
 			return GetComponents<T>() | FirstOrDefault();
 		}
@@ -761,7 +760,7 @@ namespace Mcro::Composition
 		 *
 		 *	@warning
 		 *	If there may be the slightest doubt that the given component may not exist on this composable class, use
-		 *	`TryGetComponent` instead as this function can crash at runtime.
+		 *	`TryGet` instead as this function can crash at runtime.
 		 *	
 		 *	@tparam T  Desired component type.
 		 *	
@@ -769,9 +768,9 @@ namespace Mcro::Composition
 		 *	A reference to the desired component. It is a runtime crash if the component doesn't exist.
 		 */
 		template <typename T>
-		T const& GetComponent() const
+		T const& Get() const
 		{
-			const T* result = TryGetComponent<T>();
+			const T* result = TryGet<T>();
 			ASSERT_CRASH(result, ->WithMessageF(TEXT_"Component {0} was unavailable.", TTypeName<T>));
 			return *result;
 		}
@@ -785,7 +784,7 @@ namespace Mcro::Composition
 		 *
 		 *	@warning
 		 *	If there may be the slightest doubt that the given component may not exist on this composable class, use
-		 *	`TryGetComponent` instead as this function can crash at runtime.
+		 *	`TryGet` instead as this function can crash at runtime.
 		 *	
 		 *	@tparam T  Desired component type.
 		 *	
@@ -793,9 +792,9 @@ namespace Mcro::Composition
 		 *	A reference to the desired component. It is a runtime crash if the component doesn't exist.
 		 */
 		template <typename T>
-		T& GetComponent()
+		T& Get()
 		{
-			T* result = TryGetComponent<T>();
+			T* result = TryGet<T>();
 			ASSERT_CRASH(result, ->WithMessageF(TEXT_"Component {0} was unavailable.", TTypeName<T>));
 			return *result;
 		}

@@ -62,8 +62,6 @@ namespace Mcro::Composition
 	{
 		namespace r = ranges;
 		namespace rv = ranges::views;
-
-		auto asd = IComposable().WithComponent<FVector>();
 			
 		if (HasComponentAlias(typeHash))
 			return ComponentAliases[typeHash]
