@@ -636,6 +636,8 @@ namespace Mcro::Error
 		auto GetValue()       -> T&       { return Value.GetValue(); }
 		auto GetValue() const -> T const& { return Value.GetValue(); }
 
+		T&& StealValue() && { return MoveTemp(Value.GetValue()); }
+
 		auto GetError() const -> IErrorPtr { return Error; }
 		auto GetErrorRef() const -> IErrorRef { return Error.ToSharedRef(); }
 
