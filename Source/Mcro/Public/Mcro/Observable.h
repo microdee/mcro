@@ -143,6 +143,39 @@ namespace Mcro::Observable
 		}
 
 		/**
+		 *	@brief  Pull changes from another state, syncing the value between the two. Values will be copied.
+		 *
+		 *	@todo
+		 *	Currently it's not safe to sync multiple states this way which are not related in scope with each-other.
+		 *	Meaning this state should be in the outer scope of the other state. This should be resolved with a lifespan
+		 *	signaling construct which could express invalidation in bound objects. This is traditionally done in
+		 *	TSharedPtr/TWeakPtr and relatives but I'm thinking of something less intrusive.
+		 */
+		template <typename Other>
+		requires CConvertibleToDecayed<Other, T>
+		void SyncPull(IState<Other>& otherState)
+		{
+			// TODO: make this a lot safer
+			otherState.OnChange([this](Other const& next) { Set(next); }, {.Belated = true});
+		}
+
+		/**
+		 *	@brief  Push changes from another state, syncing the value between the two. Values will be copied.
+		 *
+		 *	@todo
+		 *	Currently it's not safe to sync multiple states this way which are not related in scope with each-other.
+		 *	Meaning this state should be in the inner scope of the other state. This should be resolved with a lifespan
+		 *	signaling construct which could express invalidation in bound objects. This is traditionally done in
+		 *	TSharedPtr/TWeakPtr and relatives but I'm thinking of something less intrusive.
+		 */
+		template <CConvertibleToDecayed<T> Other>
+		void SyncPush(IState<Other>& otherState)
+		{
+			// TODO: make this a lot safer
+			OnChange([&otherState](T const& next) { otherState.Set(next); }, {.Belated = true});
+		}
+
+		/**
 		 *	@brief
 		 *	Given value will be stored in the state only if T is equality comparable and it differs from the current
 		 *	state value. If T is not equality comparable this function is equivalent to Set and always returns true.
