@@ -11,8 +11,12 @@
 
 #pragma once
 #include "CoreMinimal.h"
+#include "Mcro/AssertMacros.h"
+#include "Mcro/TextMacros.h"
 #include "Mcro/TypeName.h"
 #include "Mcro/Delegates/EventDelegate.h"
+#include "Mcro/Error.h"
+#include "Mcro/Enums.h"
 
 /** @brief Namespace for utilities handling Unreal modules */
 namespace Mcro::Modules
@@ -20,6 +24,82 @@ namespace Mcro::Modules
 	using namespace Mcro::Delegates;
 	using namespace Mcro::Concepts;
 	using namespace Mcro::TypeName;
+	using namespace Mcro::Error;
+	using namespace Mcro::Enums;
+
+	/**
+	 *	@brief
+	 *	Infer the module name from an input type. This exists because there's a very reliable naming convention for
+	 *	class names representing modules. The inference is removing the first letter Hungarian type notation and
+	 *	removing "Module" or "ModuleInterface" from the end.
+	 *	
+	 *	@tparam M  the supposed type of the module
+	 *	@return    The module name inferrable from its type name
+	 */
+	template <CDerivedFrom<IModuleInterface> M>
+	FString InferModuleName()
+	{
+		auto moduleName = TTypeString<M>().Mid(1);
+		moduleName.RemoveFromEnd(TEXT_"Module");
+		moduleName.RemoveFromEnd(TEXT_"ModuleInterface");
+		return moduleName;
+	}
+
+	/**
+	 *	@brief
+	 *	Try to load a module and return an IError when that fails for any reason. Module name is inferred from type
+	 *	described in @see InferModuleName.
+	 */
+	template <CDerivedFrom<IModuleInterface> M>
+	TMaybe<M*> TryLoadUnrealModule()
+	{
+		auto loadResult = EModuleLoadResult::Success;
+		auto name = InferModuleName<M>();
+		auto moduleInterface = FModuleManager::Get().LoadModuleWithFailureReason(name, loadResult);
+		ASSERT_RETURN(loadResult == EModuleLoadResult::Success && moduleInterface)
+			->AsFatal()
+			->WithMessageF(TEXT_"Couldn't load module {0} inferred from type {1}",
+				name, TTypeName<M>
+			)
+			->WithAppendix(TEXT_"EModuleLoadResult", EnumToStringCopy(loadResult));
+		return static_cast<M*>(moduleInterface);
+	}
+
+	/**
+	 *	@brief
+	 *	Load a module or crash with IError if it cannot be done for any reason Module name is inferred from type
+	 *	described in @see InferModuleName.
+	 */
+	template <CDerivedFrom<IModuleInterface> M>
+	M& LoadUnrealModule()
+	{
+		auto result = TryLoadUnrealModule<M>();
+		ASSERT_CRASH(result,
+			->WithError(result.GetErrorRef())
+		);
+		return result.GetValue();
+	}
+
+	/** @brief Shorthand for FModuleManager::GetModulePtr with the name inferred from given type. @see InferModuleName */
+	template <CDerivedFrom<IModuleInterface> M>
+	M* GetUnrealModulePtr()
+	{
+		return FModuleManager::GetModulePtr<M>(InferModuleName<M>());
+	}
+
+	/** @brief Get an already loaded unreal module. If for any reason it's not loaded, crash the app. @see InferModuleName */
+	template <CDerivedFrom<IModuleInterface> M>
+	M& GetUnrealModule()
+	{
+		M* result = FModuleManager::GetModulePtr<M>(InferModuleName<M>());
+		ASSERT_CRASH(result,
+			->WithMessageF(TEXT_"Couldn't get module {0} inferred from type {1}",
+				InferModuleName<M>(),
+				TTypeName<M>
+			)
+		);
+		return *result;
+	}
 
 	/** @brief Add this interface to your module class if other things can listen to module startup or shutdown */
 	class MCRO_API IObservableModule : public IModuleInterface
@@ -63,12 +143,9 @@ namespace Mcro::Modules
 		 */
 		TObserveModule(FObserveModuleListener&& listeners)
 		{
-			auto moduleName = TTypeString<M>().Mid(1);
-			moduleName.RemoveFromEnd(TEXT_"Module");
-			moduleName.RemoveFromEnd(TEXT_"ModuleInterface");
 			BindListeners(Forward<FObserveModuleListener>(listeners));
 			
-			ObserveModule(moduleName);
+			ObserveModule(InferModuleName<M>());
 			
 		}
 
@@ -136,4 +213,5 @@ namespace Mcro::Modules
 			}
 		}
 	};
+	
 }
