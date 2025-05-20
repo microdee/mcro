@@ -244,10 +244,79 @@ namespace Mcro::Observable
 		
 		/**
 		 *	@brief
+		 *	Get the previous value if StorePrevious is enabled and there was at least one change. Get a fallback value
+		 *	otherwise.
+		 *
+		 *	@param fallback  Return this value if there's no previous one available 
+		 */
+		virtual T const& GetPrevious(T const& fallback) const = 0;
+		
+		/**
+		 *	@brief
 		 *	Get the previous value if StorePrevious is enabled and there was at least one change or the current value
 		 *	otherwise.
 		 */
-		virtual T const& GetPreviousOrCurrent() const = 0; 
+		virtual T const& GetPreviousOrCurrent() const = 0;
+
+		/**
+		 *	@brief  Returns true when this state is currently true, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool BecameTrue(bool fallback = false) const
+		{
+			bool previous = GetPrevious().IsSet()
+				? static_cast<bool>(GetPrevious().GetValue())
+				: fallback;
+			
+			return static_cast<bool>(Get()) && !previous; 
+		}
+		
+		/**
+		 *	@brief  Returns true when this state is currently true, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool OnDown(bool fallback = false) const { return BecameTrue(fallback); }
+
+		/**
+		 *	@brief  Returns true when this state is currently false, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool BecameFalse(bool fallback = false) const
+		{
+			bool previous = GetPrevious().IsSet()
+				? static_cast<bool>(GetPrevious().GetValue())
+				: fallback;
+			
+			return !static_cast<bool>(Get()) && previous; 
+		}
+		
+		/**
+		 *	@brief  Returns true when this state is currently false, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool OnUp(bool fallback = false) const { return BecameFalse(); }
+
+		/** @brief Returns true when current value is not equal to previous one. */
+		template <CCoreEqualityComparable = T>
+		bool HasChanged() const
+		{
+			return Get() != GetPreviousOrCurrent();
+		}
+		
+		/** @brief Returns true when current value is not equal to previous one. */
+		template <CCoreEqualityComparable = T>
+		bool HasChanged(T const& fallback) const
+		{
+			return Get() != GetPrevious(fallback);
+		}
 
 		template <typename Self>
 		operator T const& (this Self&& self)
@@ -426,6 +495,11 @@ namespace Mcro::Observable
 		virtual TOptional<T> const& GetPrevious() const override
 		{
 			return Value.Previous;
+		}
+
+		virtual T const& GetPrevious(T const& fallback) const override
+		{
+			return Value.Previous.Get(fallback);
 		}
 		
 		virtual T const& GetPreviousOrCurrent() const override
