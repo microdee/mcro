@@ -259,6 +259,14 @@ namespace Mcro::Observable
 		virtual T const& GetPreviousOrCurrent() const = 0;
 
 		/**
+		 *	@brief  Set the previous value to the current one. Useful in Ticks.
+		 *
+		 *	It will not trigger change notifications but it will use a write-lock when thread-safety is enabled.
+		 *	If `StorePrevious` is disabled it will do nothing.
+		 */
+		virtual void NormalizePrevious() = 0;
+
+		/**
 		 *	@brief  Returns true when this state is currently true, but previously it wasn't
 		 *
 		 *	@param fallback  Use this as the fallback previous state.
@@ -334,7 +342,22 @@ namespace Mcro::Observable
 	/**
 	 *	@brief 
 	 *	Storage wrapper for any value which state needs to be tracked or their change needs to be observed.
-	 *	By default, TState is not thread-safe unless EStatePolicy::ThreadSafe policy is active in DefaultPolicy
+	 *	By default, TState is not thread-safe unless FStatePolicy::ThreadSafe policy is active in DefaultPolicy
+	 *
+	 *	TState and IState allows developers an expressive API for tracking/syncing changes of a stateful entity. Like
+	 *	button presses, resolution changes or storing the last error. It doesn't only give a storage for the value but
+	 *	triggers events when the value changes. This alleviates the need for explicit `OnStuffChanged` events in the API
+	 *	where `TState` is used.
+	 *
+	 *	Use `TState` on class members where a default set of policy can be declared in compile time, and use `IState`
+	 *	where these states should be referenced in a function argument for example. In the latter case the policy flags
+	 *	are erased so multiple states with different policies are compatible with each-other. Although that is not
+	 *	necessary and not recommended if we would only need to consume their value, as states can have implicit
+	 *	conversion to their value (returning a const-ref).
+	 *
+	 *	If given value is equality comparable, TState will only trigger change events when the previous and the current
+	 *	values are different. Unless that behavior is overridden by `FStatePolicy` flags. A default set of flags are
+	 *	determined by `StatePolicyFor` template for any given type.
 	 */
 	template <typename T, FStatePolicy DefaultPolicy>
 	struct TState : IState<T>
@@ -505,6 +528,11 @@ namespace Mcro::Observable
 		virtual T const& GetPreviousOrCurrent() const override
 		{
 			return Value.Previous.IsSet() ? Value.Previous : Value.Next;
+		}
+
+		virtual void NormalizePrevious() override
+		{
+			Value.Previous
 		}
 		
 		template <CConvertibleTo<T> Other>
