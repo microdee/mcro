@@ -527,12 +527,18 @@ namespace Mcro::Observable
 		
 		virtual T const& GetPreviousOrCurrent() const override
 		{
-			return Value.Previous.IsSet() ? Value.Previous : Value.Next;
+			return Value.Previous.IsSet() ? Value.Previous.GetValue() : Value.Next;
 		}
 
 		virtual void NormalizePrevious() override
 		{
-			Value.Previous
+			if (!PolicyFlags.StorePrevious) return;
+			ASSERT_QUIT(!Modifying, ,
+				->WithMessage(TEXT_"Attempting to set this state while this state is already being set from somewhere else.")
+			);
+			TGuardValue modifyingGuard(Modifying, true);
+			auto lock = WriteLock();
+			Value.Previous = Value.Next;
 		}
 		
 		template <CConvertibleTo<T> Other>

@@ -318,7 +318,7 @@ namespace Mcro::Composition
 				});
 			}
 
-			if (OnComponentAdded) OnComponentAdded(boxedComponent);
+			if (self.OnComponentAdded) self.OnComponentAdded(boxedComponent);
 			if constexpr (CCompatibleExplicitComponent<MainType, Self>)
 				newComponent->OnComponentRegistered(self);
 		}

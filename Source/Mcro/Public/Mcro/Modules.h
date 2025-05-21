@@ -55,7 +55,7 @@ namespace Mcro::Modules
 	{
 		auto loadResult = EModuleLoadResult::Success;
 		auto name = InferModuleName<M>();
-		auto moduleInterface = FModuleManager::Get().LoadModuleWithFailureReason(name, loadResult);
+		auto moduleInterface = FModuleManager::Get().LoadModuleWithFailureReason(*name, loadResult);
 		ASSERT_RETURN(loadResult == EModuleLoadResult::Success && moduleInterface)
 			->AsFatal()
 			->WithMessageF(TEXT_"Couldn't load module {0} inferred from type {1}",
@@ -77,21 +77,21 @@ namespace Mcro::Modules
 		ASSERT_CRASH(result,
 			->WithError(result.GetErrorRef())
 		);
-		return result.GetValue();
+		return *result.GetValue();
 	}
 
 	/** @brief Shorthand for FModuleManager::GetModulePtr with the name inferred from given type. @see InferModuleName */
 	template <CDerivedFrom<IModuleInterface> M>
 	M* GetUnrealModulePtr()
 	{
-		return FModuleManager::GetModulePtr<M>(InferModuleName<M>());
+		return FModuleManager::GetModulePtr<M>(*InferModuleName<M>());
 	}
 
 	/** @brief Get an already loaded unreal module. If for any reason it's not loaded, crash the app. @see InferModuleName */
 	template <CDerivedFrom<IModuleInterface> M>
 	M& GetUnrealModule()
 	{
-		M* result = FModuleManager::GetModulePtr<M>(InferModuleName<M>());
+		M* result = FModuleManager::GetModulePtr<M>(*InferModuleName<M>());
 		ASSERT_CRASH(result,
 			->WithMessageF(TEXT_"Couldn't get module {0} inferred from type {1}",
 				InferModuleName<M>(),
@@ -145,7 +145,7 @@ namespace Mcro::Modules
 		{
 			BindListeners(Forward<FObserveModuleListener>(listeners));
 			
-			ObserveModule(InferModuleName<M>());
+			ObserveModule(*InferModuleName<M>());
 			
 		}
 

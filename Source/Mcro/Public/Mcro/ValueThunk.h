@@ -41,7 +41,7 @@ namespace Mcro::ValueThunk
 	struct TValueThunk
 	{
 		template <typename Other>
-		friend TValueThunk<Other>;
+		friend struct TValueThunk;
 		
 		using FunctionStorage = std::conditional_t<CCopyConstructible<T>, TFunction<T()>, TUniqueFunction<T()>>;
 
@@ -82,7 +82,7 @@ namespace Mcro::ValueThunk
 	private:
 		void Evaluate() const
 		{
-			if (Function.IsSet() && (!Options.Memoize || !bIsSet))
+			if (Function && (!Options.Memoize || !bIsSet))
 			{
 				Storage = Function();
 				bIsSet = true;
