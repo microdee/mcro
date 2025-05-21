@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/TypeName.h"
+#include "Mcro/TextMacros.h"
 #include "Mcro/Templates.h"
 #include "Mcro/FunctionTraits.h"
 
@@ -50,8 +51,11 @@ namespace Mcro::Any
 	 *		// ...
 	 *	}
 	 *	@endcode
+	 *
+	 *	@todo
+	 *	Currently abstract classes are not supported due to a call to `DeclVal` in `TTupleElement`.
 	 */
-	template <typename... BaseTypes>
+	template <CNonAbstract... BaseTypes>
 	class TInherit : public BaseTypes...
 	{
 	public:
@@ -101,19 +105,16 @@ namespace Mcro::Any
 	template <typename T>
 	struct TAnyTypeFacilities
 	{
-		TFunction<void(T*)> Destruct {[](T* object)
-		{
-			delete object;
-		}};
-		
+		TFunction<void(T*)> Destruct {[](T* object) { delete object; }};
 		TFunction<T*(T const&)> CopyConstruct {[](T const& object)
 		{
-			return new T(object);
+			if constexpr (CCopyConstructible<T>) return new T(object); 
+			else return nullptr;
 		}};
-		
 		TFunction<T*(T&&)> MoveConstruct {[](T&& object)
 		{
-			return new T(Forward<T>(object));
+			if constexpr (CMoveConstructible<T>) return new T(Forward<T>(object)); 
+			else return nullptr;
 		}};
 	};
 
@@ -147,7 +148,7 @@ namespace Mcro::Any
 	 */
 	struct MCRO_API FAny
 	{
-		template <CCopyable T>
+		template <typename T>
 		FAny(T* newObject, TAnyTypeFacilities<T> const& facilities = {})
 			: Storage(newObject)
 			, MainType(TTypeOf<T>)
@@ -161,6 +162,7 @@ namespace Mcro::Any
 			{
 				const T* object = static_cast<const T*>(other.Storage);
 				self->Storage = facilities.CopyConstruct(*object);
+				checkf(self->Storage, TEXT_"Copy constructor failed for %s. Is it deleted?", *TTypeString<T>());
 				
 				CopyTypeInfo(self, &other);
 			})
@@ -168,6 +170,7 @@ namespace Mcro::Any
 			{
 				T& object = *static_cast<T*>(other.Storage);
 				self->Storage = facilities.MoveConstruct(MoveTemp(object));
+				checkf(self->Storage, TEXT_"Move constructor failed for %s. Is it deleted?", *TTypeString<T>());
 				
 				CopyTypeInfo(self, &other);
 			})
