@@ -213,5 +213,78 @@ namespace Mcro::Modules
 			}
 		}
 	};
-	
+
+	/** @brief A wrapper around a given object which lifespan is bound to given module. */
+	template <CDerivedFrom<IObservableModule> M, CDefaultInitializable T>
+	struct TModuleBoundObject
+	{
+		struct FObjectCustomization
+		{
+			TFunction<void(T&)> OnStartup;
+			TFunction<void(T&)> OnShutdown;
+		};
+
+		TModuleBoundObject()
+			: Observer({
+				[this] { Storage = MakeUnique<T>(); },
+				[this] { Storage.Reset(); }
+			})
+		{}
+		TModuleBoundObject(FObjectCustomization&& customization)
+			: Observer({
+				[this, customization]
+				{
+					Storage = MakeUnique<T>();
+					if (customization.OnStartup) customization.OnStartup(*Storage.Get());
+				},
+				[this, customization]
+				{
+					if (customization.OnShutdown) customization.OnShutdown(*Storage.Get());
+					Storage.Reset();
+				}
+			})
+		{}
+		
+		TModuleBoundObject(FName const& moduleName, FObjectCustomization&& customization = {})
+			: Observer(moduleName, {
+				[this, customization]
+				{
+					Storage = MakeUnique<T>();
+					if (customization.OnStartup) customization.OnStartup(*Storage.Get());
+				},
+				[this, customization]
+				{
+					if (customization.OnShutdown) customization.OnShutdown(*Storage.Get());
+					Storage.Reset();
+				}
+			})
+		{}
+
+		T& GetChecked()
+		{
+			ASSERT_CRASH(Storage,
+				->WithMessage(TEXT_"Module bound object was not available")
+				->WithAppendix(TEXT_"Module type", TTypeString<M>())
+				->WithAppendix(TEXT_"Object type", TTypeString<T>())
+			);
+			return *Storage.Get();
+		}
+
+		T const& GetChecked() const
+		{
+			ASSERT_CRASH(Storage,
+				->WithMessage(TEXT_"Module bound object was not available")
+				->WithAppendix(TEXT_"Module type", TTypeString<M>())
+				->WithAppendix(TEXT_"Object type", TTypeString<T>())
+			);
+			return *Storage.Get();
+		}
+		
+		      T* TryGet()       { return Storage.Get(); }
+		const T* TryGet() const { return Storage.Get(); }
+
+	private:
+		TUniquePtr<T> Storage {};
+		TObserveModule<M> Observer;
+	};
 }
