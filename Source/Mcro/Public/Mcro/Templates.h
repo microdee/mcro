@@ -23,14 +23,6 @@ namespace Mcro::Templates
 
 	namespace Detail
 	{
-		template <size_t I, typename... T>
-		constexpr bool CheckBounds()
-		{
-			// If you get a division-by-zero error here that means the given parameter pack was indexed out-of-bounds.
-			int ref = 1 / (I <= sizeof...(T) ? 1 : 0);
-			return ref == 1;
-		}
-		
 		template <size_t I, typename First = void, typename... Rest>
 		struct TTypeAtPack_Impl
 		{
@@ -47,14 +39,15 @@ namespace Mcro::Templates
 	template <size_t I, typename... T>
 	struct TTypeAtPack_Struct
 	{
-		using Type = std::enable_if_t<
-			Detail::CheckBounds<I, T...>(),
-			typename Detail::TTypeAtPack_Impl<I, T...>::Type
-		>;
+		static_assert(I <= sizeof...(T), "Indexing parameter pack out of its bounds.");
+		using Type = typename Detail::TTypeAtPack_Impl<I, T...>::Type;
 	};
 
 	template <size_t I>
-	struct TTypeAtPack_Struct<I> { using Type = void; };
+	struct TTypeAtPack_Struct<I>
+	{
+		using Type = void;
+	};
 
 	/**
 	 *	@brief
@@ -87,6 +80,18 @@ namespace Mcro::Templates
 	 */
 	template<size_t I, typename... Rest>
 	using TLastTypeAtPackDecay = std::decay_t<typename TTypeAtPack_Struct<sizeof...(Rest) - I, Rest...>::Type>;
+
+	template <size_t I, typename T>
+	struct TTupleSafeElement_Struct
+	{
+		static_assert(sizeof(T) == 0, "TTupleSafeElement_Struct is instantiated with non TTuple.");
+	};
+
+	template <size_t I, typename... T>
+	struct TTupleSafeElement_Struct<I, TTuple<T...>>
+	{
+		using Type = TTypeAtPack<I, T...>;
+	};
 	
 	/**
 	 *	@brief
@@ -150,79 +155,33 @@ namespace Mcro::Templates
 		template <typename T>
 		struct Parameters
 		{
-			using Type = TTypes<>;
+			using Type = TTuple<>;
 		};
 
 		template <typename... Params>
 		struct Parameters<Template<Params...>>
 		{
-			using Type = TTypes<Params...>;
+			using Type = TTuple<Params...>;
 		};
 
 		template <typename T>
 		struct ParametersDecay
 		{
-			using Type = TTypes<>;
+			using Type = TTuple<>;
 		};
 
 		template <typename... Params>
 		struct ParametersDecay<Template<Params...>>
 		{
-			using Type = TTypes<std::decay_t<Params>...>;
-		};
-
-		template <typename T>
-		struct ParametersTuple
-		{
-			using Type = TTuple<>;
-		};
-
-		template <typename... Params>
-		struct ParametersTuple<Template<Params...>>
-		{
-			using Type = TTuple<Params...>;
-		};
-
-		template <typename T>
-		struct ParametersTupleDecay
-		{
-			using Type = TTuple<>;
-		};
-
-		template <typename... Params>
-		struct ParametersTupleDecay<Template<Params...>>
-		{
 			using Type = TTuple<std::decay_t<Params>...>;
 		};
 
 		template <typename Instance, int I>
-		using Param = Parameters<Instance>::Type::template Get<I>;
+		using Param = typename TTupleSafeElement_Struct<I, typename Parameters<Instance>::Type>::Type;
 
 		template <typename Instance, int I>
-		using ParamDecay = ParametersDecay<Instance>::Type::template GetDecay<I>;
+		using ParamDecay = typename TTupleSafeElement_Struct<I, typename ParametersDecay<Instance>::Type>::Type;
 	};
-	
-	/**
-	 *	@brief  Get template type parameters as a `TTypes` type-list
-	 *
-	 *	@warning
-	 *	Until this proposal https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf or equivalent is
-	 *	considered seriously, template traits only work with templates which only have type-parameters. Non-type
-	 *	parameters even when a default is specified for them will result in compile error.
-	 */
-	template <template <typename...> typename Template, typename Instance>
-	using TTemplate_Params = typename TTemplate<Template>::template Parameters<Instance>::Type;
-	
-	/**
-	 *	@brief  Get decayed template type parameters as a `TTypes` type-list
-	 *
-	 *	@warning
-	 *	Until this proposal https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1985r0.pdf or equivalent is
-	 *	considered seriously, template traits only work with templates which only have type-parameters. Non-type
-	 *	parameters even when a default is specified for them will result in compile error.
-	 */
-	template <template <typename...> typename Template, typename Instance>
-	using TTemplate_ParamsDecay = typename TTemplate<Template>::template ParametersDecay<Instance>::Type;
 	
 	/**
 	 *	@brief  Get template type parameters as a tuple
@@ -233,7 +192,7 @@ namespace Mcro::Templates
 	 *	parameters even when a default is specified for them will result in compile error.
 	 */
 	template <template <typename...> typename Template, typename Instance>
-	using TTemplate_ParamsTuple = typename TTemplate<Template>::template ParametersTuple<Instance>::Type;
+	using TTemplate_Params = typename TTemplate<Template>::template Parameters<Instance>::Type;
 	
 	/**
 	 *	@brief  Get decayed template type parameters as a tuple
@@ -244,7 +203,7 @@ namespace Mcro::Templates
 	 *	parameters even when a default is specified for them will result in compile error.
 	 */
 	template <template <typename...> typename Template, typename Instance>
-	using TTemplate_ParamsTupleDecay = typename TTemplate<Template>::template ParametersTupleDecay<Instance>::Type;
+	using TTemplate_ParamsDecay = typename TTemplate<Template>::template ParametersDecay<Instance>::Type;
 
 	/**
 	 *	@brief  Get a type parameter at a specified position of a templated instance. 

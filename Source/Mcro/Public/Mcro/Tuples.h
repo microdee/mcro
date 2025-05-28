@@ -144,15 +144,6 @@ namespace Mcro::Tuples
 		using Type = std::tuple_element_t<I, T>;
 	};
 
-	template <size_t I, typename T>
-	struct TTupleSafeElement_Struct {};
-
-	template <size_t I, typename... T>
-	struct TTupleSafeElement_Struct<I, TTuple<T...>>
-	{
-		using Type = TTypeAtPack<I, T...>;
-	};
-
 	template <size_t I, CUnrealTuple T>
 	struct TTypeAt_Struct<I, T>
 	{
