@@ -25,19 +25,11 @@ namespace Mcro::Any
 
 	/**
 	 *	@brief
-	 *	This template is used in `IComponent|FAny::With(TAlias<...>)` so it can have deduced this type and explicit
-	 *	variadic template arguments when specifying multiple aliases.
-	 */
-	template <typename... T>
-	struct TTypes {};
-
-	/**
-	 *	@brief
 	 *	Some MCRO utilities allow for intrusive method of declaring inheritance which can be later used to reflect
 	 *	upon base classes of a derived type.
 	 */
 	template <typename T>
-	concept CHasBases = CIsTemplate<typename T::Bases, TTypes>;
+	concept CHasBases = CIsTypeList<typename T::Bases>;
 
 	/**
 	 *	@brief
@@ -55,7 +47,7 @@ namespace Mcro::Any
 	 *	@todo
 	 *	Currently abstract classes are not supported due to a call to `DeclVal` in `TTupleElement`.
 	 */
-	template <CNonAbstract... BaseTypes>
+	template <typename... BaseTypes>
 	class TInherit : public BaseTypes...
 	{
 	public:
@@ -64,7 +56,7 @@ namespace Mcro::Any
 
 	namespace Detail
 	{
-		template <CIsTemplate<TTypes> Bases, typename Function>
+		template <CIsTypeList Bases, typename Function>
 		void ForEachExplicitBase(Function&& function);
 
 		template <typename T, typename Function>
@@ -72,23 +64,21 @@ namespace Mcro::Any
 		{
 			function(TTypes<T>());
 			if constexpr (CHasBases<T>)
-				ForEachExplicitBase<typename T::Bases>(function);
+				ForEachExplicitBase<typename T::Bases>(Forward<Function>(function));
 		}
 
-		template <CIsTemplate<TTypes> Bases, typename Function, size_t... Indices>
+		template <CIsTypeList Bases, typename Function, size_t... Indices>
 		void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
 		{
-			(ForEachExplicitBase_Body<TTemplate_Param<TTypes, Bases, Indices>>(Forward<Function>(function)), ...);
+			(ForEachExplicitBase_Body<TTypes_Get<Bases, Indices>>(Forward<Function>(function)), ...);
 		}
 
-		template <CIsTemplate<TTypes> Bases, typename Function>
+		template <CIsTypeList Bases, typename Function>
 		void ForEachExplicitBase(Function&& function)
 		{
 			ForEachExplicitBase_Impl<Bases>(
 				Forward<Function>(function),
-				std::make_index_sequence<
-					TTemplate_ParamCount<TTypes, Bases>
-				>()
+				std::make_index_sequence<Bases::Count>()
 			);
 		}
 	}
@@ -124,7 +114,7 @@ namespace Mcro::Any
 	 *
 	 *	Use this with care, the underlying data can be only accessed with the same type as it has been constructed with,
 	 *	or with types provided by `ValidAs`. This means derived classes cannot be accessed with their base types safely
-	 *	and implicitly. MCRO however provides a methods for classes to allow them exposing base types to FAny (and
+	 *	and implicitly. MCRO however provides methods for classes to allow them exposing base types to FAny (and
 	 *	other facilities):
 	 *	@code
 	 *	class FMyThing : public TInherit<IFoo, IBar, IEtc>
@@ -135,7 +125,8 @@ namespace Mcro::Any
 	 *	`TInherit` has a member alias `using Bases = TTypes<...>` and that can be used by FAny to automatically register
 	 *	base classes as compatible ones.
 	 *
-	 *	Enclosed value must be copy and move constructible and assignable.
+	 *	Enclosed value is recommended to be copy and move constructible and assignable. It may yield a runtime error
+	 *	otherwise.
 	 *
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes

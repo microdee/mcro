@@ -41,16 +41,16 @@ namespace Mcro::FunctionTraits
 			using Arguments = TTuple<Args...>;
 
 			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
-			using ArgumentsDecay = TTuple<typename TDecay<Args>::Type...>;
+			using ArgumentsDecay = TTuple<std::decay_t<Args>...>;
 
 			/** The pure function signature with other information stripped from it */
 			using Signature = Return(Args...);
 
 			template <int I>
-			using Arg = typename TTupleElement<I, Arguments>::Type;
+			using Arg = TTypeAt<I, Arguments>;
 
 			template <int I>
-			using ArgDecay = typename TTupleElement<I, ArgumentsDecay>::Type;
+			using ArgDecay = TTypeAt<I, ArgumentsDecay>;
 		};
 	}
 	
