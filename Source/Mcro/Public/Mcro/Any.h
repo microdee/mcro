@@ -12,6 +12,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Mcro/Ansi/Allocator.h"
+#include "Mcro/Ansi/New.h"
 #include "Mcro/TypeName.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/Templates.h"
@@ -106,6 +108,22 @@ namespace Mcro::Any
 			if constexpr (CMoveConstructible<T>) return new T(Forward<T>(object)); 
 			else return nullptr;
 		}};
+	};
+
+	/** @brief Type facilities for `FAny` enforcing standard memory allocation */
+	template <typename T>
+	inline TAnyTypeFacilities<T> AnsiAnyFacilities = {
+		.Destruct = [](T* object) { Ansi::Delete(object); },
+		.CopyConstruct = [](T const& object)
+		{
+			if constexpr (CCopyConstructible<T>) return Ansi::New<T>(object);
+			else return nullptr;
+		},
+		.MoveConstruct = [](T&& object)
+		{
+			if constexpr (CMoveConstructible<T>) return Ansi::New<T>(Forward<T>(object)); 
+			else return nullptr;
+		}
 	};
 
 	/**
