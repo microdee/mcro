@@ -33,13 +33,29 @@ namespace Mcro::Composition
 	 *	Inherit from this empty interface to signal that the inheriting class knows that it's a component and that it
 	 *	can receive info about the composable class it is being registered to.
 	 *
-	 *	Define `OnComponentRegistered(T& to)` in the inheriting class, where T is the expected type of the
-	 *	composable parent. In case this component is registered to a composable class which is not convertible to T
-	 *	then `OnComponentRegistered` will be silently ignored.
+	 *	Define the following functions in the inheriting class, where T is the expected type of the composable parent.
+	 *	
+	 *	- `OnCreatedAt(T& parent)` __(required)__
+	 *	- `OnCopiedAt(T& parent, <Self> const& from)` _(optional)_
+	 *	- `OnMovedAt(T& parent)` _(optional)_
+	 *	
+	 *	In case this component is registered to a composable class which is not convertible to T then `OnCreatedAt`
+	 *	or the others will be silently ignored.
+	 *
+	 *	If `OnCopiedAt` is defined, it is called when the component got copied to its new parent, and the previous
+	 *	component boxed in `FAny`.
+	 *	
+	 *	If `OnMovedAt` is defined, it is similarly called when the component got moved to its new parent. Components
+	 *	however are not move constructed, simply they have their ownership transferred, for this reason there's no
+	 *	"source" component argument, as that would be redundant.
 	 */
 	struct IComponent
 	{
-		// void OnComponentRegistered(T& to) {}
+		// OnCreatedAt(T& parent);
+		
+		// and optionally:
+		// OnCopiedAt(T& parent, <Self> const& from);
+		// OnMovedAt(T& parent);
 	};
 
 	/**
@@ -47,13 +63,29 @@ namespace Mcro::Composition
 	 *	Inherit from this empty interface to signal that the inheriting class knows that it's a component and that it
 	 *	can receive info about the composable class it is being registered to.
 	 *
-	 *	Define `OnComponentRegistered(T& to)` in the inheriting class, where T is the expected type of the
-	 *	composable parent. In case of `IStrictComponent`, it is a compile error to register this class to a composable
-	 *	class which is not convertible to T.
+	 *	Define the following functions in the inheriting class, where T is the expected type of the composable parent.
+	 *	
+	 *	- `OnCreatedAt(T& parent)` __(required)__
+	 *	- `OnCopiedAt(T& parent, <Self> const& from)` _(optional)_
+	 *	- `OnMovedAt(T& parent)` _(optional)_
+	 *	
+	 *	In case of `IStrictComponent`, it is a compile error to register this class to a composable class which is not
+	 *	convertible to T.
+	 *
+	 *	If `OnCopiedAt` is defined, it is called when the component got copied to its new parent. The second argument is
+	 *	the source component.
+	 *	
+	 *	If `OnMovedAt` is defined, it is similarly called when the component got moved to its new parent. Components
+	 *	however are not move constructed, simply they have their ownership transferred, for this reason there's no
+	 *	"source" component argument, as that would be redundant.
 	 */
 	struct IStrictComponent : IComponent
 	{
-		// void OnComponentRegistered(T& to) {}
+		// OnCreatedAt(T& parent);
+		
+		// and optionally:
+		// OnCopiedAt(T& parent, <Self> const& from);
+		// OnMovedAt(T& parent);
 	};
 
 	template <typename T>
@@ -67,10 +99,17 @@ namespace Mcro::Composition
 	
 	template <typename T, typename Composition>
 	concept CCompatibleExplicitComponent = CExplicitComponent<T>
-		&& requires(std::decay_t<T>& t, Composition&& parent)
-		{
-			t.OnComponentRegistered(parent);
-		}
+		&& requires(std::decay_t<T>& t, Composition&& parent) { t.OnCreatedAt(parent); }
+	;
+
+	template <typename T, typename Composition>
+	concept CCopyAwareComponent = CCompatibleExplicitComponent<T, Composition>
+		&& requires(std::decay_t<T>& t, Composition&& parent, T const& from) { t.OnCopiedAt(parent, from); }
+	;
+
+	template <typename T, typename Composition>
+	concept CMoveAwareComponent = CCompatibleExplicitComponent<T, Composition>
+		&& requires(std::decay_t<T>& t, Composition&& parent) { t.OnMovedAt(parent); }
 	;
 
 	template <typename T, typename Composition>
@@ -162,12 +201,12 @@ namespace Mcro::Composition
 	 *	
 	 *	struct FChillComponent : IComponent
 	 *	{
-	 *		void OnComponentRegistered(FExpectedParent& to) {}
+	 *		void OnCreatedAt(FExpectedParent& to) {}
 	 *	};
 	 *	
 	 *	struct FStrictComponent : IStrictComponent
 	 *	{
-	 *		void OnComponentRegistered(FExpectedParent& to) {}
+	 *		void OnCreatedAt(FExpectedParent& to) {}
 	 *	};
 	 *	
 	 *	//// Given the following composable types:
@@ -178,15 +217,15 @@ namespace Mcro::Composition
 	 *	//// Declare their composition at construction:
 	 *	
 	 *	auto MyOtherStuff = FExpectedParent()
-	 *		.With<FChillComponent>()  // OK, and OnComponentRegistered is called
-	 *		.With<FStrictComponent>() // OK, and OnComponentRegistered is called
+	 *		.With<FChillComponent>()  // OK, and OnCreatedAt is called
+	 *		.With<FStrictComponent>() // OK, and OnCreatedAt is called
 	 *	
 	 *	auto MyStuff = FSomeOtherParent()
-	 *		.With<FChillComponent>()  // OK, but OnComponentRegistered won't be called.
+	 *		.With<FChillComponent>()  // OK, but OnCreatedAt won't be called.
 	 *		
 	 *		.With<FStrictComponent>() // COMPILE ERROR, CCompatibleComponent concept is not satisfied because
 	 *		                          // FSomeOtherParent is not convertible to FExpectedParent at
-	 *		                          // OnComponentRegistered(FExpectedParent& to)
+	 *		                          // OnCreatedAt(FExpectedParent& to)
 	 *	;
 	 *	@endcode
 	 *	
@@ -226,14 +265,25 @@ namespace Mcro::Composition
 	{
 		FTypeHash LastAddedComponentHash = 0;
 
+		struct FComponentLogistics
+		{
+			TFunction<void(IComposable* target, FAny const& targetComponent)> Copy;
+			TFunction<void(IComposable* target)> Move;
+		};
+
 		// Using ANSI allocators here because I've seen Unreal default allocators fail when moving or copying composable classes
-		mutable TAnsiMap<FTypeHash, FAny> Components;
-		mutable TAnsiMap<FTypeHash, TAnsiArray<FTypeHash>> ComponentAliases;
+		mutable TMap<FTypeHash, FAny> Components;
+		mutable TMap<FTypeHash, FComponentLogistics> ComponentLogistics;
+		mutable TMap<FTypeHash, TArray<FTypeHash>> ComponentAliases;
 
 		bool HasExactComponent(FTypeHash typeHash) const;
 		bool HasComponentAliasUnchecked(FTypeHash typeHash) const;
 		bool HasComponentAlias(FTypeHash typeHash) const;
 		void AddComponentAlias(FTypeHash mainType, FTypeHash validAs);
+
+		void NotifyCopyComponents(IComposable const& other);
+		void NotifyMoveComponents(IComposable&& other);
+		void ResetComponents();
 		
 		template <typename ValidAs>
 		void AddComponentAlias(FTypeHash mainType)
@@ -259,7 +309,7 @@ namespace Mcro::Composition
 		 *	Override this function in your composable class to do custom logic when a component is added. A bit of
 		 *	dynamically typed programming is needed through the FAny API.
 		 *
-		 *	This is executed in AddComponent before IComponent::OnComponentRegistered and after automatic aliases has
+		 *	This is executed in AddComponent before IComponent::OnCreatedAt and after automatic aliases has
 		 *	been set up (if they're available). This is not executed with subsequent setup of manual aliases. 
 		 *	
 		 *	@param component  The component being added. Query component type with the FAny API
@@ -267,6 +317,10 @@ namespace Mcro::Composition
 		TFunction<void(FAny&)> OnComponentAdded;
 		
 	public:
+		
+		IComposable() = default;
+		IComposable(const IComposable& other);
+		IComposable(IComposable&& other) noexcept;
 
 		/**
 		 *	@brief   Get components determined at runtime
@@ -310,8 +364,9 @@ namespace Mcro::Composition
 			);
 			
 			FAny& boxedComponent = self.Components.Add(TTypeHash<MainType>, FAny(newComponent, facilities));
-			self.LastAddedComponentHash = TTypeHash<MainType>;
+			MainType* unboxedComponent = boxedComponent.TryGet<MainType>();
 
+			self.LastAddedComponentHash = TTypeHash<MainType>;
 			if constexpr (CHasBases<MainType>)
 			{
 				Mcro::Any::Detail::ForEachExplicitBase<typename MainType::Bases>([&] <typename Base> (TTypes<Base>&&)
@@ -323,7 +378,33 @@ namespace Mcro::Composition
 
 			if (self.OnComponentAdded) self.OnComponentAdded(boxedComponent);
 			if constexpr (CCompatibleExplicitComponent<MainType, Self>)
-				newComponent->OnComponentRegistered(self);
+			{
+				unboxedComponent->OnCreatedAt(self);
+				if constexpr (CCopyAwareComponent<MainType, Self> || CMoveAwareComponent<MainType, Self>)
+				{
+					self.ComponentLogistics.Add(TTypeHash<MainType>, {
+						.Copy = [unboxedComponent](IComposable* target, FAny const& targetBoxedComponent)
+						{
+							if constexpr (CCopyAwareComponent<MainType, Self>)
+							{
+								auto targetComponent = AsMutablePtr(targetBoxedComponent.TryGet<MainType>());
+								ASSERT_CRASH(targetComponent,
+									->WithMessageF(
+										TEXT_"{0} component cannot be copied as its destination wrapper was incompatible.",
+										TTypeName<MainType>
+									)
+								);
+								targetComponent->OnCopiedAt(*static_cast<Self*>(target), *unboxedComponent);
+							}
+						},
+						.Move = [unboxedComponent](IComposable* target)
+						{
+							if constexpr (CMoveAwareComponent<MainType, Self>)
+								unboxedComponent->OnMovedAt(*static_cast<Self*>(target));
+						}
+					});
+				}
+			}
 		}
 		
 		/**
@@ -832,7 +913,7 @@ namespace Mcro::Composition
 		template <typename T>
 		const T* TryGet() const
 		{
-			return GetComponents<T>() | FirstOrDefault();
+			return GetComponents<T>() | First(nullptr);
 		}
 
 		/**
@@ -850,7 +931,7 @@ namespace Mcro::Composition
 		template <typename T>
 		T* TryGet()
 		{
-			return GetComponents<T>() | FirstOrDefault();
+			return GetComponents<T>() | First(nullptr);
 		}
 		
 		/**

@@ -41,7 +41,7 @@ namespace Mcro::Test
 
 	struct FChillComponent : IComponent 
 	{
-		void OnComponentRegistered(FComposableSimple& to) const
+		void OnCreatedAt(FComposableSimple& to) const
 		{
 			to.Confirmation();
 		}
@@ -49,7 +49,7 @@ namespace Mcro::Test
 
 	struct FStrictComponent : IStrictComponent 
 	{
-		void OnComponentRegistered(FComposableSimple& to) const
+		void OnCreatedAt(FComposableSimple& to) const
 		{
 			to.Confirmation();
 		}

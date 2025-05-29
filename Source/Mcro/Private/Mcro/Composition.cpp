@@ -13,6 +13,26 @@
 
 namespace Mcro::Composition
 {
+	IComposable::IComposable(const IComposable& other)
+		: LastAddedComponentHash(other.LastAddedComponentHash)
+		, Components(other.Components)
+		, ComponentLogistics(other.ComponentLogistics)
+		, ComponentAliases(other.ComponentAliases)
+		, OnComponentAdded(other.OnComponentAdded)
+	{
+		NotifyCopyComponents(other);
+	}
+
+	IComposable::IComposable(IComposable&& other) noexcept
+		: LastAddedComponentHash(other.LastAddedComponentHash)
+		, Components(MoveTemp(other.Components))
+		, ComponentLogistics(MoveTemp(other.ComponentLogistics))
+		, ComponentAliases(MoveTemp(other.ComponentAliases))
+		, OnComponentAdded(MoveTemp(other.OnComponentAdded))
+	{
+		NotifyMoveComponents(Forward<IComposable>(other));
+	}
+
 	bool IComposable::HasExactComponent(FTypeHash typeHash) const
 	{
 		return Components.Contains(typeHash);
@@ -47,6 +67,32 @@ namespace Mcro::Composition
 		if (HasComponentAliasUnchecked(validAs))
 			ComponentAliases[validAs].Add(mainType);
 		else ComponentAliases.Add(validAs, { mainType });
+	}
+
+	void IComposable::NotifyCopyComponents(IComposable const& other)
+	{
+		for (auto&& [key, logistics] : ComponentLogistics)
+		{
+			logistics.Copy(this, other.Components[key]);
+		}
+	}
+
+	void IComposable::NotifyMoveComponents(IComposable&& other)
+	{
+		if (this == &other) return;
+		for (auto&& [key, logistics] : ComponentLogistics)
+		{
+			logistics.Move(this);
+		}
+		other.ResetComponents();
+	}
+
+	void IComposable::ResetComponents()
+	{
+		Components.Empty();
+		ComponentLogistics.Empty();
+		ComponentAliases.Empty();
+		LastAddedComponentHash = 0;
 	}
 
 	ranges::any_view<FAny*> IComposable::GetExactComponent(FTypeHash typeHash) const
