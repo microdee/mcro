@@ -96,10 +96,7 @@ namespace Mcro::Observable
 			? CCoreEqualityComparable<T>
 				? FStatePolicy {.NotifyOnChangeOnly = true}
 				: FStatePolicy {.AlwaysNotify = true}
-			: FStatePolicy {.NotifyOnChangeOnly = true, .StorePrevious = true};
-
-	template <>
-	inline constexpr FStatePolicy StatePolicyFor<bool> = {.NotifyOnChangeOnly = true, .StorePrevious = false}; 
+			: FStatePolicy {.NotifyOnChangeOnly = true, .StorePrevious = true}; 
 	
 	template <typename T>
 	struct IState;

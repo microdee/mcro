@@ -15,6 +15,9 @@
 
 using namespace Mcro::Common;
 
+static_assert(!CClass<bool>, "bool is not class");
+static_assert(StatePolicyFor<bool>.StorePrevious, "bool should store previous");
+
 DEFINE_SPEC(
 	FMcroObservable_Spec,
 	TEXT_"Mcro.Observable",
