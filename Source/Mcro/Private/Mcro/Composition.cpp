@@ -27,7 +27,7 @@ namespace Mcro::Composition
 	{
 		if (HasComponentAliasUnchecked(typeHash))
 		{
-			TArray<FTypeHash>& components = ComponentAliases[typeHash];
+			auto& components = ComponentAliases[typeHash];
 			components.RemoveAll([this](FTypeHash i)
 			{
 				return !Components.Contains(i);

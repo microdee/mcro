@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/Any.h"
+#include "Mcro/Ansi/Allocator.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/AssertMacros.h"
 #include "Mcro/Range.h"
@@ -224,8 +225,10 @@ namespace Mcro::Composition
 	class MCRO_API IComposable
 	{
 		FTypeHash LastAddedComponentHash = 0;
-		mutable TMap<FTypeHash, FAny> Components;
-		mutable TMap<FTypeHash, TArray<FTypeHash>> ComponentAliases;
+
+		// Using ANSI allocators here because I've seen Unreal default allocators fail when moving or copying composable classes
+		mutable TAnsiMap<FTypeHash, FAny> Components;
+		mutable TAnsiMap<FTypeHash, TAnsiArray<FTypeHash>> ComponentAliases;
 
 		bool HasExactComponent(FTypeHash typeHash) const;
 		bool HasComponentAliasUnchecked(FTypeHash typeHash) const;
@@ -391,6 +394,32 @@ namespace Mcro::Composition
 			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
+
+		/**
+		 *	@brief
+		 *	Add a component to this composable class with a fluent API, enforcing standard memory allocators.
+		 *
+		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
+		 *
+		 *	@tparam MainType  The exact component type (deduced from `newComponent`
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *	
+		 *	@param newComponent
+		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
+		 *	adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the
+		 *	stack, in fact better to stick with the `new` operator.
+		 *
+		 *	@return
+		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
+		 */
+		template <typename MainType, CSharedFromThis Self>
+		requires CCompatibleComponent<MainType, Self>
+		auto WithAnsi(this Self&& self, MainType* newComponent)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+		}
 		
 		/**
 		 *	@brief
@@ -413,6 +442,31 @@ namespace Mcro::Composition
 		auto With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+		}
+
+		/**
+		 *	@brief
+		 *	Add a default constructed component to this composable class with a fluent API, enforcing standard memory
+		 *	allocators.
+		 *
+		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
+		 *
+		 *	@tparam MainType  The exact component type
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *
+		 *	@param facilities
+		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
+		 *
+		 *	@return
+		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
+		 */
+		template <CDefaultInitializable MainType, CSharedFromThis Self>
+		requires CCompatibleComponent<MainType, Self>
+		auto WithAnsi(this Self&& self)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 
@@ -447,6 +501,32 @@ namespace Mcro::Composition
 
 		/**
 		 *	@brief
+		 *	Add a component to this composable class with a fluent API, enforcing standard memory allocators.
+		 *
+		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
+		 *
+		 *	@tparam MainType  The exact component type (deduced from `newComponent`
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *	
+		 *	@param newComponent
+		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
+		 *	adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the
+		 *	stack, in fact better to stick with the `new` operator.
+		 *
+		 *	@return
+		 *	Perfect-forwarded self.
+		 */
+		template <typename MainType, typename Self>
+		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
+		decltype(auto) WithAnsi(this Self&& self, MainType* newComponent)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
+			return Forward<Self>(self);
+		}
+
+		/**
+		 *	@brief
 		 *	Add a default constructed component to this composable class with a fluent API. 
 		 *
 		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
@@ -466,6 +546,28 @@ namespace Mcro::Composition
 		decltype(auto) With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
+			return Forward<Self>(self);
+		}
+
+		/**
+		 *	@brief
+		 *	Add a default constructed component to this composable class with a fluent API, enforcing standard memory
+		 *	allocators.
+		 *
+		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
+		 *
+		 *	@tparam MainType  The exact component type
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *
+		 *	@return
+		 *	Perfect-forwarded self.
+		 */
+		template <CDefaultInitializable MainType, typename Self>
+		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
+		decltype(auto) WithAnsi(this Self&& self)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
 			return Forward<Self>(self);
 		}
 
