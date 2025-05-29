@@ -22,6 +22,8 @@
 #include "CoreMinimal.h"
 
 #include "Mcro/ArrayViews.h"
+#include "Mcro/Ansi/Allocator.h"
+#include "Mcro/Ansi/New.h"
 #include "Mcro/Badge.h"
 #include "Mcro/Composition.h"
 #include "Mcro/Concepts.h"
@@ -48,6 +50,7 @@
 /** @brief Use this namespace for the minimal utilities MCRO has to offer */
 namespace Mcro::CommonCore
 {
+	namespace Ansi = Mcro::Ansi;
 	using namespace Mcro::ArrayViews;
 	using namespace Mcro::Badge;
 	using namespace Mcro::Composition;
