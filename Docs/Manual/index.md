@@ -790,8 +790,8 @@ public:
     virtual void SolveAllProblems() override;
 };
 
-// Create one global instance
-FProblemSolver GProblemSolver;
+// Create a global instance which is tied to a module (only for demonstrating MCRO observable modules)
+TModuleBoundObject<FProblemSolverModule, FProblemSolver> GProblemSolver;
 
 // In some other place, which doesn't know about the above implementation, the feature is used:
 IProblemSolvingFeature::Get().SolveAllProblems();
@@ -873,6 +873,21 @@ struct FFoobar : TSharedFromThis<FFoobar>
 }
 
 ```
+
+Multiple states can be also synced together, just declare pull or push sync relation once and they will update accordingly until one of them goes out of scope. 
+
+```Cpp
+for (auto const& child : Children)
+{
+    // Aggregate multiple states into one
+    LastError.SyncPull(child.LastError);
+
+    // Broadcast one state to others
+    Attempts.SyncPush(child.Attempts);
+}
+```
+
+This of course only makes sense if the contents of the state is copyable.
 
 ### Function Traits
 
@@ -1021,7 +1036,7 @@ export void MakeLookupUV(
 * [Bullet-proof third-party library include guards.](@ref Mcro/LibraryIncludes/Start.h)
 * [In-place lambda initializers](@ref Mcro/Construct.h) for both [C++ objects](@ref Mcro::SharedObjects::ConstructShared) and [UObjects](@ref Mcro/UObjects/Init.h)
 * [RAII DLL loaders](@ref Mcro/Dll.h)
-* [`IObservableModule`](@ref Mcro/Modules.h)
+* [`IObservableModule` and module bound objects](@ref Mcro/Modules.h)
 * [Universal API to get subsystems](@ref Mcro/Subsystems.h)
 * [Shared object utilities](@ref Mcro/SharedObjects.h)
 * [`FTimespan` literals](@ref Mcro/TimespanLiterals.h)
