@@ -71,7 +71,7 @@ namespace Mcro::Composition
 
 	void IComposable::NotifyCopyComponents(IComposable const& other)
 	{
-		for (auto&& [key, logistics] : ComponentLogistics)
+		for (auto const& [key, logistics] : ComponentLogistics)
 		{
 			logistics.Copy(this, other.Components[key]);
 		}
@@ -80,7 +80,7 @@ namespace Mcro::Composition
 	void IComposable::NotifyMoveComponents(IComposable&& other)
 	{
 		if (this == &other) return;
-		for (auto&& [key, logistics] : ComponentLogistics)
+		for (auto const& [key, logistics] : ComponentLogistics)
 		{
 			logistics.Move(this);
 		}

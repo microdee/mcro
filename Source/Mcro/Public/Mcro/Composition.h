@@ -251,6 +251,11 @@ namespace Mcro::Composition
 	 *		// ...
 	 *	}
 	 *	@endcode
+	 *
+	 *	@todo
+	 *	OnCopiedAt and OnMovedAt doesn't seem reliable currently, the best would be if we could provide a safe way to
+	 *	keep components updated about their parents, with erasing the parent type on IComposable level, but keeping it
+	 *	fully typed with components.
 	 *	
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes
@@ -385,6 +390,7 @@ namespace Mcro::Composition
 					self.ComponentLogistics.Add(TTypeHash<MainType>, {
 						.Copy = [unboxedComponent](IComposable* target, FAny const& targetBoxedComponent)
 						{
+							// TODO: Provide safe parent reference mechanism without smart pointers because this doesn't seem to work well
 							if constexpr (CCopyAwareComponent<MainType, Self>)
 							{
 								auto targetComponent = AsMutablePtr(targetBoxedComponent.TryGet<MainType>());
@@ -399,6 +405,7 @@ namespace Mcro::Composition
 						},
 						.Move = [unboxedComponent](IComposable* target)
 						{
+							// TODO: Provide safe parent reference mechanism without smart pointers because this doesn't seem to work well
 							if constexpr (CMoveAwareComponent<MainType, Self>)
 								unboxedComponent->OnMovedAt(*static_cast<Self*>(target));
 						}
