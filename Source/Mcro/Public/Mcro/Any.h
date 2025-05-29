@@ -103,25 +103,15 @@ namespace Mcro::Any
 			if constexpr (CCopyConstructible<T>) return new T(object); 
 			else return nullptr;
 		}};
-		TFunction<T*(T&&)> MoveConstruct {[](T&& object)
-		{
-			if constexpr (CMoveConstructible<T>) return new T(Forward<T>(object)); 
-			else return nullptr;
-		}};
 	};
 
-	/** @brief Type facilities for `FAny` enforcing standard memory allocation */
+	/** @brief Type facilities for `FAny` enforcing standard memory allocations */
 	template <typename T>
 	inline TAnyTypeFacilities<T> AnsiAnyFacilities = {
 		.Destruct = [](T* object) { Ansi::Delete(object); },
 		.CopyConstruct = [](T const& object)
 		{
 			if constexpr (CCopyConstructible<T>) return Ansi::New<T>(object);
-			else return nullptr;
-		},
-		.MoveConstruct = [](T&& object)
-		{
-			if constexpr (CMoveConstructible<T>) return Ansi::New<T>(Forward<T>(object)); 
 			else return nullptr;
 		}
 	};
@@ -143,8 +133,9 @@ namespace Mcro::Any
 	 *	`TInherit` has a member alias `using Bases = TTypes<...>` and that can be used by FAny to automatically register
 	 *	base classes as compatible ones.
 	 *
-	 *	Enclosed value is recommended to be copy and move constructible and assignable. It may yield a runtime error
-	 *	otherwise.
+	 *	Enclosed value is recommended to be copy constructible. It may yield a runtime error otherwise. Moving an FAny
+	 *	will just transfer ownership of the wrapped object but will not move construct a new object. The source FAny
+	 *	will be reset to an invalid state.
 	 *
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes
@@ -172,14 +163,6 @@ namespace Mcro::Any
 				const T* object = static_cast<const T*>(other.Storage);
 				self->Storage = facilities.CopyConstruct(*object);
 				checkf(self->Storage, TEXT_"Copy constructor failed for %s. Is it deleted?", *TTypeString<T>());
-				
-				CopyTypeInfo(self, &other);
-			})
-			, MoveConstruct([facilities](FAny* self, FAny&& other)
-			{
-				T& object = *static_cast<T*>(other.Storage);
-				self->Storage = facilities.MoveConstruct(MoveTemp(object));
-				checkf(self->Storage, TEXT_"Move constructor failed for %s. Is it deleted?", *TTypeString<T>());
 				
 				CopyTypeInfo(self, &other);
 			})
@@ -247,13 +230,13 @@ namespace Mcro::Any
 	private:
 		void AddAlias(FType const& alias);
 		static void CopyTypeInfo(FAny* self, const FAny* other);
+		void Reset();
 		
 		void* Storage = nullptr;
 		FType MainType {};
 		
 		TFunction<void(FAny* self)> Destruct {};
 		TFunction<void(FAny* self, FAny const& other)> CopyConstruct {};
-		TFunction<void(FAny* self, FAny&& other)> MoveConstruct {};
 		
 		TSet<FType> ValidTypes {};
 	};

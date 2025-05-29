@@ -20,15 +20,20 @@ namespace Mcro::Any
 	}
 
 	FAny::FAny(FAny&& other)
+		: Storage(other.Storage)
+		, MainType(MoveTemp(other.MainType))
+		, Destruct(MoveTemp(other.Destruct))
+		, CopyConstruct(MoveTemp(other.CopyConstruct))
+		, ValidTypes(MoveTemp(other.ValidTypes))
 	{
-		if (other.IsValid())
-			other.MoveConstruct(this, Forward<FAny>(other));
+		other.Reset();
 	}
 
 	FAny::~FAny()
 	{
 		if (static_cast<bool>(Destruct))
 			Destruct(this);
+		Reset();
 	}
 	
 	void FAny::AddAlias(FType const& alias)
@@ -42,7 +47,15 @@ namespace Mcro::Any
 		self->MainType = other->MainType;
 		self->ValidTypes = other->ValidTypes;
 		self->CopyConstruct = other->CopyConstruct;
-		self->MoveConstruct = other->MoveConstruct;
 		self->Destruct = other->Destruct;
+	}
+
+	void FAny::Reset()
+	{
+		Storage = nullptr;
+		MainType = {};
+		Destruct.Reset();
+		CopyConstruct.Reset();
+		ValidTypes.Empty();
 	}
 }

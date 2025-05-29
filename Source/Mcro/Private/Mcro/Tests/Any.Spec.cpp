@@ -70,6 +70,11 @@ void FMcroAny_Spec::Define()
 			FAny copy = payload;
 			check(copy.TryGet<FCopyConstructCounter>());
 			TestEqual(TEXT_"Copy once", copy.TryGet<FCopyConstructCounter>()->CopyCount, 1);
+			FAny movedCopy { MoveTemp(copy) };
+			check(movedCopy.TryGet<FCopyConstructCounter>());
+			TestFalse(TEXT_"Source should be invalid", copy.IsValid());
+			TestEqual(TEXT_"Copy shouldn't change", movedCopy.TryGet<FCopyConstructCounter>()->CopyCount, 1);
+			TestEqual(TEXT_"Contents shouldn't actually move", movedCopy.TryGet<FCopyConstructCounter>()->MoveCount, 0);
 		});
 		
 		It(TEXT_"should support object lifespan customization", [this]
@@ -85,11 +90,6 @@ void FMcroAny_Spec::Define()
 						stupidPool.Remove(i->B);
 					},
 					.CopyConstruct = [&stupidPool](FAnyTest const& i)
-					{
-						decltype(auto) result = stupidPool.Add(i.B + 1, FAnyTest{.B = i.B + 1});
-						return &result;
-					},
-					.MoveConstruct = [&stupidPool](FAnyTest&& i)
 					{
 						decltype(auto) result = stupidPool.Add(i.B + 1, FAnyTest{.B = i.B + 1});
 						return &result;
