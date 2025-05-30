@@ -93,6 +93,8 @@ namespace Mcro::Observable
 		virtual void Modify(TUniqueFunction<void(T&)>&& modifier, bool alwaysNotify = true) = 0;
 
 	protected:
+		TSharedRef<FVoid> LifespanGuard = MakeShared<FVoid>();
+		
 		template <CChangeListener<T> Function>
 		static auto DelegateValueArgument(Function const& onChange)
 		{
@@ -140,6 +142,43 @@ namespace Mcro::Observable
 		FDelegateHandle OnChange(Object&& object, Function const& onChange, FEventPolicy const& eventPolicy = {})
 		{
 			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), eventPolicy);
+		}
+
+		/**
+		 *	@brief  Pull changes from another state, syncing the value between the two. Values will be copied.
+		 *
+		 *	@remarks
+		 *	It is supposedly safe to sync together states which may have different timespans using internal lifespan
+		 *	guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity
+		 *	can be inferred from their weak pointer representation.
+		 */
+		template <typename Other>
+		requires CConvertibleToDecayed<Other, T>
+		void SyncPull(IState<Other>& otherState)
+		{
+			otherState.OnChange(
+				LifespanGuard,
+				[this](Other const& next) { Set(next); },
+				{.Belated = true}
+			);
+		}
+
+		/**
+		 *	@brief  Push changes from another state, syncing the value between the two. Values will be copied.
+		 *
+		 *	@remarks
+		 *	It is supposedly safe to sync together states which may have different timespans using internal lifespan
+		 *	guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity
+		 *	can be inferred from their weak pointer representation.
+		 */
+		template <CConvertibleToDecayed<T> Other>
+		void SyncPush(IState<Other>& otherState)
+		{
+			OnChange(
+				otherState.LifespanGuard,
+				[&otherState](T const& next) { otherState.Set(next); },
+				{.Belated = true}
+			);
 		}
 
 		/**
@@ -200,6 +239,93 @@ namespace Mcro::Observable
 		 */
 		virtual TUniquePtr<WriteLockVariant> WriteLock() = 0;
 
+		/** @brief Get the previous value if StorePrevious is enabled and there was at least one change */
+		virtual TOptional<T> const& GetPrevious() const = 0;
+		
+		/**
+		 *	@brief
+		 *	Get the previous value if StorePrevious is enabled and there was at least one change. Get a fallback value
+		 *	otherwise.
+		 *
+		 *	@param fallback  Return this value if there's no previous one available 
+		 */
+		virtual T const& GetPrevious(T const& fallback) const = 0;
+		
+		/**
+		 *	@brief
+		 *	Get the previous value if StorePrevious is enabled and there was at least one change or the current value
+		 *	otherwise.
+		 */
+		virtual T const& GetPreviousOrCurrent() const = 0;
+
+		/**
+		 *	@brief  Set the previous value to the current one. Useful in Ticks.
+		 *
+		 *	It will not trigger change notifications but it will use a write-lock when thread-safety is enabled.
+		 *	If `StorePrevious` is disabled it will do nothing.
+		 */
+		virtual void NormalizePrevious() = 0;
+
+		/**
+		 *	@brief  Returns true when this state is currently true, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool BecameTrue(bool fallback = false) const
+		{
+			bool previous = GetPrevious().IsSet()
+				? static_cast<bool>(GetPrevious().GetValue())
+				: fallback;
+			
+			return static_cast<bool>(Get()) && !previous; 
+		}
+		
+		/**
+		 *	@brief  Returns true when this state is currently true, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool OnDown(bool fallback = false) const { return BecameTrue(fallback); }
+
+		/**
+		 *	@brief  Returns true when this state is currently false, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool BecameFalse(bool fallback = false) const
+		{
+			bool previous = GetPrevious().IsSet()
+				? static_cast<bool>(GetPrevious().GetValue())
+				: fallback;
+			
+			return !static_cast<bool>(Get()) && previous; 
+		}
+		
+		/**
+		 *	@brief  Returns true when this state is currently false, but previously it wasn't
+		 *
+		 *	@param fallback  Use this as the fallback previous state.
+		 */
+		template <CBooleanTestable = T>
+		bool OnUp(bool fallback = false) const { return BecameFalse(); }
+
+		/** @brief Returns true when current value is not equal to previous one. */
+		template <CCoreEqualityComparable = T>
+		bool HasChanged() const
+		{
+			return Get() != GetPreviousOrCurrent();
+		}
+		
+		/** @brief Returns true when current value is not equal to previous one. */
+		template <CCoreEqualityComparable = T>
+		bool HasChanged(T const& fallback) const
+		{
+			return Get() != GetPrevious(fallback);
+		}
+
 		template <typename Self>
 		operator T const& (this Self&& self)
 		{
@@ -216,7 +342,22 @@ namespace Mcro::Observable
 	/**
 	 *	@brief 
 	 *	Storage wrapper for any value which state needs to be tracked or their change needs to be observed.
-	 *	By default, TState is not thread-safe unless EStatePolicy::ThreadSafe policy is active in DefaultPolicy
+	 *	By default, TState is not thread-safe unless FStatePolicy::ThreadSafe policy is active in DefaultPolicy
+	 *
+	 *	TState and IState allows developers an expressive API for tracking/syncing changes of a stateful entity. Like
+	 *	button presses, resolution changes or storing the last error. It doesn't only give a storage for the value but
+	 *	triggers events when the value changes. This alleviates the need for explicit `OnStuffChanged` events in the API
+	 *	where `TState` is used.
+	 *
+	 *	Use `TState` on class members where a default set of policy can be declared in compile time, and use `IState`
+	 *	where these states should be referenced in a function argument for example. In the latter case the policy flags
+	 *	are erased so multiple states with different policies are compatible with each-other. Although that is not
+	 *	necessary and not recommended if we would only need to consume their value, as states can have implicit
+	 *	conversion to their value (returning a const-ref).
+	 *
+	 *	If given value is equality comparable, TState will only trigger change events when the previous and the current
+	 *	values are different. Unless that behavior is overridden by `FStatePolicy` flags. A default set of flags are
+	 *	determined by `StatePolicyFor` template for any given type.
 	 */
 	template <typename T, FStatePolicy DefaultPolicy>
 	struct TState : IState<T>
@@ -372,6 +513,32 @@ namespace Mcro::Observable
 		virtual TUniquePtr<WriteLockVariant> WriteLock() override
 		{
 			return MakeUnique<WriteLockVariant>(TInPlaceType<WriteLockType>(), Mutex.Get());
+		}
+
+		virtual TOptional<T> const& GetPrevious() const override
+		{
+			return Value.Previous;
+		}
+
+		virtual T const& GetPrevious(T const& fallback) const override
+		{
+			return Value.Previous.Get(fallback);
+		}
+		
+		virtual T const& GetPreviousOrCurrent() const override
+		{
+			return Value.Previous.IsSet() ? Value.Previous.GetValue() : Value.Next;
+		}
+
+		virtual void NormalizePrevious() override
+		{
+			if (!PolicyFlags.StorePrevious) return;
+			ASSERT_QUIT(!Modifying, ,
+				->WithMessage(TEXT_"Attempting to set this state while this state is already being set from somewhere else.")
+			);
+			TGuardValue modifyingGuard(Modifying, true);
+			auto lock = WriteLock();
+			Value.Previous = Value.Next;
 		}
 		
 		template <CConvertibleTo<T> Other>

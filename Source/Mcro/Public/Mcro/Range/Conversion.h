@@ -244,7 +244,10 @@ namespace Mcro::Range
 
 	FORCEINLINE auto RenderAsString()
 	{
-		return ranges::make_pipeable([](auto&& range) { return RenderAsString(range); });
+		return ranges::make_pipeable([]<CRangeMember Input>(Input&& range)
+		{
+			return RenderAsString(Forward<Input>(range));
+		});
 	}
 	
 	/**
@@ -288,13 +291,13 @@ namespace Mcro::Range
 		template <CRangeMember From>
 		friend auto operator | (From&& range, RenderAs&& functor)
 		{
-			return functor.Convert(range);
+			return functor.Convert(Forward<From>(range));
 		}
 		
 		template <CRangeMember From>
 		auto Render(From&& range) const
 		{
-			return Convert(range);
+			return Convert(Forward<From>(range));
 		}
 	};
 
@@ -351,7 +354,7 @@ namespace Mcro::Range
 		template <CRangeMember From>
 		friend Target& operator | (From&& range, OutputTo&& functor)
 		{
-			functor.Convert(range);
+			functor.Convert(Forward<From>(range));
 			return functor.Storage;
 		}
 	};
@@ -432,7 +435,7 @@ namespace Mcro::Range
 		MapType Convert(From&& range) const
 		{
 			MapType result;
-			Convert(range, result);
+			Convert(Forward<From>(range), result);
 			return result;
 		}
 		
@@ -445,7 +448,7 @@ namespace Mcro::Range
 		MapType Convert(From&& range) const
 		{
 			MapType result;
-			Convert(range, result);
+			Convert(Forward<From>(range), result);
 			return result;
 		}
 
@@ -458,13 +461,13 @@ namespace Mcro::Range
 		template <CRangeMember From>
 		friend auto operator | (From&& range, RenderAsMap&& functor)
 		{
-			return functor.Convert(range);
+			return functor.Convert(Forward<From>(range));
 		}
 		
 		template <CRangeMember From>
 		auto Render(From&& range) const
 		{
-			return Convert(range);
+			return Convert(Forward<From>(range));
 		}
 	};
 
@@ -518,7 +521,7 @@ namespace Mcro::Range
 		>
 		friend Target& operator | (From&& range, OutputToMap&& functor)
 		{
-			RenderAsMap::Convert(range, functor.Storage);
+			RenderAsMap::Convert(Forward<From>(range), functor.Storage);
 			return functor.Storage;
 		}
 	};

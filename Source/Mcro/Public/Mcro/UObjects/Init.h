@@ -104,10 +104,10 @@ namespace Mcro::UObjects::Init
 	 *	In case it has an `Initialize` function the `args` parameters should match them. This is an equivalent to
 	 *	the template Mcro::SharedObjects::MakeShareableInit
 	 *	
-	 *	@tparam  T       Type of initializable UObject
-	 *	@tparam  Args    Arguments for the Initialize function
+	 *	@tparam       T  Type of initializable UObject
+	 *	@tparam    Args  Arguments for the Initialize function
 	 *	@param   params  Parameters for every new object
-	 *	@param   args    Arguments for the Initialize function
+	 *	@param     args  Arguments for the Initialize function
 	 *	@return  The new object
 	 */
 	template <CUObject T, typename... Args>
@@ -147,8 +147,8 @@ namespace Mcro::UObjects::Init
 	 *	Notice how the object type is deduced from the argument of the initializer.
 	 *	
 	 *	@tparam  Initializer  Initializer function type
-	 *	@param   params       Parameters for every new object
-	 *	@param   init         A setup function for the newly created UObject
+	 *	@param        params  Parameters for every new object
+	 *	@param          init  A setup function for the newly created UObject
 	 *	@return  The new object
 	 */
 	template <
@@ -195,10 +195,10 @@ namespace Mcro::UObjects::Init
 	 *	Notice how the object type is deduced from the argument of the initializer.
 	 *	
 	 *	@tparam  Initializer  Initializer function type
-	 *	@tparam  Args         Arguments for the Initialize function
-	 *	@param   params       Parameters for every new object
-	 *	@param   init         A setup function for the newly created UObject
-	 *	@param   args         Arguments for the Initialize function
+	 *	@tparam         Args  Arguments for the Initialize function
+	 *	@param        params  Parameters for every new object
+	 *	@param          init  A setup function for the newly created UObject
+	 *	@param          args  Arguments for the Initialize function
 	 *	@return  The new object
 	 */
 	template <

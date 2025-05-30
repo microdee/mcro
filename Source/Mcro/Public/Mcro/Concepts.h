@@ -193,6 +193,12 @@ namespace Mcro::Concepts
 	template<typename Function, typename A, typename B>
 	concept CStrictWeakOrder = CRelation<Function, A, B>;
 
+	template <typename T>
+	concept CAbstract = std::is_abstract_v<T>;
+
+	template <typename T>
+	concept CNonAbstract = !std::is_abstract_v<T>;
+
 	/** Use Unreal's own Concept templating constraint as a C++20 concept */
 	template<typename Concept, typename... Args>
 	concept CModels = TModels_V<Concept, Args...>;

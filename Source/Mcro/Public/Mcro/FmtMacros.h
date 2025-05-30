@@ -15,7 +15,11 @@
  *	Use leading `FMT_` or trailing `_FMT` fake text literals to create modern formatted strings with a better API.
  *
  *	The major difference from `PRINTF_` or `FString::Printf(...)` is that `FMT` macros can take user defined string
- *	conversions into account, so more types can be used directly as arguments. 
+ *	conversions into account, so more types can be used directly as arguments.
+ *
+ *	@todo
+ *	Make a unified way to handle format arguments for FText and FString. Currently _FMT on FText is using string
+ *	conversions to do the actual formatting, and not vanilla FText::Format
  */
 
 #pragma once
@@ -58,6 +62,20 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
 	FString result = FString::Format(format, args);
 	result.TrimToNullTerminator();
 	return result;
+}
+
+FORCEINLINE FText operator % (FText const& format, FStringFormatOrderedArguments&& args)
+{
+	FString result = FString::Format(*format.ToString(), args);
+	result.TrimToNullTerminator();
+	return FText::FromString(result);
+}
+
+FORCEINLINE FText operator % (FText const& format, FStringFormatNamedArguments&& args)
+{
+	FString result = FString::Format(*format.ToString(), args);
+	result.TrimToNullTerminator();
+	return FText::FromString(result);
 }
 
 #define MCRO_FMT_NAMED_ARG_TRANSFORM(s, data, elem) BOOST_PP_EXPAND(MCRO_FMT_NAMED_ARG elem)
@@ -167,6 +185,10 @@ FString operator % (const TCHAR(& format)[N], FStringFormatNamedArguments&& args
  *	  - Including but not exclusively `FText` and `FName` for example
  *	- STL strings and views of any encoding
  *	- Enums where their entries are serialized as human-readable names
+ *
+ *	This variant also allows to operate on `FText` instead of `const TCHAR*` strings if the fake string literal macro
+ *	before `_FMT` yields FText. This version however still uses `FString`'s under the hood, and it is not yet using
+ *	vanilla `FText::Format` features 
  *	
  *	@remarks
  *	To add more supported types specialize the `TAsFormatArgument` template functor for your preferred type and return

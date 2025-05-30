@@ -72,6 +72,7 @@ namespace Mcro::Error
 		FString Message;
 		FString Details;
 		FString CodeContext;
+		mutable bool bIsRoot = false;
 
 		/** @brief Override this method if inner errors needs custom way of serialization */
 		virtual void SerializeInnerErrors(YAML::Emitter& emitter) const;
@@ -93,7 +94,7 @@ namespace Mcro::Error
 		 *	Override this method if direct members should be serialized differently or extra members are added by
 		 *	derived errors.
 		 */
-		virtual void SerializeMembers(YAML::Emitter& emitter, bool isRoot) const;
+		virtual void SerializeMembers(YAML::Emitter& emitter) const;
 
 		virtual void NotifyState(Observable::IState<IErrorPtr>& state);
 		
@@ -117,9 +118,11 @@ namespace Mcro::Error
 		 *	Override this function to change the method how this error is entirely serialized into a YAML format
 		 *	
 		 *	@param emitter  the YAML node into which the data of this error needs to be appended to
-		 *	@param isRoot   true when the top level error is being serialized
 		 */
-		virtual void SerializeYaml(YAML::Emitter& emitter, bool isRoot) const;
+		virtual void SerializeYaml(YAML::Emitter& emitter) const;
+
+		/** @brief Overload append operator for YAML::Emitter */
+		friend auto operator << (YAML::Emitter& emitter, IErrorRef const& error) -> YAML::Emitter&;
 
 		/** @brief Render this error as a string using the YAML representation */
 		FString ToString() const;
@@ -134,10 +137,10 @@ namespace Mcro::Error
 		 *	IError::Make(new FMyError(myConstructorArgs), myInitializerArgs);
 		 *	@endcode
 		 *	
-		 *	@tparam T         Type of new error
-		 *	@tparam Args      Arguments for the new error initializer.
+		 *	@tparam        T  Type of new error
+		 *	@tparam     Args  Arguments for the new error initializer.
 		 *	@param  newError  Pass the new object in as `new FMyError(...)`
-		 *	@param  args      Arguments for the new error initializer.
+		 *	@param      args  Arguments for the new error initializer.
 		 */
 		template <CError T, typename... Args>
 		requires CSharedInitializeable<T, Args...>
@@ -182,9 +185,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Specify error message with a fluent API
-		 *	@tparam  Self       Deducing this
-		 *	@param   self       Deduced this (not present in calling arguments)
-		 *	@param   input      the message
+		 *	@tparam       Self  Deducing this
+		 *	@param        self  Deduced this (not present in calling arguments)
+		 *	@param       input  the message
 		 *	@param   condition  Only add message when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -197,9 +200,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Specify formatted error message with a fluent API
-		 *	@tparam  Self     Deducing this
-		 *	@param   self     Deduced this (not present in calling arguments)
-		 *	@param   input    the message format
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deduced this (not present in calling arguments)
+		 *	@param     input  the message format
 		 *	@param   fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
@@ -212,11 +215,11 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Specify formatted error message with a fluent API
-		 *	@tparam  Self       Deducing this
-		 *	@param   self       Deduced this (not present in calling arguments)
+		 *	@tparam       Self  Deducing this
+		 *	@param        self  Deduced this (not present in calling arguments)
 		 *	@param   condition  Only add message when this condition is satisfied
-		 *	@param   input      the message format
-		 *	@param   fmtArgs    format arguments
+		 *	@param       input  the message format
+		 *	@param     fmtArgs  format arguments
 		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, typename... FormatArgs>
@@ -228,8 +231,8 @@ namespace Mcro::Error
 		
 		/**
 		 *	@brief   Specify severity with a fluent API
-		 *	@tparam  Self   Deducing this
-		 *	@param   self   Deduced this (not present in calling arguments)
+		 *	@tparam   Self  Deducing this
+		 *	@param    self  Deduced this (not present in calling arguments)
 		 *	@param   input  the severity
 		 *	@return  Self for further fluent API setup
 		 *	@see     EErrorSeverity
@@ -270,9 +273,9 @@ namespace Mcro::Error
 		 *	Specify details for the error which may provide further context for the user or provide them
 		 *	reminders/suggestions
 		 *	
-		 *	@tparam  Self       Deducing this
-		 *	@param   self       Deduced this (not present in calling arguments)
-		 *	@param   input      the details text
+		 *	@tparam       Self  Deducing this
+		 *	@param        self  Deduced this (not present in calling arguments)
+		 *	@param       input  the details text
 		 *	@param   condition  Only add details when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -288,9 +291,9 @@ namespace Mcro::Error
 		 *	Specify formatted details for the error which may provide further context for the user or provide them
 		 *	reminders/suggestions
 		 *	
-		 *	@tparam  Self     Deducing this
-		 *	@param   self     Deduced this (not present in calling arguments)
-		 *	@param   input    the details text
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deduced this (not present in calling arguments)
+		 *	@param     input  the details text
 		 *	@param   fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
@@ -306,11 +309,11 @@ namespace Mcro::Error
 		 *	Specify formatted details for the error which may provide further context for the user or provide them
 		 *	reminders/suggestions
 		 *	
-		 *	@tparam  Self       Deducing this
-		 *	@param   self       Deduced this (not present in calling arguments)
-		 *	@param   input      the details text
+		 *	@tparam       Self  Deducing this
+		 *	@param        self  Deduced this (not present in calling arguments)
+		 *	@param       input  the details text
 		 *	@param   condition  Only add details when this condition is satisfied
-		 *	@param   fmtArgs    ordered format arguments
+		 *	@param     fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, CStringFormatArgument... FormatArgs>
@@ -322,9 +325,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   If available write a source code context into the error directly displaying where this error has occured
-		 *	@tparam  Self       Deducing this
-		 *	@param   self       Deduced this (not present in calling arguments)
-		 *	@param   input      the source code context
+		 *	@tparam       Self  Deducing this
+		 *	@param        self  Deduced this (not present in calling arguments)
+		 *	@param       input  the source code context
 		 *	@param   condition  Only add code context when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -337,10 +340,10 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add a uniquely typed inner error.
-		 *	@tparam  Self       Deducing this
-		 *	@tparam  Error      Deduced type of the error
-		 *	@param   self       Deduced this (not present in calling arguments)
-		 *	@param   input      Inner error
+		 *	@tparam       Self  Deducing this
+		 *	@tparam      Error  Deduced type of the error
+		 *	@param        self  Deduced this (not present in calling arguments)
+		 *	@param       input  Inner error
 		 *	@param   condition  Only add inner error when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -353,11 +356,11 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add one inner error with specific name.
-		 *	@tparam  Self       Deducing this
-		 *	@tparam  Error      Deduced type of the error
-		 *	@param   self       Deduced this (not present in calling arguments)
-		 *	@param   name       Optional name of the error. If it's empty only the type of the error will be used for ID
-		 *	@param   input      Inner error
+		 *	@tparam       Self  Deducing this
+		 *	@tparam      Error  Deduced type of the error
+		 *	@param        self  Deduced this (not present in calling arguments)
+		 *	@param        name  Optional name of the error. If it's empty only the type of the error will be used for ID
+		 *	@param       input  Inner error
 		 *	@param   condition  Only add inner error when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -370,8 +373,8 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add multiple errors at once with optional names
-		 *	@tparam  Self       Deducing this
-		 *	@param   input      An array of tuples with otional error name and the error itself
+		 *	@tparam       Self  Deducing this
+		 *	@param       input  An array of tuples with otional error name and the error itself
 		 *	@param   condition  Only add errors when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -388,9 +391,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add multiple errors at once
-		 *	@tparam  Self     Deducing this
-		 *	@tparam  Errors   Deduced type of the errors
-		 *	@param   errors   Errors to be added
+		 *	@tparam    Self  Deducing this
+		 *	@tparam  Errors  Deduced type of the errors
+		 *	@param   errors  Errors to be added
 		 *	@return  Self for further fluent API setup
 		 */
 		template <typename Self, CError... Errors>
@@ -402,9 +405,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add multiple errors at once
-		 *	@tparam  Self       Deducing this
-		 *	@tparam  Errors     Deduced type of the errors
-		 *	@param   errors     Errors to be added
+		 *	@tparam       Self  Deducing this
+		 *	@tparam     Errors  Deduced type of the errors
+		 *	@param      errors  Errors to be added
 		 *	@param   condition  Only add errors when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -417,9 +420,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add an extra plain text block inside inner errors
-		 *	@tparam  Self       Deducing this
-		 *	@param   name       Name of the extra text block
-		 *	@param   text       Value of the extra text block
+		 *	@tparam       Self  Deducing this
+		 *	@param        name  Name of the extra text block
+		 *	@param        text  Value of the extra text block
 		 *	@param   condition  Only add inner error when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -432,9 +435,9 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add an extra plain text block inside inner errors
-		 *	@tparam  Self     Deducing this
-		 *	@param   name     Name of the extra text block
-		 *	@param   text     Value of the extra text block
+		 *	@tparam     Self  Deducing this
+		 *	@param      name  Name of the extra text block
+		 *	@param      text  Value of the extra text block
 		 *	@param   fmtArgs  ordered format arguments
 		 *	@return  Self for further fluent API setup
 		 */
@@ -447,10 +450,10 @@ namespace Mcro::Error
 
 		/**
 		 *	@brief   Add an extra plain text block inside inner errors
-		 *	@tparam  Self       Deducing this
-		 *	@param   name       Name of the extra text block
-		 *	@param   text       Value of the extra text block
-		 *	@param   fmtArgs    ordered format arguments
+		 *	@tparam       Self  Deducing this
+		 *	@param        name  Name of the extra text block
+		 *	@param        text  Value of the extra text block
+		 *	@param     fmtArgs  ordered format arguments
 		 *	@param   condition  Only add inner error when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -506,7 +509,7 @@ namespace Mcro::Error
 		 *	more information than stack-traces because it can also record where errors were handled between parallel 
 		 *	threads.
 		 *	
-		 *	@tparam  Self      Deducing this
+		 *	@tparam      Self  Deducing this
 		 *	@param   location  The location this error is handled at. In 99% of cases this should be left at the default
 		 *	@return  Self for further fluent API setup
 		 */
@@ -524,7 +527,7 @@ namespace Mcro::Error
 		 *	error. Only call it once no further information can be added and on the top-most main error in case of
 		 *	aggregate errors.
 		 *	
-		 *	@tparam  Self       Deducing this
+		 *	@tparam       Self  Deducing this
 		 *	@param   condition  Only report errors when this condition is satisfied
 		 *	@return  Self for further fluent API setup
 		 */
@@ -535,6 +538,28 @@ namespace Mcro::Error
 				OnErrorReported().Broadcast(self.SharedThis(&self));
 			
 			return self.SharedThis(&self);
+		}
+
+		/**
+		 *	@brief
+		 *	Call an arbitrary function with this error. Other than cases like invoking macros inline operating on
+		 *	errors (like the inline ERROR_LOG overload) this may have limited use.
+		 *	
+		 *	@tparam     Self  Deducing this. 
+		 *	@tparam Function  Function to call with this error. 
+		 *	@param      self  Deducing this. 
+		 *	@param  function  Function to call with this error. 
+		 *	@return  Self for further fluent API setup
+		 */
+		template <
+			typename Self,
+			CFunctionCompatible_ArgumentsDecay<void(SelfRef<Self>)> Function
+		>
+		SelfRef<Self> AsOperandWith(this Self&& self, Function&& function)
+		{
+			auto sharedSelf = self.SharedThis(&self);
+			function(sharedSelf);
+			return sharedSelf;
 		}
 	};
 
@@ -611,10 +636,27 @@ namespace Mcro::Error
 		auto GetValue()       -> T&       { return Value.GetValue(); }
 		auto GetValue() const -> T const& { return Value.GetValue(); }
 
+		T&& StealValue() && { return MoveTemp(Value.GetValue()); }
+
 		auto GetError() const -> IErrorPtr { return Error; }
 		auto GetErrorRef() const -> IErrorRef { return Error.ToSharedRef(); }
 
 		operator bool() const { return HasValue(); }
+
+		/**
+		 *	@brief  Modify a potential error stored in this monad
+		 *	@tparam     Self  Deducing this
+		 *	@tparam Function  Modifying function type
+		 *	@param      self  Deducing this
+		 *	@param       mod  Input function modifying a potential error
+		 *	@return  Self, preserving qualifiers.
+		 */
+		template <typename Self, CFunctionCompatible_ArgumentsDecay<void(IErrorRef)> Function>
+		Self&& ModifyError(this Self&& self, Function&& mod)
+		{
+			if (self.HasError()) mod(self.GetErrorRef());
+			return Forward<Self>(self);
+		}
 		
 		operator TValueOrError<T, IErrorPtr>() const
 		{
@@ -642,12 +684,29 @@ namespace Mcro::Error
 	FORCEINLINE FCanFail Success() { return FVoid(); }
 }
 
-#define ERROR_LOG(categoryName, verbosity, error)        \
+#define MCRO_ERROR_LOG_3(categoryName, verbosity, error) \
 	UE_LOG(categoryName, verbosity, TEXT_"%s", *((error) \
 		->WithLocation()                                 \
 		->Report()                                       \
 		->ToString()                                     \
 	))                                                  //
+
+#define MCRO_ERROR_LOG_2(categoryName, verbosity)                         \
+	Report()                                                              \
+	->AsOperandWith([](IErrorRef const& error)                            \
+	{                                                                     \
+		UE_LOG(categoryName, verbosity, TEXT_"%s", *(error->ToString())); \
+	})                                                                   //
+
+/**
+ *	@brief  Convenience macro for logging an error with UE_LOG
+ *
+ *	The following overloads are available:
+ *	- `(categoryName, verbosity, error)` Simply use UE_LOG to log the error
+ *	- `(categoryName, verbosity)` Log the error preceding this macro (use ERROR_LOG inline).
+ *	  `WithLocation` is omitted from this overload
+ */
+#define ERROR_LOG(...) MACRO_OVERLOAD(MCRO_ERROR_LOG_, __VA_ARGS__)
 
 #define ERROR_CLOG(condition, categoryName, verbosity, error)        \
 	UE_CLOG(condition, categoryName, verbosity, TEXT_"%s", *((error) \
@@ -656,19 +715,39 @@ namespace Mcro::Error
 		->ToString()                                                 \
 	))                                                              //
 
-/** @brief Similar to check() macro, but return an error instead of crashing */
-#define ASSERT_RETURN(condition)                                        \
-	if (UNLIKELY(!(condition)))                                         \
-		return Mcro::Error::IError::Make(new Mcro::Error::FAssertion()) \
-			->WithLocation()                                            \
-			->AsRecoverable()                                           \
-			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition))         //
+#define MCRO_ASSERT_RETURN_2(condition, error)                  \
+	if (UNLIKELY(!(condition)))                                 \
+		return Mcro::Error::IError::Make(new error)             \
+			->WithLocation()                                    \
+			->AsRecoverable()                                   \
+			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition)) //
 
-/** @brief Denote that a resource which is asked for doesn't exist */
-#define UNAVAILABLE()                                                 \
-	return Mcro::Error::IError::Make(new Mcro::Error::FUnavailable()) \
-		->WithLocation()                                              \
-		->AsRecoverable()                                            //
+#define MCRO_ASSERT_RETURN_1(condition) MCRO_ASSERT_RETURN_2(condition, Mcro::Error::FAssertion())
+
+/**
+ *	@brief  Similar to check() macro, but return an error instead of crashing
+ *	
+ *	The following overloads are available:
+ *	- `(condition, error)` Specify error type to return
+ *	- `(condition)` Return `FAssertion` error
+ */
+#define ASSERT_RETURN(...) MACRO_OVERLOAD(MCRO_ASSERT_RETURN_, __VA_ARGS__)
+
+#define MCRO_UNAVAILABLE_1(error)               \
+	return Mcro::Error::IError::Make(new error) \
+		->WithLocation()                        \
+		->AsRecoverable()                      //
+
+#define MCRO_UNAVAILABLE_0() MCRO_UNAVAILABLE_1(Mcro::Error::FUnavailable())
+
+/**
+ *	@brief  Denote that a resource which is asked for doesn't exist
+ *	
+ *	The following overloads are available:
+ *	- `(error)` Specify error type to return
+ *	- `()` Return `FUnavailable` error
+ */
+#define UNAVAILABLE(...) MACRO_OVERLOAD(MCRO_UNAVAILABLE_, __VA_ARGS__)
 
 #define MCRO_PROPAGATE_FAIL_3(type, var, expression)    \
 	type var = (expression);                            \

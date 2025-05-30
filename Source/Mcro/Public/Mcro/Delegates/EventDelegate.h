@@ -154,7 +154,7 @@ namespace Mcro::Delegates
 		template <typename... OptionalObject> requires (sizeof...(OptionalObject) <= 1)
 		FDelegate Delegation(OptionalObject&&... object)
 		{
-			return InferDelegate::From(Forward<OptionalObject>(object)..., &TEventDelegate::Broadcast);
+			return InferDelegate::From(Forward<OptionalObject>(object)..., [this](Args... args) { Broadcast(args...); });
 		};
 
 		/**

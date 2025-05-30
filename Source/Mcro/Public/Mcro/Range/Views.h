@@ -104,8 +104,9 @@ namespace Mcro::Range
 	 *	This runs in O(N) time when result is true, unless both input ranges are `CCountableRange`, `matchOnlyBeginning`
 	 *	is false and the two input ranges have different size.
 	 *
-	 *	@param left   Input range
+	 *	@param  left  Input range
 	 *	@param right  Range to compare with
+	 *	
 	 *	@param matchOnlyBeginning
 	 *	By default MatchOrdered returns false for ranges with different lengths
 	 */
@@ -149,6 +150,7 @@ namespace Mcro::Range
 	 *	is false and the two input ranges have different size.
 	 *
 	 *	@param right  Range to compare with
+	 *	
 	 *	@param matchOnlyBeginning
 	 *	By default MatchOrdered returns false for ranges with different lengths
 	 */

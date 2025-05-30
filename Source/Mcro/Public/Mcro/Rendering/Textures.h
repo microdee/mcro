@@ -115,7 +115,7 @@ namespace Mcro::Rendering::Textures
 
 	/**
 	 *	@brief  A simple texture size description which can be used for checking the need to recreate a texture resource.
-	 *	@tparam SizeType      the integral type for texture size
+	 *	@tparam     SizeType  the integral type for texture size
 	 *	@tparam InFormatType  the type of the format enum
 	 *	@todo   This may get generalized to other type of resources in the future.
 	 */

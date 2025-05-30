@@ -13,22 +13,42 @@
 
 namespace Mcro::Composition
 {
-	bool IComposable::HasExactComponent(uint64 typeHash) const
+	IComposable::IComposable(const IComposable& other)
+		: LastAddedComponentHash(other.LastAddedComponentHash)
+		, Components(other.Components)
+		, ComponentLogistics(other.ComponentLogistics)
+		, ComponentAliases(other.ComponentAliases)
+		, OnComponentAdded(other.OnComponentAdded)
+	{
+		NotifyCopyComponents(other);
+	}
+
+	IComposable::IComposable(IComposable&& other) noexcept
+		: LastAddedComponentHash(other.LastAddedComponentHash)
+		, Components(MoveTemp(other.Components))
+		, ComponentLogistics(MoveTemp(other.ComponentLogistics))
+		, ComponentAliases(MoveTemp(other.ComponentAliases))
+		, OnComponentAdded(MoveTemp(other.OnComponentAdded))
+	{
+		NotifyMoveComponents(Forward<IComposable>(other));
+	}
+
+	bool IComposable::HasExactComponent(FTypeHash typeHash) const
 	{
 		return Components.Contains(typeHash);
 	}
 
-	bool IComposable::HasComponentAliasUnchecked(uint64 typeHash) const
+	bool IComposable::HasComponentAliasUnchecked(FTypeHash typeHash) const
 	{
 		return ComponentAliases.Contains(typeHash);
 	}
 
-	bool IComposable::HasComponentAlias(uint64 typeHash) const
+	bool IComposable::HasComponentAlias(FTypeHash typeHash) const
 	{
 		if (HasComponentAliasUnchecked(typeHash))
 		{
-			TArray<uint64>& components = ComponentAliases[typeHash];
-			components.RemoveAll([this](uint64 i)
+			auto& components = ComponentAliases[typeHash];
+			components.RemoveAll([this](FTypeHash i)
 			{
 				return !Components.Contains(i);
 			});
@@ -42,14 +62,40 @@ namespace Mcro::Composition
 		return false;
 	}
 
-	void IComposable::AddComponentAlias(uint64 mainType, uint64 validAs)
+	void IComposable::AddComponentAlias(FTypeHash mainType, FTypeHash validAs)
 	{
 		if (HasComponentAliasUnchecked(validAs))
 			ComponentAliases[validAs].Add(mainType);
 		else ComponentAliases.Add(validAs, { mainType });
 	}
 
-	ranges::any_view<FAny*> IComposable::GetExactComponent(uint64 typeHash) const
+	void IComposable::NotifyCopyComponents(IComposable const& other)
+	{
+		for (auto const& [key, logistics] : ComponentLogistics)
+		{
+			logistics.Copy(this, other.Components[key]);
+		}
+	}
+
+	void IComposable::NotifyMoveComponents(IComposable&& other)
+	{
+		if (this == &other) return;
+		for (auto const& [key, logistics] : ComponentLogistics)
+		{
+			logistics.Move(this);
+		}
+		other.ResetComponents();
+	}
+
+	void IComposable::ResetComponents()
+	{
+		Components.Empty();
+		ComponentLogistics.Empty();
+		ComponentAliases.Empty();
+		LastAddedComponentHash = 0;
+	}
+
+	ranges::any_view<FAny*> IComposable::GetExactComponent(FTypeHash typeHash) const
 	{
 		namespace r = ranges;
 		namespace rv = ranges::views;
@@ -58,21 +104,19 @@ namespace Mcro::Composition
 		return ranges::empty_view<FAny*>();
 	}
 
-	ranges::any_view<FAny*> IComposable::GetAliasedComponents(uint64 typeHash) const
+	ranges::any_view<FAny*> IComposable::GetAliasedComponents(FTypeHash typeHash) const
 	{
 		namespace r = ranges;
 		namespace rv = ranges::views;
-
-		auto asd = IComposable().WithComponent<FVector>();
 			
 		if (HasComponentAlias(typeHash))
 			return ComponentAliases[typeHash]
-				| rv::transform([this](uint64 i) -> decltype(auto) { return Components.Find(i); });
+				| rv::transform([this](FTypeHash i) -> decltype(auto) { return Components.Find(i); });
 			
 		return r::empty_view<FAny*>();
 	}
 
-	ranges::any_view<FAny*> IComposable::GetComponentsPrivate(uint64 typeHash) const
+	ranges::any_view<FAny*> IComposable::GetComponentsDynamic(FTypeHash typeHash) const
 	{
 		return GetExactComponent(typeHash) | Concat(GetAliasedComponents(typeHash));
 	}

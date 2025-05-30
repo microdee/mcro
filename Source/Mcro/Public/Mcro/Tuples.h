@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/Concepts.h"
+#include "Mcro/Templates.h"
 
 #include "Mcro/LibraryIncludes/Start.h"
 #include "range/v3/all.hpp"
@@ -22,6 +23,7 @@
 namespace Mcro::Tuples
 {
 	using namespace Mcro::Concepts;
+	using namespace Mcro::Templates;
 
 	template <typename>
 	constexpr bool TIsStdArray = false;
@@ -115,7 +117,7 @@ namespace Mcro::Tuples
 	template <size_t I, CUnrealTuple T>
 	decltype(auto) GetItem(T&& tuple)
 	{
-		return tuple.template Get<I>();
+		return Forward<T>(tuple).template Get<I>();
 	}
 
 	template <CStdOrRangeV3Tuple T>
@@ -145,7 +147,7 @@ namespace Mcro::Tuples
 	template <size_t I, CUnrealTuple T>
 	struct TTypeAt_Struct<I, T>
 	{
-		using Type = typename TTupleElement<I, T>::Type;
+		using Type = typename TTupleSafeElement_Struct<I, T>::Type;
 	};
 
 	template <size_t I, CTuple T>

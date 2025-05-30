@@ -31,8 +31,8 @@ namespace Mcro::AutoModularFeature
 	/**
 	 *	@brief
 	 *	Auto Modular Features are a workflow with Modular Features where the developer doesn't have to rely on string
-	 *	identifiers. TAutoModularFeature and TFeatureImplementation templates take care of naming the feature and
-	 *	introduces some common functionality, like getter functions and runtime validations.
+	 *	identifiers. TAutoModularFeature template take care of naming the feature and introduces some common
+	 *	functionality, like getter functions and runtime validations.
 	 *
 	 *	First a feature is defined with its interface class like so:
 	 *	@code
@@ -78,6 +78,12 @@ namespace Mcro::AutoModularFeature
 	 *	IModularFeatures::Get().GetModularFeature<IMyModularFeature>(TEXT_"IMyModularFeature")
 	 *	@endcode
 	 *	but it is strongly discouraged for type safety and keeping code simple.
+	 *
+	 *	For globally available features you may use just simply a global variable, or if it's important to have the
+	 *	owning module fully initialized, `TModuleBoundObject` is recommended.
+	 *	@code
+	 *	TModuleBoundObject<FFoobarModule, FMyFeatureImplementation> GMyFeatureImplementation;
+	 *	@endcode 
 	 *	
 	 *	@remarks
 	 *	IMyModularFeature::FeatureName() and TTypeFName<FMyFeatureImplementation>() can be used for runtime
@@ -141,7 +147,7 @@ namespace Mcro::AutoModularFeature
 		 *	overrides are not yet known, and "deducing this" is not meant for constructors.
 		 *	
 		 *	@tparam Implementation  Derived type of the implementation
-		 *	@param  self            Pointer to implementation registering itself
+		 *	@param            self  Pointer to implementation registering itself
 		 */
 		template<typename Implementation> requires CDerivedFrom<Implementation, Feature>
 		void Register(this Implementation&& self)

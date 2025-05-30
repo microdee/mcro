@@ -98,7 +98,7 @@ namespace Mcro::Error
 		 *	mind while making the widgets for the errors.
 		 *	
 		 *	@param error  The input error
-		 *	@param args   Simple arguments object for this function, use initializer list or C++ 20 designated initializer.
+		 *	@param  args  Simple arguments object for this function, use initializer list or C++ 20 designated initializer.
 		 *	
 		 *	@return
 		 *	A future telling that either the dialog has been displayed or how it has been suppressed. The future also

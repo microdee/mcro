@@ -13,6 +13,7 @@
 
 #include "CoreMinimal.h"
 #include "Mcro/Any.h"
+#include "Mcro/Ansi/Allocator.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/AssertMacros.h"
 #include "Mcro/Range.h"
@@ -32,13 +33,29 @@ namespace Mcro::Composition
 	 *	Inherit from this empty interface to signal that the inheriting class knows that it's a component and that it
 	 *	can receive info about the composable class it is being registered to.
 	 *
-	 *	Define `OnComponentRegistered(T& to)` in the inheriting class, where T is the expected type of the
-	 *	composable parent. In case this component is registered to a composable class which is not convertible to T
-	 *	then `OnComponentRegistered` will be silently ignored.
+	 *	Define the following functions in the inheriting class, where T is the expected type of the composable parent.
+	 *	
+	 *	- `OnCreatedAt(T& parent)` __(required)__
+	 *	- `OnCopiedAt(T& parent, <Self> const& from)` _(optional)_
+	 *	- `OnMovedAt(T& parent)` _(optional)_
+	 *	
+	 *	In case this component is registered to a composable class which is not convertible to T then `OnCreatedAt`
+	 *	or the others will be silently ignored.
+	 *
+	 *	If `OnCopiedAt` is defined, it is called when the component got copied to its new parent, and the previous
+	 *	component boxed in `FAny`.
+	 *	
+	 *	If `OnMovedAt` is defined, it is similarly called when the component got moved to its new parent. Components
+	 *	however are not move constructed, simply they have their ownership transferred, for this reason there's no
+	 *	"source" component argument, as that would be redundant.
 	 */
 	struct IComponent
 	{
-		// void OnComponentRegistered(T& to) {}
+		// OnCreatedAt(T& parent);
+		
+		// and optionally:
+		// OnCopiedAt(T& parent, <Self> const& from);
+		// OnMovedAt(T& parent);
 	};
 
 	/**
@@ -46,13 +63,29 @@ namespace Mcro::Composition
 	 *	Inherit from this empty interface to signal that the inheriting class knows that it's a component and that it
 	 *	can receive info about the composable class it is being registered to.
 	 *
-	 *	Define `OnComponentRegistered(T& to)` in the inheriting class, where T is the expected type of the
-	 *	composable parent. In case of `IStrictComponent`, it is a compile error to register this class to a composable
-	 *	class which is not convertible to T.
+	 *	Define the following functions in the inheriting class, where T is the expected type of the composable parent.
+	 *	
+	 *	- `OnCreatedAt(T& parent)` __(required)__
+	 *	- `OnCopiedAt(T& parent, <Self> const& from)` _(optional)_
+	 *	- `OnMovedAt(T& parent)` _(optional)_
+	 *	
+	 *	In case of `IStrictComponent`, it is a compile error to register this class to a composable class which is not
+	 *	convertible to T.
+	 *
+	 *	If `OnCopiedAt` is defined, it is called when the component got copied to its new parent. The second argument is
+	 *	the source component.
+	 *	
+	 *	If `OnMovedAt` is defined, it is similarly called when the component got moved to its new parent. Components
+	 *	however are not move constructed, simply they have their ownership transferred, for this reason there's no
+	 *	"source" component argument, as that would be redundant.
 	 */
 	struct IStrictComponent : IComponent
 	{
-		// void OnComponentRegistered(T& to) {}
+		// OnCreatedAt(T& parent);
+		
+		// and optionally:
+		// OnCopiedAt(T& parent, <Self> const& from);
+		// OnMovedAt(T& parent);
 	};
 
 	template <typename T>
@@ -66,10 +99,17 @@ namespace Mcro::Composition
 	
 	template <typename T, typename Composition>
 	concept CCompatibleExplicitComponent = CExplicitComponent<T>
-		&& requires(std::decay_t<T>& t, Composition&& parent)
-		{
-			t.OnComponentRegistered(parent);
-		}
+		&& requires(std::decay_t<T>& t, Composition&& parent) { t.OnCreatedAt(parent); }
+	;
+
+	template <typename T, typename Composition>
+	concept CCopyAwareComponent = CCompatibleExplicitComponent<T, Composition>
+		&& requires(std::decay_t<T>& t, Composition&& parent, T const& from) { t.OnCopiedAt(parent, from); }
+	;
+
+	template <typename T, typename Composition>
+	concept CMoveAwareComponent = CCompatibleExplicitComponent<T, Composition>
+		&& requires(std::decay_t<T>& t, Composition&& parent) { t.OnMovedAt(parent); }
 	;
 
 	template <typename T, typename Composition>
@@ -125,28 +165,28 @@ namespace Mcro::Composition
 	 *	//// Declare their composition at construction:
 	 *	
 	 *	auto MyStuff = FMyComposableType()
-	 *		.WithComponent<FSimpleComponent>()                 // <- Simply add components with their types
-	 *		.WithComponent(new FComponentImplementation(1, 2)) // <- Or simply use new operator
-	 *		                                                   //    (IComposable assumes ownership)
-	 *		                                                   //    Because FComponentImplementation uses TInherit
-	 *		                                                   //    IBaseComponent is not needed to be repeated here
-	 *		.WithComponent(new FRegularInherited(3, 4))        //
-	 *		    .WithAlias<IRegularBase>()                     // <- FRegularInherited cannot tell automatically that it
-	 *		                                                   //    inherits from IRegularBase so we need to specify
-	 *		                                                   //    that here explicitly in case we want to get
-	 *		                                                   //    FRegularInherited component via its base class
+	 *		.With<FSimpleComponent>()                 // <- Simply add components with their types
+	 *		.With(new FComponentImplementation(1, 2)) // <- Or simply use new operator
+	 *		                                          //    (IComposable assumes ownership)
+	 *		                                          //    Because FComponentImplementation uses TInherit
+	 *		                                          //    IBaseComponent is not needed to be repeated here
+	 *		.With(new FRegularInherited(3, 4))        //
+	 *		    .WithAlias<IRegularBase>()            // <- FRegularInherited cannot tell automatically that it
+	 *		                                          //    inherits from IRegularBase so we need to specify
+	 *		                                          //    that here explicitly in case we want to get
+	 *		                                          //    FRegularInherited component via its base class
 	 *	;
 	 *	
 	 *	//// Get components at runtime:
 	 *	
-	 *	int a = MyStuff.GetComponent<FSimpleComponent>().A; //
-	 *	// -> 0                                             //
-	 *	int b = MyStuff.GetComponent<IBaseComponent>().B;   // <- We can get the component via base class here, only
-	 *	// -> 1                                             //    because it was exposed via TInherit
-	 *	int d = MyStuff.GetComponent<IRegularBase>().D;     // <- We can get the component via base class here, because
-	 *	// -> 3                                             //    we explicitly specified it during registration
-	 *	FVector* v = MyStuff.TryGetComponent<FVector>();    // <- If there's any doubt that a component may not have
-	 *	// -> nullptr; FVector wasn't added as a component  //    been registered, use TryGetComponent instead.
+	 *	int a = MyStuff.Get<FSimpleComponent>().A; //
+	 *	// -> 0                                    //
+	 *	int b = MyStuff.Get<IBaseComponent>().B;   // <- We can get the component via base class here, only
+	 *	// -> 1                                    //    because it was exposed via TInherit
+	 *	int d = MyStuff.Get<IRegularBase>().D;     // <- We can get the component via base class here, because
+	 *	// -> 3                                    //    we explicitly specified it during registration
+	 *	FVector* v = MyStuff.TryGet<FVector>();    // <- If there's any doubt that a component may not have
+	 *	// -> nullptr; FVector wasn't a component  //    been registered, use TryGet instead.
 	 *	@endcode
 	 *	
 	 *	As mentioned earlier, components are not required to have any arbitrary type traits, but if they inherit from
@@ -161,12 +201,12 @@ namespace Mcro::Composition
 	 *	
 	 *	struct FChillComponent : IComponent
 	 *	{
-	 *		void OnComponentRegistered(FExpectedParent& to) {}
+	 *		void OnCreatedAt(FExpectedParent& to) {}
 	 *	};
 	 *	
 	 *	struct FStrictComponent : IStrictComponent
 	 *	{
-	 *		void OnComponentRegistered(FExpectedParent& to) {}
+	 *		void OnCreatedAt(FExpectedParent& to) {}
 	 *	};
 	 *	
 	 *	//// Given the following composable types:
@@ -177,15 +217,15 @@ namespace Mcro::Composition
 	 *	//// Declare their composition at construction:
 	 *	
 	 *	auto MyOtherStuff = FExpectedParent()
-	 *		.WithComponent<FChillComponent>()  // OK, and OnComponentRegistered is called
-	 *		.WithComponent<FStrictComponent>() // OK, and OnComponentRegistered is called
+	 *		.With<FChillComponent>()  // OK, and OnCreatedAt is called
+	 *		.With<FStrictComponent>() // OK, and OnCreatedAt is called
 	 *	
 	 *	auto MyStuff = FSomeOtherParent()
-	 *		.WithComponent<FChillComponent>()  // OK, but OnComponentRegistered won't be called.
+	 *		.With<FChillComponent>()  // OK, but OnCreatedAt won't be called.
 	 *		
-	 *		.WithComponent<FStrictComponent>() // COMPILE ERROR, CCompatibleComponent concept is not satisfied
-	 *		                                   // because FSomeOtherParent is not convertible to FExpectedParent
-	 *		                                   // at OnComponentRegistered(FExpectedParent& to)
+	 *		.With<FStrictComponent>() // COMPILE ERROR, CCompatibleComponent concept is not satisfied because
+	 *		                          // FSomeOtherParent is not convertible to FExpectedParent at
+	 *		                          // OnCreatedAt(FExpectedParent& to)
 	 *	;
 	 *	@endcode
 	 *	
@@ -211,6 +251,11 @@ namespace Mcro::Composition
 	 *		// ...
 	 *	}
 	 *	@endcode
+	 *
+	 *	@todo
+	 *	OnCopiedAt and OnMovedAt doesn't seem reliable currently, the best would be if we could provide a safe way to
+	 *	keep components updated about their parents, with erasing the parent type on IComposable level, but keeping it
+	 *	fully typed with components.
 	 *	
 	 *	@todo
 	 *	C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes
@@ -223,17 +268,30 @@ namespace Mcro::Composition
 	 */
 	class MCRO_API IComposable
 	{
-		uint64 LastAddedComponentHash = 0;
-		mutable TMap<uint64, FAny> Components;
-		mutable TMap<uint64, TArray<uint64>> ComponentAliases;
+		FTypeHash LastAddedComponentHash = 0;
 
-		bool HasExactComponent(uint64 typeHash) const;
-		bool HasComponentAliasUnchecked(uint64 typeHash) const;
-		bool HasComponentAlias(uint64 typeHash) const;
-		void AddComponentAlias(uint64 mainType, uint64 validAs);
+		struct FComponentLogistics
+		{
+			TFunction<void(IComposable* target, FAny const& targetComponent)> Copy;
+			TFunction<void(IComposable* target)> Move;
+		};
+
+		// Using ANSI allocators here because I've seen Unreal default allocators fail when moving or copying composable classes
+		mutable TMap<FTypeHash, FAny> Components;
+		mutable TMap<FTypeHash, FComponentLogistics> ComponentLogistics;
+		mutable TMap<FTypeHash, TArray<FTypeHash>> ComponentAliases;
+
+		bool HasExactComponent(FTypeHash typeHash) const;
+		bool HasComponentAliasUnchecked(FTypeHash typeHash) const;
+		bool HasComponentAlias(FTypeHash typeHash) const;
+		void AddComponentAlias(FTypeHash mainType, FTypeHash validAs);
+
+		void NotifyCopyComponents(IComposable const& other);
+		void NotifyMoveComponents(IComposable&& other);
+		void ResetComponents();
 		
 		template <typename ValidAs>
-		void AddComponentAlias(uint64 mainType)
+		void AddComponentAlias(FTypeHash mainType)
 		{
 			Components[mainType].WithAlias<ValidAs>();
 			AddComponentAlias(mainType, TTypeHash<ValidAs>);
@@ -247,19 +305,42 @@ namespace Mcro::Composition
 			}
 		}
 		
-		ranges::any_view<FAny*> GetExactComponent(uint64 typeHash) const;
-		ranges::any_view<FAny*> GetAliasedComponents(uint64 typeHash) const;
-		ranges::any_view<FAny*> GetComponentsPrivate(uint64 typeHash) const;
+		ranges::any_view<FAny*> GetExactComponent(FTypeHash typeHash) const;
+		ranges::any_view<FAny*> GetAliasedComponents(FTypeHash typeHash) const;
+
+	protected:
+		/**
+		 *	@brief
+		 *	Override this function in your composable class to do custom logic when a component is added. A bit of
+		 *	dynamically typed programming is needed through the FAny API.
+		 *
+		 *	This is executed in AddComponent before IComponent::OnCreatedAt and after automatic aliases has
+		 *	been set up (if they're available). This is not executed with subsequent setup of manual aliases. 
+		 *	
+		 *	@param component  The component being added. Query component type with the FAny API
+		 */
+		TFunction<void(FAny&)> OnComponentAdded;
 		
 	public:
+		
+		IComposable() = default;
+		IComposable(const IComposable& other);
+		IComposable(IComposable&& other) noexcept;
+
+		/**
+		 *	@brief   Get components determined at runtime
+		 *	@param   typeHash  The runtime determined type-hash the desired components are represented with
+		 *	@return  A type erased range view for all the components matched with given type-hash
+		 */
+		ranges::any_view<FAny*> GetComponentsDynamic(FTypeHash typeHash) const;
 
 		/**
 		 *	@brief
 		 *	Add a component to this composable class.
 		 *
 		 *	@tparam MainType  The exact component type (deduced from `newComponent`
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *	
 		 *	@param newComponent
 		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
@@ -287,9 +368,10 @@ namespace Mcro::Composition
 				)
 			);
 			
-			self.Components.Add(TTypeHash<MainType>, FAny(newComponent, facilities));
-			self.LastAddedComponentHash = TTypeHash<MainType>;
+			FAny& boxedComponent = self.Components.Add(TTypeHash<MainType>, FAny(newComponent, facilities));
+			MainType* unboxedComponent = boxedComponent.TryGet<MainType>();
 
+			self.LastAddedComponentHash = TTypeHash<MainType>;
 			if constexpr (CHasBases<MainType>)
 			{
 				Mcro::Any::Detail::ForEachExplicitBase<typename MainType::Bases>([&] <typename Base> (TTypes<Base>&&)
@@ -299,8 +381,37 @@ namespace Mcro::Composition
 				});
 			}
 
+			if (self.OnComponentAdded) self.OnComponentAdded(boxedComponent);
 			if constexpr (CCompatibleExplicitComponent<MainType, Self>)
-				newComponent->OnComponentRegistered(self);
+			{
+				unboxedComponent->OnCreatedAt(self);
+				if constexpr (CCopyAwareComponent<MainType, Self> || CMoveAwareComponent<MainType, Self>)
+				{
+					self.ComponentLogistics.Add(TTypeHash<MainType>, {
+						.Copy = [unboxedComponent](IComposable* target, FAny const& targetBoxedComponent)
+						{
+							// TODO: Provide safe parent reference mechanism without smart pointers because this doesn't seem to work well
+							if constexpr (CCopyAwareComponent<MainType, Self>)
+							{
+								auto targetComponent = AsMutablePtr(targetBoxedComponent.TryGet<MainType>());
+								ASSERT_CRASH(targetComponent,
+									->WithMessageF(
+										TEXT_"{0} component cannot be copied as its destination wrapper was incompatible.",
+										TTypeName<MainType>
+									)
+								);
+								targetComponent->OnCopiedAt(*static_cast<Self*>(target), *unboxedComponent);
+							}
+						},
+						.Move = [unboxedComponent](IComposable* target)
+						{
+							// TODO: Provide safe parent reference mechanism without smart pointers because this doesn't seem to work well
+							if constexpr (CMoveAwareComponent<MainType, Self>)
+								unboxedComponent->OnMovedAt(*static_cast<Self*>(target));
+						}
+					});
+				}
+			}
 		}
 		
 		/**
@@ -308,8 +419,8 @@ namespace Mcro::Composition
 		 *	Add a default constructed component to this composable class. 
 		 *
 		 *	@tparam MainType  The exact component type
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *
 		 *	@param facilities
 		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
@@ -338,7 +449,7 @@ namespace Mcro::Composition
 		{
 			ASSERT_CRASH(LastAddedComponentHash != 0 && Components.Contains(LastAddedComponentHash),
 				->WithMessage(TEXT_"Component aliases were listed, but no components were added before.")
-				->WithDetails(TEXT_"Make sure `AddAlias` or `WithAlias` is called after `AddComponent` / `WithComponent`.")
+				->WithDetails(TEXT_"Make sure `AddAlias` or `WithAlias` is called after `AddComponent` / `With`.")
 			);
 			(AddComponentAlias<ValidAs>(LastAddedComponentHash), ...);
 		}
@@ -350,8 +461,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
 		 *
 		 *	@tparam MainType  The exact component type (deduced from `newComponent`
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *	
 		 *	@param newComponent
 		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
@@ -366,9 +477,35 @@ namespace Mcro::Composition
 		 */
 		template <typename MainType, CSharedFromThis Self>
 		requires CCompatibleComponent<MainType, Self>
-		auto WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
+		auto With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+		}
+
+		/**
+		 *	@brief
+		 *	Add a component to this composable class with a fluent API, enforcing standard memory allocators.
+		 *
+		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
+		 *
+		 *	@tparam MainType  The exact component type (deduced from `newComponent`
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *	
+		 *	@param newComponent
+		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
+		 *	adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the
+		 *	stack, in fact better to stick with the `new` operator.
+		 *
+		 *	@return
+		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
+		 */
+		template <typename MainType, CSharedFromThis Self>
+		requires CCompatibleComponent<MainType, Self>
+		auto WithAnsi(this Self&& self, MainType* newComponent)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 		
@@ -379,8 +516,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
 		 *
 		 *	@tparam MainType  The exact component type
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *
 		 *	@param facilities
 		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
@@ -390,9 +527,34 @@ namespace Mcro::Composition
 		 */
 		template <CDefaultInitializable MainType, CSharedFromThis Self>
 		requires CCompatibleComponent<MainType, Self>
-		auto WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
+		auto With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+		}
+
+		/**
+		 *	@brief
+		 *	Add a default constructed component to this composable class with a fluent API, enforcing standard memory
+		 *	allocators.
+		 *
+		 *	This overload is available for composable classes which also inherit from `TSharedFromThis`.
+		 *
+		 *	@tparam MainType  The exact component type
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *
+		 *	@param facilities
+		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
+		 *
+		 *	@return
+		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
+		 */
+		template <CDefaultInitializable MainType, CSharedFromThis Self>
+		requires CCompatibleComponent<MainType, Self>
+		auto WithAnsi(this Self&& self)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
 			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
 		}
 
@@ -403,8 +565,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
 		 *
 		 *	@tparam MainType  The exact component type (deduced from `newComponent`
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *	
 		 *	@param newComponent
 		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
@@ -419,9 +581,35 @@ namespace Mcro::Composition
 		 */
 		template <typename MainType, typename Self>
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
-		decltype(auto) WithComponent(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
+		decltype(auto) With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
+			return Forward<Self>(self);
+		}
+
+		/**
+		 *	@brief
+		 *	Add a component to this composable class with a fluent API, enforcing standard memory allocators.
+		 *
+		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
+		 *
+		 *	@tparam MainType  The exact component type (deduced from `newComponent`
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *	
+		 *	@param newComponent
+		 *	A pointer to the new component being added. `IComposable` will assume ownership of the new component
+		 *	adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the
+		 *	stack, in fact better to stick with the `new` operator.
+		 *
+		 *	@return
+		 *	Perfect-forwarded self.
+		 */
+		template <typename MainType, typename Self>
+		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
+		decltype(auto) WithAnsi(this Self&& self, MainType* newComponent)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
 			return Forward<Self>(self);
 		}
 
@@ -432,8 +620,8 @@ namespace Mcro::Composition
 		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
 		 *
 		 *	@tparam MainType  The exact component type
-		 *	@tparam Self      Deducing this
-		 *	@param  self      Deducing this
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
 		 *
 		 *	@param facilities
 		 *	Customization point for object copy/move and delete methods. See `TAnyTypeFacilities`
@@ -443,9 +631,31 @@ namespace Mcro::Composition
 		 */
 		template <CDefaultInitializable MainType, typename Self>
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
-		decltype(auto) WithComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
+		decltype(auto) With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
+			return Forward<Self>(self);
+		}
+
+		/**
+		 *	@brief
+		 *	Add a default constructed component to this composable class with a fluent API, enforcing standard memory
+		 *	allocators.
+		 *
+		 *	This overload is available for composable classes which are not explicitly meant to be used with shared pointers.
+		 *
+		 *	@tparam MainType  The exact component type
+		 *	@tparam     Self  Deducing this
+		 *	@param      self  Deducing this
+		 *
+		 *	@return
+		 *	Perfect-forwarded self.
+		 */
+		template <CDefaultInitializable MainType, typename Self>
+		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
+		decltype(auto) WithAnsi(this Self&& self)
+		{
+			Forward<Self>(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
 			return Forward<Self>(self);
 		}
 
@@ -460,7 +670,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>()
+		 *		.With<FMyComponent>()
 		 *			.WithAlias<FMyComponentBase>()
 		 *			.WithAlias<IMyComponentInterface>()
 		 *	;
@@ -501,7 +711,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>()
+		 *		.With<FMyComponent>()
 		 *			.WithAlias<FMyComponentBase>()
 		 *			.WithAlias<IMyComponentInterface>()
 		 *	;
@@ -540,7 +750,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>().With(TAlias<
+		 *		.With<FMyComponent>().With(TAlias<
 		 *			FMyComponentBase,
 		 *			IMyComponentInterface
 		 *		>)
@@ -577,7 +787,7 @@ namespace Mcro::Composition
 		 *	Usage:
 		 *	@code
 		 *	auto result = IComposable()
-		 *		.WithComponent<FMyComponent>().With(TAlias<
+		 *		.With<FMyComponent>().With(TAlias<
 		 *			FMyComponentBase,
 		 *			IMyComponentInterface
 		 *		>)
@@ -609,6 +819,74 @@ namespace Mcro::Composition
 
 		/**
 		 *	@brief
+		 *	Modify a component inline, with a lambda function. The component type is inferred from the function's first
+		 *	argument, and a reference of that component is passed into it. The component must exist before calling this
+		 *	method, or if it doesn't, the application will crash.
+		 *	
+		 *	@tparam Self  Deducing this
+		 *	
+		 *	@tparam Function
+		 *	Function type for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@param self  Deducing this
+		 *	
+		 *	@param function
+		 *	Function for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@return
+		 *	If the composable class also inherits from `TSharedFromThis` return a shared ref.
+		 */
+		template <
+			CSharedFromThis Self,
+			CFunctionLike Function
+		>
+		requires (TFunction_ArgCount<Function> == 1)
+		auto With(this Self&& self, Function&& function)
+		{
+			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
+			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+		}
+
+		/**
+		 *	@brief
+		 *	Modify a component inline, with a lambda function. The component type is inferred from the function's first
+		 *	argument, and a reference of that component is passed into it. The component must exist before calling this
+		 *	method, or if it doesn't, the application will crash.
+		 *	
+		 *	@tparam Self  Deducing this
+		 *	
+		 *	@tparam Function
+		 *	Function type for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@param self  Deducing this
+		 *	
+		 *	@param function
+		 *	Function for modifying a component inline. The component type is deduced from the first parameter of the
+		 *	function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options.
+		 *	Function result is discarded when returning anything.
+		 *	
+		 *	@return
+		 *	Perfect-forwarded self.
+		 */
+		template <
+			typename Self,
+			CFunctionLike Function
+		>
+		requires (!CSharedFromThis<Self> && TFunction_ArgCount<Function> == 1)
+		decltype(auto) With(this Self&& self, Function&& function)
+		{
+			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
+			return Forward<Self>(self);
+		}
+
+		/**
+		 *	@brief
 		 *	Get all components added matching~ or aliased by the given type.
 		 *	
 		 *	@tparam T  Desired component type.
@@ -622,7 +900,7 @@ namespace Mcro::Composition
 		ranges::any_view<T*> GetComponents() const
 		{
 			namespace rv = ranges::views;
-			return GetComponentsPrivate(TTypeHash<T>)
+			return GetComponentsDynamic(TTypeHash<T>)
 				| rv::transform([](FAny* component) { return component->TryGet<T>(); })
 				| FilterValid();
 		}
@@ -640,9 +918,9 @@ namespace Mcro::Composition
 		 *	A pointer to the component if one at least exists, nullptr otherwise.
 		 */
 		template <typename T>
-		const T* TryGetComponent() const
+		const T* TryGet() const
 		{
-			return GetComponents<T>() | FirstOrDefault();
+			return GetComponents<T>() | First(nullptr);
 		}
 
 		/**
@@ -658,9 +936,9 @@ namespace Mcro::Composition
 		 *	A pointer to the component if one at least exists, nullptr otherwise.
 		 */
 		template <typename T>
-		T* TryGetComponent()
+		T* TryGet()
 		{
-			return GetComponents<T>() | FirstOrDefault();
+			return GetComponents<T>() | First(nullptr);
 		}
 		
 		/**
@@ -672,7 +950,7 @@ namespace Mcro::Composition
 		 *
 		 *	@warning
 		 *	If there may be the slightest doubt that the given component may not exist on this composable class, use
-		 *	`TryGetComponent` instead as this function can crash at runtime.
+		 *	`TryGet` instead as this function can crash at runtime.
 		 *	
 		 *	@tparam T  Desired component type.
 		 *	
@@ -680,9 +958,9 @@ namespace Mcro::Composition
 		 *	A reference to the desired component. It is a runtime crash if the component doesn't exist.
 		 */
 		template <typename T>
-		T const& GetComponent() const
+		T const& Get() const
 		{
-			const T* result = TryGetComponent<T>();
+			const T* result = TryGet<T>();
 			ASSERT_CRASH(result, ->WithMessageF(TEXT_"Component {0} was unavailable.", TTypeName<T>));
 			return *result;
 		}
@@ -696,7 +974,7 @@ namespace Mcro::Composition
 		 *
 		 *	@warning
 		 *	If there may be the slightest doubt that the given component may not exist on this composable class, use
-		 *	`TryGetComponent` instead as this function can crash at runtime.
+		 *	`TryGet` instead as this function can crash at runtime.
 		 *	
 		 *	@tparam T  Desired component type.
 		 *	
@@ -704,9 +982,9 @@ namespace Mcro::Composition
 		 *	A reference to the desired component. It is a runtime crash if the component doesn't exist.
 		 */
 		template <typename T>
-		T& GetComponent()
+		T& Get()
 		{
-			T* result = TryGetComponent<T>();
+			T* result = TryGet<T>();
 			ASSERT_CRASH(result, ->WithMessageF(TEXT_"Component {0} was unavailable.", TTypeName<T>));
 			return *result;
 		}

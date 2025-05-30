@@ -41,16 +41,16 @@ namespace Mcro::FunctionTraits
 			using Arguments = TTuple<Args...>;
 
 			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
-			using ArgumentsDecay = TTuple<typename TDecay<Args>::Type...>;
+			using ArgumentsDecay = TTuple<std::decay_t<Args>...>;
 
 			/** The pure function signature with other information stripped from it */
 			using Signature = Return(Args...);
 
 			template <int I>
-			using Arg = typename TTupleElement<I, Arguments>::Type;
+			using Arg = TTypeAt<I, Arguments>;
 
 			template <int I>
-			using ArgDecay = typename TTupleElement<I, ArgumentsDecay>::Type;
+			using ArgDecay = TTypeAt<I, ArgumentsDecay>;
 		};
 	}
 	
@@ -274,6 +274,72 @@ namespace Mcro::FunctionTraits
 			std::make_index_sequence<TFunction_ArgCount<Function>>()
 		);
 	}
+
+	/** @brief Concept matching the return of a type with compatible return types, disregarding CV-ref qualifiers. */
+	template <typename F, typename Return>
+	concept CFunctionCompatible_ReturnDecay =
+		CFunctionLike<F>
+		&& CConvertibleToDecayed<TFunction_ReturnDecay<F>, Return>
+	;
+	
+	/** @brief Concept matching the return of a type with compatible return types, preserving CV-ref qualifiers. */
+	template <typename F, typename Return>
+	concept CFunctionCompatible_Return =
+		CFunctionLike<F>
+		&& CConvertibleTo<TFunction_Return<F>, Return>
+	;
+
+	/** @brief Concept matching function types with compatible set of arguments, disregarding CV-ref qualifiers. */
+	template <typename F, typename With>
+	concept CFunctionCompatible_ArgumentsDecay =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CConvertibleToDecayed<
+			TFunction_ArgumentsDecay<With>,
+			TFunction_ArgumentsDecay<F>
+		>
+	;
+
+	/** @brief Concept matching function types with compatible set of arguments, preserving CV-ref qualifiers. */
+	template <typename F, typename With>
+	concept CFunctionCompatible_Arguments =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CConvertibleTo<
+			TFunction_Arguments<With>,
+			TFunction_Arguments<F>
+		>
+	;
+
+	/**
+	 *	@brief
+	 *	Concept constraining a function type to another one which arguments and return types are compatible,
+	 *	disregarding CV-ref qualifiers
+	 */
+	template <typename F, typename With>
+	concept CFunctionCompatibleDecay =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CFunctionCompatible_ReturnDecay<F, TFunction_ReturnDecay<With>>
+		&& CFunctionCompatible_ArgumentsDecay<F, With>
+	;
+
+	/**
+	 *	@brief
+	 *	Concept constraining a function type to another one which arguments and return types are compatible,
+	 *	preserving CV-ref qualifiers
+	 */
+	template <typename F, typename With>
+	concept CFunctionCompatible =
+		CFunctionLike<F>
+		&& CFunctionLike<With>
+		&& CFunctionCompatible_Return<F, TFunction_Return<With>>
+		&& CFunctionCompatible_Arguments<F, With>
+	;
+
+	/** @brief Concept matching function types returning void. */
+	template <typename F>
+	concept CFunctionReturnsVoid = CFunctionLike<F> && std::is_void_v<TFunction_Return<F>>;
 
 	/**
 	 *	@brief
