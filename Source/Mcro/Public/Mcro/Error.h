@@ -733,12 +733,10 @@ namespace Mcro::Error
  */
 #define ASSERT_RETURN(...) MACRO_OVERLOAD(MCRO_ASSERT_RETURN_, __VA_ARGS__)
 
-#define MCRO_UNAVAILABLE_1(error)               \
-	return Mcro::Error::IError::Make(new error) \
-		->WithLocation()                        \
-		->AsRecoverable()                      //
-
-#define MCRO_UNAVAILABLE_0() MCRO_UNAVAILABLE_1(Mcro::Error::FUnavailable())
+#define MCRO_UNAVAILABLE_1(error)                                                              \
+	return Mcro::Error::IError::Make(new DEFAULT_ON_EMPTY(error, Mcro::Error::FUnavailable())) \
+		->WithLocation()                                                                       \
+		->AsRecoverable()                                                                     //
 
 /**
  *	@brief  Denote that a resource which is asked for doesn't exist
@@ -747,7 +745,7 @@ namespace Mcro::Error
  *	- `(error)` Specify error type to return
  *	- `()` Return `FUnavailable` error
  */
-#define UNAVAILABLE(...) MACRO_OVERLOAD(MCRO_UNAVAILABLE_, __VA_ARGS__)
+#define UNAVAILABLE(error) MCRO_UNAVAILABLE_1(error)
 
 #define MCRO_PROPAGATE_FAIL_3(type, var, expression)    \
 	type var = (expression);                            \
