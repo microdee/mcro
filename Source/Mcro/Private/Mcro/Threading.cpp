@@ -23,6 +23,7 @@ namespace Mcro::Threading
 		case ENamedThreads::ActualRenderingThread: return &IsInActualRenderingThread;
 		case ENamedThreads::GameThread_Local: return &IsInGameThread;
 		case ENamedThreads::ActualRenderingThread_Local: return &IsInActualRenderingThread;
+		case ENamedThreads::AnyThread: return nullptr;
 		default: ensureMsgf(false, TEXT_"GetThreadCheck cannot get this thread predicate.");
 		}
 		return nullptr;
