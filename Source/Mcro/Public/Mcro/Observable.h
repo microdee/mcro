@@ -93,7 +93,6 @@ namespace Mcro::Observable
 		virtual void Modify(TUniqueFunction<void(T&)>&& modifier, bool alwaysNotify = true) = 0;
 
 	protected:
-		TSharedRef<FVoid> LifespanGuard = MakeShared<FVoid>();
 		
 		template <CChangeListener<T> Function>
 		static auto DelegateValueArgument(Function const& onChange)
@@ -142,43 +141,6 @@ namespace Mcro::Observable
 		FDelegateHandle OnChange(Object&& object, Function const& onChange, FEventPolicy const& eventPolicy = {})
 		{
 			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), eventPolicy);
-		}
-
-		/**
-		 *	@brief  Pull changes from another state, syncing the value between the two. Values will be copied.
-		 *
-		 *	@remarks
-		 *	It is supposedly safe to sync together states which may have different timespans using internal lifespan
-		 *	guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity
-		 *	can be inferred from their weak pointer representation.
-		 */
-		template <typename Other>
-		requires CConvertibleToDecayed<Other, T>
-		void SyncPull(IState<Other>& otherState)
-		{
-			otherState.OnChange(
-				LifespanGuard,
-				[this](Other const& next) { Set(next); },
-				{.Belated = true}
-			);
-		}
-
-		/**
-		 *	@brief  Push changes from another state, syncing the value between the two. Values will be copied.
-		 *
-		 *	@remarks
-		 *	It is supposedly safe to sync together states which may have different timespans using internal lifespan
-		 *	guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity
-		 *	can be inferred from their weak pointer representation.
-		 */
-		template <CConvertibleToDecayed<T> Other>
-		void SyncPush(IState<Other>& otherState)
-		{
-			OnChange(
-				otherState.LifespanGuard,
-				[&otherState](T const& next) { otherState.Set(next); },
-				{.Belated = true}
-			);
 		}
 
 		/**
