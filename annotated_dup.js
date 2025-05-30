@@ -1,11 +1,14 @@
 var annotated_dup =
 [
     [ "Mcro", "d8/d63/namespaceMcro.html", [
+      [ "Ansi", "d9/d90/namespaceMcro_1_1Ansi.html", [
+        [ "FAllocator", "d4/df1/classMcro_1_1Ansi_1_1FAllocator.html", "d4/df1/classMcro_1_1Ansi_1_1FAllocator" ],
+        [ "FSetAllocator", "d5/d3b/classMcro_1_1Ansi_1_1FSetAllocator.html", null ]
+      ] ],
       [ "Any", "da/dfe/namespaceMcro_1_1Any.html", [
         [ "FAny", "df/d32/structMcro_1_1Any_1_1FAny.html", "df/d32/structMcro_1_1Any_1_1FAny" ],
         [ "TAnyTypeFacilities", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities" ],
-        [ "TInherit", "d3/d59/classMcro_1_1Any_1_1TInherit.html", "d3/d59/classMcro_1_1Any_1_1TInherit" ],
-        [ "TTypes", "de/daf/structMcro_1_1Any_1_1TTypes.html", null ]
+        [ "TInherit", "d3/d59/classMcro_1_1Any_1_1TInherit.html", "d3/d59/classMcro_1_1Any_1_1TInherit" ]
       ] ],
       [ "AutoModularFeature", "d3/d71/namespaceMcro_1_1AutoModularFeature.html", [
         [ "IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", null ],
@@ -81,7 +84,9 @@ var annotated_dup =
         [ "TInitializeOnCopy", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy" ]
       ] ],
       [ "Modules", "d5/d1b/namespaceMcro_1_1Modules.html", [
+        [ "FObserveModuleListener", "d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html", "d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener" ],
         [ "IObservableModule", "df/d06/classMcro_1_1Modules_1_1IObservableModule.html", "df/d06/classMcro_1_1Modules_1_1IObservableModule" ],
+        [ "TModuleBoundObject", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject" ],
         [ "TObserveModule", "d3/d30/structMcro_1_1Modules_1_1TObserveModule.html", "d3/d30/structMcro_1_1Modules_1_1TObserveModule" ]
       ] ],
       [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
@@ -132,7 +137,18 @@ var annotated_dup =
         [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", "d0/daf/structMcro_1_1Slate_1_1TSlots" ]
       ] ],
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
-        [ "TTemplate", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", "da/dde/structMcro_1_1Templates_1_1TTemplate" ]
+        [ "Detail", "d2/d61/namespaceMcro_1_1Templates_1_1Detail.html", [
+          [ "TTypeAtPack_Impl", "d0/d15/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl.html", "d0/d15/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl" ],
+          [ "TTypeAtPack_Impl< 0, First, Rest... >", "d2/dd0/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl_3_010_00_01First_00_01Rest_8_8_8_01_4.html", "d2/dd0/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl_3_010_00_01First_00_01Rest_8_8_8_01_4" ]
+        ] ],
+        [ "TIsTypeList_Struct", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", null ],
+        [ "TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", null ],
+        [ "TTemplate", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", "da/dde/structMcro_1_1Templates_1_1TTemplate" ],
+        [ "TTupleSafeElement_Struct", "d0/dfc/structMcro_1_1Templates_1_1TTupleSafeElement__Struct.html", null ],
+        [ "TTupleSafeElement_Struct< I, TTuple< T... > >", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4.html", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4" ],
+        [ "TTypeAtPack_Struct", "da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html", "da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct" ],
+        [ "TTypeAtPack_Struct< I >", "d9/d84/structMcro_1_1Templates_1_1TTypeAtPack__Struct_3_01I_01_4.html", "d9/d84/structMcro_1_1Templates_1_1TTypeAtPack__Struct_3_01I_01_4" ],
+        [ "TTypes", "da/da5/structMcro_1_1Templates_1_1TTypes.html", "da/da5/structMcro_1_1Templates_1_1TTypes" ]
       ] ],
       [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
         [ "Macros", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html", [
@@ -168,6 +184,10 @@ var annotated_dup =
           [ "TScopeObject", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject.html", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject" ]
         ] ]
       ] ],
+      [ "ValueThunk", "d0/dd6/namespaceMcro_1_1ValueThunk.html", [
+        [ "FValueThunkOptions", "df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions.html", "df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions" ],
+        [ "TValueThunk", "d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html", "d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk" ]
+      ] ],
       [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", [
         [ "TScopedRegion", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion" ]
       ] ],
@@ -179,6 +199,7 @@ var annotated_dup =
     [ "FCopyForbidden", "de/d5a/structFCopyForbidden.html", null ],
     [ "FMapPairsAccessTag", "d0/deb/structFMapPairsAccessTag.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", "d3/daf/structFVoid" ],
+    [ "TAllocatorTraits< Mcro::Ansi::FAllocator >", "df/d65/structTAllocatorTraits_3_01Mcro_1_1Ansi_1_1FAllocator_01_4.html", null ],
     [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", null ],
     [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", "d4/ded/classUDynamicDelegateTestClass" ]
 ];

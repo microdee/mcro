@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11"/>
   <meta name="generator" content="Doxygen 1.12.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MCRO: Mcro::Any::TTypes&lt; T &gt; Struct Template Reference</title>
+  <title>MCRO: Mcro::FunctionTraits::CFunctionReturnsVoid Concept Reference</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../../jquery.js"></script>
   <script type="text/javascript" src="../../dynsections.js"></script>
@@ -86,7 +86,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('de/daf/structMcro_1_1Any_1_1TTypes.html','../../'); initResizable(true); });
+$(function(){initNavTree('d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -112,28 +112,29 @@ $(function(){initNavTree('de/daf/structMcro_1_1Any_1_1TTypes.html','../../'); in
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Mcro::Any::TTypes&lt; T &gt; Struct Template Reference</div></div>
+  <div class="headertitle"><div class="title">Mcro::FunctionTraits::CFunctionReturnsVoid Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This template is used in <code>IComponent|FAny::With(TAlias&lt;...&gt;)</code> so it can have deduced this type and explicit variadic template arguments when specifying multiple aliases.  
- <a href="#details">More...</a></p>
+<p>Concept matching function types returning void.  
+<a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>&gt;</code></p>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename... T&gt;<br />
-struct Mcro::Any::TTypes&lt; T &gt;</div><p>This template is used in <code>IComponent|FAny::With(TAlias&lt;...&gt;)</code> so it can have deduced this type and explicit variadic template arguments when specifying multiple aliases. </p>
+<p><code>#include &lt;<a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>&gt;</code></p>
+<h2 class="groupheader">Concept definition</h2>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html">Mcro::FunctionTraits::CFunctionReturnsVoid</a> =  <a class="code hl_concept" href="../../de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html">CFunctionLike&lt;F&gt;</a> &amp;&amp; std::is_void_v&lt;TFunction_Return&lt;F&gt;&gt;</div>
+<div class="ttc" id="aconceptMcro_1_1FunctionTraits_1_1CFunctionLike_html"><div class="ttname"><a href="../../de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html">Mcro::FunctionTraits::CFunctionLike</a></div><div class="ttdoc">A concept accepting any function like entity (function pointer or functor object)</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00177">FunctionTraits.h:177</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid_html"><div class="ttname"><a href="../../d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html">Mcro::FunctionTraits::CFunctionReturnsVoid</a></div><div class="ttdoc">Concept matching function types returning void.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00342">FunctionTraits.h:342</a></div></div>
+</div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Concept matching function types returning void. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00031">31</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>Public/Mcro/<a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a></li>
-</ul>
-</div><!-- contents -->
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00342">342</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></li><li class="navelem"><a class="el" href="../../da/dfe/namespaceMcro_1_1Any.html">Any</a></li><li class="navelem"><a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a></li>
+    <li class="navelem"><a class="el" href="../../d8/d63/namespaceMcro.html">Mcro</a></li><li class="navelem"><a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">FunctionTraits</a></li><li class="navelem"><a class="el" href="../../d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html">CFunctionReturnsVoid</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

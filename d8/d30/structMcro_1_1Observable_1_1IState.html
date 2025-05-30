@@ -116,7 +116,8 @@ $(function(){initNavTree('d8/d30/structMcro_1_1Observable_1_1IState.html','../..
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a>  </div>
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Observable::IState&lt; T &gt; Struct Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
@@ -169,6 +170,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acbbc4488bcf36b483ca97e39b67b97f8"><td class="memTemplItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acbbc4488bcf36b483ca97e39b67b97f8">OnChange</a> (Object &amp;&amp;object, Function const &amp;onChange, <a class="el" href="../../d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html">FEventPolicy</a> const &amp;eventPolicy={})</td></tr>
 <tr class="memdesc:acbbc4488bcf36b483ca97e39b67b97f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a function with an object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code>  <br /></td></tr>
 <tr class="separator:acbbc4488bcf36b483ca97e39b67b97f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a139e355ee98c5d3d55d11d7aaa601109" id="r_a139e355ee98c5d3d55d11d7aaa601109"><td class="memTemplParams" colspan="2">template&lt;typename Other &gt; <br />
+requires CConvertibleToDecayed&lt;Other, T&gt;</td></tr>
+<tr class="memitem:a139e355ee98c5d3d55d11d7aaa601109"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a139e355ee98c5d3d55d11d7aaa601109">SyncPull</a> (<a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;otherState)</td></tr>
+<tr class="memdesc:a139e355ee98c5d3d55d11d7aaa601109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pull changes from another state, syncing the value between the two. Values will be copied.  <br /></td></tr>
+<tr class="separator:a139e355ee98c5d3d55d11d7aaa601109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4928f6f5096108a613bfed0a4c1e365" id="r_af4928f6f5096108a613bfed0a4c1e365"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; Other&gt; </td></tr>
+<tr class="memitem:af4928f6f5096108a613bfed0a4c1e365"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af4928f6f5096108a613bfed0a4c1e365">SyncPush</a> (<a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;otherState)</td></tr>
+<tr class="memdesc:af4928f6f5096108a613bfed0a4c1e365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push changes from another state, syncing the value between the two. Values will be copied.  <br /></td></tr>
+<tr class="separator:af4928f6f5096108a613bfed0a4c1e365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858442436ae53e29c8aad993249f9a99" id="r_a858442436ae53e29c8aad993249f9a99"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a858442436ae53e29c8aad993249f9a99">HasChangedFrom</a> (const T &amp;nextValue)=0</td></tr>
 <tr class="memdesc:a858442436ae53e29c8aad993249f9a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given value will be stored in the state only if T is equality comparable and it differs from the current state value. If T is not equality comparable this function is equivalent to Set and always returns true.  <br /></td></tr>
 <tr class="separator:a858442436ae53e29c8aad993249f9a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,6 +200,42 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aee37071909ac09f7c8adf3644be838a0" id="r_aee37071909ac09f7c8adf3644be838a0"><td class="memItemLeft" align="right" valign="top">virtual TUniquePtr&lt; <a class="el" href="#a4e38b124440253776e48f12ff943c063">WriteLockVariant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee37071909ac09f7c8adf3644be838a0">WriteLock</a> ()=0</td></tr>
 <tr class="memdesc:aee37071909ac09f7c8adf3644be838a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock this state for writing for the current scope.  <br /></td></tr>
 <tr class="separator:aee37071909ac09f7c8adf3644be838a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55727bb3a735174022d9237bce689e26" id="r_a55727bb3a735174022d9237bce689e26"><td class="memItemLeft" align="right" valign="top">virtual TOptional&lt; T &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55727bb3a735174022d9237bce689e26">GetPrevious</a> () const =0</td></tr>
+<tr class="memdesc:a55727bb3a735174022d9237bce689e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the previous value if StorePrevious is enabled and there was at least one change.  <br /></td></tr>
+<tr class="separator:a55727bb3a735174022d9237bce689e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77fd005fefdab8cdb31585c8be28ddf1" id="r_a77fd005fefdab8cdb31585c8be28ddf1"><td class="memItemLeft" align="right" valign="top">virtual T const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77fd005fefdab8cdb31585c8be28ddf1">GetPrevious</a> (T const &amp;fallback) const =0</td></tr>
+<tr class="memdesc:a77fd005fefdab8cdb31585c8be28ddf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the previous value if StorePrevious is enabled and there was at least one change. Get a fallback value otherwise.  <br /></td></tr>
+<tr class="separator:a77fd005fefdab8cdb31585c8be28ddf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0425493a511e75432e0ecbd73fc4c000" id="r_a0425493a511e75432e0ecbd73fc4c000"><td class="memItemLeft" align="right" valign="top">virtual T const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0425493a511e75432e0ecbd73fc4c000">GetPreviousOrCurrent</a> () const =0</td></tr>
+<tr class="memdesc:a0425493a511e75432e0ecbd73fc4c000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the previous value if StorePrevious is enabled and there was at least one change or the current value otherwise.  <br /></td></tr>
+<tr class="separator:a0425493a511e75432e0ecbd73fc4c000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b47e676d9bd21dbfb663ce5ff9986d4" id="r_a1b47e676d9bd21dbfb663ce5ff9986d4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b47e676d9bd21dbfb663ce5ff9986d4">NormalizePrevious</a> ()=0</td></tr>
+<tr class="memdesc:a1b47e676d9bd21dbfb663ce5ff9986d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the previous value to the current one. Useful in Ticks.  <br /></td></tr>
+<tr class="separator:a1b47e676d9bd21dbfb663ce5ff9986d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b21a96e07e58e6fba202519909bf30d" id="r_a4b21a96e07e58e6fba202519909bf30d"><td class="memTemplParams" colspan="2">template&lt;CBooleanTestable  = T&gt; </td></tr>
+<tr class="memitem:a4b21a96e07e58e6fba202519909bf30d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4b21a96e07e58e6fba202519909bf30d">BecameTrue</a> (bool fallback=false) const</td></tr>
+<tr class="memdesc:a4b21a96e07e58e6fba202519909bf30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when this state is currently true, but previously it wasn't.  <br /></td></tr>
+<tr class="separator:a4b21a96e07e58e6fba202519909bf30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410dfd3544aac44ff9216e076e701db9" id="r_a410dfd3544aac44ff9216e076e701db9"><td class="memTemplParams" colspan="2">template&lt;CBooleanTestable  = T&gt; </td></tr>
+<tr class="memitem:a410dfd3544aac44ff9216e076e701db9"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a410dfd3544aac44ff9216e076e701db9">OnDown</a> (bool fallback=false) const</td></tr>
+<tr class="memdesc:a410dfd3544aac44ff9216e076e701db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when this state is currently true, but previously it wasn't.  <br /></td></tr>
+<tr class="separator:a410dfd3544aac44ff9216e076e701db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d74b0a4524e462cecc74bc0eb70eca" id="r_a69d74b0a4524e462cecc74bc0eb70eca"><td class="memTemplParams" colspan="2">template&lt;CBooleanTestable  = T&gt; </td></tr>
+<tr class="memitem:a69d74b0a4524e462cecc74bc0eb70eca"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a69d74b0a4524e462cecc74bc0eb70eca">BecameFalse</a> (bool fallback=false) const</td></tr>
+<tr class="memdesc:a69d74b0a4524e462cecc74bc0eb70eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when this state is currently false, but previously it wasn't.  <br /></td></tr>
+<tr class="separator:a69d74b0a4524e462cecc74bc0eb70eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadbc3a9778ef2e2a106d01554b379fe4" id="r_aadbc3a9778ef2e2a106d01554b379fe4"><td class="memTemplParams" colspan="2">template&lt;CBooleanTestable  = T&gt; </td></tr>
+<tr class="memitem:aadbc3a9778ef2e2a106d01554b379fe4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aadbc3a9778ef2e2a106d01554b379fe4">OnUp</a> (bool fallback=false) const</td></tr>
+<tr class="memdesc:aadbc3a9778ef2e2a106d01554b379fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when this state is currently false, but previously it wasn't.  <br /></td></tr>
+<tr class="separator:aadbc3a9778ef2e2a106d01554b379fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ca302750bf16603288cdd347a4e2a5" id="r_ae4ca302750bf16603288cdd347a4e2a5"><td class="memTemplParams" colspan="2">template&lt;CCoreEqualityComparable  = T&gt; </td></tr>
+<tr class="memitem:ae4ca302750bf16603288cdd347a4e2a5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae4ca302750bf16603288cdd347a4e2a5">HasChanged</a> () const</td></tr>
+<tr class="memdesc:ae4ca302750bf16603288cdd347a4e2a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when current value is not equal to previous one.  <br /></td></tr>
+<tr class="separator:ae4ca302750bf16603288cdd347a4e2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0876e0ea50fb723a19e831641839bd5a" id="r_a0876e0ea50fb723a19e831641839bd5a"><td class="memTemplParams" colspan="2">template&lt;CCoreEqualityComparable  = T&gt; </td></tr>
+<tr class="memitem:a0876e0ea50fb723a19e831641839bd5a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0876e0ea50fb723a19e831641839bd5a">HasChanged</a> (T const &amp;fallback) const</td></tr>
+<tr class="memdesc:a0876e0ea50fb723a19e831641839bd5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when current value is not equal to previous one.  <br /></td></tr>
+<tr class="separator:a0876e0ea50fb723a19e831641839bd5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7414fce3532e7c9392e78eeb5a80e7" id="r_ada7414fce3532e7c9392e78eeb5a80e7"><td class="memTemplParams" colspan="2">template&lt;typename Self &gt; </td></tr>
 <tr class="memitem:ada7414fce3532e7c9392e78eeb5a80e7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ada7414fce3532e7c9392e78eeb5a80e7">operator T const &amp;</a> (this Self &amp;&amp;self)</td></tr>
 <tr class="separator:ada7414fce3532e7c9392e78eeb5a80e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,6 +253,11 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:aede0812419e424dd3ba1cae3bc859a6d" id="r_aede0812419e424dd3ba1cae3bc859a6d"><td class="memTemplParams" colspan="2">template&lt;CChangeListener&lt; T &gt; Function&gt; </td></tr>
 <tr class="memitem:aede0812419e424dd3ba1cae3bc859a6d"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aede0812419e424dd3ba1cae3bc859a6d">DelegateValueArgument</a> (Function const &amp;onChange)</td></tr>
 <tr class="separator:aede0812419e424dd3ba1cae3bc859a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aecfef7cf8edf535b6964468a06de782b" id="r_aecfef7cf8edf535b6964468a06de782b"><td class="memItemLeft" align="right" valign="top">TSharedRef&lt; <a class="el" href="../../d3/daf/structFVoid.html">FVoid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecfef7cf8edf535b6964468a06de782b">LifespanGuard</a> = MakeShared&lt;<a class="el" href="../../d3/daf/structFVoid.html">FVoid</a>&gt;()</td></tr>
+<tr class="separator:aecfef7cf8edf535b6964468a06de782b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
@@ -297,6 +348,84 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a69d74b0a4524e462cecc74bc0eb70eca" name="a69d74b0a4524e462cecc74bc0eb70eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d74b0a4524e462cecc74bc0eb70eca">&#9670;&#160;</a></span>BecameFalse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CBooleanTestable  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::BecameFalse </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>fallback</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when this state is currently false, but previously it wasn't. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fallback</td><td>Use this as the fallback previous state. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00298">298</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
+<a id="a4b21a96e07e58e6fba202519909bf30d" name="a4b21a96e07e58e6fba202519909bf30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b21a96e07e58e6fba202519909bf30d">&#9670;&#160;</a></span>BecameTrue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CBooleanTestable  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::BecameTrue </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>fallback</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when this state is currently true, but previously it wasn't. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fallback</td><td>Use this as the fallback previous state. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00275">275</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
 <a id="aede0812419e424dd3ba1cae3bc859a6d" name="aede0812419e424dd3ba1cae3bc859a6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aede0812419e424dd3ba1cae3bc859a6d">&#9670;&#160;</a></span>DelegateValueArgument()</h2>
 
@@ -324,7 +453,7 @@ template&lt;CChangeListener&lt; T &gt; Function&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00097">97</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00099">99</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -390,6 +519,171 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The lock is returned as TUniquePtr it's slightly more expensive because of ref-counting but it makes the API so much easier to use as <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> can decide to return a real lock or just a dummy. </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#a926a1e8f5e0a0a5d8f0fece7e0a5f1e6">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a55727bb3a735174022d9237bce689e26" name="a55727bb3a735174022d9237bce689e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55727bb3a735174022d9237bce689e26">&#9670;&#160;</a></span>GetPrevious() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual TOptional&lt; T &gt; const  &amp; <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::GetPrevious </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the previous value if StorePrevious is enabled and there was at least one change. </p>
+
+<p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#a9e9ec7cff500ce58c3107f52a3103c82">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a77fd005fefdab8cdb31585c8be28ddf1" name="a77fd005fefdab8cdb31585c8be28ddf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77fd005fefdab8cdb31585c8be28ddf1">&#9670;&#160;</a></span>GetPrevious() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual T const  &amp; <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::GetPrevious </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;</td>          <td class="paramname"><span class="paramname"><em>fallback</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the previous value if StorePrevious is enabled and there was at least one change. Get a fallback value otherwise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fallback</td><td>Return this value if there's no previous one available </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#a68a54146fa6ff1e07d1e1013a4568da1">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a0425493a511e75432e0ecbd73fc4c000" name="a0425493a511e75432e0ecbd73fc4c000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0425493a511e75432e0ecbd73fc4c000">&#9670;&#160;</a></span>GetPreviousOrCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual T const  &amp; <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::GetPreviousOrCurrent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the previous value if StorePrevious is enabled and there was at least one change or the current value otherwise. </p>
+
+<p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#a4bfa7da2362ade8b64471897705ab59f">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
+
+</div>
+</div>
+<a id="ae4ca302750bf16603288cdd347a4e2a5" name="ae4ca302750bf16603288cdd347a4e2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ca302750bf16603288cdd347a4e2a5">&#9670;&#160;</a></span>HasChanged() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CCoreEqualityComparable  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::HasChanged </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when current value is not equal to previous one. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00317">317</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
+<a id="a0876e0ea50fb723a19e831641839bd5a" name="a0876e0ea50fb723a19e831641839bd5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0876e0ea50fb723a19e831641839bd5a">&#9670;&#160;</a></span>HasChanged() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CCoreEqualityComparable  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::HasChanged </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;</td>          <td class="paramname"><span class="paramname"><em>fallback</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when current value is not equal to previous one. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00324">324</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -498,6 +792,38 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a1b47e676d9bd21dbfb663ce5ff9986d4" name="a1b47e676d9bd21dbfb663ce5ff9986d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b47e676d9bd21dbfb663ce5ff9986d4">&#9670;&#160;</a></span>NormalizePrevious()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::NormalizePrevious </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the previous value to the current one. Useful in Ticks. </p>
+<p>It will not trigger change notifications but it will use a write-lock when thread-safety is enabled. If <code>StorePrevious</code> is disabled it will do nothing. </p>
+
+<p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#ac4040f325c4d60a15eaf168b6e7794b2">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
+
+</div>
+</div>
 <a id="abff4d95970810250fcd4d90a49c7d5aa" name="abff4d95970810250fcd4d90a49c7d5aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abff4d95970810250fcd4d90a49c7d5aa">&#9670;&#160;</a></span>OnChange() <span class="overload">[1/3]</span></h2>
 
@@ -532,7 +858,7 @@ template&lt;CChangeListener&lt; T &gt; Function&gt; </div>
 <p>Add a function without object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code> </p>
 <p>Where the argument <code>previous</code> is optional (to have, not its type). The argument <code>previous</code> when it is present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00126">126</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00128">128</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +901,7 @@ template&lt;typename Object , CChangeListener&lt; T &gt; Function&gt; </div>
 <p>Add a function with an object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code> </p>
 <p>Where the argument <code>previous</code> is optional (to have, not its type). The argument <code>previous</code> when it is present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00140">140</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00142">142</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -610,7 +936,7 @@ template&lt;typename T &gt; </div>
 
 <p>Add a delegate which gets a <code><a class="el" href="../../dd/dcf/structMcro_1_1Observable_1_1TChangeData.html" title="This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan...">TChangeData</a>&lt;T&gt; const&amp;</code> if this state has been set. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00112">112</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00114">114</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -647,6 +973,84 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a410dfd3544aac44ff9216e076e701db9" name="a410dfd3544aac44ff9216e076e701db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a410dfd3544aac44ff9216e076e701db9">&#9670;&#160;</a></span>OnDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CBooleanTestable  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::OnDown </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>fallback</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when this state is currently true, but previously it wasn't. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fallback</td><td>Use this as the fallback previous state. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00290">290</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
+<a id="aadbc3a9778ef2e2a106d01554b379fe4" name="aadbc3a9778ef2e2a106d01554b379fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadbc3a9778ef2e2a106d01554b379fe4">&#9670;&#160;</a></span>OnUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CBooleanTestable  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::OnUp </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>fallback</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when this state is currently false, but previously it wasn't. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fallback</td><td>Use this as the fallback previous state. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00313">313</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
 <a id="ada7414fce3532e7c9392e78eeb5a80e7" name="ada7414fce3532e7c9392e78eeb5a80e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada7414fce3532e7c9392e78eeb5a80e7">&#9670;&#160;</a></span>operator T const &amp;()</h2>
 
@@ -674,7 +1078,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00204">204</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00330">330</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -705,7 +1109,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00210">210</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00336">336</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -835,6 +1239,75 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a139e355ee98c5d3d55d11d7aaa601109" name="a139e355ee98c5d3d55d11d7aaa601109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a139e355ee98c5d3d55d11d7aaa601109">&#9670;&#160;</a></span>SyncPull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename Other &gt; <br />
+requires CConvertibleToDecayed&lt;Other, T&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::SyncPull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>otherState</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pull changes from another state, syncing the value between the two. Values will be copied. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>It is supposedly safe to sync together states which may have different timespans using internal lifespan guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity can be inferred from their weak pointer representation. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00157">157</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
+<a id="af4928f6f5096108a613bfed0a4c1e365" name="af4928f6f5096108a613bfed0a4c1e365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4928f6f5096108a613bfed0a4c1e365">&#9670;&#160;</a></span>SyncPush()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;CConvertibleToDecayed&lt; T &gt; Other&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::SyncPush </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>otherState</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Push changes from another state, syncing the value between the two. Values will be copied. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>It is supposedly safe to sync together states which may have different timespans using internal lifespan guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity can be inferred from their weak pointer representation. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00175">175</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+
+</div>
+</div>
 <a id="aee37071909ac09f7c8adf3644be838a0" name="aee37071909ac09f7c8adf3644be838a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee37071909ac09f7c8adf3644be838a0">&#9670;&#160;</a></span>WriteLock()</h2>
 
@@ -864,6 +1337,33 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The lock is returned as TUniquePtr it's slightly more expensive because of ref-counting but it makes the API so much easier to use as <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> can decide to return a real lock or just a dummy. </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="aecfef7cf8edf535b6964468a06de782b" name="aecfef7cf8edf535b6964468a06de782b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecfef7cf8edf535b6964468a06de782b">&#9670;&#160;</a></span>LifespanGuard</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TSharedRef&lt;<a class="el" href="../../d3/daf/structFVoid.html">FVoid</a>&gt; <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::LifespanGuard = MakeShared&lt;<a class="el" href="../../d3/daf/structFVoid.html">FVoid</a>&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00096">96</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>

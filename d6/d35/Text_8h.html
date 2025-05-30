@@ -280,10 +280,14 @@ Functions</h2></td></tr>
 <tr class="memitem:acbae721347c456d85ee6c3eeec995e1f" id="r_acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
 <tr class="memitem:acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acbae721347c456d85ee6c3eeec995e1f">Mcro::Text::AsFormatArgument</a> (T &amp;&amp;input)</td></tr>
 <tr class="separator:acbae721347c456d85ee6c3eeec995e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946" id="r_acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
-<tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acc2c6d6be5a7c30a3e691ce080068946">Mcro::Text::AsString</a> (T &amp;&amp;input)</td></tr>
-<tr class="memdesc:acc2c6d6be5a7c30a3e691ce080068946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>
-<tr class="separator:acc2c6d6be5a7c30a3e691ce080068946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb963ed7aa8378bab5c47fe68e0f3f6" id="r_acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; <br />
+requires (!CSameAsDecayed&lt;T, FString&gt;)</td></tr>
+<tr class="memitem:acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acbb963ed7aa8378bab5c47fe68e0f3f6">Mcro::Text::AsString</a> (T &amp;&amp;input)</td></tr>
+<tr class="memdesc:acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>
+<tr class="separator:acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335020ff40ce803319f0ae4d7fdd675b" id="r_a335020ff40ce803319f0ae4d7fdd675b"><td class="memTemplParams" colspan="2">template&lt;CSameAsDecayed&lt; FString &gt; T&gt; </td></tr>
+<tr class="memitem:a335020ff40ce803319f0ae4d7fdd675b"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a335020ff40ce803319f0ae4d7fdd675b">Mcro::Text::AsString</a> (T &amp;&amp;input)</td></tr>
+<tr class="separator:a335020ff40ce803319f0ae4d7fdd675b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af755894199136f1ff56c57f5d1b87d13" id="r_af755894199136f1ff56c57f5d1b87d13"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument... Args&gt; </td></tr>
 <tr class="memitem:af755894199136f1ff56c57f5d1b87d13"><td class="memTemplItemLeft" align="right" valign="top">FStringFormatOrderedArguments&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:af755894199136f1ff56c57f5d1b87d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an ordered argument list for a string format from input arguments.  <br /></td></tr>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['jump_0',['Jump',['../de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a101f693f72287a2819a364f64ca1c0ed',1,'Mcro::Range']]],
-  ['jumpbinaryoperators_1',['JumpBinaryOperators',['../de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a9a5009153f858ca1dff766a0c62b93d1',1,'Mcro::Range']]]
+  ['iszeroconstruct_0',['IsZeroConstruct',['../df/d65/structTAllocatorTraits_3_01Mcro_1_1Ansi_1_1FAllocator_01_4.html#a2e328d8bca89e4447e9e73793d565806a4b35862affa1679beb0b3b1a703ccafe',1,'TAllocatorTraits&lt; Mcro::Ansi::FAllocator &gt;']]]
 ];

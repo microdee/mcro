@@ -88,7 +88,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
@@ -100,17 +100,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#aaa7a7b3813fbe91673af291260471451",
-"d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4",
-"d4/dbf/DelegateFrom_8h.html#ae76d3762d68c77da68029e23ca2e67e6",
-"d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html#abc69d4279cafdaff9163bad31adc4113",
-"d7/d64/classMcro_1_1Range_1_1OutputToMap.html#a2cf52cab11db61e31a940b99fb6ce7b2",
-"d8/de7/structMcro_1_1Range_1_1TIteratorDifference__Struct.html",
-"da/d52/conceptMcro_1_1Concepts_1_1CScalar.html",
-"db/dfc/classMcro_1_1Error_1_1FCppException.html#a875b062f4e7eb476e6d64c427075c0b4",
-"dd/d8f/classMcro_1_1Error_1_1IError.html#a3f1b9bbfe51a265ef7c437099bfc65be",
-"de/d56/conceptMcro_1_1Concepts_1_1CConvertibleToDecayed.html",
-"index.html"
+"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#a333b2c0074c0d75da8ca0d6f74e65ee7",
+"d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#aaa9ed8e872af1f8f8bda32185d89d489",
+"d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html#ae473d89b6f137b858fc7722cca79509f",
+"d6/d0d/conceptMcro_1_1Range_1_1CJumpForwardPlusIterator.html",
+"d7/d53/namespaceMcro_1_1Templates.html#aa55800d4510edee32618d6e1638c7dbd",
+"d8/d30/structMcro_1_1Observable_1_1IState.html#abff4d95970810250fcd4d90a49c7d5aa",
+"d9/db6/Range_8h.html#a45c88300682a3beb24bfbb830c3d85df",
+"db/d08/structMcro_1_1Composition_1_1IComponent.html",
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ab7447dc1c94e9897fa3751157b5673dd",
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a25fd791d608851c12b66f067af46bf21",
+"de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a101f693f72287a2819a364f64ca1c0ed",
+"functions_func_b.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

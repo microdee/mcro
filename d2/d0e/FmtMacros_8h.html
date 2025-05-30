@@ -165,13 +165,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a5ad005e210b3fbd702aef1ff5de5ca28" id="r_a5ad005e210b3fbd702aef1ff5de5ca28"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:a5ad005e210b3fbd702aef1ff5de5ca28"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5ad005e210b3fbd702aef1ff5de5ca28">operator%</a> (const TCHAR(&amp;format)[N], FStringFormatNamedArguments &amp;&amp;args)</td></tr>
 <tr class="separator:a5ad005e210b3fbd702aef1ff5de5ca28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1228816c68b08c63f1b6aea3ea6222d" id="r_ae1228816c68b08c63f1b6aea3ea6222d"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FText&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1228816c68b08c63f1b6aea3ea6222d">operator%</a> (FText const &amp;format, FStringFormatOrderedArguments &amp;&amp;args)</td></tr>
+<tr class="separator:ae1228816c68b08c63f1b6aea3ea6222d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e0fad7b331f94032668734dabd4f28" id="r_a30e0fad7b331f94032668734dabd4f28"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FText&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30e0fad7b331f94032668734dabd4f28">operator%</a> (FText const &amp;format, FStringFormatNamedArguments &amp;&amp;args)</td></tr>
+<tr class="separator:a30e0fad7b331f94032668734dabd4f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Use leading <code>FMT_</code> or trailing <code>_FMT</code> fake text literals to create modern formatted strings with a better API. </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
 <dl class="section author"><dt>Author</dt><dd>David Mórász </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
-<p>The major difference from <code>PRINTF_</code> or <code>FString::Printf(...)</code> is that <code>FMT</code> macros can take user defined string conversions into account, so more types can be used directly as arguments. </p>
+<p>The major difference from <code>PRINTF_</code> or <code>FString::Printf(...)</code> is that <code>FMT</code> macros can take user defined string conversions into account, so more types can be used directly as arguments.</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000010">Todo</a></b></dt><dd>Make a unified way to handle format arguments for FText and FString. Currently _FMT on FText is using string conversions to do the actual formatting, and not vanilla FText::Format </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -190,7 +195,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">% <a class="code hl_define" href="#aeb58fdca64e9558586dd7ab00882ddf6">MCRO_FMT_ARGS</a>(__VA_ARGS__)</div>
-<div class="ttc" id="aFmtMacros_8h_html_aeb58fdca64e9558586dd7ab00882ddf6"><div class="ttname"><a href="#aeb58fdca64e9558586dd7ab00882ddf6">MCRO_FMT_ARGS</a></div><div class="ttdeci">#define MCRO_FMT_ARGS(...)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00084">FmtMacros.h:84</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_aeb58fdca64e9558586dd7ab00882ddf6"><div class="ttname"><a href="#aeb58fdca64e9558586dd7ab00882ddf6">MCRO_FMT_ARGS</a></div><div class="ttdeci">#define MCRO_FMT_ARGS(...)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00102">FmtMacros.h:102</a></div></div>
 </div><!-- fragment -->
 <p>Trailing fake text literal which makes using <code>FString::Format(...);</code> much more comfortable. </p>
 <p><code>FMT</code> macros allow more types to be used directly in the format arguments expression because <code><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html" title="Mixed text utilities and type traits.">Mcro::Text</a></code> has a couple of conversion utilities. If the first argument of <code>_FMT</code> is a sequence of <code>("key", value)</code> pairs enclosed in parentheses, then named format arguments are assumed. Ordered format arguments are assumed otherwise. The two modes cannot be mixed.</p>
@@ -205,7 +210,7 @@ Functions</h2></td></tr>
 <div class="line">    (Count, num)</div>
 <div class="line">);</div>
 <div class="line"><span class="comment">// -&gt; &quot;Hi PF_Unknown, your number is 42&quot;</span></div>
-<div class="ttc" id="aFmtMacros_8h_html_a11cb71712b6c3b9778201d17c14e6f9f"><div class="ttname"><a href="#a11cb71712b6c3b9778201d17c14e6f9f">_FMT</a></div><div class="ttdeci">#define _FMT(...)</div><div class="ttdoc">Trailing fake text literal which makes using FString::Format(...); much more comfortable.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00186">FmtMacros.h:186</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_a11cb71712b6c3b9778201d17c14e6f9f"><div class="ttname"><a href="#a11cb71712b6c3b9778201d17c14e6f9f">_FMT</a></div><div class="ttdeci">#define _FMT(...)</div><div class="ttdoc">Trailing fake text literal which makes using FString::Format(...); much more comfortable.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00208">FmtMacros.h:208</a></div></div>
 <div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00051">TextMacros.h:51</a></div></div>
 </div><!-- fragment --><p>The following argument types are supported out-of-box:</p><ul>
 <li>Originally supported by <code>FStringFormatArg</code> and what's implicitly convertable to<ul>
@@ -220,11 +225,12 @@ Functions</h2></td></tr>
 <li>STL strings and views of any encoding</li>
 <li>Enums where their entries are serialized as human-readable names</li>
 </ul>
+<p>This variant also allows to operate on <code>FText</code> instead of <code>const TCHAR*</code> strings if the fake string literal macro before <code>_FMT</code> yields FText. This version however still uses <code>FString</code>'s under the hood, and it is not yet using vanilla <code>FText::Format</code> features</p>
 <dl class="section remark"><dt>Remarks</dt><dd>To add more supported types specialize the <code>TAsFormatArgument</code> template functor for your preferred type and return a value which is implicitly convertible to <code>FStringFormatArg</code> in the <code><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html" title="Mixed text utilities and type traits.">Mcro::Text</a></code> namespace. For example check <code><a class="el" href="../../d5/d20/Enums_8h.html">Enums.h</a></code> to see how that's done with enums. For your own types you can also implement a <code>ToString()</code> member method to get automatic support.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>The <b>named arguments</b> overload (<code>_FMT((A, a) (B, b) (C, c))</code>) must not have comma <code>,</code> between the individual pairs. This is because named argument pairs are passed into this macro as a "sequence" instead of variadic arguments. Ordered format arguments however should be passed in as regular variadic arguments separated by comma <code>,</code> as nature intended.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd><code>FMT</code> macros are the only things in MCRO where excessive preprocessing is used </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00186">186</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00208">208</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -255,7 +261,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="comment">//                                 V  </span></div>
 <div class="line">FString named = <a class="code hl_define" href="#ad2ae177448b123d74e4182bc4469fb74">FMT_</a>((Type, format) (Count, num)) <span class="stringliteral">&quot;Hi {Type}, your number is {Count}&quot;</span>;</div>
 <div class="line"><span class="comment">// -&gt; &quot;Hi PF_Unknown, your number is 42&quot;</span></div>
-<div class="ttc" id="aFmtMacros_8h_html_ad2ae177448b123d74e4182bc4469fb74"><div class="ttname"><a href="#ad2ae177448b123d74e4182bc4469fb74">FMT_</a></div><div class="ttdeci">#define FMT_(...)</div><div class="ttdoc">Leading fake text literal which makes using FString::Format(...); much more comfortable.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00136">FmtMacros.h:136</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_ad2ae177448b123d74e4182bc4469fb74"><div class="ttname"><a href="#ad2ae177448b123d74e4182bc4469fb74">FMT_</a></div><div class="ttdeci">#define FMT_(...)</div><div class="ttdoc">Leading fake text literal which makes using FString::Format(...); much more comfortable.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00154">FmtMacros.h:154</a></div></div>
 </div><!-- fragment --><p>The following argument types are supported out-of-box:</p><ul>
 <li>Originally supported by <code>FStringFormatArg</code> and what's implicitly convertable to<ul>
 <li><code>FString, FStringView, int32, uint32, int64, uint64, float, double</code></li>
@@ -273,7 +279,7 @@ Functions</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>The <b>named arguments</b> overload (<code>FMT_((A, a) (B, b) (C, c))</code>) must not have comma <code>,</code> between the individual pairs. This is because named argument pairs are passed into this macro as a "sequence" instead of variadic arguments. Ordered format arguments however should be passed in as regular variadic arguments separated by comma <code>,</code> as nature intended.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd><code>FMT</code> macros are the only things in MCRO where excessive preprocessing is used </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00136">136</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00154">154</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -295,10 +301,10 @@ Functions</h2></td></tr>
 <div class="line">        <a class="code hl_define" href="#ab95e32292ef35b3e0956ce8a81053b9f">MCRO_FMT_NAMED</a>(BOOST_PP_VARIADIC_ELEM(0, __VA_ARGS__)), \</div>
 <div class="line">        <a class="code hl_define" href="#a03c96e4bef0347d3916e48e957252dc4">MCRO_FMT_ORDERED</a>(__VA_ARGS__)                           \</div>
 <div class="line">    )</div>
-<div class="ttc" id="aFmtMacros_8h_html_a03c96e4bef0347d3916e48e957252dc4"><div class="ttname"><a href="#a03c96e4bef0347d3916e48e957252dc4">MCRO_FMT_ORDERED</a></div><div class="ttdeci">#define MCRO_FMT_ORDERED(...)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00082">FmtMacros.h:82</a></div></div>
-<div class="ttc" id="aFmtMacros_8h_html_ab95e32292ef35b3e0956ce8a81053b9f"><div class="ttname"><a href="#ab95e32292ef35b3e0956ce8a81053b9f">MCRO_FMT_NAMED</a></div><div class="ttdeci">#define MCRO_FMT_NAMED(seq)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00066">FmtMacros.h:66</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_a03c96e4bef0347d3916e48e957252dc4"><div class="ttname"><a href="#a03c96e4bef0347d3916e48e957252dc4">MCRO_FMT_ORDERED</a></div><div class="ttdeci">#define MCRO_FMT_ORDERED(...)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00100">FmtMacros.h:100</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_ab95e32292ef35b3e0956ce8a81053b9f"><div class="ttname"><a href="#ab95e32292ef35b3e0956ce8a81053b9f">MCRO_FMT_NAMED</a></div><div class="ttdeci">#define MCRO_FMT_NAMED(seq)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00084">FmtMacros.h:84</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00084">84</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00102">102</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -320,9 +326,9 @@ Functions</h2></td></tr>
 <div class="line">        <a class="code hl_define" href="#a6f0febb38fe860f87bc066534ba93889">MCRO_FMT_NAMED_0</a>,                       \</div>
 <div class="line">        BOOST_PP_IDENTITY_N(, 1)                \</div>
 <div class="line">    )(seq)</div>
-<div class="ttc" id="aFmtMacros_8h_html_a6f0febb38fe860f87bc066534ba93889"><div class="ttname"><a href="#a6f0febb38fe860f87bc066534ba93889">MCRO_FMT_NAMED_0</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_0(seq)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00072">FmtMacros.h:72</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_a6f0febb38fe860f87bc066534ba93889"><div class="ttname"><a href="#a6f0febb38fe860f87bc066534ba93889">MCRO_FMT_NAMED_0</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_0(seq)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00090">FmtMacros.h:90</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00066">66</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00084">84</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -348,10 +354,10 @@ Functions</h2></td></tr>
 <div class="line">            )                                     \</div>
 <div class="line">        )                                         \</div>
 <div class="line">    )</div>
-<div class="ttc" id="aFmtMacros_8h_html_a2d1e42e1daed57c0fdce7562e04692b2"><div class="ttname"><a href="#a2d1e42e1daed57c0fdce7562e04692b2">MCRO_FMT_NAMED_ARG_TRANSFORM</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_ARG_TRANSFORM(s, data, elem)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00063">FmtMacros.h:63</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Text_html_a0aaef9c9d339cbc73b7cd5a92e9c187a"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#a0aaef9c9d339cbc73b7cd5a92e9c187a">Mcro::Text::NamedArguments</a></div><div class="ttdeci">FStringFormatNamedArguments NamedArguments(TTuple&lt; FString, Args &gt;... args)</div><div class="ttdoc">Create a named argument list for a string format from input argument tuples.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00413">Text.h:413</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_a2d1e42e1daed57c0fdce7562e04692b2"><div class="ttname"><a href="#a2d1e42e1daed57c0fdce7562e04692b2">MCRO_FMT_NAMED_ARG_TRANSFORM</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_ARG_TRANSFORM(s, data, elem)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00081">FmtMacros.h:81</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Text_html_a0aaef9c9d339cbc73b7cd5a92e9c187a"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#a0aaef9c9d339cbc73b7cd5a92e9c187a">Mcro::Text::NamedArguments</a></div><div class="ttdeci">FStringFormatNamedArguments NamedArguments(TTuple&lt; FString, Args &gt;... args)</div><div class="ttdoc">Create a named argument list for a string format from input argument tuples.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00420">Text.h:420</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00072">72</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00090">90</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +381,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">MakeTuple(FString(TEXT(#key)), value)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00064">64</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00082">82</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -403,9 +409,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">BOOST_PP_EXPAND(<a class="code hl_define" href="#ad5bcf6e850980690bd842b272ec814f2">MCRO_FMT_NAMED_ARG</a> elem)</div>
-<div class="ttc" id="aFmtMacros_8h_html_ad5bcf6e850980690bd842b272ec814f2"><div class="ttname"><a href="#ad5bcf6e850980690bd842b272ec814f2">MCRO_FMT_NAMED_ARG</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_ARG(key, value)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00064">FmtMacros.h:64</a></div></div>
+<div class="ttc" id="aFmtMacros_8h_html_ad5bcf6e850980690bd842b272ec814f2"><div class="ttname"><a href="#ad5bcf6e850980690bd842b272ec814f2">MCRO_FMT_NAMED_ARG</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_ARG(key, value)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00082">FmtMacros.h:82</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00063">63</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00081">81</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
@@ -424,15 +430,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a>(__VA_ARGS__)</div>
-<div class="ttc" id="anamespaceMcro_1_1Text_html_af755894199136f1ff56c57f5d1b87d13"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a></div><div class="ttdeci">FStringFormatOrderedArguments OrderedArguments(Args &amp;&amp;... args)</div><div class="ttdoc">Create an ordered argument list for a string format from input arguments.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00401">Text.h:401</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Text_html_af755894199136f1ff56c57f5d1b87d13"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a></div><div class="ttdeci">FStringFormatOrderedArguments OrderedArguments(Args &amp;&amp;... args)</div><div class="ttdoc">Create an ordered argument list for a string format from input arguments.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00408">Text.h:408</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00082">82</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00100">100</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a5ad005e210b3fbd702aef1ff5de5ca28" name="a5ad005e210b3fbd702aef1ff5de5ca28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ad005e210b3fbd702aef1ff5de5ca28">&#9670;&#160;</a></span>operator%() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad005e210b3fbd702aef1ff5de5ca28">&#9670;&#160;</a></span>operator%() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,12 +458,12 @@ template&lt;size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00056">56</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00060">60</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
 <a id="a87c55f84271dd1c0ec2d02dfc668acfc" name="a87c55f84271dd1c0ec2d02dfc668acfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87c55f84271dd1c0ec2d02dfc668acfc">&#9670;&#160;</a></span>operator%() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c55f84271dd1c0ec2d02dfc668acfc">&#9670;&#160;</a></span>operator%() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,12 +483,12 @@ template&lt;size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00040">40</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00044">44</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
 <a id="ad9007557ee9787431e0ab1c25c734d19" name="ad9007557ee9787431e0ab1c25c734d19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9007557ee9787431e0ab1c25c734d19">&#9670;&#160;</a></span>operator%() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9007557ee9787431e0ab1c25c734d19">&#9670;&#160;</a></span>operator%() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,12 +508,12 @@ template&lt;size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00048">48</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00052">52</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>
 <a id="aef57e7974479b9aa38c27fc4b5f76f65" name="aef57e7974479b9aa38c27fc4b5f76f65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef57e7974479b9aa38c27fc4b5f76f65">&#9670;&#160;</a></span>operator%() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aef57e7974479b9aa38c27fc4b5f76f65">&#9670;&#160;</a></span>operator%() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -527,7 +533,53 @@ template&lt;size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00032">32</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00036">36</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+
+</div>
+</div>
+<a id="a30e0fad7b331f94032668734dabd4f28" name="a30e0fad7b331f94032668734dabd4f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e0fad7b331f94032668734dabd4f28">&#9670;&#160;</a></span>operator%() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE FText operator% </td>
+          <td>(</td>
+          <td class="paramtype">FText const &amp;</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FStringFormatNamedArguments &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00074">74</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+
+</div>
+</div>
+<a id="ae1228816c68b08c63f1b6aea3ea6222d" name="ae1228816c68b08c63f1b6aea3ea6222d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1228816c68b08c63f1b6aea3ea6222d">&#9670;&#160;</a></span>operator%() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE FText operator% </td>
+          <td>(</td>
+          <td class="paramtype">FText const &amp;</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FStringFormatOrderedArguments &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00067">67</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
 </div>
 </div>

@@ -7,6 +7,8 @@ var namespaceMcro_1_1Composition =
     [ "CExplicitComponent", "de/dad/conceptMcro_1_1Composition_1_1CExplicitComponent.html", null ],
     [ "CStrictComponent", "d6/d53/conceptMcro_1_1Composition_1_1CStrictComponent.html", null ],
     [ "CCompatibleExplicitComponent", "d0/d86/conceptMcro_1_1Composition_1_1CCompatibleExplicitComponent.html", null ],
+    [ "CCopyAwareComponent", "df/db8/conceptMcro_1_1Composition_1_1CCopyAwareComponent.html", null ],
+    [ "CMoveAwareComponent", "dc/d4b/conceptMcro_1_1Composition_1_1CMoveAwareComponent.html", null ],
     [ "CCompatibleStrictComponent", "d7/d04/conceptMcro_1_1Composition_1_1CCompatibleStrictComponent.html", null ],
     [ "CCompatibleComponent", "d1/d51/conceptMcro_1_1Composition_1_1CCompatibleComponent.html", null ]
 ];

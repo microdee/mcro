@@ -113,7 +113,8 @@ $(function(){initNavTree('dc/d01/classMcro_1_1Composition_1_1IComposable.html','
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Composition::IComposable Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -125,6 +126,15 @@ $(function(){initNavTree('dc/d01/classMcro_1_1Composition_1_1IComposable.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aff5ac1d792adf6064efeeccf7d54919f" id="r_aff5ac1d792adf6064efeeccf7d54919f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a> ()=default</td></tr>
+<tr class="separator:aff5ac1d792adf6064efeeccf7d54919f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f4d461f98f532f1e84e0dc576ef0e2" id="r_a86f4d461f98f532f1e84e0dc576ef0e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86f4d461f98f532f1e84e0dc576ef0e2">IComposable</a> (const <a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a> &amp;other)</td></tr>
+<tr class="separator:a86f4d461f98f532f1e84e0dc576ef0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fb7ac901c552b1668a56e3fea733deb" id="r_a7fb7ac901c552b1668a56e3fea733deb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fb7ac901c552b1668a56e3fea733deb">IComposable</a> (<a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:a7fb7ac901c552b1668a56e3fea733deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7447dc1c94e9897fa3751157b5673dd" id="r_ab7447dc1c94e9897fa3751157b5673dd"><td class="memItemLeft" align="right" valign="top">ranges::any_view&lt; <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html">FAny</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7447dc1c94e9897fa3751157b5673dd">GetComponentsDynamic</a> (<a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ab369b9187a7cdecfd0ab5f8b22bf7083">FTypeHash</a> typeHash) const</td></tr>
+<tr class="memdesc:ab7447dc1c94e9897fa3751157b5673dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get components determined at runtime.  <br /></td></tr>
+<tr class="separator:ab7447dc1c94e9897fa3751157b5673dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c3d4eae82b37d099cb469f21e84e04" id="r_ae7c3d4eae82b37d099cb469f21e84e04"><td class="memTemplParams" colspan="2">template&lt;typename MainType , typename Self &gt; <br />
 requires CCompatibleComponent&lt;MainType, Self&gt;</td></tr>
 <tr class="memitem:ae7c3d4eae82b37d099cb469f21e84e04"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae7c3d4eae82b37d099cb469f21e84e04">AddComponent</a> (this Self &amp;&amp;self, MainType *newComponent, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
@@ -139,26 +149,46 @@ requires CCompatibleComponent&lt;MainType, Self&gt;</td></tr>
 <tr class="memitem:a5b545e505d73146614fd2c1da9fa9523"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5b545e505d73146614fd2c1da9fa9523">AddAlias</a> ()</td></tr>
 <tr class="memdesc:a5b545e505d73146614fd2c1da9fa9523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a list of types the last added component is convertible to and may be used to get the last component among others which may list the same aliases.  <br /></td></tr>
 <tr class="separator:a5b545e505d73146614fd2c1da9fa9523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa640707c5ed1e2ef45b453398192ef7f" id="r_aa640707c5ed1e2ef45b453398192ef7f"><td class="memTemplParams" colspan="2">template&lt;typename MainType , CSharedFromThis Self&gt; <br />
+<tr class="memitem:a1c0c4825bb6b48b37e04331ae8932267" id="r_a1c0c4825bb6b48b37e04331ae8932267"><td class="memTemplParams" colspan="2">template&lt;typename MainType , CSharedFromThis Self&gt; <br />
 requires CCompatibleComponent&lt;MainType, Self&gt;</td></tr>
-<tr class="memitem:aa640707c5ed1e2ef45b453398192ef7f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a> (this Self &amp;&amp;self, MainType *newComponent, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
-<tr class="memdesc:aa640707c5ed1e2ef45b453398192ef7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to this composable class with a fluent API.  <br /></td></tr>
-<tr class="separator:aa640707c5ed1e2ef45b453398192ef7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc81559cea95aab8f9d128d2ba8bb28e" id="r_acc81559cea95aab8f9d128d2ba8bb28e"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable MainType, CSharedFromThis Self&gt; <br />
+<tr class="memitem:a1c0c4825bb6b48b37e04331ae8932267"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1c0c4825bb6b48b37e04331ae8932267">With</a> (this Self &amp;&amp;self, MainType *newComponent, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
+<tr class="memdesc:a1c0c4825bb6b48b37e04331ae8932267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to this composable class with a fluent API.  <br /></td></tr>
+<tr class="separator:a1c0c4825bb6b48b37e04331ae8932267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad330e2f433535886e2b7d9d32def8aab" id="r_ad330e2f433535886e2b7d9d32def8aab"><td class="memTemplParams" colspan="2">template&lt;typename MainType , CSharedFromThis Self&gt; <br />
 requires CCompatibleComponent&lt;MainType, Self&gt;</td></tr>
-<tr class="memitem:acc81559cea95aab8f9d128d2ba8bb28e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acc81559cea95aab8f9d128d2ba8bb28e">WithComponent</a> (this Self &amp;&amp;self, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
-<tr class="memdesc:acc81559cea95aab8f9d128d2ba8bb28e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a default constructed component to this composable class with a fluent API.  <br /></td></tr>
-<tr class="separator:acc81559cea95aab8f9d128d2ba8bb28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ba8c22c85876f002427429dbd5dc2b5" id="r_a5ba8c22c85876f002427429dbd5dc2b5"><td class="memTemplParams" colspan="2">template&lt;typename MainType , typename Self &gt; <br />
+<tr class="memitem:ad330e2f433535886e2b7d9d32def8aab"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad330e2f433535886e2b7d9d32def8aab">WithAnsi</a> (this Self &amp;&amp;self, MainType *newComponent)</td></tr>
+<tr class="memdesc:ad330e2f433535886e2b7d9d32def8aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to this composable class with a fluent API, enforcing standard memory allocators.  <br /></td></tr>
+<tr class="separator:ad330e2f433535886e2b7d9d32def8aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5bfd8621575c53c75f59a54cd9aceed" id="r_ac5bfd8621575c53c75f59a54cd9aceed"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable MainType, CSharedFromThis Self&gt; <br />
+requires CCompatibleComponent&lt;MainType, Self&gt;</td></tr>
+<tr class="memitem:ac5bfd8621575c53c75f59a54cd9aceed"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac5bfd8621575c53c75f59a54cd9aceed">With</a> (this Self &amp;&amp;self, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
+<tr class="memdesc:ac5bfd8621575c53c75f59a54cd9aceed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a default constructed component to this composable class with a fluent API.  <br /></td></tr>
+<tr class="separator:ac5bfd8621575c53c75f59a54cd9aceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cabbb43b8797644a1a057c8ee1cc633" id="r_a2cabbb43b8797644a1a057c8ee1cc633"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable MainType, CSharedFromThis Self&gt; <br />
+requires CCompatibleComponent&lt;MainType, Self&gt;</td></tr>
+<tr class="memitem:a2cabbb43b8797644a1a057c8ee1cc633"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2cabbb43b8797644a1a057c8ee1cc633">WithAnsi</a> (this Self &amp;&amp;self)</td></tr>
+<tr class="memdesc:a2cabbb43b8797644a1a057c8ee1cc633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a default constructed component to this composable class with a fluent API, enforcing standard memory allocators.  <br /></td></tr>
+<tr class="separator:a2cabbb43b8797644a1a057c8ee1cc633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d55543bcdfe3c2a887dc5ae5329f3c" id="r_a48d55543bcdfe3c2a887dc5ae5329f3c"><td class="memTemplParams" colspan="2">template&lt;typename MainType , typename Self &gt; <br />
 requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</td></tr>
-<tr class="memitem:a5ba8c22c85876f002427429dbd5dc2b5"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5ba8c22c85876f002427429dbd5dc2b5">WithComponent</a> (this Self &amp;&amp;self, MainType *newComponent, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
-<tr class="memdesc:a5ba8c22c85876f002427429dbd5dc2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to this composable class with a fluent API.  <br /></td></tr>
-<tr class="separator:a5ba8c22c85876f002427429dbd5dc2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040c349d01749182a7bec407e03259ef" id="r_a040c349d01749182a7bec407e03259ef"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable MainType, typename Self &gt; <br />
+<tr class="memitem:a48d55543bcdfe3c2a887dc5ae5329f3c"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a48d55543bcdfe3c2a887dc5ae5329f3c">With</a> (this Self &amp;&amp;self, MainType *newComponent, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
+<tr class="memdesc:a48d55543bcdfe3c2a887dc5ae5329f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to this composable class with a fluent API.  <br /></td></tr>
+<tr class="separator:a48d55543bcdfe3c2a887dc5ae5329f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2923141b92e5f4ed8a3bd842d25fb363" id="r_a2923141b92e5f4ed8a3bd842d25fb363"><td class="memTemplParams" colspan="2">template&lt;typename MainType , typename Self &gt; <br />
 requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</td></tr>
-<tr class="memitem:a040c349d01749182a7bec407e03259ef"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a040c349d01749182a7bec407e03259ef">WithComponent</a> (this Self &amp;&amp;self, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
-<tr class="memdesc:a040c349d01749182a7bec407e03259ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a default constructed component to this composable class with a fluent API.  <br /></td></tr>
-<tr class="separator:a040c349d01749182a7bec407e03259ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2923141b92e5f4ed8a3bd842d25fb363"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2923141b92e5f4ed8a3bd842d25fb363">WithAnsi</a> (this Self &amp;&amp;self, MainType *newComponent)</td></tr>
+<tr class="memdesc:a2923141b92e5f4ed8a3bd842d25fb363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to this composable class with a fluent API, enforcing standard memory allocators.  <br /></td></tr>
+<tr class="separator:a2923141b92e5f4ed8a3bd842d25fb363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1334ae137755fdae90990cbb2c08cd7e" id="r_a1334ae137755fdae90990cbb2c08cd7e"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable MainType, typename Self &gt; <br />
+requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</td></tr>
+<tr class="memitem:a1334ae137755fdae90990cbb2c08cd7e"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1334ae137755fdae90990cbb2c08cd7e">With</a> (this Self &amp;&amp;self, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;facilities={})</td></tr>
+<tr class="memdesc:a1334ae137755fdae90990cbb2c08cd7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a default constructed component to this composable class with a fluent API.  <br /></td></tr>
+<tr class="separator:a1334ae137755fdae90990cbb2c08cd7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6df8d7dc370bbb08a70a25f8f8e5ab" id="r_a8d6df8d7dc370bbb08a70a25f8f8e5ab"><td class="memTemplParams" colspan="2">template&lt;CDefaultInitializable MainType, typename Self &gt; <br />
+requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</td></tr>
+<tr class="memitem:a8d6df8d7dc370bbb08a70a25f8f8e5ab"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8d6df8d7dc370bbb08a70a25f8f8e5ab">WithAnsi</a> (this Self &amp;&amp;self)</td></tr>
+<tr class="memdesc:a8d6df8d7dc370bbb08a70a25f8f8e5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a default constructed component to this composable class with a fluent API, enforcing standard memory allocators.  <br /></td></tr>
+<tr class="separator:a8d6df8d7dc370bbb08a70a25f8f8e5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a331a2c3895a7e32d196405bb085ef965" id="r_a331a2c3895a7e32d196405bb085ef965"><td class="memTemplParams" colspan="2">template&lt;typename ValidAs , CSharedFromThis Self&gt; </td></tr>
 <tr class="memitem:a331a2c3895a7e32d196405bb085ef965"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a331a2c3895a7e32d196405bb085ef965">WithAlias</a> (this Self &amp;&amp;self)</td></tr>
 <tr class="memdesc:a331a2c3895a7e32d196405bb085ef965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a type, the last added component is convertible to and may be used to get the last component among others which may list the same aliases.  <br /></td></tr>
@@ -169,34 +199,50 @@ requires (!CSharedFromThis&lt;Self&gt;)</td></tr>
 <tr class="memdesc:a3849efa1fca3fe194e8b94cc195e4c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a type, the last added component is convertible to and may be used to get the last component among others which may list the same aliases.  <br /></td></tr>
 <tr class="separator:a3849efa1fca3fe194e8b94cc195e4c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a997e071f94582699fc9fa35721d1bc66" id="r_a997e071f94582699fc9fa35721d1bc66"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis Self, typename... ValidAs&gt; </td></tr>
-<tr class="memitem:a997e071f94582699fc9fa35721d1bc66"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a997e071f94582699fc9fa35721d1bc66">With</a> (this Self &amp;&amp;self, <a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;)</td></tr>
+<tr class="memitem:a997e071f94582699fc9fa35721d1bc66"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a997e071f94582699fc9fa35721d1bc66">With</a> (this Self &amp;&amp;self, <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;)</td></tr>
 <tr class="memdesc:a997e071f94582699fc9fa35721d1bc66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a list of types the last added component is convertible to and may be used to get the last component among others which may list the same aliases.  <br /></td></tr>
 <tr class="separator:a997e071f94582699fc9fa35721d1bc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a495989a4fd2069f0b20681e7d2cb6d51" id="r_a495989a4fd2069f0b20681e7d2cb6d51"><td class="memTemplParams" colspan="2">template&lt;typename Self , typename... ValidAs&gt; <br />
 requires (!CSharedFromThis&lt;Self&gt;)</td></tr>
-<tr class="memitem:a495989a4fd2069f0b20681e7d2cb6d51"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a495989a4fd2069f0b20681e7d2cb6d51">With</a> (this Self &amp;&amp;self, <a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;)</td></tr>
+<tr class="memitem:a495989a4fd2069f0b20681e7d2cb6d51"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a495989a4fd2069f0b20681e7d2cb6d51">With</a> (this Self &amp;&amp;self, <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;)</td></tr>
 <tr class="memdesc:a495989a4fd2069f0b20681e7d2cb6d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a list of types the last added component is convertible to and may be used to get the last component among others which may list the same aliases.  <br /></td></tr>
 <tr class="separator:a495989a4fd2069f0b20681e7d2cb6d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8de0374c21e26c8f904acc86285a73c" id="r_ae8de0374c21e26c8f904acc86285a73c"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis Self, CFunctionLike Function&gt; <br />
+requires (<a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;Function&gt; == 1)</td></tr>
+<tr class="memitem:ae8de0374c21e26c8f904acc86285a73c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae8de0374c21e26c8f904acc86285a73c">With</a> (this Self &amp;&amp;self, Function &amp;&amp;function)</td></tr>
+<tr class="memdesc:ae8de0374c21e26c8f904acc86285a73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify a component inline, with a lambda function. The component type is inferred from the function's first argument, and a reference of that component is passed into it. The component must exist before calling this method, or if it doesn't, the application will crash.  <br /></td></tr>
+<tr class="separator:ae8de0374c21e26c8f904acc86285a73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3220a0ad1ceafff090184c5d055d59d" id="r_ae3220a0ad1ceafff090184c5d055d59d"><td class="memTemplParams" colspan="2">template&lt;typename Self , CFunctionLike Function&gt; <br />
+requires (!CSharedFromThis&lt;Self&gt; &amp;&amp; <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;Function&gt; == 1)</td></tr>
+<tr class="memitem:ae3220a0ad1ceafff090184c5d055d59d"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae3220a0ad1ceafff090184c5d055d59d">With</a> (this Self &amp;&amp;self, Function &amp;&amp;function)</td></tr>
+<tr class="memdesc:ae3220a0ad1ceafff090184c5d055d59d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify a component inline, with a lambda function. The component type is inferred from the function's first argument, and a reference of that component is passed into it. The component must exist before calling this method, or if it doesn't, the application will crash.  <br /></td></tr>
+<tr class="separator:ae3220a0ad1ceafff090184c5d055d59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e89b2d20ad4a3a9a8fa3a9197fdc21" id="r_a68e89b2d20ad4a3a9a8fa3a9197fdc21"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a68e89b2d20ad4a3a9a8fa3a9197fdc21"><td class="memTemplItemLeft" align="right" valign="top">ranges::any_view&lt; T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a68e89b2d20ad4a3a9a8fa3a9197fdc21">GetComponents</a> () const</td></tr>
 <tr class="memdesc:a68e89b2d20ad4a3a9a8fa3a9197fdc21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all components added matching~ or aliased by the given type.  <br /></td></tr>
 <tr class="separator:a68e89b2d20ad4a3a9a8fa3a9197fdc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56ce1950ed2a0522457fb3cb77e61f69" id="r_a56ce1950ed2a0522457fb3cb77e61f69"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a56ce1950ed2a0522457fb3cb77e61f69"><td class="memTemplItemLeft" align="right" valign="top">const T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a56ce1950ed2a0522457fb3cb77e61f69">TryGetComponent</a> () const</td></tr>
-<tr class="memdesc:a56ce1950ed2a0522457fb3cb77e61f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
-<tr class="separator:a56ce1950ed2a0522457fb3cb77e61f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc909996594e0a2dfb23c7964cb0a283" id="r_acc909996594e0a2dfb23c7964cb0a283"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:acc909996594e0a2dfb23c7964cb0a283"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acc909996594e0a2dfb23c7964cb0a283">TryGetComponent</a> ()</td></tr>
-<tr class="memdesc:acc909996594e0a2dfb23c7964cb0a283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
-<tr class="separator:acc909996594e0a2dfb23c7964cb0a283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e873e4236a6063e21abb418b6d8268e" id="r_a9e873e4236a6063e21abb418b6d8268e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9e873e4236a6063e21abb418b6d8268e"><td class="memTemplItemLeft" align="right" valign="top">T const &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9e873e4236a6063e21abb418b6d8268e">GetComponent</a> () const</td></tr>
-<tr class="memdesc:a9e873e4236a6063e21abb418b6d8268e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
-<tr class="separator:a9e873e4236a6063e21abb418b6d8268e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25ef16a6439e86cf6afe80e7bbaab017" id="r_a25ef16a6439e86cf6afe80e7bbaab017"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a25ef16a6439e86cf6afe80e7bbaab017"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a25ef16a6439e86cf6afe80e7bbaab017">GetComponent</a> ()</td></tr>
-<tr class="memdesc:a25ef16a6439e86cf6afe80e7bbaab017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
-<tr class="separator:a25ef16a6439e86cf6afe80e7bbaab017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc863d392998e1e8f9ba51b12696b555" id="r_acc863d392998e1e8f9ba51b12696b555"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:acc863d392998e1e8f9ba51b12696b555"><td class="memTemplItemLeft" align="right" valign="top">const T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acc863d392998e1e8f9ba51b12696b555">TryGet</a> () const</td></tr>
+<tr class="memdesc:acc863d392998e1e8f9ba51b12696b555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
+<tr class="separator:acc863d392998e1e8f9ba51b12696b555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a058dc66eb2c774bf5dafd7cbdde92" id="r_aa1a058dc66eb2c774bf5dafd7cbdde92"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa1a058dc66eb2c774bf5dafd7cbdde92"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa1a058dc66eb2c774bf5dafd7cbdde92">TryGet</a> ()</td></tr>
+<tr class="memdesc:aa1a058dc66eb2c774bf5dafd7cbdde92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
+<tr class="separator:aa1a058dc66eb2c774bf5dafd7cbdde92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5283cb6fb661e918db6a96c1f336508d" id="r_a5283cb6fb661e918db6a96c1f336508d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5283cb6fb661e918db6a96c1f336508d"><td class="memTemplItemLeft" align="right" valign="top">T const &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5283cb6fb661e918db6a96c1f336508d">Get</a> () const</td></tr>
+<tr class="memdesc:a5283cb6fb661e918db6a96c1f336508d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
+<tr class="separator:a5283cb6fb661e918db6a96c1f336508d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44f29f531f42b41f757d8a48e262b6fe" id="r_a44f29f531f42b41f757d8a48e262b6fe"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a44f29f531f42b41f757d8a48e262b6fe"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a44f29f531f42b41f757d8a48e262b6fe">Get</a> ()</td></tr>
+<tr class="memdesc:a44f29f531f42b41f757d8a48e262b6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first component matching~ or aliased by the given type.  <br /></td></tr>
+<tr class="separator:a44f29f531f42b41f757d8a48e262b6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ae02cf2d2540f3f8042e16b6492034a96" id="r_ae02cf2d2540f3f8042e16b6492034a96"><td class="memItemLeft" align="right" valign="top">TFunction&lt; void(<a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html">FAny</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae02cf2d2540f3f8042e16b6492034a96">OnComponentAdded</a></td></tr>
+<tr class="memdesc:ae02cf2d2540f3f8042e16b6492034a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override this function in your composable class to do custom logic when a component is added. A bit of dynamically typed programming is needed through the FAny API.  <br /></td></tr>
+<tr class="separator:ae02cf2d2540f3f8042e16b6492034a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A base class which can bring type based class-composition to a derived class. </p>
@@ -228,72 +274,73 @@ requires (!CSharedFromThis&lt;Self&gt;)</td></tr>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">//// Given the following composable type:</span></div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="keyword">class </span>FMyComposableType : <span class="keyword">public</span> IComposable {};</div>
+<div class="line"><span class="keyword">class </span>FMyComposableType : <span class="keyword">public</span> <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a> {};</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">//// Declare their composition at construction:</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="keyword">auto</span> MyStuff = FMyComposableType()</div>
-<div class="line">    .WithComponent&lt;FSimpleComponent&gt;()                 <span class="comment">// &lt;- Simply add components with their types</span></div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>(<span class="keyword">new</span> FComponentImplementation(1, 2)) <span class="comment">// &lt;- Or simply use new operator</span></div>
-<div class="line">                                                       <span class="comment">//    (IComposable assumes ownership)</span></div>
-<div class="line">                                                       <span class="comment">//    Because FComponentImplementation uses TInherit</span></div>
-<div class="line">                                                       <span class="comment">//    IBaseComponent is not needed to be repeated here</span></div>
-<div class="line">    .WithComponent(<span class="keyword">new</span> FRegularInherited(3, 4))        <span class="comment">//</span></div>
-<div class="line">        .WithAlias&lt;IRegularBase&gt;()                     <span class="comment">// &lt;- FRegularInherited cannot tell automatically that it</span></div>
-<div class="line">                                                       <span class="comment">//    inherits from IRegularBase so we need to specify</span></div>
-<div class="line">                                                       <span class="comment">//    that here explicitly in case we want to get</span></div>
-<div class="line">                                                       <span class="comment">//    FRegularInherited component via its base class</span></div>
+<div class="line">    .With&lt;FSimpleComponent&gt;()                 <span class="comment">// &lt;- Simply add components with their types</span></div>
+<div class="line">    .<a class="code hl_function" href="#a1c0c4825bb6b48b37e04331ae8932267">With</a>(<span class="keyword">new</span> FComponentImplementation(1, 2)) <span class="comment">// &lt;- Or simply use new operator</span></div>
+<div class="line">                                              <span class="comment">//    (IComposable assumes ownership)</span></div>
+<div class="line">                                              <span class="comment">//    Because FComponentImplementation uses TInherit</span></div>
+<div class="line">                                              <span class="comment">//    IBaseComponent is not needed to be repeated here</span></div>
+<div class="line">    .With(<span class="keyword">new</span> FRegularInherited(3, 4))        <span class="comment">//</span></div>
+<div class="line">        .WithAlias&lt;IRegularBase&gt;()            <span class="comment">// &lt;- FRegularInherited cannot tell automatically that it</span></div>
+<div class="line">                                              <span class="comment">//    inherits from IRegularBase so we need to specify</span></div>
+<div class="line">                                              <span class="comment">//    that here explicitly in case we want to get</span></div>
+<div class="line">                                              <span class="comment">//    FRegularInherited component via its base class</span></div>
 <div class="line">;</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">//// Get components at runtime:</span></div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="keywordtype">int</span> a = MyStuff.GetComponent&lt;FSimpleComponent&gt;().A; <span class="comment">//</span></div>
-<div class="line"><span class="comment">// -&gt; 0                                             //</span></div>
-<div class="line"><span class="keywordtype">int</span> b = MyStuff.GetComponent&lt;IBaseComponent&gt;().B;   <span class="comment">// &lt;- We can get the component via base class here, only</span></div>
-<div class="line"><span class="comment">// -&gt; 1                                             //    because it was exposed via TInherit</span></div>
-<div class="line"><span class="keywordtype">int</span> d = MyStuff.GetComponent&lt;IRegularBase&gt;().D;     <span class="comment">// &lt;- We can get the component via base class here, because</span></div>
-<div class="line"><span class="comment">// -&gt; 3                                             //    we explicitly specified it during registration</span></div>
-<div class="line">FVector* v = MyStuff.TryGetComponent&lt;FVector&gt;();    <span class="comment">// &lt;- If there&#39;s any doubt that a component may not have</span></div>
-<div class="line"><span class="comment">// -&gt; nullptr; FVector wasn&#39;t added as a component  //    been registered, use TryGetComponent instead.</span></div>
-<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html_aa640707c5ed1e2ef45b453398192ef7f"><div class="ttname"><a href="#aa640707c5ed1e2ef45b453398192ef7f">Mcro::Composition::IComposable::WithComponent</a></div><div class="ttdeci">auto WithComponent(this Self &amp;&amp;self, MainType *newComponent, TAnyTypeFacilities&lt; MainType &gt; const &amp;facilities={})</div><div class="ttdoc">Add a component to this composable class with a fluent API.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00369">Composition.h:369</a></div></div>
+<div class="line"><span class="keywordtype">int</span> a = MyStuff.Get&lt;FSimpleComponent&gt;().A; <span class="comment">//</span></div>
+<div class="line"><span class="comment">// -&gt; 0                                    //</span></div>
+<div class="line"><span class="keywordtype">int</span> b = MyStuff.Get&lt;IBaseComponent&gt;().B;   <span class="comment">// &lt;- We can get the component via base class here, only</span></div>
+<div class="line"><span class="comment">// -&gt; 1                                    //    because it was exposed via TInherit</span></div>
+<div class="line"><span class="keywordtype">int</span> d = MyStuff.Get&lt;IRegularBase&gt;().D;     <span class="comment">// &lt;- We can get the component via base class here, because</span></div>
+<div class="line"><span class="comment">// -&gt; 3                                    //    we explicitly specified it during registration</span></div>
+<div class="line">FVector* v = MyStuff.TryGet&lt;FVector&gt;();    <span class="comment">// &lt;- If there&#39;s any doubt that a component may not have</span></div>
+<div class="line"><span class="comment">// -&gt; nullptr; FVector wasn&#39;t a component  //    been registered, use TryGet instead.</span></div>
+<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html_a1c0c4825bb6b48b37e04331ae8932267"><div class="ttname"><a href="#a1c0c4825bb6b48b37e04331ae8932267">Mcro::Composition::IComposable::With</a></div><div class="ttdeci">auto With(this Self &amp;&amp;self, MainType *newComponent, TAnyTypeFacilities&lt; MainType &gt; const &amp;facilities={})</div><div class="ttdoc">Add a component to this composable class with a fluent API.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00480">Composition.h:480</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html_aff5ac1d792adf6064efeeccf7d54919f"><div class="ttname"><a href="#aff5ac1d792adf6064efeeccf7d54919f">Mcro::Composition::IComposable::IComposable</a></div><div class="ttdeci">IComposable()=default</div></div>
 </div><!-- fragment --><p>As mentioned earlier, components are not required to have any arbitrary type traits, but if they inherit from <code><a class="el" href="../../db/d08/structMcro_1_1Composition_1_1IComponent.html" title="Inherit from this empty interface to signal that the inheriting class knows that it&#39;s a component and...">IComponent</a></code> or <code><a class="el" href="../../d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html" title="Inherit from this empty interface to signal that the inheriting class knows that it&#39;s a component and...">IStrictComponent</a></code> they can receive extra information when they're registered for a composable class. The difference between the two is that <code><a class="el" href="../../db/d08/structMcro_1_1Composition_1_1IComponent.html" title="Inherit from this empty interface to signal that the inheriting class knows that it&#39;s a component and...">IComponent</a></code> doesn't mind if it's attached to a composable class it doesn't know about, however it is a compile error if an <code><a class="el" href="../../d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html" title="Inherit from this empty interface to signal that the inheriting class knows that it&#39;s a component and...">IStrictComponent</a></code> is attempted to be attached to an incompatible class.</p>
 <p>For example </p><div class="fragment"><div class="line"><span class="comment">//// Given the following types we want to use as components:</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FChillComponent : <a class="code hl_struct" href="../../db/d08/structMcro_1_1Composition_1_1IComponent.html">IComponent</a></div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">void</span> OnComponentRegistered(FExpectedParent&amp; to) {}</div>
+<div class="line">    <span class="keywordtype">void</span> OnCreatedAt(FExpectedParent&amp; to) {}</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>FStrictComponent : IStrictComponent</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">void</span> OnComponentRegistered(FExpectedParent&amp; to) {}</div>
+<div class="line">    <span class="keywordtype">void</span> OnCreatedAt(FExpectedParent&amp; to) {}</div>
 <div class="line">};</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">//// Given the following composable types:</span></div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="keyword">class </span>FExpectedParent : <span class="keyword">public</span> IComposable {};</div>
-<div class="line"><span class="keyword">class </span>FSomeOtherParent : <span class="keyword">public</span> IComposable {};</div>
+<div class="line"><span class="keyword">class </span>FExpectedParent : <span class="keyword">public</span> <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a> {};</div>
+<div class="line"><span class="keyword">class </span>FSomeOtherParent : <span class="keyword">public</span> <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a> {};</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">//// Declare their composition at construction:</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="keyword">auto</span> MyOtherStuff = FExpectedParent()</div>
-<div class="line">    .WithComponent&lt;FChillComponent&gt;()  <span class="comment">// OK, and OnComponentRegistered is called</span></div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent&lt;FStrictComponent&gt;</a>() <span class="comment">// OK, and OnComponentRegistered is called</span></div>
+<div class="line">    .With&lt;FChillComponent&gt;()  <span class="comment">// OK, and OnCreatedAt is called</span></div>
+<div class="line">    .<a class="code hl_function" href="#a1c0c4825bb6b48b37e04331ae8932267">With&lt;FStrictComponent&gt;</a>() <span class="comment">// OK, and OnCreatedAt is called</span></div>
 <div class="line"> </div>
 <div class="line">auto MyStuff = FSomeOtherParent()</div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>&lt;FChillComponent&gt;()  <span class="comment">// OK, but OnComponentRegistered won&#39;t be called.</span></div>
+<div class="line">    .<a class="code hl_function" href="#a1c0c4825bb6b48b37e04331ae8932267">With</a>&lt;FChillComponent&gt;()  <span class="comment">// OK, but OnCreatedAt won&#39;t be called.</span></div>
 <div class="line">    </div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>&lt;FStrictComponent&gt;() <span class="comment">// COMPILE ERROR, CCompatibleComponent concept is not satisfied</span></div>
-<div class="line">                                       <span class="comment">// because FSomeOtherParent is not convertible to FExpectedParent</span></div>
-<div class="line">                                       <span class="comment">// at OnComponentRegistered(FExpectedParent&amp; to)</span></div>
+<div class="line">    .<a class="code hl_function" href="#a1c0c4825bb6b48b37e04331ae8932267">With</a>&lt;FStrictComponent&gt;() <span class="comment">// COMPILE ERROR, CCompatibleComponent concept is not satisfied because</span></div>
+<div class="line">                              <span class="comment">// FSomeOtherParent is not convertible to FExpectedParent at</span></div>
+<div class="line">                              <span class="comment">// OnCreatedAt(FExpectedParent&amp; to)</span></div>
 <div class="line">;</div>
-<div class="ttc" id="astructMcro_1_1Composition_1_1IComponent_html"><div class="ttname"><a href="../../db/d08/structMcro_1_1Composition_1_1IComponent.html">Mcro::Composition::IComponent</a></div><div class="ttdoc">Inherit from this empty interface to signal that the inheriting class knows that it's a component and...</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00039">Composition.h:40</a></div></div>
+<div class="ttc" id="astructMcro_1_1Composition_1_1IComponent_html"><div class="ttname"><a href="../../db/d08/structMcro_1_1Composition_1_1IComponent.html">Mcro::Composition::IComponent</a></div><div class="ttdoc">Inherit from this empty interface to signal that the inheriting class knows that it's a component and...</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00052">Composition.h:53</a></div></div>
 </div><!-- fragment --><p>Explicit components can explicitly support multiple composable classes via function overloading or templating (with deduced type parameters).</p>
 <p>If a component type uses <code>TInherit</code> template or has a <code>using Bases = TTypes&lt;...&gt;</code> member alias in a similar way: </p><div class="fragment"><div class="line"><span class="keyword">class </span>FMyComponent : <span class="keyword">public</span> <a class="code hl_class" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">TInherit</a>&lt;IFoo, IBar, IEtc&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassMcro_1_1Any_1_1TInherit_html"><div class="ttname"><a href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">Mcro::Any::TInherit</a></div><div class="ttdoc">Inherit via this template to allow other API to reflect upon the base types of deriving class....</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dfe/Any_8h_source.html#l00055">Any.h:56</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Any_1_1TInherit_html"><div class="ttname"><a href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">Mcro::Any::TInherit</a></div><div class="ttdoc">Inherit via this template to allow other API to reflect upon the base types of deriving class....</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dfe/Any_8h_source.html#l00053">Any.h:54</a></div></div>
 </div><!-- fragment --><p> Then the specified base classes will be automatically registered as component aliases. When this is used for explicit components, <code><a class="el" href="../../db/d08/structMcro_1_1Composition_1_1IComponent.html" title="Inherit from this empty interface to signal that the inheriting class knows that it&#39;s a component and...">IComponent</a></code> or <code><a class="el" href="../../d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html" title="Inherit from this empty interface to signal that the inheriting class knows that it&#39;s a component and...">IStrictComponent</a></code> is strongly discouraged to be used in <code>TInherit</code>'s parameter pack. So declare inheritance the following way:</p>
 <div class="fragment"><div class="line"><span class="keyword">class </span>FMyComponent</div>
 <div class="line">    : <span class="keyword">public</span> <a class="code hl_class" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">TInherit</a>&lt;IFoo, IBar, IEtc&gt;</div>
@@ -301,10 +348,79 @@ requires (!CSharedFromThis&lt;Self&gt;)</td></tr>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo</a></b></dt><dd>C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes or even emit them. The best summary I found so far is a stack-overflow answer <a href="https://stackoverflow.com/a/77477029">https://stackoverflow.com/a/77477029</a> <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> that's available we can gather base classes in compile time, and do dynamic casting of objects without the need for intrusive extra syntax, or extra work at construction. Currently GCC's <code>__bases</code> would be perfect for the job, but other popular compilers don't have similar intrinsics. <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> such a feature becomes widely available base classes can be automatically added as aliases for registered components. </dd></dl>
+</div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd>OnCopiedAt and OnMovedAt doesn't seem reliable currently, the best would be if we could provide a safe way to keep components updated about their parents, with erasing the parent type on <a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a> level, but keeping it fully typed with components.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes or even emit them. The best summary I found so far is a stack-overflow answer <a href="https://stackoverflow.com/a/77477029">https://stackoverflow.com/a/77477029</a> <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> that's available we can gather base classes in compile time, and do dynamic casting of objects without the need for intrusive extra syntax, or extra work at construction. Currently GCC's <code>__bases</code> would be perfect for the job, but other popular compilers don't have similar intrinsics. <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> such a feature becomes widely available base classes can be automatically added as aliases for registered components. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00224">224</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00269">269</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aff5ac1d792adf6064efeeccf7d54919f" name="aff5ac1d792adf6064efeeccf7d54919f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff5ac1d792adf6064efeeccf7d54919f">&#9670;&#160;</a></span>IComposable() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mcro::Composition::IComposable::IComposable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86f4d461f98f532f1e84e0dc576ef0e2" name="a86f4d461f98f532f1e84e0dc576ef0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f4d461f98f532f1e84e0dc576ef0e2">&#9670;&#160;</a></span>IComposable() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mcro::Composition::IComposable::IComposable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fb7ac901c552b1668a56e3fea733deb" name="a7fb7ac901c552b1668a56e3fea733deb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb7ac901c552b1668a56e3fea733deb">&#9670;&#160;</a></span>IComposable() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mcro::Composition::IComposable::IComposable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5b545e505d73146614fd2c1da9fa9523" name="a5b545e505d73146614fd2c1da9fa9523"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b545e505d73146614fd2c1da9fa9523">&#9670;&#160;</a></span>AddAlias()</h2>
 
@@ -339,7 +455,7 @@ template&lt;typename... ValidAs&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00337">337</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00448">448</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +511,7 @@ requires CCompatibleComponent&lt;MainType, Self&gt;</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00274">274</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00355">355</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
@@ -445,12 +561,12 @@ requires CCompatibleComponent&lt;MainType, Self&gt;</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00319">319</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00430">430</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
-<a id="a25ef16a6439e86cf6afe80e7bbaab017" name="a25ef16a6439e86cf6afe80e7bbaab017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25ef16a6439e86cf6afe80e7bbaab017">&#9670;&#160;</a></span>GetComponent() <span class="overload">[1/2]</span></h2>
+<a id="a44f29f531f42b41f757d8a48e262b6fe" name="a44f29f531f42b41f757d8a48e262b6fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f29f531f42b41f757d8a48e262b6fe">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -461,7 +577,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T &amp; Mcro::Composition::IComposable::GetComponent </td>
+          <td class="memname">T &amp; Mcro::Composition::IComposable::Get </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -476,7 +592,7 @@ template&lt;typename T &gt; </div>
 
 <p>Get the first component matching~ or aliased by the given type. </p>
 <p>The order of components are non-deterministic so this method only make sense when it is trivial that only one component will be available for that particular type.</p>
-<dl class="section warning"><dt>Warning</dt><dd>If there may be the slightest doubt that the given component may not exist on this composable class, use <code>TryGetComponent</code> instead as this function can crash at runtime.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If there may be the slightest doubt that the given component may not exist on this composable class, use <code>TryGet</code> instead as this function can crash at runtime.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Desired component type.</td></tr>
@@ -485,12 +601,12 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the desired component. It is a runtime crash if the component doesn't exist. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00707">707</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00985">985</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
-<a id="a9e873e4236a6063e21abb418b6d8268e" name="a9e873e4236a6063e21abb418b6d8268e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e873e4236a6063e21abb418b6d8268e">&#9670;&#160;</a></span>GetComponent() <span class="overload">[2/2]</span></h2>
+<a id="a5283cb6fb661e918db6a96c1f336508d" name="a5283cb6fb661e918db6a96c1f336508d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5283cb6fb661e918db6a96c1f336508d">&#9670;&#160;</a></span>Get() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -501,7 +617,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T const  &amp; Mcro::Composition::IComposable::GetComponent </td>
+          <td class="memname">T const  &amp; Mcro::Composition::IComposable::Get </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -516,7 +632,7 @@ template&lt;typename T &gt; </div>
 
 <p>Get the first component matching~ or aliased by the given type. </p>
 <p>The order of components are non-deterministic so this method only make sense when it is trivial that only one component will be available for that particular type.</p>
-<dl class="section warning"><dt>Warning</dt><dd>If there may be the slightest doubt that the given component may not exist on this composable class, use <code>TryGetComponent</code> instead as this function can crash at runtime.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If there may be the slightest doubt that the given component may not exist on this composable class, use <code>TryGet</code> instead as this function can crash at runtime.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Desired component type.</td></tr>
@@ -525,7 +641,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the desired component. It is a runtime crash if the component doesn't exist. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00683">683</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00961">961</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
@@ -563,12 +679,38 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A range-view containing all the matched components. Components are provided as pointers to ensure they're not copied even under intricate object plumbing situations, but invalid pointers are never returned. (as long as the composable class is alive of course) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00622">622</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00900">900</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
-<a id="acc909996594e0a2dfb23c7964cb0a283" name="acc909996594e0a2dfb23c7964cb0a283"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc909996594e0a2dfb23c7964cb0a283">&#9670;&#160;</a></span>TryGetComponent() <span class="overload">[1/2]</span></h2>
+<a id="ab7447dc1c94e9897fa3751157b5673dd" name="ab7447dc1c94e9897fa3751157b5673dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7447dc1c94e9897fa3751157b5673dd">&#9670;&#160;</a></span>GetComponentsDynamic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ranges::any_view&lt; <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html">FAny</a> * &gt; Mcro::Composition::IComposable::GetComponentsDynamic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d09/namespaceMcro_1_1TypeName.html#ab369b9187a7cdecfd0ab5f8b22bf7083">FTypeHash</a></td>          <td class="paramname"><span class="paramname"><em>typeHash</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get components determined at runtime. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeHash</td><td>The runtime determined type-hash the desired components are represented with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A type erased range view for all the components matched with given type-hash </dd></dl>
+
+</div>
+</div>
+<a id="aa1a058dc66eb2c774bf5dafd7cbdde92" name="aa1a058dc66eb2c774bf5dafd7cbdde92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a058dc66eb2c774bf5dafd7cbdde92">&#9670;&#160;</a></span>TryGet() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -579,7 +721,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T * Mcro::Composition::IComposable::TryGetComponent </td>
+          <td class="memname">T * Mcro::Composition::IComposable::TryGet </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -602,12 +744,12 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the component if one at least exists, nullptr otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00661">661</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00939">939</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
-<a id="a56ce1950ed2a0522457fb3cb77e61f69" name="a56ce1950ed2a0522457fb3cb77e61f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56ce1950ed2a0522457fb3cb77e61f69">&#9670;&#160;</a></span>TryGetComponent() <span class="overload">[2/2]</span></h2>
+<a id="acc863d392998e1e8f9ba51b12696b555" name="acc863d392998e1e8f9ba51b12696b555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc863d392998e1e8f9ba51b12696b555">&#9670;&#160;</a></span>TryGet() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -618,7 +760,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T * Mcro::Composition::IComposable::TryGetComponent </td>
+          <td class="memname">const T * Mcro::Composition::IComposable::TryGet </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -641,12 +783,334 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the component if one at least exists, nullptr otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00643">643</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00921">921</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="ae8de0374c21e26c8f904acc86285a73c" name="ae8de0374c21e26c8f904acc86285a73c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8de0374c21e26c8f904acc86285a73c">&#9670;&#160;</a></span>With() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CSharedFromThis Self, CFunctionLike Function&gt; <br />
+requires (<a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;Function&gt; == 1)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Composition::IComposable::With </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Function &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>function</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modify a component inline, with a lambda function. The component type is inferred from the function's first argument, and a reference of that component is passed into it. The component must exist before calling this method, or if it doesn't, the application will crash. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">Function</td><td>Function type for modifying a component inline. The component type is deduced from the first parameter of the function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options. Function result is discarded when returning anything.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">function</td><td>Function for modifying a component inline. The component type is deduced from the first parameter of the function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options. Function result is discarded when returning anything.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00848">848</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="ae3220a0ad1ceafff090184c5d055d59d" name="ae3220a0ad1ceafff090184c5d055d59d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3220a0ad1ceafff090184c5d055d59d">&#9670;&#160;</a></span>With() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Self , CFunctionLike Function&gt; <br />
+requires (!CSharedFromThis&lt;Self&gt; &amp;&amp; <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;Function&gt; == 1)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) Mcro::Composition::IComposable::With </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Function &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>function</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modify a component inline, with a lambda function. The component type is inferred from the function's first argument, and a reference of that component is passed into it. The component must exist before calling this method, or if it doesn't, the application will crash. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">Function</td><td>Function type for modifying a component inline. The component type is deduced from the first parameter of the function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options. Function result is discarded when returning anything.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">function</td><td>Function for modifying a component inline. The component type is deduced from the first parameter of the function. CV-ref qualifiers are not enforced but mutable-ref or const-ref are the only useful options. Function result is discarded when returning anything.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00882">882</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="a1c0c4825bb6b48b37e04331ae8932267" name="a1c0c4825bb6b48b37e04331ae8932267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c0c4825bb6b48b37e04331ae8932267">&#9670;&#160;</a></span>With() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MainType , CSharedFromThis Self&gt; <br />
+requires CCompatibleComponent&lt;MainType, Self&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Composition::IComposable::With </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MainType *</td>          <td class="paramname"><span class="paramname"><em>newComponent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a component to this composable class with a fluent API. </p>
+<p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MainType</td><td>The exact component type (deduced from <code>newComponent</code> </td></tr>
+    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">newComponent</td><td>A pointer to the new component being added. <code><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a></code> will assume ownership of the new component adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the stack, in fact better to stick with the <code>new</code> operator.</td></tr>
+    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00480">480</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="a48d55543bcdfe3c2a887dc5ae5329f3c" name="a48d55543bcdfe3c2a887dc5ae5329f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d55543bcdfe3c2a887dc5ae5329f3c">&#9670;&#160;</a></span>With() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MainType , typename Self &gt; <br />
+requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) Mcro::Composition::IComposable::With </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MainType *</td>          <td class="paramname"><span class="paramname"><em>newComponent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a component to this composable class with a fluent API. </p>
+<p>This overload is available for composable classes which are not explicitly meant to be used with shared pointers.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MainType</td><td>The exact component type (deduced from <code>newComponent</code> </td></tr>
+    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">newComponent</td><td>A pointer to the new component being added. <code><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a></code> will assume ownership of the new component adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the stack, in fact better to stick with the <code>new</code> operator.</td></tr>
+    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00584">584</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="ac5bfd8621575c53c75f59a54cd9aceed" name="ac5bfd8621575c53c75f59a54cd9aceed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5bfd8621575c53c75f59a54cd9aceed">&#9670;&#160;</a></span>With() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDefaultInitializable MainType, CSharedFromThis Self&gt; <br />
+requires CCompatibleComponent&lt;MainType, Self&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Composition::IComposable::With </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a default constructed component to this composable class with a fluent API. </p>
+<p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MainType</td><td>The exact component type </td></tr>
+    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00530">530</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="a1334ae137755fdae90990cbb2c08cd7e" name="a1334ae137755fdae90990cbb2c08cd7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1334ae137755fdae90990cbb2c08cd7e">&#9670;&#160;</a></span>With() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDefaultInitializable MainType, typename Self &gt; <br />
+requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) Mcro::Composition::IComposable::With </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a default constructed component to this composable class with a fluent API. </p>
+<p>This overload is available for composable classes which are not explicitly meant to be used with shared pointers.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MainType</td><td>The exact component type </td></tr>
+    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00634">634</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
 <a id="a997e071f94582699fc9fa35721d1bc66" name="a997e071f94582699fc9fa35721d1bc66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a997e071f94582699fc9fa35721d1bc66">&#9670;&#160;</a></span>With() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a997e071f94582699fc9fa35721d1bc66">&#9670;&#160;</a></span>With() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -664,7 +1128,7 @@ template&lt;CSharedFromThis Self, typename... ValidAs&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -675,14 +1139,12 @@ template&lt;CSharedFromThis Self, typename... ValidAs&gt; </div>
 </div><div class="memdoc">
 
 <p>Add a list of types the last added component is convertible to and may be used to get the last component among others which may list the same aliases. </p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_class" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a>()</div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>&lt;FMyComponent&gt;().<a class="code hl_function" href="#a997e071f94582699fc9fa35721d1bc66">With</a>(TAlias&lt;</div>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a>()</div>
+<div class="line">    .With&lt;FMyComponent&gt;().<a class="code hl_function" href="#a1c0c4825bb6b48b37e04331ae8932267">With</a>(TAlias&lt;</div>
 <div class="line">        FMyComponentBase,</div>
 <div class="line">        IMyComponentInterface</div>
 <div class="line">    &gt;)</div>
 <div class="line">;</div>
-<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html"><div class="ttname"><a href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">Mcro::Composition::IComposable</a></div><div class="ttdoc">A base class which can bring type based class-composition to a derived class.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00224">Composition.h:225</a></div></div>
-<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html_a997e071f94582699fc9fa35721d1bc66"><div class="ttname"><a href="#a997e071f94582699fc9fa35721d1bc66">Mcro::Composition::IComposable::With</a></div><div class="ttdeci">auto With(this Self &amp;&amp;self, TTypes&lt; ValidAs... &gt; &amp;&amp;)</div><div class="ttdoc">Add a list of types the last added component is convertible to and may be used to get the last compon...</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00566">Composition.h:566</a></div></div>
 </div><!-- fragment --><p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Calling this function before adding a component may result in a runtime crash!</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -700,12 +1162,12 @@ template&lt;CSharedFromThis Self, typename... ValidAs&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00566">566</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00776">776</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
 <a id="a495989a4fd2069f0b20681e7d2cb6d51" name="a495989a4fd2069f0b20681e7d2cb6d51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a495989a4fd2069f0b20681e7d2cb6d51">&#9670;&#160;</a></span>With() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a495989a4fd2069f0b20681e7d2cb6d51">&#9670;&#160;</a></span>With() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -724,7 +1186,7 @@ requires (!CSharedFromThis&lt;Self&gt;)</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt; ValidAs... &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -735,8 +1197,8 @@ requires (!CSharedFromThis&lt;Self&gt;)</div>
 </div><div class="memdoc">
 
 <p>Add a list of types the last added component is convertible to and may be used to get the last component among others which may list the same aliases. </p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_class" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a>()</div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>&lt;FMyComponent&gt;().<a class="code hl_function" href="#a997e071f94582699fc9fa35721d1bc66">With</a>(TAlias&lt;</div>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a>()</div>
+<div class="line">    .With&lt;FMyComponent&gt;().<a class="code hl_function" href="#a1c0c4825bb6b48b37e04331ae8932267">With</a>(TAlias&lt;</div>
 <div class="line">        FMyComponentBase,</div>
 <div class="line">        IMyComponentInterface</div>
 <div class="line">    &gt;)</div>
@@ -758,7 +1220,7 @@ requires (!CSharedFromThis&lt;Self&gt;)</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00604">604</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00814">814</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
@@ -789,12 +1251,12 @@ template&lt;typename ValidAs , CSharedFromThis Self&gt; </div>
 
 <p>Add a type, the last added component is convertible to and may be used to get the last component among others which may list the same aliases. </p>
 <p>Only one alias may be specified this way because of templating syntax intricacies, but it may be called multiple times in a sequence to add multiple aliases for the same component.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_class" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a>()</div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>&lt;FMyComponent&gt;()</div>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a>()</div>
+<div class="line">    .With&lt;FMyComponent&gt;()</div>
 <div class="line">        .<a class="code hl_function" href="#a331a2c3895a7e32d196405bb085ef965">WithAlias&lt;FMyComponentBase&gt;</a>()</div>
 <div class="line">        .WithAlias&lt;IMyComponentInterface&gt;()</div>
 <div class="line">;</div>
-<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html_a331a2c3895a7e32d196405bb085ef965"><div class="ttname"><a href="#a331a2c3895a7e32d196405bb085ef965">Mcro::Composition::IComposable::WithAlias</a></div><div class="ttdeci">auto WithAlias(this Self &amp;&amp;self)</div><div class="ttdoc">Add a type, the last added component is convertible to and may be used to get the last component amon...</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00487">Composition.h:487</a></div></div>
+<div class="ttc" id="aclassMcro_1_1Composition_1_1IComposable_html_a331a2c3895a7e32d196405bb085ef965"><div class="ttname"><a href="#a331a2c3895a7e32d196405bb085ef965">Mcro::Composition::IComposable::WithAlias</a></div><div class="ttdeci">auto WithAlias(this Self &amp;&amp;self)</div><div class="ttdoc">Add a type, the last added component is convertible to and may be used to get the last component amon...</div><div class="ttdef"><b>Definition</b> <a href="../../db/de2/Composition_8h_source.html#l00697">Composition.h:697</a></div></div>
 </div><!-- fragment --><p>For declaring multiple aliases in one go, use <code>With(TTypes&lt;...&gt;)</code> member template method.</p>
 <p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Calling this function before adding a component may result in a runtime crash!</dd></dl>
@@ -813,7 +1275,7 @@ template&lt;typename ValidAs , CSharedFromThis Self&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00487">487</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00697">697</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
@@ -845,8 +1307,8 @@ requires (!CSharedFromThis&lt;Self&gt;)</div>
 
 <p>Add a type, the last added component is convertible to and may be used to get the last component among others which may list the same aliases. </p>
 <p>Only one alias may be specified this way because of templating syntax intricacies, but it may be called multiple times in a sequence to add multiple aliases for the same component.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_class" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html">IComposable</a>()</div>
-<div class="line">    .<a class="code hl_function" href="#aa640707c5ed1e2ef45b453398192ef7f">WithComponent</a>&lt;FMyComponent&gt;()</div>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code hl_function" href="#aff5ac1d792adf6064efeeccf7d54919f">IComposable</a>()</div>
+<div class="line">    .With&lt;FMyComponent&gt;()</div>
 <div class="line">        .<a class="code hl_function" href="#a331a2c3895a7e32d196405bb085ef965">WithAlias&lt;FMyComponentBase&gt;</a>()</div>
 <div class="line">        .WithAlias&lt;IMyComponentInterface&gt;()</div>
 <div class="line">;</div>
@@ -868,128 +1330,12 @@ requires (!CSharedFromThis&lt;Self&gt;)</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00529">529</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00739">739</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
-<a id="aa640707c5ed1e2ef45b453398192ef7f" name="aa640707c5ed1e2ef45b453398192ef7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa640707c5ed1e2ef45b453398192ef7f">&#9670;&#160;</a></span>WithComponent() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename MainType , CSharedFromThis Self&gt; <br />
-requires CCompatibleComponent&lt;MainType, Self&gt;</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto Mcro::Composition::IComposable::WithComponent </td>
-          <td>(</td>
-          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">MainType *</td>          <td class="paramname"><span class="paramname"><em>newComponent</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Add a component to this composable class with a fluent API. </p>
-<p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">MainType</td><td>The exact component type (deduced from <code>newComponent</code> </td></tr>
-    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
-    <tr><td class="paramname">newComponent</td><td>A pointer to the new component being added. <code><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a></code> will assume ownership of the new component adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the stack, in fact better to stick with the <code>new</code> operator.</td></tr>
-    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00369">369</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
-
-</div>
-</div>
-<a id="a5ba8c22c85876f002427429dbd5dc2b5" name="a5ba8c22c85876f002427429dbd5dc2b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ba8c22c85876f002427429dbd5dc2b5">&#9670;&#160;</a></span>WithComponent() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename MainType , typename Self &gt; <br />
-requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">decltype(auto) Mcro::Composition::IComposable::WithComponent </td>
-          <td>(</td>
-          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">MainType *</td>          <td class="paramname"><span class="paramname"><em>newComponent</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Add a component to this composable class with a fluent API. </p>
-<p>This overload is available for composable classes which are not explicitly meant to be used with shared pointers.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">MainType</td><td>The exact component type (deduced from <code>newComponent</code> </td></tr>
-    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
-    <tr><td class="paramname">newComponent</td><td>A pointer to the new component being added. <code><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a></code> will assume ownership of the new component adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the stack, in fact better to stick with the <code>new</code> operator.</td></tr>
-    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00422">422</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
-
-</div>
-</div>
-<a id="acc81559cea95aab8f9d128d2ba8bb28e" name="acc81559cea95aab8f9d128d2ba8bb28e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc81559cea95aab8f9d128d2ba8bb28e">&#9670;&#160;</a></span>WithComponent() <span class="overload">[3/4]</span></h2>
+<a id="a2cabbb43b8797644a1a057c8ee1cc633" name="a2cabbb43b8797644a1a057c8ee1cc633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cabbb43b8797644a1a057c8ee1cc633">&#9670;&#160;</a></span>WithAnsi() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1001,14 +1347,10 @@ requires CCompatibleComponent&lt;MainType, Self&gt;</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto Mcro::Composition::IComposable::WithComponent </td>
+          <td class="memname">auto Mcro::Composition::IComposable::WithAnsi </td>
           <td>(</td>
-          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1018,7 +1360,7 @@ requires CCompatibleComponent&lt;MainType, Self&gt;</div>
 </table>
 </div><div class="memdoc">
 
-<p>Add a default constructed component to this composable class with a fluent API. </p>
+<p>Add a default constructed component to this composable class with a fluent API, enforcing standard memory allocators. </p>
 <p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -1036,12 +1378,12 @@ requires CCompatibleComponent&lt;MainType, Self&gt;</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00393">393</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00555">555</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>
-<a id="a040c349d01749182a7bec407e03259ef" name="a040c349d01749182a7bec407e03259ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a040c349d01749182a7bec407e03259ef">&#9670;&#160;</a></span>WithComponent() <span class="overload">[4/4]</span></h2>
+<a id="a8d6df8d7dc370bbb08a70a25f8f8e5ab" name="a8d6df8d7dc370bbb08a70a25f8f8e5ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6df8d7dc370bbb08a70a25f8f8e5ab">&#9670;&#160;</a></span>WithAnsi() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1053,14 +1395,10 @@ requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">decltype(auto) Mcro::Composition::IComposable::WithComponent </td>
+          <td class="memname">decltype(auto) Mcro::Composition::IComposable::WithAnsi </td>
           <td>(</td>
-          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; MainType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>facilities</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1070,7 +1408,7 @@ requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis
 </table>
 </div><div class="memdoc">
 
-<p>Add a default constructed component to this composable class with a fluent API. </p>
+<p>Add a default constructed component to this composable class with a fluent API, enforcing standard memory allocators. </p>
 <p>This overload is available for composable classes which are not explicitly meant to be used with shared pointers.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -1082,13 +1420,150 @@ requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">self</td><td>Deducing this</td></tr>
-    <tr><td class="paramname">facilities</td><td>Customization point for object copy/move and delete methods. See <code>TAnyTypeFacilities</code></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00446">446</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00656">656</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="ad330e2f433535886e2b7d9d32def8aab" name="ad330e2f433535886e2b7d9d32def8aab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad330e2f433535886e2b7d9d32def8aab">&#9670;&#160;</a></span>WithAnsi() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MainType , CSharedFromThis Self&gt; <br />
+requires CCompatibleComponent&lt;MainType, Self&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::Composition::IComposable::WithAnsi </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MainType *</td>          <td class="paramname"><span class="paramname"><em>newComponent</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a component to this composable class with a fluent API, enforcing standard memory allocators. </p>
+<p>This overload is available for composable classes which also inherit from <code>TSharedFromThis</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MainType</td><td>The exact component type (deduced from <code>newComponent</code> </td></tr>
+    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">newComponent</td><td>A pointer to the new component being added. <code><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a></code> will assume ownership of the new component adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the stack, in fact better to stick with the <code>new</code> operator.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the composable class also inherits from <code>TSharedFromThis</code> return a shared ref. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00506">506</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<a id="a2923141b92e5f4ed8a3bd842d25fb363" name="a2923141b92e5f4ed8a3bd842d25fb363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2923141b92e5f4ed8a3bd842d25fb363">&#9670;&#160;</a></span>WithAnsi() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MainType , typename Self &gt; <br />
+requires (CCompatibleComponent&lt;MainType, Self&gt; &amp;&amp; !CSharedFromThis&lt;Self&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) Mcro::Composition::IComposable::WithAnsi </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MainType *</td>          <td class="paramname"><span class="paramname"><em>newComponent</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a component to this composable class with a fluent API, enforcing standard memory allocators. </p>
+<p>This overload is available for composable classes which are not explicitly meant to be used with shared pointers.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MainType</td><td>The exact component type (deduced from <code>newComponent</code> </td></tr>
+    <tr><td class="paramname">Self</td><td>Deducing this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Deducing this</td></tr>
+    <tr><td class="paramname">newComponent</td><td>A pointer to the new component being added. <code><a class="el" href="../../dc/d01/classMcro_1_1Composition_1_1IComposable.html" title="A base class which can bring type based class-composition to a derived class.">IComposable</a></code> will assume ownership of the new component adhering to RAII. Make sure the lifespan of the provided object is not managed by something else or the stack, in fact better to stick with the <code>new</code> operator.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Perfect-forwarded self. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00610">610</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="ae02cf2d2540f3f8042e16b6492034a96" name="ae02cf2d2540f3f8042e16b6492034a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02cf2d2540f3f8042e16b6492034a96">&#9670;&#160;</a></span>OnComponentAdded</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFunction&lt;void(<a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html">FAny</a>&amp;)&gt; Mcro::Composition::IComposable::OnComponentAdded</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Override this function in your composable class to do custom logic when a component is added. A bit of dynamically typed programming is needed through the FAny API. </p>
+<p>This is executed in AddComponent before IComponent::OnCreatedAt and after automatic aliases has been set up (if they're available). This is not executed with subsequent setup of manual aliases.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">component</td><td>The component being added. Query component type with the FAny API </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00322">322</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 
 </div>
 </div>

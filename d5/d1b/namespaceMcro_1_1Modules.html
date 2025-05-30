@@ -113,7 +113,8 @@ $(function(){initNavTree('d5/d1b/namespaceMcro_1_1Modules.html','../../'); initR
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Modules Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -123,16 +124,172 @@ $(function(){initNavTree('d5/d1b/namespaceMcro_1_1Modules.html','../../'); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html">FObserveModuleListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A record for the module event listeners.  <a href="../../d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add this interface to your module class if other things can listen to module startup or shutdown.  <a href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">TModuleBoundObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper around a given object which lifespan is bound to given module.  <a href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html">TObserveModule</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this in global variables to automatically do things on module startup or shutdown.  <a href="../../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0da427df19c26499591b7cb731b8853e" id="r_a0da427df19c26499591b7cb731b8853e"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a0da427df19c26499591b7cb731b8853e"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0da427df19c26499591b7cb731b8853e">InferModuleName</a> ()</td></tr>
+<tr class="memdesc:a0da427df19c26499591b7cb731b8853e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Infer the module name from an input type. This exists because there's a very reliable naming convention for class names representing modules. The inference is removing the first letter Hungarian type notation and removing "Module" or "ModuleInterface" from the end.  <br /></td></tr>
+<tr class="separator:a0da427df19c26499591b7cb731b8853e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62450f6093c942f19abcf38a7c73be1" id="r_ad62450f6093c942f19abcf38a7c73be1"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:ad62450f6093c942f19abcf38a7c73be1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a>&lt; M * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad62450f6093c942f19abcf38a7c73be1">TryLoadUnrealModule</a> ()</td></tr>
+<tr class="memdesc:ad62450f6093c942f19abcf38a7c73be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to load a module and return an IError when that fails for any reason. Module name is inferred from type described in.  <br /></td></tr>
+<tr class="separator:ad62450f6093c942f19abcf38a7c73be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5192a5138cafdecd4b462e1193d6b797" id="r_a5192a5138cafdecd4b462e1193d6b797"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a5192a5138cafdecd4b462e1193d6b797"><td class="memTemplItemLeft" align="right" valign="top">M &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5192a5138cafdecd4b462e1193d6b797">LoadUnrealModule</a> ()</td></tr>
+<tr class="memdesc:a5192a5138cafdecd4b462e1193d6b797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a module or crash with IError if it cannot be done for any reason Module name is inferred from type described in.  <br /></td></tr>
+<tr class="separator:a5192a5138cafdecd4b462e1193d6b797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa031d7585b4e7863a6ed0cec1a0137be" id="r_aa031d7585b4e7863a6ed0cec1a0137be"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:aa031d7585b4e7863a6ed0cec1a0137be"><td class="memTemplItemLeft" align="right" valign="top">M *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa031d7585b4e7863a6ed0cec1a0137be">GetUnrealModulePtr</a> ()</td></tr>
+<tr class="memdesc:aa031d7585b4e7863a6ed0cec1a0137be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for FModuleManager::GetModulePtr with the name inferred from given type.  <br /></td></tr>
+<tr class="separator:aa031d7585b4e7863a6ed0cec1a0137be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5975fa3221d464d3b704872ec3e207bf" id="r_a5975fa3221d464d3b704872ec3e207bf"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a5975fa3221d464d3b704872ec3e207bf"><td class="memTemplItemLeft" align="right" valign="top">M &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5975fa3221d464d3b704872ec3e207bf">GetUnrealModule</a> ()</td></tr>
+<tr class="memdesc:a5975fa3221d464d3b704872ec3e207bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an already loaded unreal module. If for any reason it's not loaded, crash the app.  <br /></td></tr>
+<tr class="separator:a5975fa3221d464d3b704872ec3e207bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace for utilities handling Unreal modules. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5975fa3221d464d3b704872ec3e207bf" name="a5975fa3221d464d3b704872ec3e207bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5975fa3221d464d3b704872ec3e207bf">&#9670;&#160;</a></span>GetUnrealModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">M &amp; Mcro::Modules::GetUnrealModule </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get an already loaded unreal module. If for any reason it's not loaded, crash the app. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a0da427df19c26499591b7cb731b8853e" title="Infer the module name from an input type. This exists because there&#39;s a very reliable naming conventi...">InferModuleName</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00092">92</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+
+</div>
+</div>
+<a id="aa031d7585b4e7863a6ed0cec1a0137be" name="aa031d7585b4e7863a6ed0cec1a0137be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa031d7585b4e7863a6ed0cec1a0137be">&#9670;&#160;</a></span>GetUnrealModulePtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">M * Mcro::Modules::GetUnrealModulePtr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for FModuleManager::GetModulePtr with the name inferred from given type. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a0da427df19c26499591b7cb731b8853e" title="Infer the module name from an input type. This exists because there&#39;s a very reliable naming conventi...">InferModuleName</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00085">85</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+
+</div>
+</div>
+<a id="a0da427df19c26499591b7cb731b8853e" name="a0da427df19c26499591b7cb731b8853e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da427df19c26499591b7cb731b8853e">&#9670;&#160;</a></span>InferModuleName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FString Mcro::Modules::InferModuleName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Infer the module name from an input type. This exists because there's a very reliable naming convention for class names representing modules. The inference is removing the first letter Hungarian type notation and removing "Module" or "ModuleInterface" from the end. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">M</td><td>the supposed type of the module </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The module name inferrable from its type name </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00040">40</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+
+</div>
+</div>
+<a id="a5192a5138cafdecd4b462e1193d6b797" name="a5192a5138cafdecd4b462e1193d6b797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5192a5138cafdecd4b462e1193d6b797">&#9670;&#160;</a></span>LoadUnrealModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">M &amp; Mcro::Modules::LoadUnrealModule </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load a module or crash with IError if it cannot be done for any reason Module name is inferred from type described in. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a0da427df19c26499591b7cb731b8853e" title="Infer the module name from an input type. This exists because there&#39;s a very reliable naming conventi...">InferModuleName</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00074">74</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+
+</div>
+</div>
+<a id="ad62450f6093c942f19abcf38a7c73be1" name="ad62450f6093c942f19abcf38a7c73be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62450f6093c942f19abcf38a7c73be1">&#9670;&#160;</a></span>TryLoadUnrealModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a>&lt; M * &gt; Mcro::Modules::TryLoadUnrealModule </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Try to load a module and return an IError when that fails for any reason. Module name is inferred from type described in. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a0da427df19c26499591b7cb731b8853e" title="Infer the module name from an input type. This exists because there&#39;s a very reliable naming conventi...">InferModuleName</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00054">54</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

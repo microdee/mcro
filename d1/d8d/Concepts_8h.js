@@ -39,6 +39,8 @@ var Concepts_8h =
     [ "Mcro::Concepts::CRelation", "de/d65/conceptMcro_1_1Concepts_1_1CRelation.html", null ],
     [ "Mcro::Concepts::CEquivalenceRelation", "d4/d9c/conceptMcro_1_1Concepts_1_1CEquivalenceRelation.html", null ],
     [ "Mcro::Concepts::CStrictWeakOrder", "d7/d99/conceptMcro_1_1Concepts_1_1CStrictWeakOrder.html", null ],
+    [ "Mcro::Concepts::CAbstract", "dd/d61/conceptMcro_1_1Concepts_1_1CAbstract.html", null ],
+    [ "Mcro::Concepts::CNonAbstract", "d5/d77/conceptMcro_1_1Concepts_1_1CNonAbstract.html", null ],
     [ "Mcro::Concepts::CModels", "dc/d1d/conceptMcro_1_1Concepts_1_1CModels.html", null ],
     [ "Mcro::Concepts::CSharedPtr", "d5/d8c/conceptMcro_1_1Concepts_1_1CSharedPtr.html", null ],
     [ "Mcro::Concepts::CSharedRef", "d2/db2/conceptMcro_1_1Concepts_1_1CSharedRef.html", null ],

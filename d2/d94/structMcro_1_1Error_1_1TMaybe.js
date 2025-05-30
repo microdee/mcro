@@ -14,8 +14,10 @@ var structMcro_1_1Error_1_1TMaybe =
     [ "GetValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4", null ],
     [ "HasError", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#ad56d43612aa68c0ba6d8be5c737c5add", null ],
     [ "HasValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a65adeaef29dd4787cfa2ae959dd4c5a0", null ],
+    [ "ModifyError", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#ab86c148a9eab2bbdab5f8b9da2593721", null ],
     [ "operator bool", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7d47ebfde8aa6fe52fddda6d566ae466", null ],
     [ "operator TValueOrError< T, IErrorPtr >", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#aaa7a14a1c11f528fa641c78f9a955d53", null ],
+    [ "StealValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a92ae2a93f84418aa35ed2e641ea5a0fb", null ],
     [ "TryGetValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#af0141a1996ddbcdf4a1a6b327cbe863e", null ],
     [ "TryGetValue", "d2/d94/structMcro_1_1Error_1_1TMaybe.html#a2994d4b8086545f630c5219fc7788b03", null ]
 ];

@@ -22,6 +22,5 @@ var namespaceMcro_1_1Observable =
     [ "TStateWeakPtr", "d6/da2/namespaceMcro_1_1Observable.html#a34bb6e75dbcf9bcc85809fed5fe29465", null ],
     [ "operator<=>", "d6/da2/namespaceMcro_1_1Observable.html#afcaf7efaf8250292f79fb50a4f6eaea8", null ],
     [ "operator==", "d6/da2/namespaceMcro_1_1Observable.html#aeb103475b60fca7d1e6ec151337faa6e", null ],
-    [ "StatePolicyFor", "d6/da2/namespaceMcro_1_1Observable.html#af5b3ff14fd44daf182c9a1c11b2170c8", null ],
-    [ "StatePolicyFor< bool >", "d6/da2/namespaceMcro_1_1Observable.html#af50ed1f2a03e04ebeefc61641060a43d", null ]
+    [ "StatePolicyFor", "d6/da2/namespaceMcro_1_1Observable.html#af5b3ff14fd44daf182c9a1c11b2170c8", null ]
 ];

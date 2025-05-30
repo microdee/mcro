@@ -131,9 +131,17 @@ Inheritance diagram for Mcro::Composition::IComponent:</div>
 </div></div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Inherit from this empty interface to signal that the inheriting class knows that it's a component and that it can receive info about the composable class it is being registered to. </p>
-<p>Define <code>OnComponentRegistered(T&amp; to)</code> in the inheriting class, where T is the expected type of the composable parent. In case this component is registered to a composable class which is not convertible to T then <code>OnComponentRegistered</code> will be silently ignored. </p>
+<p>Define the following functions in the inheriting class, where T is the expected type of the composable parent.</p>
+<ul>
+<li><code>OnCreatedAt(T&amp; parent)</code> <b>(required)</b></li>
+<li><code>OnCopiedAt(T&amp; parent, &lt;Self&gt; const&amp; from)</code> <em>(optional)</em></li>
+<li><code>OnMovedAt(T&amp; parent)</code> <em>(optional)</em></li>
+</ul>
+<p>In case this component is registered to a composable class which is not convertible to T then <code>OnCreatedAt</code> or the others will be silently ignored.</p>
+<p>If <code>OnCopiedAt</code> is defined, it is called when the component got copied to its new parent, and the previous component boxed in <code>FAny</code>.</p>
+<p>If <code>OnMovedAt</code> is defined, it is similarly called when the component got moved to its new parent. Components however are not move constructed, simply they have their ownership transferred, for this reason there's no "source" component argument, as that would be redundant. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00039">39</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de2/Composition_8h_source.html#l00052">52</a> of file <a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Public/Mcro/<a class="el" href="../../db/de2/Composition_8h_source.html">Composition.h</a></li>
 </ul>

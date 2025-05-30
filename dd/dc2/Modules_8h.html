@@ -114,13 +114,18 @@ $(function(){initNavTree('dd/dc2/Modules_8h.html','../../'); initResizable(true)
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Modules.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/df5/AssertMacros_8h_source.html">Mcro/AssertMacros.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de3/TypeName_8h_source.html">Mcro/TypeName.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d51/EventDelegate_8h_source.html">Mcro/Delegates/EventDelegate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dba/Error_8h_source.html">Mcro/Error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d20/Enums_8h_source.html">Mcro/Enums.h</a>&quot;</code><br />
 </div>
 <p><a href="../../dd/dc2/Modules_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -129,8 +134,16 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">Mcro::Modules::IObservableModule</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add this interface to your module class if other things can listen to module startup or shutdown.  <a href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html">Mcro::Modules::FObserveModuleListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A record for the module event listeners.  <a href="../../d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html">Mcro::Modules::TObserveModule&lt; M &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this in global variables to automatically do things on module startup or shutdown.  <a href="../../d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">Mcro::Modules::TModuleBoundObject&lt; M, T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper around a given object which lifespan is bound to given module.  <a href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d63/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectCustomization.html">Mcro::Modules::TModuleBoundObject&lt; M, T &gt;::FObjectCustomization</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -140,6 +153,29 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html">Mcro::Modules</a></td></tr>
 <tr class="memdesc:d5/d1b/namespaceMcro_1_1Modules"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for utilities handling Unreal modules. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0da427df19c26499591b7cb731b8853e" id="r_a0da427df19c26499591b7cb731b8853e"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a0da427df19c26499591b7cb731b8853e"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#a0da427df19c26499591b7cb731b8853e">Mcro::Modules::InferModuleName</a> ()</td></tr>
+<tr class="memdesc:a0da427df19c26499591b7cb731b8853e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Infer the module name from an input type. This exists because there's a very reliable naming convention for class names representing modules. The inference is removing the first letter Hungarian type notation and removing "Module" or "ModuleInterface" from the end.  <br /></td></tr>
+<tr class="separator:a0da427df19c26499591b7cb731b8853e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62450f6093c942f19abcf38a7c73be1" id="r_ad62450f6093c942f19abcf38a7c73be1"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:ad62450f6093c942f19abcf38a7c73be1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d2/d94/structMcro_1_1Error_1_1TMaybe.html">TMaybe</a>&lt; M * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#ad62450f6093c942f19abcf38a7c73be1">Mcro::Modules::TryLoadUnrealModule</a> ()</td></tr>
+<tr class="memdesc:ad62450f6093c942f19abcf38a7c73be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to load a module and return an IError when that fails for any reason. Module name is inferred from type described in.  <br /></td></tr>
+<tr class="separator:ad62450f6093c942f19abcf38a7c73be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5192a5138cafdecd4b462e1193d6b797" id="r_a5192a5138cafdecd4b462e1193d6b797"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a5192a5138cafdecd4b462e1193d6b797"><td class="memTemplItemLeft" align="right" valign="top">M &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#a5192a5138cafdecd4b462e1193d6b797">Mcro::Modules::LoadUnrealModule</a> ()</td></tr>
+<tr class="memdesc:a5192a5138cafdecd4b462e1193d6b797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a module or crash with IError if it cannot be done for any reason Module name is inferred from type described in.  <br /></td></tr>
+<tr class="separator:a5192a5138cafdecd4b462e1193d6b797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa031d7585b4e7863a6ed0cec1a0137be" id="r_aa031d7585b4e7863a6ed0cec1a0137be"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:aa031d7585b4e7863a6ed0cec1a0137be"><td class="memTemplItemLeft" align="right" valign="top">M *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#aa031d7585b4e7863a6ed0cec1a0137be">Mcro::Modules::GetUnrealModulePtr</a> ()</td></tr>
+<tr class="memdesc:aa031d7585b4e7863a6ed0cec1a0137be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for FModuleManager::GetModulePtr with the name inferred from given type.  <br /></td></tr>
+<tr class="separator:aa031d7585b4e7863a6ed0cec1a0137be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5975fa3221d464d3b704872ec3e207bf" id="r_a5975fa3221d464d3b704872ec3e207bf"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a5975fa3221d464d3b704872ec3e207bf"><td class="memTemplItemLeft" align="right" valign="top">M &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#a5975fa3221d464d3b704872ec3e207bf">Mcro::Modules::GetUnrealModule</a> ()</td></tr>
+<tr class="memdesc:a5975fa3221d464d3b704872ec3e207bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an already loaded unreal module. If for any reason it's not loaded, crash the app.  <br /></td></tr>
+<tr class="separator:a5975fa3221d464d3b704872ec3e207bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>

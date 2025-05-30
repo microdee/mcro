@@ -11,5 +11,7 @@ var FmtMacros_8h =
     [ "operator%", "d2/d0e/FmtMacros_8h.html#a5ad005e210b3fbd702aef1ff5de5ca28", null ],
     [ "operator%", "d2/d0e/FmtMacros_8h.html#a87c55f84271dd1c0ec2d02dfc668acfc", null ],
     [ "operator%", "d2/d0e/FmtMacros_8h.html#ad9007557ee9787431e0ab1c25c734d19", null ],
-    [ "operator%", "d2/d0e/FmtMacros_8h.html#aef57e7974479b9aa38c27fc4b5f76f65", null ]
+    [ "operator%", "d2/d0e/FmtMacros_8h.html#aef57e7974479b9aa38c27fc4b5f76f65", null ],
+    [ "operator%", "d2/d0e/FmtMacros_8h.html#a30e0fad7b331f94032668734dabd4f28", null ],
+    [ "operator%", "d2/d0e/FmtMacros_8h.html#ae1228816c68b08c63f1b6aea3ea6222d", null ]
 ];

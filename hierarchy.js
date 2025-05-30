@@ -6,6 +6,7 @@ var hierarchy =
     [ "std::conditional_t", null, [
       [ "Mcro::Range::TExtendedIterator< Iterator, Policy >", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html", null ]
     ] ],
+    [ "Mcro::Ansi::FAllocator", "d4/df1/classMcro_1_1Ansi_1_1FAllocator.html", null ],
     [ "Mcro::Any::FAny", "df/d32/structMcro_1_1Any_1_1FAny.html", null ],
     [ "Mcro::UObjects::Init::FConstructObjectParameters", "db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html", null ],
     [ "FCopyConstructCounter", "db/da9/structFCopyConstructCounter.html", null ],
@@ -21,7 +22,12 @@ var hierarchy =
       [ "FCopyForbidden", "de/d5a/structFCopyForbidden.html", null ],
       [ "Mcro::Finally::FFinally", "d4/d80/structMcro_1_1Finally_1_1FFinally.html", null ]
     ] ],
+    [ "Mcro::Modules::TModuleBoundObject< M, T >::FObjectCustomization", "da/d63/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectCustomization.html", null ],
+    [ "Mcro::Modules::FObserveModuleListener", "d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html", null ],
     [ "Mcro::Once::FOnce", "d9/d70/structMcro_1_1Once_1_1FOnce.html", null ],
+    [ "Mcro::Ansi::FAllocator::ForAnyElementType", "dc/dc0/classMcro_1_1Ansi_1_1FAllocator_1_1ForAnyElementType.html", [
+      [ "Mcro::Ansi::FAllocator::ForElementType< ElementType >", "db/dd0/classMcro_1_1Ansi_1_1FAllocator_1_1ForElementType.html", null ]
+    ] ],
     [ "Mcro::Range::FRangeStringFormatOptions", "df/d34/structMcro_1_1Range_1_1FRangeStringFormatOptions.html", null ],
     [ "Mcro::Dll::FScopedDll", "d0/d03/structMcro_1_1Dll_1_1FScopedDll.html", null ],
     [ "Mcro::Dll::FScopedDllSet", "da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html", null ],
@@ -31,6 +37,7 @@ var hierarchy =
     [ "Mcro::Text::Macros::FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", null ],
     [ "Mcro::Text::Macros::FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", null ],
     [ "Mcro::TypeName::FType", "d5/db6/structMcro_1_1TypeName_1_1FType.html", null ],
+    [ "Mcro::ValueThunk::FValueThunkOptions", "df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", null ],
     [ "Mcro::Zero::FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", null ],
     [ "Mcro::AutoModularFeature::IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", [
@@ -76,6 +83,9 @@ var hierarchy =
         [ "Mcro::Error::SPlainTextDisplay", "d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html", null ]
       ] ]
     ] ],
+    [ "TAllocatorTraitsBase", null, [
+      [ "TAllocatorTraits< Mcro::Ansi::FAllocator >", "df/d65/structTAllocatorTraits_3_01Mcro_1_1Ansi_1_1FAllocator_01_4.html", null ]
+    ] ],
     [ "Mcro::Any::TAnyTypeFacilities< T >", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", null ],
     [ "Mcro::Slate::TArgumentsOf_S< T >", "de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html", null ],
     [ "Mcro::Slate::TArgumentsOf_S< T >", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html", null ],
@@ -115,6 +125,8 @@ var hierarchy =
     [ "Mcro::InitializeOnCopy::TInitializeOnCopy< T >", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", null ],
     [ "Mcro::InitializeOnCopy::TInitializeOnCopy< FCriticalSection >", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", null ],
     [ "Mcro::InitializeOnCopy::TInitializeOnCopy< FRWLock >", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", null ],
+    [ "Mcro::Templates::TIsTypeList_Struct< T >", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", null ],
+    [ "Mcro::Templates::TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", null ],
     [ "TIteratorCategory", null, [
       [ "Mcro::Range::TExtendedIterator< Iterator, Policy >", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html", null ]
     ] ],
@@ -130,6 +142,7 @@ var hierarchy =
     [ "Mcro::Range::TIteratorJumpForward_Struct< T >", "d7/dd9/structMcro_1_1Range_1_1TIteratorJumpForward__Struct_3_01T_01_4.html", null ],
     [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", null ],
     [ "Mcro::Error::TMaybe< T >", "d2/d94/structMcro_1_1Error_1_1TMaybe.html", null ],
+    [ "Mcro::Modules::TModuleBoundObject< M, T >", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html", null ],
     [ "Mcro::Delegates::TNative_Struct< typename >", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
     [ "Mcro::Delegates::TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", null ],
     [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultPolicy >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", null ],
@@ -137,6 +150,9 @@ var hierarchy =
     [ "Mcro::Range::Detail::TRangeWithStringFormat< Range >", "db/d93/structMcro_1_1Range_1_1Detail_1_1TRangeWithStringFormat.html", null ],
     [ "Mcro::Yaml::TScopedRegion< Begin, End >", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", null ],
     [ "Mcro::UObjects::Init::TScopeObject< T >", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject.html", null ],
+    [ "TSetAllocator", null, [
+      [ "Mcro::Ansi::FSetAllocator", "d5/d3b/classMcro_1_1Ansi_1_1FSetAllocator.html", null ]
+    ] ],
     [ "TSharedFromThis", null, [
       [ "Mcro::Types::IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", [
         [ "Mcro::Error::IError", "dd/d8f/classMcro_1_1Error_1_1IError.html", [
@@ -161,9 +177,16 @@ var hierarchy =
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],
     [ "Mcro::Rendering::Textures::TTextureSize< SizeType, InFormatType >", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", null ],
     [ "Mcro::Tuples::TTrimEnd_Struct< Count, Tuple >", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", null ],
+    [ "Mcro::Templates::TTupleSafeElement_Struct< I, T >", "d0/dfc/structMcro_1_1Templates_1_1TTupleSafeElement__Struct.html", null ],
+    [ "Mcro::Templates::TTupleSafeElement_Struct< I, TTuple< T... > >", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4.html", null ],
     [ "Mcro::Tuples::TTypeAt_Struct< size_t, typename >", "d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html", null ],
     [ "Mcro::Tuples::TTypeAt_Struct< I, T >", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4.html", null ],
-    [ "Mcro::Any::TTypes< T >", "de/daf/structMcro_1_1Any_1_1TTypes.html", null ],
+    [ "Mcro::Templates::Detail::TTypeAtPack_Impl< I, First, Rest >", "d0/d15/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl.html", null ],
+    [ "Mcro::Templates::Detail::TTypeAtPack_Impl< 0, First, Rest... >", "d2/dd0/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl_3_010_00_01First_00_01Rest_8_8_8_01_4.html", null ],
+    [ "Mcro::Templates::TTypeAtPack_Struct< I, T >", "da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html", null ],
+    [ "Mcro::Templates::TTypeAtPack_Struct< I >", "d9/d84/structMcro_1_1Templates_1_1TTypeAtPack__Struct_3_01I_01_4.html", null ],
+    [ "Mcro::Templates::TTypes< T >", "da/da5/structMcro_1_1Templates_1_1TTypes.html", null ],
+    [ "Mcro::ValueThunk::TValueThunk< T >", "d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html", null ],
     [ "UObject", null, [
       [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", null ]
     ] ]

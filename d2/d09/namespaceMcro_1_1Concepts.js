@@ -39,6 +39,8 @@ var namespaceMcro_1_1Concepts =
     [ "CRelation", "de/d65/conceptMcro_1_1Concepts_1_1CRelation.html", null ],
     [ "CEquivalenceRelation", "d4/d9c/conceptMcro_1_1Concepts_1_1CEquivalenceRelation.html", null ],
     [ "CStrictWeakOrder", "d7/d99/conceptMcro_1_1Concepts_1_1CStrictWeakOrder.html", null ],
+    [ "CAbstract", "dd/d61/conceptMcro_1_1Concepts_1_1CAbstract.html", null ],
+    [ "CNonAbstract", "d5/d77/conceptMcro_1_1Concepts_1_1CNonAbstract.html", null ],
     [ "CModels", "dc/d1d/conceptMcro_1_1Concepts_1_1CModels.html", null ],
     [ "CSharedPtr", "d5/d8c/conceptMcro_1_1Concepts_1_1CSharedPtr.html", null ],
     [ "CSharedRef", "d2/db2/conceptMcro_1_1Concepts_1_1CSharedRef.html", null ],

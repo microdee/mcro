@@ -1,5 +1,6 @@
 var namespaceMcro =
 [
+    [ "Ansi", "d9/d90/namespaceMcro_1_1Ansi.html", "d9/d90/namespaceMcro_1_1Ansi" ],
     [ "Any", "da/dfe/namespaceMcro_1_1Any.html", "da/dfe/namespaceMcro_1_1Any" ],
     [ "ArrayViews", "d6/d94/namespaceMcro_1_1ArrayViews.html", [
       [ "MakeByteArrayViewFromTyped", "d6/d94/namespaceMcro_1_1ArrayViews.html#a4e216bc76f5a54e7e9c22c8dd936d7b8", null ],
@@ -45,6 +46,7 @@ var namespaceMcro =
     [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", "df/d09/namespaceMcro_1_1TypeName" ],
     [ "Types", "da/d89/namespaceMcro_1_1Types.html", "da/d89/namespaceMcro_1_1Types" ],
     [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", "df/d84/namespaceMcro_1_1UObjects" ],
+    [ "ValueThunk", "d0/dd6/namespaceMcro_1_1ValueThunk.html", "d0/dd6/namespaceMcro_1_1ValueThunk" ],
     [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", "d5/dba/namespaceMcro_1_1Yaml" ],
     [ "Zero", "d0/dd7/namespaceMcro_1_1Zero.html", "d0/dd7/namespaceMcro_1_1Zero" ]
 ];

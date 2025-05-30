@@ -116,12 +116,16 @@ $(function(){initNavTree('d7/dfe/Any_8h.html','../../'); initResizable(true); })
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Any.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/da9/Allocator_8h_source.html">Mcro/Ansi/Allocator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d2f/New_8h_source.html">Mcro/Ansi/New.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de3/TypeName_8h_source.html">Mcro/TypeName.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/dd4/Templates_8h_source.html">Mcro/Templates.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">Mcro/FunctionTraits.h</a>&quot;</code><br />
 </div>
@@ -129,9 +133,6 @@ $(function(){initNavTree('d7/dfe/Any_8h.html','../../'); initResizable(true); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">Mcro::Any::TTypes&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This template is used in <code>IComponent|FAny::With(TAlias&lt;...&gt;)</code> so it can have deduced this type and explicit variadic template arguments when specifying multiple aliases.  <a href="../../de/daf/structMcro_1_1Any_1_1TTypes.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">Mcro::Any::TInherit&lt; BaseTypes &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inherit via this template to allow other API to reflect upon the base types of deriving class. Base types are inherited as public. If you want privately inherited base classes, just inherit them as normal.  <a href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,15 +160,22 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a965ae28cb032d6073632f0b62e53aa4f" id="r_a965ae28cb032d6073632f0b62e53aa4f"><td class="memTemplParams" colspan="2">template&lt;CIsTemplate&lt; <a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a> &gt; Bases, typename Function &gt; </td></tr>
+<tr class="memitem:a965ae28cb032d6073632f0b62e53aa4f" id="r_a965ae28cb032d6073632f0b62e53aa4f"><td class="memTemplParams" colspan="2">template&lt;CIsTypeList Bases, typename Function &gt; </td></tr>
 <tr class="memitem:a965ae28cb032d6073632f0b62e53aa4f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d21/namespaceMcro_1_1Any_1_1Detail.html#a965ae28cb032d6073632f0b62e53aa4f">Mcro::Any::Detail::ForEachExplicitBase</a> (Function &amp;&amp;function)</td></tr>
 <tr class="separator:a965ae28cb032d6073632f0b62e53aa4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54ed1c87cb275c9eb3d71f611064b12b" id="r_a54ed1c87cb275c9eb3d71f611064b12b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Function &gt; </td></tr>
 <tr class="memitem:a54ed1c87cb275c9eb3d71f611064b12b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d21/namespaceMcro_1_1Any_1_1Detail.html#a54ed1c87cb275c9eb3d71f611064b12b">Mcro::Any::Detail::ForEachExplicitBase_Body</a> (Function &amp;&amp;function)</td></tr>
 <tr class="separator:a54ed1c87cb275c9eb3d71f611064b12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556eef67ef88689079d197013001567d" id="r_a556eef67ef88689079d197013001567d"><td class="memTemplParams" colspan="2">template&lt;CIsTemplate&lt; <a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a> &gt; Bases, typename Function , size_t... Indices&gt; </td></tr>
+<tr class="memitem:a556eef67ef88689079d197013001567d" id="r_a556eef67ef88689079d197013001567d"><td class="memTemplParams" colspan="2">template&lt;CIsTypeList Bases, typename Function , size_t... Indices&gt; </td></tr>
 <tr class="memitem:a556eef67ef88689079d197013001567d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d21/namespaceMcro_1_1Any_1_1Detail.html#a556eef67ef88689079d197013001567d">Mcro::Any::Detail::ForEachExplicitBase_Impl</a> (Function &amp;&amp;function, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
 <tr class="separator:a556eef67ef88689079d197013001567d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad89ce916245795386b3e2957f7e42a25" id="r_ad89ce916245795386b3e2957f7e42a25"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad89ce916245795386b3e2957f7e42a25"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dfe/namespaceMcro_1_1Any.html#ad89ce916245795386b3e2957f7e42a25">Mcro::Any::AnsiAnyFacilities</a></td></tr>
+<tr class="memdesc:ad89ce916245795386b3e2957f7e42a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type facilities for <code><a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a></code> enforcing standard memory allocations.  <br /></td></tr>
+<tr class="separator:ad89ce916245795386b3e2957f7e42a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>

@@ -13,16 +13,17 @@ var searchData=
   ['anyof_10',['AnyOf',['../de/d41/namespaceMcro_1_1Range.html#a76391b1cafa3aec2ede9e86c046862f1',1,'Mcro::Range']]],
   ['append_11',['Append',['../d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f',1,'Mcro::Slate::TSlots']]],
   ['append_5fimpl_12',['Append_Impl',['../dd/d02/namespaceMcro_1_1Tuples_1_1Detail.html#a1664f6e515805197238843359a4a9a07',1,'Mcro::Tuples::Detail']]],
-  ['asconst_13',['AsConst',['../d7/d53/namespaceMcro_1_1Templates.html#a9503e65658cd5634b670c93800bede0d',1,'Mcro::Templates']]],
-  ['asconstptr_14',['AsConstPtr',['../d7/d53/namespaceMcro_1_1Templates.html#aaa41c0cfc9b6ba1081945de3a7927fed',1,'Mcro::Templates::AsConstPtr(const T *input)'],['../d7/d53/namespaceMcro_1_1Templates.html#a9a2237cf28d5358d12cf3ec6bcd6396c',1,'Mcro::Templates::AsConstPtr(T *input)']]],
+  ['asconst_13',['AsConst',['../d7/d53/namespaceMcro_1_1Templates.html#af2cc84881dcbbf4ecbfe78f6abe22703',1,'Mcro::Templates']]],
+  ['asconstptr_14',['AsConstPtr',['../d7/d53/namespaceMcro_1_1Templates.html#ae5d9d33d8ae915722b7be05d8c959693',1,'Mcro::Templates::AsConstPtr(const T *input)'],['../d7/d53/namespaceMcro_1_1Templates.html#a6ee5d50762eeab0e85240178d73846f6',1,'Mcro::Templates::AsConstPtr(T *input)']]],
   ['ascrashing_15',['AsCrashing',['../dd/d8f/classMcro_1_1Error_1_1IError.html#ae2ec9c6de8fad148ba50a238df4e0e31',1,'Mcro::Error::IError']]],
   ['asexactly_16',['AsExactly',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a002ed9669774a6ee9e6122d41585a2af',1,'Mcro::Types::IHaveType']]],
   ['asfatal_17',['AsFatal',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a66c8ee08e47f338a97af6fcafdf3de66',1,'Mcro::Error::IError']]],
   ['asformatargument_18',['AsFormatArgument',['../d8/d6f/namespaceMcro_1_1Text.html#acbae721347c456d85ee6c3eeec995e1f',1,'Mcro::Text']]],
   ['aslocalizable_5fadvanced_19',['AsLocalizable_Advanced',['../d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f',1,'Mcro::Text::Macros']]],
-  ['asmutable_20',['AsMutable',['../d7/d53/namespaceMcro_1_1Templates.html#ad7e246afc5fdf5d5790527389110242e',1,'Mcro::Templates']]],
-  ['asmutableptr_21',['AsMutablePtr',['../d7/d53/namespaceMcro_1_1Templates.html#acdf09bdd7c44a820a176d0d5e9eb6624',1,'Mcro::Templates::AsMutablePtr(T *input)'],['../d7/d53/namespaceMcro_1_1Templates.html#ae59b77ac781451dc3fe5acc995d5f320',1,'Mcro::Templates::AsMutablePtr(const T *input)']]],
+  ['asmutable_20',['AsMutable',['../d7/d53/namespaceMcro_1_1Templates.html#aa55800d4510edee32618d6e1638c7dbd',1,'Mcro::Templates']]],
+  ['asmutableptr_21',['AsMutablePtr',['../d7/d53/namespaceMcro_1_1Templates.html#a56aa89116fd8ef48b1ff0da5a820672e',1,'Mcro::Templates::AsMutablePtr(T *input)'],['../d7/d53/namespaceMcro_1_1Templates.html#a4f8ad6350027fc17ba50fd0beecdfbed',1,'Mcro::Templates::AsMutablePtr(const T *input)']]],
   ['asnative_22',['AsNative',['../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479',1,'Mcro::Delegates']]],
-  ['asrecoverable_23',['AsRecoverable',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a96426efed3343f50076cfd59f2a29c20',1,'Mcro::Error::IError']]],
-  ['asstring_24',['AsString',['../d8/d6f/namespaceMcro_1_1Text.html#acc2c6d6be5a7c30a3e691ce080068946',1,'Mcro::Text']]]
+  ['asoperandwith_23',['AsOperandWith',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a58181cc56897a2f0f248811396beaee4',1,'Mcro::Error::IError']]],
+  ['asrecoverable_24',['AsRecoverable',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a96426efed3343f50076cfd59f2a29c20',1,'Mcro::Error::IError']]],
+  ['asstring_25',['AsString',['../d8/d6f/namespaceMcro_1_1Text.html#acbb963ed7aa8378bab5c47fe68e0f3f6',1,'Mcro::Text::AsString(T &amp;&amp;input)'],['../d8/d6f/namespaceMcro_1_1Text.html#a335020ff40ce803319f0ae4d7fdd675b',1,'Mcro::Text::AsString(T &amp;&amp;input)']]]
 ];

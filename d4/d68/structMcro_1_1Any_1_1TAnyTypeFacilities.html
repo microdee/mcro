@@ -125,12 +125,10 @@ $(function(){initNavTree('d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a8cca7ddfccf0f3ca05d52ee481736b3d" id="r_a8cca7ddfccf0f3ca05d52ee481736b3d"><td class="memItemLeft" align="right" valign="top">TFunction&lt; void(T *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cca7ddfccf0f3ca05d52ee481736b3d">Destruct</a></td></tr>
+<tr class="memitem:a8cca7ddfccf0f3ca05d52ee481736b3d" id="r_a8cca7ddfccf0f3ca05d52ee481736b3d"><td class="memItemLeft" align="right" valign="top">TFunction&lt; void(T *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cca7ddfccf0f3ca05d52ee481736b3d">Destruct</a> {[](T* object) { delete object; }}</td></tr>
 <tr class="separator:a8cca7ddfccf0f3ca05d52ee481736b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae473d89b6f137b858fc7722cca79509f" id="r_ae473d89b6f137b858fc7722cca79509f"><td class="memItemLeft" align="right" valign="top">TFunction&lt; T *(T const  &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae473d89b6f137b858fc7722cca79509f">CopyConstruct</a></td></tr>
 <tr class="separator:ae473d89b6f137b858fc7722cca79509f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acabd629373c1a3f44ba8ad1cbd048853" id="r_acabd629373c1a3f44ba8ad1cbd048853"><td class="memItemLeft" align="right" valign="top">TFunction&lt; T *(T &amp;&amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acabd629373c1a3f44ba8ad1cbd048853">MoveConstruct</a></td></tr>
-<tr class="separator:acabd629373c1a3f44ba8ad1cbd048853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
@@ -142,7 +140,7 @@ struct Mcro::Any::TAnyTypeFacilities&lt; T &gt;</div><p>Give the opportunity to 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00102">102</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00098">98</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="ae473d89b6f137b858fc7722cca79509f" name="ae473d89b6f137b858fc7722cca79509f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae473d89b6f137b858fc7722cca79509f">&#9670;&#160;</a></span>CopyConstruct</h2>
@@ -159,10 +157,11 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{[](T <span class="keyword">const</span>&amp; object)</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">new</span> T(<span class="keywordtype">object</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CCopyConstructible&lt;T&gt;) <span class="keywordflow">return</span> <span class="keyword">new</span> T(<span class="keywordtype">object</span>); </div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line">        }}</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00109">109</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00101">101</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -175,39 +174,12 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">TFunction&lt;void(T*)&gt; <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">Mcro::Any::TAnyTypeFacilities</a>&lt; T &gt;::Destruct</td>
+          <td class="memname">TFunction&lt;void(T*)&gt; <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">Mcro::Any::TAnyTypeFacilities</a>&lt; T &gt;::Destruct {[](T* object) { delete object; }}</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{[](T* object)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keyword">delete</span> object;</div>
-<div class="line">        }}</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00104">104</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
-</div>
-</div>
-<a id="acabd629373c1a3f44ba8ad1cbd048853" name="acabd629373c1a3f44ba8ad1cbd048853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acabd629373c1a3f44ba8ad1cbd048853">&#9670;&#160;</a></span>MoveConstruct</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFunction&lt;T*(T&amp;&amp;)&gt; <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">Mcro::Any::TAnyTypeFacilities</a>&lt; T &gt;::MoveConstruct</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{[](T&amp;&amp; object)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">new</span> T(<a class="code hl_enumvalue" href="../../de/d41/namespaceMcro_1_1Range.html#a4b79fdc67dcd1dceaaeb499c9db348d4a67d2f6740a8eaebf4d5c6f79be8da481">Forward&lt;T&gt;</a>(<span class="keywordtype">object</span>));</div>
-<div class="line">        }}</div>
-<div class="ttc" id="anamespaceMcro_1_1Range_html_a4b79fdc67dcd1dceaaeb499c9db348d4a67d2f6740a8eaebf4d5c6f79be8da481"><div class="ttname"><a href="../../de/d41/namespaceMcro_1_1Range.html#a4b79fdc67dcd1dceaaeb499c9db348d4a67d2f6740a8eaebf4d5c6f79be8da481">Mcro::Range::EIteratorDirection::Forward</a></div><div class="ttdeci">@ Forward</div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00114">114</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00100">100</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>

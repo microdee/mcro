@@ -270,10 +270,14 @@ Functions</h2></td></tr>
 <tr class="memitem:acbae721347c456d85ee6c3eeec995e1f" id="r_acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
 <tr class="memitem:acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acbae721347c456d85ee6c3eeec995e1f">AsFormatArgument</a> (T &amp;&amp;input)</td></tr>
 <tr class="separator:acbae721347c456d85ee6c3eeec995e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946" id="r_acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
-<tr class="memitem:acc2c6d6be5a7c30a3e691ce080068946"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acc2c6d6be5a7c30a3e691ce080068946">AsString</a> (T &amp;&amp;input)</td></tr>
-<tr class="memdesc:acc2c6d6be5a7c30a3e691ce080068946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>
-<tr class="separator:acc2c6d6be5a7c30a3e691ce080068946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb963ed7aa8378bab5c47fe68e0f3f6" id="r_acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; <br />
+requires (!CSameAsDecayed&lt;T, FString&gt;)</td></tr>
+<tr class="memitem:acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acbb963ed7aa8378bab5c47fe68e0f3f6">AsString</a> (T &amp;&amp;input)</td></tr>
+<tr class="memdesc:acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to convert anything to string which can tell via some method how to do so.  <br /></td></tr>
+<tr class="separator:acbb963ed7aa8378bab5c47fe68e0f3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335020ff40ce803319f0ae4d7fdd675b" id="r_a335020ff40ce803319f0ae4d7fdd675b"><td class="memTemplParams" colspan="2">template&lt;CSameAsDecayed&lt; FString &gt; T&gt; </td></tr>
+<tr class="memitem:a335020ff40ce803319f0ae4d7fdd675b"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a335020ff40ce803319f0ae4d7fdd675b">AsString</a> (T &amp;&amp;input)</td></tr>
+<tr class="separator:a335020ff40ce803319f0ae4d7fdd675b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af755894199136f1ff56c57f5d1b87d13" id="r_af755894199136f1ff56c57f5d1b87d13"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument... Args&gt; </td></tr>
 <tr class="memitem:af755894199136f1ff56c57f5d1b87d13"><td class="memTemplItemLeft" align="right" valign="top">FStringFormatOrderedArguments&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af755894199136f1ff56c57f5d1b87d13">OrderedArguments</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:af755894199136f1ff56c57f5d1b87d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an ordered argument list for a string format from input arguments.  <br /></td></tr>
@@ -416,13 +420,14 @@ template&lt;CStringFormatArgument T&gt; </div>
 
 </div>
 </div>
-<a id="acc2c6d6be5a7c30a3e691ce080068946" name="acc2c6d6be5a7c30a3e691ce080068946"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc2c6d6be5a7c30a3e691ce080068946">&#9670;&#160;</a></span>AsString()</h2>
+<a id="acbb963ed7aa8378bab5c47fe68e0f3f6" name="acbb963ed7aa8378bab5c47fe68e0f3f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbb963ed7aa8378bab5c47fe68e0f3f6">&#9670;&#160;</a></span>AsString() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CStringFormatArgument T&gt; </div>
+template&lt;CStringFormatArgument T&gt; <br />
+requires (!CSameAsDecayed&lt;T, FString&gt;)</div>
       <table class="memname">
         <tr>
           <td class="memname">FString Mcro::Text::AsString </td>
@@ -437,7 +442,28 @@ template&lt;CStringFormatArgument T&gt; </div>
 <p>This may be more expensive than directly using an already existing designated string conversion for a given type, because it uses <code>FStringFormatArg</code> and a <code><a class="el" href="../../d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html">TAsFormatArgument</a></code> as intermediate steps. However, this can be still useful for types where such conversion doesn't already exist or when using this in a template.</p>
 <p>It's still much faster than using <code><a class="el" href="../../d2/d0e/FmtMacros_8h.html#ad2ae177448b123d74e4182bc4469fb74" title="Leading fake text literal which makes using FString::Format(...); much more comfortable.">FMT_(myVar)</a> "{0}"</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00388">388</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00389">389</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+<a id="a335020ff40ce803319f0ae4d7fdd675b" name="a335020ff40ce803319f0ae4d7fdd675b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a335020ff40ce803319f0ae4d7fdd675b">&#9670;&#160;</a></span>AsString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CSameAsDecayed&lt; FString &gt; T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) Mcro::Text::AsString </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00396">396</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -511,7 +537,7 @@ template&lt;CStringFormatArgument... Args&gt; </div>
 <p>Create a named argument list for a string format from input argument tuples. </p>
 <p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00413">413</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00420">420</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>
@@ -535,7 +561,7 @@ template&lt;CStringFormatArgument... Args&gt; </div>
 <p>Create an ordered argument list for a string format from input arguments. </p>
 <p>While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose. Check <code>_FMT</code> or <code>FMT_</code> macros for a comfortable string format syntax. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00401">401</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00408">408</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>

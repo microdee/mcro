@@ -8,6 +8,6 @@ var namespaceMcro_1_1Any =
     [ "FAny", "df/d32/structMcro_1_1Any_1_1FAny.html", "df/d32/structMcro_1_1Any_1_1FAny" ],
     [ "TAnyTypeFacilities", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities" ],
     [ "TInherit", "d3/d59/classMcro_1_1Any_1_1TInherit.html", "d3/d59/classMcro_1_1Any_1_1TInherit" ],
-    [ "TTypes", "de/daf/structMcro_1_1Any_1_1TTypes.html", null ],
-    [ "CHasBases", "d5/dd1/conceptMcro_1_1Any_1_1CHasBases.html", null ]
+    [ "CHasBases", "d5/dd1/conceptMcro_1_1Any_1_1CHasBases.html", null ],
+    [ "AnsiAnyFacilities", "da/dfe/namespaceMcro_1_1Any.html#ad89ce916245795386b3e2957f7e42a25", null ]
 ];

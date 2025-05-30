@@ -10,6 +10,8 @@ var searchData=
   ['memberfunctest_7',['MemberFuncTest',['../d4/ded/classUDynamicDelegateTestClass.html#a2ce5d8f6778e9f75df68d4fdd837ad45',1,'UDynamicDelegateTestClass']]],
   ['mix16b_8',['mix16B',['../d6/d7a/namespaceconstexpr__xxh3.html#acca31552c4e210b9c49d6c0ae90ae850',1,'constexpr_xxh3']]],
   ['modify_9',['Modify',['../d8/d30/structMcro_1_1Observable_1_1IState.html#a4cdb18d2cc0b01b1b2b8b24fad7effda',1,'Mcro::Observable::IState::Modify()'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a4a24d44c9354aff0570a3366dcc8408b',1,'Mcro::Observable::TState::Modify()']]],
-  ['mul128_5ffold64_10',['mul128_fold64',['../d6/d7a/namespaceconstexpr__xxh3.html#a896b76a93cb64bd22f83322c0d60f082',1,'constexpr_xxh3']]],
-  ['mult64to128_11',['mult64to128',['../d6/d7a/namespaceconstexpr__xxh3.html#a43b20690dfba1dc24d8efca23e41c4be',1,'constexpr_xxh3']]]
+  ['modifyerror_10',['ModifyError',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#ab86c148a9eab2bbdab5f8b9da2593721',1,'Mcro::Error::TMaybe']]],
+  ['movetoempty_11',['MoveToEmpty',['../dc/dc0/classMcro_1_1Ansi_1_1FAllocator_1_1ForAnyElementType.html#a2bbf5a11210acabb9fb99f40b4015bc8',1,'Mcro::Ansi::FAllocator::ForAnyElementType']]],
+  ['mul128_5ffold64_12',['mul128_fold64',['../d6/d7a/namespaceconstexpr__xxh3.html#a896b76a93cb64bd22f83322c0d60f082',1,'constexpr_xxh3']]],
+  ['mult64to128_13',['mult64to128',['../d6/d7a/namespaceconstexpr__xxh3.html#a43b20690dfba1dc24d8efca23e41c4be',1,'constexpr_xxh3']]]
 ];

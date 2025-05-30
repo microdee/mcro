@@ -125,7 +125,7 @@ $(function(){initNavTree('df/d32/structMcro_1_1Any_1_1FAny.html','../../'); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7bc615e8e987798d8eaee79282ce050b" id="r_a7bc615e8e987798d8eaee79282ce050b"><td class="memTemplParams" colspan="2">template&lt;CCopyable T&gt; </td></tr>
+<tr class="memitem:a7bc615e8e987798d8eaee79282ce050b" id="r_a7bc615e8e987798d8eaee79282ce050b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a7bc615e8e987798d8eaee79282ce050b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7bc615e8e987798d8eaee79282ce050b">FAny</a> (T *newObject, <a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a>&lt; T &gt; const &amp;facilities={})</td></tr>
 <tr class="separator:a7bc615e8e987798d8eaee79282ce050b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cd74db5d162d7280874a1daa151443b" id="r_a8cd74db5d162d7280874a1daa151443b"><td class="memItemLeft" align="right" valign="top">FORCEINLINE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cd74db5d162d7280874a1daa151443b">FAny</a> ()</td></tr>
@@ -147,7 +147,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae33ad374af74d61080aba01663516b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify one type the enclosed value can be safely cast to, and is valid to be used with <code>TryGet</code>.  <br /></td></tr>
 <tr class="separator:ae33ad374af74d61080aba01663516b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a756f2391a177c29fbc2accf89be2a72c" id="r_a756f2391a177c29fbc2accf89be2a72c"><td class="memTemplParams" colspan="2">template&lt;typename Self , typename... T&gt; </td></tr>
-<tr class="memitem:a756f2391a177c29fbc2accf89be2a72c"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a756f2391a177c29fbc2accf89be2a72c">With</a> (this Self &amp;&amp;self, <a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a>&lt; T... &gt; &amp;&amp;)</td></tr>
+<tr class="memitem:a756f2391a177c29fbc2accf89be2a72c"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a756f2391a177c29fbc2accf89be2a72c">With</a> (this Self &amp;&amp;self, <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt; T... &gt; &amp;&amp;)</td></tr>
 <tr class="memdesc:a756f2391a177c29fbc2accf89be2a72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify multiple types the enclosed value can be safely cast to, and are valid to be used with <code>TryGet</code>.  <br /></td></tr>
 <tr class="separator:a756f2391a177c29fbc2accf89be2a72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f010d88ad1916d4c6552079088ebbfe" id="r_a1f010d88ad1916d4c6552079088ebbfe"><td class="memItemLeft" align="right" valign="top">FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f010d88ad1916d4c6552079088ebbfe">IsValid</a> () const</td></tr>
@@ -159,16 +159,16 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this type. </p>
-<p>Use this with care, the underlying data can be only accessed with the same type as it has been constructed with, or with types provided by <code>ValidAs</code>. This means derived classes cannot be accessed with their base types safely and implicitly. MCRO however provides a methods for classes to allow them exposing base types to <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a> (and other facilities): </p><div class="fragment"><div class="line"><span class="keyword">class </span>FMyThing : <span class="keyword">public</span> <a class="code hl_class" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">TInherit</a>&lt;IFoo, IBar, IEtc&gt;</div>
+<p>Use this with care, the underlying data can be only accessed with the same type as it has been constructed with, or with types provided by <code>ValidAs</code>. This means derived classes cannot be accessed with their base types safely and implicitly. MCRO however provides methods for classes to allow them exposing base types to <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a> (and other facilities): </p><div class="fragment"><div class="line"><span class="keyword">class </span>FMyThing : <span class="keyword">public</span> <a class="code hl_class" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">TInherit</a>&lt;IFoo, IBar, IEtc&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassMcro_1_1Any_1_1TInherit_html"><div class="ttname"><a href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">Mcro::Any::TInherit</a></div><div class="ttdoc">Inherit via this template to allow other API to reflect upon the base types of deriving class....</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dfe/Any_8h_source.html#l00055">Any.h:56</a></div></div>
-</div><!-- fragment --><p> <code><a class="el" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html" title="Inherit via this template to allow other API to reflect upon the base types of deriving class....">TInherit</a></code> has a member alias <code>using Bases = <a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html" title="This template is used in IComponent|FAny::With(TAlias&lt;...&gt;) so it can have deduced this type and expl...">TTypes</a>&lt;...&gt;</code> and that can be used by <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a> to automatically register base classes as compatible ones.</p>
-<p>Enclosed value must be copy and move constructible and assignable.</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000001">Todo</a></b></dt><dd>C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes or even emit them. The best summary I found so far is a stack-overflow answer <a href="https://stackoverflow.com/a/77477029">https://stackoverflow.com/a/77477029</a> <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> that's available we can gather base classes in compile time, and do dynamic casting of objects without the need for intrusive extra syntax, or extra work at construction. Currently GCC's <code>__bases</code> would be perfect for the job, but other popular compilers don't have similar intrinsics. <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> such a feature becomes widely available base classes can be automatically added as aliases for types wrapped in <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a>. </dd></dl>
+<div class="ttc" id="aclassMcro_1_1Any_1_1TInherit_html"><div class="ttname"><a href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">Mcro::Any::TInherit</a></div><div class="ttdoc">Inherit via this template to allow other API to reflect upon the base types of deriving class....</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dfe/Any_8h_source.html#l00053">Any.h:54</a></div></div>
+</div><!-- fragment --><p> <code><a class="el" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html" title="Inherit via this template to allow other API to reflect upon the base types of deriving class....">TInherit</a></code> has a member alias <code>using Bases = TTypes&lt;...&gt;</code> and that can be used by <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a> to automatically register base classes as compatible ones.</p>
+<p>Enclosed value is recommended to be copy constructible. It may yield a runtime error otherwise. Moving an <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a> will just transfer ownership of the wrapped object but will not move construct a new object. The source <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a> will be reset to an invalid state.</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo</a></b></dt><dd>C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes or even emit them. The best summary I found so far is a stack-overflow answer <a href="https://stackoverflow.com/a/77477029">https://stackoverflow.com/a/77477029</a> <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> that's available we can gather base classes in compile time, and do dynamic casting of objects without the need for intrusive extra syntax, or extra work at construction. Currently GCC's <code>__bases</code> would be perfect for the job, but other popular compilers don't have similar intrinsics. <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> such a feature becomes widely available base classes can be automatically added as aliases for types wrapped in <a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00148">148</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00149">149</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7bc615e8e987798d8eaee79282ce050b" name="a7bc615e8e987798d8eaee79282ce050b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7bc615e8e987798d8eaee79282ce050b">&#9670;&#160;</a></span>FAny() <span class="overload">[1/4]</span></h2>
@@ -176,7 +176,7 @@ Public Member Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CCopyable T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -199,7 +199,7 @@ template&lt;CCopyable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00151">151</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00152">152</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +226,7 @@ template&lt;CCopyable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00186">186</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00181">181</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -305,7 +305,7 @@ template&lt;CCopyable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00232">232</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00227">227</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +332,7 @@ template&lt;CCopyable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00233">233</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00228">228</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -359,7 +359,7 @@ template&lt;CCopyable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00231">231</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00226">226</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -388,7 +388,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00200">200</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00195">195</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -417,7 +417,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00192">192</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00187">187</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -440,7 +440,7 @@ template&lt;typename Self , typename... T&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/daf/structMcro_1_1Any_1_1TTypes.html">TTypes</a>&lt; T... &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt; T... &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -452,7 +452,7 @@ template&lt;typename Self , typename... T&gt; </div>
 
 <p>Specify multiple types the enclosed value can be safely cast to, and are valid to be used with <code>TryGet</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00225">225</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00220">220</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>
@@ -483,7 +483,7 @@ template&lt;typename T , typename Self &gt; </div>
 
 <p>Specify one type the enclosed value can be safely cast to, and is valid to be used with <code>TryGet</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00209">209</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00204">204</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>

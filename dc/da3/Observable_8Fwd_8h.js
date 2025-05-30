@@ -18,6 +18,5 @@ var Observable_8Fwd_8h =
     [ "TStateTS", "dc/da3/Observable_8Fwd_8h.html#ae9f63cc1b180a9a0bfb6406dc4616dfd", null ],
     [ "TStateWeakPtr", "dc/da3/Observable_8Fwd_8h.html#a34bb6e75dbcf9bcc85809fed5fe29465", null ],
     [ "StatePolicyFor", "dc/da3/Observable_8Fwd_8h.html#af5b3ff14fd44daf182c9a1c11b2170c8", null ],
-    [ "StatePolicyFor< bool >", "dc/da3/Observable_8Fwd_8h.html#af50ed1f2a03e04ebeefc61641060a43d", null ],
     [ "TFunction_ArgDecay< Function, 0 >", "dc/da3/Observable_8Fwd_8h.html#a83bbbc9956118852a7fceed953de0fa1", null ]
 ];

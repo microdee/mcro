@@ -14,6 +14,8 @@ var concepts =
         [ "CExplicitComponent", "de/dad/conceptMcro_1_1Composition_1_1CExplicitComponent.html", null ],
         [ "CStrictComponent", "d6/d53/conceptMcro_1_1Composition_1_1CStrictComponent.html", null ],
         [ "CCompatibleExplicitComponent", "d0/d86/conceptMcro_1_1Composition_1_1CCompatibleExplicitComponent.html", null ],
+        [ "CCopyAwareComponent", "df/db8/conceptMcro_1_1Composition_1_1CCopyAwareComponent.html", null ],
+        [ "CMoveAwareComponent", "dc/d4b/conceptMcro_1_1Composition_1_1CMoveAwareComponent.html", null ],
         [ "CCompatibleStrictComponent", "d7/d04/conceptMcro_1_1Composition_1_1CCompatibleStrictComponent.html", null ],
         [ "CCompatibleComponent", "d1/d51/conceptMcro_1_1Composition_1_1CCompatibleComponent.html", null ]
       ] ],
@@ -56,6 +58,8 @@ var concepts =
         [ "CRelation", "de/d65/conceptMcro_1_1Concepts_1_1CRelation.html", null ],
         [ "CEquivalenceRelation", "d4/d9c/conceptMcro_1_1Concepts_1_1CEquivalenceRelation.html", null ],
         [ "CStrictWeakOrder", "d7/d99/conceptMcro_1_1Concepts_1_1CStrictWeakOrder.html", null ],
+        [ "CAbstract", "dd/d61/conceptMcro_1_1Concepts_1_1CAbstract.html", null ],
+        [ "CNonAbstract", "d5/d77/conceptMcro_1_1Concepts_1_1CNonAbstract.html", null ],
         [ "CModels", "dc/d1d/conceptMcro_1_1Concepts_1_1CModels.html", null ],
         [ "CSharedPtr", "d5/d8c/conceptMcro_1_1Concepts_1_1CSharedPtr.html", null ],
         [ "CSharedRef", "d2/db2/conceptMcro_1_1Concepts_1_1CSharedRef.html", null ],
@@ -111,6 +115,13 @@ var concepts =
         [ "CFunctionLike", "de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html", null ],
         [ "CFunctionPtr", "d5/d28/conceptMcro_1_1FunctionTraits_1_1CFunctionPtr.html", null ],
         [ "CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ],
+        [ "CFunctionCompatible_ReturnDecay", "d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html", null ],
+        [ "CFunctionCompatible_Return", "d6/d7a/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__Return.html", null ],
+        [ "CFunctionCompatible_ArgumentsDecay", "d4/d06/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ArgumentsDecay.html", null ],
+        [ "CFunctionCompatible_Arguments", "d0/de9/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__Arguments.html", null ],
+        [ "CFunctionCompatibleDecay", "dc/d97/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatibleDecay.html", null ],
+        [ "CFunctionCompatible", "d8/d02/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible.html", null ],
+        [ "CFunctionReturnsVoid", "d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html", null ],
         [ "CInstanceMethod", "d3/d38/conceptMcro_1_1FunctionTraits_1_1CInstanceMethod.html", null ]
       ] ],
       [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
@@ -168,6 +179,7 @@ var concepts =
         [ "CWorldSubsystem", "d1/dec/conceptMcro_1_1Subsystems_1_1CWorldSubsystem.html", null ]
       ] ],
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
+        [ "CIsTypeList", "d6/d44/conceptMcro_1_1Templates_1_1CIsTypeList.html", null ],
         [ "CIsTemplate", "d0/dc6/conceptMcro_1_1Templates_1_1CIsTemplate.html", null ]
       ] ],
       [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
