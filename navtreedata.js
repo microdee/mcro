@@ -105,13 +105,13 @@ var NAVTREEINDEX =
 "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html#ae473d89b6f137b858fc7722cca79509f",
 "d6/d0d/conceptMcro_1_1Range_1_1CJumpForwardPlusIterator.html",
 "d7/d53/namespaceMcro_1_1Templates.html#aa55800d4510edee32618d6e1638c7dbd",
-"d8/d30/structMcro_1_1Observable_1_1IState.html#abff4d95970810250fcd4d90a49c7d5aa",
-"d9/db6/Range_8h.html#a45c88300682a3beb24bfbb830c3d85df",
-"db/d08/structMcro_1_1Composition_1_1IComponent.html",
-"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ab7447dc1c94e9897fa3751157b5673dd",
-"dd/d8f/classMcro_1_1Error_1_1IError.html#a25fd791d608851c12b66f067af46bf21",
-"de/d41/namespaceMcro_1_1Range.html#a7327ca8fa8008ca5da83eb5af7a50346a101f693f72287a2819a364f64ca1c0ed",
-"functions_func_b.html"
+"d8/d30/structMcro_1_1Observable_1_1IState.html#acbbc4488bcf36b483ca97e39b67b97f8",
+"d9/db6/Range_8h.html#a52c9ef8790719e548ec4d8ce4ca44485",
+"db/d31/Traits_8h.html#a2a43b0ef75b82f9104675f810ca8236a",
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ad330e2f433535886e2b7d9d32def8aab",
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a3a954e8c0f8607c5849c018aa54042c2",
+"de/d41/namespaceMcro_1_1Range.html#a806e74a54abe7ae31f4c0eb182b476ca",
+"functions_func_h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

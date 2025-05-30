@@ -1,11 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"d9/db6/Range_8h.html#a45c88300682a3beb24bfbb830c3d85df":[9,0,2,0,33,83],
-"d9/db6/Range_8h.html#a46fca1c7c5409c27f813bd2655bf31b5":[9,0,2,0,33,40],
-"d9/db6/Range_8h.html#a493afc0cd98ef71ae661017989dc0133":[9,0,2,0,33,50],
-"d9/db6/Range_8h.html#a4ea4953e39130e0c991a46a5a57ccf7b":[9,0,2,0,33,96],
-"d9/db6/Range_8h.html#a51d489bbff784adbca0ca1f463584273":[9,0,2,0,33,67],
-"d9/db6/Range_8h.html#a51d659023e8914d7e180e116880a3019":[9,0,2,0,33,84],
 "d9/db6/Range_8h.html#a52c9ef8790719e548ec4d8ce4ca44485":[9,0,2,0,33,78],
 "d9/db6/Range_8h.html#a56343930b4687a672d2ad4b5aef9c3de":[9,0,2,0,33,99],
 "d9/db6/Range_8h.html#a5aa17276f7170c121f574c9ab49d175b":[9,0,2,0,33,46],
@@ -249,5 +243,11 @@ var NAVTREEINDEX7 =
 "da/dfe/namespaceMcro_1_1Any.html#ad89ce916245795386b3e2957f7e42a25":[6,0,1,1,5],
 "db/d06/conceptMcro_1_1Range_1_1CBasicForwardIterator.html":[6,0,1,21,22],
 "db/d06/conceptMcro_1_1Range_1_1CBasicForwardIterator.html":[7,1,7,3],
-"db/d08/structMcro_1_1Composition_1_1IComponent.html":[6,0,1,8,0]
+"db/d08/structMcro_1_1Composition_1_1IComponent.html":[6,0,1,8,0],
+"db/d08/structMcro_1_1Composition_1_1IComponent.html":[8,0,0,4,0],
+"db/d24/conceptMcro_1_1Error_1_1CErrorRefOrPtr.html":[6,0,1,14,18],
+"db/d24/conceptMcro_1_1Error_1_1CErrorRefOrPtr.html":[7,1,4,3],
+"db/d27/conceptMcro_1_1Concepts_1_1CSharedRefOrPtrOf.html":[6,0,1,9,51],
+"db/d27/conceptMcro_1_1Concepts_1_1CSharedRefOrPtrOf.html":[7,1,2,50],
+"db/d31/Traits_8h.html":[9,0,2,0,1,3]
 };

@@ -1,11 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"db/d08/structMcro_1_1Composition_1_1IComponent.html":[8,0,0,4,0],
-"db/d24/conceptMcro_1_1Error_1_1CErrorRefOrPtr.html":[6,0,1,14,18],
-"db/d24/conceptMcro_1_1Error_1_1CErrorRefOrPtr.html":[7,1,4,3],
-"db/d27/conceptMcro_1_1Concepts_1_1CSharedRefOrPtrOf.html":[6,0,1,9,51],
-"db/d27/conceptMcro_1_1Concepts_1_1CSharedRefOrPtrOf.html":[7,1,2,50],
-"db/d31/Traits_8h.html":[9,0,2,0,1,3],
 "db/d31/Traits_8h.html#a2a43b0ef75b82f9104675f810ca8236a":[9,0,2,0,1,3,11],
 "db/d31/Traits_8h.html#a46933d598dfed18f71d53768945f7ca1":[9,0,2,0,1,3,9],
 "db/d31/Traits_8h.html#a5eb5013a1ba38f60ca21d6850595c204":[9,0,2,0,1,3,10],
@@ -249,5 +243,11 @@ var NAVTREEINDEX8 =
 "dc/d01/classMcro_1_1Composition_1_1IComposable.html#a997e071f94582699fc9fa35721d1bc66":[8,0,0,4,1,18],
 "dc/d01/classMcro_1_1Composition_1_1IComposable.html#aa1a058dc66eb2c774bf5dafd7cbdde92":[6,0,1,8,1,10],
 "dc/d01/classMcro_1_1Composition_1_1IComposable.html#aa1a058dc66eb2c774bf5dafd7cbdde92":[8,0,0,4,1,10],
-"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ab7447dc1c94e9897fa3751157b5673dd":[6,0,1,8,1,9]
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ab7447dc1c94e9897fa3751157b5673dd":[6,0,1,8,1,9],
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ab7447dc1c94e9897fa3751157b5673dd":[8,0,0,4,1,9],
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ac5bfd8621575c53c75f59a54cd9aceed":[6,0,1,8,1,16],
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ac5bfd8621575c53c75f59a54cd9aceed":[8,0,0,4,1,16],
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#acc863d392998e1e8f9ba51b12696b555":[6,0,1,8,1,11],
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#acc863d392998e1e8f9ba51b12696b555":[8,0,0,4,1,11],
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#ad330e2f433535886e2b7d9d32def8aab":[6,0,1,8,1,24]
 };

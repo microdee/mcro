@@ -60,7 +60,5 @@ var searchData=
   ['suppressed_5fcannotdisplaymodalwindow_57',['Suppressed_CannotDisplayModalWindow',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#a600c501b106f74b305f657025785c347a38cfb988013b8792af55576b91060fcd',1,'Mcro::Error::FErrorManager']]],
   ['swap32_58',['swap32',['../d6/d7a/namespaceconstexpr__xxh3.html#aaab434106bcb749f52c170b24270ccc6',1,'constexpr_xxh3']]],
   ['swap64_59',['swap64',['../d6/d7a/namespaceconstexpr__xxh3.html#a06a3c4c2eee4d877930889bc0e2f747a',1,'constexpr_xxh3']]],
-  ['syncpull_60',['SyncPull',['../d8/d30/structMcro_1_1Observable_1_1IState.html#a139e355ee98c5d3d55d11d7aaa601109',1,'Mcro::Observable::IState']]],
-  ['syncpush_61',['SyncPush',['../d8/d30/structMcro_1_1Observable_1_1IState.html#af4928f6f5096108a613bfed0a4c1e365',1,'Mcro::Observable::IState']]],
-  ['syntax_62',['Extending the Slate declarative syntax',['../index.html#autotoc_md24',1,'']]]
+  ['syntax_60',['Extending the Slate declarative syntax',['../index.html#autotoc_md24',1,'']]]
 ];

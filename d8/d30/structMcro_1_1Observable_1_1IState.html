@@ -116,8 +116,7 @@ $(function(){initNavTree('d8/d30/structMcro_1_1Observable_1_1IState.html','../..
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-static-methods">Static Protected Member Functions</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Observable::IState&lt; T &gt; Struct Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
@@ -170,15 +169,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acbbc4488bcf36b483ca97e39b67b97f8"><td class="memTemplItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acbbc4488bcf36b483ca97e39b67b97f8">OnChange</a> (Object &amp;&amp;object, Function const &amp;onChange, <a class="el" href="../../d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html">FEventPolicy</a> const &amp;eventPolicy={})</td></tr>
 <tr class="memdesc:acbbc4488bcf36b483ca97e39b67b97f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a function with an object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code>  <br /></td></tr>
 <tr class="separator:acbbc4488bcf36b483ca97e39b67b97f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a139e355ee98c5d3d55d11d7aaa601109" id="r_a139e355ee98c5d3d55d11d7aaa601109"><td class="memTemplParams" colspan="2">template&lt;typename Other &gt; <br />
-requires CConvertibleToDecayed&lt;Other, T&gt;</td></tr>
-<tr class="memitem:a139e355ee98c5d3d55d11d7aaa601109"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a139e355ee98c5d3d55d11d7aaa601109">SyncPull</a> (<a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;otherState)</td></tr>
-<tr class="memdesc:a139e355ee98c5d3d55d11d7aaa601109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pull changes from another state, syncing the value between the two. Values will be copied.  <br /></td></tr>
-<tr class="separator:a139e355ee98c5d3d55d11d7aaa601109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4928f6f5096108a613bfed0a4c1e365" id="r_af4928f6f5096108a613bfed0a4c1e365"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; Other&gt; </td></tr>
-<tr class="memitem:af4928f6f5096108a613bfed0a4c1e365"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af4928f6f5096108a613bfed0a4c1e365">SyncPush</a> (<a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;otherState)</td></tr>
-<tr class="memdesc:af4928f6f5096108a613bfed0a4c1e365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push changes from another state, syncing the value between the two. Values will be copied.  <br /></td></tr>
-<tr class="separator:af4928f6f5096108a613bfed0a4c1e365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858442436ae53e29c8aad993249f9a99" id="r_a858442436ae53e29c8aad993249f9a99"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a858442436ae53e29c8aad993249f9a99">HasChangedFrom</a> (const T &amp;nextValue)=0</td></tr>
 <tr class="memdesc:a858442436ae53e29c8aad993249f9a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given value will be stored in the state only if T is equality comparable and it differs from the current state value. If T is not equality comparable this function is equivalent to Set and always returns true.  <br /></td></tr>
 <tr class="separator:a858442436ae53e29c8aad993249f9a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,11 +243,6 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:aede0812419e424dd3ba1cae3bc859a6d" id="r_aede0812419e424dd3ba1cae3bc859a6d"><td class="memTemplParams" colspan="2">template&lt;CChangeListener&lt; T &gt; Function&gt; </td></tr>
 <tr class="memitem:aede0812419e424dd3ba1cae3bc859a6d"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aede0812419e424dd3ba1cae3bc859a6d">DelegateValueArgument</a> (Function const &amp;onChange)</td></tr>
 <tr class="separator:aede0812419e424dd3ba1cae3bc859a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:aecfef7cf8edf535b6964468a06de782b" id="r_aecfef7cf8edf535b6964468a06de782b"><td class="memItemLeft" align="right" valign="top">TSharedRef&lt; <a class="el" href="../../d3/daf/structFVoid.html">FVoid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecfef7cf8edf535b6964468a06de782b">LifespanGuard</a> = MakeShared&lt;<a class="el" href="../../d3/daf/structFVoid.html">FVoid</a>&gt;()</td></tr>
-<tr class="separator:aecfef7cf8edf535b6964468a06de782b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
@@ -383,7 +368,7 @@ template&lt;CBooleanTestable  = T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00298">298</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00260">260</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -422,7 +407,7 @@ template&lt;CBooleanTestable  = T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00275">275</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00237">237</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -453,7 +438,7 @@ template&lt;CChangeListener&lt; T &gt; Function&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00099">99</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00098">98</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +635,7 @@ template&lt;CCoreEqualityComparable  = T&gt; </div>
 
 <p>Returns true when current value is not equal to previous one. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00317">317</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00279">279</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -683,7 +668,7 @@ template&lt;CCoreEqualityComparable  = T&gt; </div>
 
 <p>Returns true when current value is not equal to previous one. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00324">324</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00286">286</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -858,7 +843,7 @@ template&lt;CChangeListener&lt; T &gt; Function&gt; </div>
 <p>Add a function without object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code> </p>
 <p>Where the argument <code>previous</code> is optional (to have, not its type). The argument <code>previous</code> when it is present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00128">128</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00127">127</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -901,7 +886,7 @@ template&lt;typename Object , CChangeListener&lt; T &gt; Function&gt; </div>
 <p>Add a function with an object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code> </p>
 <p>Where the argument <code>previous</code> is optional (to have, not its type). The argument <code>previous</code> when it is present is TOptional because it may only have a value when StorePrevious policy is active and T is copyable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00142">142</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00141">141</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -936,7 +921,7 @@ template&lt;typename T &gt; </div>
 
 <p>Add a delegate which gets a <code><a class="el" href="../../dd/dcf/structMcro_1_1Observable_1_1TChangeData.html" title="This struct holds the circumstances of the data change. It cannot be moved or copied and its lifespan...">TChangeData</a>&lt;T&gt; const&amp;</code> if this state has been set. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00114">114</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00113">113</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1008,7 +993,7 @@ template&lt;CBooleanTestable  = T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00290">290</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00252">252</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1032,7 @@ template&lt;CBooleanTestable  = T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00313">313</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00275">275</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1063,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00330">330</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00292">292</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1109,7 +1094,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00336">336</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00298">298</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1239,75 +1224,6 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a139e355ee98c5d3d55d11d7aaa601109" name="a139e355ee98c5d3d55d11d7aaa601109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a139e355ee98c5d3d55d11d7aaa601109">&#9670;&#160;</a></span>SyncPull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<div class="memtemplate">
-template&lt;typename Other &gt; <br />
-requires CConvertibleToDecayed&lt;Other, T&gt;</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::SyncPull </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>otherState</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pull changes from another state, syncing the value between the two. Values will be copied. </p>
-<dl class="section remark"><dt>Remarks</dt><dd>It is supposedly safe to sync together states which may have different timespans using internal lifespan guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity can be inferred from their weak pointer representation. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00157">157</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
-
-</div>
-</div>
-<a id="af4928f6f5096108a613bfed0a4c1e365" name="af4928f6f5096108a613bfed0a4c1e365"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4928f6f5096108a613bfed0a4c1e365">&#9670;&#160;</a></span>SyncPush()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<div class="memtemplate">
-template&lt;CConvertibleToDecayed&lt; T &gt; Other&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::SyncPush </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>otherState</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Push changes from another state, syncing the value between the two. Values will be copied. </p>
-<dl class="section remark"><dt>Remarks</dt><dd>It is supposedly safe to sync together states which may have different timespans using internal lifespan guards as delegate bound objects. These guards are regular shared pointers and so sync connection validity can be inferred from their weak pointer representation. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00175">175</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
-
-</div>
-</div>
 <a id="aee37071909ac09f7c8adf3644be838a0" name="aee37071909ac09f7c8adf3644be838a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee37071909ac09f7c8adf3644be838a0">&#9670;&#160;</a></span>WriteLock()</h2>
 
@@ -1337,33 +1253,6 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The lock is returned as TUniquePtr it's slightly more expensive because of ref-counting but it makes the API so much easier to use as <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> can decide to return a real lock or just a dummy. </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b">Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Field Documentation</h2>
-<a id="aecfef7cf8edf535b6964468a06de782b" name="aecfef7cf8edf535b6964468a06de782b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecfef7cf8edf535b6964468a06de782b">&#9670;&#160;</a></span>LifespanGuard</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TSharedRef&lt;<a class="el" href="../../d3/daf/structFVoid.html">FVoid</a>&gt; <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">Mcro::Observable::IState</a>&lt; T &gt;::LifespanGuard = MakeShared&lt;<a class="el" href="../../d3/daf/structFVoid.html">FVoid</a>&gt;()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00096">96</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
