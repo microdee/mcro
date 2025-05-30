@@ -871,7 +871,23 @@ struct FFoobar : TSharedFromThis<FFoobar>
         // -> React to 4 with a unicorn
     }
 }
+
 ```
+
+Multiple states can be also synced together, just declare pull or push sync relation once and they will update accordingly until one of them goes out of scope. 
+
+```Cpp
+for (auto const& child : Children)
+{
+    // Aggregate multiple states into one
+    LastError.SyncPull(SharedThis(this), child->LastError);
+
+    // Broadcast one state to others
+    Attempts.SyncPush(child, child.Attempts);
+}
+```
+
+This of course only makes sense if the contents of the state is copyable.
 
 ### Function Traits
 

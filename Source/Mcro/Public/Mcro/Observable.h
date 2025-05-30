@@ -93,7 +93,6 @@ namespace Mcro::Observable
 		virtual void Modify(TUniqueFunction<void(T&)>&& modifier, bool alwaysNotify = true) = 0;
 
 	protected:
-		
 		template <CChangeListener<T> Function>
 		static auto DelegateValueArgument(Function const& onChange)
 		{
@@ -141,6 +140,49 @@ namespace Mcro::Observable
 		FDelegateHandle OnChange(Object&& object, Function const& onChange, FEventPolicy const& eventPolicy = {})
 		{
 			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), eventPolicy);
+		}
+
+		/**
+		 *	@brief  Pull changes from another state, syncing the value between the two. Values will be copied.
+		 *
+		 *	@tparam Other  Type convertible to the value of this state
+		 *	@tparam Guard  The type of the lifespan guarding object
+		 *	
+		 *	@param object
+		 *	A lifespan guarding object in the context of this state, shared/weak pointer or UObject recommended.
+		 *	
+		 *	@param otherState  A reference to the other state.
+		 */
+		template <CConvertibleToDecayed<T> Other, typename Guard>
+		void SyncPull(Guard&& object, IState<Other>& otherState)
+		{
+			otherState.OnChange(
+				Forward<Guard>(object),
+				[this](Other const& next) { Set(next); },
+				{.Belated = true}
+			);
+		}
+
+		/**
+		 *	@brief  Push changes from another state, syncing the value between the two. Values will be copied.
+		 *
+		 *	@tparam Other  The value of this state convertible to this type
+		 *	@tparam Guard  The type of the lifespan guarding object
+		 *	
+		 *	@param object
+		 *	A lifespan guarding object in the context of the other state, shared/weak pointer or UObject recommended.
+		 *	
+		 *	@param otherState  A reference to the other state.
+		*/
+		template <typename Other, typename Guard>
+		requires CConvertibleToDecayed<Other, T>
+		void SyncPush(Guard&& object, IState<Other>& otherState)
+		{
+			OnChange(
+				Forward<Guard>(object),
+				[&otherState](T const& next) { otherState.Set(next); },
+				{.Belated = true}
+			);
 		}
 
 		/**
