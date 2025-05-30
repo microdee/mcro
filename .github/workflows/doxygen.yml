@@ -18,7 +18,7 @@ jobs:
           submodules: recursive
       - name: Doxygen on GitHub Pages
         id: ghaction
-        uses: AgarwalSaurav/ghaction-doxygen-ghpages@release/v2
+        uses: AgarwalSaurav/ghaction-doxygen-ghpages@de7725119570b5d09a5d7872518f9e5cbd8dae8e
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: .
