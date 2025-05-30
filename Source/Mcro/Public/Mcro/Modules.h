@@ -124,6 +124,15 @@ namespace Mcro::Modules
 		virtual void ShutdownModule() override;
 	};
 
+	template <typename T>
+	concept CObservableModule = CDerivedFrom<T, IModuleInterface>
+		&& requires(T&& t)
+		{
+			{ t.OnStartupModule } -> CSameAsDecayed<TBelatedEventDelegate<void()>>;
+			{ t.OnShutdownModule } -> CSameAsDecayed<TBelatedEventDelegate<void()>>;
+		}
+	;
+
 	/** @brief A record for the module event listeners */
 	struct MCRO_API FObserveModuleListener
 	{
@@ -132,7 +141,7 @@ namespace Mcro::Modules
 	};
 
 	/** @brief Use this in global variables to automatically do things on module startup or shutdown */
-	template <CDerivedFrom<IObservableModule> M>
+	template <CObservableModule M>
 	struct TObserveModule
 	{
 		/**
@@ -215,9 +224,15 @@ namespace Mcro::Modules
 	};
 
 	/** @brief A wrapper around a given object which lifespan is bound to given module. */
-	template <CDerivedFrom<IObservableModule> M, CDefaultInitializable T>
+	template <CObservableModule M, CDefaultInitializable T>
 	struct TModuleBoundObject
 	{
+		using StorageType = std::conditional_t<
+			CSharedFromThis<T>,
+			TSharedPtr<T>,
+			TUniquePtr<T>
+		>;
+		
 		struct FObjectCustomization
 		{
 			TFunction<void(T&)> OnStartup;
@@ -226,7 +241,7 @@ namespace Mcro::Modules
 
 		TModuleBoundObject()
 			: Observer({
-				[this] { Storage = MakeUnique<T>(); },
+				[this] { InitObject(); },
 				[this] { Storage.Reset(); }
 			})
 		{}
@@ -234,7 +249,7 @@ namespace Mcro::Modules
 			: Observer({
 				[this, customization]
 				{
-					Storage = MakeUnique<T>();
+					InitObject();
 					if (customization.OnStartup) customization.OnStartup(*Storage.Get());
 				},
 				[this, customization]
@@ -249,7 +264,7 @@ namespace Mcro::Modules
 			: Observer(moduleName, {
 				[this, customization]
 				{
-					Storage = MakeUnique<T>();
+					InitObject();
 					if (customization.OnStartup) customization.OnStartup(*Storage.Get());
 				},
 				[this, customization]
@@ -284,7 +299,17 @@ namespace Mcro::Modules
 		const T* TryGet() const { return Storage.Get(); }
 
 	private:
-		TUniquePtr<T> Storage {};
+		void InitObject()
+		{
+			if constexpr (CSharedInitializeable<T>)
+				Storage = MakeShareableInit(new T());
+			else if constexpr (CSharedFromThis<T>)
+				Storage = MakeShared<T>();
+			else
+				Storage = MakeUnique<T>();
+		}
+		
+		StorageType Storage {};
 		TObserveModule<M> Observer;
 	};
 }
