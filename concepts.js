@@ -124,6 +124,9 @@ var concepts =
         [ "CFunctionReturnsVoid", "d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html", null ],
         [ "CInstanceMethod", "d3/d38/conceptMcro_1_1FunctionTraits_1_1CInstanceMethod.html", null ]
       ] ],
+      [ "Modules", "d5/d1b/namespaceMcro_1_1Modules.html", [
+        [ "CObservableModule", "db/dfa/conceptMcro_1_1Modules_1_1CObservableModule.html", null ]
+      ] ],
       [ "Observable", "d6/da2/namespaceMcro_1_1Observable.html", [
         [ "Detail", "db/dae/namespaceMcro_1_1Observable_1_1Detail.html", [
           [ "CChangeListenerCandidate", "dd/ddb/conceptMcro_1_1Observable_1_1Detail_1_1CChangeListenerCandidate.html", null ]

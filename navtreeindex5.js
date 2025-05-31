@@ -1,5 +1,8 @@
 var NAVTREEINDEX5 =
 {
+"d7/d53/namespaceMcro_1_1Templates.html#a56aa89116fd8ef48b1ff0da5a820672e":[6,0,1,26,26],
+"d7/d53/namespaceMcro_1_1Templates.html#a6ee5d50762eeab0e85240178d73846f6":[6,0,1,26,23],
+"d7/d53/namespaceMcro_1_1Templates.html#a7cb62bfd4f916f3b1b238771f59a2908":[6,0,1,26,27],
 "d7/d53/namespaceMcro_1_1Templates.html#aa55800d4510edee32618d6e1638c7dbd":[6,0,1,26,24],
 "d7/d53/namespaceMcro_1_1Templates.html#ac46d0df04911613c24c21c3bc81c1658":[6,0,1,26,20],
 "d7/d53/namespaceMcro_1_1Templates.html#ad1e612b094b330fdbd9d4ed73aced275":[6,0,1,26,13],
@@ -122,7 +125,7 @@ var NAVTREEINDEX5 =
 "d7/da9/Allocator_8h.html#afa1b8abf5c52cfb0ea1ba6eabd1b36b3":[9,0,2,0,0,0,7],
 "d7/da9/Allocator_8h_source.html":[9,0,2,0,0,0],
 "d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html":[6,0,1,19,7],
-"d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html":[7,1,6,2],
+"d7/dac/conceptMcro_1_1Observable_1_1CChangeNextOnlyListener.html":[7,1,7,2],
 "d7/db4/conceptMcro_1_1Concepts_1_1CPredicate.html":[6,0,1,9,35],
 "d7/db4/conceptMcro_1_1Concepts_1_1CPredicate.html":[7,1,2,34],
 "d7/db4/conceptMcro_1_1Error_1_1CError.html":[6,0,1,14,15],
@@ -164,13 +167,13 @@ var NAVTREEINDEX5 =
 "d7/de6/conceptMcro_1_1Concepts_1_1CCharPtr.html":[6,0,1,9,63],
 "d7/de6/conceptMcro_1_1Concepts_1_1CCharPtr.html":[7,1,2,62],
 "d7/de9/conceptMcro_1_1Text_1_1CStdStringOrView.html":[6,0,1,27,11],
-"d7/de9/conceptMcro_1_1Text_1_1CStdStringOrView.html":[7,1,13,5],
+"d7/de9/conceptMcro_1_1Text_1_1CStdStringOrView.html":[7,1,14,5],
 "d7/df8/Types_8h.html":[9,0,2,0,44],
 "d7/df8/Types_8h_source.html":[9,0,2,0,44],
 "d7/df8/structMcro_1_1Observable_1_1IStateTag.html":[6,0,1,19,3],
 "d7/df8/structMcro_1_1Observable_1_1IStateTag.html":[8,0,0,13,2],
 "d7/df9/conceptMcro_1_1UObjects_1_1Init_1_1CUObjectInitializable.html":[6,0,1,33,0,3],
-"d7/df9/conceptMcro_1_1UObjects_1_1Init_1_1CUObjectInitializable.html":[7,1,16,0,0],
+"d7/df9/conceptMcro_1_1UObjects_1_1Init_1_1CUObjectInitializable.html":[7,1,17,0,0],
 "d7/dfe/Any_8h.html":[9,0,2,0,8],
 "d7/dfe/Any_8h.html#a54ed1c87cb275c9eb3d71f611064b12b":[9,0,2,0,8,5],
 "d7/dfe/Any_8h.html#a556eef67ef88689079d197013001567d":[9,0,2,0,8,6],
@@ -178,7 +181,7 @@ var NAVTREEINDEX5 =
 "d7/dfe/Any_8h.html#ad89ce916245795386b3e2957f7e42a25":[9,0,2,0,8,7],
 "d7/dfe/Any_8h_source.html":[9,0,2,0,8],
 "d7/dff/conceptMcro_1_1Range_1_1CIteratorFeature.html":[6,0,1,21,31],
-"d7/dff/conceptMcro_1_1Range_1_1CIteratorFeature.html":[7,1,7,12],
+"d7/dff/conceptMcro_1_1Range_1_1CIteratorFeature.html":[7,1,8,12],
 "d8/d02/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible.html":[6,0,1,16,19],
 "d8/d02/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible.html":[7,1,5,11],
 "d8/d19/classMcro_1_1Types_1_1IHaveType.html":[6,0,1,32,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "d8/d30/structMcro_1_1Observable_1_1IState.html#ab8c0e79c310ce2cb6c58e1f5469e10b7":[6,0,1,19,2,1],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#ab8c0e79c310ce2cb6c58e1f5469e10b7":[8,0,0,13,1,1],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#aba08a0e3309fbd37e866477464faa08b":[6,0,1,19,2,20],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#aba08a0e3309fbd37e866477464faa08b":[8,0,0,13,1,20],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#abff4d95970810250fcd4d90a49c7d5aa":[6,0,1,19,2,17],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#abff4d95970810250fcd4d90a49c7d5aa":[8,0,0,13,1,17],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#acbbc4488bcf36b483ca97e39b67b97f8":[6,0,1,19,2,18]
+"d8/d30/structMcro_1_1Observable_1_1IState.html#aba08a0e3309fbd37e866477464faa08b":[8,0,0,13,1,20]
 };

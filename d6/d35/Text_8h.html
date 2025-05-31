@@ -116,6 +116,7 @@ $(function(){initNavTree('d6/d35/Text_8h.html','../../'); initResizable(true); }
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Text.h File Reference</div></div>
@@ -123,7 +124,6 @@ $(function(){initNavTree('d6/d35/Text_8h.html','../../'); initResizable(true); }
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;CoreMinimal.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d8d/Concepts_8h_source.html">Mcro/Concepts.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">Mcro/FunctionTraits.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de3/TypeName_8h_source.html">Mcro/TypeName.h</a>&quot;</code><br />
@@ -199,6 +199,12 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html">Mcro::Text::CStringFormatArgument</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type which can be converted to FStringFormatArg via any method. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a4c04eee749f2b6fc9946e1746ce37a2d" id="r_a4c04eee749f2b6fc9946e1746ce37a2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c04eee749f2b6fc9946e1746ce37a2d">MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a4c04eee749f2b6fc9946e1746ce37a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this flag is on, then the default string conversion behavior is returning the result of <code>TTypeName</code> and triggering an ensure. Otherwise, a missing function will result in a compile error.  <br /></td></tr>
+<tr class="separator:a4c04eee749f2b6fc9946e1746ce37a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -303,7 +309,26 @@ requires (!CSameAsDecayed&lt;T, FString&gt;)</td></tr>
 <dl class="section date"><dt>Date</dt><dd>2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a4c04eee749f2b6fc9946e1746ce37a2d" name="a4c04eee749f2b6fc9946e1746ce37a2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c04eee749f2b6fc9946e1746ce37a2d">&#9670;&#160;</a></span>MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If this flag is on, then the default string conversion behavior is returning the result of <code>TTypeName</code> and triggering an ensure. Otherwise, a missing function will result in a compile error. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00028">28</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

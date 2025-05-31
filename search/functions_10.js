@@ -29,5 +29,7 @@ var searchData=
   ['success_26',['Success',['../dd/d58/namespaceMcro_1_1Error.html#a27d33ed2b445ca7310f71a30e9ad956f',1,'Mcro::Error']]],
   ['supportserror_27',['SupportsError',['../d3/deb/classMcro_1_1Error_1_1IErrorWindowExtension.html#a984ceb0415b57f694a2b8c4c6964e451',1,'Mcro::Error::IErrorWindowExtension::SupportsError()'],['../d8/d78/classMcro_1_1Error_1_1IErrorDisplayExtension.html#a9f3f1c02ac0228daadc15efbd657c180',1,'Mcro::Error::IErrorDisplayExtension::SupportsError()']]],
   ['swap32_28',['swap32',['../d6/d7a/namespaceconstexpr__xxh3.html#aaab434106bcb749f52c170b24270ccc6',1,'constexpr_xxh3']]],
-  ['swap64_29',['swap64',['../d6/d7a/namespaceconstexpr__xxh3.html#a06a3c4c2eee4d877930889bc0e2f747a',1,'constexpr_xxh3']]]
+  ['swap64_29',['swap64',['../d6/d7a/namespaceconstexpr__xxh3.html#a06a3c4c2eee4d877930889bc0e2f747a',1,'constexpr_xxh3']]],
+  ['syncpull_30',['SyncPull',['../d8/d30/structMcro_1_1Observable_1_1IState.html#abdd90eff6935ddb7b52a03be8dd075b8',1,'Mcro::Observable::IState']]],
+  ['syncpush_31',['SyncPush',['../d8/d30/structMcro_1_1Observable_1_1IState.html#acf62916e50e44a9b52acfae081f5fdb6',1,'Mcro::Observable::IState']]]
 ];

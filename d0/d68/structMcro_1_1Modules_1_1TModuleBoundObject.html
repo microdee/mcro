@@ -114,6 +114,7 @@ $(function(){initNavTree('d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.htm
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Modules::TModuleBoundObject&lt; M, T &gt; Struct Template Reference</div></div>
 </div><!--header-->
@@ -128,6 +129,11 @@ $(function(){initNavTree('d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.htm
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d63/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectCustomization.html">FObjectCustomization</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a095c8f1bfb43027d3365c02832a2ac4b" id="r_a095c8f1bfb43027d3365c02832a2ac4b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095c8f1bfb43027d3365c02832a2ac4b">StorageType</a></td></tr>
+<tr class="separator:a095c8f1bfb43027d3365c02832a2ac4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -147,18 +153,42 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1673e582e26a76a7c8df3e2ed3f7bf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;CObservableModule M, CDefaultInitializable T&gt;<br />
 struct Mcro::Modules::TModuleBoundObject&lt; M, T &gt;</div><p>A wrapper around a given object which lifespan is bound to given module. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00219">219</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00228">228</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a095c8f1bfb43027d3365c02832a2ac4b" name="a095c8f1bfb43027d3365c02832a2ac4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095c8f1bfb43027d3365c02832a2ac4b">&#9670;&#160;</a></span>StorageType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">Mcro::Modules::TModuleBoundObject</a>&lt; M, T &gt;::StorageType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"> std::conditional_t&lt;</div>
+<div class="line">            CSharedFromThis&lt;T&gt;,</div>
+<div class="line">            TSharedPtr&lt;T&gt;,</div>
+<div class="line">            TUniquePtr&lt;T&gt;</div>
+<div class="line">        &gt;</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00230">230</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae22f91eb85bad8ad74e0badb12117d22" name="ae22f91eb85bad8ad74e0badb12117d22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae22f91eb85bad8ad74e0badb12117d22">&#9670;&#160;</a></span>TModuleBoundObject() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -177,7 +207,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00227">227</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00242">242</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +217,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -206,7 +236,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00233">233</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00248">248</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +246,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -239,7 +269,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00248">248</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00263">263</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>
@@ -250,7 +280,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -269,7 +299,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00263">263</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00278">278</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +309,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -298,7 +328,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00273">273</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00288">288</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>
@@ -308,7 +338,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -327,7 +357,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00283">283</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00298">298</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>
@@ -337,7 +367,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modules_1_1IObservableModule.html">IObservableModule</a> &gt; M, CDefaultInitializable T&gt; </div>
+template&lt;CObservableModule M, CDefaultInitializable T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -356,7 +386,7 @@ template&lt;CDerivedFrom&lt; <a class="el" href="../../df/d06/classMcro_1_1Modul
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00284">284</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dc2/Modules_8h_source.html#l00299">299</a> of file <a class="el" href="../../dd/dc2/Modules_8h_source.html">Modules.h</a>.</p>
 
 </div>
 </div>

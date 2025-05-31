@@ -19,6 +19,7 @@ var Text_8h =
     [ "Mcro::Text::CHasPtrToString", "d4/d4f/conceptMcro_1_1Text_1_1CHasPtrToString.html", null ],
     [ "Mcro::Text::CHasStringFormatArgumentConversion", "d9/d6a/conceptMcro_1_1Text_1_1CHasStringFormatArgumentConversion.html", null ],
     [ "Mcro::Text::CStringFormatArgument", "d9/dee/conceptMcro_1_1Text_1_1CStringFormatArgument.html", null ],
+    [ "MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION", "d6/d35/Text_8h.html#a4c04eee749f2b6fc9946e1746ce37a2d", null ],
     [ "FStdString", "d6/d35/Text_8h.html#a28848d61082fc231a19137f8dbd64d9b", null ],
     [ "FStdStringView", "d6/d35/Text_8h.html#ade4bd6678fc692f8ddf782f9b6611d9b", null ],
     [ "FUtf16StringView", "d6/d35/Text_8h.html#a6465378c3a1a942320f3b7dd745656b0", null ],

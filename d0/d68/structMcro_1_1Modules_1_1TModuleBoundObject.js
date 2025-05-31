@@ -1,6 +1,7 @@
 var structMcro_1_1Modules_1_1TModuleBoundObject =
 [
     [ "FObjectCustomization", "da/d63/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectCustomization.html", "da/d63/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectCustomization" ],
+    [ "StorageType", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#a095c8f1bfb43027d3365c02832a2ac4b", null ],
     [ "TModuleBoundObject", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#ae22f91eb85bad8ad74e0badb12117d22", null ],
     [ "TModuleBoundObject", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#ab8de25cff9e502a37c88bf99f6dc5f65", null ],
     [ "TModuleBoundObject", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#a6d8b80b1e61a426c254b35b921106027", null ],

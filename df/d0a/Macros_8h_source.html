@@ -153,6 +153,9 @@ $(function(){initNavTree('df/d0a/Macros_8h_source.html','../../'); initResizable
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @endcode</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../df/d0a/Macros_8h.html#a048e492c8a4074ec4ce7f5438280b98a">   38</a></span><span class="preprocessor">#define MACRO_OVERLOAD(prefix, ...) PREPROCESSOR_APPEND_VA_ARG_COUNT(prefix, __VA_ARGS__)(__VA_ARGS__)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/** @brief Returns given default value when input value is empty */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../df/d0a/Macros_8h.html#a57b4b4e970be9519a970b60a7f745bae">   41</a></span><span class="preprocessor">#define DEFAULT_ON_EMPTY(value, default) BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), default, value)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -29,5 +29,7 @@ var structMcro_1_1Observable_1_1IState =
     [ "Remove", "d8/d30/structMcro_1_1Observable_1_1IState.html#a73e97fe8dfbb593a0eeb90c72f0c276b", null ],
     [ "RemoveAll", "d8/d30/structMcro_1_1Observable_1_1IState.html#a1f5aeab00319fedabeeacf805978e79b", null ],
     [ "Set", "d8/d30/structMcro_1_1Observable_1_1IState.html#a2768060e60b19357658f922e43a370e0", null ],
+    [ "SyncPull", "d8/d30/structMcro_1_1Observable_1_1IState.html#abdd90eff6935ddb7b52a03be8dd075b8", null ],
+    [ "SyncPush", "d8/d30/structMcro_1_1Observable_1_1IState.html#acf62916e50e44a9b52acfae081f5fdb6", null ],
     [ "WriteLock", "d8/d30/structMcro_1_1Observable_1_1IState.html#aee37071909ac09f7c8adf3644be838a0", null ]
 ];

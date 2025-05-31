@@ -130,6 +130,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a048e492c8a4074ec4ce7f5438280b98a" id="r_a048e492c8a4074ec4ce7f5438280b98a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a>(prefix, ...)</td></tr>
 <tr class="memdesc:a048e492c8a4074ec4ce7f5438280b98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement preprocessor function overloading based on argument count for a set of macros following a distinct convention. Individual overloads must have a trailing number corresponding to the number of arguments they accept.  <br /></td></tr>
 <tr class="separator:a048e492c8a4074ec4ce7f5438280b98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b4b4e970be9519a970b60a7f745bae" id="r_a57b4b4e970be9519a970b60a7f745bae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57b4b4e970be9519a970b60a7f745bae">DEFAULT_ON_EMPTY</a>(value,  default)</td></tr>
+<tr class="memdesc:a57b4b4e970be9519a970b60a7f745bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns given default value when input value is empty.  <br /></td></tr>
+<tr class="separator:a57b4b4e970be9519a970b60a7f745bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
@@ -138,6 +141,32 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a57b4b4e970be9519a970b60a7f745bae" name="a57b4b4e970be9519a970b60a7f745bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b4b4e970be9519a970b60a7f745bae">&#9670;&#160;</a></span>DEFAULT_ON_EMPTY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_ON_EMPTY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>default</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), <span class="keywordflow">default</span>, value)</div>
+</div><!-- fragment -->
+<p>Returns given default value when input value is empty. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00041">41</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
 <a id="a048e492c8a4074ec4ce7f5438280b98a" name="a048e492c8a4074ec4ce7f5438280b98a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a048e492c8a4074ec4ce7f5438280b98a">&#9670;&#160;</a></span>MACRO_OVERLOAD</h2>
 

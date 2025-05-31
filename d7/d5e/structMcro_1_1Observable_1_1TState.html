@@ -252,6 +252,15 @@ requires (!CState&lt;Other&gt;)</td></tr>
 <tr class="memitem:acbbc4488bcf36b483ca97e39b67b97f8 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memTemplItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#acbbc4488bcf36b483ca97e39b67b97f8">OnChange</a> (Object &amp;&amp;object, Function const &amp;onChange, <a class="el" href="../../d2/da4/structMcro_1_1Delegates_1_1FEventPolicy.html">FEventPolicy</a> const &amp;eventPolicy={})</td></tr>
 <tr class="memdesc:acbbc4488bcf36b483ca97e39b67b97f8 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a function with an object binding which either has one or two arguments with the following signature: <code>[](T const&amp; next, [TOptional&lt;T&gt; const&amp; previous])</code>  <br /></td></tr>
 <tr class="separator:acbbc4488bcf36b483ca97e39b67b97f8 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd90eff6935ddb7b52a03be8dd075b8 inherit pub_methods_structMcro_1_1Observable_1_1IState" id="r_abdd90eff6935ddb7b52a03be8dd075b8"><td class="memTemplParams" colspan="2">template&lt;CConvertibleToDecayed&lt; T &gt; Other, typename Guard &gt; </td></tr>
+<tr class="memitem:abdd90eff6935ddb7b52a03be8dd075b8 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#abdd90eff6935ddb7b52a03be8dd075b8">SyncPull</a> (Guard &amp;&amp;object, <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;otherState)</td></tr>
+<tr class="memdesc:abdd90eff6935ddb7b52a03be8dd075b8 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pull changes from another state, syncing the value between the two. Values will be copied.  <br /></td></tr>
+<tr class="separator:abdd90eff6935ddb7b52a03be8dd075b8 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf62916e50e44a9b52acfae081f5fdb6 inherit pub_methods_structMcro_1_1Observable_1_1IState" id="r_acf62916e50e44a9b52acfae081f5fdb6"><td class="memTemplParams" colspan="2">template&lt;typename Other , typename Guard &gt; <br />
+requires CConvertibleToDecayed&lt;Other, T&gt;</td></tr>
+<tr class="memitem:acf62916e50e44a9b52acfae081f5fdb6 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#acf62916e50e44a9b52acfae081f5fdb6">SyncPush</a> (Guard &amp;&amp;object, <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html">IState</a>&lt; Other &gt; &amp;otherState)</td></tr>
+<tr class="memdesc:acf62916e50e44a9b52acfae081f5fdb6 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push changes from another state, syncing the value between the two. Values will be copied.  <br /></td></tr>
+<tr class="separator:acf62916e50e44a9b52acfae081f5fdb6 inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b21a96e07e58e6fba202519909bf30d inherit pub_methods_structMcro_1_1Observable_1_1IState" id="r_a4b21a96e07e58e6fba202519909bf30d"><td class="memTemplParams" colspan="2">template&lt;CBooleanTestable  = T&gt; </td></tr>
 <tr class="memitem:a4b21a96e07e58e6fba202519909bf30d inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a4b21a96e07e58e6fba202519909bf30d">BecameTrue</a> (bool fallback=false) const</td></tr>
 <tr class="memdesc:a4b21a96e07e58e6fba202519909bf30d inherit pub_methods_structMcro_1_1Observable_1_1IState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when this state is currently true, but previously it wasn't.  <br /></td></tr>
@@ -313,7 +322,7 @@ struct Mcro::Observable::TState&lt; T, DefaultPolicy &gt;</div><p>Storage wrappe
 <p>Use <code><a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a></code> on class members where a default set of policy can be declared in compile time, and use <code><a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html" title="Public API and base class for TState which shouldn&#39;t concern with policy flags or thread safety.">IState</a></code> where these states should be referenced in a function argument for example. In the latter case the policy flags are erased so multiple states with different policies are compatible with each-other. Although that is not necessary and not recommended if we would only need to consume their value, as states can have implicit conversion to their value (returning a const-ref).</p>
 <p>If given value is equality comparable, <a class="el" href="../../d7/d5e/structMcro_1_1Observable_1_1TState.html" title="Storage wrapper for any value which state needs to be tracked or their change needs to be observed....">TState</a> will only trigger change events when the previous and the current values are different. Unless that behavior is overridden by <code><a class="el" href="../../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html" title="Flags expressing how TState should handle object comparison and lifespan.">FStatePolicy</a></code> flags. A default set of flags are determined by <code>StatePolicyFor</code> template for any given type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00325">325</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00367">367</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a999976ea0c3e09d0fc5c66fed8e3b165" name="a999976ea0c3e09d0fc5c66fed8e3b165"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a999976ea0c3e09d0fc5c66fed8e3b165">&#9670;&#160;</a></span>ReadLockType</h2>
@@ -329,7 +338,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00335">335</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00377">377</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +374,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00330">330</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00372">372</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -385,7 +394,7 @@ template&lt;typename ThreadSafeType , typename NaiveType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00328">328</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00370">370</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -403,7 +412,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00336">336</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00378">378</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -455,7 +464,7 @@ template&lt;CDefaultInitializable  = T&gt; </div>
 
 <p>Enable default constructor only when T is default initializable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00342">342</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00384">384</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -488,7 +497,7 @@ template&lt;CCopyConstructible  = T&gt; </div>
 
 <p>Enable copy constructor for T only when T is copy constructable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00346">346</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00388">388</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -521,7 +530,7 @@ template&lt;CMoveConstructible  = T&gt; </div>
 
 <p>Enable move constructor for T only when T is move constructable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00350">350</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00392">392</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -554,7 +563,7 @@ template&lt;CCopyConstructible  = T&gt; </div>
 
 <p>Enable copy constructor for the state only when T is copy constructable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00354">354</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00396">396</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +596,7 @@ template&lt;CMoveConstructible  = T&gt; </div>
 
 <p>Enable move constructor for the state only when T is move constructable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00358">358</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00400">400</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -621,7 +630,7 @@ requires (!CConvertibleTo&lt;Arg, <a class="el" href="../../d7/d5e/structMcro_1_
 
 <p><a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html">Construct</a> value in-place with non-semantic single argument constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00363">363</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00405">405</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -655,7 +664,7 @@ requires (sizeof...(Args) &gt; 1)</div>
 
 <p><a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html">Construct</a> value in-place with multiple argument constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00368">368</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00410">410</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -689,7 +698,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a9183bd450482cfefc3fd1b0022883851">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00370">370</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00412">412</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -725,7 +734,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#ae7a221c62a8b376fce2da286f15173d4">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00372">372</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00414">414</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -758,7 +767,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a55727bb3a735174022d9237bce689e26">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00480">480</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00522">522</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -797,7 +806,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a77fd005fefdab8cdb31585c8be28ddf1">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00485">485</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00527">527</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -830,7 +839,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a0425493a511e75432e0ecbd73fc4c000">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00490">490</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00532">532</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -864,7 +873,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a858442436ae53e29c8aad993249f9a99">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00450">450</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00492">492</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -897,7 +906,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a2cc0f7c8a0f7b2a52630c651e8b6e8e9">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00465">465</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00507">507</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -941,7 +950,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a4cdb18d2cc0b01b1b2b8b24fad7effda">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00400">400</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00442">442</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -975,7 +984,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a1b47e676d9bd21dbfb663ce5ff9986d4">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00495">495</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00537">537</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1010,7 +1019,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#aba08a0e3309fbd37e866477464faa08b">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00431">431</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00473">473</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1042,7 +1051,7 @@ requires (!CState&lt;Other&gt;)</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00508">508</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00550">550</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1076,7 +1085,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#ad73e27a3686249a481cd62149ba8a369">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00470">470</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00512">512</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1109,7 +1118,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a73e97fe8dfbb593a0eeb90c72f0c276b">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00438">438</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00480">480</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1142,7 +1151,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a1f5aeab00319fedabeeacf805978e79b">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00444">444</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00486">486</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1176,7 +1185,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#a2768060e60b19357658f922e43a370e0">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00377">377</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00419">419</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1210,7 +1219,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 
 <p>Implements <a class="el" href="../../d8/d30/structMcro_1_1Observable_1_1IState.html#aee37071909ac09f7c8adf3644be838a0">Mcro::Observable::IState&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00475">475</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00517">517</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1246,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00338">338</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00380">380</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
@@ -1255,7 +1264,7 @@ template&lt;typename T , <a class="el" href="../../dc/dd1/structMcro_1_1Observab
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00517">517</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/de3/Observable_8h_source.html#l00559">559</a> of file <a class="el" href="../../d5/de3/Observable_8h_source.html">Observable.h</a>.</p>
 
 </div>
 </div>
