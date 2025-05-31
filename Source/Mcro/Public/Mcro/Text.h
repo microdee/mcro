@@ -14,7 +14,6 @@
 #include <string>
 
 #include "CoreMinimal.h"
-#include "Text.h"
 
 #include "Mcro/Concepts.h"
 #include "Mcro/FunctionTraits.h"
