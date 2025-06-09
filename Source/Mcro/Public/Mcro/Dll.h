@@ -102,8 +102,8 @@ namespace Mcro::Dll
 			{
 				[pushPath, dllFiles...]
 				{
-					auto thisPlugin = IPluginManager::Get().GetModuleOwnerPlugin(InferModuleName<M>());
-					return new FScopedDllSet(thisPlugin, pushPath, dllFiles);
+					auto thisPlugin = IPluginManager::Get().GetModuleOwnerPlugin(*InferModuleName<M>());
+					return new FScopedDllSet(thisPlugin, pushPath, dllFiles...);
 				}
 			})
 		{}

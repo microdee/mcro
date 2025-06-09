@@ -25,6 +25,7 @@ public class Mcro : ModuleRules
 			"Core",
 			"RenderCore",
 			"ApplicationCore",
+			"Projects",
 			"Slate",
 			"SlateCore",
 			"Boost",
