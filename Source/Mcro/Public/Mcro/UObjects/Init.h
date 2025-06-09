@@ -157,7 +157,7 @@ namespace Mcro::UObjects::Init
 		CUObject T = std::decay_t<TArg>
 	>
 	requires std::is_lvalue_reference_v<TArg>
-	T* Construct(FConstructObjectParameters&& params, Initializer&& init)
+	T* ConstructObject(FConstructObjectParameters&& params, Initializer&& init)
 	{
 		T* result = NewObject<T>(
 			params.Outer,
