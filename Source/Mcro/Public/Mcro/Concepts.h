@@ -250,6 +250,9 @@ namespace Mcro::Concepts
 	concept CInterface = TIsIInterface<std::decay_t<T>>::Value > 0;
 
 	template<typename T>
+	concept CUObjectOrInterface = CUObject<T> || CInterface<T>;
+
+	template<typename T>
 	concept CInterfaceUClass = CDerivedFrom<T, UInterface>;
 
 	//// String/Text concepts
