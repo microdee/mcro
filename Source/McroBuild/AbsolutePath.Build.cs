@@ -35,11 +35,19 @@ public class AbsolutePath: IFormattable
 		_path = PathUtils.NormalizePath(path);
 	}
 
+	/// <summary>
+	/// Create an AbsolutePath from a string.
+	/// </summary>
+	/// <param name="path">Input path must be rooted.</param>
 	public static AbsolutePath Create(string path)
 	{
 		return new AbsolutePath(path);
 	}
 	
+	/// <summary>
+	/// Convert a string to an AbsolutePath.
+	/// </summary>
+	/// <param name="path">Input path must be rooted.</param>
 	public static implicit operator AbsolutePath(string path)
 	{
 		if (path is null)
@@ -48,32 +56,56 @@ public class AbsolutePath: IFormattable
 		return new AbsolutePath(path);
 	}
 
+	/// <summary>
+	/// Use AbsolutePath where an API expects a string representing a path.
+	/// </summary>
 	public static implicit operator string(AbsolutePath path)
 	{
 		return path?.ToString();
 	}
 	
+	/// <summary>
+	/// Get the filename (with extension) or the directory name
+	/// </summary>
 	public string Name => Path.GetFileName(_path);
 	
+	/// <summary>
+	/// Get the filename (without extension)
+	/// </summary>
 	public string NameWithoutExtension => Path.GetFileNameWithoutExtension(_path);
 
+	/// <summary>
+	/// Get the extension of the filename
+	/// </summary>
 	public string Extension => Path.GetExtension(_path);
 
+	/// <summary>
+	/// The ancestor of this path (..)
+	/// </summary>
 	public AbsolutePath Parent =>
 		!PathUtils.IsWinRoot(_path.TrimEnd(PathUtils.WinSeparator)) && !PathUtils.IsUncRoot(_path) && !PathUtils.IsUnixRoot(_path)
 			? this / ".."
 			: null;
 	
+	/// <summary>
+	/// Use completely valid C# syntax `MyPath/ ..` to access ancestor
+	/// </summary>
 	public static AbsolutePath operator / (AbsolutePath left, Range range)
 	{
 		return left.Parent;
 	}
 
+	/// <summary>
+	/// Append a path segment to this AbsolutePath
+	/// </summary>
 	public static AbsolutePath operator / (AbsolutePath left, string right)
 	{
 		return new AbsolutePath(PathUtils.Combine(left!, right));
 	}
 
+	/// <summary>
+	/// Append a piece of string to this AbsolutePath without any intersperse.
+	/// </summary>
 	public static AbsolutePath operator + (AbsolutePath left, string right)
 	{
 		return new AbsolutePath(left.ToString() + right);
@@ -133,38 +165,86 @@ public class AbsolutePath: IFormattable
 	}
 }
 
+/// <summary>
+/// The API NUKE has for AbsolutePath relies heavily on extension methods. In fact if file system operations are
+/// expressed with extension methods to AbsolutePath it can yield code which is much more comfortable to write.
+/// </summary>
+/// <remarks>
+/// Most generic path operation functions are taken from [NUKE](https://nuke.build)
+/// </remarks>
 public static partial class AbsolutePathExtensions
 {
 	public static AbsolutePath GetRoot(this AbsolutePath self) => Path.GetPathRoot(self); 
 	public static bool IsRoot(this AbsolutePath self) => self.GetRoot() == self;
 
+	/// <summary>
+	/// Return a path connecting from right side as a base to the left side as target
+	/// </summary>
 	public static string RelativeToBase(this AbsolutePath self, AbsolutePath root) =>
 		Path.GetRelativePath(root, self).WithUnixSeparator();
 	
+	/// <summary>
+	/// Return a path connecting from left side as a base to the right side as target
+	/// </summary>
 	public static string BaseRelativeTo(this AbsolutePath self, AbsolutePath subfolder) =>
 		Path.GetRelativePath(self, subfolder).WithUnixSeparator();
 	
 	public static bool FileExists(this AbsolutePath path) => File.Exists(path);
 	public static bool DirectoryExists(this AbsolutePath path) => Directory.Exists(path);
 
+	/// <summary>
+	/// Returns null if designated file doesn't exist. This can be used in null-propagating expressions without the
+	/// need for if statements, like `InPath.ExistingFile()?.Parent ?? "/default/path".AsPath()`.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <returns></returns>
 	public static AbsolutePath ExistingFile(this AbsolutePath path) => path.FileExists() ? path : null;
+	
+	/// <summary>
+	/// Returns null if designated directory doesn't exist. This can be used in null-propagating expressions without the
+	/// need for if statements, like `InPath.ExistingDirectory()?.Parent ?? "/default/path".AsPath()`.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <returns></returns>
 	public static AbsolutePath ExistingDirectory(this AbsolutePath path) => path.DirectoryExists() ? path : null;
 
+	/// <summary>
+	/// Return all files in a directory.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="pattern">Filter files with a globbing pattern</param>
+	/// <param name="searchOption">Indicate if files should be taken only from current folder, or any subfolders too</param>
 	public static IEnumerable<AbsolutePath> Files(this AbsolutePath path, string pattern = "*", SearchOption searchOption = SearchOption.TopDirectoryOnly)
 		=> Directory.EnumerateFiles(path, pattern, searchOption)
 			.Select(p => p.AsPath());
 	
+	/// <summary>
+	/// Return all subfolders in a directory.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="pattern">Filter folders with a globbing pattern</param>
+	/// <param name="searchOption">Indicate if folders should be taken only from current folder, or any subfolders too</param>
 	public static IEnumerable<AbsolutePath> Directories(this AbsolutePath path, string pattern = "*", SearchOption searchOption = SearchOption.TopDirectoryOnly)
 		=> Directory.EnumerateDirectories(path, pattern, searchOption)
 			.Select(p => p.AsPath());
 
+	/// <summary>
+	/// Returns true if path ends in any of the given extensions. Input extensions should have leading `.`
+	/// </summary>
 	public static bool HasExtension(this AbsolutePath path, string extension, params string[] alternativeExtensions)
 		=> alternativeExtensions.Append(extension)
 			.Any(e => path.Extension.Equals(e, StringComparison.InvariantCultureIgnoreCase));
 	
+	/// <summary>
+	/// Replace extension of left-side with~ or add given extension   
+	/// </summary>
 	public static AbsolutePath WithExtension(this AbsolutePath path, string extension)
 		=> path.Parent / Path.ChangeExtension(path.Name, extension);
 
+	/// <summary>
+	/// Creates a new directory or does nothing if that's already exists
+	/// </summary>
+	/// <returns>Path to created directory (same as left-side)</returns>
 	public static AbsolutePath CreateDirectory(this AbsolutePath path)
 	{
 		if (!path.DirectoryExists())
@@ -196,29 +276,77 @@ public static partial class AbsolutePathExtensions
 		return output;
 	}
 
+	/// <summary>
+	/// Copy a file or a directory recursively to be the target path.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="to"></param>
+	/// <param name="pattern">Filter pattern for files when copying recursively</param>
+	/// <returns>The list of new files which has been copied</returns>
 	public static List<AbsolutePath> Copy(this AbsolutePath path, AbsolutePath to, string pattern = "*")
 		=> FileSystemTask(
 			(src, dst) => File.Copy(src, dst, true),
 			path, to, pattern
 		);
 
-	public static List<AbsolutePath> CopyInto(this AbsolutePath path, AbsolutePath intoDirectory)
-		=> path.Copy(intoDirectory / path.Name);
+	/// <summary>
+	/// Copy a file or a directory recursively into a target folder.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="intoDirectory"></param>
+	/// <param name="pattern">Filter pattern for files when copying recursively</param>
+	/// <returns>The list of new files which has been copied</returns>
+	public static List<AbsolutePath> CopyInto(this AbsolutePath path, AbsolutePath intoDirectory, string pattern = "*")
+		=> path.Copy(intoDirectory / path.Name, pattern);
 
+	/// <summary>
+	/// Move a file or a directory recursively to be the target path.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="to"></param>
+	/// <param name="pattern">Filter pattern for files when moving recursively</param>
+	/// <returns>The list of moved files in their new place</returns>
 	public static List<AbsolutePath> Move(this AbsolutePath path, AbsolutePath to, string pattern = "*")
 		=> FileSystemTask(
 			(src, dst) => File.Move(src, dst, true),
 			path, to, pattern
 		);
 
-	public static List<AbsolutePath> MoveInto(this AbsolutePath path, AbsolutePath intoDirectory)
-		=> path.Move(intoDirectory / path.Name);
+	/// <summary>
+	/// Move a file or a directory recursively into a target folder.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="intoDirectory"></param>
+	/// <param name="pattern">Filter pattern for files when moving recursively</param>
+	/// <returns>The list of moved files in their new place</returns>
+	public static List<AbsolutePath> MoveInto(this AbsolutePath path, AbsolutePath intoDirectory, string pattern = "*")
+		=> path.Move(intoDirectory / path.Name, pattern);
 }
 
+/// <summary>
+/// Support utilities for AbsolutePath
+/// </summary>
 public static class PathUtils
 {
+	/// <summary>
+	/// Convert a left-side string to an AbsolutePath. In fact this is the recommended way to create an instance of
+	/// AbsolutePath (as its constructor is private)
+	/// </summary>
+	/// <param name="input">Input must be rooted</param>
 	public static AbsolutePath AsPath(this string input) => AbsolutePath.Create(input);
+	
+	/// <summary>
+	/// Convert a left-side FileReference to an AbsolutePath. In fact this is the recommended way to create an instance
+	/// of AbsolutePath (as its constructor is private)
+	/// </summary>
+	/// <param name="input">Input must be rooted</param>
 	public static AbsolutePath AsPath(this FileReference input) => AbsolutePath.Create(input.FullName);
+	
+	/// <summary>
+	/// Convert a left-side DirectoryReference to an AbsolutePath. In fact this is the recommended way to create an
+	/// instance of AbsolutePath (as its constructor is private)
+	/// </summary>
+	/// <param name="input">Input must be rooted</param>
 	public static AbsolutePath AsPath(this DirectoryReference input) => AbsolutePath.Create(input.FullName);
 	
 	internal const char WinSeparator = '\\';

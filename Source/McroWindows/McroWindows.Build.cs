@@ -12,6 +12,9 @@
 using UnrealBuildTool;
 using McroBuild;
 
+/// <summary>
+/// A module containing Windows platform specific utilities like interop between Unreal and WinRT/COM
+/// </summary>
 public class McroWindows : ModuleRules
 {
 	public McroWindows(ReadOnlyTargetRules target) : base(target)

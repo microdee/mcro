@@ -12,6 +12,9 @@
 using UnrealBuildTool;
 using McroBuild;
 
+/// <summary>
+/// Low level C++ (mostly) templating utilities for a variety of common problems occuring during Unreal Development
+/// </summary>
 public class Mcro : ModuleRules
 {
 	public Mcro(ReadOnlyTargetRules Target) : base(Target)
