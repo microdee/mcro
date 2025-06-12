@@ -12,6 +12,9 @@
 using UnrealBuildTool;
 using McroBuild;
 
+/// <summary>
+/// A module containing ISPC utilities.
+/// </summary>
 public class McroISPC : ModuleRules
 {
 	public McroISPC(ReadOnlyTargetRules Target) : base(Target)

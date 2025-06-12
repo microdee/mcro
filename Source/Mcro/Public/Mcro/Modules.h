@@ -224,7 +224,7 @@ namespace Mcro::Modules
 	};
 
 	/** @brief A wrapper around a given object which lifespan is bound to given module. */
-	template <CObservableModule M, CDefaultInitializable T>
+	template <CObservableModule M, typename T>
 	struct TModuleBoundObject
 	{
 		using StorageType = std::conditional_t<
@@ -233,43 +233,24 @@ namespace Mcro::Modules
 			TUniquePtr<T>
 		>;
 		
-		struct FObjectCustomization
+		struct FObjectFactory
 		{
-			TFunction<void(T&)> OnStartup;
+			TFunction<T*()> Create;
+			TFunction<void(T&)> OnAfterCreated;
 			TFunction<void(T&)> OnShutdown;
 		};
 
-		TModuleBoundObject()
+		TModuleBoundObject(FObjectFactory&& factory = {})
 			: Observer({
-				[this] { InitObject(); },
-				[this] { Storage.Reset(); }
-			})
-		{}
-		TModuleBoundObject(FObjectCustomization&& customization)
-			: Observer({
-				[this, customization]
+				[this, factory]
 				{
-					InitObject();
-					if (customization.OnStartup) customization.OnStartup(*Storage.Get());
+					T* newObject = !factory.Create ? new T() : factory.Create();
+					CreateObject(newObject);
+					if (factory.OnAfterCreated) factory.OnAfterCreated(*Storage.Get());
 				},
-				[this, customization]
+				[this, factory]
 				{
-					if (customization.OnShutdown) customization.OnShutdown(*Storage.Get());
-					Storage.Reset();
-				}
-			})
-		{}
-		
-		TModuleBoundObject(FName const& moduleName, FObjectCustomization&& customization = {})
-			: Observer(moduleName, {
-				[this, customization]
-				{
-					InitObject();
-					if (customization.OnStartup) customization.OnStartup(*Storage.Get());
-				},
-				[this, customization]
-				{
-					if (customization.OnShutdown) customization.OnShutdown(*Storage.Get());
+					if (factory.OnShutdown) factory.OnShutdown(*Storage.Get());
 					Storage.Reset();
 				}
 			})
@@ -299,14 +280,15 @@ namespace Mcro::Modules
 		const T* TryGet() const { return Storage.Get(); }
 
 	private:
-		void InitObject()
+
+		void CreateObject(T* newObject)
 		{
 			if constexpr (CSharedInitializeable<T>)
-				Storage = MakeShareableInit(new T());
+				Storage = MakeShareableInit(newObject);
 			else if constexpr (CSharedFromThis<T>)
-				Storage = MakeShared<T>();
+				Storage = MakeShareable<T>(newObject);
 			else
-				Storage = MakeUnique<T>();
+				Storage = TUniquePtr<T>(newObject);
 		}
 		
 		StorageType Storage {};

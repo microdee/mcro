@@ -9,123 +9,78 @@
  *  @date 2025
  */
 
-using System;
-using System.Collections.Generic;
-using System.IO;
+/**
+ * @file
+ * The UBT target and module rule scripts are handled as one big C# project with all the freedom that implies allowed.
+ * Any `*.Build.cs` file will be picked up but they not necessarily need to declare a module or a target, or multiple
+ * C# sources can declare one target (via partial classes of course)
+ * @file
+ * Realizing this MCRO provides some very handy utilities to make writing these rules much more convenient, especially
+ * for handling the intricacies of linking elaborate third-party libraries in Unreal.
+ */
+
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Xml.Serialization;
-using EpicGames.Core;
 using UnrealBuildTool;
 
-namespace McroBuild
+namespace McroBuild;
+
+/// <summary>
+/// Convenience utilities for module rules 
+/// </summary>
+public static partial class ModuleRuleExtensions
 {
-	public class RuntimeDependency
-	{
-		[XmlText]
-		public string Value = "";
-
-		[XmlAttribute]
-		public string Platform;
-
-		[XmlAttribute]
-		public string Config;
-	};
-
-	public class RuntimeDependencies
-	{
-		[XmlElement]
-		public RuntimeDependency[] RuntimeLibraryPath = Array.Empty<RuntimeDependency>();
-		public RuntimeDependency[] Files = Array.Empty<RuntimeDependency>();
-		public RuntimeDependency[] Dlls = Array.Empty<RuntimeDependency>();
-
-		public void Serialize(TextWriter writer)
-		{
-			var serializer = new XmlSerializer(GetType());
-			serializer.Serialize(writer, this);
-		}
-
-		public void Serialize(string file)
-		{
-			using TextWriter writer = new StreamWriter(file);
-			Serialize(writer);
-		}
-		
-		public static RuntimeDependencies Deserialize(FileStream stream)
-		{
-			var serializer = new XmlSerializer(typeof(RuntimeDependencies));
-			var result = serializer.Deserialize(stream);
-			return result as RuntimeDependencies;
-		}
-
-		public static RuntimeDependencies Deserialize(string file)
-		{
-			if (file == null || !File.Exists(file)) return null;
-			using var stream = new FileStream(file, FileMode.Open);
-			return Deserialize(stream);
-		}
-	}
+	/// <returns>Path to the module folder</returns>
+	public static AbsolutePath ModulePath(this ModuleRules self) => self.ModuleDirectory.AsPath();
 	
-	public static class ModuleRuleExtensions
+	/// <returns>Path to the plugin folder to which this module belongs</returns>
+	public static AbsolutePath PluginPath(this ModuleRules self) => self.PluginDirectory.AsPath();
+	
+	/// <returns>Path to the project folder to which this module belongs</returns>
+	public static AbsolutePath ProjectPath(this ModuleRules self) => self.Target.ProjectFile!.Directory.AsPath();
+	
+	/// <returns>A consistent place for plugin binaries</returns>
+	public static AbsolutePath PluginBinaries(this ModuleRules self) => self.PluginPath() / "Binaries";
+	
+	/// <param name="self"></param>
+	/// <param name="insert">A path segment between main plugin binaries folder and the platform specifier</param>
+	/// <returns>A consistent place for plugin binaries regarding current platform</returns>
+	public static AbsolutePath PluginBinariesPlatform(this ModuleRules self, string insert = "")
+		=> self.PluginBinaries() / insert / self.Target.Platform.ToString();
+	
+	/// <param name="self"></param>
+	/// <param name="insert">A path segment between main plugin binaries folder and the current module name</param>
+	/// <returns>A consistent place for module binaries in owning plugin.</returns>
+	public static AbsolutePath PluginModuleBinaries(this ModuleRules self, string insert = "")
+		=> self.PluginBinaries() / insert / self.GetBaseModuleName();
+	
+	/// <param name="self"></param>
+	/// <param name="insert">A path segment between main plugin binaries folder and the current module name</param>
+	/// <returns>A consistent place for module binaries in owning plugin and regarding current platform.</returns>
+	public static AbsolutePath PluginModuleBinariesPlatform(this ModuleRules self, string insert = "")
+		=> self.PluginBinaries() / insert / self.GetBaseModuleName() / self.Target.Platform.ToString();
+	
+	/// <summary>
+	/// Is the current build fully linked as debug build? This is usually only the case when building engine as Debug
+	/// from source (optionally via a project)
+	/// </summary>
+	public static bool IsReallyDebug(this ModuleRules self) =>
+		self.Target is { Configuration: UnrealTargetConfiguration.Debug, bDebugBuildsActuallyUseDebugCRT: true };
+
+	/// <summary>
+	/// Get the actual preferred linkage for a third-party library
+	/// </summary>
+	public static string GetLibraryConfig(this ModuleRules self, bool allowDebugLibraries = true)
+		=> allowDebugLibraries && self.IsReallyDebug() ? "Debug" : "Release";
+	
+	/// <summary>
+	/// Infer module name from its class name
+	/// </summary>
+	public static string GetBaseModuleName(this ModuleRules self)
 	{
-		public static bool IsReallyDebug(this ModuleRules self) =>
-			self.Target is { Configuration: UnrealTargetConfiguration.Debug, bDebugBuildsActuallyUseDebugCRT: true };
-
-		public static string GetLibraryConfig(this ModuleRules self, bool allowDebugLibraries = true)
-			=> allowDebugLibraries && self.IsReallyDebug() ? "Debug" : "Release";
-		
-		public static string GetBaseModuleName(this ModuleRules self)
-		{
-			if (!self.GetType().Name.Contains("_")) return self.GetType().Name;
-			var moduleNameComponents = self.GetType().Name
-				.Split('_')
-				.SkipLast(1);
-			return string.Join('_', moduleNameComponents);
-		}
-
-		public static void UseRuntimeDependencies(this ModuleRules self, bool allowDebugLibraries = true)
-		{
-			var manifestFile = $"{self.ModuleDirectory}/RuntimeDeps.xml";
-			var deps = RuntimeDependencies.Deserialize(manifestFile);
-			if (deps == null)
-			{
-				Log.TraceInformationOnce(
-					"{0}: Ignoring RuntimeDeps.xml because {1} doesn't exist.",
-					self.GetType().Name,
-					manifestFile
-				);
-				return;
-			}
-
-			var runtimeDeps = deps.Files
-				.Where(i => i.Platform?.Contains(self.Target.Platform.ToString()) ?? true)
-				.Where(i => i.Config?.Contains(self.GetLibraryConfig(allowDebugLibraries)) ?? true)
-				.Select(i => $"{self.PluginDirectory}/{i.Value}")
-				.ToList();
-
-			foreach (var dep in runtimeDeps) self.RuntimeDependencies.Add(dep);
-
-			var runtimeLibPath = deps.RuntimeLibraryPath
-				.Where(i => i.Platform?.Contains(self.Target.Platform.ToString()) ?? true)
-				.Where(i => i.Config?.Contains(self.GetLibraryConfig(allowDebugLibraries)) ?? true)
-				.Select(i => i.Value)
-				.FirstOrDefault()
-				?? $"Binaries/ThirdParty/{self.GetBaseModuleName()}/{self.Target.Platform}/{self.GetLibraryConfig(allowDebugLibraries)}";
-
-			self.PublicRuntimeLibraryPaths.Add($"{self.PluginDirectory}/{runtimeLibPath}");
-			self.PublicDefinitions.Add($"{self.GetBaseModuleName().ToUpper()}_DLL_PATH=TEXT(\"{runtimeLibPath}\")");
-
-			var dllDeps = deps.Dlls
-				.Where(i => i.Platform?.Contains(self.Target.Platform.ToString()) ?? true)
-				.Where(i => i.Config?.Contains(self.GetLibraryConfig(allowDebugLibraries)) ?? true)
-				.Select(i => i.Value)
-				.ToList();
-			
-			self.PublicDelayLoadDLLs.AddRange(dllDeps);
-			
-			var dllList = string.Join(',', dllDeps.Select(d => $"TEXT(\"{d}\")"));
-			self.PublicDefinitions.Add($"{self.GetBaseModuleName().ToUpper()}_DLL_FILES={dllList}");
-		}
+		if (!self.GetType().Name.Contains("_")) return self.GetType().Name;
+		var moduleNameComponents = self.GetType().Name
+			.Split('_')
+			.SkipLast(1);
+		return string.Join('_', moduleNameComponents);
 	}
 }
