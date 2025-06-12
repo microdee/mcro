@@ -6,6 +6,7 @@ var structMcro_1_1Observable_1_1IState =
     [ "~IState", "d8/d30/structMcro_1_1Observable_1_1IState.html#af9f1f2fe73b005ec7a6d10c29349b0bc", null ],
     [ "BecameFalse", "d8/d30/structMcro_1_1Observable_1_1IState.html#a69d74b0a4524e462cecc74bc0eb70eca", null ],
     [ "BecameTrue", "d8/d30/structMcro_1_1Observable_1_1IState.html#a4b21a96e07e58e6fba202519909bf30d", null ],
+    [ "DelegateValueArgument", "d8/d30/structMcro_1_1Observable_1_1IState.html#aede0812419e424dd3ba1cae3bc859a6d", null ],
     [ "Get", "d8/d30/structMcro_1_1Observable_1_1IState.html#a9183bd450482cfefc3fd1b0022883851", null ],
     [ "GetOnAnyThread", "d8/d30/structMcro_1_1Observable_1_1IState.html#ae7a221c62a8b376fce2da286f15173d4", null ],
     [ "GetPrevious", "d8/d30/structMcro_1_1Observable_1_1IState.html#a55727bb3a735174022d9237bce689e26", null ],

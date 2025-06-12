@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['renderas_0',['RenderAs',['../d0/d5d/classMcro_1_1Range_1_1RenderAs.html',1,'Mcro::Range']]],
-  ['renderasmap_1',['RenderAsMap',['../d8/d57/classMcro_1_1Range_1_1RenderAsMap.html',1,'Mcro::Range']]]
+  ['outputto_0',['OutputTo',['../d0/dcf/classMcro_1_1Range_1_1OutputTo.html',1,'Mcro::Range']]],
+  ['outputtomap_1',['OutputToMap',['../d7/d64/classMcro_1_1Range_1_1OutputToMap.html',1,'Mcro::Range']]]
 ];

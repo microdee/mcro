@@ -64,7 +64,7 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
-        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ]
@@ -82,6 +82,7 @@ var NAVTREE =
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
+        [ "Properties", "functions_prop.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -100,18 +101,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html#a0da5b59dbb8a2e184a4284462fbbc93b",
-"d3/d30/structMcro_1_1Modules_1_1TObserveModule.html#a3db8b0557652594dbfae7461a91aa998",
-"d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html#a8cca7ddfccf0f3ca05d52ee481736b3d",
-"d6/d0a/namespaceMcro_1_1Threading.html#afeed019a2f0b89c5bad684bba150669f",
-"d7/d53/namespaceMcro_1_1Templates.html#a56aa89116fd8ef48b1ff0da5a820672e",
-"d8/d30/structMcro_1_1Observable_1_1IState.html#abdd90eff6935ddb7b52a03be8dd075b8",
-"d9/db6/Range_8h.html#a4174608a48dd6e3691e0303927582a71",
-"db/d08/structMcro_1_1Composition_1_1IComponent.html",
-"dc/d01/classMcro_1_1Composition_1_1IComposable.html#aa1a058dc66eb2c774bf5dafd7cbdde92",
-"dd/d8f/classMcro_1_1Error_1_1IError.html#a1eedf51218a94f1151054d3844474b08",
-"de/d41/namespaceMcro_1_1Range.html#a56a5c2ce849bbf98a553932f8cbc82c3",
-"functions_f.html"
+"d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html#a1d380aa7b9701ca973b6274a18bb88c6",
+"d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c",
+"d4/d0a/classMcroBuild_1_1RuntimeDependencies.html#a0cad39bd247a2c97042dfac0915c7c5a",
+"d4/ded/classUDynamicDelegateTestClass.html#a5b43efeeba5e9adea2a91a3181ea7245",
+"d6/d44/conceptMcro_1_1Templates_1_1CIsTypeList.html",
+"d7/d5e/structMcro_1_1Observable_1_1TState.html#a999976ea0c3e09d0fc5c66fed8e3b165",
+"d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html#af26b36fc1d304f01fa3a2379142a4b53",
+"d9/db6/Range_8h.html#a52c9ef8790719e548ec4d8ce4ca44485",
+"da/dfb/Attribution.html#autotoc_md0",
+"dc/d01/classMcro_1_1Composition_1_1IComposable.html#a1c0c4825bb6b48b37e04331ae8932267",
+"dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#af901264dc8bf4ff4789588473c366827",
+"dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#a782b3570abd9a9757bfe736f14a31d42",
+"df/d42/Start_8h.html#a16ef710605b72a2fe15ddc890acb4cd0",
+"namespacemembers_func_h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -56,6 +56,7 @@ var Concepts_8h =
     [ "Mcro::Concepts::CSharedFromThisOf", "dc/d43/conceptMcro_1_1Concepts_1_1CSharedFromThisOf.html", null ],
     [ "Mcro::Concepts::CUObject", "d8/d76/conceptMcro_1_1Concepts_1_1CUObject.html", null ],
     [ "Mcro::Concepts::CInterface", "d4/d98/conceptMcro_1_1Concepts_1_1CInterface.html", null ],
+    [ "Mcro::Concepts::CUObjectOrInterface", "d9/dbb/conceptMcro_1_1Concepts_1_1CUObjectOrInterface.html", null ],
     [ "Mcro::Concepts::CInterfaceUClass", "dd/d6a/conceptMcro_1_1Concepts_1_1CInterfaceUClass.html", null ],
     [ "Mcro::Concepts::CCurrentChar", "da/d95/conceptMcro_1_1Concepts_1_1CCurrentChar.html", null ],
     [ "Mcro::Concepts::CNonCurrentChar", "df/d17/conceptMcro_1_1Concepts_1_1CNonCurrentChar.html", null ],

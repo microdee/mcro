@@ -24,6 +24,7 @@ var searchData=
   ['asmutableptr_21',['AsMutablePtr',['../d7/d53/namespaceMcro_1_1Templates.html#a56aa89116fd8ef48b1ff0da5a820672e',1,'Mcro::Templates::AsMutablePtr(T *input)'],['../d7/d53/namespaceMcro_1_1Templates.html#a4f8ad6350027fc17ba50fd0beecdfbed',1,'Mcro::Templates::AsMutablePtr(const T *input)']]],
   ['asnative_22',['AsNative',['../d0/dec/namespaceMcro_1_1Delegates.html#a90436033b2baeab420898e7d14f48479',1,'Mcro::Delegates']]],
   ['asoperandwith_23',['AsOperandWith',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a58181cc56897a2f0f248811396beaee4',1,'Mcro::Error::IError']]],
-  ['asrecoverable_24',['AsRecoverable',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a96426efed3343f50076cfd59f2a29c20',1,'Mcro::Error::IError']]],
-  ['asstring_25',['AsString',['../d8/d6f/namespaceMcro_1_1Text.html#acbb963ed7aa8378bab5c47fe68e0f3f6',1,'Mcro::Text::AsString(T &amp;&amp;input)'],['../d8/d6f/namespaceMcro_1_1Text.html#a335020ff40ce803319f0ae4d7fdd675b',1,'Mcro::Text::AsString(T &amp;&amp;input)']]]
+  ['aspath_24',['AsPath',['../df/dbf/classMcroBuild_1_1PathUtils.html#a8b708de968b092bf3d0ae30eff416ebe',1,'McroBuild.PathUtils.AsPath(this string input)'],['../df/dbf/classMcroBuild_1_1PathUtils.html#a7b77eb25bec927e06dc6b057fae7b0c9',1,'McroBuild.PathUtils.AsPath(this FileReference input)'],['../df/dbf/classMcroBuild_1_1PathUtils.html#aa42878ecbbc48ccf703e7a4f2fce8853',1,'McroBuild.PathUtils.AsPath(this DirectoryReference input)']]],
+  ['asrecoverable_25',['AsRecoverable',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a96426efed3343f50076cfd59f2a29c20',1,'Mcro::Error::IError']]],
+  ['asstring_26',['AsString',['../d8/d6f/namespaceMcro_1_1Text.html#acbb963ed7aa8378bab5c47fe68e0f3f6',1,'Mcro::Text::AsString(T &amp;&amp;input)'],['../d8/d6f/namespaceMcro_1_1Text.html#a335020ff40ce803319f0ae4d7fdd675b',1,'Mcro::Text::AsString(T &amp;&amp;input)']]]
 ];

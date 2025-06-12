@@ -56,6 +56,7 @@ var namespaceMcro_1_1Concepts =
     [ "CSharedFromThisOf", "dc/d43/conceptMcro_1_1Concepts_1_1CSharedFromThisOf.html", null ],
     [ "CUObject", "d8/d76/conceptMcro_1_1Concepts_1_1CUObject.html", null ],
     [ "CInterface", "d4/d98/conceptMcro_1_1Concepts_1_1CInterface.html", null ],
+    [ "CUObjectOrInterface", "d9/dbb/conceptMcro_1_1Concepts_1_1CUObjectOrInterface.html", null ],
     [ "CInterfaceUClass", "dd/d6a/conceptMcro_1_1Concepts_1_1CInterfaceUClass.html", null ],
     [ "CCurrentChar", "da/d95/conceptMcro_1_1Concepts_1_1CCurrentChar.html", null ],
     [ "CNonCurrentChar", "df/d17/conceptMcro_1_1Concepts_1_1CNonCurrentChar.html", null ],

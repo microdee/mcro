@@ -15,12 +15,14 @@ var searchData=
   ['withdetailsfc_12',['WithDetailsFC',['../dd/d8f/classMcro_1_1Error_1_1IError.html#adb24185ce7007841b9c3c10b21338add',1,'Mcro::Error::IError']]],
   ['witherror_13',['WithError',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3ad0a9ff1b18949f107d49b15c7ad5ea',1,'Mcro::Error::IError::WithError(this Self &amp;&amp;self, const TSharedRef&lt; Error &gt; &amp;input, bool condition=true)'],['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1af677944c9dfd575f829ac86e942e7d',1,'Mcro::Error::IError::WithError(this Self &amp;&amp;self, const FString &amp;name, const TSharedRef&lt; Error &gt; &amp;input, bool condition=true)']]],
   ['witherrors_14',['WithErrors',['../dd/d8f/classMcro_1_1Error_1_1IError.html#abc3ff7ed5486a59ef667dc1985166505',1,'Mcro::Error::IError::WithErrors(this Self &amp;&amp;self, const TArray&lt; TTuple&lt; FString, IErrorRef &gt; &gt; &amp;input, bool condition=true)'],['../dd/d8f/classMcro_1_1Error_1_1IError.html#a232161ccc19782f233738d96946e94fe',1,'Mcro::Error::IError::WithErrors(this Self &amp;&amp;self, const TSharedRef&lt; Errors &gt; &amp;... errors)'],['../dd/d8f/classMcro_1_1Error_1_1IError.html#a5cbbffd77940bd27db3f74564c1a31a3',1,'Mcro::Error::IError::WithErrors(this Self &amp;&amp;self, bool condition, const TSharedRef&lt; Errors &gt; &amp;... errors)']]],
-  ['withlocation_15',['WithLocation',['../dd/d8f/classMcro_1_1Error_1_1IError.html#aac00d56c1e2cf8a870e3f22cbef9b748',1,'Mcro::Error::IError']]],
-  ['withmessage_16',['WithMessage',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1b010a6a778285dc6c4cde30f7abe789',1,'Mcro::Error::IError']]],
-  ['withmessagef_17',['WithMessageF',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3fe8419266e13ace9892c6edacf9f23e',1,'Mcro::Error::IError']]],
-  ['withmessagefc_18',['WithMessageFC',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1ce7a1ee1803ec636d34e4cabd6f91f4',1,'Mcro::Error::IError']]],
-  ['withseverity_19',['WithSeverity',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a407637d71e5e9f800ad8b6edc451d71a',1,'Mcro::Error::IError']]],
-  ['withtype_20',['WithType',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ad7c52943bda0742727451400e9cbe2b4',1,'Mcro::Types::IHaveType']]],
-  ['writele64_21',['writeLE64',['../d6/d7a/namespaceconstexpr__xxh3.html#a3919e78cbb277d199a580c1c15aaae4b',1,'constexpr_xxh3']]],
-  ['writelock_22',['WriteLock',['../d8/d30/structMcro_1_1Observable_1_1IState.html#aee37071909ac09f7c8adf3644be838a0',1,'Mcro::Observable::IState::WriteLock()'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b',1,'Mcro::Observable::TState::WriteLock()']]]
+  ['withextension_15',['WithExtension',['../d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html#a05af5f8ac33db044a89c78e9b7c663a6',1,'McroBuild::AbsolutePathExtensions']]],
+  ['withlocation_16',['WithLocation',['../dd/d8f/classMcro_1_1Error_1_1IError.html#aac00d56c1e2cf8a870e3f22cbef9b748',1,'Mcro::Error::IError']]],
+  ['withmessage_17',['WithMessage',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1b010a6a778285dc6c4cde30f7abe789',1,'Mcro::Error::IError']]],
+  ['withmessagef_18',['WithMessageF',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3fe8419266e13ace9892c6edacf9f23e',1,'Mcro::Error::IError']]],
+  ['withmessagefc_19',['WithMessageFC',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1ce7a1ee1803ec636d34e4cabd6f91f4',1,'Mcro::Error::IError']]],
+  ['withseverity_20',['WithSeverity',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a407637d71e5e9f800ad8b6edc451d71a',1,'Mcro::Error::IError']]],
+  ['withtype_21',['WithType',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ad7c52943bda0742727451400e9cbe2b4',1,'Mcro::Types::IHaveType']]],
+  ['withunixseparator_22',['WithUnixSeparator',['../df/dbf/classMcroBuild_1_1PathUtils.html#ace1d8726b93a1fc0b552a9dcc0db7365',1,'McroBuild::PathUtils']]],
+  ['writele64_23',['writeLE64',['../d6/d7a/namespaceconstexpr__xxh3.html#a3919e78cbb277d199a580c1c15aaae4b',1,'constexpr_xxh3']]],
+  ['writelock_24',['WriteLock',['../d8/d30/structMcro_1_1Observable_1_1IState.html#aee37071909ac09f7c8adf3644be838a0',1,'Mcro::Observable::IState::WriteLock()'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b',1,'Mcro::Observable::TState::WriteLock()']]]
 ];

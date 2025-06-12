@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11"/>
   <meta name="generator" content="Doxygen 1.12.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MCRO: Public/Mcro/Dll.h Source File</title>
+  <title>MCRO: Mcro/Public/Mcro/Dll.h Source File</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../../jquery.js"></script>
   <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,77 +129,145 @@ $(function(){initNavTree('d6/dd8/Dll_8h_source.html','../../'); initResizable(tr
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d8d/Concepts_8h.html">Mcro/Concepts.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d6/dcf/namespaceMcro_1_1Dll.html">   17</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/dcf/namespaceMcro_1_1Dll.html">Mcro::Dll</a></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d2/d09/namespaceMcro_1_1Concepts.html">Mcro::Concepts</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">    /** @brief RAII wrapper around PushDllDirectory / PopDllDirectory */</span></div>
-<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">   22</a></span>    <span class="keyword">struct </span>MCRO_API <a class="code hl_struct" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">FScopedSearchPath</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac86636173ac856ce727f04b7822dab75">   24</a></span>        <a class="code hl_function" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac86636173ac856ce727f04b7822dab75">FScopedSearchPath</a>(FString <span class="keyword">const</span>&amp; path);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02">   25</a></span>        <a class="code hl_function" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02">~FScopedSearchPath</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        FString Path;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    };</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dc2/Modules_8h.html">Mcro/Modules.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;Interfaces/IPluginManager.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d8d/Concepts_8h.html">Mcro/Concepts.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d6/dcf/namespaceMcro_1_1Dll.html">   20</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/dcf/namespaceMcro_1_1Dll.html">Mcro::Dll</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d2/d09/namespaceMcro_1_1Concepts.html">Mcro::Concepts</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/d1b/namespaceMcro_1_1Modules.html">Mcro::Modules</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">    /** @brief RAII wrapper around PushDllDirectory / PopDllDirectory */</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">   26</a></span>    <span class="keyword">struct </span>MCRO_API <a class="code hl_struct" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">FScopedSearchPath</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac86636173ac856ce727f04b7822dab75">   28</a></span>        <a class="code hl_function" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac86636173ac856ce727f04b7822dab75">FScopedSearchPath</a>(FString <span class="keyword">const</span>&amp; path);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02">   29</a></span>        <a class="code hl_function" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02">~FScopedSearchPath</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        FString Path;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment"></span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">    /** @brief RAII wrapper around GetDllHandle / FreeDllHandle */</span></div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html">   32</a></span>    <span class="keyword">struct </span>MCRO_API <a class="code hl_struct" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html">FScopedDll</a></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#a1d3335001ceb2809b1d5858665b8b371">   34</a></span>        <a class="code hl_function" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#a1d3335001ceb2809b1d5858665b8b371">FScopedDll</a>(<span class="keyword">const</span> TCHAR* fileName);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#ad5e804e114fd0df05f27abb6b4996d65">   35</a></span>        <a class="code hl_function" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#ad5e804e114fd0df05f27abb6b4996d65">~FScopedDll</a>();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">void</span>* Handle;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    /** @brief RAII wrapper around GetDllHandle / FreeDllHandle */</span></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html">   36</a></span>    <span class="keyword">struct </span>MCRO_API <a class="code hl_struct" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html">FScopedDll</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#a1d3335001ceb2809b1d5858665b8b371">   38</a></span>        <a class="code hl_function" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#a1d3335001ceb2809b1d5858665b8b371">FScopedDll</a>(<span class="keyword">const</span> TCHAR* fileName);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#ad5e804e114fd0df05f27abb6b4996d65">   39</a></span>        <a class="code hl_function" href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#ad5e804e114fd0df05f27abb6b4996d65">~FScopedDll</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">void</span>* Handle;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    };</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"></span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">    /** @brief Handle multiple DLL files in one set and an optional base path for them */</span></div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">   42</a></span>    <span class="keyword">struct </span>MCRO_API <a class="code hl_struct" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">FScopedDllSet</a></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ad4cce4a13fcc38b701b6588ded8b4fd3">   44</a></span>        <a class="code hl_function" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ad4cce4a13fcc38b701b6588ded8b4fd3">FScopedDllSet</a>() {}</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">template</span> &lt;CConvertibleTo&lt;const TCHAR*&gt;... Args&gt;</div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#af45764460aab9c7e4cfe28db3447b6ac">   47</a></span>        <a class="code hl_function" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#af45764460aab9c7e4cfe28db3447b6ac">FScopedDllSet</a>(FString <span class="keyword">const</span>&amp; pushPath, Args... args)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_struct" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">FScopedSearchPath</a> pathContext(pushPath);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            (Dlls.Emplace(args), ...);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">    /** @brief Handle multiple DLL files in one set and an optional base path for them */</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">   46</a></span>    <span class="keyword">struct </span>MCRO_API <a class="code hl_struct" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">FScopedDllSet</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ad4cce4a13fcc38b701b6588ded8b4fd3">   48</a></span>        <a class="code hl_function" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ad4cce4a13fcc38b701b6588ded8b4fd3">FScopedDllSet</a>() {}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         *  @param pushPath  The absolute path to be pushed for the basis of finding given DLL&#39;s </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">         *  @param dllFiles  The list of DLL file names</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">template</span> &lt;CConvertibleTo&lt;const TCHAR*&gt;... DllFiles&gt;</div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#acf281f05763933fa7b79059d6c3ee022">   55</a></span>        <a class="code hl_function" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#acf281f05763933fa7b79059d6c3ee022">FScopedDllSet</a>(FString <span class="keyword">const</span>&amp; pushPath, DllFiles... dllFiles)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <a class="code hl_struct" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">FScopedSearchPath</a> pathContext(pushPath);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            (Dlls.Emplace(dllFiles), ...);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        TArray&lt;FScopedDll&gt; Dlls;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    };</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">         *  @param   plugin  The plugin this set of DLL&#39;s will be relative to </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">         *  @param pushPath  The relative path to the plugin base where to find given DLL&#39;s</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">         *  @param dllFiles  The list of DLL file names</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">template</span> &lt;CConvertibleTo&lt;const TCHAR*&gt;... DllFiles&gt;</div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ac87ab748e62b9a12fc627375cfbbe964">   67</a></span>        <a class="code hl_function" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ac87ab748e62b9a12fc627375cfbbe964">FScopedDllSet</a>(TSharedPtr&lt;IPlugin&gt; plugin, FString <span class="keyword">const</span>&amp; pushPath, DllFiles... dllFiles)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <a class="code hl_define" href="../../db/df5/AssertMacros_8h.html#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a>(plugin);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            FString absPushPath = plugin-&gt;GetBaseDir() / pushPath;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <a class="code hl_struct" href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">FScopedSearchPath</a> pathContext(absPushPath);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            (Dlls.Emplace(dllFiles), ...);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        TArray&lt;FScopedDll&gt; Dlls;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    };</div>
 </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"></span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">     *  @brief  List DLL&#39;s which is used by a specific module and its owning plugin.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">     *  Goes well with `McroBuild.ModuleRuleExtensions.UseRuntimeDependencies` or</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     *  `McroBuild.ModuleRuleExtensions.PrepareRuntimeDependencies` like so:</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">     *  TModuleBoundDlls&lt;FMyAwesomeModule&gt; GMyLibraryDlls {MYLIBRARY_DLL_PATH, MYLIBRARY_DLL_FILES};</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     *  Where `MyLibrary` is an external module type importing a third-party library with this snippet contained in its</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     *  rules:</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     *  @code</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     *  this.PrepareRuntimeDependencies(this.ModulePath() / &quot;lib&quot; / &quot;x64&quot;);</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     *  @endcode</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">template</span> &lt;CObservableModule M&gt;</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="};">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html">   95</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html">TModuleBoundDlls</a> : <a class="code hl_struct" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">TModuleBoundObject</a>&lt;M, FScopedDllSet&gt;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html#acfb1456a99550d2d958298b49dc9ab6d">   97</a></span>        <span class="keyword">using </span><a class="code hl_class" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">ModuleBoundObject</a> = <a class="code hl_struct" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">TModuleBoundObject&lt;M, FScopedDllSet&gt;</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">template</span> &lt;CConvertibleTo&lt;const TCHAR*&gt;... DllFiles&gt;</div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html#ae573e207573889a7f46015b4ef0d66ab">  100</a></span>        <a class="code hl_function" href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html#ae573e207573889a7f46015b4ef0d66ab">TModuleBoundDlls</a>(<span class="keyword">const</span> TCHAR* pushPath, DllFiles... dllFiles)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            : <a class="code hl_class" href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">ModuleBoundObject</a>(</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                [pushPath, dllFiles...]</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                    <span class="keyword">auto</span> thisPlugin = IPluginManager::Get().GetModuleOwnerPlugin(*<a class="code hl_function" href="../../d5/d1b/namespaceMcro_1_1Modules.html#a0da427df19c26499591b7cb731b8853e">InferModuleName&lt;M&gt;</a>());</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_struct" href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">FScopedDllSet</a>(thisPlugin, pushPath, dllFiles...);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            })</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        {}</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    };</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="ttc" id="aAssertMacros_8h_html_aa701f2cd895ccc225e7eaef22640854d"><div class="ttname"><a href="../../db/df5/AssertMacros_8h.html#aa701f2cd895ccc225e7eaef22640854d">ASSERT_CRASH</a></div><div class="ttdeci">#define ASSERT_CRASH(condition,...)</div><div class="ttdoc">Use this instead of check macro if the checked expression shouldn't be ignored in shipping builds....</div><div class="ttdef"><b>Definition</b> <a href="../../db/df5/AssertMacros_8h_source.html#l00114">AssertMacros.h:114</a></div></div>
 <div class="ttc" id="aConcepts_8h_html"><div class="ttname"><a href="../../d1/d8d/Concepts_8h.html">Concepts.h</a></div><div class="ttdoc">This header exists because STL headers in Android doesn't define STL concepts (other than same_as whi...</div></div>
+<div class="ttc" id="aModules_8h_html"><div class="ttname"><a href="../../dd/dc2/Modules_8h.html">Modules.h</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Concepts_html"><div class="ttname"><a href="../../d2/d09/namespaceMcro_1_1Concepts.html">Mcro::Concepts</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/Concepts_8h_source.html#l00034">Concepts.h:35</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Dll_html"><div class="ttname"><a href="../../d6/dcf/namespaceMcro_1_1Dll.html">Mcro::Dll</a></div><div class="ttdef"><b>Definition</b> <a href="#l00017">Dll.h:18</a></div></div>
-<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">Mcro::Dll::FScopedDllSet</a></div><div class="ttdoc">Handle multiple DLL files in one set and an optional base path for them.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">Dll.h:43</a></div></div>
-<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html_ad4cce4a13fcc38b701b6588ded8b4fd3"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ad4cce4a13fcc38b701b6588ded8b4fd3">Mcro::Dll::FScopedDllSet::FScopedDllSet</a></div><div class="ttdeci">FScopedDllSet()</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Dll.h:44</a></div></div>
-<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html_af45764460aab9c7e4cfe28db3447b6ac"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#af45764460aab9c7e4cfe28db3447b6ac">Mcro::Dll::FScopedDllSet::FScopedDllSet</a></div><div class="ttdeci">FScopedDllSet(FString const &amp;pushPath, Args... args)</div><div class="ttdef"><b>Definition</b> <a href="#l00047">Dll.h:47</a></div></div>
-<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDll_html"><div class="ttname"><a href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html">Mcro::Dll::FScopedDll</a></div><div class="ttdoc">RAII wrapper around GetDllHandle / FreeDllHandle.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">Dll.h:33</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Dll_html"><div class="ttname"><a href="../../d6/dcf/namespaceMcro_1_1Dll.html">Mcro::Dll</a></div><div class="ttdef"><b>Definition</b> <a href="#l00020">Dll.h:21</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Modules_html"><div class="ttname"><a href="../../d5/d1b/namespaceMcro_1_1Modules.html">Mcro::Modules</a></div><div class="ttdoc">Namespace for utilities handling Unreal modules.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc2/Modules_8h_source.html#l00022">Modules.h:23</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Modules_html_a0da427df19c26499591b7cb731b8853e"><div class="ttname"><a href="../../d5/d1b/namespaceMcro_1_1Modules.html#a0da427df19c26499591b7cb731b8853e">Mcro::Modules::InferModuleName</a></div><div class="ttdeci">FString InferModuleName()</div><div class="ttdoc">Infer the module name from an input type. This exists because there's a very reliable naming conventi...</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc2/Modules_8h_source.html#l00040">Modules.h:40</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html">Mcro::Dll::FScopedDllSet</a></div><div class="ttdoc">Handle multiple DLL files in one set and an optional base path for them.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">Dll.h:47</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html_ac87ab748e62b9a12fc627375cfbbe964"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ac87ab748e62b9a12fc627375cfbbe964">Mcro::Dll::FScopedDllSet::FScopedDllSet</a></div><div class="ttdeci">FScopedDllSet(TSharedPtr&lt; IPlugin &gt; plugin, FString const &amp;pushPath, DllFiles... dllFiles)</div><div class="ttdef"><b>Definition</b> <a href="#l00067">Dll.h:67</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html_acf281f05763933fa7b79059d6c3ee022"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#acf281f05763933fa7b79059d6c3ee022">Mcro::Dll::FScopedDllSet::FScopedDllSet</a></div><div class="ttdeci">FScopedDllSet(FString const &amp;pushPath, DllFiles... dllFiles)</div><div class="ttdef"><b>Definition</b> <a href="#l00055">Dll.h:55</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDllSet_html_ad4cce4a13fcc38b701b6588ded8b4fd3"><div class="ttname"><a href="../../da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html#ad4cce4a13fcc38b701b6588ded8b4fd3">Mcro::Dll::FScopedDllSet::FScopedDllSet</a></div><div class="ttdeci">FScopedDllSet()</div><div class="ttdef"><b>Definition</b> <a href="#l00048">Dll.h:48</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDll_html"><div class="ttname"><a href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html">Mcro::Dll::FScopedDll</a></div><div class="ttdoc">RAII wrapper around GetDllHandle / FreeDllHandle.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Dll.h:37</a></div></div>
 <div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDll_html_a1d3335001ceb2809b1d5858665b8b371"><div class="ttname"><a href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#a1d3335001ceb2809b1d5858665b8b371">Mcro::Dll::FScopedDll::FScopedDll</a></div><div class="ttdeci">FScopedDll(const TCHAR *fileName)</div></div>
 <div class="ttc" id="astructMcro_1_1Dll_1_1FScopedDll_html_ad5e804e114fd0df05f27abb6b4996d65"><div class="ttname"><a href="../../d0/d03/structMcro_1_1Dll_1_1FScopedDll.html#ad5e804e114fd0df05f27abb6b4996d65">Mcro::Dll::FScopedDll::~FScopedDll</a></div><div class="ttdeci">~FScopedDll()</div></div>
-<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedSearchPath_html"><div class="ttname"><a href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">Mcro::Dll::FScopedSearchPath</a></div><div class="ttdoc">RAII wrapper around PushDllDirectory / PopDllDirectory.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">Dll.h:23</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1FScopedSearchPath_html"><div class="ttname"><a href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html">Mcro::Dll::FScopedSearchPath</a></div><div class="ttdoc">RAII wrapper around PushDllDirectory / PopDllDirectory.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">Dll.h:27</a></div></div>
 <div class="ttc" id="astructMcro_1_1Dll_1_1FScopedSearchPath_html_ac00d3211392d367bf48373454e497b02"><div class="ttname"><a href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac00d3211392d367bf48373454e497b02">Mcro::Dll::FScopedSearchPath::~FScopedSearchPath</a></div><div class="ttdeci">~FScopedSearchPath()</div></div>
 <div class="ttc" id="astructMcro_1_1Dll_1_1FScopedSearchPath_html_ac86636173ac856ce727f04b7822dab75"><div class="ttname"><a href="../../d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html#ac86636173ac856ce727f04b7822dab75">Mcro::Dll::FScopedSearchPath::FScopedSearchPath</a></div><div class="ttdeci">FScopedSearchPath(FString const &amp;path)</div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1TModuleBoundDlls_html"><div class="ttname"><a href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html">Mcro::Dll::TModuleBoundDlls</a></div><div class="ttdoc">List DLL's which is used by a specific module and its owning plugin.</div><div class="ttdef"><b>Definition</b> <a href="#l00095">Dll.h:96</a></div></div>
+<div class="ttc" id="astructMcro_1_1Dll_1_1TModuleBoundDlls_html_ae573e207573889a7f46015b4ef0d66ab"><div class="ttname"><a href="../../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html#ae573e207573889a7f46015b4ef0d66ab">Mcro::Dll::TModuleBoundDlls::TModuleBoundDlls</a></div><div class="ttdeci">TModuleBoundDlls(const TCHAR *pushPath, DllFiles... dllFiles)</div><div class="ttdef"><b>Definition</b> <a href="#l00100">Dll.h:100</a></div></div>
+<div class="ttc" id="astructMcro_1_1Modules_1_1TModuleBoundObject_html"><div class="ttname"><a href="../../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html">Mcro::Modules::TModuleBoundObject</a></div><div class="ttdoc">A wrapper around a given object which lifespan is bound to given module.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc2/Modules_8h_source.html#l00228">Modules.h:229</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_0e808b5bea96998f2f2532bc744416ca.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_dfc7e5799dc5b05cf7a0146f87341658.html">Mcro</a></li><li class="navelem"><a class="el" href="../../d6/dd8/Dll_8h.html">Dll.h</a></li>
+    <li class="navelem"><a class="el" href="../../dir_234020c4664dded192c8706efe49f8aa.html">Mcro</a></li><li class="navelem"><a class="el" href="../../dir_0e808b5bea96998f2f2532bc744416ca.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_dfc7e5799dc5b05cf7a0146f87341658.html">Mcro</a></li><li class="navelem"><a class="el" href="../../d6/dd8/Dll_8h.html">Dll.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

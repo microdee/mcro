@@ -9,6 +9,9 @@ var searchData=
   ['enumtoname_6',['EnumToName',['../db/d56/namespaceMcro_1_1Enums.html#a4a7a8e3d462ff1674dae15eded112040',1,'Mcro::Enums']]],
   ['enumtostringcopy_7',['EnumToStringCopy',['../db/d56/namespaceMcro_1_1Enums.html#acdbec510416e2e30ec7bd20606111554',1,'Mcro::Enums']]],
   ['enumtostringview_8',['EnumToStringView',['../db/d56/namespaceMcro_1_1Enums.html#a69c04c24701d5bae44ab56caee4611ba',1,'Mcro::Enums']]],
-  ['expandabletext_9',['ExpandableText',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af6b17c9dbdff229bb56689e5e1214dfc',1,'Mcro::Error::SErrorDisplay']]],
-  ['expandabletextwidget_10',['ExpandableTextWidget',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af319b0098ed0225671ba0eef11d10332',1,'Mcro::Error::SErrorDisplay']]]
+  ['equals_9',['Equals',['../d2/d11/classMcroBuild_1_1AbsolutePath.html#a4218a71afaf9df13593771cbb6e075a6',1,'McroBuild.AbsolutePath.Equals(AbsolutePath other)'],['../d2/d11/classMcroBuild_1_1AbsolutePath.html#a4c26ab8550a1f9e580ab771da860861a',1,'McroBuild.AbsolutePath.Equals(object obj)']]],
+  ['existingdirectory_10',['ExistingDirectory',['../d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html#aa39ab649902d0d960898a35f73c54256',1,'McroBuild::AbsolutePathExtensions']]],
+  ['existingfile_11',['ExistingFile',['../d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html#a7ec723c579be0fce6a7bd455784f0bd6',1,'McroBuild::AbsolutePathExtensions']]],
+  ['expandabletext_12',['ExpandableText',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af6b17c9dbdff229bb56689e5e1214dfc',1,'Mcro::Error::SErrorDisplay']]],
+  ['expandabletextwidget_13',['ExpandableTextWidget',['../d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html#af319b0098ed0225671ba0eef11d10332',1,'Mcro::Error::SErrorDisplay']]]
 ];

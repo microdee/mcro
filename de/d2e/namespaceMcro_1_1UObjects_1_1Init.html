@@ -146,11 +146,11 @@ Functions</h2></td></tr>
 <tr class="memitem:adfa8165d9e0cbb73ff1bd19764e63d8b"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adfa8165d9e0cbb73ff1bd19764e63d8b">NewInit</a> (<a class="el" href="../../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a> &amp;&amp;params, Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:adfa8165d9e0cbb73ff1bd19764e63d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new object which can also be initialized with an <code>Initialize</code> function if it has one. In case it has an <code>Initialize</code> function the <code>args</code> parameters should match them. This is an equivalent to the template <a class="el" href="../../db/d9b/namespaceMcro_1_1SharedObjects.html#a1b0bc2e40cf3b49b4d9bde451db7c42b" title="A wrapper around MakeShareable that automatically calls an initializer method Initialize on the insta...">Mcro::SharedObjects::MakeShareableInit</a>.  <br /></td></tr>
 <tr class="separator:adfa8165d9e0cbb73ff1bd19764e63d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3978c33fff8ecad30d1d8b15986f4061" id="r_a3978c33fff8ecad30d1d8b15986f4061"><td class="memTemplParams" colspan="2">template&lt;CFunctorObject Initializer, typename TArg  = TFunction_Arg&lt;Initializer, 0&gt;, CUObject T = std::decay_t&lt;TArg&gt;&gt; <br />
+<tr class="memitem:a3872bf0e45ab6e085684fd5957aa1e0b" id="r_a3872bf0e45ab6e085684fd5957aa1e0b"><td class="memTemplParams" colspan="2">template&lt;CFunctorObject Initializer, typename TArg  = TFunction_Arg&lt;Initializer, 0&gt;, CUObject T = std::decay_t&lt;TArg&gt;&gt; <br />
 requires std::is_lvalue_reference_v&lt;TArg&gt;</td></tr>
-<tr class="memitem:a3978c33fff8ecad30d1d8b15986f4061"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3978c33fff8ecad30d1d8b15986f4061">Construct</a> (<a class="el" href="../../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a> &amp;&amp;params, Initializer &amp;&amp;init)</td></tr>
-<tr class="memdesc:a3978c33fff8ecad30d1d8b15986f4061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equivalent to <a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4" title="Simply makes a new object and allows to initialize it in place with a lambda function....">Mcro::Construct::Construct</a> but for <a class="el" href="../../df/d84/namespaceMcro_1_1UObjects.html">UObjects</a>.  <br /></td></tr>
-<tr class="separator:a3978c33fff8ecad30d1d8b15986f4061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3872bf0e45ab6e085684fd5957aa1e0b"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3872bf0e45ab6e085684fd5957aa1e0b">ConstructObject</a> (<a class="el" href="../../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a> &amp;&amp;params, Initializer &amp;&amp;init)</td></tr>
+<tr class="memdesc:a3872bf0e45ab6e085684fd5957aa1e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equivalent to <a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4" title="Simply makes a new object and allows to initialize it in place with a lambda function....">Mcro::Construct::Construct</a> but for <a class="el" href="../../df/d84/namespaceMcro_1_1UObjects.html">UObjects</a>.  <br /></td></tr>
+<tr class="separator:a3872bf0e45ab6e085684fd5957aa1e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8df9b778fa49ed1cd87c1a4f745ff368" id="r_a8df9b778fa49ed1cd87c1a4f745ff368"><td class="memTemplParams" colspan="2">template&lt;CFunctorObject Initializer, typename... Args, typename TArg  = TFunction_Arg&lt;Initializer, 0&gt;, CUObject T = std::decay_t&lt;TArg&gt;&gt; <br />
 requires std::is_lvalue_reference_v&lt;TArg&gt;</td></tr>
 <tr class="memitem:a8df9b778fa49ed1cd87c1a4f745ff368"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8df9b778fa49ed1cd87c1a4f745ff368">ConstructInit</a> (<a class="el" href="../../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a> &amp;&amp;params, Initializer &amp;&amp;init, Args &amp;&amp;... args)</td></tr>
@@ -158,59 +158,6 @@ requires std::is_lvalue_reference_v&lt;TArg&gt;</td></tr>
 <tr class="separator:a8df9b778fa49ed1cd87c1a4f745ff368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3978c33fff8ecad30d1d8b15986f4061" name="a3978c33fff8ecad30d1d8b15986f4061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3978c33fff8ecad30d1d8b15986f4061">&#9670;&#160;</a></span>Construct()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;CFunctorObject Initializer, typename TArg  = TFunction_Arg&lt;Initializer, 0&gt;, CUObject T = std::decay_t&lt;TArg&gt;&gt; <br />
-requires std::is_lvalue_reference_v&lt;TArg&gt;</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T * Mcro::UObjects::Init::Construct </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>params</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Initializer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>init</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Equivalent to <a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4" title="Simply makes a new object and allows to initialize it in place with a lambda function....">Mcro::Construct::Construct</a> but for <a class="el" href="../../df/d84/namespaceMcro_1_1UObjects.html">UObjects</a>. </p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> myObject = Construct({}, [](UMyObject&amp; _)</div>
-<div class="line">{</div>
-<div class="line">    _.Foo = 42;</div>
-<div class="line">    _.Bar();</div>
-<div class="line">    <span class="comment">// etc...</span></div>
-<div class="line">});</div>
-<div class="line"><span class="keyword">static_assert</span>(std::is_same_v&lt;<span class="keyword">decltype</span>(myObject), UMyObject*&gt;);</div>
-<div class="ttc" id="anamespaceMcro_1_1UObjects_1_1Init_html"><div class="ttname"><a href="../../de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/db1/Init_8h_source.html#l00017">Init.h:18</a></div></div>
-</div><!-- fragment --><p>Notice how the object type is deduced from the argument of the initializer.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Initializer</td><td>Initializer function type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">params</td><td>Parameters for every new object </td></tr>
-    <tr><td class="paramname">init</td><td>A setup function for the newly created UObject </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The new object </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/db1/Init_8h_source.html#l00160">160</a> of file <a class="el" href="../../db/db1/Init_8h_source.html">Init.h</a>.</p>
-
-</div>
-</div>
 <a id="a8df9b778fa49ed1cd87c1a4f745ff368" name="a8df9b778fa49ed1cd87c1a4f745ff368"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8df9b778fa49ed1cd87c1a4f745ff368">&#9670;&#160;</a></span>ConstructInit()</h2>
 
@@ -248,6 +195,7 @@ requires std::is_lvalue_reference_v&lt;TArg&gt;</div>
 <div class="line">    <span class="comment">// etc...</span></div>
 <div class="line">});</div>
 <div class="line"><span class="keyword">static_assert</span>(std::is_same_v&lt;<span class="keyword">decltype</span>(myObject), UMyObject*&gt;);</div>
+<div class="ttc" id="anamespaceMcro_1_1UObjects_1_1Init_html"><div class="ttname"><a href="../../de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/db1/Init_8h_source.html#l00017">Init.h:18</a></div></div>
 </div><!-- fragment --><p>Notice how the object type is deduced from the argument of the initializer.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -267,6 +215,58 @@ requires std::is_lvalue_reference_v&lt;TArg&gt;</div>
 <dl class="section return"><dt>Returns</dt><dd>The new object </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/db1/Init_8h_source.html#l00211">211</a> of file <a class="el" href="../../db/db1/Init_8h_source.html">Init.h</a>.</p>
+
+</div>
+</div>
+<a id="a3872bf0e45ab6e085684fd5957aa1e0b" name="a3872bf0e45ab6e085684fd5957aa1e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3872bf0e45ab6e085684fd5957aa1e0b">&#9670;&#160;</a></span>ConstructObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CFunctorObject Initializer, typename TArg  = TFunction_Arg&lt;Initializer, 0&gt;, CUObject T = std::decay_t&lt;TArg&gt;&gt; <br />
+requires std::is_lvalue_reference_v&lt;TArg&gt;</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T * Mcro::UObjects::Init::ConstructObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html">FConstructObjectParameters</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Initializer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>init</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equivalent to <a class="el" href="../../d3/d5d/namespaceMcro_1_1Construct.html#af94e599172b834021f0084e6ddeb63f4" title="Simply makes a new object and allows to initialize it in place with a lambda function....">Mcro::Construct::Construct</a> but for <a class="el" href="../../df/d84/namespaceMcro_1_1UObjects.html">UObjects</a>. </p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../de/d2e/namespaceMcro_1_1UObjects_1_1Init.html">Mcro::UObjects::Init</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> myObject = Construct({}, [](UMyObject&amp; _)</div>
+<div class="line">{</div>
+<div class="line">    _.Foo = 42;</div>
+<div class="line">    _.Bar();</div>
+<div class="line">    <span class="comment">// etc...</span></div>
+<div class="line">});</div>
+<div class="line"><span class="keyword">static_assert</span>(std::is_same_v&lt;<span class="keyword">decltype</span>(myObject), UMyObject*&gt;);</div>
+</div><!-- fragment --><p>Notice how the object type is deduced from the argument of the initializer.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Initializer</td><td>Initializer function type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>Parameters for every new object </td></tr>
+    <tr><td class="paramname">init</td><td>A setup function for the newly created UObject </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new object </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/db1/Init_8h_source.html#l00160">160</a> of file <a class="el" href="../../db/db1/Init_8h_source.html">Init.h</a>.</p>
 
 </div>
 </div>

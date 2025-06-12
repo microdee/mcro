@@ -1,8 +1,8 @@
 var namespaceMcro_1_1Templates =
 [
     [ "Detail", "d2/d61/namespaceMcro_1_1Templates_1_1Detail.html", "d2/d61/namespaceMcro_1_1Templates_1_1Detail" ],
-    [ "TIsTypeList_Struct", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", null ],
-    [ "TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", null ],
+    [ "TIsTypeList_Struct", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct" ],
+    [ "TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4" ],
     [ "TTemplate", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", "da/dde/structMcro_1_1Templates_1_1TTemplate" ],
     [ "TTupleSafeElement_Struct", "d0/dfc/structMcro_1_1Templates_1_1TTupleSafeElement__Struct.html", null ],
     [ "TTupleSafeElement_Struct< I, TTuple< T... > >", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4.html", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4" ],

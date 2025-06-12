@@ -5,9 +5,11 @@ var searchData=
   ['secret_5fsize_5fmin_2',['SECRET_SIZE_MIN',['../d6/d7a/namespaceconstexpr__xxh3.html#a9e539e50e9c58b0649a0235b87579b2b',1,'constexpr_xxh3']]],
   ['separator_3',['Separator',['../df/d34/structMcro_1_1Range_1_1FRangeStringFormatOptions.html#af13cc05fcde9edfbd92e190407f753b3',1,'Mcro::Range::FRangeStringFormatOptions']]],
   ['severity_4',['Severity',['../dd/d8f/classMcro_1_1Error_1_1IError.html#aefb6a1cef3f90ecc38715eb59cf8b59b',1,'Mcro::Error::IError']]],
-  ['start_5',['Start',['../df/d34/structMcro_1_1Range_1_1FRangeStringFormatOptions.html#a35bed552de086080cb5cc32fae301404',1,'Mcro::Range::FRangeStringFormatOptions']]],
-  ['statepolicyfor_6',['StatePolicyFor',['../d6/da2/namespaceMcro_1_1Observable.html#af5b3ff14fd44daf182c9a1c11b2170c8',1,'Mcro::Observable']]],
-  ['storage_7',['Storage',['../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#a338e80661f087053bc03bdbe7777090f',1,'Mcro::Slate::TAttributeBlockFunctor::Storage'],['../d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html#a040992947d7e7a54c16e529fa21f727c',1,'Mcro::Text::Macros::TStringPrintfLiteral::Storage']]],
-  ['storeprevious_8',['StorePrevious',['../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#a97c4d898e9e77afb3e1ae96f6ca5633f',1,'Mcro::Observable::FStatePolicy']]],
-  ['stripe_5flen_9',['STRIPE_LEN',['../d6/d7a/namespaceconstexpr__xxh3.html#af3517f6c9c15213dbeff9720ae0c24dd',1,'constexpr_xxh3']]]
+  ['singlequote_5',['SingleQuote',['../d2/d11/classMcroBuild_1_1AbsolutePath.html#a4071554a00cdbb1621de6893f7dc5057',1,'McroBuild::AbsolutePath']]],
+  ['start_6',['Start',['../df/d34/structMcro_1_1Range_1_1FRangeStringFormatOptions.html#a35bed552de086080cb5cc32fae301404',1,'Mcro::Range::FRangeStringFormatOptions']]],
+  ['statepolicyfor_7',['StatePolicyFor',['../d6/da2/namespaceMcro_1_1Observable.html#af5b3ff14fd44daf182c9a1c11b2170c8',1,'Mcro::Observable']]],
+  ['storage_8',['Storage',['../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#a338e80661f087053bc03bdbe7777090f',1,'Mcro::Slate::TAttributeBlockFunctor::Storage'],['../d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html#a040992947d7e7a54c16e529fa21f727c',1,'Mcro::Text::Macros::TStringPrintfLiteral::Storage']]],
+  ['storeprevious_9',['StorePrevious',['../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#a97c4d898e9e77afb3e1ae96f6ca5633f',1,'Mcro::Observable::FStatePolicy']]],
+  ['stripe_5flen_10',['STRIPE_LEN',['../d6/d7a/namespaceconstexpr__xxh3.html#af3517f6c9c15213dbeff9720ae0c24dd',1,'constexpr_xxh3']]],
+  ['systemmessage_11',['SystemMessage',['../de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html#ad358f292283c5d39736d10b091d5fa92',1,'Mcro::Windows::Error::FLastError::SystemMessage'],['../dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html#aa5d7fad4cbb353d575cd2bb3d56d34e0',1,'Mcro::Windows::Error::FHresultError::SystemMessage']]]
 ];

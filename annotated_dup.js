@@ -44,7 +44,8 @@ var annotated_dup =
       [ "Dll", "d6/dcf/namespaceMcro_1_1Dll.html", [
         [ "FScopedDll", "d0/d03/structMcro_1_1Dll_1_1FScopedDll.html", "d0/d03/structMcro_1_1Dll_1_1FScopedDll" ],
         [ "FScopedDllSet", "da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html", "da/d3c/structMcro_1_1Dll_1_1FScopedDllSet" ],
-        [ "FScopedSearchPath", "d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html", "d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath" ]
+        [ "FScopedSearchPath", "d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath.html", "d9/d67/structMcro_1_1Dll_1_1FScopedSearchPath" ],
+        [ "TModuleBoundDlls", "d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html", "d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls" ]
       ] ],
       [ "Error", "dd/d58/namespaceMcro_1_1Error.html", [
         [ "FAssertion", "d2/dc8/classMcro_1_1Error_1_1FAssertion.html", null ],
@@ -73,12 +74,12 @@ var annotated_dup =
           [ "TFunctionMeta", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta" ]
         ] ],
         [ "TDeferFunctionArguments", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments" ],
-        [ "TFunctionTraits", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", null ],
-        [ "TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
-        [ "TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", null ],
+        [ "TFunctionTraits", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits" ],
+        [ "TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4" ],
+        [ "TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4" ],
         [ "TFunctionTraits< ReturnIn(ClassIn::*)(Args...) const >", "db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", "db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4" ],
         [ "TFunctionTraits< ReturnIn(ClassIn::*)(Args...)>", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4" ],
-        [ "TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", null ]
+        [ "TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4" ]
       ] ],
       [ "InitializeOnCopy", "df/dae/namespaceMcro_1_1InitializeOnCopy.html", [
         [ "TInitializeOnCopy", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy" ]
@@ -141,8 +142,8 @@ var annotated_dup =
           [ "TTypeAtPack_Impl", "d0/d15/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl.html", "d0/d15/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl" ],
           [ "TTypeAtPack_Impl< 0, First, Rest... >", "d2/dd0/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl_3_010_00_01First_00_01Rest_8_8_8_01_4.html", "d2/dd0/structMcro_1_1Templates_1_1Detail_1_1TTypeAtPack__Impl_3_010_00_01First_00_01Rest_8_8_8_01_4" ]
         ] ],
-        [ "TIsTypeList_Struct", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", null ],
-        [ "TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", null ],
+        [ "TIsTypeList_Struct", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct" ],
+        [ "TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4" ],
         [ "TTemplate", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", "da/dde/structMcro_1_1Templates_1_1TTemplate" ],
         [ "TTupleSafeElement_Struct", "d0/dfc/structMcro_1_1Templates_1_1TTupleSafeElement__Struct.html", null ],
         [ "TTupleSafeElement_Struct< I, TTuple< T... > >", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4.html", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4" ],
@@ -188,6 +189,12 @@ var annotated_dup =
         [ "FValueThunkOptions", "df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions.html", "df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions" ],
         [ "TValueThunk", "d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html", "d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk" ]
       ] ],
+      [ "Windows", "db/de3/namespaceMcro_1_1Windows.html", [
+        [ "Error", "d0/d7b/namespaceMcro_1_1Windows_1_1Error.html", [
+          [ "FHresultError", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError" ],
+          [ "FLastError", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError" ]
+        ] ]
+      ] ],
       [ "Yaml", "d5/dba/namespaceMcro_1_1Yaml.html", [
         [ "TScopedRegion", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion" ]
       ] ],
@@ -195,11 +202,22 @@ var annotated_dup =
         [ "FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", "d4/d5f/structMcro_1_1Zero_1_1FZero" ]
       ] ]
     ] ],
+    [ "McroBuild", "d1/db4/namespaceMcroBuild.html", [
+      [ "AbsolutePath", "d2/d11/classMcroBuild_1_1AbsolutePath.html", "d2/d11/classMcroBuild_1_1AbsolutePath" ],
+      [ "AbsolutePathExtensions", "d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html", "d1/d91/classMcroBuild_1_1AbsolutePathExtensions" ],
+      [ "ModuleRuleExtensions", "d9/d83/classMcroBuild_1_1ModuleRuleExtensions.html", "d9/d83/classMcroBuild_1_1ModuleRuleExtensions" ],
+      [ "PathUtils", "df/dbf/classMcroBuild_1_1PathUtils.html", "df/dbf/classMcroBuild_1_1PathUtils" ],
+      [ "RuntimeDependencies", "d4/d0a/classMcroBuild_1_1RuntimeDependencies.html", "d4/d0a/classMcroBuild_1_1RuntimeDependencies" ],
+      [ "RuntimeDependency", "d2/d60/classMcroBuild_1_1RuntimeDependency.html", "d2/d60/classMcroBuild_1_1RuntimeDependency" ]
+    ] ],
     [ "FCopyConstructCounter", "db/da9/structFCopyConstructCounter.html", "db/da9/structFCopyConstructCounter" ],
     [ "FCopyForbidden", "de/d5a/structFCopyForbidden.html", null ],
     [ "FMapPairsAccessTag", "d0/deb/structFMapPairsAccessTag.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", "d3/daf/structFVoid" ],
+    [ "Mcro", "d4/deb/classMcro.html", "d4/deb/classMcro" ],
+    [ "McroISPC", "d2/d20/classMcroISPC.html", "d2/d20/classMcroISPC" ],
+    [ "McroWindows", "d7/db6/classMcroWindows.html", "d7/db6/classMcroWindows" ],
     [ "TAllocatorTraits< Mcro::Ansi::FAllocator >", "df/d65/structTAllocatorTraits_3_01Mcro_1_1Ansi_1_1FAllocator_01_4.html", null ],
-    [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", null ],
+    [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4" ],
     [ "UDynamicDelegateTestClass", "d4/ded/classUDynamicDelegateTestClass.html", "d4/ded/classUDynamicDelegateTestClass" ]
 ];

@@ -127,17 +127,20 @@ $(function(){initNavTree('da/d3c/structMcro_1_1Dll_1_1FScopedDllSet.html','../..
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad4cce4a13fcc38b701b6588ded8b4fd3" id="r_ad4cce4a13fcc38b701b6588ded8b4fd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4cce4a13fcc38b701b6588ded8b4fd3">FScopedDllSet</a> ()</td></tr>
 <tr class="separator:ad4cce4a13fcc38b701b6588ded8b4fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af45764460aab9c7e4cfe28db3447b6ac" id="r_af45764460aab9c7e4cfe28db3447b6ac"><td class="memTemplParams" colspan="2">template&lt;CConvertibleTo&lt; const TCHAR * &gt;... Args&gt; </td></tr>
-<tr class="memitem:af45764460aab9c7e4cfe28db3447b6ac"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af45764460aab9c7e4cfe28db3447b6ac">FScopedDllSet</a> (FString const &amp;pushPath, Args... args)</td></tr>
-<tr class="separator:af45764460aab9c7e4cfe28db3447b6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf281f05763933fa7b79059d6c3ee022" id="r_acf281f05763933fa7b79059d6c3ee022"><td class="memTemplParams" colspan="2">template&lt;CConvertibleTo&lt; const TCHAR * &gt;... DllFiles&gt; </td></tr>
+<tr class="memitem:acf281f05763933fa7b79059d6c3ee022"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acf281f05763933fa7b79059d6c3ee022">FScopedDllSet</a> (FString const &amp;pushPath, DllFiles... dllFiles)</td></tr>
+<tr class="separator:acf281f05763933fa7b79059d6c3ee022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac87ab748e62b9a12fc627375cfbbe964" id="r_ac87ab748e62b9a12fc627375cfbbe964"><td class="memTemplParams" colspan="2">template&lt;CConvertibleTo&lt; const TCHAR * &gt;... DllFiles&gt; </td></tr>
+<tr class="memitem:ac87ab748e62b9a12fc627375cfbbe964"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac87ab748e62b9a12fc627375cfbbe964">FScopedDllSet</a> (TSharedPtr&lt; IPlugin &gt; plugin, FString const &amp;pushPath, DllFiles... dllFiles)</td></tr>
+<tr class="separator:ac87ab748e62b9a12fc627375cfbbe964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handle multiple DLL files in one set and an optional base path for them. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00042">42</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00046">46</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad4cce4a13fcc38b701b6588ded8b4fd3" name="ad4cce4a13fcc38b701b6588ded8b4fd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cce4a13fcc38b701b6588ded8b4fd3">&#9670;&#160;</a></span>FScopedDllSet() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cce4a13fcc38b701b6588ded8b4fd3">&#9670;&#160;</a></span>FScopedDllSet() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,17 +162,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00044">44</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00048">48</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
 
 </div>
 </div>
-<a id="af45764460aab9c7e4cfe28db3447b6ac" name="af45764460aab9c7e4cfe28db3447b6ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af45764460aab9c7e4cfe28db3447b6ac">&#9670;&#160;</a></span>FScopedDllSet() <span class="overload">[2/2]</span></h2>
+<a id="acf281f05763933fa7b79059d6c3ee022" name="acf281f05763933fa7b79059d6c3ee022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf281f05763933fa7b79059d6c3ee022">&#9670;&#160;</a></span>FScopedDllSet() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CConvertibleTo&lt; const TCHAR * &gt;... Args&gt; </div>
+template&lt;CConvertibleTo&lt; const TCHAR * &gt;... DllFiles&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -182,7 +185,7 @@ template&lt;CConvertibleTo&lt; const TCHAR * &gt;... Args&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Args...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+          <td class="paramtype">DllFiles...</td>          <td class="paramname"><span class="paramname"><em>dllFiles</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -191,13 +194,66 @@ template&lt;CConvertibleTo&lt; const TCHAR * &gt;... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pushPath</td><td>The absolute path to be pushed for the basis of finding given DLL's </td></tr>
+    <tr><td class="paramname">dllFiles</td><td>The list of DLL file names </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00047">47</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00055">55</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
+
+</div>
+</div>
+<a id="ac87ab748e62b9a12fc627375cfbbe964" name="ac87ab748e62b9a12fc627375cfbbe964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac87ab748e62b9a12fc627375cfbbe964">&#9670;&#160;</a></span>FScopedDllSet() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CConvertibleTo&lt; const TCHAR * &gt;... DllFiles&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mcro::Dll::FScopedDllSet::FScopedDllSet </td>
+          <td>(</td>
+          <td class="paramtype">TSharedPtr&lt; IPlugin &gt;</td>          <td class="paramname"><span class="paramname"><em>plugin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FString const &amp;</td>          <td class="paramname"><span class="paramname"><em>pushPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DllFiles...</td>          <td class="paramname"><span class="paramname"><em>dllFiles</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plugin</td><td>The plugin this set of DLL's will be relative to </td></tr>
+    <tr><td class="paramname">pushPath</td><td>The relative path to the plugin base where to find given DLL's </td></tr>
+    <tr><td class="paramname">dllFiles</td><td>The list of DLL file names </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/dd8/Dll_8h_source.html#l00067">67</a> of file <a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>Public/Mcro/<a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a></li>
+<li>Mcro/Public/Mcro/<a class="el" href="../../d6/dd8/Dll_8h_source.html">Dll.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

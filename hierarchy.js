@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "McroBuild.AbsolutePathExtensions", "d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html", null ],
     [ "BaseTypes...", null, [
       [ "Mcro::Any::TInherit< BaseTypes >", "d3/d59/classMcro_1_1Any_1_1TInherit.html", null ]
     ] ],
@@ -22,7 +23,7 @@ var hierarchy =
       [ "FCopyForbidden", "de/d5a/structFCopyForbidden.html", null ],
       [ "Mcro::Finally::FFinally", "d4/d80/structMcro_1_1Finally_1_1FFinally.html", null ]
     ] ],
-    [ "Mcro::Modules::TModuleBoundObject< M, T >::FObjectCustomization", "da/d63/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectCustomization.html", null ],
+    [ "Mcro::Modules::TModuleBoundObject< M, T >::FObjectFactory", "dd/dab/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectFactory.html", null ],
     [ "Mcro::Modules::FObserveModuleListener", "d6/d98/structMcro_1_1Modules_1_1FObserveModuleListener.html", null ],
     [ "Mcro::Once::FOnce", "d9/d70/structMcro_1_1Once_1_1FOnce.html", null ],
     [ "Mcro::Ansi::FAllocator::ForAnyElementType", "dc/dc0/classMcro_1_1Ansi_1_1FAllocator_1_1ForAnyElementType.html", [
@@ -54,6 +55,9 @@ var hierarchy =
     ] ],
     [ "Mcro::Composition::IComposable", "dc/d01/classMcro_1_1Composition_1_1IComposable.html", null ],
     [ "Mcro::AutoModularFeature::IFeatureImplementation", "d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html", null ],
+    [ "IFormattable", null, [
+      [ "McroBuild.AbsolutePath", "d2/d11/classMcroBuild_1_1AbsolutePath.html", null ]
+    ] ],
     [ "IModularFeature", null, [
       [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorDisplayExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ],
       [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorWindowExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ],
@@ -67,17 +71,26 @@ var hierarchy =
         [ "Mcro::Observable::TState< T, DefaultPolicy >", "d7/d5e/structMcro_1_1Observable_1_1TState.html", null ]
       ] ]
     ] ],
+    [ "McroBuild.ModuleRuleExtensions", "d9/d83/classMcroBuild_1_1ModuleRuleExtensions.html", null ],
+    [ "ModuleRules", null, [
+      [ "Mcro", "d4/deb/classMcro.html", null ],
+      [ "McroISPC", "d2/d20/classMcroISPC.html", null ],
+      [ "McroWindows", "d7/db6/classMcroWindows.html", null ]
+    ] ],
     [ "Mcro::Range::OutputTo< Target >", "d0/dcf/classMcro_1_1Range_1_1OutputTo.html", null ],
     [ "Mcro::Range::OutputToMap< Target >", "d7/d64/classMcro_1_1Range_1_1OutputToMap.html", null ],
     [ "Mcro::Templates::TTemplate< Template >::Parameters< T >", "d3/db8/structMcro_1_1Templates_1_1TTemplate_1_1Parameters.html", null ],
     [ "Mcro::Templates::TTemplate< Template >::Parameters< Template< Params... > >", "d7/d12/structMcro_1_1Templates_1_1TTemplate_1_1Parameters_3_01Template_3_01Params_8_8_8_01_4_01_4.html", null ],
     [ "Mcro::Templates::TTemplate< Template >::ParametersDecay< T >", "d4/d82/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay.html", null ],
     [ "Mcro::Templates::TTemplate< Template >::ParametersDecay< Template< Params... > >", "d5/dcb/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay_3_01Template_3_01Params_8_8_8_01_4_01_4.html", null ],
+    [ "McroBuild.PathUtils", "df/dbf/classMcroBuild_1_1PathUtils.html", null ],
     [ "std::random_access_iterator_tag", null, [
       [ "Mcro::Range::FTempStringIterator", "d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html", null ]
     ] ],
     [ "Mcro::Range::RenderAs< Target >", "d0/d5d/classMcro_1_1Range_1_1RenderAs.html", null ],
     [ "Mcro::Range::RenderAsMap", "d8/d57/classMcro_1_1Range_1_1RenderAsMap.html", null ],
+    [ "McroBuild.RuntimeDependencies", "d4/d0a/classMcroBuild_1_1RuntimeDependencies.html", null ],
+    [ "McroBuild.RuntimeDependency", "d2/d60/classMcroBuild_1_1RuntimeDependency.html", null ],
     [ "SCompoundWidget", null, [
       [ "Mcro::Error::SErrorDisplay", "d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html", [
         [ "Mcro::Error::SPlainTextDisplay", "d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html", null ]
@@ -143,6 +156,9 @@ var hierarchy =
     [ "TMapBase< FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag, FMapPairsAccessTag >", "db/d3c/classTMapBase_3_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_00_01FMapPairsAccessTag_01_4.html", null ],
     [ "Mcro::Error::TMaybe< T >", "d2/d94/structMcro_1_1Error_1_1TMaybe.html", null ],
     [ "Mcro::Modules::TModuleBoundObject< M, T >", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html", null ],
+    [ "Mcro::Modules::TModuleBoundObject< M, FScopedDllSet >", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html", [
+      [ "Mcro::Dll::TModuleBoundDlls< M >", "d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html", null ]
+    ] ],
     [ "Mcro::Delegates::TNative_Struct< typename >", "d0/d5d/structMcro_1_1Delegates_1_1TNative__Struct.html", null ],
     [ "Mcro::Delegates::TNative_Struct< Dynamic >", "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html", null ],
     [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultPolicy >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", null ],
@@ -164,7 +180,9 @@ var hierarchy =
           [ "Mcro::Error::IPlainTextComponent", "d3/d00/classMcro_1_1Error_1_1IPlainTextComponent.html", [
             [ "Mcro::Error::FBlueprintStackTrace", "d8/d83/classMcro_1_1Error_1_1FBlueprintStackTrace.html", null ],
             [ "Mcro::Error::FCppStackTrace", "d5/d87/classMcro_1_1Error_1_1FCppStackTrace.html", null ]
-          ] ]
+          ] ],
+          [ "Mcro::Windows::Error::FHresultError", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html", null ],
+          [ "Mcro::Windows::Error::FLastError", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html", null ]
         ] ]
       ] ]
     ] ],

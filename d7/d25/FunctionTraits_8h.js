@@ -1,12 +1,12 @@
 var FunctionTraits_8h =
 [
     [ "Mcro::FunctionTraits::Detail::TFunctionMeta< ReturnIn, Args >", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta" ],
-    [ "Mcro::FunctionTraits::TFunctionTraits< T >", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", null ],
-    [ "Mcro::FunctionTraits::TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", null ],
+    [ "Mcro::FunctionTraits::TFunctionTraits< T >", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html", "dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits" ],
+    [ "Mcro::FunctionTraits::TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4" ],
     [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(ClassIn::*)(Args...) const >", "db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", "db/dd1/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_01const_01_4" ],
     [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(ClassIn::*)(Args...)>", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4" ],
-    [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", null ],
-    [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", null ],
+    [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(*)(Args...)>", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html", "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4" ],
+    [ "Mcro::FunctionTraits::TFunctionTraits< ReturnIn(Args...)>", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4.html", "de/d8e/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07Args_8_8_8_08_4" ],
     [ "Mcro::FunctionTraits::Detail::TFunctionFromTuple_Struct< Return, Tuple >", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct" ],
     [ "Mcro::FunctionTraits::TDeferFunctionArguments< FuncPtr, Function >", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments" ],
     [ "Mcro::FunctionTraits::CFunctorObject", "d7/dba/conceptMcro_1_1FunctionTraits_1_1CFunctorObject.html", null ],
