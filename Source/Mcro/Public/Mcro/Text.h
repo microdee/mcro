@@ -398,6 +398,16 @@ namespace Mcro::Text
 	}
 
 	/**
+	 *	@brief  Convert anything which is compatible with `AsString` to FText.
+	 */
+	template <CStringFormatArgument T>
+	requires(!CSameAsDecayed<T, FText>)
+	FText AsText(T&& input)
+	{
+		return FText::FromString(AsString(input));
+	}
+
+	/**
 	 *	@brief  Create an ordered argument list for a string format from input arguments
 	 *
 	 *	While you can it is not recommended to be used directly because the boilerplate it still needs is very verbose.
