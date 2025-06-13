@@ -165,13 +165,14 @@ namespace Mcro::Slate
 	 *			+ TSlots(args._DataArray, [](const FMyData& data)
 	 *			{
 	 *				FText dataText = FText::FromString(data.ToString());
-	 *				return SVerticalBox::Slot()
+	 *				return MoveTemp(SVerticalBox::Slot()
 	 *					. HAlign(HAlign_Fill)
 	 *					. AutoHeight()
 	 *					[
 	 *						SNew(STextBlock)
 	 *						. Text(dataText)
 	 *					];
+	 *				);
 	 *			})
 	 *			+ SVerticalBox::Slot()
 	 *			. HAlign(HAlign_Fill)
@@ -239,7 +240,7 @@ namespace Mcro::Slate
 
 		/** @copydoc TSlots */
 		template <CWidgetArguments Arguments>
-		friend Arguments& operator + (Arguments& args, TSlots&& slots)
+		friend Arguments& operator + (Arguments&& args, TSlots&& slots)
 		{
 			slots.Append(args);
 			return args;
