@@ -206,3 +206,42 @@ FORCEINLINE FText operator % (FText const& format, FStringFormatNamedArguments&&
  *	`FMT` macros are the only things in MCRO where excessive preprocessing is used
  */
 #define _FMT(...) % MCRO_FMT_ARGS(__VA_ARGS__)
+
+/**
+ *	@brief
+ *	Similar to `UE_LOGFMT`, but implemented via MCRO's own `_FMT` macro. So it's more convenient to pass format arguments.
+ *
+ *	This is naively implemented via regular UE_LOG which gets a single string format argument which is fed the result of
+ *	the `_FMT` macro. `UE_LOGFMT` may have better performance or may have more insights to format arguments.
+ *
+ *	The same argument syntax applies here as with `_FMT` regarding the distinction between named and ordered arguments.
+ *
+ *	Named arguments:
+ *	@code
+ *	// Vanilla:
+ *	UE_LOGFMT(LogSpaceMouseConfig, Display, "Input Binding {Context} / {Name} is handled",
+ *		cmd.GetBindingContext().ToString(),
+ *		cmd.GetCommandName().ToString()
+ *	);
+ *	// MCRO:
+ *	FMT_LOG(LogSpaceMouseConfig, Display, "Input Binding {Context} / {Name} is handled",
+ *		(Context, cmd.GetBindingContext()) // <- Notice the lack of comma here!
+ *		(Name,    cmd.GetCommandName())
+ *	);
+ *	@endcode
+ *	Ordered arguments:
+ *	@code
+ *	// Vanilla:
+ *	UE_LOGFMT(LogSpaceMouseConfig, Display, "Input Binding {0} / {1} is handled",
+ *		cmd.GetBindingContext().ToString(),
+ *		cmd.GetCommandName().ToString()
+ *	);
+ *	// MCRO:
+ *	FMT_LOG(LogSpaceMouseConfig, Display, "Input Binding {0} / {1} is handled",
+ *		cmd.GetBindingContext(),
+ *		cmd.GetCommandName()
+ *	);
+ *	@endcode 
+ */
+#define FMT_LOG(categoryName, verbosity, format, ...) \
+	UE_LOG(categoryName, verbosity, TEXT("%s"), *(TEXT(format) _FMT(__VA_ARGS__)))
