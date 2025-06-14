@@ -406,6 +406,12 @@ namespace Mcro::Text
 	{
 		return FText::FromString(AsString(input));
 	}
+	
+	template <CSameAsDecayed<FText> T>
+	decltype(auto) AsText(T&& input)
+	{
+		return FWD(input);
+	}
 
 	/**
 	 *	@brief  Create an ordered argument list for a string format from input arguments
