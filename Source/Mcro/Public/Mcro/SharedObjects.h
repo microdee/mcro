@@ -45,7 +45,7 @@ namespace Mcro::SharedObjects
 	template <typename T, typename... Args>
 	concept CSharedInitializeable = requires(T& object, Args&&... args)
 	{
-		object.Initialize(Forward<Args>(args)...);
+		object.Initialize(FWD(args)...);
 	};
 
 	/**
@@ -64,7 +64,7 @@ namespace Mcro::SharedObjects
 	TSharedRef<T, Mode> MakeShareableInit(T* newObject, Args&&... args)
 	{
 		TSharedRef<T, Mode> result = MakeShareable(newObject);
-		result->Initialize(Forward<Args>(args)...);
+		result->Initialize(FWD(args)...);
 		return result;
 	}
 
@@ -101,7 +101,7 @@ namespace Mcro::SharedObjects
 	{
 		using namespace Mcro::Construct;
 		return MakeShareable(
-			ConstructNew(Forward<Initializer>(init), Forward<Args>(args)...)
+			ConstructNew(FWD(init), FWD(args)...)
 		);
 	}
 

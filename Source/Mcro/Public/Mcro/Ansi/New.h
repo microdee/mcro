@@ -12,6 +12,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Mcro/Macros.h"
 #include "HAL/MallocAnsi.h"
 
 namespace Mcro::Ansi
@@ -31,7 +32,7 @@ namespace Mcro::Ansi
 	T* New(Args&&... args)
 	{
 		T* result = static_cast<T*>(AnsiMalloc(sizeof(T), alignof(T)));
-		return new (result) T(Forward<Args>(args)...);
+		return new (result) T(FWD(args)...);
 	}
 	
 	/**

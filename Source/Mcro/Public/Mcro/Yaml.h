@@ -41,7 +41,7 @@ namespace Mcro::Yaml
 		template <typename T>
 		TScopedRegion& operator << (T&& rhs)
 		{
-			Out << Forward<T>(rhs);
+			Out << FWD(rhs);
 			return *this;
 		}
 	};
@@ -57,7 +57,7 @@ namespace Mcro::Yaml
 	requires (CStringOrViewOrName<String> || CStdStringOrView<String>)
 	YAML::Emitter& operator << (YAML::Emitter& out, String&& v)
 	{
-		out << StdConvert<ANSICHAR>(Forward<String>(v));
+		out << StdConvert<ANSICHAR>(FWD(v));
 		return out;
 	}
 	

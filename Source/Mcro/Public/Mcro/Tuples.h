@@ -105,19 +105,19 @@ namespace Mcro::Tuples
 	template <size_t I, CStdTupleLike T>
 	decltype(auto) GetItem(T&& tuple)
 	{
-		return std::get<I>(Forward<T>(tuple));
+		return std::get<I>(FWD(tuple));
 	}
 
 	template <size_t I, CRangeV3TupleLike T>
 	decltype(auto) GetItem(T&& tuple)
 	{
-		return ranges::get<I>(Forward<T>(tuple));
+		return ranges::get<I>(FWD(tuple));
 	}
 
 	template <size_t I, CUnrealTuple T>
 	decltype(auto) GetItem(T&& tuple)
 	{
-		return Forward<T>(tuple).template Get<I>();
+		return FWD(tuple).template Get<I>();
 	}
 
 	template <CStdOrRangeV3Tuple T>
@@ -216,7 +216,7 @@ namespace Mcro::Tuples
 		auto Prepend_Impl(T&& left, RestTuple const& right, std::index_sequence<Indices...>&&)
 		{
 			return TTuple<T, typename TTupleElement<Indices, RestTuple>::Type...>(
-				Forward<T>(left), right.template Get<Indices>()...
+				FWD(left), right.template Get<Indices>()...
 			);
 		}
 		
@@ -224,7 +224,7 @@ namespace Mcro::Tuples
 		auto Append_Impl(T&& right, RestTuple const& left, std::index_sequence<Indices...>&&)
 		{
 			return TTuple<typename TTupleElement<Indices, RestTuple>::Type..., T>(
-				left.template Get<Indices>()..., Forward<T>(right)
+				left.template Get<Indices>()..., FWD(right)
 			);
 		}
 	}

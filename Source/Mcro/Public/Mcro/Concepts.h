@@ -28,6 +28,7 @@
 
 #include <type_traits>
 #include "CoreMinimal.h"
+#include "Mcro/Macros.h"
 
 #define MCRO_THIS_TYPE decltype(Mcro::Concepts::DecayPtr(this))
 
@@ -81,7 +82,7 @@ namespace Mcro::Concepts
 	concept CBooleanTestable = CConvertibleToDecayed<T, bool>
 		&& requires(T&& t)
 		{
-			{ !Forward<T>(t) } -> CConvertibleTo<bool>;
+			{ !FWD(t) } -> CConvertibleTo<bool>;
 		}
 	;
 
@@ -134,7 +135,7 @@ namespace Mcro::Concepts
 	concept CDestructible = std::is_nothrow_destructible_v<std::decay_t<T>>;
 
 	template<typename T, typename... From>
-	concept CConstructibleFrom = requires(From&&... from) { std::decay_t<T>(Forward<From>(from)...); };
+	concept CConstructibleFrom = requires(From&&... from) { std::decay_t<T>(FWD(from)...); };
 
 	template<typename T>
 	concept CDefaultInitializable = CConstructibleFrom<T> && requires { std::decay_t<T>{}; };
@@ -173,7 +174,7 @@ namespace Mcro::Concepts
 	template<typename Function, typename... Args>
 	concept CInvocable = requires(std::decay_t<Function>&& function, Args&&... args)
 	{
-		std::invoke(Forward<std::decay_t<Function>&&>(function), Forward<Args&&>(args)...);
+		std::invoke(FWD(function), Forward<Args&&>(args)...);
 	};
 
 	template<typename Function, typename... Args>

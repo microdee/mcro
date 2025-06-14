@@ -175,8 +175,8 @@ FORCEINLINE auto begin(FString&       string) -> const TCHAR* { return *string; 
 FORCEINLINE auto begin(FString const& string) -> const TCHAR* { return *string; }
 FORCEINLINE auto end  (FString&       string) -> const TCHAR* { return *string + string.Len(); }
 FORCEINLINE auto end  (FString const& string) -> const TCHAR* { return *string + string.Len(); }
-FORCEINLINE auto begin(FString&&      string) -> Mcro::Range::FTempStringIterator { return {Forward<FString>(string), false}; }
-FORCEINLINE auto end  (FString&&      string) -> Mcro::Range::FTempStringIterator { return {Forward<FString>(string), true}; }
+FORCEINLINE auto begin(FString&&      string) -> Mcro::Range::FTempStringIterator { return {FWD(string), false}; }
+FORCEINLINE auto end  (FString&&      string) -> Mcro::Range::FTempStringIterator { return {FWD(string), true}; }
 FORCEINLINE size_t size(FString const& string) { return static_cast<size_t>(string.Len()); }
 
 // TBasicArray (pointer via begin/end)

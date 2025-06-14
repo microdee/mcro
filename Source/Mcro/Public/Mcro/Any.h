@@ -66,20 +66,20 @@ namespace Mcro::Any
 		{
 			function(TTypes<T>());
 			if constexpr (CHasBases<T>)
-				ForEachExplicitBase<typename T::Bases>(Forward<Function>(function));
+				ForEachExplicitBase<typename T::Bases>(FWD(function));
 		}
 
 		template <CIsTypeList Bases, typename Function, size_t... Indices>
 		void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
 		{
-			(ForEachExplicitBase_Body<TTypes_Get<Bases, Indices>>(Forward<Function>(function)), ...);
+			(ForEachExplicitBase_Body<TTypes_Get<Bases, Indices>>(FWD(function)), ...);
 		}
 
 		template <CIsTypeList Bases, typename Function>
 		void ForEachExplicitBase(Function&& function)
 		{
 			ForEachExplicitBase_Impl<Bases>(
-				Forward<Function>(function),
+				FWD(function),
 				std::make_index_sequence<Bases::Count>()
 			);
 		}
@@ -212,7 +212,7 @@ namespace Mcro::Any
 					self.AddAlias(TTypeOf<Base>);
 				});
 			}
-			return Forward<Self>(self);
+			return FWD(self);
 		}
 
 		/** @brief Specify multiple types the enclosed value can be safely cast to, and are valid to be used with `TryGet`. */
@@ -220,7 +220,7 @@ namespace Mcro::Any
 		decltype(auto) With(this Self&& self, TTypes<T...>&&)
 		{
 			(self.AddAlias(TTypeOf<T>), ...);
-			return Forward<Self>(self);
+			return FWD(self);
 		}
 
 		FORCEINLINE bool IsValid() const { return static_cast<bool>(Storage); }

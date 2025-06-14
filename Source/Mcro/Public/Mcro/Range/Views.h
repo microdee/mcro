@@ -24,7 +24,7 @@ namespace Mcro::Range
 
 	/** @brief Make an initializer list compatible with range API's */
 	template <typename T>
-	decltype(auto) Literal(std::initializer_list<T>&& input) { return Forward<std::initializer_list<T>>(input); }
+	decltype(auto) Literal(std::initializer_list<T>&& input) { return FWD(input); }
 
 	/** @brief pipeable version of `ranges::views::zip` */
 	template <CRangeMember... Ranges>
@@ -32,7 +32,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([&](auto&& left)
 		{
-			return ranges::views::zip(left, Forward<Ranges>(right)...);
+			return ranges::views::zip(left, FWD(right)...);
 		});
 	}
 	
@@ -42,7 +42,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([&](auto&& left)
 		{
-			return ranges::views::concat(left, Forward<Ranges>(right)...);
+			return ranges::views::concat(left, FWD(right)...);
 		});
 	}
 
@@ -182,7 +182,7 @@ namespace Mcro::Range
 	{
 		return ranges::views::filter([]<CValidable T>(T&& item)
 		{
-			return TestValid(Forward<T>(item));
+			return TestValid(FWD(item));
 		});
 	}
 }

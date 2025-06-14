@@ -61,7 +61,7 @@ namespace Mcro::ValueThunk
 		};
 
 		template <CMoveConstructible = T>
-		TValueThunk(T&& value) : Storage(Forward<T>(value)), bIsSet(true) {};
+		TValueThunk(T&& value) : Storage(FWD(value)), bIsSet(true) {};
 		
 		template <CMoveConstructible = T>
 		TValueThunk(TValueThunk&& other)
@@ -76,7 +76,7 @@ namespace Mcro::ValueThunk
 		requires CConvertibleTo<TFunction_ReturnDecay<Functor>, T>
 		TValueThunk(Functor&& value, FValueThunkOptions const& options = {})
 			: Options(options)
-			, Function(Forward<Functor>(value))
+			, Function(FWD(value))
 		{};
 
 	private:

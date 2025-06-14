@@ -115,7 +115,7 @@ namespace Mcro::Text::Macros
 	struct TStringPrintfLiteral
 	{
 		using Arguments = TTuple<Args...>;
-		TStringPrintfLiteral(Args&&... args) : Storage(Forward<Args>(args)...) {}
+		TStringPrintfLiteral(Args&&... args) : Storage(FWD(args)...) {}
 
 	private:
 		template <size_t CharN, size_t... Sequence>
@@ -123,11 +123,7 @@ namespace Mcro::Text::Macros
 		{
 			return FString::Printf(
 				format,
-				Forward<
-					typename TTupleElement<Sequence, Arguments>::Type
-				>(
-					Storage.template Get<Sequence>()
-				)...
+				FWD(Storage.template Get<Sequence>())...
 			);
 		}
 		
@@ -156,7 +152,7 @@ namespace Mcro::Text::Macros
 	template <typename... Args>
 	TStringPrintfLiteral<Args...> MakePrintfLiteral(Args&&... args)
 	{
-		return TStringPrintfLiteral<Args...>(Forward<Args>(args)...);
+		return TStringPrintfLiteral<Args...>(FWD(args)...);
 	}
 }
 

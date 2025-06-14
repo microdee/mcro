@@ -92,7 +92,7 @@ namespace Mcro::Slate
 		using Function = TFunction<T&(T&)>;
 
 		template <CConvertibleToDecayed<Function> Arg>
-		TAttributeBlockFunctor(Arg&& function) : Storage(Forward<Arg>(function)) {}
+		TAttributeBlockFunctor(Arg&& function) : Storage(FWD(function)) {}
 
 		Function Storage;
 

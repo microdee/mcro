@@ -394,7 +394,7 @@ namespace Mcro::Text
 	template <CSameAsDecayed<FString> T>
 	decltype(auto) AsString(T&& input)
 	{
-		return Forward<T>(input);
+		return FWD(input);
 	}
 
 	/**

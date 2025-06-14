@@ -146,7 +146,7 @@ namespace Mcro::Error
 		requires CSharedInitializeable<T, Args...>
 		static TSharedRef<T> Make(T* newError, Args&&... args)
 		{
-			return MakeShareableInit(newError, Forward<Args>(args)...)->WithType();
+			return MakeShareableInit(newError, FWD(args)...)->WithType();
 		}
 
 		/**
@@ -209,7 +209,7 @@ namespace Mcro::Error
 		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithMessageF(this Self&& self, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			self.Message = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
+			self.Message = FString::Format(input, OrderedArguments(FWD(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 
@@ -225,7 +225,7 @@ namespace Mcro::Error
 		template <typename Self, typename... FormatArgs>
 		SelfRef<Self> WithMessageFC(this Self&& self, bool condition, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			if (condition) self.Message = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
+			if (condition) self.Message = FString::Format(input, OrderedArguments(FWD(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 		
@@ -300,7 +300,7 @@ namespace Mcro::Error
 		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithDetailsF(this Self&& self, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			self.Details = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
+			self.Details = FString::Format(input, OrderedArguments(FWD(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 
@@ -319,7 +319,7 @@ namespace Mcro::Error
 		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithDetailsFC(this Self&& self, bool condition, const TCHAR* input, FormatArgs&&... fmtArgs)
 		{
-			if (condition) self.Details = FString::Format(input, OrderedArguments(Forward<FormatArgs>(fmtArgs)...));
+			if (condition) self.Details = FString::Format(input, OrderedArguments(FWD(fmtArgs)...));
 			return self.SharedThis(&self);
 		}
 
@@ -444,7 +444,7 @@ namespace Mcro::Error
 		template <typename Self, CStringFormatArgument... FormatArgs>
 		SelfRef<Self> WithAppendixF(this Self&& self, const FString& name, const TCHAR* text, FormatArgs&&... fmtArgs)
 		{
-			self.AddAppendix(name, FString::Format(text, OrderedArguments(Forward<FormatArgs>(fmtArgs)...)));
+			self.AddAppendix(name, FString::Format(text, OrderedArguments(FWD(fmtArgs)...)));
 			return self.SharedThis(&self);
 		}
 
@@ -461,7 +461,7 @@ namespace Mcro::Error
 		SelfRef<Self> WithAppendixFC(this Self&& self, bool condition, const FString& name, const TCHAR* text, FormatArgs&&... fmtArgs)
 		{
 			if (condition)
-				self.AddAppendix(name, FString::Format(text, OrderedArguments(Forward<FormatArgs>(fmtArgs)...)));
+				self.AddAppendix(name, FString::Format(text, OrderedArguments(FWD(fmtArgs)...)));
 			return self.SharedThis(&self);
 		}
 
@@ -613,7 +613,7 @@ namespace Mcro::Error
 		
 		/** @brief Enable move constructor for T only when T is move constructable */
 		template <CConvertibleToDecayed<T> From, CMoveConstructible = T>
-		TMaybe(From&& value) : Value(Forward<From>(value)) {}
+		TMaybe(From&& value) : Value(FWD(value)) {}
 		
 		/** @brief Enable copy constructor for TMaybe only when T is copy constructable */
 		template <CConvertibleToDecayed<T> From, CCopyConstructible = T>
@@ -655,7 +655,7 @@ namespace Mcro::Error
 		Self&& ModifyError(this Self&& self, Function&& mod)
 		{
 			if (self.HasError()) mod(self.GetErrorRef());
-			return Forward<Self>(self);
+			return FWD(self);
 		}
 		
 		operator TValueOrError<T, IErrorPtr>() const

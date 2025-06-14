@@ -252,19 +252,19 @@ namespace Mcro::Templates
 
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CConstType T>
-	constexpr auto&& AsConst(T&& input) { return Forward<T>(input); }
+	constexpr auto&& AsConst(T&& input) { return FWD(input); }
 	
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CMutableType T>
-	constexpr auto&& AsConst(T&& input) { return Forward<T>(const_cast<const T>(input)); }
+	constexpr auto&& AsConst(T&& input) { return FWD(const_cast<const T>(input)); }
 
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CMutableType T>
-	constexpr auto&& AsMutable(T&& input) { return Forward<T>(input); }
+	constexpr auto&& AsMutable(T&& input) { return FWD(input); }
 	
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName>(...)`? use this instead */
 	template <CConstType T>
-	constexpr auto&& AsMutable(T&& input) { return Forward<T>(const_cast<T>(input)); }
+	constexpr auto&& AsMutable(T&& input) { return FWD(const_cast<T>(input)); }
 
 	/** @brief Tired of typing `const_cast<FMyLongUnwieldyTypeName*>(...)`? use this instead */
 	template <typename T>
