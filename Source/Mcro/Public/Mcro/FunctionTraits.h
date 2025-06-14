@@ -42,6 +42,18 @@ namespace Mcro::FunctionTraits
 			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
 			using ArgumentsDecay = TTuple<std::decay_t<Args>...>;
 
+			/** The input parameters of the function as a std::tuple type. Types are not decayed. */
+			using ArgumentsStd = std::tuple<Args...>;
+
+			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
+			using ArgumentsStdDecay = std::tuple<std::decay_t<Args>...>;
+
+			/** The input parameters of the function as a std::tuple type. Types are not decayed. */
+			using ArgumentsRangeV3 = ranges::common_tuple<Args...>;
+
+			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
+			using ArgumentsRangeV3Decay = ranges::common_tuple<std::decay_t<Args>...>;
+
 			/** The pure function signature with other information stripped from it */
 			using Signature = Return(Args...);
 
@@ -223,53 +235,73 @@ namespace Mcro::FunctionTraits
 	
 	namespace Detail
 	{
-		template<typename Function, size_t... Sequence>
+		template <typename Function, CTuple Tuple, size_t... Sequence>
 		TFunction_Return<Function> InvokeWithTuple_Impl(
 			Function&& function,
-			TFunction_Arguments<Function> const& arguments,
+			Tuple&& arguments,
 			std::index_sequence<Sequence...>&&
-		)
-		{
-			return function(arguments.template Get<Sequence>()...);
+		) {
+			return function(GetItem<Sequence>(arguments)...);
 		}
 		
-		template<typename Object, typename Function, size_t... Sequence>
+		template <typename Object, typename Function, CTuple Tuple, size_t... Sequence>
 		TFunction_Return<Function> InvokeWithTuple_Impl(
 			Object* object,
 			Function&& function,
-			TFunction_Arguments<Function> const& arguments,
+			Tuple&& arguments,
 			std::index_sequence<Sequence...>&&
-		)
-		{
-			return (object->*function)(arguments.template Get<Sequence>()...);
+		) {
+			return (object->*function)(GetItem<Sequence>(arguments)...);
 		}
 	}
 
 	/**
+	 *	@brief  Is given tuple type compatible with the arguments of the given function?
+	 *
+	 *	Works with `TTuple`, `std::tuple` and `ranges::common_tuple` (tuple type of RangeV3 library)
+	 */
+	template <typename Tuple, typename Function>
+	concept CTupleCompatibleWithFunction =
+		CTuple<Tuple> && CFunctionLike<Function>
+		&& (
+			CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::Arguments>
+			|| CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::ArgumentsStd>
+			|| CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::ArgumentsRangeV3>
+		)
+	;
+
+	/**
 	 *	@brief
-	 *	A clone of std::apply for Unreal tuples which also supports function pointers.
+	 *	A clone of std::apply for Unreal, STL and RangeV3 tuples which also supports function pointers.
+	 *	
 	 *	TL;DR: It calls a function with arguments supplied from a tuple.
 	 */
-	template<typename Function>
-	TFunction_Return<Function> InvokeWithTuple(Function&& function, TFunction_Arguments<Function> const& arguments)
+	template <typename Function, CTupleCompatibleWithFunction<Function> Tuple>
+	TFunction_Return<Function> InvokeWithTuple(Function&& function, Tuple&& arguments)
 	{
 		return Detail::InvokeWithTuple_Impl(
-			Forward<Function>(function), arguments,
+			FWD(function), FWD(arguments),
 			std::make_index_sequence<TFunction_ArgCount<Function>>()
 		);
 	}
 
 	/**
 	 *	@brief
-	 *	A clone of std::apply for Unreal tuples which also supports function pointers. This overload can bind an object
+	 *	A clone of std::apply for Unreal, STL and RangeV3 tuples which also supports function pointers. This overload
+	 *	can bind an object
+	 *	
 	 *	TL;DR: It calls a function with arguments supplied from a tuple.
 	 */
-	template<CFunctionPtr Function, CHasFunction<Function> Object>
-	TFunction_Return<Function> InvokeWithTuple(Object* object, Function&& function, TFunction_Arguments<Function> const& arguments)
+	template <
+		CFunctionPtr Function,
+		CHasFunction<Function> Object,
+		CTupleCompatibleWithFunction<Function> Tuple
+	>
+	TFunction_Return<Function> InvokeWithTuple(Object* object, Function&& function, Tuple&& arguments)
 	{
 		return Detail::InvokeWithTuple_Impl(
 			object,
-			Forward<Function>(function), arguments,
+			FWD(function), FWD(arguments),
 			std::make_index_sequence<TFunction_ArgCount<Function>>()
 		);
 	}
@@ -371,7 +403,7 @@ namespace Mcro::FunctionTraits
 
 		template <typename... Args>
 		TDeferFunctionArguments(Args... args)
-			: Storage(Forward<Args>(args)...)
+			: Storage(FWD(args)...)
 		{}
 
 		template <CConvertibleToDecayed<FirstArg> FirstArgRef>
