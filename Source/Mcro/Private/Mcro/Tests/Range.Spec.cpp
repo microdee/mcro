@@ -115,6 +115,30 @@ void FMcroRange_Spec::Define()
 			);
 		});
 	});
+
+	Describe(TEXT_"Functional deconstruction of tuples", [this]
+	{
+		It(TEXT_"should transform properly", [this]
+		{
+			TMap<EPixelFormat, FName> map
+			{
+				{PF_R8G8, NAME_"Ech"},
+				{PF_DXT1, NAME_"OK"},
+				{PF_DXT3, NAME_"Nice"},
+				{PF_DXT5, NAME_"Great"}
+			};
+
+			TestTrue(
+				TEXT_"Tuples from maps",
+				map
+					| TransformTuple([](EPixelFormat key, FName const& value)
+					{
+						return value;
+					})
+					| MatchOrdered({NAME_"Ech", NAME_"OK", NAME_"Nice", NAME_"Great"})
+			);
+		});
+	});
 }
 
 

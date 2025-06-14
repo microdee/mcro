@@ -185,4 +185,73 @@ namespace Mcro::Range
 			return TestValid(FWD(item));
 		});
 	}
+
+	/**
+	 *	@brief
+	 *	Transform a range of tuples with structured binding function arguments, so range transformations shouldn't
+	 *	bother with the actual type of the tuple.
+	 *
+	 *	For example:
+	 *	@code
+	 *	int32 size = 4;
+	 *	                              //   | highFreq            | lowFreq
+	 *	namespace rv = ranges::views; //   V                     V
+	 *	auto things = rv::cartesian(rv::indices(0, size), rv::indices(0, size))
+	 *		| TransformTuple([size](int32 highFreq, int32 lowFreq)
+	 *		{
+	 *			return lowFreq * size + highFreq
+	 *		})
+	 *	;
+	 *	FMT_LOG(LogTemp, Display, "Things: {0}", things);
+	 *	//-> Things: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+	 *	@endcode 
+	 *	
+	 *	@tparam Transform  A transformation function type with signature compatible with input tuple.
+	 *	@tparam      Left  The type of the range of tuples
+	 *	@param       left  The range of tuples
+	 *	@param         tr  A transformation function with signature compatible with input tuple.
+	 *	@return  Range with transformed elements 
+	 */
+	template <CFunctionLike Transform, CRangeOfTuplesCompatibleWithFunction<Transform> Left>
+	auto TransformTuple(Left&& left, Transform&& tr)
+	{
+		using Tuple = TRangeElementType<Left>;
+		return ranges::views::transform(FWD(left), [tr](Tuple const& tuple)
+		{
+			return InvokeWithTuple(tr, tuple);
+		});
+	}
+
+	/**
+	 *	@brief
+	 *	Transform a range of tuples with structured binding function arguments, so range transformations shouldn't
+	 *	bother with the actual type of the tuple.
+	 *
+	 *	For example:
+	 *	@code
+	 *	int32 size = 4;
+	 *	                              //   | highFreq            | lowFreq
+	 *	namespace rv = ranges::views; //   V                     V
+	 *	auto things = rv::cartesian(rv::indices(0, size), rv::indices(0, size))
+	 *		| TransformTuple([size](int32 highFreq, int32 lowFreq)
+	 *		{
+	 *			return lowFreq * size + highFreq
+	 *		})
+	 *	;
+	 *	FMT_LOG(LogTemp, Display, "Things: {0}", things);
+	 *	//-> Things: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+	 *	@endcode 
+	 *	
+	 *	@tparam Transform  A transformation function type with signature compatible with input tuple.
+	 *	@param         tr  A transformation function with signature compatible with input tuple.
+	 *	@return  Range with transformed elements
+	 */
+	template <CFunctionLike Transform>
+	auto TransformTuple(Transform&& tr)
+	{
+		return ranges::make_pipeable([tr]<CRangeOfTuplesCompatibleWithFunction<Transform> Left>(Left&& left)
+		{
+			return TransformTuple(FWD(left), tr);
+		});
+	}
 }
