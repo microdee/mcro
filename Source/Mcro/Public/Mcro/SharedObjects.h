@@ -132,7 +132,7 @@ namespace Mcro::SharedObjects
 	>
 	auto WeakSelf(const T* self) -> TWeakPtr<T const, Mode>
 	{
-		return StaticCastSharedRef<T const>(self->AsShared());
+		return StaticCastSharedRef<std::decay_t<T> const>(self->AsShared());
 	}
 
 	/**
@@ -148,7 +148,27 @@ namespace Mcro::SharedObjects
 	>
 	auto WeakSelf(T* self) -> TWeakPtr<T, Mode>
 	{
-		return StaticCastSharedRef<T>(self->AsShared());
+		return StaticCastSharedRef<std::decay_t<T>>(self->AsShared());
+	}
+
+	/** @brief Same as `SharedThis(this)` in `TSharedFromThis`. */
+	template <
+		CSharedFromThis T,
+		ESPMode Mode = decltype(DeclVal<T const>().AsShared())::Mode
+	>
+	auto SharedSelf(const T* self) -> TSharedRef<T const, Mode>
+	{
+		return StaticCastSharedRef<std::decay_t<T> const>(self->AsShared());
+	}
+
+	/** @brief Same as `SharedThis(this)` in `TSharedFromThis`. */
+	template <
+		CSharedFromThis T,
+		ESPMode Mode = decltype(DeclVal<T>().AsShared())::Mode
+	>
+	auto SharedSelf(T* self) -> TSharedRef<T, Mode>
+	{
+		return StaticCastSharedRef<std::decay_t<T>>(self->AsShared());
 	}
 
 	/**

@@ -480,7 +480,7 @@ namespace Mcro::Composition
 		auto With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			FWD(self).template AddComponent<MainType, Self>(newComponent, facilities);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -506,7 +506,7 @@ namespace Mcro::Composition
 		auto WithAnsi(this Self&& self, MainType* newComponent)
 		{
 			FWD(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 		
 		/**
@@ -530,7 +530,7 @@ namespace Mcro::Composition
 		auto With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
 			FWD(self).template AddComponent<MainType, Self>(facilities);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -555,7 +555,7 @@ namespace Mcro::Composition
 		auto WithAnsi(this Self&& self)
 		{
 			FWD(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -697,7 +697,7 @@ namespace Mcro::Composition
 		auto WithAlias(this Self&& self)
 		{
 			FWD(self).template AddAlias<ValidAs>();
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -776,7 +776,7 @@ namespace Mcro::Composition
 		auto With(this Self&& self, TTypes<ValidAs...>&&)
 		{
 			FWD(self).template AddAlias<ValidAs...>();
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -848,7 +848,7 @@ namespace Mcro::Composition
 		auto With(this Self&& self, Function&& function)
 		{
 			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
