@@ -113,7 +113,7 @@ namespace Mcro::Observable
 	 *	value of a state declared elsewhere.
 	 */
 	template <typename T>
-	using TStateRef = TSharedRef<IState<T>>;
+	using IStateRef = TSharedRef<IState<T>>;
 
 	/**
 	 *	@brief
@@ -121,7 +121,7 @@ namespace Mcro::Observable
 	 *	value of a state declared elsewhere.
 	 */
 	template <typename T>
-	using TStatePtr = TSharedPtr<IState<T>>;
+	using IStatePtr = TSharedPtr<IState<T>>;
 
 	/**
 	 *	@brief
@@ -129,23 +129,23 @@ namespace Mcro::Observable
 	 *	value of a state declared elsewhere.
 	 */
 	template <typename T>
-	using TStateWeakPtr = TWeakPtr<IState<T>>;
+	using IStateWeakPtr = TWeakPtr<IState<T>>;
 
 	/** @brief Convenience alias for declaring a state as a shared reference. Use this only as object members */
 	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
-	using TDeclareStateRef = TSharedRef<TState<T, DefaultPolicy>>;
+	using TSharedStateRef = TSharedRef<TState<T, DefaultPolicy>>;
 
 	/** @brief Convenience alias for declaring a state as a shared pointer. Use this only as object members */
 	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
-	using TDeclareStatePtr = TSharedPtr<TState<T, DefaultPolicy>>;
+	using TSharedStatePtr = TSharedPtr<TState<T, DefaultPolicy>>;
 
 	/** @brief Convenience alias for declaring a thread-safe state as a shared reference. Use this only as object members */
 	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
-	using TDeclareStateTSRef = TSharedRef<TState<T, DefaultPolicy.With({.ThreadSafe = true})>>;
+	using TSharedStateTSRef = TSharedRef<TState<T, DefaultPolicy.With({.ThreadSafe = true})>>;
 
 	/** @brief Convenience alias for declaring a thread-safe state as a shared pointer. Use this only as object members */
 	template <typename T, FStatePolicy DefaultPolicy = StatePolicyFor<T>>
-	using TDeclareStateTSPtr = TSharedPtr<TState<T, DefaultPolicy.With({.ThreadSafe = true})>>;
+	using TSharedStateTSPtr = TSharedPtr<TState<T, DefaultPolicy.With({.ThreadSafe = true})>>;
 
 	/** @brief Concept constraining given type to a state */
 	template <typename T>
