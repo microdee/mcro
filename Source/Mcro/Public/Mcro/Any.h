@@ -18,72 +18,14 @@
 #include "Mcro/TextMacros.h"
 #include "Mcro/Templates.h"
 #include "Mcro/FunctionTraits.h"
+#include "Mcro/Inheritance.h"
 
 namespace Mcro::Any
 {
 	using namespace Mcro::TypeName;
 	using namespace Mcro::Templates;
 	using namespace Mcro::FunctionTraits;
-
-	/**
-	 *	@brief
-	 *	Some MCRO utilities allow for intrusive method of declaring inheritance which can be later used to reflect
-	 *	upon base classes of a derived type.
-	 */
-	template <typename T>
-	concept CHasBases = CIsTypeList<typename T::Bases>;
-
-	/**
-	 *	@brief
-	 *	Inherit via this template to allow other API to reflect upon the base types of deriving class. Base types are
-	 *	inherited as public. If you want privately inherited base classes, just inherit them as normal.
-	 *
-	 *	Usage:
-	 *	@code
-	 *	class FMyThing : public TInherit<IFoo, IBar, IEtc>
-	 *	{
-	 *		// ...
-	 *	}
-	 *	@endcode
-	 *
-	 *	@todo
-	 *	Currently abstract classes are not supported due to a call to `DeclVal` in `TTupleElement`.
-	 */
-	template <typename... BaseTypes>
-	class TInherit : public BaseTypes...
-	{
-	public:
-		using Bases = TTypes<BaseTypes...>;
-	};
-
-	namespace Detail
-	{
-		template <CIsTypeList Bases, typename Function>
-		void ForEachExplicitBase(Function&& function);
-
-		template <typename T, typename Function>
-		void ForEachExplicitBase_Body(Function&& function)
-		{
-			function(TTypes<T>());
-			if constexpr (CHasBases<T>)
-				ForEachExplicitBase<typename T::Bases>(FWD(function));
-		}
-
-		template <CIsTypeList Bases, typename Function, size_t... Indices>
-		void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
-		{
-			(ForEachExplicitBase_Body<TTypes_Get<Bases, Indices>>(FWD(function)), ...);
-		}
-
-		template <CIsTypeList Bases, typename Function>
-		void ForEachExplicitBase(Function&& function)
-		{
-			ForEachExplicitBase_Impl<Bases>(
-				FWD(function),
-				std::make_index_sequence<Bases::Count>()
-			);
-		}
-	}
+	using namespace Mcro::Inheritance;
 
 	struct FAny;
 
@@ -171,7 +113,7 @@ namespace Mcro::Any
 			
 			if constexpr (CHasBases<T>)
 			{
-				Detail::ForEachExplicitBase<typename T::Bases>([this] <typename Base> (TTypes<Base>&&)
+				ForEachExplicitBase<T>([this] <typename Base> ()
 				{
 					AddAlias(TTypeOf<Base>);
 				});
@@ -207,7 +149,7 @@ namespace Mcro::Any
 			
 			if constexpr (CHasBases<T>)
 			{
-				Detail::ForEachExplicitBase<typename T::Bases>([&] <typename Base> (TTypes<Base>&&)
+				ForEachExplicitBase<T>([&] <typename Base> ()
 				{
 					self.AddAlias(TTypeOf<Base>);
 				});

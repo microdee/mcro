@@ -298,7 +298,7 @@ namespace Mcro::Composition
 
 			if constexpr (CHasBases<ValidAs>)
 			{
-				Mcro::Any::Detail::ForEachExplicitBase<typename ValidAs::Bases>([&, this] <typename Base> (TTypes<Base>&&)
+				ForEachExplicitBase<ValidAs>([&, this] <typename Base> ()
 				{
 					AddComponentAlias(mainType, TTypeHash<Base>);
 				});
@@ -374,7 +374,7 @@ namespace Mcro::Composition
 			self.LastAddedComponentHash = TTypeHash<MainType>;
 			if constexpr (CHasBases<MainType>)
 			{
-				Mcro::Any::Detail::ForEachExplicitBase<typename MainType::Bases>([&] <typename Base> (TTypes<Base>&&)
+				ForEachExplicitBase<MainType>([&] <typename Base> ()
 				{
 					// FAny also deals with CHasBases so we can skip explicitly registering them here
 					self.AddComponentAlias(TTypeHash<MainType>, TTypeHash<Base>);
