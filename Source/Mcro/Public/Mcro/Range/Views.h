@@ -199,7 +199,7 @@ namespace Mcro::Range
 	 *	auto things = rv::cartesian(rv::indices(0, size), rv::indices(0, size))
 	 *		| TransformTuple([size](int32 highFreq, int32 lowFreq)
 	 *		{
-	 *			return lowFreq * size + highFreq
+	 *			return lowFreq * size + highFreq;
 	 *		})
 	 *	;
 	 *	FMT_LOG(LogTemp, Display, "Things: {0}", things);
@@ -235,7 +235,7 @@ namespace Mcro::Range
 	 *	auto things = rv::cartesian(rv::indices(0, size), rv::indices(0, size))
 	 *		| TransformTuple([size](int32 highFreq, int32 lowFreq)
 	 *		{
-	 *			return lowFreq * size + highFreq
+	 *			return lowFreq * size + highFreq;
 	 *		})
 	 *	;
 	 *	FMT_LOG(LogTemp, Display, "Things: {0}", things);
@@ -254,4 +254,95 @@ namespace Mcro::Range
 			return TransformTuple(FWD(left), tr);
 		});
 	}
+
+	/**
+	 *	@brief
+	 *	Filter a range of tuples with structured binding function arguments, so filter predicates shouldn't
+	 *	bother with the actual type of the tuple.
+	 *
+	 *	For example:
+	 *	@code
+	 *	int32 size = 4;
+	 *	                              //   | highFreq            | lowFreq
+	 *	namespace rv = ranges::views; //   V                     V
+	 *	auto things = rv::cartesian(rv::indices(0, size), rv::indices(0, size))
+	 *		| FilterTuple([size](int32 highFreq, int32 lowFreq)
+	 *		{
+	 *			return highFreq == 2;
+	 *		})
+	 *	;
+	 *	FMT_LOG(LogTemp, Display, "Things: {0}", things);
+	 *	//-> Things: [(2, 0), (2, 1), (2, 2), (2, 3)]
+	 *	@endcode 
+	 *	
+	 *	@tparam Predicate  A transformation function type with signature compatible with input tuple.
+	 *	@tparam      Left  The type of the range of tuples
+	 *	@param       left  The range of tuples
+	 *	@param  predicate  A transformation function with signature compatible with input tuple.
+	 *	@return  Range with transformed elements 
+	 */
+	template <CFunctionLike Predicate, CRangeOfTuplesCompatibleWithFunction<Predicate> Left>
+	auto FilterTuple(Left&& left, Predicate&& predicate)
+	{
+		using Tuple = TRangeElementType<Left>;
+		return ranges::views::transform(FWD(left), [predicate](Tuple const& tuple)
+		{
+			return InvokeWithTuple(predicate, tuple);
+		});
+	}
+
+	/**
+	 *	@brief
+	 *	Filter a range of tuples with structured binding function arguments, so filter predicates shouldn't
+	 *	bother with the actual type of the tuple.
+	 *
+	 *	For example:
+	 *	@code
+	 *	int32 size = 4;
+	 *	                              //   | highFreq            | lowFreq
+	 *	namespace rv = ranges::views; //   V                     V
+	 *	auto things = rv::cartesian(rv::indices(0, size), rv::indices(0, size))
+	 *		| FilterTuple([size](int32 highFreq, int32 lowFreq)
+	 *		{
+	 *			return highFreq == 2;
+	 *		})
+	 *	;
+	 *	FMT_LOG(LogTemp, Display, "Things: {0}", things);
+	 *	//-> Things: [(2, 0), (2, 1), (2, 2), (2, 3)]
+	 *	@endcode 
+	 *	
+	 *	@tparam Predicate  A filter predicate function type with signature compatible with input tuple.
+	 *	@param  predicate  A filter predicate function with signature compatible with input tuple.
+	 *	@return  Range with transformed elements
+	 */
+	template <CFunctionLike Predicate>
+	auto FilterTuple(Predicate&& predicate)
+	{
+		return ranges::make_pipeable([predicate]<CRangeOfTuplesCompatibleWithFunction<Predicate> Left>(Left&& left)
+		{
+			return FilterTuple(FWD(left), predicate);
+		});
+	}
+
+	template <size_t ItemIndex, CRangeOfTuples Range>
+	auto SelectTupleItem(Range&& left)
+	{
+		using Tuple = TRangeElementType<Range>;
+		return ranges::views::transform(FWD(left), [](Tuple const& tuple)
+		{
+			return GetItem<ItemIndex>(tuple);
+		});
+	}
+
+	template <size_t ItemIndex>
+	auto SelectTupleItem()
+	{
+		return ranges::make_pipeable([]<CRangeOfTuples Left>(Left&& left)
+		{
+			return SelectTupleItem<ItemIndex>(FWD(left));
+		});
+	}
+
+	FORCEINLINE auto GetKeys() { return SelectTupleItem<0>(); }
+	FORCEINLINE auto GetValues() { return SelectTupleItem<1>(); }
 }
