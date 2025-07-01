@@ -33,10 +33,10 @@ namespace Mcro::Inheritance
 	namespace Detail
 	{
 		template <CIsTypeList Bases, typename Function>
-		void ForEachExplicitBase(Function&& function);
+		constexpr void ForEachExplicitBase(Function&& function);
 
 		template <typename T, typename Function>
-		void ForEachExplicitBase_Body(Function&& function)
+		constexpr void ForEachExplicitBase_Body(Function&& function)
 		{
 			function.template operator()<T> ();
 			if constexpr (CHasBases<T>)
@@ -44,13 +44,13 @@ namespace Mcro::Inheritance
 		}
 
 		template <CIsTypeList Bases, typename Function, size_t... Indices>
-		void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
+		constexpr void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
 		{
 			(ForEachExplicitBase_Body<TTypes_Get<Bases, Indices>>(FWD(function)), ...);
 		}
 
 		template <CIsTypeList Bases, typename Function>
-		void ForEachExplicitBase(Function&& function)
+		constexpr void ForEachExplicitBase(Function&& function)
 		{
 			ForEachExplicitBase_Impl<Bases>(
 				FWD(function),
@@ -82,13 +82,31 @@ namespace Mcro::Inheritance
 	 */
 	template <typename T, typename Function>
 	requires (CHasBases<T> || CIsTypeList<T>)
-	void ForEachExplicitBase(Function&& function)
+	constexpr void ForEachExplicitBase(Function&& function)
 	{
 		if constexpr (CHasBases<T>)
 			Detail::ForEachExplicitBase<typename T::Bases>(FWD(function));
 		if constexpr (CIsTypeList<T>)
 			Detail::ForEachExplicitBase<T>(FWD(function));
 	}
+
+	template <typename T, typename Bases>
+	requires (CHasBases<Bases> || CIsTypeList<Bases>)
+	constexpr bool HasExplicitBase()
+	{
+		bool valid = false;
+		ForEachExplicitBase<T>([&] <typename Base> ()
+		{
+			if constexpr (CSameAsDecayed<T, Base>)
+				valid = true;
+		});
+		return valid;
+	}
+
+	template <typename T, typename Bases>
+	concept CHasExplicitBase = (CHasBases<Bases> || CIsTypeList<Bases>)
+		&& HasExplicitBase<T, Bases>()
+	;
 
 	/**
 	 *	@brief
@@ -134,7 +152,7 @@ namespace Mcro::Inheritance
 		 *	@param  function  Per-base operation
 		 */
 		template <typename Self, typename Function>
-		void ForEachBase(this Self&&, Function&& function)
+		constexpr void ForEachBase(this Self&&, Function&& function)
 		{
 			Detail::ForEachExplicitBase<Bases>(FWD(function));
 		}
