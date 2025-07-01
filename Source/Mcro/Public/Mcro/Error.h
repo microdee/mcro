@@ -63,7 +63,7 @@ namespace Mcro::Error
 	 *	usage. It can also automate the method and the format of logging the (many times excessive amount of)
 	 *	information surrounding an error, or decide how it may be presented for the user.
 	 */
-	class MCRO_API IError : public IHaveType
+	class MCRO_API IError : public IHaveTypeShareable
 	{
 	protected:
 		TMap<FString, IErrorRef> InnerErrors;

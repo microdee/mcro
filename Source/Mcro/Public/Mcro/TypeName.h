@@ -187,7 +187,7 @@ namespace Mcro::TypeName
 	 *	(e.g.: `TTypeName<class I>` of incomplete `I` might not be the same as `TTypeName<I>` somewhere
 	 *	else with `I` being fully defined)
 	 *	
-	*	@tparam  T  The type to be named
+	 *	@tparam  T  The type to be named
 	 *
 	 *	@warning
 	 *	Do not use exact type comparison with serialized data or network communication, as the actual value of the type

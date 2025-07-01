@@ -27,7 +27,7 @@ struct FTestIncompleteScope
 	}
 };
 
-struct FBaseSomething : IHaveType
+struct FBaseSomething : IHaveTypeShareable
 {
 	FBaseSomething() { SetType(); }
 };
@@ -89,7 +89,7 @@ void FMcroTypes_Spec::Define()
 			TSharedRef<FBaseSomething> something = derived;
 			TestEqual(TEXT_"Type name is preserved from base lvalue-ref variable", something->GetType().ToString(), TEXT_"FDerivedSomething");
 
-			auto derivedAgain = something->AsExactly<FDerivedSomething>();
+			auto derivedAgain = something->As<FDerivedSomething>();
 			TestNotNull(TEXT_"Dynamic cast to exact type", derivedAgain.Get());
 		});
 	});

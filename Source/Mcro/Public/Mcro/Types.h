@@ -14,14 +14,19 @@
 #include <string>
 
 #include "CoreMinimal.h"
+#include "Types.h"
 #include "Mcro/TypeName.h"
 #include "Mcro/Templates.h"
+#include "Mcro/Inheritance.h"
+#include "Mcro/SharedObjects.h"
 
 /** @brief C++ native static reflection utilities, not to be confused with reflection of UObjects */
 namespace Mcro::Types
 {
 	using namespace Mcro::TypeName;
 	using namespace Mcro::Templates;
+	using namespace Mcro::Inheritance;
+	using namespace Mcro::SharedObjects;
 	
 	class IHaveType;
 
@@ -42,7 +47,7 @@ namespace Mcro::Types
 	 *	Do not use exact type comparison with serialized data or network communication, as the actual value of the type
 	 *	is different between compilers. Only use this for runtime data. For such scenarios just use Unreal's own UObjects.
 	 */
-	class IHaveType : public TSharedFromThis<IHaveType>
+	class IHaveType
 	{
 	public:
 		virtual ~IHaveType() = default;
@@ -50,6 +55,7 @@ namespace Mcro::Types
 	protected:
 		FName TypeName;
 		FType TypeInfo;
+		TSet<FType> BaseTypes;
 
 		/** @brief This function needs to be called on top level derived type for runtime reflection to work */
 		template <typename Self>
@@ -57,6 +63,14 @@ namespace Mcro::Types
 		{
 			self.TypeName = TTypeFName<Self>();
 			self.TypeInfo = TTypeOf<Self>;
+			
+			if constexpr (CHasBases<Self>)
+			{
+				ForEachExplicitBase<Self>([&self] <typename T> ()
+				{
+					self.BaseTypes.Add(TTypeOf<T>);
+				});
+			}
 		}
 		
 	public:
@@ -64,11 +78,20 @@ namespace Mcro::Types
 		using SelfRef = TSharedRef<std::decay_t<Self>>;
 
 		/** @brief Fluent API for setting tpye for deferred initialization (for example in factory functions) */
-		template <typename Self>
+		template <CSharedFromThis Self>
 		SelfRef<Self> WithType(this Self&& self)
 		{
 			self.SetType();
-			return SharedThis(&self);
+			return SharedSelf(&self);
+		}
+
+		/** @brief Fluent API for setting tpye for deferred initialization (for example in factory functions) */
+		template <typename Self>
+		requires (!CSharedFromThis<Self>)
+		Self&& WithType(this Self&& self)
+		{
+			self.SetType();
+			return FWD(self);
 		}
 
 		FORCEINLINE FType const& GetType() const { return TypeInfo; }
@@ -76,24 +99,73 @@ namespace Mcro::Types
 		FORCEINLINE FString GetTypeString() const { return TypeName.ToString(); }
 
 		/**
-		 *	@brief  Very simple dynamic casting of this object to a derived top-level type.
+		 *	@brief
+		 *	Dynamic casting of this object to a derived top-level type. Casting also works if inheritance is done
+		 *	through `TInherit` template.
 		 *
 		 *	@tparam Derived
 		 *	Only return the desired type when the current object is exactly that type, and doesn't have deeper
 		 *	inheritance. Proper dynamic casting regarding the entire inheritance tree still without RTTI will come once
-		 *	proposed C++26 value-typed reflection becomes wide-spread available among popular compilers.
+		 *	proposed C++26 value-typed reflection becomes wide-spread available among popular compilers. If top-level
+		 *	derived type used types in `TInherit`, those are also supported. 
+		 *
+		 *	@return  Object cast to desired type when that's possible (see `Derived`) or nullptr;
+		 */
+		template <typename Derived, CSharedFromThis Self>
+		TSharedPtr<Derived> As(this Self&& self)
+		{
+			if constexpr (CDerivedFrom<Derived, Self>)
+				return StaticCastSharedPtr<Derived>(
+					SharedSelf(AsMutablePtr(&self)).ToSharedPtr()
+					);
+			else
+			{
+				if (self.BaseTypes.Contains(TTypeOf<Derived>))
+					return StaticCastSharedPtr<Derived>(
+						SharedSelf(AsMutablePtr(&self)).ToSharedPtr()
+					);
+				return {};
+			}
+		}
+
+		/**
+		 *	@brief
+		 *	Dynamic casting of this object to a derived top-level type. Casting also works if inheritance is done
+		 *	through `TInherit` template.
+		 *
+		 *	@tparam Derived
+		 *	Only return the desired type when the current object is exactly that type, and doesn't have deeper
+		 *	inheritance. Proper dynamic casting regarding the entire inheritance tree still without RTTI will come once
+		 *	proposed C++26 value-typed reflection becomes wide-spread available among popular compilers. If top-level
+		 *	derived type used types in `TInherit`, those are also supported. 
 		 *
 		 *	@return  Object cast to desired type when that's possible (see `Derived`) or nullptr;
 		 */
 		template <typename Derived, typename Self>
-		TSharedPtr<Derived> AsExactly(this Self&& self)
+		requires (!CSharedFromThis<Self>)
+		Derived* As(this Self&& self)
 		{
 			if constexpr (CDerivedFrom<Derived, Self>)
-				if (self.TypeInfo == TTypeOf<Derived>)
-					return StaticCastSharedPtr<Derived>(
-						SharedThis(AsMutablePtr(&self)).ToSharedPtr()
-					);
-			return {};
+				return static_cast<Derived*>(&self);
+			else
+			{
+				if (self.BaseTypes.Contains(TTypeOf<Derived>))
+					return static_cast<Derived*>(&self);
+				return nullptr;
+			}
 		}
 	};
+
+	/** @brief Shorthand for combination of `IHaveType` and `TSharedFromThis` */
+	class IHaveTypeShareable
+		: public IHaveType
+		, public TSharedFromThis<IHaveTypeShareable>
+	{};
+
+	/** @brief Shorthand for combination of `IHaveType` and `TSharedFromThis` where the base-type can be specified */
+	template <typename T>
+	class THasTypeShareable
+		: public IHaveType
+		, public TSharedFromThis<T>
+	{};
 }
