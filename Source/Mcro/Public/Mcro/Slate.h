@@ -55,29 +55,35 @@ namespace Mcro::Slate
 
 	/** @brief Constraining given type to a widget which can receive slots */
 	template <typename T>
-	concept CWidgetWithSlots = requires(typename T::FSlot&)
-	{
-		T::Slot();
-	};
+	concept CWidgetWithSlots = requires(typename T::FSlot& t) { t; };
 
 	template <typename T>
-	struct TArgumentsOf_S {};
+	concept CBoxPanelWidget = CWidgetWithSlots<T>
+		&& CDerivedFrom<T, SBoxPanel>
+		&& requires(T&& t, typename T::FScopedWidgetSlotArguments& slotArgs)
+		{
+			{ t.AddSlot() } -> CSameAsDecayed<typename T::FScopedWidgetSlotArguments>;
+		}
+	;
+
+	template <typename T>
+	struct TArgumentsOf_Struct {};
 	
 	template <CWidget T>
-	struct TArgumentsOf_S<T>
+	struct TArgumentsOf_Struct<T>
 	{
 		using Type = typename T::FArguments;
 	};
 	
 	template <CSlot T>
-	struct TArgumentsOf_S<T>
+	struct TArgumentsOf_Struct<T>
 	{
 		using Type = typename T::FSlotArguments;
 	};
 
 	/** @brief Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments) */
 	template <typename T>
-	using TArgumentsOf = typename TArgumentsOf_S<T>::Type;
+	using TArgumentsOf = typename TArgumentsOf_Struct<T>::Type;
 
 	/**
 	 *	@brief
