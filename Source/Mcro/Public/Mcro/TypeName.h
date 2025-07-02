@@ -23,6 +23,7 @@
 #include "UnrealCtre.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/Platform.h"
+#include "Mcro/Inheritance.h"
 
 #define MCRO_EXPLICIT_TYPE_EXTRACTION defined(MCRO_EXPLICIT_PRETTY_FUNCTION) && defined(MCRO_EXPLICIT_TYPE_EXTRACT_REGEX)
 
@@ -97,6 +98,7 @@ consteval std::basic_string_view<TCHAR> GetCompileTimeTypeName()
 namespace Mcro::TypeName
 {
 	using namespace Mcro::Text;
+	using namespace Mcro::Inheritance;
 
 	using FTypeHash = uint64;
 
@@ -106,44 +108,6 @@ namespace Mcro::TypeName
 		std::string_view thisFunctionName { PRETTY_FUNC };
 		return constexpr_xxh3::XXH3_64bits_const(thisFunctionName);
 	}
-
-	/** @brief Group together type info for identification. Can have an invalid state when no type is specified. */
-	struct FType
-	{
-		template <typename T>
-		struct TTag {};
-		
-		template <typename T>
-		constexpr FType(TTag<T>&&)
-			: Name(
-				GetCompileTimeTypeName<std::decay_t<T>>().data(),
-				GetCompileTimeTypeName<std::decay_t<T>>().size()
-			)
-			, Hash(GetCompileTimeTypeHash<std::decay_t<T>>())
-		{}
-		
-		constexpr FType() {}
-		
-		FStringView Name;
-		FTypeHash Hash = 0;
-
-		constexpr FStringView ToString() const { return Name; }
-		FString ToStringCopy() const { return FString(Name); }
-
-		constexpr bool IsValid() const { return Hash != 0; }
-		constexpr operator bool() const { return IsValid(); }
-		
-		friend constexpr bool operator == (FType const& left, FType const& right) { return left.Hash == right.Hash; }
-		friend constexpr bool operator != (FType const& left, FType const& right) { return left.Hash != right.Hash; }
-
-		friend constexpr uint32 GetTypeHash(FType const& self)
-		{
-			return static_cast<uint32>(self.Hash) ^ static_cast<uint32>(self.Hash >> 32);
-		}
-	};
-
-	template <typename T>
-	constexpr FType TTypeOf = FType(FType::TTag<T>());
 	
 	/**
 	 *	@brief

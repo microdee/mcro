@@ -39,6 +39,8 @@
 #include "Mcro/Text.h"
 #include "Mcro/Text/TupleAsString.h"
 #include "Mcro/Threading.h"
+#include "Mcro/TypeName.h"
+#include "Mcro/TypeInfo.h"
 #include "Mcro/Types.h"
 #include "Mcro/Void.h"
 #include "Mcro/TextMacros.h"
@@ -66,6 +68,8 @@ namespace Mcro::CommonCore
 	using namespace Mcro::SharedObjects;
 	using namespace Mcro::Text;
 	using namespace Mcro::Threading;
+	using namespace Mcro::TypeName;
+	using namespace Mcro::TypeInfo;
 	using namespace Mcro::Types;
 	using namespace Mcro::Range;
 	using namespace Mcro::ValueThunk;

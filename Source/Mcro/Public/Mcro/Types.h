@@ -14,18 +14,17 @@
 #include <string>
 
 #include "CoreMinimal.h"
-#include "Types.h"
 #include "Mcro/TypeName.h"
 #include "Mcro/Templates.h"
-#include "Mcro/Inheritance.h"
+#include "Mcro/TypeInfo.h"
 #include "Mcro/SharedObjects.h"
 
 /** @brief C++ native static reflection utilities, not to be confused with reflection of UObjects */
 namespace Mcro::Types
 {
 	using namespace Mcro::TypeName;
+	using namespace Mcro::TypeInfo;
 	using namespace Mcro::Templates;
-	using namespace Mcro::Inheritance;
 	using namespace Mcro::SharedObjects;
 	
 	class IHaveType;
@@ -55,7 +54,6 @@ namespace Mcro::Types
 	protected:
 		FName TypeName;
 		FType TypeInfo;
-		TSet<FType> BaseTypes;
 
 		/** @brief This function needs to be called on top level derived type for runtime reflection to work */
 		template <typename Self>
@@ -63,14 +61,6 @@ namespace Mcro::Types
 		{
 			self.TypeName = TTypeFName<Self>();
 			self.TypeInfo = TTypeOf<Self>;
-			
-			if constexpr (CHasBases<Self>)
-			{
-				ForEachExplicitBase<Self>([&self] <typename T> ()
-				{
-					self.BaseTypes.Add(TTypeOf<T>);
-				});
-			}
 		}
 		
 	public:
@@ -120,7 +110,7 @@ namespace Mcro::Types
 					);
 			else
 			{
-				if (self.BaseTypes.Contains(TTypeOf<Derived>))
+				if (self.TypeInfo.template IsCompatibleWith<Derived>())
 					return StaticCastSharedPtr<Derived>(
 						SharedSelf(AsMutablePtr(&self)).ToSharedPtr()
 					);
@@ -149,7 +139,7 @@ namespace Mcro::Types
 				return static_cast<Derived*>(&self);
 			else
 			{
-				if (self.BaseTypes.Contains(TTypeOf<Derived>))
+				if (self.TypeInfo.template IsCompatibleWith<Derived>())
 					return static_cast<Derived*>(&self);
 				return nullptr;
 			}

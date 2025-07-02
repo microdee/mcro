@@ -18,11 +18,12 @@
 #include "Mcro/TextMacros.h"
 #include "Mcro/Templates.h"
 #include "Mcro/FunctionTraits.h"
-#include "Mcro/Inheritance.h"
+#include "Mcro/TypeInfo.h"
 
 namespace Mcro::Any
 {
 	using namespace Mcro::TypeName;
+	using namespace Mcro::TypeInfo;
 	using namespace Mcro::Templates;
 	using namespace Mcro::FunctionTraits;
 	using namespace Mcro::Inheritance;

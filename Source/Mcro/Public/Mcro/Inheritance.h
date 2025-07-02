@@ -12,13 +12,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Mcro/TypeName.h"
 #include "Mcro/Templates.h"
 #include "Mcro/FunctionTraits.h"
 
 namespace Mcro::Inheritance
 {
-	using namespace Mcro::TypeName;
 	using namespace Mcro::Templates;
 	using namespace Mcro::FunctionTraits;
 	
