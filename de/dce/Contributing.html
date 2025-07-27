@@ -155,39 +155,45 @@ $(function(){initNavTree('de/dce/Contributing.html','../../'); initResizable(tru
           <li class="level3">
             <a href="#autotoc_md19">Multiline function parameters/arguments</a>
           </li>
+          <li class="level3">
+            <a href="#autotoc_md20">Type Aliases</a>
+          </li>
+          <li class="level3">
+            <a href="#autotoc_md21">Native delegates</a>
+          </li>
         </ul>
       </li>
       <li class="level2">
-        <a href="#autotoc_md20">Optional curly brackets</a>
+        <a href="#autotoc_md22">Optional curly brackets</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md21">Implicitly converting constructors</a>
+        <a href="#autotoc_md23">Implicitly converting constructors</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md22">Reference and const qualifier order</a>
+        <a href="#autotoc_md24">Reference and const qualifier order</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md23">Lot less restrictive usage of auto</a>
+        <a href="#autotoc_md25">Lot less restrictive usage of auto</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md24">Trailing return type</a>
+        <a href="#autotoc_md26">Trailing return type</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md25">Documentation</a>
+    <a href="#autotoc_md27">Documentation</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md26">Documenting headers</a>
+        <a href="#autotoc_md28">Documenting headers</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md27">Documenting namespaces</a>
+        <a href="#autotoc_md29">Documenting namespaces</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md28">Documenting module build rules</a>
+        <a href="#autotoc_md30">Documenting module build rules</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md29">License comments</a>
+        <a href="#autotoc_md31">License comments</a>
       </li>
     </ul>
   </li>
@@ -336,14 +342,53 @@ Multiline function parameters/arguments</h3>
 <div class="line">}</div>
 </div><!-- fragment --><p>If function definition follows directly the opening curly-bracket can be on the same line as the parameter list closing bracket.</p>
 <p>Related to this, if a function exceeds three parameters, declare a struct instead for passing arguments. A POCO struct is also really useful for argument passing because C++20's designated initializer syntax, that can serve as named arguments. That notion also makes passing data to lower-level API also much easier.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
+Type Aliases</h3>
+<p>Global type aliases should behave like they're actual types when it comes to naming, so prefixed PascalCase names as usual. <code>using</code> keyword must be used instead of <code>typedef</code>.</p>
+<div class="fragment"><div class="line"><span class="comment">// Do</span></div>
+<div class="line"><span class="keyword">using </span>FMyAlias = FMyType;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Don&#39;t</span></div>
+<div class="line"><span class="keyword">typedef</span> FMyType MyAlias;</div>
+</div><!-- fragment --><p>Inner type aliases however must have PascalCase casing without prefix</p>
+<div class="fragment"><div class="line"><span class="comment">// Do</span></div>
+<div class="line"><span class="keyword">struct </span>FStuff</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">using </span>MyAlias = FMyType;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Don&#39;t</span></div>
+<div class="line"><span class="keyword">struct </span>FStuff</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">typedef</span> FMyType FMyAlias;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>This is particularly important for templated types where aliases may store or transform template type parameters for later use.</p>
+<h3><a class="anchor" id="autotoc_md21"></a>
+Native delegates</h3>
+<p>C++ native <code>TDelegate</code>'s and <code>TMulticastDelegate</code>'s should be aliased with <code>using</code> keyword, as <code>TDelegate</code> is a simple enough template. The <code>DECLARE_(MULTICAST)_DELEGATE(_RetVal)_(N)Param(s)</code> macros do the same, so they should be avoided for native C++ delegate types as they're much more verbose. Delegate aliases should follow regular type alias naming rules</p>
+<div class="fragment"><div class="line"><span class="comment">// Do:</span></div>
+<div class="line"><span class="keyword">using </span>FMyDelegate = TDelegate&lt;int32(FString <span class="keyword">const</span>&amp;, int32)&gt;;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>FStuff</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">using </span>OnMyThing = TMulticastDelegate&lt;void(FString <span class="keyword">const</span>&amp;, int32)&gt;;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Don&#39;t:</span></div>
+<div class="line">DECLARE_DELEGATE_RetVal_TwoParams(int32, FMyDelegate, FString <span class="keyword">const</span>&amp;, int32);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>FStuff</div>
+<div class="line">{</div>
+<div class="line">    DECLARE_MULTICAST_DELEGATE_TwoParams(FOnMyThing, FString <span class="keyword">const</span>&amp;, int32);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md22"></a>
 Optional curly brackets</h2>
 <p>In MCRO curly brackets around single expression scoped statements (like <code>if</code>, <code>for</code>, <code>while</code>, etc...) are not mandatory. This is not enforced though. The original intention of the Unreal Coding convention with mandatory brackets were to not break macros like <code>UE_LOG</code> which may have multiple expressions.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Implicitly converting constructors</h2>
 <p>It is super annoying to type the names of compatible variables when they're convertible between each-other so MCRO doesn't enforce <code>explicit</code> constructors on its features. The original intention of enforcing <code>explicit</code> converting constructors is visualizing a conversion step from one type to another type which may be expensive. However in many cases it makes the code unnecessarily bloated.</p>
 <p>It also makes templating less intuitive to write in some particular cases.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Reference and const qualifier order</h2>
 <p>MCRO uses</p>
 <ul>
@@ -360,15 +405,15 @@ Reference and const qualifier order</h2>
 <li></li>
 </ul>
 <p>Note that preceeding <code>const</code> should be only used in simple scenarios like an array of const items <code>TArray&lt;const FMyType&gt;</code>.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Lot less restrictive usage of auto</h2>
 <p><code>auto</code> keyword in Unreal is discouraged, and in general C++ developers are not so unanimous about its benefits. Indeed it has its foot-guns for example how it doesn't preserve reference qualifiers on itself. However some templating libraries and even MCRO itself can get really elaborate and long on templated type names, in which case <code>auto</code> is not only a blessing, it is necessary. For this reason <code>auto</code> is encouraged in MCRO.</p>
 <p>If you take <code>auto</code> as short for <code>template &lt;typename T&gt; T ...</code> then you may also use its reference qualifiers in the same way. For example <code>auto const&amp;</code> will avoid copying. <code>auto&amp;&amp;</code> or equivalent <code>decltype(auto)</code> is the same as "universal" or "forwarding" reference on template arguments (meaning that qualifiers are preserved).</p>
 <p>In templated, constexpr or inline functions <code>auto</code> can be used as return type as well, especially when a lambda functor or some elaborate templated type is returned.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Trailing return type</h2>
 <p>MCRO encourages to use trailing return types when that would be longer than 2 or 3 words, or longer than the function name. Trailing return types also can use scoped aliases as well in function definitions whereas preceeding return types cannot.</p>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md27"></a>
 Documentation</h1>
 <p>MCRO uses Doxygen to generate documentation. All public facing API needs to have a JavaDoc style comment associated with it (in 99% of cases on their top).</p>
 <p>If the functionality is trivial a one liner is enough:</p>
@@ -408,6 +453,7 @@ Documentation</h1>
 <div class="line"><span class="comment"> *  </span></div>
 <div class="line"><span class="comment"> *  @param   input  the message format</span></div>
 <div class="line"><span class="comment"> *  @param fmtArgs  format arguments</span></div>
+<div class="line"><span class="comment"> *  </span></div>
 <div class="line"><span class="comment"> *  @return  Self for further fluent API setup</span></div>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p>Single line operators should be separated by 2 spaces from their text. Parameters can be done in blocks of single line documentations or if they have more than one line worth of information, as entire paragraphs annotated with the <code>@(t)param</code> operator. When blocks of single line documentation is used their parameter names should be right-aligned to the 2 spaces separating the documentation text. Many text-editors and IDE's have features to help with that (I use Rider or VS Code, both have such features (or extensions)).</p>
@@ -425,13 +471,13 @@ Documentation</h1>
 <div class="line"><span class="comment"> *  proident reprehenderit ea labore Lorem irure fugiat reprehenderit cupidatat ullamco.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p>This is especially useful with the <code>@file</code> operator.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Documenting headers</h2>
 <p>When the usage of the header is not trivial or the header represents a more elaborate system of API components, use the <code>@file</code> operator in a block comment after includes but before the start of any other code.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Documenting namespaces</h2>
 <p>Unless the header mainly declares one namespace. Documenting namespaces is done the same way as anything else, including the mandatory <code>@brief</code>.</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Documenting module build rules</h2>
 <p>Unlike in Unreal, MCRO encourages to describe what a particular module is and how it is used in its module-rule file, documenting its module rule class. Doxygen supports the XML Docs convention popular in .NET, so in C# that is used in compatible places. Unless for <code>@file</code> or the "license comment" which keeps using the JavaDoc comment blocks.</p>
 <div class="fragment"><div class="line"><span class="comment">/// &lt;summary&gt;</span><span class="comment"></span></div>
@@ -442,7 +488,7 @@ Documenting module build rules</h2>
 <div class="line">    <span class="comment">//...</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aclassMcroWindows_html"><div class="ttname"><a href="../../d7/db6/classMcroWindows.html">McroWindows</a></div><div class="ttdoc">A module containing Windows platform specific utilities like interop between Unreal and WinRT/COM.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d41/McroWindows_8Build_8cs_source.html#l00018">McroWindows.Build.cs:19</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md31"></a>
 License comments</h2>
 <p>MCRO is licensed under MPL 2.0. MPL recognises individual files as separate entities instead of GPL wich treats an entire project as a single big entity. For this reason it is very important that each source file in MCRO starts with a license comment on its top.</p>
 <div class="fragment"><div class="line"><span class="comment">/** @noop License Comment</span></div>

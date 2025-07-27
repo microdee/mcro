@@ -1,7 +1,7 @@
 var searchData=
 [
   ['macro_5foverload_0',['MACRO_OVERLOAD',['../df/d0a/Macros_8h.html#a048e492c8a4074ec4ce7f5438280b98a',1,'Macros.h']]],
-  ['macros_20without_20parentheses_1',['Text macros without parentheses',['../index.html#autotoc_md37',1,'']]],
+  ['macros_20without_20parentheses_1',['Text macros without parentheses',['../index.html#autotoc_md39',1,'']]],
   ['macros_2eh_2',['Macros.h',['../df/d0a/Macros_8h.html',1,'']]],
   ['magic_5fenum_20a_3',['&lt;a href=&quot;https://github.com/Neargye/magic_enum&quot; &gt;magic_enum&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md2',1,'']]],
   ['magic_5fenum_20magic_5fenum_20a_4',['&lt;a href=&quot;https://github.com/Neargye/magic_enum&quot; &gt;magic_enum&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md2',1,'']]],
@@ -17,7 +17,7 @@ var searchData=
   ['maxbasecount_14',['MaxBaseCount',['../da/d0a/structMcro_1_1TypeInfo_1_1FType.html#abcd25e3e7ad0a81b48938af9b5db99ab',1,'Mcro::TypeInfo::FType']]],
   ['mcro_15',['MCRO',['../index.html',1,'']]],
   ['mcro_16',['Mcro',['../d4/deb/classMcro.html',1,'Mcro'],['../d8/d63/namespaceMcro.html',1,'Mcro'],['../d4/deb/classMcro.html#a66d0edb4d338adecb2904f76db7e4187',1,'Mcro.Mcro()']]],
-  ['mcro_20can_20do_17',['What MCRO can do?',['../index.html#autotoc_md34',1,'']]],
+  ['mcro_20can_20do_17',['What MCRO can do?',['../index.html#autotoc_md36',1,'']]],
   ['mcro_2ebuild_2ecs_18',['Mcro.Build.cs',['../d1/d7a/Mcro_8Build_8cs.html',1,'']]],
   ['mcro_3a_3aansi_19',['Ansi',['../d9/d90/namespaceMcro_1_1Ansi.html',1,'Mcro']]],
   ['mcro_3a_3aansi_3a_3adetail_20',['Detail',['../d3/dd6/namespaceMcro_1_1Ansi_1_1Detail.html',1,'Mcro::Ansi']]],
@@ -334,8 +334,8 @@ var searchData=
   ['mix16b_331',['mix16B',['../d6/d7a/namespaceconstexpr__xxh3.html#acca31552c4e210b9c49d6c0ae90ae850',1,'constexpr_xxh3']]],
   ['modify_332',['Modify',['../d8/d30/structMcro_1_1Observable_1_1IState.html#a4cdb18d2cc0b01b1b2b8b24fad7effda',1,'Mcro::Observable::IState::Modify()'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a4a24d44c9354aff0570a3366dcc8408b',1,'Mcro::Observable::TState::Modify()']]],
   ['modifyerror_333',['ModifyError',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#ab86c148a9eab2bbdab5f8b9da2593721',1,'Mcro::Error::TMaybe']]],
-  ['modular_20features_334',['Auto modular features',['../index.html#autotoc_md43',1,'']]],
-  ['module_20build_20rules_335',['Documenting module build rules',['../de/dce/Contributing.html#autotoc_md28',1,'']]],
+  ['modular_20features_334',['Auto modular features',['../index.html#autotoc_md45',1,'']]],
+  ['module_20build_20rules_335',['Documenting module build rules',['../de/dce/Contributing.html#autotoc_md30',1,'']]],
   ['moduleboundobject_336',['ModuleBoundObject',['../d7/dac/structMcro_1_1Dll_1_1TModuleBoundDlls.html#acfb1456a99550d2d958298b49dc9ab6d',1,'Mcro::Dll::TModuleBoundDlls']]],
   ['modulepath_337',['ModulePath',['../d9/d83/classMcroBuild_1_1ModuleRuleExtensions.html#a75a717c832d241265c47aa0c54bc1305',1,'McroBuild::ModuleRuleExtensions']]],
   ['moduleruleextensions_338',['ModuleRuleExtensions',['../d9/d83/classMcroBuild_1_1ModuleRuleExtensions.html',1,'McroBuild']]],

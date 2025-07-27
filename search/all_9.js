@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handling_0',['Error handling',['../index.html#autotoc_md36',1,'']]],
+  ['handling_0',['Error handling',['../index.html#autotoc_md38',1,'']]],
   ['hasallocation_1',['HasAllocation',['../dc/dc0/classMcro_1_1Ansi_1_1FAllocator_1_1ForAnyElementType.html#a7e690e92ac6950e5906e9750f70b2ebc',1,'Mcro::Ansi::FAllocator::ForAnyElementType']]],
   ['haschanged_2',['HasChanged',['../d8/d30/structMcro_1_1Observable_1_1IState.html#ae4ca302750bf16603288cdd347a4e2a5',1,'Mcro::Observable::IState::HasChanged() const'],['../d8/d30/structMcro_1_1Observable_1_1IState.html#a0876e0ea50fb723a19e831641839bd5a',1,'Mcro::Observable::IState::HasChanged(T const &amp;fallback) const']]],
   ['haschangedfrom_3',['HasChangedFrom',['../d8/d30/structMcro_1_1Observable_1_1IState.html#a858442436ae53e29c8aad993249f9a99',1,'Mcro::Observable::IState::HasChangedFrom()'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a93d33b3c24c7b29b33d71b6c83ba4515',1,'Mcro::Observable::TState::HasChangedFrom()']]],
@@ -16,7 +16,7 @@ var searchData=
   ['hasvalue_13',['HasValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a65adeaef29dd4787cfa2ae959dd4c5a0',1,'Mcro::Error::TMaybe']]],
   ['haswinroot_14',['HasWinRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#a3545035a39aaba14b931baecec060966',1,'McroBuild::PathUtils']]],
   ['header_20files_15',['Placement of header files',['../de/dce/Contributing.html#autotoc_md11',1,'']]],
-  ['headers_16',['Documenting headers',['../de/dce/Contributing.html#autotoc_md26',1,'']]],
+  ['headers_16',['Documenting headers',['../de/dce/Contributing.html#autotoc_md28',1,'']]],
   ['height_17',['Height',['../d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html#a3ab53b7869e4ac0a445c425ee29c15ed',1,'Mcro::Rendering::Textures::TTextureSize']]],
   ['highlevelstringcast_18',['HighLevelStringCast',['../d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a14a79cff76537d732d0d06c338621239',1,'Mcro::Text::Detail']]],
   ['hr_5ftry_19',['HR_TRY',['../da/d73/HResultMacros_8h.html#a0278b53dedb9e39df3797be07e66a434',1,'HResultMacros.h']]],

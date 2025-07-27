@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parallel_20tasks_20support_0',['ISPC parallel tasks support',['../index.html#autotoc_md47',1,'']]],
+  ['parallel_20tasks_20support_0',['ISPC parallel tasks support',['../index.html#autotoc_md49',1,'']]],
   ['param_1',['Param',['../da/dde/structMcro_1_1Templates_1_1TTemplate.html#ae96d3d659e284771500e3363c814d0a0',1,'Mcro::Templates::TTemplate']]],
   ['paramdecay_2',['ParamDecay',['../da/dde/structMcro_1_1Templates_1_1TTemplate.html#a53049858c7923b14bf0179c2c13dfc53',1,'Mcro::Templates::TTemplate']]],
   ['parameter_20names_3',['Variable/Function parameter names',['../de/dce/Contributing.html#autotoc_md18',1,'']]],
@@ -12,7 +12,7 @@ var searchData=
   ['parametersdecay_9',['ParametersDecay',['../d4/d82/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay.html',1,'Mcro::Templates::TTemplate']]],
   ['parametersdecay_3c_20template_3c_20params_2e_2e_2e_20_3e_20_3e_10',['ParametersDecay&lt; Template&lt; Params... &gt; &gt;',['../d5/dcb/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay_3_01Template_3_01Params_8_8_8_01_4_01_4.html',1,'Mcro::Templates::TTemplate']]],
   ['parent_11',['Parent',['../d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html#a1f9ac1367eada66dc540eb49136744f1',1,'Mcro::Error::FDisplayErrorArgs::Parent'],['../d2/d11/classMcroBuild_1_1AbsolutePath.html#a217c10506b25d7aaffa7027f22bee524',1,'McroBuild.AbsolutePath.Parent']]],
-  ['parentheses_12',['Text macros without parentheses',['../index.html#autotoc_md37',1,'']]],
+  ['parentheses_12',['Text macros without parentheses',['../index.html#autotoc_md39',1,'']]],
   ['pathutils_13',['PathUtils',['../df/dbf/classMcroBuild_1_1PathUtils.html',1,'McroBuild']]],
   ['placement_20of_20header_20files_14',['Placement of header files',['../de/dce/Contributing.html#autotoc_md11',1,'']]],
   ['plaintextcomponent_2eh_15',['PlainTextComponent.h',['../df/d58/PlainTextComponent_8h.html',1,'']]],
