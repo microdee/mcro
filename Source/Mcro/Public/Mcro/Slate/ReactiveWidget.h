@@ -161,9 +161,9 @@ namespace Mcro::Slate
 			}
 			SLATE_ARGUMENT(IStatePtr<Base::StateRangeType>, State);
 			SLATE_ARGUMENT(TSharedPtr<ContainerWidget>, Container);
-			SLATE_EVENT(Base::FCreateChild, CreateChild);
-			SLATE_EVENT(Base::FUpdateChild, UpdateChild);
-			SLATE_EVENT(Base::FRemoveChild, RemoveChild);
+			SLATE_EVENT(FCreateChild, CreateChild);
+			SLATE_EVENT(FUpdateChild, UpdateChild);
+			SLATE_EVENT(FRemoveChild, RemoveChild);
 		SLATE_END_ARGS()
 
 		void Construct(FArguments const& args) { Base::ConstructBase(args); }
@@ -226,9 +226,9 @@ namespace Mcro::Slate
 			}
 			SLATE_ARGUMENT(IStatePtr<Base::StateRangeType>, State);
 			SLATE_ARGUMENT(TSharedPtr<ContainerWidget>, Container);
-			SLATE_EVENT(Base::FCreateChild, CreateChild);
-			SLATE_EVENT(Base::FUpdateChild, UpdateChild);
-			SLATE_EVENT(Base::FRemoveChild, RemoveChild);
+			SLATE_EVENT(FCreateChild, CreateChild);
+			SLATE_EVENT(FUpdateChild, UpdateChild);
+			SLATE_EVENT(FRemoveChild, RemoveChild);
 		SLATE_END_ARGS()
 
 		void Construct(FArguments const& args) { Base::ConstructBase(args); }
