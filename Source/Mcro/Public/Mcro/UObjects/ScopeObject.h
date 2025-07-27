@@ -35,7 +35,7 @@ namespace Mcro::UObjects::Init
 		TScopeObject(FConstructObjectParameters&& params, Args&&... args)
 		{
 			FGCScopeGuard avoidGC;
-			Storage.Reset(NewInit<T>(Forward<FConstructObjectParameters>(params), Forward<Args>(args)...));
+			Storage.Reset(NewInit<T>(FWD(params), FWD(args)...));
 		}
 
 		const T* operator -> () const { return Storage.Get(); }

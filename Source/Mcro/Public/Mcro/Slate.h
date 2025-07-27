@@ -14,6 +14,7 @@
 #include "CoreMinimal.h"
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/Range/Iterators.h"
+#include "Mcro/Range/Views.h"
 
 /**
  *	@brief
@@ -54,29 +55,35 @@ namespace Mcro::Slate
 
 	/** @brief Constraining given type to a widget which can receive slots */
 	template <typename T>
-	concept CWidgetWithSlots = requires(typename T::FSlot&)
-	{
-		T::Slot();
-	};
+	concept CWidgetWithSlots = requires(typename T::FSlot& t) { t; };
 
 	template <typename T>
-	struct TArgumentsOf_S {};
+	concept CBoxPanelWidget = CWidgetWithSlots<T>
+		&& CDerivedFrom<T, SBoxPanel>
+		&& requires(T&& t, typename T::FScopedWidgetSlotArguments& slotArgs)
+		{
+			{ t.AddSlot() } -> CSameAsDecayed<typename T::FScopedWidgetSlotArguments>;
+		}
+	;
+
+	template <typename T>
+	struct TArgumentsOf_Struct {};
 	
 	template <CWidget T>
-	struct TArgumentsOf_S<T>
+	struct TArgumentsOf_Struct<T>
 	{
 		using Type = typename T::FArguments;
 	};
 	
 	template <CSlot T>
-	struct TArgumentsOf_S<T>
+	struct TArgumentsOf_Struct<T>
 	{
 		using Type = typename T::FSlotArguments;
 	};
 
 	/** @brief Get the type of arguments from either a widget or a slot type (FArguments or FSlotArguments) */
 	template <typename T>
-	using TArgumentsOf = typename TArgumentsOf_S<T>::Type;
+	using TArgumentsOf = typename TArgumentsOf_Struct<T>::Type;
 
 	/**
 	 *	@brief
@@ -92,7 +99,7 @@ namespace Mcro::Slate
 		using Function = TFunction<T&(T&)>;
 
 		template <CConvertibleToDecayed<Function> Arg>
-		TAttributeBlockFunctor(Arg&& function) : Storage(Forward<Arg>(function)) {}
+		TAttributeBlockFunctor(Arg&& function) : Storage(FWD(function)) {}
 
 		Function Storage;
 
@@ -165,13 +172,11 @@ namespace Mcro::Slate
 	 *			+ TSlots(args._DataArray, [](const FMyData& data)
 	 *			{
 	 *				FText dataText = FText::FromString(data.ToString());
-	 *				return SVerticalBox::Slot()
+	 *				return MoveTemp(SVerticalBox::Slot()
 	 *					. HAlign(HAlign_Fill)
 	 *					. AutoHeight()
-	 *					[
-	 *						SNew(STextBlock)
-	 *						. Text(dataText)
-	 *					];
+	 *					[ SNew(STextBlock).Text(dataText) ];
+	 *				);
 	 *			})
 	 *			+ SVerticalBox::Slot()
 	 *			. HAlign(HAlign_Fill)
@@ -239,7 +244,7 @@ namespace Mcro::Slate
 
 		/** @copydoc TSlots */
 		template <CWidgetArguments Arguments>
-		friend Arguments& operator + (Arguments& args, TSlots&& slots)
+		friend Arguments& operator + (Arguments&& args, TSlots&& slots)
 		{
 			slots.Append(args);
 			return args;
@@ -250,6 +255,60 @@ namespace Mcro::Slate
 		Transform TransformStorage;
 		TOptional<OnEmpty> OnEmptyStorage;
 	};
+
+	/**
+	 *	@brief  Create widget slots from ranges of tuples via a transformation with structured binding arguments.
+	 *	@see    Mcro::Range::TransformTuple
+	 *	
+	 *	For example:
+	 *	@code
+	 *	void SMyWidget::Construct(const FArguments& args)
+	 *	{
+	 *		using namespace Mcro::Slate;
+	 *		
+	 *		ChildSlot
+	 *		[
+	 *			SNew(SVerticalBox)
+	 *			+ SlotsFromTuples(args._DataMap, [](const FString& key, int32 value)
+	 *			{
+	 *				return MoveTemp(SVerticalBox::Slot()
+	 *					. HAlign(HAlign_Fill)
+	 *					. AutoHeight()
+	 *					[
+	 *						SNew(SHorizontalBox)
+	 *						+ SHorizontalBox::Slot() [ SNew(STextBlock).Text(AsText(key)) ]
+	 *						+ SHorizontalBox::Slot() [ SNew(STextBlock).Text(AsText(value)) ]
+	 *					];
+	 *				);
+	 *			})
+	 *			+ SVerticalBox::Slot()
+	 *			. HAlign(HAlign_Fill)
+	 *			. AutoHeight()
+	 *			[
+	 *				SNew(STextBlock)
+	 *				. Text(INVTEXT_"Footer after the list of data")
+	 *			]
+	 *		];
+	 *	}
+	 *	@endcode 
+	 */
+	template <
+		CFunctionLike Transform,
+		Mcro::Range::CRangeOfTuplesCompatibleWithFunction<Transform> Range,
+		CFunctionLike OnEmpty = TUniqueFunction<TFunction_Return<Transform>()>,
+		CSlotArguments = TFunction_Return<Transform>
+	>
+	requires (TFunction_ArgCount<Transform> >= 1)
+	auto SlotsFromTuples(Range&& range, Transform&& transform, TOptional<OnEmpty>&& onEmpty = {})
+	{
+		using namespace Mcro::Range;
+		using Tuple = TRangeElementType<Range>;
+		
+		return TSlots(FWD(range), [transform](Tuple const& tuple)
+		{
+			return InvokeWithTuple(transform, tuple);
+		}, FWD(onEmpty));
+	}
 
 	/** @brief Convenience function for typing less when widget visibility depends on a boolean */
 	MCRO_API EVisibility IsVisible(bool visible, EVisibility hiddenState = EVisibility::Collapsed);

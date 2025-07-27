@@ -39,3 +39,6 @@
 
 /** @brief Returns given default value when input value is empty */
 #define DEFAULT_ON_EMPTY(value, default) BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), default, value)
+
+/** @brief Shorten forwarding expression with this macro so one may not need to specify explicit type */
+#define FWD(...) Forward<decltype(__VA_ARGS__)>(__VA_ARGS__)

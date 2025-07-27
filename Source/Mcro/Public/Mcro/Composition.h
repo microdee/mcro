@@ -298,7 +298,7 @@ namespace Mcro::Composition
 
 			if constexpr (CHasBases<ValidAs>)
 			{
-				Mcro::Any::Detail::ForEachExplicitBase<typename ValidAs::Bases>([&, this] <typename Base> (TTypes<Base>&&)
+				ForEachExplicitBase<ValidAs>([&, this] <typename Base> ()
 				{
 					AddComponentAlias(mainType, TTypeHash<Base>);
 				});
@@ -374,7 +374,7 @@ namespace Mcro::Composition
 			self.LastAddedComponentHash = TTypeHash<MainType>;
 			if constexpr (CHasBases<MainType>)
 			{
-				Mcro::Any::Detail::ForEachExplicitBase<typename MainType::Bases>([&] <typename Base> (TTypes<Base>&&)
+				ForEachExplicitBase<MainType>([&] <typename Base> ()
 				{
 					// FAny also deals with CHasBases so we can skip explicitly registering them here
 					self.AddComponentAlias(TTypeHash<MainType>, TTypeHash<Base>);
@@ -429,7 +429,7 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		void AddComponent(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(new MainType(), facilities);
+			FWD(self).template AddComponent<MainType, Self>(new MainType(), facilities);
 		}
 
 		/**
@@ -479,8 +479,8 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		auto With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			FWD(self).template AddComponent<MainType, Self>(newComponent, facilities);
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -505,8 +505,8 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		auto WithAnsi(this Self&& self, MainType* newComponent)
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			FWD(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
+			return SharedSelf(&self);
 		}
 		
 		/**
@@ -529,8 +529,8 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		auto With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			FWD(self).template AddComponent<MainType, Self>(facilities);
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -554,8 +554,8 @@ namespace Mcro::Composition
 		requires CCompatibleComponent<MainType, Self>
 		auto WithAnsi(this Self&& self)
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			FWD(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -583,8 +583,8 @@ namespace Mcro::Composition
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
 		decltype(auto) With(this Self&& self, MainType* newComponent, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, facilities);
-			return Forward<Self>(self);
+			FWD(self).template AddComponent<MainType, Self>(newComponent, facilities);
+			return FWD(self);
 		}
 
 		/**
@@ -609,8 +609,8 @@ namespace Mcro::Composition
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
 		decltype(auto) WithAnsi(this Self&& self, MainType* newComponent)
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
-			return Forward<Self>(self);
+			FWD(self).template AddComponent<MainType, Self>(newComponent, AnsiAnyFacilities<MainType>);
+			return FWD(self);
 		}
 
 		/**
@@ -633,8 +633,8 @@ namespace Mcro::Composition
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
 		decltype(auto) With(this Self&& self, TAnyTypeFacilities<MainType> const& facilities = {})
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(facilities);
-			return Forward<Self>(self);
+			FWD(self).template AddComponent<MainType, Self>(facilities);
+			return FWD(self);
 		}
 
 		/**
@@ -655,8 +655,8 @@ namespace Mcro::Composition
 		requires (CCompatibleComponent<MainType, Self> && !CSharedFromThis<Self>)
 		decltype(auto) WithAnsi(this Self&& self)
 		{
-			Forward<Self>(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
-			return Forward<Self>(self);
+			FWD(self).template AddComponent<MainType, Self>(Ansi::New<MainType>(), AnsiAnyFacilities<MainType>);
+			return FWD(self);
 		}
 
 		/**
@@ -696,8 +696,8 @@ namespace Mcro::Composition
 		template <typename ValidAs, CSharedFromThis Self>
 		auto WithAlias(this Self&& self)
 		{
-			Forward<Self>(self).template AddAlias<ValidAs>();
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			FWD(self).template AddAlias<ValidAs>();
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -738,8 +738,8 @@ namespace Mcro::Composition
 		requires (!CSharedFromThis<Self>)
 		decltype(auto) WithAlias(this Self&& self)
 		{
-			Forward<Self>(self).template AddAlias<ValidAs>();
-			return Forward<Self>(self);
+			FWD(self).template AddAlias<ValidAs>();
+			return FWD(self);
 		}
 
 		/**
@@ -775,8 +775,8 @@ namespace Mcro::Composition
 		template <CSharedFromThis Self, typename... ValidAs>
 		auto With(this Self&& self, TTypes<ValidAs...>&&)
 		{
-			Forward<Self>(self).template AddAlias<ValidAs...>();
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			FWD(self).template AddAlias<ValidAs...>();
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -813,8 +813,8 @@ namespace Mcro::Composition
 		requires (!CSharedFromThis<Self>)
 		decltype(auto) With(this Self&& self, TTypes<ValidAs...>&&)
 		{
-			Forward<Self>(self).template AddAlias<ValidAs...>();
-			return Forward<Self>(self);
+			FWD(self).template AddAlias<ValidAs...>();
+			return FWD(self);
 		}
 
 		/**
@@ -848,7 +848,7 @@ namespace Mcro::Composition
 		auto With(this Self&& self, Function&& function)
 		{
 			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
-			return StaticCastSharedRef<std::decay_t<Self>>(self.AsShared());
+			return SharedSelf(&self);
 		}
 
 		/**
@@ -882,7 +882,7 @@ namespace Mcro::Composition
 		decltype(auto) With(this Self&& self, Function&& function)
 		{
 			function(self.template Get<TFunction_ArgDecay<Function, 0>>());
-			return Forward<Self>(self);
+			return FWD(self);
 		}
 
 		/**

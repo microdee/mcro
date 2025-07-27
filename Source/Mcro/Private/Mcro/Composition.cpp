@@ -30,7 +30,7 @@ namespace Mcro::Composition
 		, ComponentAliases(MoveTemp(other.ComponentAliases))
 		, OnComponentAdded(MoveTemp(other.OnComponentAdded))
 	{
-		NotifyMoveComponents(Forward<IComposable>(other));
+		NotifyMoveComponents(FWD(other));
 	}
 
 	bool IComposable::HasExactComponent(FTypeHash typeHash) const

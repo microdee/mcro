@@ -131,9 +131,9 @@ namespace Mcro::Delegates
 				Cache = cache;
 			}
 			else
-				Cache = ArgumentsCache(Forward<BroadcastArgs>(args)...);
+				Cache = ArgumentsCache(FWD(args)...);
 			
-			MulticastDelegate.Broadcast(Forward<BroadcastArgs>(args)...);
+			MulticastDelegate.Broadcast(FWD(args)...);
 		
 			for (const FDelegateHandle& handle : OnlyNextDelegates)
 				MulticastDelegate.Remove(handle);
@@ -154,7 +154,7 @@ namespace Mcro::Delegates
 		template <typename... OptionalObject> requires (sizeof...(OptionalObject) <= 1)
 		FDelegate Delegation(OptionalObject&&... object)
 		{
-			return InferDelegate::From(Forward<OptionalObject>(object)..., [this](Args... args) { Broadcast(args...); });
+			return InferDelegate::From(FWD(object)..., [this](Args... args) { Broadcast(args...); });
 		};
 
 		/**

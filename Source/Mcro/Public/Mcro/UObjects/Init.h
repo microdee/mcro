@@ -94,7 +94,7 @@ namespace Mcro::UObjects::Init
 		requires CUObjectInitializable<T, Args...>
 		void InitObject(T* object, Args&&... args)
 		{
-			object->Initialize(Forward<Args>(args)...);
+			object->Initialize(FWD(args)...);
 		}
 	}
 	
@@ -123,7 +123,7 @@ namespace Mcro::UObjects::Init
 			params.InstanceGraph,
 			params.ExternalPackage
 		);
-		Detail::InitObject(result, Forward<Args>(args)...);
+		Detail::InitObject(result, FWD(args)...);
 		return result;
 	}
 
@@ -221,7 +221,7 @@ namespace Mcro::UObjects::Init
 			params.ExternalPackage
 		);
 		init(*result);
-		Detail::InitObject(result, Forward<Args>(args)...);
+		Detail::InitObject(result, FWD(args)...);
 		return result;
 	}
 }

@@ -45,7 +45,7 @@ namespace Mcro::SharedObjects
 	template <typename T, typename... Args>
 	concept CSharedInitializeable = requires(T& object, Args&&... args)
 	{
-		object.Initialize(Forward<Args>(args)...);
+		object.Initialize(FWD(args)...);
 	};
 
 	/**
@@ -64,7 +64,7 @@ namespace Mcro::SharedObjects
 	TSharedRef<T, Mode> MakeShareableInit(T* newObject, Args&&... args)
 	{
 		TSharedRef<T, Mode> result = MakeShareable(newObject);
-		result->Initialize(Forward<Args>(args)...);
+		result->Initialize(FWD(args)...);
 		return result;
 	}
 
@@ -101,7 +101,7 @@ namespace Mcro::SharedObjects
 	{
 		using namespace Mcro::Construct;
 		return MakeShareable(
-			ConstructNew(Forward<Initializer>(init), Forward<Args>(args)...)
+			ConstructNew(FWD(init), FWD(args)...)
 		);
 	}
 
@@ -132,7 +132,7 @@ namespace Mcro::SharedObjects
 	>
 	auto WeakSelf(const T* self) -> TWeakPtr<T const, Mode>
 	{
-		return StaticCastSharedRef<T const>(self->AsShared());
+		return StaticCastSharedRef<std::decay_t<T> const>(self->AsShared());
 	}
 
 	/**
@@ -148,7 +148,27 @@ namespace Mcro::SharedObjects
 	>
 	auto WeakSelf(T* self) -> TWeakPtr<T, Mode>
 	{
-		return StaticCastSharedRef<T>(self->AsShared());
+		return StaticCastSharedRef<std::decay_t<T>>(self->AsShared());
+	}
+
+	/** @brief Same as `SharedThis(this)` in `TSharedFromThis`. */
+	template <
+		CSharedFromThis T,
+		ESPMode Mode = decltype(DeclVal<T const>().AsShared())::Mode
+	>
+	auto SharedSelf(const T* self) -> TSharedRef<T const, Mode>
+	{
+		return StaticCastSharedRef<std::decay_t<T> const>(self->AsShared());
+	}
+
+	/** @brief Same as `SharedThis(this)` in `TSharedFromThis`. */
+	template <
+		CSharedFromThis T,
+		ESPMode Mode = decltype(DeclVal<T>().AsShared())::Mode
+	>
+	auto SharedSelf(T* self) -> TSharedRef<T, Mode>
+	{
+		return StaticCastSharedRef<std::decay_t<T>>(self->AsShared());
 	}
 
 	/**

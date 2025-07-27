@@ -152,7 +152,7 @@ namespace Mcro::Modules
 		 */
 		TObserveModule(FObserveModuleListener&& listeners)
 		{
-			BindListeners(Forward<FObserveModuleListener>(listeners));
+			BindListeners(FWD(listeners));
 			
 			ObserveModule(*InferModuleName<M>());
 			
@@ -161,7 +161,7 @@ namespace Mcro::Modules
 		/** @brief This constructor provides an explicit FName for getting the module */
 		TObserveModule(FName const& moduleName, FObserveModuleListener&& listeners)
 		{
-			BindListeners(Forward<FObserveModuleListener>(listeners));
+			BindListeners(FWD(listeners));
 			ObserveModule(moduleName);
 		}
 

@@ -14,10 +14,12 @@
 #include "CoreMinimal.h"
 
 #include "Mcro/Concepts.h"
+#include "Mcro/FunctionTraits.h"
 
 namespace Mcro::Range
 {
 	using namespace Mcro::Concepts;
+	using namespace Mcro::FunctionTraits;
 
 	enum class EIteratorDirection
 	{
@@ -183,4 +185,13 @@ namespace Mcro::Range
 
 	template <typename T>
 	concept CCountableRange = requires(T&& t) { size(t); };
+
+	template <typename Range>
+	concept CRangeOfTuples = CRangeMember<Range> && CTuple<TRangeElementType<Range>>;
+
+	template <typename Range, typename Function>
+	concept CRangeOfTuplesCompatibleWithFunction =
+		CRangeMember<Range> && CFunctionLike<Function>
+		&& CTupleCompatibleWithFunction<TRangeElementType<Range>, Function>
+	;
 }

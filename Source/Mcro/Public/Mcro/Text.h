@@ -394,7 +394,23 @@ namespace Mcro::Text
 	template <CSameAsDecayed<FString> T>
 	decltype(auto) AsString(T&& input)
 	{
-		return Forward<T>(input);
+		return FWD(input);
+	}
+
+	/**
+	 *	@brief  Convert anything which is compatible with `AsString` to FText.
+	 */
+	template <CStringFormatArgument T>
+	requires(!CSameAsDecayed<T, FText>)
+	FText AsText(T&& input)
+	{
+		return FText::FromString(AsString(input));
+	}
+	
+	template <CSameAsDecayed<FText> T>
+	decltype(auto) AsText(T&& input)
+	{
+		return FWD(input);
 	}
 
 	/**

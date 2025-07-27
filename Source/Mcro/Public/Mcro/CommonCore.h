@@ -32,12 +32,15 @@
 #include "Mcro/Finally.h"
 #include "Mcro/FmtMacros.h"
 #include "Mcro/FunctionTraits.h"
+#include "Mcro/Inheritance.h"
 #include "Mcro/InitializeOnCopy.h"
 #include "Mcro/Once.h"
 #include "Mcro/SharedObjects.h"
 #include "Mcro/Text.h"
 #include "Mcro/Text/TupleAsString.h"
 #include "Mcro/Threading.h"
+#include "Mcro/TypeName.h"
+#include "Mcro/TypeInfo.h"
 #include "Mcro/Types.h"
 #include "Mcro/Void.h"
 #include "Mcro/TextMacros.h"
@@ -59,14 +62,18 @@ namespace Mcro::CommonCore
 	using namespace Mcro::Enums;
 	using namespace Mcro::Finally;
 	using namespace Mcro::FunctionTraits;
+	using namespace Mcro::Inheritance;
 	using namespace Mcro::InitializeOnCopy;
 	using namespace Mcro::Once;
 	using namespace Mcro::SharedObjects;
 	using namespace Mcro::Text;
 	using namespace Mcro::Threading;
+	using namespace Mcro::TypeName;
+	using namespace Mcro::TypeInfo;
 	using namespace Mcro::Types;
 	using namespace Mcro::Range;
 	using namespace Mcro::ValueThunk;
+	using namespace Mcro::Zero;
 }
 
 /** @brief Use this namespace for all the common features MCRO has to offer */

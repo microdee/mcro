@@ -55,7 +55,7 @@ namespace Mcro::Delegates::InferDelegate
 		&& (!CFunctorObject<Function>)
 	TInferredDelegate<Function, Captures...> From(Function func, Captures&&... captures)
 	{
-		return TInferredDelegate<Function, Captures...>::CreateStatic(func, Forward<Captures>(captures)...);
+		return TInferredDelegate<Function, Captures...>::CreateStatic(func, FWD(captures)...);
 	}
 
 	/**
@@ -67,7 +67,7 @@ namespace Mcro::Delegates::InferDelegate
 	template <CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateLambda(Forward<Function>(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateLambda(FWD(func));
 	}
 	
 	/**
@@ -80,7 +80,7 @@ namespace Mcro::Delegates::InferDelegate
 	template <CSharedRef Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Object const& self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, Forward<Function>(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, FWD(func));
 	}
 	
 	/**
@@ -93,7 +93,7 @@ namespace Mcro::Delegates::InferDelegate
 	template <CSharedFromThis Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Object* self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, Forward<Function>(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, FWD(func));
 	}
 	
 	/**
@@ -106,7 +106,7 @@ namespace Mcro::Delegates::InferDelegate
 	template <CSharedFromThis Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(const Object* self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, Forward<Function>(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateSPLambda(self, FWD(func));
 	}
 	
 	/**
@@ -189,7 +189,7 @@ namespace Mcro::Delegates::InferDelegate
 	template <CUObject Object, CFunctorObject Function>
 	TDelegate<TFunction_Signature<Function>> From(Object* self, Function&& func)
 	{
-		return TDelegate<TFunction_Signature<Function>>::CreateWeakLambda(self, Forward<Function>(func));
+		return TDelegate<TFunction_Signature<Function>>::CreateWeakLambda(self, FWD(func));
 	}
 
 	/**
@@ -259,7 +259,7 @@ namespace Mcro::Delegates::InferDelegate
 	template <typename Object, typename... Args>
 	TDelegate<void(Args...)> From(Object&& self, TMulticastDelegate<void(Args...)>& multicast)
 	{
-		return From(Forward<Object>(self), [&](Args... args)
+		return From(FWD(self), [&](Args... args)
 		{
 			multicast.Broadcast(args...);
 		});
@@ -279,7 +279,7 @@ namespace Mcro::Delegates::InferDelegate
 		template <typename Object, CDynamicMulticastDelegate Dynamic, size_t... ArgIndices>
 		TNative<typename Dynamic::FDelegate> FromDynamicMulticastDelegate(Object&& self, Dynamic& multicast, std::index_sequence<ArgIndices...>&&)
 		{
-			return From(Forward<Object>(self), [&](TFunction_Arg<TDynamicMethodPtr<Dynamic>, ArgIndices>... args)
+			return From(FWD(self), [&](TFunction_Arg<TDynamicMethodPtr<Dynamic>, ArgIndices>... args)
 			{
 				multicast.Broadcast(args...);
 			});
@@ -317,7 +317,7 @@ namespace Mcro::Delegates::InferDelegate
 	TNative<typename Dynamic::FDelegate> From(Object&& self, Dynamic& multicast)
 	{
 		return Detail::FromDynamicMulticastDelegate(
-			Forward<Object>(self), multicast,
+			FWD(self), multicast,
 			std::make_index_sequence<
 				TFunction_ArgCount<TDynamicMethodPtr<Dynamic>>
 			>{}

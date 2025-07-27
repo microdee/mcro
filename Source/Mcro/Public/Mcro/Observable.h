@@ -32,7 +32,7 @@ namespace Mcro::Observable
 		TChangeData() : Next() {}
 		
 		template <CMoveConstructible = T>
-		TChangeData(T&& value) : Next(Forward<T>(value)) {}
+		TChangeData(T&& value) : Next(FWD(value)) {}
 
 		template <CCopyConstructible = T>
 		TChangeData(const TChangeData& from) : Next(from.Next), Previous(from.Previous) {}
@@ -42,11 +42,11 @@ namespace Mcro::Observable
 		
 		template <typename Arg>
 		requires (!CSameAs<Arg, TChangeData> && !CSameAs<Arg, T>)
-		TChangeData(Arg&& arg) : Next(Forward<Arg>(arg)) {}
+		TChangeData(Arg&& arg) : Next(FWD(arg)) {}
 
 		template <typename... Args>
 		requires (sizeof...(Args) > 1)
-		TChangeData(Args&&... args) : Next(Forward<Args>(args)...) {}
+		TChangeData(Args&&... args) : Next(FWD(args)...) {}
 		
 		T Next;
 		TOptional<T> Previous;
@@ -139,7 +139,7 @@ namespace Mcro::Observable
 		template <typename Object, CChangeListener<T> Function>
 		FDelegateHandle OnChange(Object&& object, Function const& onChange, FEventPolicy const& eventPolicy = {})
 		{
-			return OnChange(InferDelegate::From(Forward<Object>(object), DelegateValueArgument(onChange)), eventPolicy);
+			return OnChange(InferDelegate::From(FWD(object), DelegateValueArgument(onChange)), eventPolicy);
 		}
 
 		/**
@@ -157,7 +157,7 @@ namespace Mcro::Observable
 		void SyncPull(Guard&& object, IState<Other>& otherState)
 		{
 			otherState.OnChange(
-				Forward<Guard>(object),
+				FWD(object),
 				[this](Other const& next) { Set(next); },
 				{.Belated = true}
 			);
@@ -179,7 +179,7 @@ namespace Mcro::Observable
 		void SyncPush(Guard&& object, IState<Other>& otherState)
 		{
 			OnChange(
-				Forward<Guard>(object),
+				FWD(object),
 				[&otherState](T const& next) { otherState.Set(next); },
 				{.Belated = true}
 			);
@@ -402,12 +402,12 @@ namespace Mcro::Observable
 		/** @brief Construct value in-place with non-semantic single argument constructor */
 		template <typename Arg>
 		requires (!CConvertibleTo<Arg, TState> && !CSameAs<Arg, T>)
-		TState(Arg&& arg) : Value(Forward<Arg>(arg)) {}
+		TState(Arg&& arg) : Value(FWD(arg)) {}
 
 		/** @brief Construct value in-place with multiple argument constructor */
 		template <typename... Args>
 		requires (sizeof...(Args) > 1)
-		TState(Args&&... args) : Value(Forward<Args>(args)...) {}
+		TState(Args&&... args) : Value(FWD(args)...) {}
 		
 		virtual T const& Get() const override { return Value.Next; }
 		

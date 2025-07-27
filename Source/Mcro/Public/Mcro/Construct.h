@@ -50,7 +50,7 @@ namespace Mcro::Construct
 	requires std::is_lvalue_reference_v<ResultArg>
 	Result Construct(Initializer&& init, Args&&... args)
 	{
-		Result result {Forward<Args>(args)...};
+		Result result {FWD(args)...};
 		init(result);
 		return result;
 	}
@@ -87,7 +87,7 @@ namespace Mcro::Construct
 	requires std::is_lvalue_reference_v<ResultArg>
 	Result* ConstructNew(Initializer&& init, Args&&... args)
 	{
-		Result* result = new Result {Forward<Args>(args)...};
+		Result* result = new Result {FWD(args)...};
 		init(*result);
 		return result;
 	}
