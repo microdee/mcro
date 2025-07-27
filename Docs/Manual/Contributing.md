@@ -1,5 +1,7 @@
 # Contribution Guidelines {#Contributing}
 
+[TOC]
+
 Any contributions to MCRO are welcome and appreciated. If you want to contribute back to its source code we will do our best that your work will consistently fit in to the code base. In order to make this process easier please consider the following guide for contribution.
 
 ## Git flow
