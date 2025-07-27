@@ -6,6 +6,10 @@ Any contributions to MCRO are welcome and appreciated. If you want to contribute
 
 MCRO currently is only big enough for one `main` branch, which is locked from direct commits. Before contributing your change make a `feature` or a `bugfix` branch about what you'd like to add / fix. For example `feature/shiny-new-stuff` or `bugfix/annoying-stuff`. Please keep your commits focused on the subject of what the branches name. If you find dependency fixes or add dependency features which your subject relies on, it can still be part of the same branch and the same PR, but please explicitly list that in the PR description and title. PR's should always target `main` branch.
 
+When you create a PR please describe your train-of-thought behind it and describe the root cause why you made it. The length of this description is usually proportional to the amount of changes or additions introduced (unless they're repetitive). In most cases it will be required to write unit tests for your changes. If you feel like that's too much work, submit your PR anyway and we may discuss how we could help with that.
+
+MCRO is still a small project so there are not much rules for contribution, but please consider common-sense and cooperation with others. Also most importantly be kind, understanding, professional and assertive when phrasing the text of any PR, its contents, or any discussion point around MCRO and its broader vicinity. Offensive tones, discriminatory language, any form of bigotry, slender, racism, sexism, xenophobia, anti-LGBTQ, anti-semitism will not be tolerated, even in the unlikely event that the "contribution" behind such foul language is "valuable".
+
 ## Code Style C++
 
 MCRO is slightly deviating in code-style from the usual Unreal Coding Style-guides. This is chosen for personal preference and couple of pragmatic things. In my opinion the Unreal Guidelines are too strictly followed in the industry, to the degree that it is actively working against code readability, and promotes verbosity and bloat. For example the total ban on `auto` keyword or the ban on implicit conversion constructors.
