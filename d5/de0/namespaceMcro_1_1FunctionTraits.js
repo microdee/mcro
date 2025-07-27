@@ -14,6 +14,7 @@ var namespaceMcro_1_1FunctionTraits =
     [ "CFunctionLike", "de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html", null ],
     [ "CFunctionPtr", "d5/d28/conceptMcro_1_1FunctionTraits_1_1CFunctionPtr.html", null ],
     [ "CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ],
+    [ "CTupleCompatibleWithFunction", "d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html", null ],
     [ "CFunctionCompatible_ReturnDecay", "d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html", null ],
     [ "CFunctionCompatible_Return", "d6/d7a/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__Return.html", null ],
     [ "CFunctionCompatible_ArgumentsDecay", "d4/d06/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ArgumentsDecay.html", null ],
@@ -35,7 +36,7 @@ var namespaceMcro_1_1FunctionTraits =
     [ "TFunctionFromTuple", "d5/de0/namespaceMcro_1_1FunctionTraits.html#af19319d3a3e6ffff2cb43b1f5126be41", null ],
     [ "TSetReturn", "d5/de0/namespaceMcro_1_1FunctionTraits.html#ac13948033ac3bb8e6f545762f041cfa6", null ],
     [ "TSetReturnDecay", "d5/de0/namespaceMcro_1_1FunctionTraits.html#ab0e76c6d38aa6a511170ddafc3cf12d8", null ],
-    [ "InvokeWithTuple", "d5/de0/namespaceMcro_1_1FunctionTraits.html#a5f4d5cc1d9b4a9a6f7e9aeb1173f459e", null ],
-    [ "InvokeWithTuple", "d5/de0/namespaceMcro_1_1FunctionTraits.html#a87852d718661d6fa3beff61ad2731ed4", null ],
+    [ "InvokeWithTuple", "d5/de0/namespaceMcro_1_1FunctionTraits.html#a95bd00242a842df0b05e256bc45f6f27", null ],
+    [ "InvokeWithTuple", "d5/de0/namespaceMcro_1_1FunctionTraits.html#aa62b2381fdc6d8e54932107cb58815e2", null ],
     [ "TFunction_ArgCount", "d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc", null ]
 ];

@@ -124,9 +124,9 @@ $(function(){initNavTree('d9/dd0/Platform_8h.html','../../'); initResizable(true
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7ae18169a5637a0c3bf19f87216b7354" id="r_a7ae18169a5637a0c3bf19f87216b7354"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ae18169a5637a0c3bf19f87216b7354">MCRO_CURRENT_PLATFORM_STRING</a>&#160;&#160;&#160;MCRO_STRIFY(MCRO_CURRENT_PLATFORM)</td></tr>
+<tr class="memitem:a7ae18169a5637a0c3bf19f87216b7354" id="r_a7ae18169a5637a0c3bf19f87216b7354"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ae18169a5637a0c3bf19f87216b7354">MCRO_CURRENT_PLATFORM_STRING</a>&#160;&#160;&#160;PREPROCESSOR_TO_STRING(MCRO_CURRENT_PLATFORM)</td></tr>
 <tr class="separator:a7ae18169a5637a0c3bf19f87216b7354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c84ea2f903c41e9122f4c2595c962c" id="r_a17c84ea2f903c41e9122f4c2595c962c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17c84ea2f903c41e9122f4c2595c962c">MCRO_CURRENT_PLATFORM_TEXT</a>&#160;&#160;&#160;TEXT(<a class="el" href="#a7ae18169a5637a0c3bf19f87216b7354">MCRO_CURRENT_PLATFORM_STRING</a>)</td></tr>
+<tr class="memitem:a17c84ea2f903c41e9122f4c2595c962c" id="r_a17c84ea2f903c41e9122f4c2595c962c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17c84ea2f903c41e9122f4c2595c962c">MCRO_CURRENT_PLATFORM_TEXT</a>&#160;&#160;&#160;<a class="el" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(MCRO_CURRENT_PLATFORM)</td></tr>
 <tr class="separator:a17c84ea2f903c41e9122f4c2595c962c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7838b865b6016a1bae24094f91b23b0b" id="r_a7838b865b6016a1bae24094f91b23b0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7838b865b6016a1bae24094f91b23b0b">MCRO_COMPILER_MSVC</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a7838b865b6016a1bae24094f91b23b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +215,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MCRO_CURRENT_PLATFORM_STRING&#160;&#160;&#160;MCRO_STRIFY(MCRO_CURRENT_PLATFORM)</td>
+          <td class="memname">#define MCRO_CURRENT_PLATFORM_STRING&#160;&#160;&#160;PREPROCESSOR_TO_STRING(MCRO_CURRENT_PLATFORM)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -231,7 +231,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MCRO_CURRENT_PLATFORM_TEXT&#160;&#160;&#160;TEXT(<a class="el" href="#a7ae18169a5637a0c3bf19f87216b7354">MCRO_CURRENT_PLATFORM_STRING</a>)</td>
+          <td class="memname">#define MCRO_CURRENT_PLATFORM_TEXT&#160;&#160;&#160;<a class="el" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(MCRO_CURRENT_PLATFORM)</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,7 +1,5 @@
 var TypeName_8h =
 [
-    [ "Mcro::TypeName::FType", "d5/db6/structMcro_1_1TypeName_1_1FType.html", "d5/db6/structMcro_1_1TypeName_1_1FType" ],
-    [ "Mcro::TypeName::FType::TTag< T >", "df/d90/structMcro_1_1TypeName_1_1FType_1_1TTag.html", null ],
     [ "MCRO_EXPLICIT_TYPE_EXTRACTION", "d0/de3/TypeName_8h.html#a8411175e9f424cd5a05279d27be55b38", null ],
     [ "FTypeHash", "d0/de3/TypeName_8h.html#ab369b9187a7cdecfd0ab5f8b22bf7083", null ],
     [ "GetCompileTimeTypeHash", "d0/de3/TypeName_8h.html#a2b3eda30134ff3b3df72e6414d8dbddc", null ],
@@ -10,6 +8,5 @@ var TypeName_8h =
     [ "TTypeString", "d0/de3/TypeName_8h.html#aaef8c5d827a17f71828fa75fa98d0303", null ],
     [ "TTypeHash", "d0/de3/TypeName_8h.html#a5e3c9546760a80016848f4abaca9538c", null ],
     [ "TTypeName", "d0/de3/TypeName_8h.html#a4b48113b8a32fb7465ce6663edab3aa9", null ],
-    [ "TTypeNameStd", "d0/de3/TypeName_8h.html#aded0b460b40f89f45f61c9e43ee730af", null ],
-    [ "TTypeOf", "d0/de3/TypeName_8h.html#a1f93ab42cdd5935621759637994c76e8", null ]
+    [ "TTypeNameStd", "d0/de3/TypeName_8h.html#aded0b460b40f89f45f61c9e43ee730af", null ]
 ];

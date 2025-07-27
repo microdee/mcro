@@ -19,6 +19,8 @@ var Range_2Concepts_8h =
     [ "Mcro::Range::CHasElementIndex", "d2/dc3/conceptMcro_1_1Range_1_1CHasElementIndex.html", null ],
     [ "Mcro::Range::CIteratorComparable", "d5/dfc/conceptMcro_1_1Range_1_1CIteratorComparable.html", null ],
     [ "Mcro::Range::CCountableRange", "df/d86/conceptMcro_1_1Range_1_1CCountableRange.html", null ],
+    [ "Mcro::Range::CRangeOfTuples", "de/d0f/conceptMcro_1_1Range_1_1CRangeOfTuples.html", null ],
+    [ "Mcro::Range::CRangeOfTuplesCompatibleWithFunction", "d2/ddb/conceptMcro_1_1Range_1_1CRangeOfTuplesCompatibleWithFunction.html", null ],
     [ "TIteratorCategory", "d8/d6b/Range_2Concepts_8h.html#af3c41ed01ef982729462f542c44f66b5", null ],
     [ "TIteratorElementType", "d8/d6b/Range_2Concepts_8h.html#a2d2d0917e8cffa5718c9a3307e157dd4", null ],
     [ "TRangeElementType", "d8/d6b/Range_2Concepts_8h.html#ab447bff66e222424550776c39d788117", null ],

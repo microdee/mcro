@@ -2,7 +2,7 @@ var hierarchy =
 [
     [ "McroBuild.AbsolutePathExtensions", "d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html", null ],
     [ "BaseTypes...", null, [
-      [ "Mcro::Any::TInherit< BaseTypes >", "d3/d59/classMcro_1_1Any_1_1TInherit.html", null ]
+      [ "Mcro::Inheritance::TInherit< BaseTypes >", "d8/de3/classMcro_1_1Inheritance_1_1TInherit.html", null ]
     ] ],
     [ "std::conditional_t", null, [
       [ "Mcro::Range::TExtendedIterator< Iterator, Policy >", "d1/dc6/structMcro_1_1Range_1_1TExtendedIterator.html", null ]
@@ -37,7 +37,7 @@ var hierarchy =
     [ "Mcro::Text::Macros::FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", null ],
     [ "Mcro::Text::Macros::FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", null ],
     [ "Mcro::Text::Macros::FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", null ],
-    [ "Mcro::TypeName::FType", "d5/db6/structMcro_1_1TypeName_1_1FType.html", null ],
+    [ "Mcro::TypeInfo::FType", "da/d0a/structMcro_1_1TypeInfo_1_1FType.html", null ],
     [ "Mcro::ValueThunk::FValueThunkOptions", "df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions.html", null ],
     [ "FVoid", "d3/daf/structFVoid.html", null ],
     [ "Mcro::Zero::FZero", "d4/d5f/structMcro_1_1Zero_1_1FZero.html", null ],
@@ -57,6 +57,24 @@ var hierarchy =
     [ "Mcro::AutoModularFeature::IFeatureImplementation", "d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html", null ],
     [ "IFormattable", null, [
       [ "McroBuild.AbsolutePath", "d2/d11/classMcroBuild_1_1AbsolutePath.html", null ]
+    ] ],
+    [ "Mcro::Types::IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", [
+      [ "Mcro::Types::IHaveTypeShareable", "d7/d1c/classMcro_1_1Types_1_1IHaveTypeShareable.html", [
+        [ "Mcro::Error::IError", "dd/d8f/classMcro_1_1Error_1_1IError.html", [
+          [ "Mcro::Error::FAssertion", "d2/dc8/classMcro_1_1Error_1_1FAssertion.html", null ],
+          [ "Mcro::Error::FCppException", "db/dfc/classMcro_1_1Error_1_1FCppException.html", [
+            [ "Mcro::Error::TCppException< Exception >", "db/d63/classMcro_1_1Error_1_1TCppException.html", null ]
+          ] ],
+          [ "Mcro::Error::FUnavailable", "d4/d68/classMcro_1_1Error_1_1FUnavailable.html", null ],
+          [ "Mcro::Error::IPlainTextComponent", "d3/d00/classMcro_1_1Error_1_1IPlainTextComponent.html", [
+            [ "Mcro::Error::FBlueprintStackTrace", "d8/d83/classMcro_1_1Error_1_1FBlueprintStackTrace.html", null ],
+            [ "Mcro::Error::FCppStackTrace", "d5/d87/classMcro_1_1Error_1_1FCppStackTrace.html", null ]
+          ] ],
+          [ "Mcro::Windows::Error::FHresultError", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html", null ],
+          [ "Mcro::Windows::Error::FLastError", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html", null ]
+        ] ]
+      ] ],
+      [ "Mcro::Types::THasTypeShareable< T >", "d6/d77/classMcro_1_1Types_1_1THasTypeShareable.html", null ]
     ] ],
     [ "IModularFeature", null, [
       [ "Mcro::AutoModularFeature::TAutoModularFeature< IErrorDisplayExtension >", "d1/d97/classMcro_1_1AutoModularFeature_1_1TAutoModularFeature.html", null ],
@@ -94,14 +112,15 @@ var hierarchy =
     [ "SCompoundWidget", null, [
       [ "Mcro::Error::SErrorDisplay", "d2/da3/classMcro_1_1Error_1_1SErrorDisplay.html", [
         [ "Mcro::Error::SPlainTextDisplay", "d4/da3/classMcro_1_1Error_1_1SPlainTextDisplay.html", null ]
-      ] ]
+      ] ],
+      [ "Mcro::Slate::Detail::TReactiveWidgetBase< Item, Range, ContainerWidget, ChildWidget, ChildrenRange, IndexType >", "d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html", null ]
     ] ],
     [ "TAllocatorTraitsBase", null, [
       [ "TAllocatorTraits< Mcro::Ansi::FAllocator >", "df/d65/structTAllocatorTraits_3_01Mcro_1_1Ansi_1_1FAllocator_01_4.html", null ]
     ] ],
     [ "Mcro::Any::TAnyTypeFacilities< T >", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", null ],
-    [ "Mcro::Slate::TArgumentsOf_S< T >", "de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html", null ],
-    [ "Mcro::Slate::TArgumentsOf_S< T >", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html", null ],
+    [ "Mcro::Slate::TArgumentsOf_Struct< T >", "dd/d10/structMcro_1_1Slate_1_1TArgumentsOf__Struct.html", null ],
+    [ "Mcro::Slate::TArgumentsOf_Struct< T >", "d4/dd6/structMcro_1_1Slate_1_1TArgumentsOf__Struct_3_01T_01_4.html", null ],
     [ "Mcro::Text::TAsFormatArgument< T >", "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html", null ],
     [ "Mcro::Text::TAsFormatArgument< FStdStringView >", "d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4.html", null ],
     [ "Mcro::Text::TAsFormatArgument< Operand >", "d4/d15/structMcro_1_1Text_1_1TAsFormatArgument_3_01Operand_01_4.html", null ],
@@ -164,33 +183,26 @@ var hierarchy =
     [ "Mcro::Delegates::TNativeEvent_Struct< Dynamic, DefaultPolicy >", "d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html", null ],
     [ "Mcro::Modules::TObserveModule< M >", "d3/d30/structMcro_1_1Modules_1_1TObserveModule.html", null ],
     [ "Mcro::Range::Detail::TRangeWithStringFormat< Range >", "db/d93/structMcro_1_1Range_1_1Detail_1_1TRangeWithStringFormat.html", null ],
+    [ "Detail::TReactiveWidgetBase< Item, TArray< Item >, SWidget, SWidget, TArray< TSharedRef< SWidget > >, int32 >", null, [
+      [ "Mcro::Slate::TArrayReactiveWidget< Item, ContainerWidget, ChildWidget, Base >", "d3/df4/classMcro_1_1Slate_1_1TArrayReactiveWidget.html", null ]
+    ] ],
+    [ "Detail::TReactiveWidgetBase< Item, TMap< Key, Item >, SWidget, SWidget, TMap< Key, TSharedRef< SWidget > >, Key >", null, [
+      [ "Mcro::Slate::TMapReactiveWidget< Key, Item, ContainerWidget, ChildWidget, Base >", "dd/d9a/classMcro_1_1Slate_1_1TMapReactiveWidget.html", null ]
+    ] ],
     [ "Mcro::Yaml::TScopedRegion< Begin, End >", "d4/d21/classMcro_1_1Yaml_1_1TScopedRegion.html", null ],
     [ "Mcro::UObjects::Init::TScopeObject< T >", "d1/d76/structMcro_1_1UObjects_1_1Init_1_1TScopeObject.html", null ],
     [ "TSetAllocator", null, [
       [ "Mcro::Ansi::FSetAllocator", "d5/d3b/classMcro_1_1Ansi_1_1FSetAllocator.html", null ]
     ] ],
     [ "TSharedFromThis", null, [
-      [ "Mcro::Types::IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", [
-        [ "Mcro::Error::IError", "dd/d8f/classMcro_1_1Error_1_1IError.html", [
-          [ "Mcro::Error::FAssertion", "d2/dc8/classMcro_1_1Error_1_1FAssertion.html", null ],
-          [ "Mcro::Error::FCppException", "db/dfc/classMcro_1_1Error_1_1FCppException.html", [
-            [ "Mcro::Error::TCppException< Exception >", "db/d63/classMcro_1_1Error_1_1TCppException.html", null ]
-          ] ],
-          [ "Mcro::Error::FUnavailable", "d4/d68/classMcro_1_1Error_1_1FUnavailable.html", null ],
-          [ "Mcro::Error::IPlainTextComponent", "d3/d00/classMcro_1_1Error_1_1IPlainTextComponent.html", [
-            [ "Mcro::Error::FBlueprintStackTrace", "d8/d83/classMcro_1_1Error_1_1FBlueprintStackTrace.html", null ],
-            [ "Mcro::Error::FCppStackTrace", "d5/d87/classMcro_1_1Error_1_1FCppStackTrace.html", null ]
-          ] ],
-          [ "Mcro::Windows::Error::FHresultError", "dd/d18/classMcro_1_1Windows_1_1Error_1_1FHresultError.html", null ],
-          [ "Mcro::Windows::Error::FLastError", "de/db4/classMcro_1_1Windows_1_1Error_1_1FLastError.html", null ]
-        ] ]
-      ] ]
+      [ "Mcro::Types::IHaveTypeShareable", "d7/d1c/classMcro_1_1Types_1_1IHaveTypeShareable.html", null ],
+      [ "Mcro::Types::THasTypeShareable< T >", "d6/d77/classMcro_1_1Types_1_1THasTypeShareable.html", null ]
     ] ],
     [ "Mcro::SharedObjects::TSharedStorage< T >", "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html", null ],
     [ "Mcro::Tuples::TSkip_Struct< Count, Tuple >", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", null ],
     [ "Mcro::Slate::TSlots< Range, Transform, OnEmpty, CSlotArguments >", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", null ],
     [ "Mcro::Text::Macros::TStringPrintfLiteral< Args >", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", null ],
-    [ "Mcro::TypeName::FType::TTag< T >", "df/d90/structMcro_1_1TypeName_1_1FType_1_1TTag.html", null ],
+    [ "Mcro::TypeInfo::FType::TTag< T >", "d8/dcb/structMcro_1_1TypeInfo_1_1FType_1_1TTag.html", null ],
     [ "Mcro::Tuples::TTake_Struct< Count, Tuple >", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", null ],
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],
     [ "Mcro::Rendering::Textures::TTextureSize< SizeType, InFormatType >", "d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html", null ],

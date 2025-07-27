@@ -29,7 +29,7 @@ var searchData=
   ['withmessagefc_26',['WithMessageFC',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1ce7a1ee1803ec636d34e4cabd6f91f4',1,'Mcro::Error::IError']]],
   ['without_20parentheses_27',['Text macros without parentheses',['../index.html#autotoc_md15',1,'']]],
   ['withseverity_28',['WithSeverity',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a407637d71e5e9f800ad8b6edc451d71a',1,'Mcro::Error::IError']]],
-  ['withtype_29',['WithType',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ad7c52943bda0742727451400e9cbe2b4',1,'Mcro::Types::IHaveType']]],
+  ['withtype_29',['WithType',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ad7c52943bda0742727451400e9cbe2b4',1,'Mcro::Types::IHaveType::WithType(this Self &amp;&amp;self)'],['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a23b7ff54a04480a6e1c98d2b598ca030',1,'Mcro::Types::IHaveType::WithType(this Self &amp;&amp;self)']]],
   ['withunixseparator_30',['WithUnixSeparator',['../df/dbf/classMcroBuild_1_1PathUtils.html#ace1d8726b93a1fc0b552a9dcc0db7365',1,'McroBuild::PathUtils']]],
   ['writele64_31',['writeLE64',['../d6/d7a/namespaceconstexpr__xxh3.html#a3919e78cbb277d199a580c1c15aaae4b',1,'constexpr_xxh3']]],
   ['writelock_32',['WriteLock',['../d8/d30/structMcro_1_1Observable_1_1IState.html#aee37071909ac09f7c8adf3644be838a0',1,'Mcro::Observable::IState::WriteLock()'],['../d7/d5e/structMcro_1_1Observable_1_1TState.html#a038c4b2518eb62e208751431941b8e1b',1,'Mcro::Observable::TState::WriteLock() override']]],

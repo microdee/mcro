@@ -121,12 +121,13 @@ $(function(){initNavTree('da/d3f/conceptMcro_1_1Concepts_1_1CInvocable.html','..
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../da/d3f/conceptMcro_1_1Concepts_1_1CInvocable.html">Mcro::Concepts::CInvocable</a> =  <span class="keyword">requires</span>(std::decay_t&lt;Function&gt;&amp;&amp; function, Args&amp;&amp;... args)</div>
 <div class="line">    {</div>
-<div class="line">        std::invoke(Forward&lt;std::decay_t&lt;Function&gt;&amp;&amp;&gt;(function), Forward&lt;Args&amp;&amp;&gt;(args)...);</div>
+<div class="line">        std::invoke(<a class="code hl_define" href="../../df/d0a/Macros_8h.html#a8dfff7147f0fdff4642a6667a375ae29">FWD</a>(function), Forward&lt;Args&amp;&amp;&gt;(args)...);</div>
 <div class="line">    }</div>
-<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CInvocable_html"><div class="ttname"><a href="../../da/d3f/conceptMcro_1_1Concepts_1_1CInvocable.html">Mcro::Concepts::CInvocable</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/Concepts_8h_source.html#l00174">Concepts.h:174</a></div></div>
+<div class="ttc" id="aMacros_8h_html_a8dfff7147f0fdff4642a6667a375ae29"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a8dfff7147f0fdff4642a6667a375ae29">FWD</a></div><div class="ttdeci">#define FWD(...)</div><div class="ttdoc">Shorten forwarding expression with this macro so one may not need to specify explicit type.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00044">Macros.h:44</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1Concepts_1_1CInvocable_html"><div class="ttname"><a href="../../da/d3f/conceptMcro_1_1Concepts_1_1CInvocable.html">Mcro::Concepts::CInvocable</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/Concepts_8h_source.html#l00175">Concepts.h:175</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d1/d8d/Concepts_8h_source.html#l00174">174</a> of file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d8d/Concepts_8h_source.html#l00175">175</a> of file <a class="el" href="../../d1/d8d/Concepts_8h_source.html">Concepts.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

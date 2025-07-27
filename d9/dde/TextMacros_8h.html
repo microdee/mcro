@@ -235,17 +235,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">% <a class="code hl_function" href="../../d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a2502b204a2fc10975de66e32c6cc8c77">Mcro::Text::Macros::MakePrintfLiteral</a>(__VA_ARGS__)</div>
-<div class="ttc" id="anamespaceMcro_1_1Text_1_1Macros_html_a2502b204a2fc10975de66e32c6cc8c77"><div class="ttname"><a href="../../d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a2502b204a2fc10975de66e32c6cc8c77">Mcro::Text::Macros::MakePrintfLiteral</a></div><div class="ttdeci">TStringPrintfLiteral&lt; Args... &gt; MakePrintfLiteral(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00157">TextMacros.h:157</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Text_1_1Macros_html_a2502b204a2fc10975de66e32c6cc8c77"><div class="ttname"><a href="../../d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a2502b204a2fc10975de66e32c6cc8c77">Mcro::Text::Macros::MakePrintfLiteral</a></div><div class="ttdeci">TStringPrintfLiteral&lt; Args... &gt; MakePrintfLiteral(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00153">TextMacros.h:153</a></div></div>
 </div><!-- fragment -->
 <p>Trailing fake text literal which shortens down the <code>FString::Printf(TEXT("..."), ...);</code> expression. </p>
 <p>Usage: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> count, FString type;</div>
 <div class="line"><a class="code hl_define" href="#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;My format literal with %d and %s&quot;</span> <a class="code hl_define" href="#ad33429682dabff3fd90527fb341d1396">_PRINTF</a>(count, type);</div>
 <div class="line"><span class="comment">//                                     ^ this space is important</span></div>
 <div class="ttc" id="aTextMacros_8h_html_a9e3bd2dc94862c806215d1f46d9d7657"><div class="ttname"><a href="#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a></div><div class="ttdeci">#define TEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own TEXT macro but this one doesn't require parenthesis around ...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00051">TextMacros.h:51</a></div></div>
-<div class="ttc" id="aTextMacros_8h_html_ad33429682dabff3fd90527fb341d1396"><div class="ttname"><a href="#ad33429682dabff3fd90527fb341d1396">_PRINTF</a></div><div class="ttdeci">#define _PRINTF(...)</div><div class="ttdoc">Trailing fake text literal which shortens down the FString::Printf(TEXT(&quot;...&quot;), .....</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00245">TextMacros.h:245</a></div></div>
+<div class="ttc" id="aTextMacros_8h_html_ad33429682dabff3fd90527fb341d1396"><div class="ttname"><a href="#ad33429682dabff3fd90527fb341d1396">_PRINTF</a></div><div class="ttdeci">#define _PRINTF(...)</div><div class="ttdoc">Trailing fake text literal which shortens down the FString::Printf(TEXT(&quot;...&quot;), .....</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00241">TextMacros.h:241</a></div></div>
 </div><!-- fragment --><p>This operation runs <code>FString::Printf</code> in runtime and allocates a struct which stores the format arguments (preserving CV-ref qualifiers). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00245">245</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00241">241</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ Functions</h2></td></tr>
 <p>A convenience alternative to Unreal's own <code>INVTEXT</code> macro but this one doesn't require parenthesis around the text literal. </p>
 <p>This operation allocates FText in runtime and an empty tag struct </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00190">190</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00186">186</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +288,7 @@ Functions</h2></td></tr>
 <p>A convenience alternative to Unreal's own <code>LOCTEXT</code> macro but this one doesn't require parenthesis around the text literal. </p>
 <p>This operation allocates an argument deferring struct and FText in runtime </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00170">170</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00166">166</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +307,7 @@ Functions</h2></td></tr>
 <p>A convenience macro to allocate an FName directly. </p>
 <p>This operation allocates FName in runtime and an empty tag struct. This is not a custom string literal because they're not available for concatenated groups of string literals of mixed encodings. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00229">229</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00225">225</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -334,7 +334,7 @@ Functions</h2></td></tr>
 <p>A convenience alternative to Unreal's own <code>NSLOCTEXT</code> macro but this one doesn't require parenthesis around the text literal. </p>
 <p>This operation allocates an argument deferring struct and FText in runtime </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00180">180</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00176">176</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -358,10 +358,10 @@ Functions</h2></td></tr>
 <p>Usage: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> count, FString type;</div>
 <div class="line"><a class="code hl_define" href="#a9f5256e5a5f2fe8f881946fbb3e2de0a">PRINTF_</a>(count, type) <span class="stringliteral">&quot;My format literal with %d and %s&quot;</span>;</div>
 <div class="line"><span class="comment">//                  ^ this space is optional</span></div>
-<div class="ttc" id="aTextMacros_8h_html_a9f5256e5a5f2fe8f881946fbb3e2de0a"><div class="ttname"><a href="#a9f5256e5a5f2fe8f881946fbb3e2de0a">PRINTF_</a></div><div class="ttdeci">#define PRINTF_(...)</div><div class="ttdoc">Leading fake text literal which shortens down the FString::Printf(TEXT(&quot;...&quot;), ......</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00261">TextMacros.h:261</a></div></div>
+<div class="ttc" id="aTextMacros_8h_html_a9f5256e5a5f2fe8f881946fbb3e2de0a"><div class="ttname"><a href="#a9f5256e5a5f2fe8f881946fbb3e2de0a">PRINTF_</a></div><div class="ttdeci">#define PRINTF_(...)</div><div class="ttdoc">Leading fake text literal which shortens down the FString::Printf(TEXT(&quot;...&quot;), ......</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00257">TextMacros.h:257</a></div></div>
 </div><!-- fragment --><p>This operation runs <code>FString::Printf</code> in runtime and allocates a struct which stores the format arguments (preserving CV-ref qualifiers). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00261">261</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00257">257</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -380,7 +380,7 @@ Functions</h2></td></tr>
 <p>A convenience alternative to Unreal's own <code>TEXTVIEW</code> macro but this one doesn't require parenthesis around the text literal and it returns an STL string view. </p>
 <p>This operation creates a <code>std::[w]string_view</code> in consteval time. This is not a custom string literal because they're not available for concatenated groups of string literals of mixed encodings. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00211">211</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00207">207</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -399,7 +399,7 @@ Functions</h2></td></tr>
 <p>A convenience macro to allocate an FString directly. </p>
 <p>This operation allocates FString in runtime and an empty tag struct. This is not a custom string literal because they're not available for concatenated groups of string literals of mixed encodings. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00220">220</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00216">216</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>
@@ -453,7 +453,7 @@ Functions</h2></td></tr>
 <p>A convenience alternative to Unreal's own <code>TEXTVIEW</code> macro but this one doesn't require parenthesis around the text literal. </p>
 <p>This operation creates an FStringView in consteval time. This is not a custom string literal because they're not available for concatenated groups of string literals of mixed encodings. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00201">201</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dde/TextMacros_8h_source.html#l00197">197</a> of file <a class="el" href="../../d9/dde/TextMacros_8h_source.html">TextMacros.h</a>.</p>
 
 </div>
 </div>

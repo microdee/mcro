@@ -150,6 +150,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a11cb71712b6c3b9778201d17c14e6f9f" id="r_a11cb71712b6c3b9778201d17c14e6f9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11cb71712b6c3b9778201d17c14e6f9f">_FMT</a>(...)</td></tr>
 <tr class="memdesc:a11cb71712b6c3b9778201d17c14e6f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trailing fake text literal which makes using <code>FString::Format(...);</code> much more comfortable.  <br /></td></tr>
 <tr class="separator:a11cb71712b6c3b9778201d17c14e6f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4a1862089a6b0e3fbe0b053c80ada2" id="r_afc4a1862089a6b0e3fbe0b053c80ada2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc4a1862089a6b0e3fbe0b053c80ada2">FMT_LOG</a>(categoryName,  verbosity,  format, ...)</td></tr>
+<tr class="memdesc:afc4a1862089a6b0e3fbe0b053c80ada2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to <code>UE_LOGFMT</code>, but implemented via MCRO's own <code>_FMT</code> macro. So it's more convenient to pass format arguments.  <br /></td></tr>
+<tr class="separator:afc4a1862089a6b0e3fbe0b053c80ada2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -176,7 +179,7 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>David Mórász </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
 <p>The major difference from <code>PRINTF_</code> or <code>FString::Printf(...)</code> is that <code>FMT</code> macros can take user defined string conversions into account, so more types can be used directly as arguments.</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000010">Todo</a></b></dt><dd>Make a unified way to handle format arguments for FText and FString. Currently _FMT on FText is using string conversions to do the actual formatting, and not vanilla FText::Format </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo</a></b></dt><dd>Make a unified way to handle format arguments for FText and FString. Currently _FMT on FText is using string conversions to do the actual formatting, and not vanilla FText::Format </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -283,6 +286,65 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afc4a1862089a6b0e3fbe0b053c80ada2" name="afc4a1862089a6b0e3fbe0b053c80ada2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc4a1862089a6b0e3fbe0b053c80ada2">&#9670;&#160;</a></span>FMT_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FMT_LOG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>categoryName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>verbosity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    UE_LOG(categoryName, verbosity, TEXT(<span class="stringliteral">&quot;%s&quot;</span>), *(TEXT(format) <a class="code hl_define" href="#a11cb71712b6c3b9778201d17c14e6f9f">_FMT</a>(__VA_ARGS__)))</div>
+</div><!-- fragment -->
+<p>Similar to <code>UE_LOGFMT</code>, but implemented via MCRO's own <code>_FMT</code> macro. So it's more convenient to pass format arguments. </p>
+<p>This is naively implemented via regular UE_LOG which gets a single string format argument which is fed the result of the <code>_FMT</code> macro. <code>UE_LOGFMT</code> may have better performance or may have more insights to format arguments.</p>
+<p>The same argument syntax applies here as with <code>_FMT</code> regarding the distinction between named and ordered arguments.</p>
+<p>Named arguments: </p><div class="fragment"><div class="line"><span class="comment">// Vanilla:</span></div>
+<div class="line">UE_LOGFMT(LogSpaceMouseConfig, Display, <span class="stringliteral">&quot;Input Binding {Context} / {Name} is handled&quot;</span>,</div>
+<div class="line">    cmd.GetBindingContext().ToString(),</div>
+<div class="line">    cmd.GetCommandName().ToString()</div>
+<div class="line">);</div>
+<div class="line"><span class="comment">// MCRO:</span></div>
+<div class="line"><a class="code hl_define" href="#afc4a1862089a6b0e3fbe0b053c80ada2">FMT_LOG</a>(LogSpaceMouseConfig, Display, <span class="stringliteral">&quot;Input Binding {Context} / {Name} is handled&quot;</span>,</div>
+<div class="line">    (Context, cmd.GetBindingContext()) <span class="comment">// &lt;- Notice the lack of comma here!</span></div>
+<div class="line">    (Name,    cmd.GetCommandName())</div>
+<div class="line">);</div>
+<div class="ttc" id="aFmtMacros_8h_html_afc4a1862089a6b0e3fbe0b053c80ada2"><div class="ttname"><a href="#afc4a1862089a6b0e3fbe0b053c80ada2">FMT_LOG</a></div><div class="ttdeci">#define FMT_LOG(categoryName, verbosity, format,...)</div><div class="ttdoc">Similar to UE_LOGFMT, but implemented via MCRO's own _FMT macro. So it's more convenient to pass form...</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00246">FmtMacros.h:246</a></div></div>
+</div><!-- fragment --><p> Ordered arguments: </p><div class="fragment"><div class="line"><span class="comment">// Vanilla:</span></div>
+<div class="line">UE_LOGFMT(LogSpaceMouseConfig, Display, <span class="stringliteral">&quot;Input Binding {0} / {1} is handled&quot;</span>,</div>
+<div class="line">    cmd.GetBindingContext().ToString(),</div>
+<div class="line">    cmd.GetCommandName().ToString()</div>
+<div class="line">);</div>
+<div class="line"><span class="comment">// MCRO:</span></div>
+<div class="line"><a class="code hl_define" href="#afc4a1862089a6b0e3fbe0b053c80ada2">FMT_LOG</a>(LogSpaceMouseConfig, Display, <span class="stringliteral">&quot;Input Binding {0} / {1} is handled&quot;</span>,</div>
+<div class="line">    cmd.GetBindingContext(),</div>
+<div class="line">    cmd.GetCommandName()</div>
+<div class="line">);</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00246">246</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
+
+</div>
+</div>
 <a id="aeb58fdca64e9558586dd7ab00882ddf6" name="aeb58fdca64e9558586dd7ab00882ddf6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb58fdca64e9558586dd7ab00882ddf6">&#9670;&#160;</a></span>MCRO_FMT_ARGS</h2>
 
@@ -355,7 +417,7 @@ Functions</h2></td></tr>
 <div class="line">        )                                         \</div>
 <div class="line">    )</div>
 <div class="ttc" id="aFmtMacros_8h_html_a2d1e42e1daed57c0fdce7562e04692b2"><div class="ttname"><a href="#a2d1e42e1daed57c0fdce7562e04692b2">MCRO_FMT_NAMED_ARG_TRANSFORM</a></div><div class="ttdeci">#define MCRO_FMT_NAMED_ARG_TRANSFORM(s, data, elem)</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00081">FmtMacros.h:81</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Text_html_a0aaef9c9d339cbc73b7cd5a92e9c187a"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#a0aaef9c9d339cbc73b7cd5a92e9c187a">Mcro::Text::NamedArguments</a></div><div class="ttdeci">FStringFormatNamedArguments NamedArguments(TTuple&lt; FString, Args &gt;... args)</div><div class="ttdoc">Create a named argument list for a string format from input argument tuples.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00419">Text.h:419</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Text_html_a0aaef9c9d339cbc73b7cd5a92e9c187a"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#a0aaef9c9d339cbc73b7cd5a92e9c187a">Mcro::Text::NamedArguments</a></div><div class="ttdeci">FStringFormatNamedArguments NamedArguments(TTuple&lt; FString, Args &gt;... args)</div><div class="ttdoc">Create a named argument list for a string format from input argument tuples.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00435">Text.h:435</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00090">90</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 
@@ -430,7 +492,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a>(__VA_ARGS__)</div>
-<div class="ttc" id="anamespaceMcro_1_1Text_html_af755894199136f1ff56c57f5d1b87d13"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a></div><div class="ttdeci">FStringFormatOrderedArguments OrderedArguments(Args &amp;&amp;... args)</div><div class="ttdoc">Create an ordered argument list for a string format from input arguments.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00407">Text.h:407</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Text_html_af755894199136f1ff56c57f5d1b87d13"><div class="ttname"><a href="../../d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13">Mcro::Text::OrderedArguments</a></div><div class="ttdeci">FStringFormatOrderedArguments OrderedArguments(Args &amp;&amp;... args)</div><div class="ttdoc">Create an ordered argument list for a string format from input arguments.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d35/Text_8h_source.html#l00423">Text.h:423</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html#l00100">100</a> of file <a class="el" href="../../d2/d0e/FmtMacros_8h_source.html">FmtMacros.h</a>.</p>
 

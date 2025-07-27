@@ -7,8 +7,7 @@ var annotated_dup =
       ] ],
       [ "Any", "da/dfe/namespaceMcro_1_1Any.html", [
         [ "FAny", "df/d32/structMcro_1_1Any_1_1FAny.html", "df/d32/structMcro_1_1Any_1_1FAny" ],
-        [ "TAnyTypeFacilities", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities" ],
-        [ "TInherit", "d3/d59/classMcro_1_1Any_1_1TInherit.html", "d3/d59/classMcro_1_1Any_1_1TInherit" ]
+        [ "TAnyTypeFacilities", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html", "d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities" ]
       ] ],
       [ "AutoModularFeature", "d3/d71/namespaceMcro_1_1AutoModularFeature.html", [
         [ "IAutoModularFeature", "db/dcd/classMcro_1_1AutoModularFeature_1_1IAutoModularFeature.html", null ],
@@ -81,6 +80,9 @@ var annotated_dup =
         [ "TFunctionTraits< ReturnIn(ClassIn::*)(Args...)>", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html", "d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4" ],
         [ "TFunctionTraits< T >", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html", "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4" ]
       ] ],
+      [ "Inheritance", "d8/d32/namespaceMcro_1_1Inheritance.html", [
+        [ "TInherit", "d8/de3/classMcro_1_1Inheritance_1_1TInherit.html", "d8/de3/classMcro_1_1Inheritance_1_1TInherit" ]
+      ] ],
       [ "InitializeOnCopy", "df/dae/namespaceMcro_1_1InitializeOnCopy.html", [
         [ "TInitializeOnCopy", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy.html", "d8/d36/structMcro_1_1InitializeOnCopy_1_1TInitializeOnCopy" ]
       ] ],
@@ -132,9 +134,14 @@ var annotated_dup =
         [ "TSharedStorage", "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html", "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage" ]
       ] ],
       [ "Slate", "df/df4/namespaceMcro_1_1Slate.html", [
-        [ "TArgumentsOf_S", "de/d34/structMcro_1_1Slate_1_1TArgumentsOf__S.html", null ],
-        [ "TArgumentsOf_S< T >", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4.html", "d9/da3/structMcro_1_1Slate_1_1TArgumentsOf__S_3_01T_01_4" ],
+        [ "Detail", "d2/dbe/namespaceMcro_1_1Slate_1_1Detail.html", [
+          [ "TReactiveWidgetBase", "d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html", "d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase" ]
+        ] ],
+        [ "TArgumentsOf_Struct", "dd/d10/structMcro_1_1Slate_1_1TArgumentsOf__Struct.html", null ],
+        [ "TArgumentsOf_Struct< T >", "d4/dd6/structMcro_1_1Slate_1_1TArgumentsOf__Struct_3_01T_01_4.html", "d4/dd6/structMcro_1_1Slate_1_1TArgumentsOf__Struct_3_01T_01_4" ],
+        [ "TArrayReactiveWidget", "d3/df4/classMcro_1_1Slate_1_1TArrayReactiveWidget.html", "d3/df4/classMcro_1_1Slate_1_1TArrayReactiveWidget" ],
         [ "TAttributeBlockFunctor", "dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html", "dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor" ],
+        [ "TMapReactiveWidget", "dd/d9a/classMcro_1_1Slate_1_1TMapReactiveWidget.html", "dd/d9a/classMcro_1_1Slate_1_1TMapReactiveWidget" ],
         [ "TSlots", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", "d0/daf/structMcro_1_1Slate_1_1TSlots" ]
       ] ],
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
@@ -173,11 +180,13 @@ var annotated_dup =
         [ "TTypeAt_Struct", "d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html", null ],
         [ "TTypeAt_Struct< I, T >", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4.html", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4" ]
       ] ],
-      [ "TypeName", "df/d09/namespaceMcro_1_1TypeName.html", [
-        [ "FType", "d5/db6/structMcro_1_1TypeName_1_1FType.html", "d5/db6/structMcro_1_1TypeName_1_1FType" ]
+      [ "TypeInfo", "df/d97/namespaceMcro_1_1TypeInfo.html", [
+        [ "FType", "da/d0a/structMcro_1_1TypeInfo_1_1FType.html", "da/d0a/structMcro_1_1TypeInfo_1_1FType" ]
       ] ],
       [ "Types", "da/d89/namespaceMcro_1_1Types.html", [
-        [ "IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", "d8/d19/classMcro_1_1Types_1_1IHaveType" ]
+        [ "IHaveType", "d8/d19/classMcro_1_1Types_1_1IHaveType.html", "d8/d19/classMcro_1_1Types_1_1IHaveType" ],
+        [ "IHaveTypeShareable", "d7/d1c/classMcro_1_1Types_1_1IHaveTypeShareable.html", null ],
+        [ "THasTypeShareable", "d6/d77/classMcro_1_1Types_1_1THasTypeShareable.html", null ]
       ] ],
       [ "UObjects", "df/d84/namespaceMcro_1_1UObjects.html", [
         [ "Init", "de/d2e/namespaceMcro_1_1UObjects_1_1Init.html", [

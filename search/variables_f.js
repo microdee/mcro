@@ -22,7 +22,7 @@ var searchData=
   ['ttypehash_19',['TTypeHash',['../df/d09/namespaceMcro_1_1TypeName.html#a5e3c9546760a80016848f4abaca9538c',1,'Mcro::TypeName']]],
   ['ttypename_20',['TTypeName',['../df/d09/namespaceMcro_1_1TypeName.html#a4b48113b8a32fb7465ce6663edab3aa9',1,'Mcro::TypeName']]],
   ['ttypenamestd_21',['TTypeNameStd',['../df/d09/namespaceMcro_1_1TypeName.html#aded0b460b40f89f45f61c9e43ee730af',1,'Mcro::TypeName']]],
-  ['ttypeof_22',['TTypeOf',['../df/d09/namespaceMcro_1_1TypeName.html#a1f93ab42cdd5935621759637994c76e8',1,'Mcro::TypeName']]],
+  ['ttypeof_22',['TTypeOf',['../df/d97/namespaceMcro_1_1TypeInfo.html#acaf1c1f540007f5e905be241f0e8989e',1,'Mcro::TypeInfo']]],
   ['typedexception_23',['TypedException',['../db/d63/classMcro_1_1Error_1_1TCppException.html#a54c8304dba8a9cd2ac2f85eff61c3f1a',1,'Mcro::Error::TCppException']]],
   ['typeinfo_24',['TypeInfo',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a304afad2d929339d2f837300b3b53d78',1,'Mcro::Types::IHaveType']]],
   ['typename_25',['TypeName',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ac700419c3b277c3e121a4d8125371b93',1,'Mcro::Types::IHaveType']]]

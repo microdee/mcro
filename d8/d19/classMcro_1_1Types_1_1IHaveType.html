@@ -131,6 +131,8 @@ Inheritance diagram for Mcro::Types::IHaveType:</div>
  <div class="center">
   <img src="../../d8/d19/classMcro_1_1Types_1_1IHaveType.png" usemap="#Mcro::Types::IHaveType_map" alt=""/>
   <map id="Mcro::Types::IHaveType_map" name="Mcro::Types::IHaveType_map">
+<area href="../../d7/d1c/classMcro_1_1Types_1_1IHaveTypeShareable.html" title="Shorthand for combination of IHaveType and TSharedFromThis" alt="Mcro::Types::IHaveTypeShareable" shape="rect" coords="645,56,893,80"/>
+<area href="../../d6/d77/classMcro_1_1Types_1_1THasTypeShareable.html" title="Shorthand for combination of IHaveType and TSharedFromThis where the base-type can be specified." alt="Mcro::Types::THasTypeShareable&lt; T &gt;" shape="rect" coords="903,56,1151,80"/>
 <area href="../../dd/d8f/classMcro_1_1Error_1_1IError.html" title="A base class for a structured error handling and reporting with modular architecture and fluent API." alt="Mcro::Error::IError" shape="rect" coords="645,112,893,136"/>
 <area href="../../d2/dc8/classMcro_1_1Error_1_1FAssertion.html" title="A simple error type for checking booleans. It adds no extra features to IError." alt="Mcro::Error::FAssertion" shape="rect" coords="0,168,248,192"/>
 <area href="../../db/dfc/classMcro_1_1Error_1_1FCppException.html" title="Unreal itself discourages the usage of C++ exceptions and there are also couple of thoughts above IEr..." alt="Mcro::Error::FCppException" shape="rect" coords="258,168,506,192"/>
@@ -154,20 +156,30 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a091dd22af9bdc7506073f61e9ac020d1" id="r_a091dd22af9bdc7506073f61e9ac020d1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a091dd22af9bdc7506073f61e9ac020d1">~IHaveType</a> ()=default</td></tr>
 <tr class="separator:a091dd22af9bdc7506073f61e9ac020d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c52943bda0742727451400e9cbe2b4" id="r_ad7c52943bda0742727451400e9cbe2b4"><td class="memTemplParams" colspan="2">template&lt;typename Self &gt; </td></tr>
+<tr class="memitem:ad7c52943bda0742727451400e9cbe2b4" id="r_ad7c52943bda0742727451400e9cbe2b4"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis Self&gt; </td></tr>
 <tr class="memitem:ad7c52943bda0742727451400e9cbe2b4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#aec42d04f730d441b8be410710f29f5c9">SelfRef</a>&lt; Self &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad7c52943bda0742727451400e9cbe2b4">WithType</a> (this Self &amp;&amp;self)</td></tr>
 <tr class="memdesc:ad7c52943bda0742727451400e9cbe2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fluent API for setting tpye for deferred initialization (for example in factory functions)  <br /></td></tr>
 <tr class="separator:ad7c52943bda0742727451400e9cbe2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ffcbe1207a49e340f2cb68f2d5e487e" id="r_a4ffcbe1207a49e340f2cb68f2d5e487e"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ffcbe1207a49e340f2cb68f2d5e487e">GetType</a> () const</td></tr>
+<tr class="memitem:a23b7ff54a04480a6e1c98d2b598ca030" id="r_a23b7ff54a04480a6e1c98d2b598ca030"><td class="memTemplParams" colspan="2">template&lt;typename Self &gt; <br />
+requires (!CSharedFromThis&lt;Self&gt;)</td></tr>
+<tr class="memitem:a23b7ff54a04480a6e1c98d2b598ca030"><td class="memTemplItemLeft" align="right" valign="top">Self &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a23b7ff54a04480a6e1c98d2b598ca030">WithType</a> (this Self &amp;&amp;self)</td></tr>
+<tr class="memdesc:a23b7ff54a04480a6e1c98d2b598ca030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fluent API for setting tpye for deferred initialization (for example in factory functions)  <br /></td></tr>
+<tr class="separator:a23b7ff54a04480a6e1c98d2b598ca030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ffcbe1207a49e340f2cb68f2d5e487e" id="r_a4ffcbe1207a49e340f2cb68f2d5e487e"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../da/d0a/structMcro_1_1TypeInfo_1_1FType.html">FType</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ffcbe1207a49e340f2cb68f2d5e487e">GetType</a> () const</td></tr>
 <tr class="separator:a4ffcbe1207a49e340f2cb68f2d5e487e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a153749bbf2e762141e5b5aa96be85295" id="r_a153749bbf2e762141e5b5aa96be85295"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FName const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a153749bbf2e762141e5b5aa96be85295">GetTypeFName</a> () const</td></tr>
 <tr class="separator:a153749bbf2e762141e5b5aa96be85295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12c9edbbcc4cec5d1544f974242e2909" id="r_a12c9edbbcc4cec5d1544f974242e2909"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12c9edbbcc4cec5d1544f974242e2909">GetTypeString</a> () const</td></tr>
 <tr class="separator:a12c9edbbcc4cec5d1544f974242e2909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a002ed9669774a6ee9e6122d41585a2af" id="r_a002ed9669774a6ee9e6122d41585a2af"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename Self &gt; </td></tr>
-<tr class="memitem:a002ed9669774a6ee9e6122d41585a2af"><td class="memTemplItemLeft" align="right" valign="top">TSharedPtr&lt; Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a002ed9669774a6ee9e6122d41585a2af">AsExactly</a> (this Self &amp;&amp;self)</td></tr>
-<tr class="memdesc:a002ed9669774a6ee9e6122d41585a2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Very simple dynamic casting of this object to a derived top-level type.  <br /></td></tr>
-<tr class="separator:a002ed9669774a6ee9e6122d41585a2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc5c27041110d829e78737f6a1c17651" id="r_afc5c27041110d829e78737f6a1c17651"><td class="memTemplParams" colspan="2">template&lt;typename Derived , CSharedFromThis Self&gt; </td></tr>
+<tr class="memitem:afc5c27041110d829e78737f6a1c17651"><td class="memTemplItemLeft" align="right" valign="top">TSharedPtr&lt; Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afc5c27041110d829e78737f6a1c17651">As</a> (this Self &amp;&amp;self)</td></tr>
+<tr class="memdesc:afc5c27041110d829e78737f6a1c17651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic casting of this object to a derived top-level type. Casting also works if inheritance is done through <code>TInherit</code> template.  <br /></td></tr>
+<tr class="separator:afc5c27041110d829e78737f6a1c17651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692119a6f8f78993d08095bde874fda4" id="r_a692119a6f8f78993d08095bde874fda4"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename Self &gt; <br />
+requires (!CSharedFromThis&lt;Self&gt;)</td></tr>
+<tr class="memitem:a692119a6f8f78993d08095bde874fda4"><td class="memTemplItemLeft" align="right" valign="top">Derived *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a692119a6f8f78993d08095bde874fda4">As</a> (this Self &amp;&amp;self)</td></tr>
+<tr class="memdesc:a692119a6f8f78993d08095bde874fda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic casting of this object to a derived top-level type. Casting also works if inheritance is done through <code>TInherit</code> template.  <br /></td></tr>
+<tr class="separator:a692119a6f8f78993d08095bde874fda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -180,15 +192,15 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ac700419c3b277c3e121a4d8125371b93" id="r_ac700419c3b277c3e121a4d8125371b93"><td class="memItemLeft" align="right" valign="top">FName&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac700419c3b277c3e121a4d8125371b93">TypeName</a></td></tr>
 <tr class="separator:ac700419c3b277c3e121a4d8125371b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a304afad2d929339d2f837300b3b53d78" id="r_a304afad2d929339d2f837300b3b53d78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a304afad2d929339d2f837300b3b53d78">TypeInfo</a></td></tr>
+<tr class="memitem:a304afad2d929339d2f837300b3b53d78" id="r_a304afad2d929339d2f837300b3b53d78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d0a/structMcro_1_1TypeInfo_1_1FType.html">FType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a304afad2d929339d2f837300b3b53d78">TypeInfo</a></td></tr>
 <tr class="separator:a304afad2d929339d2f837300b3b53d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A barebones base class for types which may store their type-name as a string. </p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000012">Todo</a></b></dt><dd>C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes or even emit them. The best summary I found so far is a stack-overflow answer <a href="https://stackoverflow.com/a/77477029">https://stackoverflow.com/a/77477029</a> <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> that's available we can gather base classes in compile time, and do dynamic casting of objects without the need for intrusive extra syntax, or extra work at construction. Currently GCC's <code>__bases</code> would be perfect for the job, but other popular compilers don't have similar intrinsics.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000011">Todo</a></b></dt><dd>C++ 26 has promising proposal for static value-based reflection, which can gather metadata from classes or even emit them. The best summary I found so far is a stack-overflow answer <a href="https://stackoverflow.com/a/77477029">https://stackoverflow.com/a/77477029</a> <a class="el" href="../../dd/d7f/namespaceMcro_1_1Once.html">Once</a> that's available we can gather base classes in compile time, and do dynamic casting of objects without the need for intrusive extra syntax, or extra work at construction. Currently GCC's <code>__bases</code> would be perfect for the job, but other popular compilers don't have similar intrinsics.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Do not use exact type comparison with serialized data or network communication, as the actual value of the type is different between compilers. Only use this for runtime data. For such scenarios just use Unreal's own <a class="el" href="../../df/d84/namespaceMcro_1_1UObjects.html">UObjects</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00045">45</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00049">49</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aec42d04f730d441b8be410710f29f5c9" name="aec42d04f730d441b8be410710f29f5c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec42d04f730d441b8be410710f29f5c9">&#9670;&#160;</a></span>SelfRef</h2>
@@ -204,7 +216,7 @@ template&lt;typename Self &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00064">64</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00068">68</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -235,19 +247,19 @@ template&lt;typename Self &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a002ed9669774a6ee9e6122d41585a2af" name="a002ed9669774a6ee9e6122d41585a2af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a002ed9669774a6ee9e6122d41585a2af">&#9670;&#160;</a></span>AsExactly()</h2>
+<a id="afc5c27041110d829e78737f6a1c17651" name="afc5c27041110d829e78737f6a1c17651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc5c27041110d829e78737f6a1c17651">&#9670;&#160;</a></span>As() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived , typename Self &gt; </div>
+template&lt;typename Derived , CSharedFromThis Self&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TSharedPtr&lt; Derived &gt; Mcro::Types::IHaveType::AsExactly </td>
+          <td class="memname">TSharedPtr&lt; Derived &gt; Mcro::Types::IHaveType::As </td>
           <td>(</td>
           <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
@@ -260,16 +272,55 @@ template&lt;typename Derived , typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Very simple dynamic casting of this object to a derived top-level type. </p>
+<p>Dynamic casting of this object to a derived top-level type. Casting also works if inheritance is done through <code>TInherit</code> template. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Only return the desired type when the current object is exactly that type, and doesn't have deeper inheritance. Proper dynamic casting regarding the entire inheritance tree still without RTTI will come once proposed C++26 value-typed reflection becomes wide-spread available among popular compilers.</td></tr>
+    <tr><td class="paramname">Derived</td><td>Only return the desired type when the current object is exactly that type, and doesn't have deeper inheritance. Proper dynamic casting regarding the entire inheritance tree still without RTTI will come once proposed C++26 value-typed reflection becomes wide-spread available among popular compilers. If top-level derived type used types in <code>TInherit</code>, those are also supported.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Object cast to desired type when that's possible (see <code>Derived</code>) or nullptr; </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00089">89</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00105">105</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+
+</div>
+</div>
+<a id="a692119a6f8f78993d08095bde874fda4" name="a692119a6f8f78993d08095bde874fda4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692119a6f8f78993d08095bde874fda4">&#9670;&#160;</a></span>As() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived , typename Self &gt; <br />
+requires (!CSharedFromThis&lt;Self&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Derived * Mcro::Types::IHaveType::As </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dynamic casting of this object to a derived top-level type. Casting also works if inheritance is done through <code>TInherit</code> template. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Derived</td><td>Only return the desired type when the current object is exactly that type, and doesn't have deeper inheritance. Proper dynamic casting regarding the entire inheritance tree still without RTTI will come once proposed C++26 value-typed reflection becomes wide-spread available among popular compilers. If top-level derived type used types in <code>TInherit</code>, those are also supported.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Object cast to desired type when that's possible (see <code>Derived</code>) or nullptr; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00136">136</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -283,7 +334,7 @@ template&lt;typename Derived , typename Self &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">FORCEINLINE <a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a> const  &amp; Mcro::Types::IHaveType::GetType </td>
+          <td class="memname">FORCEINLINE <a class="el" href="../../da/d0a/structMcro_1_1TypeInfo_1_1FType.html">FType</a> const  &amp; Mcro::Types::IHaveType::GetType </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -296,7 +347,7 @@ template&lt;typename Derived , typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00074">74</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00087">87</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -323,7 +374,7 @@ template&lt;typename Derived , typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00075">75</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00088">88</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -350,7 +401,7 @@ template&lt;typename Derived , typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00076">76</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00089">89</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -381,17 +432,17 @@ template&lt;typename Self &gt; </div>
 
 <p>This function needs to be called on top level derived type for runtime reflection to work. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00056">56</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00060">60</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
 <a id="ad7c52943bda0742727451400e9cbe2b4" name="ad7c52943bda0742727451400e9cbe2b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7c52943bda0742727451400e9cbe2b4">&#9670;&#160;</a></span>WithType()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c52943bda0742727451400e9cbe2b4">&#9670;&#160;</a></span>WithType() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Self &gt; </div>
+template&lt;CSharedFromThis Self&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -412,7 +463,39 @@ template&lt;typename Self &gt; </div>
 
 <p>Fluent API for setting tpye for deferred initialization (for example in factory functions) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00068">68</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00072">72</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+
+</div>
+</div>
+<a id="a23b7ff54a04480a6e1c98d2b598ca030" name="a23b7ff54a04480a6e1c98d2b598ca030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b7ff54a04480a6e1c98d2b598ca030">&#9670;&#160;</a></span>WithType() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Self &gt; <br />
+requires (!CSharedFromThis&lt;Self&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Self &amp;&amp; Mcro::Types::IHaveType::WithType </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fluent API for setting tpye for deferred initialization (for example in factory functions) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00081">81</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -427,7 +510,7 @@ template&lt;typename Self &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/db6/structMcro_1_1TypeName_1_1FType.html">FType</a> Mcro::Types::IHaveType::TypeInfo</td>
+          <td class="memname"><a class="el" href="../../da/d0a/structMcro_1_1TypeInfo_1_1FType.html">FType</a> Mcro::Types::IHaveType::TypeInfo</td>
         </tr>
       </table>
   </td>
@@ -437,7 +520,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00052">52</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00056">56</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>
@@ -461,7 +544,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00051">51</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df8/Types_8h_source.html#l00055">55</a> of file <a class="el" href="../../d7/df8/Types_8h_source.html">Types.h</a>.</p>
 
 </div>
 </div>

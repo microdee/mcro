@@ -133,6 +133,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a57b4b4e970be9519a970b60a7f745bae" id="r_a57b4b4e970be9519a970b60a7f745bae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57b4b4e970be9519a970b60a7f745bae">DEFAULT_ON_EMPTY</a>(value,  default)</td></tr>
 <tr class="memdesc:a57b4b4e970be9519a970b60a7f745bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns given default value when input value is empty.  <br /></td></tr>
 <tr class="separator:a57b4b4e970be9519a970b60a7f745bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dfff7147f0fdff4642a6667a375ae29" id="r_a8dfff7147f0fdff4642a6667a375ae29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dfff7147f0fdff4642a6667a375ae29">FWD</a>(...)</td></tr>
+<tr class="memdesc:a8dfff7147f0fdff4642a6667a375ae29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorten forwarding expression with this macro so one may not need to specify explicit type.  <br /></td></tr>
+<tr class="separator:a8dfff7147f0fdff4642a6667a375ae29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
@@ -164,6 +167,28 @@ Macros</h2></td></tr>
 <p>Returns given default value when input value is empty. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00041">41</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a8dfff7147f0fdff4642a6667a375ae29" name="a8dfff7147f0fdff4642a6667a375ae29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dfff7147f0fdff4642a6667a375ae29">&#9670;&#160;</a></span>FWD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FWD</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">Forward&lt;decltype(__VA_ARGS__)&gt;(__VA_ARGS__)</div>
+</div><!-- fragment -->
+<p>Shorten forwarding expression with this macro so one may not need to specify explicit type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00044">44</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>

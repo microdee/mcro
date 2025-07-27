@@ -156,6 +156,9 @@ $(function(){initNavTree('df/d0a/Macros_8h_source.html','../../'); initResizable
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/** @brief Returns given default value when input value is empty */</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../df/d0a/Macros_8h.html#a57b4b4e970be9519a970b60a7f745bae">   41</a></span><span class="preprocessor">#define DEFAULT_ON_EMPTY(value, default) BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), default, value)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/** @brief Shorten forwarding expression with this macro so one may not need to specify explicit type */</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../df/d0a/Macros_8h.html#a8dfff7147f0fdff4642a6667a375ae29">   44</a></span><span class="preprocessor">#define FWD(...) Forward&lt;decltype(__VA_ARGS__)&gt;(__VA_ARGS__)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

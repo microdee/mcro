@@ -184,6 +184,14 @@ requires std::is_lvalue_reference_v&lt;ResultArg&gt;</td></tr>
 <tr class="memitem:ab98aebf22da1767f81c9db02538f4736"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab98aebf22da1767f81c9db02538f4736">WeakSelf</a> (T *self) -&gt; TWeakPtr&lt; T, Mode &gt;</td></tr>
 <tr class="memdesc:ab98aebf22da1767f81c9db02538f4736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code> but returning a weak pointer instead.  <br /></td></tr>
 <tr class="separator:ab98aebf22da1767f81c9db02538f4736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9ecc2a482ba509027f187cc43265f6" id="r_a1e9ecc2a482ba509027f187cc43265f6"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis T, ESPMode Mode = decltype(DeclVal&lt;T const&gt;().AsShared())::Mode&gt; </td></tr>
+<tr class="memitem:a1e9ecc2a482ba509027f187cc43265f6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1e9ecc2a482ba509027f187cc43265f6">SharedSelf</a> (const T *self) -&gt; TSharedRef&lt; T const, Mode &gt;</td></tr>
+<tr class="memdesc:a1e9ecc2a482ba509027f187cc43265f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code>.  <br /></td></tr>
+<tr class="separator:a1e9ecc2a482ba509027f187cc43265f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d96094add60929f2dc7cdcb1d4a97c6" id="r_a4d96094add60929f2dc7cdcb1d4a97c6"><td class="memTemplParams" colspan="2">template&lt;CSharedFromThis T, ESPMode Mode = decltype(DeclVal&lt;T&gt;().AsShared())::Mode&gt; </td></tr>
+<tr class="memitem:a4d96094add60929f2dc7cdcb1d4a97c6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4d96094add60929f2dc7cdcb1d4a97c6">SharedSelf</a> (T *self) -&gt; TSharedRef&lt; T, Mode &gt;</td></tr>
+<tr class="memdesc:a4d96094add60929f2dc7cdcb1d4a97c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code>.  <br /></td></tr>
+<tr class="separator:a4d96094add60929f2dc7cdcb1d4a97c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8a437570c02890882619ef8f18ff223" id="r_ab8a437570c02890882619ef8f18ff223"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="#a86def67b6d22e604a7d75cf7d1e2b862">TSharedStorageRef</a>&lt; FDelegateHandle &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a437570c02890882619ef8f18ff223">MakeSharedDelegateHandle</a> ()</td></tr>
 <tr class="memdesc:ab8a437570c02890882619ef8f18ff223"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple convenience wrapper around making FDelegateHandles shared.  <br /></td></tr>
 <tr class="separator:ab8a437570c02890882619ef8f18ff223"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,7 +253,7 @@ template&lt;CDefaultInitializable T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00175">175</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00195">195</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>
@@ -263,7 +271,7 @@ template&lt;CDefaultInitializable T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00178">178</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00198">198</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>
@@ -281,7 +289,7 @@ template&lt;CDefaultInitializable T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00181">181</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00201">201</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +408,55 @@ requires CSharedInitializeable&lt;T, Args...&gt;</div>
 
 <p>A simple convenience wrapper around making FDelegateHandles shared. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00184">184</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00204">204</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="a1e9ecc2a482ba509027f187cc43265f6" name="a1e9ecc2a482ba509027f187cc43265f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9ecc2a482ba509027f187cc43265f6">&#9670;&#160;</a></span>SharedSelf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CSharedFromThis T, ESPMode Mode = decltype(DeclVal&lt;T const&gt;().AsShared())::Mode&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::SharedObjects::SharedSelf </td>
+          <td>(</td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td> -&gt; TSharedRef&lt;T const, Mode&gt;
+	</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00159">159</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d96094add60929f2dc7cdcb1d4a97c6" name="a4d96094add60929f2dc7cdcb1d4a97c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d96094add60929f2dc7cdcb1d4a97c6">&#9670;&#160;</a></span>SharedSelf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CSharedFromThis T, ESPMode Mode = decltype(DeclVal&lt;T&gt;().AsShared())::Mode&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Mcro::SharedObjects::SharedSelf </td>
+          <td>(</td>
+          <td class="paramtype">T *</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td> -&gt; TSharedRef&lt;T, Mode&gt;
+	</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <code>SharedThis(this)</code> in <code>TSharedFromThis</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html#l00169">169</a> of file <a class="el" href="../../d3/d3e/SharedObjects_8h_source.html">SharedObjects.h</a>.</p>
 
 </div>
 </div>

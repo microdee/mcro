@@ -10,6 +10,7 @@ var searchData=
   ['traits_2eh_7',['Traits.h',['../db/d31/Traits_8h.html',1,'']]],
   ['tupleasstring_2eh_8',['TupleAsString.h',['../d7/d51/TupleAsString_8h.html',1,'']]],
   ['tuples_2eh_9',['Tuples.h',['../d6/d07/Tuples_8h.html',1,'']]],
-  ['typename_2eh_10',['TypeName.h',['../d0/de3/TypeName_8h.html',1,'']]],
-  ['types_2eh_11',['Types.h',['../d7/df8/Types_8h.html',1,'']]]
+  ['typeinfo_2eh_10',['TypeInfo.h',['../d4/dc2/TypeInfo_8h.html',1,'']]],
+  ['typename_2eh_11',['TypeName.h',['../d0/de3/TypeName_8h.html',1,'']]],
+  ['types_2eh_12',['Types.h',['../d7/df8/Types_8h.html',1,'']]]
 ];

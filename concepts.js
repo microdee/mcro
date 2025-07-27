@@ -6,9 +6,6 @@ var concepts =
       [ "BytesType", "de/d9d/conceptconstexpr__xxh3_1_1BytesType.html", null ]
     ] ],
     [ "Mcro", "d8/d63/namespaceMcro.html", [
-      [ "Any", "da/dfe/namespaceMcro_1_1Any.html", [
-        [ "CHasBases", "d5/dd1/conceptMcro_1_1Any_1_1CHasBases.html", null ]
-      ] ],
       [ "Composition", "de/d16/namespaceMcro_1_1Composition.html", [
         [ "CComposable", "da/d28/conceptMcro_1_1Composition_1_1CComposable.html", null ],
         [ "CExplicitComponent", "de/dad/conceptMcro_1_1Composition_1_1CExplicitComponent.html", null ],
@@ -116,6 +113,7 @@ var concepts =
         [ "CFunctionLike", "de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html", null ],
         [ "CFunctionPtr", "d5/d28/conceptMcro_1_1FunctionTraits_1_1CFunctionPtr.html", null ],
         [ "CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ],
+        [ "CTupleCompatibleWithFunction", "d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html", null ],
         [ "CFunctionCompatible_ReturnDecay", "d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html", null ],
         [ "CFunctionCompatible_Return", "d6/d7a/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__Return.html", null ],
         [ "CFunctionCompatible_ArgumentsDecay", "d4/d06/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ArgumentsDecay.html", null ],
@@ -124,6 +122,10 @@ var concepts =
         [ "CFunctionCompatible", "d8/d02/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible.html", null ],
         [ "CFunctionReturnsVoid", "d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html", null ],
         [ "CInstanceMethod", "d3/d38/conceptMcro_1_1FunctionTraits_1_1CInstanceMethod.html", null ]
+      ] ],
+      [ "Inheritance", "d8/d32/namespaceMcro_1_1Inheritance.html", [
+        [ "CHasBases", "d9/de7/conceptMcro_1_1Inheritance_1_1CHasBases.html", null ],
+        [ "CHasExplicitBase", "da/d2f/conceptMcro_1_1Inheritance_1_1CHasExplicitBase.html", null ]
       ] ],
       [ "Modules", "d5/d1b/namespaceMcro_1_1Modules.html", [
         [ "CObservableModule", "db/dfa/conceptMcro_1_1Modules_1_1CObservableModule.html", null ]
@@ -156,7 +158,9 @@ var concepts =
         [ "CHasGetIndex", "d3/d06/conceptMcro_1_1Range_1_1CHasGetIndex.html", null ],
         [ "CHasElementIndex", "d2/dc3/conceptMcro_1_1Range_1_1CHasElementIndex.html", null ],
         [ "CIteratorComparable", "d5/dfc/conceptMcro_1_1Range_1_1CIteratorComparable.html", null ],
-        [ "CCountableRange", "df/d86/conceptMcro_1_1Range_1_1CCountableRange.html", null ]
+        [ "CCountableRange", "df/d86/conceptMcro_1_1Range_1_1CCountableRange.html", null ],
+        [ "CRangeOfTuples", "de/d0f/conceptMcro_1_1Range_1_1CRangeOfTuples.html", null ],
+        [ "CRangeOfTuplesCompatibleWithFunction", "d2/ddb/conceptMcro_1_1Range_1_1CRangeOfTuplesCompatibleWithFunction.html", null ]
       ] ],
       [ "Rendering", "de/dde/namespaceMcro_1_1Rendering.html", [
         [ "Textures", "d1/deb/namespaceMcro_1_1Rendering_1_1Textures.html", [
@@ -173,7 +177,8 @@ var concepts =
         [ "CWidgetOrSlotArguments", "d4/df6/conceptMcro_1_1Slate_1_1CWidgetOrSlotArguments.html", null ],
         [ "CWidgetArguments", "d4/d18/conceptMcro_1_1Slate_1_1CWidgetArguments.html", null ],
         [ "CSlotArguments", "d4/db1/conceptMcro_1_1Slate_1_1CSlotArguments.html", null ],
-        [ "CWidgetWithSlots", "dc/dd6/conceptMcro_1_1Slate_1_1CWidgetWithSlots.html", null ]
+        [ "CWidgetWithSlots", "dc/dd6/conceptMcro_1_1Slate_1_1CWidgetWithSlots.html", null ],
+        [ "CBoxPanelWidget", "d5/df8/conceptMcro_1_1Slate_1_1CBoxPanelWidget.html", null ]
       ] ],
       [ "Subsystems", "da/d33/namespaceMcro_1_1Subsystems.html", [
         [ "CSubsystem", "d3/d03/conceptMcro_1_1Subsystems_1_1CSubsystem.html", null ],

@@ -113,19 +113,12 @@ $(function(){initNavTree('da/dfe/namespaceMcro_1_1Any.html','../../'); initResiz
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#concepts">Concepts</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Mcro::Any Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d21/namespaceMcro_1_1Any_1_1Detail.html">Detail</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html">FAny</a></td></tr>
@@ -133,15 +126,6 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html">TAnyTypeFacilities</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give the opportunity to customize object lifespan operations for <code><a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a></code> by either specializing this template or just providing functors in-place.  <a href="../../d4/d68/structMcro_1_1Any_1_1TAnyTypeFacilities.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html">TInherit</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inherit via this template to allow other API to reflect upon the base types of deriving class. Base types are inherited as public. If you want privately inherited base classes, just inherit them as normal.  <a href="../../d3/d59/classMcro_1_1Any_1_1TInherit.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
-Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd1/conceptMcro_1_1Any_1_1CHasBases.html">CHasBases</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Some MCRO utilities allow for intrusive method of declaring inheritance which can be later used to reflect upon base classes of a derived type. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -181,12 +165,12 @@ template&lt;typename T &gt; </div>
 <div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
-<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a10e002df76c094e0a59a4a949494ad3a"><div class="ttname"><a href="../../d9/d90/namespaceMcro_1_1Ansi.html#a10e002df76c094e0a59a4a949494ad3a">Mcro::Ansi::Delete</a></div><div class="ttdeci">void Delete(T *ptr)</div><div class="ttdoc">Force using the ANSI memory release behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00048">New.h:48</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a54aa5f8fd73e73934799bcc20d325cfa"><div class="ttname"><a href="../../d9/d90/namespaceMcro_1_1Ansi.html#a54aa5f8fd73e73934799bcc20d325cfa">Mcro::Ansi::New</a></div><div class="ttdeci">T * New(Args &amp;&amp;... args)</div><div class="ttdoc">Force using the ANSI memory allocation behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00031">New.h:31</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a10e002df76c094e0a59a4a949494ad3a"><div class="ttname"><a href="../../d9/d90/namespaceMcro_1_1Ansi.html#a10e002df76c094e0a59a4a949494ad3a">Mcro::Ansi::Delete</a></div><div class="ttdeci">void Delete(T *ptr)</div><div class="ttdoc">Force using the ANSI memory release behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00049">New.h:49</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a54aa5f8fd73e73934799bcc20d325cfa"><div class="ttname"><a href="../../d9/d90/namespaceMcro_1_1Ansi.html#a54aa5f8fd73e73934799bcc20d325cfa">Mcro::Ansi::New</a></div><div class="ttdeci">T * New(Args &amp;&amp;... args)</div><div class="ttdoc">Force using the ANSI memory allocation behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00032">New.h:32</a></div></div>
 </div><!-- fragment -->
 <p>Type facilities for <code><a class="el" href="../../df/d32/structMcro_1_1Any_1_1FAny.html" title="A simplistic but type-safe and RAII compliant storage for anything. Enclosed data is owned by this ty...">FAny</a></code> enforcing standard memory allocations. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00110">110</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/Any_8h_source.html#l00053">53</a> of file <a class="el" href="../../d7/dfe/Any_8h_source.html">Any.h</a>.</p>
 
 </div>
 </div>

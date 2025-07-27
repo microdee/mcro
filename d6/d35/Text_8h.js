@@ -29,6 +29,8 @@ var Text_8h =
     [ "AsFormatArgument", "d6/d35/Text_8h.html#acbae721347c456d85ee6c3eeec995e1f", null ],
     [ "AsString", "d6/d35/Text_8h.html#acbb963ed7aa8378bab5c47fe68e0f3f6", null ],
     [ "AsString", "d6/d35/Text_8h.html#a335020ff40ce803319f0ae4d7fdd675b", null ],
+    [ "AsText", "d6/d35/Text_8h.html#ac16e385d2e6487698824636c859933cd", null ],
+    [ "AsText", "d6/d35/Text_8h.html#a21e9e5f19fc71c5f9bf2f60b5134e9b3", null ],
     [ "DynamicPrintf", "d6/d35/Text_8h.html#a1e7b16f541af05b3640eb163179ce00c", null ],
     [ "HighLevelStringCast", "d6/d35/Text_8h.html#a14a79cff76537d732d0d06c338621239", null ],
     [ "Join", "d6/d35/Text_8h.html#a01257118e0bdc9f69fb3b310374cb385", null ],

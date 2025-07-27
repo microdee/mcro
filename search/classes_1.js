@@ -36,7 +36,7 @@ var searchData=
   ['fstringfakeliteraltag_33',['FStringFakeLiteralTag',['../d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html',1,'Mcro::Text::Macros']]],
   ['fstringviewfakeliteraltag_34',['FStringViewFakeLiteralTag',['../d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html',1,'Mcro::Text::Macros']]],
   ['ftempstringiterator_35',['FTempStringIterator',['../d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html',1,'Mcro::Range']]],
-  ['ftype_36',['FType',['../d5/db6/structMcro_1_1TypeName_1_1FType.html',1,'Mcro::TypeName']]],
+  ['ftype_36',['FType',['../da/d0a/structMcro_1_1TypeInfo_1_1FType.html',1,'Mcro::TypeInfo']]],
   ['funavailable_37',['FUnavailable',['../d4/d68/classMcro_1_1Error_1_1FUnavailable.html',1,'Mcro::Error']]],
   ['fvaluethunkoptions_38',['FValueThunkOptions',['../df/d2c/structMcro_1_1ValueThunk_1_1FValueThunkOptions.html',1,'Mcro::ValueThunk']]],
   ['fvoid_39',['FVoid',['../d3/daf/structFVoid.html',1,'']]],

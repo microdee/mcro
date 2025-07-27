@@ -8,9 +8,10 @@ var searchData=
   ['ierrorwindowextension_5',['IErrorWindowExtension',['../d3/deb/classMcro_1_1Error_1_1IErrorWindowExtension.html',1,'Mcro::Error']]],
   ['ifeatureimplementation_6',['IFeatureImplementation',['../d1/de1/classMcro_1_1AutoModularFeature_1_1IFeatureImplementation.html',1,'Mcro::AutoModularFeature']]],
   ['ihavetype_7',['IHaveType',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html',1,'Mcro::Types']]],
-  ['iobservablemodule_8',['IObservableModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html',1,'Mcro::Modules']]],
-  ['iplaintextcomponent_9',['IPlainTextComponent',['../d3/d00/classMcro_1_1Error_1_1IPlainTextComponent.html',1,'Mcro::Error']]],
-  ['istate_10',['IState',['../d8/d30/structMcro_1_1Observable_1_1IState.html',1,'Mcro::Observable']]],
-  ['istatetag_11',['IStateTag',['../d7/df8/structMcro_1_1Observable_1_1IStateTag.html',1,'Mcro::Observable']]],
-  ['istrictcomponent_12',['IStrictComponent',['../d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html',1,'Mcro::Composition']]]
+  ['ihavetypeshareable_8',['IHaveTypeShareable',['../d7/d1c/classMcro_1_1Types_1_1IHaveTypeShareable.html',1,'Mcro::Types']]],
+  ['iobservablemodule_9',['IObservableModule',['../df/d06/classMcro_1_1Modules_1_1IObservableModule.html',1,'Mcro::Modules']]],
+  ['iplaintextcomponent_10',['IPlainTextComponent',['../d3/d00/classMcro_1_1Error_1_1IPlainTextComponent.html',1,'Mcro::Error']]],
+  ['istate_11',['IState',['../d8/d30/structMcro_1_1Observable_1_1IState.html',1,'Mcro::Observable']]],
+  ['istatetag_12',['IStateTag',['../d7/df8/structMcro_1_1Observable_1_1IStateTag.html',1,'Mcro::Observable']]],
+  ['istrictcomponent_13',['IStrictComponent',['../d2/d60/structMcro_1_1Composition_1_1IStrictComponent.html',1,'Mcro::Composition']]]
 ];

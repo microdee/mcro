@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['Name',['../d5/db6/structMcro_1_1TypeName_1_1FType.html#a5a8f1759136e7beed366e8c4ba1aa454',1,'Mcro::TypeName::FType::Name'],['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a9315d1f35fa8a2a6b88fe7f2609638cb',1,'Mcro::UObjects::Init::FConstructObjectParameters::Name']]],
+  ['name_0',['Name',['../da/d0a/structMcro_1_1TypeInfo_1_1FType.html#aa74334585381418782659cfcb9dd36fe',1,'Mcro::TypeInfo::FType::Name'],['../db/d50/structMcro_1_1UObjects_1_1Init_1_1FConstructObjectParameters.html#a9315d1f35fa8a2a6b88fe7f2609638cb',1,'Mcro::UObjects::Init::FConstructObjectParameters::Name']]],
   ['next_1',['Next',['../dd/dcf/structMcro_1_1Observable_1_1TChangeData.html#a25a0f6961761740bca074faad4a38ca8',1,'Mcro::Observable::TChangeData']]],
   ['noquotes_2',['NoQuotes',['../d2/d11/classMcroBuild_1_1AbsolutePath.html#aad027836ff2e5faec855af98dedbb48d',1,'McroBuild::AbsolutePath']]],
   ['notifyonchangeonly_3',['NotifyOnChangeOnly',['../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#aaf8bbfe30b05a076ed286bd13dc7f500',1,'Mcro::Observable::FStatePolicy']]]

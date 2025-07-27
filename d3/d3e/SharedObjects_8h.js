@@ -11,6 +11,8 @@ var SharedObjects_8h =
     [ "ConstructShared", "d3/d3e/SharedObjects_8h.html#af61e42e2a3a1889799e27c8acd037875", null ],
     [ "MakeShareableInit", "d3/d3e/SharedObjects_8h.html#a1b0bc2e40cf3b49b4d9bde451db7c42b", null ],
     [ "MakeSharedDelegateHandle", "d3/d3e/SharedObjects_8h.html#ab8a437570c02890882619ef8f18ff223", null ],
+    [ "SharedSelf", "d3/d3e/SharedObjects_8h.html#a1e9ecc2a482ba509027f187cc43265f6", null ],
+    [ "SharedSelf", "d3/d3e/SharedObjects_8h.html#a4d96094add60929f2dc7cdcb1d4a97c6", null ],
     [ "ShareRefCounted", "d3/d3e/SharedObjects_8h.html#ae549895692735cd877b5d681cac10735", null ],
     [ "WeakSelf", "d3/d3e/SharedObjects_8h.html#aee124299fa684b0156f2573e5064f1f5", null ],
     [ "WeakSelf", "d3/d3e/SharedObjects_8h.html#ab98aebf22da1767f81c9db02538f4736", null ]

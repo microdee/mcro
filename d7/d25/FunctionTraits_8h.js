@@ -15,6 +15,7 @@ var FunctionTraits_8h =
     [ "Mcro::FunctionTraits::CFunctionLike", "de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html", null ],
     [ "Mcro::FunctionTraits::CFunctionPtr", "d5/d28/conceptMcro_1_1FunctionTraits_1_1CFunctionPtr.html", null ],
     [ "Mcro::FunctionTraits::CHasFunction", "de/d3f/conceptMcro_1_1FunctionTraits_1_1CHasFunction.html", null ],
+    [ "Mcro::FunctionTraits::CTupleCompatibleWithFunction", "d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html", null ],
     [ "Mcro::FunctionTraits::CFunctionCompatible_ReturnDecay", "d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html", null ],
     [ "Mcro::FunctionTraits::CFunctionCompatible_Return", "d6/d7a/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__Return.html", null ],
     [ "Mcro::FunctionTraits::CFunctionCompatible_ArgumentsDecay", "d4/d06/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ArgumentsDecay.html", null ],
@@ -37,9 +38,9 @@ var FunctionTraits_8h =
     [ "TFunctionFromTupleIndices", "d7/d25/FunctionTraits_8h.html#ab9b456a31c6b80f83dc8053c55a6ff77", null ],
     [ "TSetReturn", "d7/d25/FunctionTraits_8h.html#ac13948033ac3bb8e6f545762f041cfa6", null ],
     [ "TSetReturnDecay", "d7/d25/FunctionTraits_8h.html#ab0e76c6d38aa6a511170ddafc3cf12d8", null ],
-    [ "InvokeWithTuple", "d7/d25/FunctionTraits_8h.html#a5f4d5cc1d9b4a9a6f7e9aeb1173f459e", null ],
-    [ "InvokeWithTuple", "d7/d25/FunctionTraits_8h.html#a87852d718661d6fa3beff61ad2731ed4", null ],
-    [ "InvokeWithTuple_Impl", "d7/d25/FunctionTraits_8h.html#a07052fee3055eb44fcade81e9954d966", null ],
-    [ "InvokeWithTuple_Impl", "d7/d25/FunctionTraits_8h.html#a39610f54e8281b74f63ea18020fbf00b", null ],
+    [ "InvokeWithTuple", "d7/d25/FunctionTraits_8h.html#a95bd00242a842df0b05e256bc45f6f27", null ],
+    [ "InvokeWithTuple", "d7/d25/FunctionTraits_8h.html#aa62b2381fdc6d8e54932107cb58815e2", null ],
+    [ "InvokeWithTuple_Impl", "d7/d25/FunctionTraits_8h.html#ae64e6bd5273bbd8343f0827ac80038c6", null ],
+    [ "InvokeWithTuple_Impl", "d7/d25/FunctionTraits_8h.html#af28ca124195dc76ce6c78ca06c9fb392", null ],
     [ "TFunction_ArgCount", "d7/d25/FunctionTraits_8h.html#a506fd8e26fa2dc6ef87c855f741a36dc", null ]
 ];

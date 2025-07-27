@@ -7,5 +7,5 @@ var structMcro_1_1Slate_1_1TSlots =
     [ "Append", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a49d3140ed5db46a5eb1f87435f25f86f", null ],
     [ "operator=", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#ad2adf07a561f5185db169b6c6665818a", null ],
     [ "operator=", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#abe22759a2a45110c6264b6783cd5ca88", null ],
-    [ "operator+", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#a003fafa668ef964c974b660cbf3f8789", null ]
+    [ "operator+", "d0/daf/structMcro_1_1Slate_1_1TSlots.html#aa260dbd486b6e6350dc2b01c7af30642", null ]
 ];

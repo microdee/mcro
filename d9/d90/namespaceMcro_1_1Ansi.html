@@ -171,10 +171,10 @@ template&lt;typename T &gt; </div>
 <p>Force using the ANSI memory release behavior, instead of the Unreal default. </p>
 <p>This may be less performant and will not be considered by AutoRTFM. Use it only when Unreal overrides cause problems and comment the reason why this was necessary. This is paired with <code><a class="el" href="#a54aa5f8fd73e73934799bcc20d325cfa" title="Force using the ANSI memory allocation behavior, instead of the Unreal default.">Ansi::New</a>&lt;T&gt;()</code>. </p><div class="fragment"><div class="line">FFoobar* myVar = <a class="code hl_function" href="#a54aa5f8fd73e73934799bcc20d325cfa">Ansi::New&lt;FFoobar&gt;</a>();</div>
 <div class="line"><a class="code hl_function" href="#a10e002df76c094e0a59a4a949494ad3a">Ansi::Delete</a>(myVar);</div>
-<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a10e002df76c094e0a59a4a949494ad3a"><div class="ttname"><a href="#a10e002df76c094e0a59a4a949494ad3a">Mcro::Ansi::Delete</a></div><div class="ttdeci">void Delete(T *ptr)</div><div class="ttdoc">Force using the ANSI memory release behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00048">New.h:48</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a54aa5f8fd73e73934799bcc20d325cfa"><div class="ttname"><a href="#a54aa5f8fd73e73934799bcc20d325cfa">Mcro::Ansi::New</a></div><div class="ttdeci">T * New(Args &amp;&amp;... args)</div><div class="ttdoc">Force using the ANSI memory allocation behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00031">New.h:31</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a10e002df76c094e0a59a4a949494ad3a"><div class="ttname"><a href="#a10e002df76c094e0a59a4a949494ad3a">Mcro::Ansi::Delete</a></div><div class="ttdeci">void Delete(T *ptr)</div><div class="ttdoc">Force using the ANSI memory release behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00049">New.h:49</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Ansi_html_a54aa5f8fd73e73934799bcc20d325cfa"><div class="ttname"><a href="#a54aa5f8fd73e73934799bcc20d325cfa">Mcro::Ansi::New</a></div><div class="ttdeci">T * New(Args &amp;&amp;... args)</div><div class="ttdoc">Force using the ANSI memory allocation behavior, instead of the Unreal default.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d2f/New_8h_source.html#l00032">New.h:32</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="../../de/d2f/New_8h_source.html#l00048">48</a> of file <a class="el" href="../../de/d2f/New_8h_source.html">New.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d2f/New_8h_source.html#l00049">49</a> of file <a class="el" href="../../de/d2f/New_8h_source.html">New.h</a>.</p>
 
 </div>
 </div>
@@ -199,7 +199,7 @@ template&lt;typename T , typename... Args&gt; </div>
 <p>This may be less performant, may need more memory and will not be considered by AutoRTFM. Use it only when Unreal overrides cause problems and comment the reason why this was necessary. This is paired with <code><a class="el" href="#a10e002df76c094e0a59a4a949494ad3a" title="Force using the ANSI memory release behavior, instead of the Unreal default.">Ansi::Delete</a></code> instead of <code>delete</code>. </p><div class="fragment"><div class="line">FFoobar* myVar = <a class="code hl_function" href="#a54aa5f8fd73e73934799bcc20d325cfa">Ansi::New&lt;FFoobar&gt;</a>();</div>
 <div class="line"><a class="code hl_function" href="#a10e002df76c094e0a59a4a949494ad3a">Ansi::Delete</a>(myVar);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="../../de/d2f/New_8h_source.html#l00031">31</a> of file <a class="el" href="../../de/d2f/New_8h_source.html">New.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d2f/New_8h_source.html#l00032">32</a> of file <a class="el" href="../../de/d2f/New_8h_source.html">New.h</a>.</p>
 
 </div>
 </div>

@@ -2,6 +2,7 @@ var FmtMacros_8h =
 [
     [ "_FMT", "d2/d0e/FmtMacros_8h.html#a11cb71712b6c3b9778201d17c14e6f9f", null ],
     [ "FMT_", "d2/d0e/FmtMacros_8h.html#ad2ae177448b123d74e4182bc4469fb74", null ],
+    [ "FMT_LOG", "d2/d0e/FmtMacros_8h.html#afc4a1862089a6b0e3fbe0b053c80ada2", null ],
     [ "MCRO_FMT_ARGS", "d2/d0e/FmtMacros_8h.html#aeb58fdca64e9558586dd7ab00882ddf6", null ],
     [ "MCRO_FMT_NAMED", "d2/d0e/FmtMacros_8h.html#ab95e32292ef35b3e0956ce8a81053b9f", null ],
     [ "MCRO_FMT_NAMED_0", "d2/d0e/FmtMacros_8h.html#a6f0febb38fe860f87bc066534ba93889", null ],

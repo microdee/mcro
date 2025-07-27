@@ -144,9 +144,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a003fafa668ef964c974b660cbf3f8789" id="r_a003fafa668ef964c974b660cbf3f8789"><td class="memTemplParams" colspan="2">template&lt;CWidgetArguments Arguments&gt; </td></tr>
-<tr class="memitem:a003fafa668ef964c974b660cbf3f8789"><td class="memTemplItemLeft" align="right" valign="top">Arguments &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a003fafa668ef964c974b660cbf3f8789">operator+</a> (Arguments &amp;args, <a class="el" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a> &amp;&amp;slots)</td></tr>
-<tr class="separator:a003fafa668ef964c974b660cbf3f8789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa260dbd486b6e6350dc2b01c7af30642" id="r_aa260dbd486b6e6350dc2b01c7af30642"><td class="memTemplParams" colspan="2">template&lt;CWidgetArguments Arguments&gt; </td></tr>
+<tr class="memitem:aa260dbd486b6e6350dc2b01c7af30642"><td class="memTemplItemLeft" align="right" valign="top">Arguments &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa260dbd486b6e6350dc2b01c7af30642">operator+</a> (Arguments &amp;&amp;args, <a class="el" href="../../d0/daf/structMcro_1_1Slate_1_1TSlots.html">TSlots</a> &amp;&amp;slots)</td></tr>
+<tr class="separator:aa260dbd486b6e6350dc2b01c7af30642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;CRangeMember Range, CFunctionLike Transform, CFunctionLike OnEmpty = TUniqueFunction&lt;TFunction_Return&lt;Transform&gt;()&gt;, CSlotArguments = TFunction_Return&lt;Transform&gt;&gt;<br />
@@ -162,13 +162,11 @@ struct Mcro::Slate::TSlots&lt; Range, Transform, OnEmpty, CSlotArguments &gt;</d
 <div class="line">        + <a class="code hl_function" href="#a853bf3c0f38fd9e18536a7fd24222004">TSlots</a>(args._DataArray, [](<span class="keyword">const</span> FMyData&amp; data)</div>
 <div class="line">        {</div>
 <div class="line">            FText dataText = FText::FromString(data.ToString());</div>
-<div class="line">            return SVerticalBox::Slot()</div>
+<div class="line">            return MoveTemp(SVerticalBox::Slot()</div>
 <div class="line">                . HAlign(HAlign_Fill)</div>
 <div class="line">                . AutoHeight()</div>
-<div class="line">                [</div>
-<div class="line">                    SNew(STextBlock)</div>
-<div class="line">                    . Text(dataText)</div>
-<div class="line">                ];</div>
+<div class="line">                [ SNew(STextBlock).Text(dataText) ];</div>
+<div class="line">            );</div>
 <div class="line">        })</div>
 <div class="line">        + SVerticalBox::Slot()</div>
 <div class="line">        . HAlign(HAlign_Fill)</div>
@@ -179,11 +177,11 @@ struct Mcro::Slate::TSlots&lt; Range, Transform, OnEmpty, CSlotArguments &gt;</d
 <div class="line">        ]</div>
 <div class="line">    ];</div>
 <div class="line">}</div>
-<div class="ttc" id="aTextMacros_8h_html_a8e87be3484ebd811a74c494f6cc25ab3"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3">INVTEXT_</a></div><div class="ttdeci">#define INVTEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own INVTEXT macro but this one doesn't require parenthesis arou...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00190">TextMacros.h:190</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdoc">Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00022">Slate.h:23</a></div></div>
-<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a853bf3c0f38fd9e18536a7fd24222004"><div class="ttname"><a href="#a853bf3c0f38fd9e18536a7fd24222004">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(Range const &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00196">Slate.h:196</a></div></div>
+<div class="ttc" id="aTextMacros_8h_html_a8e87be3484ebd811a74c494f6cc25ab3"><div class="ttname"><a href="../../d9/dde/TextMacros_8h.html#a8e87be3484ebd811a74c494f6cc25ab3">INVTEXT_</a></div><div class="ttdeci">#define INVTEXT_</div><div class="ttdoc">A convenience alternative to Unreal's own INVTEXT macro but this one doesn't require parenthesis arou...</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dde/TextMacros_8h_source.html#l00186">TextMacros.h:186</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Slate_html"><div class="ttname"><a href="../../df/df4/namespaceMcro_1_1Slate.html">Mcro::Slate</a></div><div class="ttdoc">Extra functionalities for general Slate programming chores, including enhancements of the Slate decla...</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00023">Slate.h:24</a></div></div>
+<div class="ttc" id="astructMcro_1_1Slate_1_1TSlots_html_a853bf3c0f38fd9e18536a7fd24222004"><div class="ttname"><a href="#a853bf3c0f38fd9e18536a7fd24222004">Mcro::Slate::TSlots::TSlots</a></div><div class="ttdeci">TSlots(Range const &amp;range, Transform &amp;&amp;transform, TOptional&lt; OnEmpty &gt; &amp;&amp;onEmpty={})</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc0/Slate_8h_source.html#l00201">Slate.h:201</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00194">194</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00199">199</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a853bf3c0f38fd9e18536a7fd24222004" name="a853bf3c0f38fd9e18536a7fd24222004"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a853bf3c0f38fd9e18536a7fd24222004">&#9670;&#160;</a></span>TSlots() <span class="overload">[1/4]</span></h2>
@@ -219,7 +217,7 @@ template&lt;CRangeMember Range, CFunctionLike Transform, CFunctionLike OnEmpty =
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00196">196</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00201">201</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +255,7 @@ template&lt;CRangeMember Range, CFunctionLike Transform, CFunctionLike OnEmpty =
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00201">201</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00206">206</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
@@ -313,7 +311,7 @@ template&lt;CRangeMember Range, CFunctionLike Transform, CFunctionLike OnEmpty =
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00208">208</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00213">213</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
@@ -345,7 +343,7 @@ template&lt;CWidgetArguments Arguments&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00227">227</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00232">232</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
@@ -374,7 +372,7 @@ template&lt;CRangeMember Range, CFunctionLike Transform, CFunctionLike OnEmpty =
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00216">216</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00221">221</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
@@ -406,8 +404,8 @@ template&lt;CRangeMember Range, CFunctionLike Transform, CFunctionLike OnEmpty =
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="a003fafa668ef964c974b660cbf3f8789" name="a003fafa668ef964c974b660cbf3f8789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a003fafa668ef964c974b660cbf3f8789">&#9670;&#160;</a></span>operator+</h2>
+<a id="aa260dbd486b6e6350dc2b01c7af30642" name="aa260dbd486b6e6350dc2b01c7af30642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa260dbd486b6e6350dc2b01c7af30642">&#9670;&#160;</a></span>operator+</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -422,7 +420,7 @@ template&lt;CWidgetArguments Arguments&gt; </div>
         <tr>
           <td class="memname">Arguments &amp; operator+ </td>
           <td>(</td>
-          <td class="paramtype">Arguments &amp;</td>          <td class="paramname"><span class="paramname"><em>args</em></span>, </td>
+          <td class="paramtype">Arguments &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>args</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -439,7 +437,7 @@ template&lt;CWidgetArguments Arguments&gt; </div>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00242">242</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc0/Slate_8h_source.html#l00247">247</a> of file <a class="el" href="../../d2/dc0/Slate_8h_source.html">Slate.h</a>.</p>
 
 </div>
 </div>
