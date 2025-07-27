@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mcro_0',['MCRO',['../index.html',1,'']]]
+  ['guidelines_0',['Contribution Guidelines',['../de/dce/Contributing.html',1,'']]]
 ];

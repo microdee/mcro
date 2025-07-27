@@ -57,9 +57,11 @@ var searchData=
   ['getvalidtypes_54',['GetValidTypes',['../df/d32/structMcro_1_1Any_1_1FAny.html#aedec2319f7bcdabafbe001f70dbaa9eb',1,'Mcro::Any::FAny']]],
   ['getvalue_55',['GetValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a7b183a95a72775ac25d2d04bc4e4f27c',1,'Mcro::Error::TMaybe::GetValue() -&gt; T &amp;'],['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#afd65bc51e1f7fe9273351a7fb744d0e4',1,'Mcro::Error::TMaybe::GetValue() const -&gt; T const &amp;']]],
   ['getvalues_56',['GetValues',['../de/d41/namespaceMcro_1_1Range.html#a43fa67a88b937fcf012143b221010930',1,'Mcro::Range']]],
-  ['github_20com_20chys87_20constexpr_20xxh3_20constexpr_20xxh3_20a_57',['&lt;a href=&quot;https://github.com/chys87/constexpr-xxh3&quot; &gt;constexpr-xxh3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md5',1,'']]],
-  ['github_20com_20jbeder_20yaml_20cpp_20yaml_20cpp_20a_58',['&lt;a href=&quot;https://github.com/jbeder/yaml-cpp&quot; &gt;yaml-cpp&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md4',1,'']]],
-  ['github_20com_20neargye_20magic_5fenum_20magic_5fenum_20a_59',['&lt;a href=&quot;https://github.com/Neargye/magic_enum&quot; &gt;magic_enum&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md2',1,'']]],
-  ['github_20io_20intel_20ispc_20tasksys_20a_60',['&lt;a href=&quot;https://ispc.github.io&quot; &gt;Intel ISPC Tasksys&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md7',1,'']]],
-  ['github_20io_20range_20v3_20range_20v3_20a_61',['&lt;a href=&quot;https://ericniebler.github.io/range-v3/&quot; &gt;range-v3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md3',1,'']]]
+  ['git_20flow_57',['Git flow',['../de/dce/Contributing.html#autotoc_md8',1,'']]],
+  ['github_20com_20chys87_20constexpr_20xxh3_20constexpr_20xxh3_20a_58',['&lt;a href=&quot;https://github.com/chys87/constexpr-xxh3&quot; &gt;constexpr-xxh3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md5',1,'']]],
+  ['github_20com_20jbeder_20yaml_20cpp_20yaml_20cpp_20a_59',['&lt;a href=&quot;https://github.com/jbeder/yaml-cpp&quot; &gt;yaml-cpp&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md4',1,'']]],
+  ['github_20com_20neargye_20magic_5fenum_20magic_5fenum_20a_60',['&lt;a href=&quot;https://github.com/Neargye/magic_enum&quot; &gt;magic_enum&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md2',1,'']]],
+  ['github_20io_20intel_20ispc_20tasksys_20a_61',['&lt;a href=&quot;https://ispc.github.io&quot; &gt;Intel ISPC Tasksys&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md7',1,'']]],
+  ['github_20io_20range_20v3_20range_20v3_20a_62',['&lt;a href=&quot;https://ericniebler.github.io/range-v3/&quot; &gt;range-v3&lt;/a&gt;',['../da/dfb/Attribution.html#autotoc_md3',1,'']]],
+  ['guidelines_63',['Contribution Guidelines',['../de/dce/Contributing.html',1,'']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['decayptr_0',['DecayPtr',['../d2/d09/namespaceMcro_1_1Concepts.html#ad82cfff038438996ec817f8460d25e89',1,'Mcro::Concepts']]],
-  ['declarative_20syntax_1',['Extending the Slate declarative syntax',['../index.html#autotoc_md24',1,'']]],
+  ['declarative_20syntax_1',['Extending the Slate declarative syntax',['../index.html#autotoc_md46',1,'']]],
   ['declare_5fdynamic_5fdelegate_5foneparam_2',['DECLARE_DYNAMIC_DELEGATE_OneParam',['../dd/d1f/DummyDynamicDelegates_8h.html#ad3cea0073f2e44caa126d1a1deebb714',1,'DummyDynamicDelegates.h']]],
   ['declare_5fdynamic_5fdelegate_5fretval_5foneparam_3',['DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam',['../dd/d1f/DummyDynamicDelegates_8h.html#ae5c7190512edb24d02d74c8b69928632',1,'DummyDynamicDelegates.h']]],
   ['declare_5fdynamic_5fmulticast_5fdelegate_4',['DECLARE_DYNAMIC_MULTICAST_DELEGATE',['../dd/d1f/DummyDynamicDelegates_8h.html#a5afc94f910b3fb2995436473d0718826',1,'DummyDynamicDelegates.h']]],
@@ -11,7 +11,7 @@ var searchData=
   ['defaultremovechild_8',['DefaultRemoveChild',['../d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa14e7ffe2f6d905d842c0b405124133a',1,'Mcro::Slate::Detail::TReactiveWidgetBase']]],
   ['definedlllist_9',['DefineDllList',['../d9/d83/classMcroBuild_1_1ModuleRuleExtensions.html#a8e790f66fd84650f1f2a92563599c946',1,'McroBuild::ModuleRuleExtensions']]],
   ['definedllpath_10',['DefineDllPath',['../d9/d83/classMcroBuild_1_1ModuleRuleExtensions.html#a4d3b66dc00dfe8db807fb0e5328b9cf3',1,'McroBuild::ModuleRuleExtensions']]],
-  ['delegate_20type_20inference_11',['Delegate type inference',['../index.html#autotoc_md18',1,'']]],
+  ['delegate_20type_20inference_11',['Delegate type inference',['../index.html#autotoc_md40',1,'']]],
   ['delegatefrom_2eh_12',['DelegateFrom.h',['../d4/dbf/DelegateFrom_8h.html',1,'']]],
   ['delegatevalueargument_13',['DelegateValueArgument',['../d8/d30/structMcro_1_1Observable_1_1IState.html#aede0812419e424dd3ba1cae3bc859a6d',1,'Mcro::Observable::IState']]],
   ['delegation_14',['Delegation',['../de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a649669bc585cb7c1222e297071636938',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultPolicy &gt;']]],
@@ -28,11 +28,15 @@ var searchData=
   ['displayerror_25',['DisplayError',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#aa694e3494cd197314bcac03a689dc0c6',1,'Mcro::Error::FErrorManager']]],
   ['dll_2eh_26',['Dll.h',['../d6/dd8/Dll_8h.html',1,'']]],
   ['dlls_27',['Dlls',['../d4/d0a/classMcroBuild_1_1RuntimeDependencies.html#a72f2bd7f6a0d911c08ad0f198bf1a069',1,'McroBuild::RuntimeDependencies']]],
-  ['do_28',['What MCRO can do?',['../index.html#autotoc_md12',1,'']]],
-  ['doublequote_29',['DoubleQuote',['../d2/d11/classMcroBuild_1_1AbsolutePath.html#ab177cbb2049d92f311c12d80728230e9',1,'McroBuild::AbsolutePath']]],
-  ['dummydynamicdelegates_2eh_30',['DummyDynamicDelegates.h',['../dd/d1f/DummyDynamicDelegates_8h.html',1,'']]],
-  ['dynamicdelegate_31',['DynamicDelegate',['../d4/ded/classUDynamicDelegateTestClass.html#a7172e5146ee5036efec66f0ff514a146',1,'UDynamicDelegateTestClass']]],
-  ['dynamicdelegatebinding_32',['DynamicDelegateBinding',['../d4/ded/classUDynamicDelegateTestClass.html#a1eb612239021040ee31915fcc3d47627',1,'UDynamicDelegateTestClass']]],
-  ['dynamicdelegateretval_33',['DynamicDelegateRetVal',['../d4/ded/classUDynamicDelegateTestClass.html#a09b86276ae05d490b8d92000e0c707b3',1,'UDynamicDelegateTestClass']]],
-  ['dynamicprintf_34',['DynamicPrintf',['../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c',1,'Mcro::Text']]]
+  ['do_28',['What MCRO can do?',['../index.html#autotoc_md34',1,'']]],
+  ['documentation_29',['Documentation',['../de/dce/Contributing.html#autotoc_md25',1,'']]],
+  ['documenting_20headers_30',['Documenting headers',['../de/dce/Contributing.html#autotoc_md26',1,'']]],
+  ['documenting_20module_20build_20rules_31',['Documenting module build rules',['../de/dce/Contributing.html#autotoc_md28',1,'']]],
+  ['documenting_20namespaces_32',['Documenting namespaces',['../de/dce/Contributing.html#autotoc_md27',1,'']]],
+  ['doublequote_33',['DoubleQuote',['../d2/d11/classMcroBuild_1_1AbsolutePath.html#ab177cbb2049d92f311c12d80728230e9',1,'McroBuild::AbsolutePath']]],
+  ['dummydynamicdelegates_2eh_34',['DummyDynamicDelegates.h',['../dd/d1f/DummyDynamicDelegates_8h.html',1,'']]],
+  ['dynamicdelegate_35',['DynamicDelegate',['../d4/ded/classUDynamicDelegateTestClass.html#a7172e5146ee5036efec66f0ff514a146',1,'UDynamicDelegateTestClass']]],
+  ['dynamicdelegatebinding_36',['DynamicDelegateBinding',['../d4/ded/classUDynamicDelegateTestClass.html#a1eb612239021040ee31915fcc3d47627',1,'UDynamicDelegateTestClass']]],
+  ['dynamicdelegateretval_37',['DynamicDelegateRetVal',['../d4/ded/classUDynamicDelegateTestClass.html#a09b86276ae05d490b8d92000e0c707b3',1,'UDynamicDelegateTestClass']]],
+  ['dynamicprintf_38',['DynamicPrintf',['../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c',1,'Mcro::Text']]]
 ];

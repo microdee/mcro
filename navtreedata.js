@@ -25,23 +25,23 @@
 var NAVTREE =
 [
   [ "MCRO", "index.html", [
-    [ "Who is this library for?", "index.html#autotoc_md11", null ],
-    [ "What MCRO can do?", "index.html#autotoc_md12", [
-      [ "Range-V3 for Unreal Containers", "index.html#autotoc_md13", null ],
-      [ "Error handling", "index.html#autotoc_md14", null ],
-      [ "Text macros without parentheses", "index.html#autotoc_md15", null ],
-      [ "String formatting literals", "index.html#autotoc_md16", [
-        [ "Ranges as strings", "index.html#autotoc_md17", null ]
+    [ "Who is this library for?", "index.html#autotoc_md33", null ],
+    [ "What MCRO can do?", "index.html#autotoc_md34", [
+      [ "Range-V3 for Unreal Containers", "index.html#autotoc_md35", null ],
+      [ "Error handling", "index.html#autotoc_md36", null ],
+      [ "Text macros without parentheses", "index.html#autotoc_md37", null ],
+      [ "String formatting literals", "index.html#autotoc_md38", [
+        [ "Ranges as strings", "index.html#autotoc_md39", null ]
       ] ],
-      [ "Delegate type inference", "index.html#autotoc_md18", null ],
-      [ "Advanced TEventDelegate", "index.html#autotoc_md19", null ],
-      [ "TTypeName", "index.html#autotoc_md20", null ],
-      [ "Auto modular features", "index.html#autotoc_md21", null ],
-      [ "Observable TState", "index.html#autotoc_md22", null ],
-      [ "Function Traits", "index.html#autotoc_md23", null ],
-      [ "Extending the Slate declarative syntax", "index.html#autotoc_md24", null ],
-      [ "ISPC parallel tasks support", "index.html#autotoc_md25", null ],
-      [ "Last but not least", "index.html#autotoc_md26", null ]
+      [ "Delegate type inference", "index.html#autotoc_md40", null ],
+      [ "Advanced TEventDelegate", "index.html#autotoc_md41", null ],
+      [ "TTypeName", "index.html#autotoc_md42", null ],
+      [ "Auto modular features", "index.html#autotoc_md43", null ],
+      [ "Observable TState", "index.html#autotoc_md44", null ],
+      [ "Function Traits", "index.html#autotoc_md45", null ],
+      [ "Extending the Slate declarative syntax", "index.html#autotoc_md46", null ],
+      [ "ISPC parallel tasks support", "index.html#autotoc_md47", null ],
+      [ "Last but not least", "index.html#autotoc_md48", null ]
     ] ],
     [ "Legal", "index.html#Legal", null ],
     [ "Attribution", "da/dfb/Attribution.html", [
@@ -54,10 +54,38 @@ var NAVTREE =
       [ "xxHash", "da/dfb/Attribution.html#autotoc_md6", null ],
       [ "Intel ISPC Tasksys", "da/dfb/Attribution.html#autotoc_md7", null ]
     ] ],
+    [ "Contribution Guidelines", "de/dce/Contributing.html", [
+      [ "Git flow", "de/dce/Contributing.html#autotoc_md8", null ],
+      [ "Code Style C++", "de/dce/Contributing.html#autotoc_md9", [
+        [ "Whitespaces", "de/dce/Contributing.html#autotoc_md10", null ],
+        [ "Placement of header files", "de/dce/Contributing.html#autotoc_md11", null ],
+        [ "Usage of namespaces", "de/dce/Contributing.html#autotoc_md12", null ],
+        [ "Naming convention", "de/dce/Contributing.html#autotoc_md13", [
+          [ "Templates", "de/dce/Contributing.html#autotoc_md14", [
+            [ "Concepts", "de/dce/Contributing.html#autotoc_md15", null ],
+            [ "Template Parameters", "de/dce/Contributing.html#autotoc_md16", null ],
+            [ "Templated functional structs", "de/dce/Contributing.html#autotoc_md17", null ]
+          ] ],
+          [ "Variable/Function parameter names", "de/dce/Contributing.html#autotoc_md18", null ],
+          [ "Multiline function parameters/arguments", "de/dce/Contributing.html#autotoc_md19", null ]
+        ] ],
+        [ "Optional curly brackets", "de/dce/Contributing.html#autotoc_md20", null ],
+        [ "Implicitly converting constructors", "de/dce/Contributing.html#autotoc_md21", null ],
+        [ "Reference and const qualifier order", "de/dce/Contributing.html#autotoc_md22", null ],
+        [ "Lot less restrictive usage of auto", "de/dce/Contributing.html#autotoc_md23", null ],
+        [ "Trailing return type", "de/dce/Contributing.html#autotoc_md24", null ]
+      ] ],
+      [ "Documentation", "de/dce/Contributing.html#autotoc_md25", [
+        [ "Documenting headers", "de/dce/Contributing.html#autotoc_md26", null ],
+        [ "Documenting namespaces", "de/dce/Contributing.html#autotoc_md27", null ],
+        [ "Documenting module build rules", "de/dce/Contributing.html#autotoc_md28", null ],
+        [ "License comments", "de/dce/Contributing.html#autotoc_md29", null ]
+      ] ]
+    ] ],
     [ "Bitter Recompense", "da/dc1/FAQ.html", [
-      [ "C++ 23", "da/dc1/FAQ.html#autotoc_md8", null ],
-      [ "Usage", "da/dc1/FAQ.html#autotoc_md9", null ],
-      [ "Range-V3", "da/dc1/FAQ.html#autotoc_md10", null ]
+      [ "C++ 23", "da/dc1/FAQ.html#autotoc_md30", null ],
+      [ "Usage", "da/dc1/FAQ.html#autotoc_md31", null ],
+      [ "Range-V3", "da/dc1/FAQ.html#autotoc_md32", null ]
     ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -114,7 +142,7 @@ var NAVTREEINDEX =
 "dc/dc0/classMcro_1_1Ansi_1_1FAllocator_1_1ForAnyElementType.html#a2e7eb9e7c307a73819e4a07b0245a34d",
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a73ce24c0ab8b3b484dd152ef69017b77",
 "de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6",
-"df/dbf/classMcroBuild_1_1PathUtils.html#aa15db5f7653f495c7c03e2b048f27612"
+"df/d97/namespaceMcro_1_1TypeInfo.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -19,8 +19,10 @@ var searchData=
   ['bitter_20recompense_16',['Bitter Recompense',['../da/dc1/FAQ.html',1,'']]],
   ['blogerror_17',['bLogError',['../d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html#a23c2c34329fe0202afdd30f2b69257b1',1,'Mcro::Error::FDisplayErrorArgs']]],
   ['blueprintstacktrace_2eh_18',['BlueprintStackTrace.h',['../df/d5e/BlueprintStackTrace_8h.html',1,'']]],
-  ['breakdebugger_19',['BreakDebugger',['../dd/d8f/classMcro_1_1Error_1_1IError.html#aa2144bac903f69f33be2c89012612564',1,'Mcro::Error::IError']]],
-  ['broadcast_20',['Broadcast',['../de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#ad567e182c2ee5ca643949f97f5b43df5',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultPolicy &gt;']]],
-  ['but_20not_20least_21',['Last but not least',['../index.html#autotoc_md26',1,'']]],
-  ['bytes_5fsize_22',['bytes_size',['../d6/d7a/namespaceconstexpr__xxh3.html#a8791c2fdf60787f93162b27ead082312',1,'constexpr_xxh3::bytes_size(const Bytes &amp;bytes) noexcept'],['../d6/d7a/namespaceconstexpr__xxh3.html#a9033fd8f0e1a0a1cb2efe210966d9122',1,'constexpr_xxh3::bytes_size(T(&amp;)[N]) noexcept']]]
+  ['brackets_19',['Optional curly brackets',['../de/dce/Contributing.html#autotoc_md20',1,'']]],
+  ['breakdebugger_20',['BreakDebugger',['../dd/d8f/classMcro_1_1Error_1_1IError.html#aa2144bac903f69f33be2c89012612564',1,'Mcro::Error::IError']]],
+  ['broadcast_21',['Broadcast',['../de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#ad567e182c2ee5ca643949f97f5b43df5',1,'Mcro::Delegates::TEventDelegate&lt; void(Args...), DefaultPolicy &gt;']]],
+  ['build_20rules_22',['Documenting module build rules',['../de/dce/Contributing.html#autotoc_md28',1,'']]],
+  ['but_20not_20least_23',['Last but not least',['../index.html#autotoc_md48',1,'']]],
+  ['bytes_5fsize_24',['bytes_size',['../d6/d7a/namespaceconstexpr__xxh3.html#a8791c2fdf60787f93162b27ead082312',1,'constexpr_xxh3::bytes_size(const Bytes &amp;bytes) noexcept'],['../d6/d7a/namespaceconstexpr__xxh3.html#a9033fd8f0e1a0a1cb2efe210966d9122',1,'constexpr_xxh3::bytes_size(T(&amp;)[N]) noexcept']]]
 ];

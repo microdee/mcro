@@ -7,7 +7,8 @@ var searchData=
   ['concepts_2eh_4',['Concepts.h',['../d1/d8d/Concepts_8h.html',1,'(Global Namespace)'],['../d8/d6b/Range_2Concepts_8h.html',1,'(Global Namespace)']]],
   ['constexprxxh3_2eh_5',['ConstexprXXH3.h',['../dd/dc9/ConstexprXXH3_8h.html',1,'']]],
   ['construct_2eh_6',['Construct.h',['../d1/dd5/Construct_8h.html',1,'']]],
-  ['conversion_2eh_7',['Conversion.h',['../db/dcf/Conversion_8h.html',1,'']]],
-  ['cppexception_2eh_8',['CppException.h',['../d3/d35/CppException_8h.html',1,'']]],
-  ['cppstacktrace_2eh_9',['CppStackTrace.h',['../d8/daf/CppStackTrace_8h.html',1,'']]]
+  ['contributing_2emd_7',['Contributing.md',['../dd/daf/Contributing_8md.html',1,'']]],
+  ['conversion_2eh_8',['Conversion.h',['../db/dcf/Conversion_8h.html',1,'']]],
+  ['cppexception_2eh_9',['CppException.h',['../d3/d35/CppException_8h.html',1,'']]],
+  ['cppstacktrace_2eh_10',['CppStackTrace.h',['../d8/daf/CppStackTrace_8h.html',1,'']]]
 ];

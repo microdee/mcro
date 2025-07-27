@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11"/>
   <meta name="generator" content="Doxygen 1.12.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MCRO: Bitter Recompense</title>
+  <title>MCRO: /home/runner/work/mcro/mcro/Docs/Manual/Contributing.md File Reference</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../../jquery.js"></script>
   <script type="text/javascript" src="../../dynsections.js"></script>
@@ -86,7 +86,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('da/dc1/FAQ.html','../../'); initResizable(true); });
+$(function(){initNavTree('dd/daf/Contributing_8md.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -111,67 +111,16 @@ $(function(){initNavTree('da/dc1/FAQ.html','../../'); initResizable(true); });
 </div>
 </div>
 
-<div><div class="header">
-  <div class="headertitle"><div class="title">Bitter Recompense</div></div>
+<div class="header">
+  <div class="headertitle"><div class="title">/home/runner/work/mcro/mcro/Docs/Manual/Contributing.md File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__2home_2runner_2work_2mcro_2mcro_2Docs_2Manual_2FAQ"></a></p>
-<h1><a class="anchor" id="autotoc_md30"></a>
-C++ 23</h1>
-<blockquote class="doxtable">
-<p>&zwj;Isn't Unreal only compatible with <code>&lt;insert C++ version here&gt;</code>? </p>
-</blockquote>
-<p>Unreal vanilla modules are written with the mindset that all should be compatible with a minimal version of C++ (in case of Unreal 5.5 this is C++17 despite the fact that it is compiled with C++20). Compatibility here means header-source syntax compatibility.</p>
-<p>The compiled modules don't care which language version has been used as long as the results are ABI compatible. In fact they don't care about the language either (for example ISPC source files are mixed with C++ source files).</p>
-<blockquote class="doxtable">
-<p>&zwj;Wouldn't I need to use Engine Sources for this? </p>
-</blockquote>
-<p><b>No</b>. When compiling your modules/plugins, in 99% of cases it is perfectly fine to use a newer C++ version than what the vanilla engines are using. That means you can use C++23+ with vanilla installed engine (in fact MCRO is developed with vanilla Unreal as well).</p>
-<blockquote class="doxtable">
-<p>&zwj;How do I set my module rules to support MCRO? </p>
-</blockquote>
-<p>As of time of writing, setting <code>CppStandard = CppStandardVersion.Latest;</code> is required. Setting <code>bUseUnity = false</code> is strongly recommended for avoiding surprise redefinitions, but it's not required. Setting <code>DefaultBuildSettings = BuildSettingsVersion.V5;</code> in your Target rules is also recommended but that's even more optional.</p>
-<blockquote class="doxtable">
-<p>&zwj;Does my project need to use C++ 23 because another plugin uses MCRO internally? </p>
-</blockquote>
-<p>If</p>
-<ul>
-<li>that plugin uses MCRO features in public headers</li>
-<li>AND that plugin is included in the project to be used from C++</li>
-</ul>
-<p>then yes.</p>
-<blockquote class="doxtable">
-<p>&zwj;All these templating must be hard on code-completion </p>
-</blockquote>
-<p>I've been developing this library with Rider and their code-completion fairs pretty well with elaborate templates even for new C++ features or when multiple <code>decltype</code> expressions are involved. Concept constrained templates even get very readable list of failure causality when substitution fails right in the editor even before compiling.</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
-Usage</h1>
-<blockquote class="doxtable">
-<p>&zwj;Can I use MCRO in my close-sourced commercial project? </p>
-</blockquote>
-<p><b>Yes</b>, <em>free of charge for any scale.</em> Please list MCRO and the <a class="el" href="../../da/dfb/Attribution.html">open-source libraries MCRO uses</a> in your open-source attribution. MCRO itself is <a class="el" href="../../index.html#Legal">licensed under MPL 2.0</a>.</p>
-<blockquote class="doxtable">
-<p>&zwj;Can I use MCRO in my plugin published on FAB for a price? </p>
-</blockquote>
-<p><b>Yes</b>, <em>free of charge, no royalties or anything</em> . Please list MCRO and the <a class="el" href="../../da/dfb/Attribution.html">open-source libraries MCRO uses</a> when you submit your plugin to FAB. MCRO itself is <a class="el" href="../../index.html#Legal">licensed under MPL 2.0</a>.</p>
-<p>Please use the <b>Courier Plugin pattern</b> <em>(TODO: make this thing)</em> when publishing your plugin depending on MCRO, so other plugins using it may not break. You can also include a copy of MCRO modules in your plugin, but then only your plugin can use MCRO in the user's project/engine, so that is highly discouraged.</p>
-<dl class="section attention"><dt>Attention</dt><dd>The supporting facilities for the <b>Courier Plugin pattern</b> is not yet made at all. For now your only option is copying modules.</dd></dl>
-<h1><a class="anchor" id="autotoc_md32"></a>
-Range-V3</h1>
-<blockquote class="doxtable">
-<p>&zwj;I used them range operations in a very intricate way especially the ones provided with Range-V3 and now I get a horrendous compile error with a templated type raking in thousands of characters length. What should I do? </p>
-</blockquote>
-<p>Sometimes I feel like this while working with Range-V3:</p>
-<div class="image">
-<img src="../../RakeTrick.jpg" alt=""/>
-</div>
-    <p>But in more serious tone many times compile errors I've got with ranges boiled down to 'l-value, r-value reference'~ and 'const / not-const' mismatches in very generic and very advanced templates. For elaborate template instantiations which are extremely long and seems ridiculous, I just opened a code editor and copied the error into it, then organized it around until it was easier to read. </p>
-</div></div><!-- contents -->
-</div><!-- PageDoc -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="../../dd/daf/Contributing_8md.html">Contributing.md</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
