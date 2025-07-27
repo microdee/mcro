@@ -203,6 +203,58 @@ If function definition follows directly the opening curly-bracket can be on the 
 
 Related to this, if a function exceeds three parameters, declare a struct instead for passing arguments. A POCO struct is also really useful for argument passing because C++20's designated initializer syntax, that can serve as named arguments. That notion also makes passing data to lower-level API also much easier.
 
+#### Type Aliases
+
+Global type aliases should behave like they're actual types when it comes to naming, so prefixed PascalCase names as usual. `using` keyword must be used instead of `typedef`.
+
+```Cpp
+// Do
+using FMyAlias = FMyType;
+
+// Don't
+typedef FMyType MyAlias;
+```
+
+Inner type aliases however must have PascalCase casing without prefix
+
+```Cpp
+// Do
+struct FStuff
+{
+    using MyAlias = FMyType;
+}
+
+// Don't
+struct FStuff
+{
+    typedef FMyType FMyAlias;
+}
+```
+
+This is particularly important for templated types where aliases may store or transform template type parameters for later use.
+
+#### Native delegates
+
+C++ native `TDelegate`'s and `TMulticastDelegate`'s should be aliased with `using` keyword, as `TDelegate` is a simple enough template. The `DECLARE_(MULTICAST)_DELEGATE(_RetVal)_(N)Param(s)` macros do the same, so they should be avoided for native C++ delegate types as they're much more verbose. Delegate aliases should follow regular type alias naming rules
+
+```Cpp
+// Do:
+using FMyDelegate = TDelegate<int32(FString const&, int32)>;
+
+struct FStuff
+{
+    using OnMyThing = TMulticastDelegate<void(FString const&, int32)>;
+}
+
+// Don't:
+DECLARE_DELEGATE_RetVal_TwoParams(int32, FMyDelegate, FString const&, int32);
+
+struct FStuff
+{
+    DECLARE_MULTICAST_DELEGATE_TwoParams(FOnMyThing, FString const&, int32);
+}
+```
+
 ### Optional curly brackets
 
 In MCRO curly brackets around single expression scoped statements (like `if`, `for`, `while`, etc...) are not mandatory. This is not enforced though. The original intention of the Unreal Coding convention with mandatory brackets were to not break macros like `UE_LOG` which may have multiple expressions.
@@ -287,6 +339,7 @@ The following is an example elaborate documentation comment. Note that each line
  *	
  *	@param   input  the message format
  *	@param fmtArgs  format arguments
+ *	
  *	@return  Self for further fluent API setup
  */
 ```
