@@ -13,6 +13,9 @@
 
 #include "CoreMinimal.h"
 #include "Widgets/SCompoundWidget.h"
+#include "Widgets/Text/STextBlock.h"
+#include "Widgets/Layout/SExpandableArea.h"
+#include "Widgets/Input/SEditableTextBox.h"
 #include "Mcro/Error.h"
 #include "Mcro/Slate.h"
 #include "Mcro/AutoModularFeature.h"

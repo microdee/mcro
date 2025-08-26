@@ -10,6 +10,7 @@
 */
 
 #include "CoreMinimal.h"
+#include "Misc/AutomationTest.h"
 #include "Algo/Count.h"
 #include "Mcro/Common.h"
 

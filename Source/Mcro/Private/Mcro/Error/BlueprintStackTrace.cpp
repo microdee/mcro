@@ -10,11 +10,14 @@
  */
 
 #include "Mcro/Error/BlueprintStackTrace.h"
+#include "UObject/Script.h"
+#include "UObject/Stack.h"
 
 namespace Mcro::Error
 {
 	FBlueprintStackTrace::FBlueprintStackTrace()
 	{
+#if DO_BLUEPRINT_GUARD
 		if (const FBlueprintContextTracker* bpCtxTracker = FBlueprintContextTracker::TryGet())
 		{
 			TArrayView<const FFrame* const> rawStack = bpCtxTracker->GetCurrentScriptStack();
@@ -30,7 +33,10 @@ namespace Mcro::Error
 		}
 		else
 		{
-			Message = TEXT_"Blueprint stack trace was not available";
+			Message = TEXT_"Blueprint stack trace was not available in this context";
 		}
+#else
+		Message = TEXT_"Blueprint stack trace is not available in Shipping or Test configurations";
+#endif
 	}
 }

@@ -11,6 +11,7 @@
 
 #pragma once
 #include "CoreMinimal.h"
+#include "Features/IModularFeatures.h"
 #include "Async/Future.h"
 #include "Mcro/TypeName.h"
 #include "Mcro/Delegates/EventDelegate.h"

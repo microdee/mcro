@@ -12,6 +12,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Templates/ValueOrError.h"
 #include "Mcro/Error.Fwd.h"
 #include "Void.h"
 #include "Mcro/Types.h"

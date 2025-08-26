@@ -11,6 +11,8 @@
 
 #pragma once
 #include "CoreMinimal.h"
+#include "Modules/ModuleInterface.h"
+#include "Modules/ModuleManager.h"
 #include "Mcro/AssertMacros.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/TypeName.h"

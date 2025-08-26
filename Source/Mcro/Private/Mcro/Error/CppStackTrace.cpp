@@ -10,6 +10,8 @@
  */
 
 #include "Mcro/Error/CppStackTrace.h"
+#include "HAL/PlatformStackWalk.h"
+#include "Stats/StatsMisc.h"
 
 namespace Mcro::Error
 {
@@ -26,8 +28,8 @@ namespace Mcro::Error
 		FPlatformStackWalk::StackWalkAndDumpEx(
 			stackTrace, stackTraceSize, numAdditionalStackFramesToIgnore + stackFramesIgnoreDefaultOffset,
 			fastWalk
-				? FGenericPlatformStackWalk::EStackWalkFlags::FastStackWalk
-				: FGenericPlatformStackWalk::EStackWalkFlags::AccurateStackWalk
+				? FPlatformStackWalk::EStackWalkFlags::FastStackWalk
+				: FPlatformStackWalk::EStackWalkFlags::AccurateStackWalk
 		);
 		Message = ANSI_TO_TCHAR(stackTrace);
 	}

@@ -111,7 +111,7 @@ namespace Mcro::Range
 	 *	By default MatchOrdered returns false for ranges with different lengths
 	 */
 	template <CRangeMember Left, CRangeMember Right>
-	requires CConvertibleToDecayed<TRangeElementType<Right>, TRangeElementType<Left>>
+	requires CCoreHalfEqualityComparable<TRangeElementType<Left>, TRangeElementType<Right>>
 	bool MatchOrdered(Left&& left, Right&& right, bool matchOnlyBeginning = false)
 	{
 		if (IsEmpty(left) && IsEmpty(right)) return true;
@@ -136,7 +136,7 @@ namespace Mcro::Range
 	}
 
 	template <CRangeMember Left, typename Value>
-	requires CConvertibleToDecayed<Value, TRangeElementType<Left>>
+	requires CCoreHalfEqualityComparable<Value, TRangeElementType<Left>>
 	bool MatchOrdered(Left&& left, std::initializer_list<Value>&& right, bool matchOnlyBeginning = false)
 	{
 		return MatchOrdered(left, right, matchOnlyBeginning);

@@ -16,9 +16,23 @@
 #include "Mcro/Range.h"
 #include "Mcro/Range/Conversion.h"
 #include "Mcro/Range/Views.h"
-#include "Interfaces/IMainFrameModule.h"
-#include "Styling/StarshipCoreStyle.h"
+
 #include "HAL/PlatformApplicationMisc.h"
+#include "Engine/Engine.h"
+#include "Engine/GameViewportClient.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Styling/StarshipCoreStyle.h"
+#include "Widgets/SBoxPanel.h"
+#include "Widgets/Input/SButton.h"
+#include "Widgets/Input/SCheckBox.h"
+#include "Widgets/Layout/SBox.h"
+#include "Widgets/Layout/SScrollBox.h"
+#include "Widgets/Layout/SSpacer.h"
+#include "Brushes/SlateColorBrush.h"
+
+#if WITH_EDITOR
+#include "Interfaces/IMainFrameModule.h"
+#endif
 
 DECLARE_LOG_CATEGORY_CLASS(LogErrorManager, Log, Log);
 

@@ -77,11 +77,13 @@
 #include "CoreMinimal.h"
 
 #include "Containers/BasicArray.h"
+#include "Containers/StaticArray.h"
 #include "Containers/Deque.h"
 #include "Containers/LruCache.h"
 #include "Containers/MRUArray.h"
 #include "Containers/PagedArray.h"
 #include "Containers/RingBuffer.h"
+#include "Containers/DynamicRHIResourceArray.h"
 
 #include "Mcro/Range/Iterators.h"
 

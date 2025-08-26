@@ -10,6 +10,7 @@
  */
 
 #include "CoreMinimal.h"
+#include "Misc/AutomationTest.h"
 #include "Mcro/Common.h"
 #include "Containers/Deque.h"
 #include "Containers/LruCache.h"

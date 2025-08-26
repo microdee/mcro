@@ -13,6 +13,6 @@
 
 extern "C" {
 	MCROISPC_API void ISPCLaunch(void** handlePtr, void* f, void* data, int countx, int county, int countz);
-	MCROISPC_API void* ISPCAlloc(void** handlePtr, int64_t size, int32_t alignment);
+	MCROISPC_API void* ISPCAlloc(void** handlePtr, long long size, int alignment);
 	MCROISPC_API void ISPCSync(void* handle);
 }

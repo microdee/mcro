@@ -50,6 +50,9 @@
 
 */
 
+#pragma warning(disable: 4530)
+#pragma warning(disable: 4505)
+
 #include "McroISPC/IspcParallelism.h"
 
 #if !(defined ISPC_USE_CONCRT || defined ISPC_USE_GCD || defined ISPC_USE_PTHREADS ||                                  \

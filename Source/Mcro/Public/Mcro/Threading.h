@@ -12,8 +12,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Async/TaskGraphInterfaces.h"
+#include "Async/Async.h"
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/SharedObjects.h"
+#include "RHICommandList.h"
+#include "RenderingThread.h"
 
 namespace Mcro::Threading
 {

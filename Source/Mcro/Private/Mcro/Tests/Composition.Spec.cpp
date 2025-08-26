@@ -10,6 +10,7 @@
  */
 
 #include "CoreMinimal.h"
+#include "Misc/AutomationTest.h"
 #include "TestHelpers.h"
 
 #include "Mcro/CommonCore.h"
