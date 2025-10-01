@@ -1,0 +1,5 @@
+copy:
+  - file: Docs/Images/proto-logo*
+  - file: Docs/DistributableReadme.md
+    as: README.md
+  - file: LICENSE

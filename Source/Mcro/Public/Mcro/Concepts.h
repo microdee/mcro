@@ -28,6 +28,8 @@
 
 #include <type_traits>
 #include "CoreMinimal.h"
+#include "Templates/Casts.h"
+#include "UObject/Interface.h"
 #include "Mcro/Macros.h"
 
 #define MCRO_THIS_TYPE decltype(Mcro::Concepts::DecayPtr(this))

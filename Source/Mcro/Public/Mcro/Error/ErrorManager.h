@@ -12,6 +12,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "HAL/ThreadSafeBool.h"
+#include "Widgets/SWidget.h"
+#include "Widgets/SWindow.h"
 #include "Mcro/Error.h"
 #include "Mcro/Delegates/EventDelegate.h"
 #include "Mcro/AutoModularFeature.h"

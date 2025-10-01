@@ -1,17 +1,5 @@
 # Attribution {#Attribution}
 
-## [Tabler Icons](https://tabler.io/icons)
-
-* Authors:
-  * Paweł Kuna (https://github.com/codecalm)
-* License: MIT License (https://github.com/tabler/tabler-icons/blob/main/LICENSE)
-* [Source code](https://github.com/tabler/tabler-icons)
-
-Reason of inclusion:  
-Have an easy way to decorate the C++ UI with resolution independent nice icons without the need
-for exporting them as PNG's for all the possible sizes, or without the need to go through
-Unreal's own asset pipeline in the editor.
-
 ## [Compile Time Regular Expression](https://compile-time.re)
 
 * Authors:

@@ -10,6 +10,7 @@
  */
 
 #include "CoreMinimal.h"
+#include "Misc/AutomationTest.h"
 #include "Mcro/AutoModularFeature.h"
 #include "Mcro/TimespanLiterals.h"
 

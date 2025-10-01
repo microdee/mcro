@@ -7,13 +7,13 @@ A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
 ### [Documentation](https://mcro.de/mcro)
 
-### [Distribution](https://github.com/microdee/mcro-dist)
-
----
+### [Source code](https://github.com/microdee/mcro)
 
 </div>
 
-This repository is the source of MCRO which requires [Nuke.Unreal](https://github.com/microdee/Nuke.Unreal) to prepare for Unreal. [Find the distributable version here](https://github.com/microdee/mcro-dist).
+---
+
+This repository is a distributable version of MCRO which doesn't require extra tooling ([Nuke.Unreal](https://github.com/microdee/Nuke.Unreal)) to build. [Find the source-code here](https://github.com/microdee/mcro).
 
 ## Who is this library for?
 
@@ -21,26 +21,11 @@ MCRO (pronounced 'em-cro') is made for C++ developers who may view Unreal Engine
 
 It also embraces quite elaborate C++ techniques involving templates and synergic combination of language features. The documentation also makes some effort explaining these techniques when used by MCRO, but the library users themselves don't need to go that deep, in order to enjoy many features of MCRO.
 
-## Incomplete list of milestones
+## Usage
 
-* [X] Doxygen generated "nice" documentation
-* [ ] Un-nuked plugin source distribution
-  * [X] Windows
-  * [ ] Android *(still supported with Nuke)*
-  * [ ] Linux *(still supported with Nuke)*
-  * [ ] Mac
-  * [ ] iOS / TVOS / VisionOS
-* [ ] Supporting common platform specific chores
-  * [ ] Windows
-    * [ ] Common COM / WinRT utilities
-  * [ ] Linux
-  * [ ] Mac
-  * [ ] Android
-  * [ ] iOS / TVOS / VisionOS
-* [ ] Test coverage which can be taken seriously **(60%)**
-* [ ] Graphics utilities
-  * [ ] Shared textures but without the Unreal TextureShare library
-* [ ] **'CourierPlugins'** a decentralized plugin dependency strategy compatible with FAB
+Submodule or put this plugin into your code project as regular.
+
+Fab compatible dependency strategy is planned.
 
 ## Legal
 [Third-party components used by MCRO](https://mcro.de/mcro/da/dfb/Attribution.html)

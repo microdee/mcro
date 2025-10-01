@@ -9,6 +9,10 @@
  *  @date 2025
  */
 #include "Mcro/Rendering/Textures.h"
+#include "TextureResource.h"
+#include "Engine/Texture2D.h"
+#include "Engine/Texture2DDynamic.h"
+#include "Engine/TextureRenderTarget.h"
 #include "Mcro/TextMacros.h"
 
 #include "Engine/Texture2DDynamic.h"

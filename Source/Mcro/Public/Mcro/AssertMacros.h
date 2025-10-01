@@ -154,11 +154,13 @@ namespace Mcro::AssertMacros
 
 #define ASSERT_CRASH(condition, ...)
 #define ASSERT_QUIT(condition, returnOnFailure, ...)
+#define FORCE_CRASH(...)
 
 #else
 
 #define ASSERT_CRASH(condition, ...) MCRO_ASSERT_CRASH_COMMON(condition, __VA_ARGS__)
 #define ASSERT_QUIT(condition, returnOnFailure, ...) MCRO_ASSERT_CRASH_COMMON(condition, __VA_ARGS__)
+#define FORCE_CRASH(...) MCRO_CRASH_BODY(Invalid code path, __VA_ARGS__)
 
 #endif
 

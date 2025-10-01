@@ -12,6 +12,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Subsystems/Subsystem.h"
+#include "Subsystems/EngineSubsystem.h"
+#include "Subsystems/GameInstanceSubsystem.h"
+#include "Subsystems/LocalPlayerSubsystem.h"
+#include "Subsystems/WorldSubsystem.h"
+#include "Engine/Engine.h"
+#include "Engine/GameInstance.h"
 #include "Mcro/Concepts.h"
 #include "Mcro/AssertMacros.h"
 #include "Kismet/GameplayStatics.h"

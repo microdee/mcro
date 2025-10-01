@@ -10,6 +10,7 @@
  */
 
 #include "CoreMinimal.h"
+#include "Misc/AutomationTest.h"
 #include "Mcro/Common.h"
 
 using namespace Mcro::Common::With::Literals;

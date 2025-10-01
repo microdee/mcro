@@ -12,6 +12,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Widgets/SWidget.h"
+#include "Widgets/SBoxPanel.h"
+#include "Layout/Visibility.h"
+#include "SlotBase.h"
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/Range/Iterators.h"
 #include "Mcro/Range/Views.h"
