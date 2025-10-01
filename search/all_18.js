@@ -1,9 +1,9 @@
 var searchData=
 [
   ['weakself_0',['WeakSelf',['../db/d9b/namespaceMcro_1_1SharedObjects.html#aee124299fa684b0156f2573e5064f1f5',1,'Mcro::SharedObjects::WeakSelf(const T *self) -&gt; TWeakPtr&lt; T const, Mode &gt;'],['../db/d9b/namespaceMcro_1_1SharedObjects.html#ab98aebf22da1767f81c9db02538f4736',1,'Mcro::SharedObjects::WeakSelf(T *self) -&gt; TWeakPtr&lt; T, Mode &gt;']]],
-  ['what_20mcro_20can_20do_1',['What MCRO can do?',['../index.html#autotoc_md36',1,'']]],
-  ['whitespaces_2',['Whitespaces',['../de/dce/Contributing.html#autotoc_md10',1,'']]],
-  ['who_20is_20this_20library_20for_3',['Who is this library for?',['../index.html#autotoc_md35',1,'']]],
+  ['what_20mcro_20can_20do_1',['What MCRO can do?',['../index.html#autotoc_md35',1,'']]],
+  ['whitespaces_2',['Whitespaces',['../de/dce/Contributing.html#autotoc_md9',1,'']]],
+  ['who_20is_20this_20library_20for_3',['Who is this library for?',['../index.html#autotoc_md34',1,'']]],
   ['widetext_5f_4',['WIDETEXT_',['../d9/dde/TextMacros_8h.html#a8cc20adbbc6274b4fb3f24e9c32df875',1,'TextMacros.h']]],
   ['widetext_5fpaste_5f_5',['WIDETEXT_PASTE_',['../d9/dde/TextMacros_8h.html#af2b87b1a0f7c497359bdcbda7cc11288',1,'TextMacros.h']]],
   ['width_6',['Width',['../d0/da7/structMcro_1_1Rendering_1_1Textures_1_1TTextureSize.html#a412ee432dd849af26054a6a40f423f1c',1,'Mcro::Rendering::Textures::TTextureSize']]],
@@ -28,7 +28,7 @@ var searchData=
   ['withmessage_25',['WithMessage',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1b010a6a778285dc6c4cde30f7abe789',1,'Mcro::Error::IError']]],
   ['withmessagef_26',['WithMessageF',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a3fe8419266e13ace9892c6edacf9f23e',1,'Mcro::Error::IError']]],
   ['withmessagefc_27',['WithMessageFC',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a1ce7a1ee1803ec636d34e4cabd6f91f4',1,'Mcro::Error::IError']]],
-  ['without_20parentheses_28',['Text macros without parentheses',['../index.html#autotoc_md39',1,'']]],
+  ['without_20parentheses_28',['Text macros without parentheses',['../index.html#autotoc_md38',1,'']]],
   ['withseverity_29',['WithSeverity',['../dd/d8f/classMcro_1_1Error_1_1IError.html#a407637d71e5e9f800ad8b6edc451d71a',1,'Mcro::Error::IError']]],
   ['withtype_30',['WithType',['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#ad7c52943bda0742727451400e9cbe2b4',1,'Mcro::Types::IHaveType::WithType(this Self &amp;&amp;self)'],['../d8/d19/classMcro_1_1Types_1_1IHaveType.html#a23b7ff54a04480a6e1c98d2b598ca030',1,'Mcro::Types::IHaveType::WithType(this Self &amp;&amp;self)']]],
   ['withunixseparator_31',['WithUnixSeparator',['../df/dbf/classMcroBuild_1_1PathUtils.html#ace1d8726b93a1fc0b552a9dcc0db7365',1,'McroBuild::PathUtils']]],

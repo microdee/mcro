@@ -321,15 +321,15 @@ Functions</h2></td></tr>
 <tr class="memitem:acc5082ada7af594c4e13656ee8c915f3" id="r_acc5082ada7af594c4e13656ee8c915f3"><td class="memItemLeft" align="right" valign="top">FORCEINLINE auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc5082ada7af594c4e13656ee8c915f3">FirstOrDefault</a> ()</td></tr>
 <tr class="memdesc:acc5082ada7af594c4e13656ee8c915f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get's the first element of a range or return the default value for the element type. Same as <code>*r.<a class="el" href="../../d9/db6/Range_8h.html#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">begin()</a></code> but safer.  <br /></td></tr>
 <tr class="separator:acc5082ada7af594c4e13656ee8c915f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56a5c2ce849bbf98a553932f8cbc82c3" id="r_a56a5c2ce849bbf98a553932f8cbc82c3"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Left, CRangeMember Right&gt; <br />
-requires CConvertibleToDecayed&lt;<a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Right&gt;, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</td></tr>
-<tr class="memitem:a56a5c2ce849bbf98a553932f8cbc82c3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a56a5c2ce849bbf98a553932f8cbc82c3">MatchOrdered</a> (Left &amp;&amp;left, Right &amp;&amp;right, bool matchOnlyBeginning=false)</td></tr>
-<tr class="memdesc:a56a5c2ce849bbf98a553932f8cbc82c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if input ranges match their values and their order.  <br /></td></tr>
-<tr class="separator:a56a5c2ce849bbf98a553932f8cbc82c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4727b1c32d03017cfbc061a4b0788b1" id="r_ab4727b1c32d03017cfbc061a4b0788b1"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Left, typename Value &gt; <br />
-requires CConvertibleToDecayed&lt;Value, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</td></tr>
-<tr class="memitem:ab4727b1c32d03017cfbc061a4b0788b1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab4727b1c32d03017cfbc061a4b0788b1">MatchOrdered</a> (Left &amp;&amp;left, std::initializer_list&lt; Value &gt; &amp;&amp;right, bool matchOnlyBeginning=false)</td></tr>
-<tr class="separator:ab4727b1c32d03017cfbc061a4b0788b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b9f31d4bb0ef16184f02d9db324015a" id="r_a0b9f31d4bb0ef16184f02d9db324015a"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Left, CRangeMember Right&gt; <br />
+requires CCoreHalfEqualityComparable&lt;<a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Right&gt;&gt;</td></tr>
+<tr class="memitem:a0b9f31d4bb0ef16184f02d9db324015a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0b9f31d4bb0ef16184f02d9db324015a">MatchOrdered</a> (Left &amp;&amp;left, Right &amp;&amp;right, bool matchOnlyBeginning=false)</td></tr>
+<tr class="memdesc:a0b9f31d4bb0ef16184f02d9db324015a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if input ranges match their values and their order.  <br /></td></tr>
+<tr class="separator:a0b9f31d4bb0ef16184f02d9db324015a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e03c3a8b0e28efb96b0b69bf0a337b" id="r_a00e03c3a8b0e28efb96b0b69bf0a337b"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Left, typename Value &gt; <br />
+requires CCoreHalfEqualityComparable&lt;Value, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</td></tr>
+<tr class="memitem:a00e03c3a8b0e28efb96b0b69bf0a337b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a00e03c3a8b0e28efb96b0b69bf0a337b">MatchOrdered</a> (Left &amp;&amp;left, std::initializer_list&lt; Value &gt; &amp;&amp;right, bool matchOnlyBeginning=false)</td></tr>
+<tr class="separator:a00e03c3a8b0e28efb96b0b69bf0a337b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1524764230acbb1692f376793a175a41" id="r_a1524764230acbb1692f376793a175a41"><td class="memTemplParams" colspan="2">template&lt;CRangeMember Right&gt; </td></tr>
 <tr class="memitem:a1524764230acbb1692f376793a175a41"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1524764230acbb1692f376793a175a41">MatchOrdered</a> (Right &amp;&amp;right, bool matchOnlyBeginning=false)</td></tr>
 <tr class="memdesc:a1524764230acbb1692f376793a175a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if input ranges match their values and their order.  <br /></td></tr>
@@ -677,7 +677,7 @@ template&lt;CFunctionLike Predicate, CRangeOfTuplesCompatibleWithFunction&lt; Pr
 <div class="line"><a class="code hl_define" href="../../d2/d0e/FmtMacros_8h.html#afc4a1862089a6b0e3fbe0b053c80ada2">FMT_LOG</a>(LogTemp, Display, <span class="stringliteral">&quot;Things: {0}&quot;</span>, things);</div>
 <div class="line"><span class="comment">//-&gt; Things: [(2, 0), (2, 1), (2, 2), (2, 3)]</span></div>
 <div class="ttc" id="aFmtMacros_8h_html_afc4a1862089a6b0e3fbe0b053c80ada2"><div class="ttname"><a href="../../d2/d0e/FmtMacros_8h.html#afc4a1862089a6b0e3fbe0b053c80ada2">FMT_LOG</a></div><div class="ttdeci">#define FMT_LOG(categoryName, verbosity, format,...)</div><div class="ttdoc">Similar to UE_LOGFMT, but implemented via MCRO's own _FMT macro. So it's more convenient to pass form...</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d0e/FmtMacros_8h_source.html#l00246">FmtMacros.h:246</a></div></div>
-<div class="ttc" id="aRange_8h_html_a21e5ab1a87de28222d4fdba7e0188f35"><div class="ttname"><a href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a></div><div class="ttdeci">size_t size(TArray&lt; T, A &gt; const &amp;r)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/db6/Range_8h_source.html#l00098">Range.h:98</a></div></div>
+<div class="ttc" id="aRange_8h_html_a21e5ab1a87de28222d4fdba7e0188f35"><div class="ttname"><a href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a></div><div class="ttdeci">size_t size(TArray&lt; T, A &gt; const &amp;r)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/db6/Range_8h_source.html#l00100">Range.h:100</a></div></div>
 <div class="ttc" id="anamespaceMcro_1_1Range_html_acec8d56f85289bbe6db8c0730865dfae"><div class="ttname"><a href="#acec8d56f85289bbe6db8c0730865dfae">Mcro::Range::FilterTuple</a></div><div class="ttdeci">auto FilterTuple(Left &amp;&amp;left, Predicate &amp;&amp;predicate)</div><div class="ttdoc">Filter a range of tuples with structured binding function arguments, so filter predicates shouldn't b...</div><div class="ttdef"><b>Definition</b> <a href="../../dc/dc7/Views_8h_source.html#l00285">Views.h:285</a></div></div>
 </div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -987,14 +987,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a56a5c2ce849bbf98a553932f8cbc82c3" name="a56a5c2ce849bbf98a553932f8cbc82c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56a5c2ce849bbf98a553932f8cbc82c3">&#9670;&#160;</a></span>MatchOrdered() <span class="overload">[1/4]</span></h2>
+<a id="a0b9f31d4bb0ef16184f02d9db324015a" name="a0b9f31d4bb0ef16184f02d9db324015a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b9f31d4bb0ef16184f02d9db324015a">&#9670;&#160;</a></span>MatchOrdered() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;CRangeMember Left, CRangeMember Right&gt; <br />
-requires CConvertibleToDecayed&lt;<a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Right&gt;, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</div>
+requires CCoreHalfEqualityComparable&lt;<a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Right&gt;&gt;</div>
       <table class="memname">
         <tr>
           <td class="memname">bool Mcro::Range::MatchOrdered </td>
@@ -1029,14 +1029,14 @@ requires CConvertibleToDecayed&lt;<a class="el" href="#ab447bff66e222424550776c3
 
 </div>
 </div>
-<a id="ab4727b1c32d03017cfbc061a4b0788b1" name="ab4727b1c32d03017cfbc061a4b0788b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4727b1c32d03017cfbc061a4b0788b1">&#9670;&#160;</a></span>MatchOrdered() <span class="overload">[2/4]</span></h2>
+<a id="a00e03c3a8b0e28efb96b0b69bf0a337b" name="a00e03c3a8b0e28efb96b0b69bf0a337b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e03c3a8b0e28efb96b0b69bf0a337b">&#9670;&#160;</a></span>MatchOrdered() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;CRangeMember Left, typename Value &gt; <br />
-requires CConvertibleToDecayed&lt;Value, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</div>
+requires CCoreHalfEqualityComparable&lt;Value, <a class="el" href="#ab447bff66e222424550776c39d788117">TRangeElementType</a>&lt;Left&gt;&gt;</div>
       <table class="memname">
         <tr>
           <td class="memname">bool Mcro::Range::MatchOrdered </td>
