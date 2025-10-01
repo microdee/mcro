@@ -1,0 +1,4 @@
+copy:
+  - file: Docs/DistributableReadme.md
+    as: README.md
+  - file: LICENSE

@@ -8,6 +8,8 @@ using Serilog;
 using System;
 using Nuke.Cola.FolderComposition;
 using System.Security.Cryptography;
+using Nuke.Unreal.Plugins;
+using NuGet.ProjectModel;
 
 public static class UseMcroGraph
 {
@@ -29,5 +31,27 @@ public interface IUseMcro : INukeBuild
                 (this.ScriptFolder() / "Doxyfile").ToString(),
                 workingDirectory: this.ScriptFolder()
             );
+        });
+
+    Target DistributeMcro => _ => _
+        .DependsOn<IUseYamlCpp>()
+        .DependsOn<IUseRangeV3>()
+        .Executes(() =>
+        {
+            var (_, output) = UnrealPlugin.Get(this.ScriptFolder()).DistributeSource((UnrealBuild)this);
+            Log.Information("Find distribution in {0}", output);
+        });
+
+    Target BuildMcro => _ => _
+        .DependsOn<IUseYamlCpp>()
+        .DependsOn<IUseRangeV3>()
+        .Executes(() =>
+        {
+            var output = UnrealPlugin.Get(this.ScriptFolder())
+                .BuildPlugin(
+                    (UnrealBuild)this,
+                    buildOptions: new() { Method = PluginBuildMethod.UBT }
+                );
+            Log.Information("Find build in {0}", output);
         });
 }
