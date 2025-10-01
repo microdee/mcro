@@ -6,14 +6,15 @@
 
 A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
+**[Source code](https://github.com/microdee/mcro)**  
+**[Distribution](https://github.com/microdee/mcro-dist)**
+
 </div>
 
 > [!CAUTION]
 > This library is still under active development, nothing is set to stone yet in its updates. Use in production only if you know very well what you're doing.
 
 [TOC]
-
-**[Source code](https://github.com/microdee/mcro)**
 
 ## Who is this library for?
 
