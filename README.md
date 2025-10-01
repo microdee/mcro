@@ -5,9 +5,11 @@
 # MCRO
 A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
-## [Documentation](https://mcro.de/mcro)
+### [Documentation](https://mcro.de/mcro)
 
-**[Distribution](https://github.com/microdee/mcro-dist)**
+### [Distribution](https://github.com/microdee/mcro-dist)
+
+---
 
 </div>
 

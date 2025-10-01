@@ -5,11 +5,13 @@
 # MCRO
 A C++23 templating and utilities Unreal Engine plugin, for a more civilized age.
 
-## [Documentation](https://mcro.de/mcro)
+### [Documentation](https://mcro.de/mcro)
 
-**[Source code](https://github.com/microdee/mcro)**
+### [Source code](https://github.com/microdee/mcro)
 
 </div>
+
+---
 
 This repository is a distributable version of MCRO which doesn't require extra tooling ([Nuke.Unreal](https://github.com/microdee/Nuke.Unreal)) to build. [Find the source-code here](https://github.com/microdee/mcro).
 
