@@ -12,7 +12,7 @@
 	"DocsURL": "https://mcro.de/mcro",
 	"MarketplaceURL": "",
 	"SupportURL": "https://github.com/microdee/mcro/issues",
-	"CanContainContent": true,
+	"CanContainContent": false,
 	"IsBetaVersion": true,
 	"Modules": [
 		{
