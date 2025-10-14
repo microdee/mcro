@@ -69,4 +69,5 @@ public partial class YamlCpp : ModuleRules
 	partial void SetupLibrary_Android(ReadOnlyTargetRules target);
 	partial void SetupLibrary_IOS(ReadOnlyTargetRules target);
 	partial void SetupLibrary_TVOS(ReadOnlyTargetRules target);
+	partial void SetupLibrary_VisionOS(ReadOnlyTargetRules target);
 }
