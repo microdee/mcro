@@ -183,11 +183,13 @@ void Test()
 
 	static_assert(CRangeMember<decltype(vi)>);
 
+#if UE_VERSION_NEWER_THAN(5, 5, -1)
 	TBitArray<> bitArrayA;
 	TBitArray<> bitArrayB;
 	[](auto&&){} (ranges::begin(bitArrayA));
 	[](auto&&){} (ranges::end(bitArrayA));
 	[](auto&&){} (views::concat(bitArrayA, bitArrayB) | views::take(10));
+#endif
 
 	TChunkedArray<int32> chunkedArrayA;
 	TChunkedArray<int32> chunkedArrayB;

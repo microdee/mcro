@@ -35,7 +35,7 @@
  *	- FString (`TCHAR` array)
  *	- TStringView (given char-type)
  *	- TBasicArray
- *	- TBitArray
+ *	- TBitArray (only UE 5.5 or later)
  *	- TChunkedArray
  *	- TMRUArray
  *	- TResourceArray
@@ -84,6 +84,7 @@
 #include "Containers/PagedArray.h"
 #include "Containers/RingBuffer.h"
 #include "Containers/DynamicRHIResourceArray.h"
+#include "Misc/EngineVersionComparison.h"
 
 #include "Mcro/Range/Iterators.h"
 
@@ -188,12 +189,14 @@ template <typename T> auto end  (TBasicArray<T>&       r) ->       T* { return r
 template <typename T> auto end  (TBasicArray<T> const& r) -> const T* { return r.end(); }
 template <typename T> size_t size(TBasicArray<T> const& r) { return static_cast<size_t>(r.Num()); }
 
-// TBitArray (GetIndex-able)
+#if UE_VERSION_NEWER_THAN(5, 5, -1)
+// TBitArray (GetIndex-able) (only after 5.5)
 template <typename A> auto begin(TBitArray<A>&       r) -> TIteratorExtension<TBitArray<A>> { return r.begin(); }
 template <typename A> auto begin(TBitArray<A> const& r) -> TIteratorExtension<TBitArray<A>> { return r.begin(); }
 template <typename A> auto end  (TBitArray<A>&       r) -> TIteratorExtension<TBitArray<A>> { return r.end(); }
 template <typename A> auto end  (TBitArray<A> const& r) -> TIteratorExtension<TBitArray<A>> { return r.end(); }
 template <typename A> size_t size(TBitArray<A> const& r) { return static_cast<size_t>(r.Num()); }
+#endif
 
 // TChunkedArray (GetIndex-able)
 template <typename T, uint32 C, typename A> auto begin(TChunkedArray<T, C, A>&       r) -> TIteratorExtension<TChunkedArray<T, C, A>> { return r.begin(); }
