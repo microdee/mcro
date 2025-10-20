@@ -15,6 +15,5 @@ var searchData=
   ['directories_12',['Directories',['../d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html#a8abc56ef097a49b02d7d6a58c667293c',1,'McroBuild::AbsolutePathExtensions']]],
   ['directoryexists_13',['DirectoryExists',['../d1/d91/classMcroBuild_1_1AbsolutePathExtensions.html#aaed7d9ab1e728d6ea3f40eda9be73ad7',1,'McroBuild::AbsolutePathExtensions']]],
   ['displayerror_14',['DisplayError',['../db/d8b/classMcro_1_1Error_1_1FErrorManager.html#aa694e3494cd197314bcac03a689dc0c6',1,'Mcro::Error::FErrorManager']]],
-  ['dynamicdelegatebinding_15',['DynamicDelegateBinding',['../d4/ded/classUDynamicDelegateTestClass.html#a1eb612239021040ee31915fcc3d47627',1,'UDynamicDelegateTestClass']]],
-  ['dynamicprintf_16',['DynamicPrintf',['../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c',1,'Mcro::Text']]]
+  ['dynamicdelegatebinding_15',['DynamicDelegateBinding',['../d4/ded/classUDynamicDelegateTestClass.html#a1eb612239021040ee31915fcc3d47627',1,'UDynamicDelegateTestClass']]]
 ];

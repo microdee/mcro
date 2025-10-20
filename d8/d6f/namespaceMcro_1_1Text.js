@@ -1,7 +1,8 @@
 var namespaceMcro_1_1Text =
 [
     [ "Detail", "d2/df9/namespaceMcro_1_1Text_1_1Detail.html", [
-      [ "HighLevelStringCast", "d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a14a79cff76537d732d0d06c338621239", null ]
+      [ "HighLevelStringCast", "d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a14a79cff76537d732d0d06c338621239", null ],
+      [ "MakeStringFromPtrSize", "d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a75346dd174e50328afc0c0e3691476da", null ]
     ] ],
     [ "Macros", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html", "d2/d2b/namespaceMcro_1_1Text_1_1Macros" ],
     [ "TAsFormatArgument", "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html", null ],
@@ -34,7 +35,6 @@ var namespaceMcro_1_1Text =
     [ "AsString", "d8/d6f/namespaceMcro_1_1Text.html#a335020ff40ce803319f0ae4d7fdd675b", null ],
     [ "AsText", "d8/d6f/namespaceMcro_1_1Text.html#ac16e385d2e6487698824636c859933cd", null ],
     [ "AsText", "d8/d6f/namespaceMcro_1_1Text.html#a21e9e5f19fc71c5f9bf2f60b5134e9b3", null ],
-    [ "DynamicPrintf", "d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c", null ],
     [ "Join", "d8/d6f/namespaceMcro_1_1Text.html#a01257118e0bdc9f69fb3b310374cb385", null ],
     [ "NamedArguments", "d8/d6f/namespaceMcro_1_1Text.html#a0aaef9c9d339cbc73b7cd5a92e9c187a", null ],
     [ "OrderedArguments", "d8/d6f/namespaceMcro_1_1Text.html#af755894199136f1ff56c57f5d1b87d13", null ],

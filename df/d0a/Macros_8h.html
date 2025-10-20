@@ -121,6 +121,7 @@ $(function(){initNavTree('df/d0a/Macros_8h.html','../../'); initResizable(true);
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;HAL/PreprocessorHelpers.h&quot;</code><br />
 <code>#include &quot;boost/preprocessor.hpp&quot;</code><br />
+<code>#include &quot;Misc/EngineVersionComparison.h&quot;</code><br />
 </div>
 <p><a href="../../df/d0a/Macros_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -134,6 +135,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a57b4b4e970be9519a970b60a7f745bae" id="r_a57b4b4e970be9519a970b60a7f745bae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57b4b4e970be9519a970b60a7f745bae">DEFAULT_ON_EMPTY</a>(value,  default)</td></tr>
 <tr class="memdesc:a57b4b4e970be9519a970b60a7f745bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns given default value when input value is empty.  <br /></td></tr>
 <tr class="separator:a57b4b4e970be9519a970b60a7f745bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6951c4fa875816f70e43cc5803e27edc" id="r_a6951c4fa875816f70e43cc5803e27edc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION</a>&#160;&#160;&#160;Forward</td></tr>
+<tr class="separator:a6951c4fa875816f70e43cc5803e27edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dfff7147f0fdff4642a6667a375ae29" id="r_a8dfff7147f0fdff4642a6667a375ae29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dfff7147f0fdff4642a6667a375ae29">FWD</a>(...)</td></tr>
 <tr class="memdesc:a8dfff7147f0fdff4642a6667a375ae29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorten forwarding expression with this macro so one may not need to specify explicit type.  <br /></td></tr>
 <tr class="separator:a8dfff7147f0fdff4642a6667a375ae29"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,7 +170,7 @@ Macros</h2></td></tr>
 </div><!-- fragment -->
 <p>Returns given default value when input value is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00041">41</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00074">74</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>
@@ -185,11 +188,12 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">Forward&lt;decltype(__VA_ARGS__)&gt;(__VA_ARGS__)</div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION&lt;decltype(__VA_ARGS__)&gt;</a>(__VA_ARGS__)</div>
+<div class="ttc" id="aMacros_8h_html_a6951c4fa875816f70e43cc5803e27edc"><div class="ttname"><a href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION</a></div><div class="ttdeci">#define MCRO_FORWARD_FUNCTION</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00095">Macros.h:95</a></div></div>
 </div><!-- fragment -->
 <p>Shorten forwarding expression with this macro so one may not need to specify explicit type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00044">44</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00100">100</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>
@@ -224,7 +228,23 @@ Macros</h2></td></tr>
 <div class="line">FOO(1, 2) <span class="comment">// -&gt; 12</span></div>
 <div class="line">FOO(1, 2, 3) <span class="comment">// -&gt; 123</span></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00038">38</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00071">71</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a6951c4fa875816f70e43cc5803e27edc" name="a6951c4fa875816f70e43cc5803e27edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6951c4fa875816f70e43cc5803e27edc">&#9670;&#160;</a></span>MCRO_FORWARD_FUNCTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_FORWARD_FUNCTION&#160;&#160;&#160;Forward</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00095">95</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +264,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">TEXT(PREPROCESSOR_TO_STRING(x))</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00018">18</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00051">51</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>

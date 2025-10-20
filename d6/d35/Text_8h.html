@@ -125,6 +125,7 @@ $(function(){initNavTree('d6/d35/Text_8h.html','../../'); initResizable(true); }
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;CoreMinimal.h&quot;</code><br />
+<code>#include &quot;Misc/EngineVersionComparison.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d8d/Concepts_8h_source.html">Mcro/Concepts.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">Mcro/FunctionTraits.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de3/TypeName_8h_source.html">Mcro/TypeName.h</a>&quot;</code><br />
@@ -230,6 +231,8 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a75346dd174e50328afc0c0e3691476da" id="r_a75346dd174e50328afc0c0e3691476da"><td class="memItemLeft" align="right" valign="top">FORCEINLINE FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a75346dd174e50328afc0c0e3691476da">Mcro::Text::Detail::MakeStringFromPtrSize</a> (const TCHAR *ptr, int32 <a class="el" href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a>)</td></tr>
+<tr class="separator:a75346dd174e50328afc0c0e3691476da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a79cff76537d732d0d06c338621239" id="r_a14a79cff76537d732d0d06c338621239"><td class="memTemplParams" colspan="2">template&lt;typename CharFrom , typename CharOutput , typename StringFrom , CFunctionLike PtrGetter, CFunctionLike LengthGetter, CFunctionLike Constructor, typename StringTo  = TFunction_Return&lt;Constructor&gt;&gt; </td></tr>
 <tr class="memitem:a14a79cff76537d732d0d06c338621239"><td class="memTemplItemLeft" align="right" valign="top">StringTo&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a14a79cff76537d732d0d06c338621239">Mcro::Text::Detail::HighLevelStringCast</a> (const StringFrom &amp;strIn, PtrGetter &amp;&amp;getPtr, LengthGetter &amp;&amp;getLength, Constructor &amp;&amp;construct)</td></tr>
 <tr class="separator:a14a79cff76537d732d0d06c338621239"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,9 +284,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a01257118e0bdc9f69fb3b310374cb385"><td class="memTemplItemLeft" align="right" valign="top">FString&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a01257118e0bdc9f69fb3b310374cb385">Mcro::Text::Join</a> (const TCHAR *separator, Args... args)</td></tr>
 <tr class="memdesc:a01257118e0bdc9f69fb3b310374cb385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join the given string arguments with a delimiter and skip empty entries.  <br /></td></tr>
 <tr class="separator:a01257118e0bdc9f69fb3b310374cb385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7b16f541af05b3640eb163179ce00c" id="r_a1e7b16f541af05b3640eb163179ce00c"><td class="memItemLeft" align="right" valign="top">MCRO_API FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c">Mcro::Text::DynamicPrintf</a> (const TCHAR *fmt,...)</td></tr>
-<tr class="memdesc:a1e7b16f541af05b3640eb163179ce00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy of FString::PrintfImpl but not private so it can work with strings which were not literals.  <br /></td></tr>
-<tr class="separator:a1e7b16f541af05b3640eb163179ce00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbae721347c456d85ee6c3eeec995e1f" id="r_acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplParams" colspan="2">template&lt;CStringFormatArgument T&gt; </td></tr>
 <tr class="memitem:acbae721347c456d85ee6c3eeec995e1f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acbae721347c456d85ee6c3eeec995e1f">Mcro::Text::AsFormatArgument</a> (T &amp;&amp;input)</td></tr>
 <tr class="separator:acbae721347c456d85ee6c3eeec995e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -333,7 +333,7 @@ requires (!CSameAsDecayed&lt;T, FText&gt;)</td></tr>
 
 <p>If this flag is on, then the default string conversion behavior is returning the result of <code>TTypeName</code> and triggering an ensure. Otherwise, a missing function will result in a compile error. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00028">28</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d35/Text_8h_source.html#l00029">29</a> of file <a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>.</p>
 
 </div>
 </div>

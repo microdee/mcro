@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"d7/d53/namespaceMcro_1_1Templates.html#ae5d9d33d8ae915722b7be05d8c959693":[8,0,1,27,22],
 "d7/d53/namespaceMcro_1_1Templates.html#af2cc84881dcbbf4ecbfe78f6abe22703":[8,0,1,27,21],
 "d7/d53/namespaceMcro_1_1Templates.html#afbae46b13c3677e544a2cd04a6ebe146":[8,0,1,27,14],
 "d7/d5c/structMcro_1_1Error_1_1FDisplayErrorArgs.html":[8,0,1,14,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "d8/d30/structMcro_1_1Observable_1_1IState.html#a69d74b0a4524e462cecc74bc0eb70eca":[8,0,1,20,2,4],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#a69d74b0a4524e462cecc74bc0eb70eca":[10,0,0,14,1,4],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#a73e97fe8dfbb593a0eeb90c72f0c276b":[8,0,1,20,2,27],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#a73e97fe8dfbb593a0eeb90c72f0c276b":[10,0,0,14,1,27],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#a77fd005fefdab8cdb31585c8be28ddf1":[8,0,1,20,2,10]
+"d8/d30/structMcro_1_1Observable_1_1IState.html#a73e97fe8dfbb593a0eeb90c72f0c276b":[10,0,0,14,1,27]
 };

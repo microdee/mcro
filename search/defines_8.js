@@ -49,13 +49,14 @@ var searchData=
   ['mcro_5ffmt_5fnamed_5farg_46',['MCRO_FMT_NAMED_ARG',['../d2/d0e/FmtMacros_8h.html#ad5bcf6e850980690bd842b272ec814f2',1,'FmtMacros.h']]],
   ['mcro_5ffmt_5fnamed_5farg_5ftransform_47',['MCRO_FMT_NAMED_ARG_TRANSFORM',['../d2/d0e/FmtMacros_8h.html#a2d1e42e1daed57c0fdce7562e04692b2',1,'FmtMacros.h']]],
   ['mcro_5ffmt_5fordered_48',['MCRO_FMT_ORDERED',['../d2/d0e/FmtMacros_8h.html#a03c96e4bef0347d3916e48e957252dc4',1,'FmtMacros.h']]],
-  ['mcro_5fpropagate_5ffail_5f1_49',['MCRO_PROPAGATE_FAIL_1',['../de/dba/Error_8h.html#a2b14adae907d6ef76b8ab72f71f09d7d',1,'Error.h']]],
-  ['mcro_5fpropagate_5ffail_5f2_50',['MCRO_PROPAGATE_FAIL_2',['../de/dba/Error_8h.html#a6ad3f41996d940cc820308ad5b102ae2',1,'Error.h']]],
-  ['mcro_5fpropagate_5ffail_5f3_51',['MCRO_PROPAGATE_FAIL_3',['../de/dba/Error_8h.html#a6c02656a66375f94124ba473e4bf954d',1,'Error.h']]],
-  ['mcro_5fquit_5fbody_52',['MCRO_QUIT_BODY',['../db/df5/AssertMacros_8h.html#a45682925d9aa5824efc2734bcbab676c',1,'AssertMacros.h']]],
-  ['mcro_5frange_5fallow_5fbasic_5fiterator_5ffeature_5femulation_53',['MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION',['../d9/d80/Iterators_8h.html#a03606f45c15cab1b550fe9422d477e04',1,'Iterators.h']]],
-  ['mcro_5ftext_5fallow_5funsupported_5fstring_5fconversion_54',['MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION',['../d6/d35/Text_8h.html#a4c04eee749f2b6fc9946e1746ce37a2d',1,'Text.h']]],
-  ['mcro_5fthis_5ftype_55',['MCRO_THIS_TYPE',['../d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150',1,'Concepts.h']]],
-  ['mcro_5ftry_5fwith_5fimpl_56',['MCRO_TRY_WITH_IMPL',['../da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7',1,'HResultMacros.h']]],
-  ['mcro_5funavailable_5f1_57',['MCRO_UNAVAILABLE_1',['../de/dba/Error_8h.html#a83b8a72109eb0392dc7550ccfabedd55',1,'Error.h']]]
+  ['mcro_5fforward_5ffunction_49',['MCRO_FORWARD_FUNCTION',['../df/d0a/Macros_8h.html#a6951c4fa875816f70e43cc5803e27edc',1,'Macros.h']]],
+  ['mcro_5fpropagate_5ffail_5f1_50',['MCRO_PROPAGATE_FAIL_1',['../de/dba/Error_8h.html#a2b14adae907d6ef76b8ab72f71f09d7d',1,'Error.h']]],
+  ['mcro_5fpropagate_5ffail_5f2_51',['MCRO_PROPAGATE_FAIL_2',['../de/dba/Error_8h.html#a6ad3f41996d940cc820308ad5b102ae2',1,'Error.h']]],
+  ['mcro_5fpropagate_5ffail_5f3_52',['MCRO_PROPAGATE_FAIL_3',['../de/dba/Error_8h.html#a6c02656a66375f94124ba473e4bf954d',1,'Error.h']]],
+  ['mcro_5fquit_5fbody_53',['MCRO_QUIT_BODY',['../db/df5/AssertMacros_8h.html#a45682925d9aa5824efc2734bcbab676c',1,'AssertMacros.h']]],
+  ['mcro_5frange_5fallow_5fbasic_5fiterator_5ffeature_5femulation_54',['MCRO_RANGE_ALLOW_BASIC_ITERATOR_FEATURE_EMULATION',['../d9/d80/Iterators_8h.html#a03606f45c15cab1b550fe9422d477e04',1,'Iterators.h']]],
+  ['mcro_5ftext_5fallow_5funsupported_5fstring_5fconversion_55',['MCRO_TEXT_ALLOW_UNSUPPORTED_STRING_CONVERSION',['../d6/d35/Text_8h.html#a4c04eee749f2b6fc9946e1746ce37a2d',1,'Text.h']]],
+  ['mcro_5fthis_5ftype_56',['MCRO_THIS_TYPE',['../d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150',1,'Concepts.h']]],
+  ['mcro_5ftry_5fwith_5fimpl_57',['MCRO_TRY_WITH_IMPL',['../da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7',1,'HResultMacros.h']]],
+  ['mcro_5funavailable_5f1_58',['MCRO_UNAVAILABLE_1',['../de/dba/Error_8h.html#a83b8a72109eb0392dc7550ccfabedd55',1,'Error.h']]]
 ];

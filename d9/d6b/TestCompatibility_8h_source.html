@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11"/>
   <meta name="generator" content="Doxygen 1.12.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MCRO: McroISPC/Public/McroISPC/IspcParallelism.h Source File</title>
+  <title>MCRO: Mcro/Private/Mcro/Tests/TestCompatibility.h Source File</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../../jquery.js"></script>
   <script type="text/javascript" src="../../dynsections.js"></script>
@@ -87,7 +87,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('d7/d43/IspcParallelism_8h_source.html','../../'); initResizable(true); });
+$(function(){initNavTree('d9/d6b/TestCompatibility_8h_source.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -113,10 +113,10 @@ $(function(){initNavTree('d7/d43/IspcParallelism_8h_source.html','../../'); init
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">IspcParallelism.h</div></div>
+  <div class="headertitle"><div class="title">TestCompatibility.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/d43/IspcParallelism_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** @noop License Comment</span></div>
+<a href="../../d9/d6b/TestCompatibility_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** @noop License Comment</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> *  @file</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *  @copyright</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *  This Source Code is subject to the terms of the Mozilla Public License, v2.0.</span></div>
@@ -125,25 +125,39 @@ $(function(){initNavTree('d7/d43/IspcParallelism_8h_source.html','../../'); init
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *  </span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *  @author David Mórász</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *  @date 2025</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d7/d43/IspcParallelism_8h.html#a82ceee6f1194011e68f969209253edd9">   15</a></span>    MCROISPC_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d43/IspcParallelism_8h.html#a82ceee6f1194011e68f969209253edd9">ISPCLaunch</a>(<span class="keywordtype">void</span>** handlePtr, <span class="keywordtype">void</span>* f, <span class="keywordtype">void</span>* data, <span class="keywordtype">int</span> countx, <span class="keywordtype">int</span> county, <span class="keywordtype">int</span> countz);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d7/d43/IspcParallelism_8h.html#acc38261b0175c38ff4362b471707f72e">   16</a></span>    MCROISPC_API <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d7/d43/IspcParallelism_8h.html#acc38261b0175c38ff4362b471707f72e">ISPCAlloc</a>(<span class="keywordtype">void</span>** handlePtr, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_function" href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a>, <span class="keywordtype">int</span> alignment);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a">   17</a></span>    MCROISPC_API <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a">ISPCSync</a>(<span class="keywordtype">void</span>* handle);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
-<div class="ttc" id="aIspcParallelism_8h_html_a82ceee6f1194011e68f969209253edd9"><div class="ttname"><a href="../../d7/d43/IspcParallelism_8h.html#a82ceee6f1194011e68f969209253edd9">ISPCLaunch</a></div><div class="ttdeci">MCROISPC_API void ISPCLaunch(void **handlePtr, void *f, void *data, int countx, int county, int countz)</div></div>
-<div class="ttc" id="aIspcParallelism_8h_html_a95a782cf82e45b73343b9ac5322bc03a"><div class="ttname"><a href="../../d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a">ISPCSync</a></div><div class="ttdeci">MCROISPC_API void ISPCSync(void *handle)</div></div>
-<div class="ttc" id="aIspcParallelism_8h_html_acc38261b0175c38ff4362b471707f72e"><div class="ttname"><a href="../../d7/d43/IspcParallelism_8h.html#acc38261b0175c38ff4362b471707f72e">ISPCAlloc</a></div><div class="ttdeci">MCROISPC_API void * ISPCAlloc(void **handlePtr, long long size, int alignment)</div></div>
-<div class="ttc" id="aRange_8h_html_a21e5ab1a87de28222d4fdba7e0188f35"><div class="ttname"><a href="../../d9/db6/Range_8h.html#a21e5ab1a87de28222d4fdba7e0188f35">size</a></div><div class="ttdeci">size_t size(TArray&lt; T, A &gt; const &amp;r)</div><div class="ttdef"><b>Definition</b> <a href="../../d9/db6/Range_8h_source.html#l00101">Range.h:101</a></div></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"></span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @file</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * This header is there to ensure AutomationTest compatibility between different engine versions</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;Misc/EngineVersionComparison.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#if UE_VERSION_OLDER_THAN(5,5,0)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @brief</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * TestEqualSensitive is introduced in Unreal 5.5, until then we simply replace it with TestEqual</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * which should do the same thing.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define TestEqualSensitive(...) TestEqual(__VA_ARGS__)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"></span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @brief</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * EAutomationTestFlags has been refactored in newer engine versions. Emulating refactored values here:</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">constexpr</span> EAutomationTestFlags::Type EAutomationTestFlags_ApplicationContextMask = EAutomationTestFlags::ApplicationContextMask;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_1b72437bff9e993e46de00fbd506e1a6.html">McroISPC</a></li><li class="navelem"><a class="el" href="../../dir_bb3d749d93b226e801ba169e70ab21d4.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_13cff13e8fd8929ac7c8ec827515929f.html">McroISPC</a></li><li class="navelem"><a class="el" href="../../d7/d43/IspcParallelism_8h.html">IspcParallelism.h</a></li>
+    <li class="navelem"><a class="el" href="../../dir_234020c4664dded192c8706efe49f8aa.html">Mcro</a></li><li class="navelem"><a class="el" href="../../dir_acb226424120bb1b0d44cb3246bf47b6.html">Private</a></li><li class="navelem"><a class="el" href="../../dir_9cc7cbf7ca86e2d15bba786ec915ee5a.html">Mcro</a></li><li class="navelem"><a class="el" href="../../dir_671a03169eedfa1fd29cd14c844d9fbc.html">Tests</a></li><li class="navelem"><a class="el" href="../../d9/d6b/TestCompatibility_8h.html">TestCompatibility.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

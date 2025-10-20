@@ -38,6 +38,5 @@ var searchData=
   ['dummydynamicdelegates_2eh_35',['DummyDynamicDelegates.h',['../dd/d1f/DummyDynamicDelegates_8h.html',1,'']]],
   ['dynamicdelegate_36',['DynamicDelegate',['../d4/ded/classUDynamicDelegateTestClass.html#a7172e5146ee5036efec66f0ff514a146',1,'UDynamicDelegateTestClass']]],
   ['dynamicdelegatebinding_37',['DynamicDelegateBinding',['../d4/ded/classUDynamicDelegateTestClass.html#a1eb612239021040ee31915fcc3d47627',1,'UDynamicDelegateTestClass']]],
-  ['dynamicdelegateretval_38',['DynamicDelegateRetVal',['../d4/ded/classUDynamicDelegateTestClass.html#a09b86276ae05d490b8d92000e0c707b3',1,'UDynamicDelegateTestClass']]],
-  ['dynamicprintf_39',['DynamicPrintf',['../d8/d6f/namespaceMcro_1_1Text.html#a1e7b16f541af05b3640eb163179ce00c',1,'Mcro::Text']]]
+  ['dynamicdelegateretval_38',['DynamicDelegateRetVal',['../d4/ded/classUDynamicDelegateTestClass.html#a09b86276ae05d490b8d92000e0c707b3',1,'UDynamicDelegateTestClass']]]
 ];

@@ -132,6 +132,7 @@ $(function(){initNavTree('d9/db6/Range_8h.html','../../'); initResizable(true); 
 <code>#include &quot;Containers/PagedArray.h&quot;</code><br />
 <code>#include &quot;Containers/RingBuffer.h&quot;</code><br />
 <code>#include &quot;Containers/DynamicRHIResourceArray.h&quot;</code><br />
+<code>#include &quot;Misc/EngineVersionComparison.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/d80/Iterators_8h_source.html">Mcro/Range/Iterators.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d9/db6/Range_8h_source.html">Go to the source code of this file.</a></p>
@@ -300,21 +301,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a0b154f6a8708f7904d0b93c0fa8a5ba7" id="r_a0b154f6a8708f7904d0b93c0fa8a5ba7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0b154f6a8708f7904d0b93c0fa8a5ba7"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0b154f6a8708f7904d0b93c0fa8a5ba7">size</a> (TBasicArray&lt; T &gt; const &amp;r)</td></tr>
 <tr class="separator:a0b154f6a8708f7904d0b93c0fa8a5ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d64e46df20c503c64688933c37bc321" id="r_a6d64e46df20c503c64688933c37bc321"><td class="memTemplParams" colspan="2">template&lt;typename A &gt; </td></tr>
-<tr class="memitem:a6d64e46df20c503c64688933c37bc321"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6d64e46df20c503c64688933c37bc321">begin</a> (TBitArray&lt; A &gt; &amp;r) -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt; TBitArray&lt; A &gt; &gt;</td></tr>
-<tr class="separator:a6d64e46df20c503c64688933c37bc321"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0274167a0c387736cfffc4a0a221d628" id="r_a0274167a0c387736cfffc4a0a221d628"><td class="memTemplParams" colspan="2">template&lt;typename A &gt; </td></tr>
-<tr class="memitem:a0274167a0c387736cfffc4a0a221d628"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0274167a0c387736cfffc4a0a221d628">begin</a> (TBitArray&lt; A &gt; const &amp;r) -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt; TBitArray&lt; A &gt; &gt;</td></tr>
-<tr class="separator:a0274167a0c387736cfffc4a0a221d628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d60e2261baa1e7ddbf77396af785449" id="r_a6d60e2261baa1e7ddbf77396af785449"><td class="memTemplParams" colspan="2">template&lt;typename A &gt; </td></tr>
-<tr class="memitem:a6d60e2261baa1e7ddbf77396af785449"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6d60e2261baa1e7ddbf77396af785449">end</a> (TBitArray&lt; A &gt; &amp;r) -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt; TBitArray&lt; A &gt; &gt;</td></tr>
-<tr class="separator:a6d60e2261baa1e7ddbf77396af785449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5d4dd07012bfeba898fc2793a6a30cc" id="r_ac5d4dd07012bfeba898fc2793a6a30cc"><td class="memTemplParams" colspan="2">template&lt;typename A &gt; </td></tr>
-<tr class="memitem:ac5d4dd07012bfeba898fc2793a6a30cc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac5d4dd07012bfeba898fc2793a6a30cc">end</a> (TBitArray&lt; A &gt; const &amp;r) -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt; TBitArray&lt; A &gt; &gt;</td></tr>
-<tr class="separator:ac5d4dd07012bfeba898fc2793a6a30cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad17a0ff54d103739b83886bb6e18c3f4" id="r_ad17a0ff54d103739b83886bb6e18c3f4"><td class="memTemplParams" colspan="2">template&lt;typename A &gt; </td></tr>
-<tr class="memitem:ad17a0ff54d103739b83886bb6e18c3f4"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad17a0ff54d103739b83886bb6e18c3f4">size</a> (TBitArray&lt; A &gt; const &amp;r)</td></tr>
-<tr class="separator:ad17a0ff54d103739b83886bb6e18c3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f402145e223da65c8d06d385cbc301a" id="r_a2f402145e223da65c8d06d385cbc301a"><td class="memTemplParams" colspan="2">template&lt;typename T , uint32 C, typename A &gt; </td></tr>
 <tr class="memitem:a2f402145e223da65c8d06d385cbc301a"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2f402145e223da65c8d06d385cbc301a">begin</a> (TChunkedArray&lt; T, C, A &gt; &amp;r) -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt; TChunkedArray&lt; T, C, A &gt; &gt;</td></tr>
 <tr class="separator:a2f402145e223da65c8d06d385cbc301a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -466,7 +452,7 @@ Functions</h2></td></tr>
 <li>FString (<code>TCHAR</code> array)</li>
 <li>TStringView (given char-type)</li>
 <li>TBasicArray</li>
-<li>TBitArray</li>
+<li>TBitArray (only UE 5.5 or later)</li>
 <li>TChunkedArray</li>
 <li>TMRUArray</li>
 <li>TResourceArray</li>
@@ -521,7 +507,7 @@ You may need to convert these to either a fully supported container, or write yo
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00156">156</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00157">157</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
@@ -539,7 +525,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00118">118</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00119">119</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
@@ -559,853 +545,19 @@ template&lt;<a class="el" href="../../da/d5a/conceptMcro_1_1Concepts_1_1CRangeMe
 
 <p>Bring modern declarative range operations like views and actions to the Unreal C++ arsenal. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00093">93</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00094">94</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af90742d4e7fb4f0c2887991f93d3da21" name="af90742d4e7fb4f0c2887991f93d3da21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af90742d4e7fb4f0c2887991f93d3da21">&#9670;&#160;</a></span>begin() <span class="overload">[1/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af90742d4e7fb4f0c2887991f93d3da21">&#9670;&#160;</a></span>begin() <span class="overload">[1/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">FORCEINLINE auto begin </td>
-          <td>(</td>
-          <td class="paramtype">FString &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="../../d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html">Mcro::Range::FTempStringIterator</a> </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00180">180</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a72fcd8f5d4d45db6b43ccb70fdd368cf" name="a72fcd8f5d4d45db6b43ccb70fdd368cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72fcd8f5d4d45db6b43ccb70fdd368cf">&#9670;&#160;</a></span>begin() <span class="overload">[2/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FORCEINLINE auto begin </td>
-          <td>(</td>
-          <td class="paramtype">FString &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
-          <td> -&gt; const TCHAR* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00176">176</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ac4fb136a6e43e2b7097165992ae9d6b7" name="ac4fb136a6e43e2b7097165992ae9d6b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4fb136a6e43e2b7097165992ae9d6b7">&#9670;&#160;</a></span>begin() <span class="overload">[3/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FORCEINLINE auto begin </td>
-          <td>(</td>
-          <td class="paramtype">FString const &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
-          <td> -&gt; const TCHAR* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00177">177</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a8ab6fcf0c1c28b8bfdbfa50ad5cea375" name="a8ab6fcf0c1c28b8bfdbfa50ad5cea375"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">&#9670;&#160;</a></span>begin() <span class="overload">[4/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00096">96</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ae2be2475559561e7a0de476013d52584" name="ae2be2475559561e7a0de476013d52584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2be2475559561e7a0de476013d52584">&#9670;&#160;</a></span>begin() <span class="overload">[5/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; const T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00097">97</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="adbfeaa60ef18112b78359ca8e8104b8b" name="adbfeaa60ef18112b78359ca8e8104b8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbfeaa60ef18112b78359ca8e8104b8b">&#9670;&#160;</a></span>begin() <span class="overload">[6/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TArrayView&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00103">103</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ae218c2b761be2a7397500d1fd62f5f8e" name="ae218c2b761be2a7397500d1fd62f5f8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae218c2b761be2a7397500d1fd62f5f8e">&#9670;&#160;</a></span>begin() <span class="overload">[7/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TArrayView&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; const T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00104">104</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a8bf72e68e3e6e11709cb0773c3e29ac7" name="a8bf72e68e3e6e11709cb0773c3e29ac7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bf72e68e3e6e11709cb0773c3e29ac7">&#9670;&#160;</a></span>begin() <span class="overload">[8/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TBasicArray&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00185">185</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a9bba005f0db1eee54aac3f81639d18ed" name="a9bba005f0db1eee54aac3f81639d18ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bba005f0db1eee54aac3f81639d18ed">&#9670;&#160;</a></span>begin() <span class="overload">[9/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TBasicArray&lt; T &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; const T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00186">186</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a6d64e46df20c503c64688933c37bc321" name="a6d64e46df20c503c64688933c37bc321"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d64e46df20c503c64688933c37bc321">&#9670;&#160;</a></span>begin() <span class="overload">[10/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TBitArray&lt; A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TBitArray&lt;A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00192">192</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a0274167a0c387736cfffc4a0a221d628" name="a0274167a0c387736cfffc4a0a221d628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0274167a0c387736cfffc4a0a221d628">&#9670;&#160;</a></span>begin() <span class="overload">[11/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TBitArray&lt; A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TBitArray&lt;A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00193">193</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a2f402145e223da65c8d06d385cbc301a" name="a2f402145e223da65c8d06d385cbc301a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f402145e223da65c8d06d385cbc301a">&#9670;&#160;</a></span>begin() <span class="overload">[12/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , uint32 C, typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TChunkedArray&lt; T, C, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TChunkedArray&lt;T, C, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00199">199</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="afc5d724297e428c607a737ad21b82500" name="afc5d724297e428c607a737ad21b82500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc5d724297e428c607a737ad21b82500">&#9670;&#160;</a></span>begin() <span class="overload">[13/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , uint32 C, typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TChunkedArray&lt; T, C, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TChunkedArray&lt;T, C, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00200">200</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a00d941e00e9f88ba8da2f5c2fc291168" name="a00d941e00e9f88ba8da2f5c2fc291168"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00d941e00e9f88ba8da2f5c2fc291168">&#9670;&#160;</a></span>begin() <span class="overload">[14/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TDeque&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TDeque&lt;T, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00206">206</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a6c7f92d2f474883ddcb97f7ab310fd52" name="a6c7f92d2f474883ddcb97f7ab310fd52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c7f92d2f474883ddcb97f7ab310fd52">&#9670;&#160;</a></span>begin() <span class="overload">[15/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TDeque&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TDeque&lt;T, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00207">207</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a88185a2a8657617c69b9e9d10a8769ca" name="a88185a2a8657617c69b9e9d10a8769ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88185a2a8657617c69b9e9d10a8769ca">&#9670;&#160;</a></span>begin() <span class="overload">[16/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TIndirectArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#a2629495088645d80a7159f8da1c7e58a">TExtendedIndirectArrayIterator</a>&lt;      T**&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00120">120</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="aa4e81260c051958aa937ef3ea1614991" name="aa4e81260c051958aa937ef3ea1614991"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4e81260c051958aa937ef3ea1614991">&#9670;&#160;</a></span>begin() <span class="overload">[17/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TIndirectArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#a2629495088645d80a7159f8da1c7e58a">TExtendedIndirectArrayIterator</a>&lt;const T**&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00121">121</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="af6e8406deb2504c3bcb579c000ebcf7a" name="af6e8406deb2504c3bcb579c000ebcf7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6e8406deb2504c3bcb579c000ebcf7a">&#9670;&#160;</a></span>begin() <span class="overload">[18/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename C &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TLruCache&lt; K, V, C &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TLruCache&lt;K, V, C&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00227">227</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a7a7f5d7e899d8492ba5d12057a6a754b" name="a7a7f5d7e899d8492ba5d12057a6a754b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a7f5d7e899d8492ba5d12057a6a754b">&#9670;&#160;</a></span>begin() <span class="overload">[19/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename C &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TLruCache&lt; K, V, C &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TLruCache&lt;K, V, C&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00228">228</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ab37b8cf02c02c67f07950d34d23b7dc9" name="ab37b8cf02c02c67f07950d34d23b7dc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab37b8cf02c02c67f07950d34d23b7dc9">&#9670;&#160;</a></span>begin() <span class="overload">[20/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename A , typename F &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TMap&lt; K, V, A, F &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00159">159</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a094ff9c10634f20f6ce926640f2dfbfd" name="a094ff9c10634f20f6ce926640f2dfbfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a094ff9c10634f20f6ce926640f2dfbfd">&#9670;&#160;</a></span>begin() <span class="overload">[21/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename A , typename F &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TMap&lt; K, V, A, F &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00160">160</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a10f7d6c405d2ef2b4e98d5d9bf463372" name="a10f7d6c405d2ef2b4e98d5d9bf463372"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10f7d6c405d2ef2b4e98d5d9bf463372">&#9670;&#160;</a></span>begin() <span class="overload">[22/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TMRUArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00234">234</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="aa58b6c4573b71253b864d955f03db3ce" name="aa58b6c4573b71253b864d955f03db3ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa58b6c4573b71253b864d955f03db3ce">&#9670;&#160;</a></span>begin() <span class="overload">[23/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TMRUArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; const T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00235">235</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="afb19c8b7973633384557becc72358a73" name="afb19c8b7973633384557becc72358a73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb19c8b7973633384557becc72358a73">&#9670;&#160;</a></span>begin() <span class="overload">[24/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename A , typename F &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TMultiMap&lt; K, V, A, F &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00165">165</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ae94539a891b2f500453a0d25ce1709b0" name="ae94539a891b2f500453a0d25ce1709b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae94539a891b2f500453a0d25ce1709b0">&#9670;&#160;</a></span>begin() <span class="overload">[25/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename A , typename F &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TMultiMap&lt; K, V, A, F &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00166">166</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ad6346eb4b0387a0d3821bade134d8c3b" name="ad6346eb4b0387a0d3821bade134d8c3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6346eb4b0387a0d3821bade134d8c3b">&#9670;&#160;</a></span>begin() <span class="overload">[26/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , int32 P, typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TPagedArray&lt; T, P, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TPagedArray&lt;T, P, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00241">241</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ab2c3c7aecd49bf19c0040486ae6c7152" name="ab2c3c7aecd49bf19c0040486ae6c7152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2c3c7aecd49bf19c0040486ae6c7152">&#9670;&#160;</a></span>begin() <span class="overload">[27/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , int32 P, typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TPagedArray&lt; T, P, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TPagedArray&lt;T, P, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00242">242</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a8582ed184275d22ed303d54fedccb817" name="a8582ed184275d22ed303d54fedccb817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8582ed184275d22ed303d54fedccb817">&#9670;&#160;</a></span>begin() <span class="overload">[28/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , uint32 A&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TResourceArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00213">213</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="adc4794b12025783b9153c6e493244df7" name="adc4794b12025783b9153c6e493244df7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc4794b12025783b9153c6e493244df7">&#9670;&#160;</a></span>begin() <span class="overload">[29/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , uint32 A&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TResourceArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; const T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00214">214</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a4174608a48dd6e3691e0303927582a71" name="a4174608a48dd6e3691e0303927582a71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4174608a48dd6e3691e0303927582a71">&#9670;&#160;</a></span>begin() <span class="overload">[30/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TRingBuffer&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TRingBuffer&lt;T, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00248">248</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a0ef8ab741a6c7f61c1b77c092d7c350c" name="a0ef8ab741a6c7f61c1b77c092d7c350c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ef8ab741a6c7f61c1b77c092d7c350c">&#9670;&#160;</a></span>begin() <span class="overload">[31/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TRingBuffer&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TRingBuffer&lt;T, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00249">249</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a686ed49513790404ac5388b964744c9d" name="a686ed49513790404ac5388b964744c9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a686ed49513790404ac5388b964744c9d">&#9670;&#160;</a></span>begin() <span class="overload">[32/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename K , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TSet&lt; T, K, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSet&lt;T, K, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00127">127</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ac8ed232f321d73b1cc0ccc6138e54bd3" name="ac8ed232f321d73b1cc0ccc6138e54bd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8ed232f321d73b1cc0ccc6138e54bd3">&#9670;&#160;</a></span>begin() <span class="overload">[33/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename K , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TSet&lt; T, K, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSet&lt;T, K, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00128">128</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a31dd642d575ddcea86403cacb774d2d3" name="a31dd642d575ddcea86403cacb774d2d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31dd642d575ddcea86403cacb774d2d3">&#9670;&#160;</a></span>begin() <span class="overload">[34/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename A , typename S &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TSortedMap&lt; K, V, A, S &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSortedMap&lt;K, V, A, S&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00255">255</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="aa0450e222ace980d14f0b7433f39a6e8" name="aa0450e222ace980d14f0b7433f39a6e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0450e222ace980d14f0b7433f39a6e8">&#9670;&#160;</a></span>begin() <span class="overload">[35/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V , typename A , typename S &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TSortedMap&lt; K, V, A, S &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSortedMap&lt;K, V, A, S&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00256">256</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a46fca1c7c5409c27f813bd2655bf31b5" name="a46fca1c7c5409c27f813bd2655bf31b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46fca1c7c5409c27f813bd2655bf31b5">&#9670;&#160;</a></span>begin() <span class="overload">[36/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TSparseArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSparseArray&lt;T, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00262">262</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a2a3997e4d7b3f74a1f52f867973d0fe5" name="a2a3997e4d7b3f74a1f52f867973d0fe5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a3997e4d7b3f74a1f52f867973d0fe5">&#9670;&#160;</a></span>begin() <span class="overload">[37/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TSparseArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSparseArray&lt;T, A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00263">263</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a20aeff32390f55d41f0cad1b8da7989d" name="a20aeff32390f55d41f0cad1b8da7989d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20aeff32390f55d41f0cad1b8da7989d">&#9670;&#160;</a></span>begin() <span class="overload">[38/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , uint32 N, uint32 A&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TStaticArray&lt; T, N, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00110">110</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a689d6f5e2af131073d1500f2739fb6a7" name="a689d6f5e2af131073d1500f2739fb6a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a689d6f5e2af131073d1500f2739fb6a7">&#9670;&#160;</a></span>begin() <span class="overload">[39/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , uint32 N, uint32 A&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TStaticArray&lt; T, N, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; const T* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00111">111</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ae8fef52353fa2753b2ae7be0ddcc00f9" name="ae8fef52353fa2753b2ae7be0ddcc00f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8fef52353fa2753b2ae7be0ddcc00f9">&#9670;&#160;</a></span>begin() <span class="overload">[40/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CharType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin </td>
-          <td>(</td>
-          <td class="paramtype">TStringView&lt; CharType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
-          <td> -&gt; const CharType* </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00172">172</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a0906d1ec69e79599c74ac157c0461135" name="a0906d1ec69e79599c74ac157c0461135"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0906d1ec69e79599c74ac157c0461135">&#9670;&#160;</a></span>end() <span class="overload">[1/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FORCEINLINE auto end </td>
           <td>(</td>
           <td class="paramtype">FString &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
           <td> -&gt; <a class="el" href="../../d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html">Mcro::Range::FTempStringIterator</a> </td>
@@ -1417,8 +569,800 @@ template&lt;typename CharType &gt; </div>
 
 </div>
 </div>
+<a id="a72fcd8f5d4d45db6b43ccb70fdd368cf" name="a72fcd8f5d4d45db6b43ccb70fdd368cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72fcd8f5d4d45db6b43ccb70fdd368cf">&#9670;&#160;</a></span>begin() <span class="overload">[2/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE auto begin </td>
+          <td>(</td>
+          <td class="paramtype">FString &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td> -&gt; const TCHAR* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00177">177</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ac4fb136a6e43e2b7097165992ae9d6b7" name="ac4fb136a6e43e2b7097165992ae9d6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4fb136a6e43e2b7097165992ae9d6b7">&#9670;&#160;</a></span>begin() <span class="overload">[3/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE auto begin </td>
+          <td>(</td>
+          <td class="paramtype">FString const &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td> -&gt; const TCHAR* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00178">178</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a8ab6fcf0c1c28b8bfdbfa50ad5cea375" name="a8ab6fcf0c1c28b8bfdbfa50ad5cea375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab6fcf0c1c28b8bfdbfa50ad5cea375">&#9670;&#160;</a></span>begin() <span class="overload">[4/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00097">97</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ae2be2475559561e7a0de476013d52584" name="ae2be2475559561e7a0de476013d52584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2be2475559561e7a0de476013d52584">&#9670;&#160;</a></span>begin() <span class="overload">[5/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; const T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00098">98</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="adbfeaa60ef18112b78359ca8e8104b8b" name="adbfeaa60ef18112b78359ca8e8104b8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfeaa60ef18112b78359ca8e8104b8b">&#9670;&#160;</a></span>begin() <span class="overload">[6/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TArrayView&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00104">104</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ae218c2b761be2a7397500d1fd62f5f8e" name="ae218c2b761be2a7397500d1fd62f5f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae218c2b761be2a7397500d1fd62f5f8e">&#9670;&#160;</a></span>begin() <span class="overload">[7/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TArrayView&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; const T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00105">105</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a8bf72e68e3e6e11709cb0773c3e29ac7" name="a8bf72e68e3e6e11709cb0773c3e29ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf72e68e3e6e11709cb0773c3e29ac7">&#9670;&#160;</a></span>begin() <span class="overload">[8/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TBasicArray&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00186">186</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a9bba005f0db1eee54aac3f81639d18ed" name="a9bba005f0db1eee54aac3f81639d18ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bba005f0db1eee54aac3f81639d18ed">&#9670;&#160;</a></span>begin() <span class="overload">[9/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TBasicArray&lt; T &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; const T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00187">187</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a2f402145e223da65c8d06d385cbc301a" name="a2f402145e223da65c8d06d385cbc301a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f402145e223da65c8d06d385cbc301a">&#9670;&#160;</a></span>begin() <span class="overload">[10/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , uint32 C, typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TChunkedArray&lt; T, C, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TChunkedArray&lt;T, C, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00202">202</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="afc5d724297e428c607a737ad21b82500" name="afc5d724297e428c607a737ad21b82500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc5d724297e428c607a737ad21b82500">&#9670;&#160;</a></span>begin() <span class="overload">[11/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , uint32 C, typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TChunkedArray&lt; T, C, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TChunkedArray&lt;T, C, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00203">203</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a00d941e00e9f88ba8da2f5c2fc291168" name="a00d941e00e9f88ba8da2f5c2fc291168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d941e00e9f88ba8da2f5c2fc291168">&#9670;&#160;</a></span>begin() <span class="overload">[12/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TDeque&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TDeque&lt;T, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00209">209</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a6c7f92d2f474883ddcb97f7ab310fd52" name="a6c7f92d2f474883ddcb97f7ab310fd52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7f92d2f474883ddcb97f7ab310fd52">&#9670;&#160;</a></span>begin() <span class="overload">[13/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TDeque&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TDeque&lt;T, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00210">210</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a88185a2a8657617c69b9e9d10a8769ca" name="a88185a2a8657617c69b9e9d10a8769ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88185a2a8657617c69b9e9d10a8769ca">&#9670;&#160;</a></span>begin() <span class="overload">[14/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TIndirectArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#a2629495088645d80a7159f8da1c7e58a">TExtendedIndirectArrayIterator</a>&lt;      T**&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00121">121</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="aa4e81260c051958aa937ef3ea1614991" name="aa4e81260c051958aa937ef3ea1614991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e81260c051958aa937ef3ea1614991">&#9670;&#160;</a></span>begin() <span class="overload">[15/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TIndirectArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#a2629495088645d80a7159f8da1c7e58a">TExtendedIndirectArrayIterator</a>&lt;const T**&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00122">122</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="af6e8406deb2504c3bcb579c000ebcf7a" name="af6e8406deb2504c3bcb579c000ebcf7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e8406deb2504c3bcb579c000ebcf7a">&#9670;&#160;</a></span>begin() <span class="overload">[16/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename C &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TLruCache&lt; K, V, C &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TLruCache&lt;K, V, C&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00230">230</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a7a7f5d7e899d8492ba5d12057a6a754b" name="a7a7f5d7e899d8492ba5d12057a6a754b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a7f5d7e899d8492ba5d12057a6a754b">&#9670;&#160;</a></span>begin() <span class="overload">[17/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename C &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TLruCache&lt; K, V, C &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TLruCache&lt;K, V, C&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00231">231</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ab37b8cf02c02c67f07950d34d23b7dc9" name="ab37b8cf02c02c67f07950d34d23b7dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37b8cf02c02c67f07950d34d23b7dc9">&#9670;&#160;</a></span>begin() <span class="overload">[18/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename A , typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TMap&lt; K, V, A, F &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00160">160</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a094ff9c10634f20f6ce926640f2dfbfd" name="a094ff9c10634f20f6ce926640f2dfbfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a094ff9c10634f20f6ce926640f2dfbfd">&#9670;&#160;</a></span>begin() <span class="overload">[19/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename A , typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TMap&lt; K, V, A, F &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00161">161</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a10f7d6c405d2ef2b4e98d5d9bf463372" name="a10f7d6c405d2ef2b4e98d5d9bf463372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10f7d6c405d2ef2b4e98d5d9bf463372">&#9670;&#160;</a></span>begin() <span class="overload">[20/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TMRUArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00237">237</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="aa58b6c4573b71253b864d955f03db3ce" name="aa58b6c4573b71253b864d955f03db3ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa58b6c4573b71253b864d955f03db3ce">&#9670;&#160;</a></span>begin() <span class="overload">[21/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TMRUArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; const T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00238">238</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="afb19c8b7973633384557becc72358a73" name="afb19c8b7973633384557becc72358a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb19c8b7973633384557becc72358a73">&#9670;&#160;</a></span>begin() <span class="overload">[22/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename A , typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TMultiMap&lt; K, V, A, F &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00166">166</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ae94539a891b2f500453a0d25ce1709b0" name="ae94539a891b2f500453a0d25ce1709b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae94539a891b2f500453a0d25ce1709b0">&#9670;&#160;</a></span>begin() <span class="overload">[23/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename A , typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TMultiMap&lt; K, V, A, F &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>map</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00167">167</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ad6346eb4b0387a0d3821bade134d8c3b" name="ad6346eb4b0387a0d3821bade134d8c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6346eb4b0387a0d3821bade134d8c3b">&#9670;&#160;</a></span>begin() <span class="overload">[24/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int32 P, typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TPagedArray&lt; T, P, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TPagedArray&lt;T, P, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00244">244</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ab2c3c7aecd49bf19c0040486ae6c7152" name="ab2c3c7aecd49bf19c0040486ae6c7152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c3c7aecd49bf19c0040486ae6c7152">&#9670;&#160;</a></span>begin() <span class="overload">[25/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int32 P, typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TPagedArray&lt; T, P, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TPagedArray&lt;T, P, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00245">245</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a8582ed184275d22ed303d54fedccb817" name="a8582ed184275d22ed303d54fedccb817"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8582ed184275d22ed303d54fedccb817">&#9670;&#160;</a></span>begin() <span class="overload">[26/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , uint32 A&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TResourceArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00216">216</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="adc4794b12025783b9153c6e493244df7" name="adc4794b12025783b9153c6e493244df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4794b12025783b9153c6e493244df7">&#9670;&#160;</a></span>begin() <span class="overload">[27/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , uint32 A&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TResourceArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; const T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00217">217</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a4174608a48dd6e3691e0303927582a71" name="a4174608a48dd6e3691e0303927582a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4174608a48dd6e3691e0303927582a71">&#9670;&#160;</a></span>begin() <span class="overload">[28/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TRingBuffer&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TRingBuffer&lt;T, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00251">251</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a0ef8ab741a6c7f61c1b77c092d7c350c" name="a0ef8ab741a6c7f61c1b77c092d7c350c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ef8ab741a6c7f61c1b77c092d7c350c">&#9670;&#160;</a></span>begin() <span class="overload">[29/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TRingBuffer&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TRingBuffer&lt;T, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00252">252</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a686ed49513790404ac5388b964744c9d" name="a686ed49513790404ac5388b964744c9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a686ed49513790404ac5388b964744c9d">&#9670;&#160;</a></span>begin() <span class="overload">[30/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename K , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TSet&lt; T, K, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSet&lt;T, K, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00128">128</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ac8ed232f321d73b1cc0ccc6138e54bd3" name="ac8ed232f321d73b1cc0ccc6138e54bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8ed232f321d73b1cc0ccc6138e54bd3">&#9670;&#160;</a></span>begin() <span class="overload">[31/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename K , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TSet&lt; T, K, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSet&lt;T, K, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00129">129</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a31dd642d575ddcea86403cacb774d2d3" name="a31dd642d575ddcea86403cacb774d2d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31dd642d575ddcea86403cacb774d2d3">&#9670;&#160;</a></span>begin() <span class="overload">[32/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename A , typename S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TSortedMap&lt; K, V, A, S &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSortedMap&lt;K, V, A, S&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00258">258</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="aa0450e222ace980d14f0b7433f39a6e8" name="aa0450e222ace980d14f0b7433f39a6e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0450e222ace980d14f0b7433f39a6e8">&#9670;&#160;</a></span>begin() <span class="overload">[33/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename A , typename S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TSortedMap&lt; K, V, A, S &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSortedMap&lt;K, V, A, S&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00259">259</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a46fca1c7c5409c27f813bd2655bf31b5" name="a46fca1c7c5409c27f813bd2655bf31b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46fca1c7c5409c27f813bd2655bf31b5">&#9670;&#160;</a></span>begin() <span class="overload">[34/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TSparseArray&lt; T, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSparseArray&lt;T, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00265">265</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a2a3997e4d7b3f74a1f52f867973d0fe5" name="a2a3997e4d7b3f74a1f52f867973d0fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a3997e4d7b3f74a1f52f867973d0fe5">&#9670;&#160;</a></span>begin() <span class="overload">[35/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename A &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TSparseArray&lt; T, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TSparseArray&lt;T, A&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00266">266</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a20aeff32390f55d41f0cad1b8da7989d" name="a20aeff32390f55d41f0cad1b8da7989d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20aeff32390f55d41f0cad1b8da7989d">&#9670;&#160;</a></span>begin() <span class="overload">[36/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , uint32 N, uint32 A&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TStaticArray&lt; T, N, A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00111">111</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a689d6f5e2af131073d1500f2739fb6a7" name="a689d6f5e2af131073d1500f2739fb6a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689d6f5e2af131073d1500f2739fb6a7">&#9670;&#160;</a></span>begin() <span class="overload">[37/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , uint32 N, uint32 A&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TStaticArray&lt; T, N, A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td> -&gt; const T* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00112">112</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="ae8fef52353fa2753b2ae7be0ddcc00f9" name="ae8fef52353fa2753b2ae7be0ddcc00f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fef52353fa2753b2ae7be0ddcc00f9">&#9670;&#160;</a></span>begin() <span class="overload">[38/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CharType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto begin </td>
+          <td>(</td>
+          <td class="paramtype">TStringView&lt; CharType &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td> -&gt; const CharType* </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00173">173</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
+<a id="a0906d1ec69e79599c74ac157c0461135" name="a0906d1ec69e79599c74ac157c0461135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0906d1ec69e79599c74ac157c0461135">&#9670;&#160;</a></span>end() <span class="overload">[1/38]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE auto end </td>
+          <td>(</td>
+          <td class="paramtype">FString &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="../../d6/d39/structMcro_1_1Range_1_1FTempStringIterator.html">Mcro::Range::FTempStringIterator</a> </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00182">182</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+
+</div>
+</div>
 <a id="a5aa17276f7170c121f574c9ab49d175b" name="a5aa17276f7170c121f574c9ab49d175b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5aa17276f7170c121f574c9ab49d175b">&#9670;&#160;</a></span>end() <span class="overload">[2/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa17276f7170c121f574c9ab49d175b">&#9670;&#160;</a></span>end() <span class="overload">[2/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1432,12 +1376,12 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00178">178</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00179">179</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a7623f6ce6f5bd412ebd6b6cc14370e9f" name="a7623f6ce6f5bd412ebd6b6cc14370e9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7623f6ce6f5bd412ebd6b6cc14370e9f">&#9670;&#160;</a></span>end() <span class="overload">[3/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7623f6ce6f5bd412ebd6b6cc14370e9f">&#9670;&#160;</a></span>end() <span class="overload">[3/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1451,12 +1395,12 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00179">179</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00180">180</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a17b1062898202c266c9b803a2a6c5459" name="a17b1062898202c266c9b803a2a6c5459"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17b1062898202c266c9b803a2a6c5459">&#9670;&#160;</a></span>end() <span class="overload">[4/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a17b1062898202c266c9b803a2a6c5459">&#9670;&#160;</a></span>end() <span class="overload">[4/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1472,12 +1416,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00098">98</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00099">99</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a2c91db8e02381483953e5086f91f2a1a" name="a2c91db8e02381483953e5086f91f2a1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c91db8e02381483953e5086f91f2a1a">&#9670;&#160;</a></span>end() <span class="overload">[5/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c91db8e02381483953e5086f91f2a1a">&#9670;&#160;</a></span>end() <span class="overload">[5/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1493,12 +1437,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00099">99</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00100">100</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a493afc0cd98ef71ae661017989dc0133" name="a493afc0cd98ef71ae661017989dc0133"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a493afc0cd98ef71ae661017989dc0133">&#9670;&#160;</a></span>end() <span class="overload">[6/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a493afc0cd98ef71ae661017989dc0133">&#9670;&#160;</a></span>end() <span class="overload">[6/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1514,12 +1458,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00105">105</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00106">106</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ac349ad8ad890685f226b0921fab5c2c4" name="ac349ad8ad890685f226b0921fab5c2c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac349ad8ad890685f226b0921fab5c2c4">&#9670;&#160;</a></span>end() <span class="overload">[7/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac349ad8ad890685f226b0921fab5c2c4">&#9670;&#160;</a></span>end() <span class="overload">[7/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1535,12 +1479,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00106">106</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00107">107</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a7e4643644a1262a265a2d91b8ea45801" name="a7e4643644a1262a265a2d91b8ea45801"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e4643644a1262a265a2d91b8ea45801">&#9670;&#160;</a></span>end() <span class="overload">[8/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4643644a1262a265a2d91b8ea45801">&#9670;&#160;</a></span>end() <span class="overload">[8/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1556,12 +1500,12 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00187">187</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00188">188</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a071193e9acfaec984d108fd0a949c061" name="a071193e9acfaec984d108fd0a949c061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a071193e9acfaec984d108fd0a949c061">&#9670;&#160;</a></span>end() <span class="overload">[9/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a071193e9acfaec984d108fd0a949c061">&#9670;&#160;</a></span>end() <span class="overload">[9/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1577,54 +1521,12 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00188">188</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="a6d60e2261baa1e7ddbf77396af785449" name="a6d60e2261baa1e7ddbf77396af785449"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d60e2261baa1e7ddbf77396af785449">&#9670;&#160;</a></span>end() <span class="overload">[10/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto end </td>
-          <td>(</td>
-          <td class="paramtype">TBitArray&lt; A &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TBitArray&lt;A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00194">194</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ac5d4dd07012bfeba898fc2793a6a30cc" name="ac5d4dd07012bfeba898fc2793a6a30cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5d4dd07012bfeba898fc2793a6a30cc">&#9670;&#160;</a></span>end() <span class="overload">[11/40]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto end </td>
-          <td>(</td>
-          <td class="paramtype">TBitArray&lt; A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> -&gt; <a class="el" href="#afc2d28b68dd73dbbb84d4eb2e0672e45">TIteratorExtension</a>&lt;TBitArray&lt;A&gt;&gt; </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00195">195</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00189">189</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="aa186527e0f76b281ff282a3b5d405c4e" name="aa186527e0f76b281ff282a3b5d405c4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa186527e0f76b281ff282a3b5d405c4e">&#9670;&#160;</a></span>end() <span class="overload">[12/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa186527e0f76b281ff282a3b5d405c4e">&#9670;&#160;</a></span>end() <span class="overload">[10/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1640,12 +1542,12 @@ template&lt;typename T , uint32 C, typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00201">201</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00204">204</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a294ddbd01795eb696666b418deb586f2" name="a294ddbd01795eb696666b418deb586f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a294ddbd01795eb696666b418deb586f2">&#9670;&#160;</a></span>end() <span class="overload">[13/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a294ddbd01795eb696666b418deb586f2">&#9670;&#160;</a></span>end() <span class="overload">[11/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1661,12 +1563,12 @@ template&lt;typename T , uint32 C, typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00202">202</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00205">205</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a08fa7f0105caf5295d32dc73cf3d6c8c" name="a08fa7f0105caf5295d32dc73cf3d6c8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08fa7f0105caf5295d32dc73cf3d6c8c">&#9670;&#160;</a></span>end() <span class="overload">[14/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a08fa7f0105caf5295d32dc73cf3d6c8c">&#9670;&#160;</a></span>end() <span class="overload">[12/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1682,12 +1584,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00208">208</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00211">211</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a1d2ceaa5ad65be804864eaeb6810dedf" name="a1d2ceaa5ad65be804864eaeb6810dedf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d2ceaa5ad65be804864eaeb6810dedf">&#9670;&#160;</a></span>end() <span class="overload">[15/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d2ceaa5ad65be804864eaeb6810dedf">&#9670;&#160;</a></span>end() <span class="overload">[13/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1703,12 +1605,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00209">209</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00212">212</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a1a3ef75271268d4da672aacc0a0faafc" name="a1a3ef75271268d4da672aacc0a0faafc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a3ef75271268d4da672aacc0a0faafc">&#9670;&#160;</a></span>end() <span class="overload">[16/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3ef75271268d4da672aacc0a0faafc">&#9670;&#160;</a></span>end() <span class="overload">[14/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1724,12 +1626,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00122">122</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00123">123</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ad00a34a386eb464010acd6c6099af76b" name="ad00a34a386eb464010acd6c6099af76b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad00a34a386eb464010acd6c6099af76b">&#9670;&#160;</a></span>end() <span class="overload">[17/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad00a34a386eb464010acd6c6099af76b">&#9670;&#160;</a></span>end() <span class="overload">[15/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1745,12 +1647,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00123">123</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00124">124</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a67bbf060b848265588328539af225382" name="a67bbf060b848265588328539af225382"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67bbf060b848265588328539af225382">&#9670;&#160;</a></span>end() <span class="overload">[18/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bbf060b848265588328539af225382">&#9670;&#160;</a></span>end() <span class="overload">[16/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1766,12 +1668,12 @@ template&lt;typename K , typename V , typename C &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00229">229</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00232">232</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a964fe28844eeeb6d5fe71e7a3da57619" name="a964fe28844eeeb6d5fe71e7a3da57619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a964fe28844eeeb6d5fe71e7a3da57619">&#9670;&#160;</a></span>end() <span class="overload">[19/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a964fe28844eeeb6d5fe71e7a3da57619">&#9670;&#160;</a></span>end() <span class="overload">[17/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1787,12 +1689,12 @@ template&lt;typename K , typename V , typename C &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00230">230</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00233">233</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="aec11ea5fbec378714c8a594f71d63518" name="aec11ea5fbec378714c8a594f71d63518"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec11ea5fbec378714c8a594f71d63518">&#9670;&#160;</a></span>end() <span class="overload">[20/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec11ea5fbec378714c8a594f71d63518">&#9670;&#160;</a></span>end() <span class="overload">[18/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1808,12 +1710,12 @@ template&lt;typename K , typename V , typename A , typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00161">161</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00162">162</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ae34355070ea8d81375cddf758c84f7b3" name="ae34355070ea8d81375cddf758c84f7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae34355070ea8d81375cddf758c84f7b3">&#9670;&#160;</a></span>end() <span class="overload">[21/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34355070ea8d81375cddf758c84f7b3">&#9670;&#160;</a></span>end() <span class="overload">[19/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1829,12 +1731,12 @@ template&lt;typename K , typename V , typename A , typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00162">162</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00163">163</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="af09583c9db5786c2ff0d7e9add18f01e" name="af09583c9db5786c2ff0d7e9add18f01e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af09583c9db5786c2ff0d7e9add18f01e">&#9670;&#160;</a></span>end() <span class="overload">[22/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af09583c9db5786c2ff0d7e9add18f01e">&#9670;&#160;</a></span>end() <span class="overload">[20/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1850,12 +1752,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00236">236</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00239">239</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a51d489bbff784adbca0ca1f463584273" name="a51d489bbff784adbca0ca1f463584273"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51d489bbff784adbca0ca1f463584273">&#9670;&#160;</a></span>end() <span class="overload">[23/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d489bbff784adbca0ca1f463584273">&#9670;&#160;</a></span>end() <span class="overload">[21/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1871,12 +1773,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00237">237</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00240">240</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="aa3ebe9749df0900e536388e27fd30ea6" name="aa3ebe9749df0900e536388e27fd30ea6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3ebe9749df0900e536388e27fd30ea6">&#9670;&#160;</a></span>end() <span class="overload">[24/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ebe9749df0900e536388e27fd30ea6">&#9670;&#160;</a></span>end() <span class="overload">[22/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1892,12 +1794,12 @@ template&lt;typename K , typename V , typename A , typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00167">167</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00168">168</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a2d4a531e3a584b172a3a7e87c5d0533c" name="a2d4a531e3a584b172a3a7e87c5d0533c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d4a531e3a584b172a3a7e87c5d0533c">&#9670;&#160;</a></span>end() <span class="overload">[25/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d4a531e3a584b172a3a7e87c5d0533c">&#9670;&#160;</a></span>end() <span class="overload">[23/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1913,12 +1815,12 @@ template&lt;typename K , typename V , typename A , typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00168">168</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00169">169</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a37bcd8940b3f5fed7e7a34bb91d71acb" name="a37bcd8940b3f5fed7e7a34bb91d71acb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37bcd8940b3f5fed7e7a34bb91d71acb">&#9670;&#160;</a></span>end() <span class="overload">[26/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a37bcd8940b3f5fed7e7a34bb91d71acb">&#9670;&#160;</a></span>end() <span class="overload">[24/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1934,12 +1836,12 @@ template&lt;typename T , int32 P, typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00243">243</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00246">246</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="abef7431bcda829055c3f0c468f791350" name="abef7431bcda829055c3f0c468f791350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abef7431bcda829055c3f0c468f791350">&#9670;&#160;</a></span>end() <span class="overload">[27/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abef7431bcda829055c3f0c468f791350">&#9670;&#160;</a></span>end() <span class="overload">[25/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1955,12 +1857,12 @@ template&lt;typename T , int32 P, typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00244">244</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00247">247</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="afbe2d93ad562f7b66035b32f3a157a5a" name="afbe2d93ad562f7b66035b32f3a157a5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbe2d93ad562f7b66035b32f3a157a5a">&#9670;&#160;</a></span>end() <span class="overload">[28/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe2d93ad562f7b66035b32f3a157a5a">&#9670;&#160;</a></span>end() <span class="overload">[26/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1976,12 +1878,12 @@ template&lt;typename T , uint32 A&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00215">215</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00218">218</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a70849259a1003836dd5a4e68d557d2fe" name="a70849259a1003836dd5a4e68d557d2fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70849259a1003836dd5a4e68d557d2fe">&#9670;&#160;</a></span>end() <span class="overload">[29/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a70849259a1003836dd5a4e68d557d2fe">&#9670;&#160;</a></span>end() <span class="overload">[27/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1997,12 +1899,12 @@ template&lt;typename T , uint32 A&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00216">216</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00219">219</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="aa37c9f3d3bb8dc163075d6d9e792ea83" name="aa37c9f3d3bb8dc163075d6d9e792ea83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa37c9f3d3bb8dc163075d6d9e792ea83">&#9670;&#160;</a></span>end() <span class="overload">[30/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37c9f3d3bb8dc163075d6d9e792ea83">&#9670;&#160;</a></span>end() <span class="overload">[28/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2018,12 +1920,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00250">250</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00253">253</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a06388db0a9b05ba72b3f33af0381a652" name="a06388db0a9b05ba72b3f33af0381a652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06388db0a9b05ba72b3f33af0381a652">&#9670;&#160;</a></span>end() <span class="overload">[31/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06388db0a9b05ba72b3f33af0381a652">&#9670;&#160;</a></span>end() <span class="overload">[29/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2039,12 +1941,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00251">251</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00254">254</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="aa1c238833c19145aaecded4353def349" name="aa1c238833c19145aaecded4353def349"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1c238833c19145aaecded4353def349">&#9670;&#160;</a></span>end() <span class="overload">[32/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c238833c19145aaecded4353def349">&#9670;&#160;</a></span>end() <span class="overload">[30/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2060,12 +1962,12 @@ template&lt;typename T , typename K , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00129">129</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00130">130</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ab7df89ee081027bd5b6aea95022c43c7" name="ab7df89ee081027bd5b6aea95022c43c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7df89ee081027bd5b6aea95022c43c7">&#9670;&#160;</a></span>end() <span class="overload">[33/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7df89ee081027bd5b6aea95022c43c7">&#9670;&#160;</a></span>end() <span class="overload">[31/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2081,12 +1983,12 @@ template&lt;typename T , typename K , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00130">130</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00131">131</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a52c9ef8790719e548ec4d8ce4ca44485" name="a52c9ef8790719e548ec4d8ce4ca44485"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c9ef8790719e548ec4d8ce4ca44485">&#9670;&#160;</a></span>end() <span class="overload">[34/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c9ef8790719e548ec4d8ce4ca44485">&#9670;&#160;</a></span>end() <span class="overload">[32/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2102,12 +2004,12 @@ template&lt;typename K , typename V , typename A , typename S &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00257">257</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00260">260</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="aee242fcf7f3f6e511252d37716e7a2cc" name="aee242fcf7f3f6e511252d37716e7a2cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee242fcf7f3f6e511252d37716e7a2cc">&#9670;&#160;</a></span>end() <span class="overload">[35/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aee242fcf7f3f6e511252d37716e7a2cc">&#9670;&#160;</a></span>end() <span class="overload">[33/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2123,12 +2025,12 @@ template&lt;typename K , typename V , typename A , typename S &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00258">258</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00261">261</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ac6b2e84af001e2eb6071e8003776d5e5" name="ac6b2e84af001e2eb6071e8003776d5e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6b2e84af001e2eb6071e8003776d5e5">&#9670;&#160;</a></span>end() <span class="overload">[36/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6b2e84af001e2eb6071e8003776d5e5">&#9670;&#160;</a></span>end() <span class="overload">[34/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2144,12 +2046,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00264">264</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00267">267</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ac330512b685b80f6383064e95e9c6d28" name="ac330512b685b80f6383064e95e9c6d28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac330512b685b80f6383064e95e9c6d28">&#9670;&#160;</a></span>end() <span class="overload">[37/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac330512b685b80f6383064e95e9c6d28">&#9670;&#160;</a></span>end() <span class="overload">[35/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2165,12 +2067,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00265">265</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00268">268</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a64eda70f8a2d0d0520585e6e4420b5be" name="a64eda70f8a2d0d0520585e6e4420b5be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64eda70f8a2d0d0520585e6e4420b5be">&#9670;&#160;</a></span>end() <span class="overload">[38/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a64eda70f8a2d0d0520585e6e4420b5be">&#9670;&#160;</a></span>end() <span class="overload">[36/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2186,12 +2088,12 @@ template&lt;typename T , uint32 N, uint32 A&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00112">112</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00113">113</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a45c88300682a3beb24bfbb830c3d85df" name="a45c88300682a3beb24bfbb830c3d85df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45c88300682a3beb24bfbb830c3d85df">&#9670;&#160;</a></span>end() <span class="overload">[39/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c88300682a3beb24bfbb830c3d85df">&#9670;&#160;</a></span>end() <span class="overload">[37/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2207,12 +2109,12 @@ template&lt;typename T , uint32 N, uint32 A&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00113">113</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00114">114</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a51d659023e8914d7e180e116880a3019" name="a51d659023e8914d7e180e116880a3019"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51d659023e8914d7e180e116880a3019">&#9670;&#160;</a></span>end() <span class="overload">[40/40]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d659023e8914d7e180e116880a3019">&#9670;&#160;</a></span>end() <span class="overload">[38/38]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2228,12 +2130,12 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00173">173</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00174">174</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a9773a87d6dd9e40e5c15dbbf3e76b24a" name="a9773a87d6dd9e40e5c15dbbf3e76b24a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9773a87d6dd9e40e5c15dbbf3e76b24a">&#9670;&#160;</a></span>size() <span class="overload">[1/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9773a87d6dd9e40e5c15dbbf3e76b24a">&#9670;&#160;</a></span>size() <span class="overload">[1/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2247,12 +2149,12 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00182">182</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00183">183</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a21e5ab1a87de28222d4fdba7e0188f35" name="a21e5ab1a87de28222d4fdba7e0188f35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e5ab1a87de28222d4fdba7e0188f35">&#9670;&#160;</a></span>size() <span class="overload">[2/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e5ab1a87de28222d4fdba7e0188f35">&#9670;&#160;</a></span>size() <span class="overload">[2/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2268,12 +2170,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00100">100</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00101">101</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a7271df77545e7d75c6f0b7073d27f034" name="a7271df77545e7d75c6f0b7073d27f034"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7271df77545e7d75c6f0b7073d27f034">&#9670;&#160;</a></span>size() <span class="overload">[3/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7271df77545e7d75c6f0b7073d27f034">&#9670;&#160;</a></span>size() <span class="overload">[3/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2289,12 +2191,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00107">107</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00108">108</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a0b154f6a8708f7904d0b93c0fa8a5ba7" name="a0b154f6a8708f7904d0b93c0fa8a5ba7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b154f6a8708f7904d0b93c0fa8a5ba7">&#9670;&#160;</a></span>size() <span class="overload">[4/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b154f6a8708f7904d0b93c0fa8a5ba7">&#9670;&#160;</a></span>size() <span class="overload">[4/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2310,33 +2212,12 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00189">189</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
-
-</div>
-</div>
-<a id="ad17a0ff54d103739b83886bb6e18c3f4" name="ad17a0ff54d103739b83886bb6e18c3f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad17a0ff54d103739b83886bb6e18c3f4">&#9670;&#160;</a></span>size() <span class="overload">[5/20]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename A &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t size </td>
-          <td>(</td>
-          <td class="paramtype">TBitArray&lt; A &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00196">196</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00190">190</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a662dc2368fcd0ce667df3ea76bb177fd" name="a662dc2368fcd0ce667df3ea76bb177fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a662dc2368fcd0ce667df3ea76bb177fd">&#9670;&#160;</a></span>size() <span class="overload">[6/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a662dc2368fcd0ce667df3ea76bb177fd">&#9670;&#160;</a></span>size() <span class="overload">[5/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2352,12 +2233,12 @@ template&lt;typename T , uint32 C, typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00203">203</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00206">206</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ae9b9f7faadf5733bdea966c2400b8bde" name="ae9b9f7faadf5733bdea966c2400b8bde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b9f7faadf5733bdea966c2400b8bde">&#9670;&#160;</a></span>size() <span class="overload">[7/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b9f7faadf5733bdea966c2400b8bde">&#9670;&#160;</a></span>size() <span class="overload">[6/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2373,12 +2254,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00210">210</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00213">213</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ae51159ea380053ab137055aaa802e834" name="ae51159ea380053ab137055aaa802e834"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae51159ea380053ab137055aaa802e834">&#9670;&#160;</a></span>size() <span class="overload">[8/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51159ea380053ab137055aaa802e834">&#9670;&#160;</a></span>size() <span class="overload">[7/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2394,12 +2275,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00124">124</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00125">125</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="abddddb6d2e93c20837c52e31813791b4" name="abddddb6d2e93c20837c52e31813791b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abddddb6d2e93c20837c52e31813791b4">&#9670;&#160;</a></span>size() <span class="overload">[9/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abddddb6d2e93c20837c52e31813791b4">&#9670;&#160;</a></span>size() <span class="overload">[8/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2415,12 +2296,12 @@ template&lt;typename K , typename V , typename C &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00231">231</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00234">234</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a261eef6a0eb11cfe1661d310814ba204" name="a261eef6a0eb11cfe1661d310814ba204"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a261eef6a0eb11cfe1661d310814ba204">&#9670;&#160;</a></span>size() <span class="overload">[10/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a261eef6a0eb11cfe1661d310814ba204">&#9670;&#160;</a></span>size() <span class="overload">[9/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2436,12 +2317,12 @@ template&lt;typename K , typename V , typename A , typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00163">163</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00164">164</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a24e685b7bb18d5c163a7d6cd79dbc110" name="a24e685b7bb18d5c163a7d6cd79dbc110"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24e685b7bb18d5c163a7d6cd79dbc110">&#9670;&#160;</a></span>size() <span class="overload">[11/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a24e685b7bb18d5c163a7d6cd79dbc110">&#9670;&#160;</a></span>size() <span class="overload">[10/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2457,12 +2338,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00238">238</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00241">241</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a4ea4953e39130e0c991a46a5a57ccf7b" name="a4ea4953e39130e0c991a46a5a57ccf7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ea4953e39130e0c991a46a5a57ccf7b">&#9670;&#160;</a></span>size() <span class="overload">[12/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea4953e39130e0c991a46a5a57ccf7b">&#9670;&#160;</a></span>size() <span class="overload">[11/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2478,12 +2359,12 @@ template&lt;typename K , typename V , typename A , typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00169">169</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00170">170</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a8f9541f3220dcfb81fcd7814a6bfe750" name="a8f9541f3220dcfb81fcd7814a6bfe750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f9541f3220dcfb81fcd7814a6bfe750">&#9670;&#160;</a></span>size() <span class="overload">[13/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9541f3220dcfb81fcd7814a6bfe750">&#9670;&#160;</a></span>size() <span class="overload">[12/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2499,12 +2380,12 @@ template&lt;typename T , int32 P, typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00245">245</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00248">248</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="afdbe0eff562b2607f014903f1a09c01e" name="afdbe0eff562b2607f014903f1a09c01e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdbe0eff562b2607f014903f1a09c01e">&#9670;&#160;</a></span>size() <span class="overload">[14/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afdbe0eff562b2607f014903f1a09c01e">&#9670;&#160;</a></span>size() <span class="overload">[13/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2520,12 +2401,12 @@ template&lt;typename T , uint32 A&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00217">217</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00220">220</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a56343930b4687a672d2ad4b5aef9c3de" name="a56343930b4687a672d2ad4b5aef9c3de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56343930b4687a672d2ad4b5aef9c3de">&#9670;&#160;</a></span>size() <span class="overload">[15/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a56343930b4687a672d2ad4b5aef9c3de">&#9670;&#160;</a></span>size() <span class="overload">[14/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2541,12 +2422,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00252">252</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00255">255</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="af3f8c30e9d118fc1cf8cd2430335fcba" name="af3f8c30e9d118fc1cf8cd2430335fcba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f8c30e9d118fc1cf8cd2430335fcba">&#9670;&#160;</a></span>size() <span class="overload">[16/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af3f8c30e9d118fc1cf8cd2430335fcba">&#9670;&#160;</a></span>size() <span class="overload">[15/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2562,12 +2443,12 @@ template&lt;typename T , typename K , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00131">131</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00132">132</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ae1841244a8647b599005ca6c935240c3" name="ae1841244a8647b599005ca6c935240c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1841244a8647b599005ca6c935240c3">&#9670;&#160;</a></span>size() <span class="overload">[17/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1841244a8647b599005ca6c935240c3">&#9670;&#160;</a></span>size() <span class="overload">[16/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2583,12 +2464,12 @@ template&lt;typename K , typename V , typename A , typename S &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00259">259</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00262">262</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="ae36d2f99b209437fca57a9488f344f4e" name="ae36d2f99b209437fca57a9488f344f4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36d2f99b209437fca57a9488f344f4e">&#9670;&#160;</a></span>size() <span class="overload">[18/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36d2f99b209437fca57a9488f344f4e">&#9670;&#160;</a></span>size() <span class="overload">[17/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2604,12 +2485,12 @@ template&lt;typename T , typename A &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00266">266</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00269">269</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a15a83c821ec9365aefcb0c0db4bf9a5e" name="a15a83c821ec9365aefcb0c0db4bf9a5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a83c821ec9365aefcb0c0db4bf9a5e">&#9670;&#160;</a></span>size() <span class="overload">[19/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a83c821ec9365aefcb0c0db4bf9a5e">&#9670;&#160;</a></span>size() <span class="overload">[18/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2625,12 +2506,12 @@ template&lt;typename T , uint32 N, uint32 A&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00114">114</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00115">115</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>
 <a id="a91d1614e4c140cb5c14d410741855c54" name="a91d1614e4c140cb5c14d410741855c54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91d1614e4c140cb5c14d410741855c54">&#9670;&#160;</a></span>size() <span class="overload">[20/20]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d1614e4c140cb5c14d410741855c54">&#9670;&#160;</a></span>size() <span class="overload">[19/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2646,7 +2527,7 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00174">174</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/db6/Range_8h_source.html#l00175">175</a> of file <a class="el" href="../../d9/db6/Range_8h_source.html">Range.h</a>.</p>
 
 </div>
 </div>

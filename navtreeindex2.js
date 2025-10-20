@@ -151,6 +151,7 @@ var NAVTREEINDEX2 =
 "d2/df7/structMcro_1_1Delegates_1_1TNative__Struct_3_01Dynamic_01_4.html#ae5248bae24b3e9b46d548399a564bb42":[10,0,0,6,8,0],
 "d2/df9/namespaceMcro_1_1Text_1_1Detail.html":[8,0,1,28,0],
 "d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a14a79cff76537d732d0d06c338621239":[8,0,1,28,0,0],
+"d2/df9/namespaceMcro_1_1Text_1_1Detail.html#a75346dd174e50328afc0c0e3691476da":[8,0,1,28,0,1],
 "d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html":[8,0,1,30,0],
 "d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a05ede4662642bd2c6b72e6725fcba14b":[8,0,1,30,0,3],
 "d2/df9/namespaceMcro_1_1Timespan_1_1Literals.html#a28d16d33e5237e435206f7ae3b09e94d":[8,0,1,30,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "d3/d8f/structMcro_1_1Range_1_1TIteratorJumpForward__Struct.html":[8,0,1,22,17],
 "d3/d8f/structMcro_1_1Range_1_1TIteratorJumpForward__Struct.html":[10,0,0,16,17],
 "d3/da0/namespaceMcro_1_1Timespan.html":[8,0,1,30],
-"d3/dad/conceptMcro_1_1Concepts_1_1CWeakPtrOf.html":[8,0,1,9,50],
-"d3/dad/conceptMcro_1_1Concepts_1_1CWeakPtrOf.html":[9,1,1,49]
+"d3/dad/conceptMcro_1_1Concepts_1_1CWeakPtrOf.html":[8,0,1,9,50]
 };
