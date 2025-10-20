@@ -73,5 +73,28 @@
 /** @brief Returns given default value when input value is empty */
 #define DEFAULT_ON_EMPTY(value, default) BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), default, value)
 
+// Forward function of Unreal before UE 5.5 is not constexpr
+#if UE_VERSION_OLDER_THAN(5,5,0)
+
+template <typename T>
+FORCEINLINE constexpr T&& ForwardConstExpr(typename TRemoveReference<T>::Type& Obj)
+{
+	return (T&&)Obj;
+}
+
+template <typename T>
+FORCEINLINE constexpr T&& ForwardConstExpr(typename TRemoveReference<T>::Type&& Obj)
+{
+	return (T&&)Obj;
+}
+
+#define MCRO_FORWARD_FUNCTION ForwardConstExpr
+
+#else
+
+#define MCRO_FORWARD_FUNCTION Forward
+
+#endif
+
 /** @brief Shorten forwarding expression with this macro so one may not need to specify explicit type */
-#define FWD(...) Forward<decltype(__VA_ARGS__)>(__VA_ARGS__)
+#define FWD(...) MCRO_FORWARD_FUNCTION<decltype(__VA_ARGS__)>(__VA_ARGS__)
