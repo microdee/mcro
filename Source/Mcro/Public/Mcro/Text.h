@@ -279,9 +279,6 @@ namespace Mcro::Text
 		);
 	}
 
-	/** @brief Copy of FString::PrintfImpl but not private so it can work with strings which were not literals */
-	MCRO_API FString DynamicPrintf(const TCHAR* fmt, ...);
-
 	/** @brief A type which is directly convertible to FStringFormatArg */
 	template <typename T>
 	concept CDirectStringFormatArgument = CConvertibleTo<T, FStringFormatArg>;
