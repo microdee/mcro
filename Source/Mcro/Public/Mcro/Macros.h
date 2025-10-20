@@ -14,6 +14,39 @@
 #include "CoreMinimal.h"
 #include "HAL/PreprocessorHelpers.h"
 #include "boost/preprocessor.hpp"
+#include "Misc/EngineVersionComparison.h"
+
+// These here are back-porting missing macros from UE 5.5 to at least UE 5.3
+#if UE_VERSION_OLDER_THAN(5,5,0)
+
+// Expands to a number which is the count of variadic arguments passed to it.
+#define UE_VA_ARG_COUNT(...) UE_APPEND_VA_ARG_COUNT(, ##__VA_ARGS__)
+
+// Expands to nothing when used as a function - used as a placeholder
+#define UE_EMPTY_FUNCTION(...)
+
+// Expands to a token of Prefix##<count>, where <count> is the number of variadic arguments.
+//
+// Example:
+//   UE_APPEND_VA_ARG_COUNT(SOME_MACRO_)          => SOME_MACRO_0
+//   UE_APPEND_VA_ARG_COUNT(SOME_MACRO_, a, b, c) => SOME_MACRO_3
+#if !defined(_MSVC_TRADITIONAL) || !_MSVC_TRADITIONAL
+ #define UE_APPEND_VA_ARG_COUNT(Prefix, ...) UE_PRIVATE_APPEND_VA_ARG_COUNT(Prefix, ##__VA_ARGS__, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+#else
+ #define UE_APPEND_VA_ARG_COUNT(Prefix, ...) UE_PRIVATE_APPEND_VA_ARG_COUNT_INVOKE(UE_PRIVATE_APPEND_VA_ARG_COUNT, (Prefix, ##__VA_ARGS__, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0))
+
+ // MSVC's traditional preprocessor doesn't handle the zero-argument case correctly, so we use a workaround.
+ // The workaround uses token pasting of Macro##ArgsInParens, which the conformant preprocessor doesn't like and emits C5103.
+ #define UE_PRIVATE_APPEND_VA_ARG_COUNT_INVOKE(Macro, ArgsInParens) UE_PRIVATE_APPEND_VA_ARG_COUNT_EXPAND(Macro##ArgsInParens)
+ #define UE_PRIVATE_APPEND_VA_ARG_COUNT_EXPAND(Arg) Arg
+#endif
+#define UE_PRIVATE_APPEND_VA_ARG_COUNT(Prefix,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,Count,...) Prefix##Count
+
+#define PREPROCESSOR_VA_ARG_COUNT(...)                 UE_VA_ARG_COUNT(__VA_ARGS__)
+#define PREPROCESSOR_APPEND_VA_ARG_COUNT(Prefix, ...)  UE_APPEND_VA_ARG_COUNT(Prefix, ##__VA_ARGS__)
+#define PREPROCESSOR_NOTHING_FUNCTION(...)             UE_EMPTY_FUNCTION(__VA_ARGS__)
+
+#endif
 
 #define PREPROCESSOR_TO_TEXT(x) TEXT(PREPROCESSOR_TO_STRING(x))
 
