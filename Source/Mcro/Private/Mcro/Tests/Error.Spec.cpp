@@ -13,6 +13,7 @@
 #include "Misc/AutomationTest.h"
 #include "Algo/Count.h"
 #include "Mcro/Common.h"
+#include "Mcro/Tests/TestCompatibility.h"
 
 using namespace Mcro::Common::With::Literals;
 

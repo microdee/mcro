@@ -16,6 +16,7 @@
 #include "Containers/LruCache.h"
 #include "Containers/PagedArray.h"
 #include "Containers/RingBuffer.h"
+#include "Mcro/Tests/TestCompatibility.h"
 
 using namespace Mcro::Common;
 

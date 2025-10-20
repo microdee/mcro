@@ -14,6 +14,7 @@
 #include "Algo/Count.h"
 #include "Mcro/Common.h"
 #include "TestHelpers.h"
+#include "Mcro/Tests/TestCompatibility.h"
 
 using namespace Mcro::Common::With::InferDelegate;
 
@@ -126,7 +127,11 @@ void FMcroEventDelegate_Spec::Define()
 
 			retainingEvent.Add(From([this](FCopyConstructCounter const& payload)
 			{
+#if UE_VERSION_OLDER_THAN(5,5,0)
+				TestTrue(TEXT_"Belated invoke should get copy constructed object", payload.CopyCount > 0);
+#else
 				TestGreaterThan(TEXT_"Belated invoke should get copy constructed object", payload.CopyCount, 0);
+#endif
 			}), {.Belated = true});
 		});
 	});

@@ -11,6 +11,7 @@
 
 #include "CoreMinimal.h"
 #include "Misc/AutomationTest.h"
+#include "Mcro/Tests/TestCompatibility.h"
 #include "Mcro/AutoModularFeature.h"
 #include "Mcro/TimespanLiterals.h"
 

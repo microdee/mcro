@@ -12,6 +12,7 @@
 #include "CoreMinimal.h"
 #include "Misc/AutomationTest.h"
 #include "TestHelpers.h"
+#include "Mcro/Tests/TestCompatibility.h"
 
 #include "Mcro/CommonCore.h"
 
