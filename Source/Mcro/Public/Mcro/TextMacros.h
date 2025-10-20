@@ -20,6 +20,7 @@
 #include <string>
 
 #include "CoreMinimal.h"
+#include "Misc/EngineVersionComparison.h"
 #include "Mcro/FunctionTraits.h"
 
 #define UTF8TEXT_PASTE_ u8""
@@ -89,7 +90,11 @@ namespace Mcro::Text::Macros
 		template <size_t N>
 		FString operator % (const TCHAR(& str)[N]) const
 		{
+#if UE_VERSION_OLDER_THAN(5, 5, 0)
+			return FString(N-1, str);
+#else
 			return FString::ConstructFromPtrSize(str, N-1);
+#endif
 		}
 	};
 	

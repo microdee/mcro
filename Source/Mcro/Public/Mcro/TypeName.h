@@ -188,7 +188,11 @@ namespace Mcro::TypeName
 	template <typename T>
 	FString TTypeString()
 	{
+#if UE_VERSION_OLDER_THAN(5, 5, 0)
+		return FString(TTypeName<T>.Len(), TTypeName<T>.GetData());
+#else
 		return FString::ConstructFromPtrSize(TTypeName<T>.GetData(), TTypeName<T>.Len());
+#endif
 	}
 }
 

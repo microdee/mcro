@@ -14,6 +14,7 @@
 #include <string>
 
 #include "CoreMinimal.h"
+#include "Misc/EngineVersionComparison.h"
 
 #include "Mcro/Concepts.h"
 #include "Mcro/FunctionTraits.h"
@@ -128,6 +129,15 @@ namespace Mcro::Text
 	namespace Detail
 	{
 		using namespace Mcro::FunctionTraits;
+		
+		FORCEINLINE FString MakeStringFromPtrSize(const TCHAR* ptr, int32 size)
+		{
+#if UE_VERSION_OLDER_THAN(5, 5, 0)
+			return FString(size, ptr);
+#else
+			return FString::ConstructFromPtrSize(ptr, size);
+#endif
+		}
 	
 		template <
 			typename CharFrom, typename CharOutput,
@@ -190,7 +200,7 @@ namespace Mcro::Text
 			stdStr,
 			[&] { return stdStr.data(); },
 			[&] { return stdStr.length(); },
-			[](const TCHAR* ptr, int32 len) { return FString::ConstructFromPtrSize(ptr, len); }
+			[](const TCHAR* ptr, int32 len) { return Detail::MakeStringFromPtrSize(ptr, len); }
 		);
 	}
 	
