@@ -66,8 +66,10 @@ namespace Mcro::Text
 	/** @brief Concept constraining given type to a string of any character type */
 	template<typename T>
 	concept CStringInvariant = CSameAsDecayed<T, FString>
+#if UE_VERSION_NEWER_THAN(5, 5, -1)
 		|| CSameAsDecayed<T, FAnsiString>
 		|| CSameAsDecayed<T, FUtf8String>
+#endif
 	;
 
 	/** @brief Concept constraining given type to a string or a a view of TCHAR */
