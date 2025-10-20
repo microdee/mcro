@@ -14,6 +14,7 @@
 #include <string>
 
 #include "CoreMinimal.h"
+#include "Misc/EngineVersionComparison.h"
 
 #include "Mcro/Concepts.h"
 #include "Mcro/FunctionTraits.h"
@@ -65,8 +66,10 @@ namespace Mcro::Text
 	/** @brief Concept constraining given type to a string of any character type */
 	template<typename T>
 	concept CStringInvariant = CSameAsDecayed<T, FString>
+#if UE_VERSION_NEWER_THAN(5, 5, -1)
 		|| CSameAsDecayed<T, FAnsiString>
 		|| CSameAsDecayed<T, FUtf8String>
+#endif
 	;
 
 	/** @brief Concept constraining given type to a string or a a view of TCHAR */
@@ -128,6 +131,15 @@ namespace Mcro::Text
 	namespace Detail
 	{
 		using namespace Mcro::FunctionTraits;
+		
+		FORCEINLINE FString MakeStringFromPtrSize(const TCHAR* ptr, int32 size)
+		{
+#if UE_VERSION_OLDER_THAN(5, 5, 0)
+			return FString(size, ptr);
+#else
+			return FString::ConstructFromPtrSize(ptr, size);
+#endif
+		}
 	
 		template <
 			typename CharFrom, typename CharOutput,
@@ -190,7 +202,7 @@ namespace Mcro::Text
 			stdStr,
 			[&] { return stdStr.data(); },
 			[&] { return stdStr.length(); },
-			[](const TCHAR* ptr, int32 len) { return FString::ConstructFromPtrSize(ptr, len); }
+			[](const TCHAR* ptr, int32 len) { return Detail::MakeStringFromPtrSize(ptr, len); }
 		);
 	}
 	
@@ -266,9 +278,6 @@ namespace Mcro::Text
 			separator
 		);
 	}
-
-	/** @brief Copy of FString::PrintfImpl but not private so it can work with strings which were not literals */
-	MCRO_API FString DynamicPrintf(const TCHAR* fmt, ...);
 
 	/** @brief A type which is directly convertible to FStringFormatArg */
 	template <typename T>

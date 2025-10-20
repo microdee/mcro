@@ -20,6 +20,8 @@
 #include <string>
 
 #include "CoreMinimal.h"
+#include "Misc/EngineVersionComparison.h"
+#include "Internationalization/Internationalization.h"
 #include "Mcro/FunctionTraits.h"
 
 #define UTF8TEXT_PASTE_ u8""
@@ -55,10 +57,18 @@ namespace Mcro::Text::Macros
 {
 	using namespace Mcro::FunctionTraits;
 	
+#if UE_VERSION_OLDER_THAN(5, 5, 0)
+	FORCEINLINE FText AsLocalizable_Advanced(const TCHAR* Namespace, const TCHAR* Key, const TCHAR* String)
+	{
+		return FInternationalization::ForUseOnlyByLocMacroAndGraphNodeTextLiterals_CreateText(String, Namespace, Key);
+	}
+#else
 	FORCEINLINE FText AsLocalizable_Advanced(const FTextKey& Namespace, const FTextKey& Key, const TCHAR* String)
 	{
 		return FText::AsLocalizable_Advanced(Namespace, Key, String);
 	}
+#endif
+	
 	struct FDefer_AsLocalizable_Advanced : TDeferFunctionArguments<&AsLocalizable_Advanced>
 	{
 		FORCEINLINE FText operator % (const TCHAR* literal)
@@ -89,7 +99,11 @@ namespace Mcro::Text::Macros
 		template <size_t N>
 		FString operator % (const TCHAR(& str)[N]) const
 		{
+#if UE_VERSION_OLDER_THAN(5, 5, 0)
+			return FString(N-1, str);
+#else
 			return FString::ConstructFromPtrSize(str, N-1);
+#endif
 		}
 	};
 	

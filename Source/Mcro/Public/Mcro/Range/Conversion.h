@@ -197,7 +197,7 @@ namespace Mcro::Range
 				Detail::CopyCharactersToBuffer(character, chunks, position, buffer);
 			
 			if constexpr (CCurrentChar<ElementType>)
-				return FString::ConstructFromPtrSize(buffer.GetData(), position);
+				return Mcro::Text::Detail::MakeStringFromPtrSize(buffer.GetData(), position);
 			else
 			{
 				TStdStringView<ElementType> stringView(buffer.GetData(), position);
@@ -218,7 +218,7 @@ namespace Mcro::Range
 					position, buffer
 				);
 			}
-			FString output = FString::ConstructFromPtrSize(buffer.GetData(), position);
+			FString output = Mcro::Text::Detail::MakeStringFromPtrSize(buffer.GetData(), position);
 			return rangeFormatOptions.Start + output + rangeFormatOptions.End;
 		}
 		else
@@ -237,7 +237,7 @@ namespace Mcro::Range
 					position, buffer
 				);
 			}
-			FString output = FString::ConstructFromPtrSize(buffer.GetData(), position);
+			FString output = Mcro::Text::Detail::MakeStringFromPtrSize(buffer.GetData(), position);
 			return rangeFormatOptions.Start + output + rangeFormatOptions.End;
 		}
 	}

@@ -13,12 +13,39 @@
 #include "Engine/Texture2D.h"
 #include "Engine/Texture2DDynamic.h"
 #include "Engine/TextureRenderTarget.h"
+#include "Engine/TextureRenderTarget2D.h"
 #include "Mcro/TextMacros.h"
+#include "Mcro/AssertMacros.h"
 
+#include "Misc/EngineVersionComparison.h"
 #include "Engine/Texture2DDynamic.h"
 
 namespace Mcro::Rendering::Textures
 {
+	namespace Detail
+	{
+		EPixelFormat GetRenderTargetFormat(UTextureRenderTarget* renderTarget)
+		{
+#if UE_VERSION_OLDER_THAN(5,5,0)
+			if (auto rt2d = Cast<UTextureRenderTarget2D>(renderTarget))
+			{
+				if (rt2d->OverrideFormat == PF_Unknown)
+				{
+					return GetPixelFormatFromRenderTargetFormat(rt2d->RenderTargetFormat);
+				}
+				return rt2d->OverrideFormat;
+			}
+			FORCE_CRASH(
+				->WithDetails(TEXT_"Not yet implemented for other rendertarget types.")
+				->WithAppendix(TEXT_"RenderTargetType", renderTarget->GetClass()->GetName())
+			)
+			return PF_Unknown;
+#else
+			return renderTarget->GetFormat();
+#endif
+		}
+	}
+	
 	FRHITexture* GetRhiTexture2D(UTexture* target)
 	{
 		FTextureResource* targetResource = target ? target->GetResource() : nullptr;
@@ -38,7 +65,7 @@ namespace Mcro::Rendering::Textures
 		if (auto typedTexture = Cast<UTexture2DDynamic>(texture))
 			format = typedTexture->Format;
 		if (auto typedTexture = Cast<UTextureRenderTarget>(texture))
-			format = typedTexture->GetFormat();
+			format = Detail::GetRenderTargetFormat(typedTexture);
 		
 		ensureMsgf(format != PF_Unknown, TEXT_"Couldn't get pixel format of %s", *texture->GetClass()->GetName());
 		return {width, height, format};

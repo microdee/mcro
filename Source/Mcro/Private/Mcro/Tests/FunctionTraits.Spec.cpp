@@ -12,6 +12,7 @@
 #include "CoreMinimal.h"
 #include "Misc/AutomationTest.h"
 #include "Mcro/CommonCore.h"
+#include "Mcro/Tests/TestCompatibility.h"
 
 using namespace Mcro::Common;
 
