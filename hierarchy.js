@@ -201,7 +201,6 @@ var hierarchy =
     [ "Mcro::SharedObjects::TSharedStorage< T >", "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html", null ],
     [ "Mcro::Tuples::TSkip_Struct< Count, Tuple >", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", null ],
     [ "Mcro::Slate::TSlots< Range, Transform, OnEmpty, CSlotArguments >", "d0/daf/structMcro_1_1Slate_1_1TSlots.html", null ],
-    [ "Mcro::Text::Macros::TStringPrintfLiteral< Args >", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", null ],
     [ "Mcro::TypeInfo::FType::TTag< T >", "d8/dcb/structMcro_1_1TypeInfo_1_1FType_1_1TTag.html", null ],
     [ "Mcro::Tuples::TTake_Struct< Count, Tuple >", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", null ],
     [ "Mcro::Templates::TTemplate< Template >", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", null ],

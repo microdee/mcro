@@ -6,7 +6,5 @@ var namespaceMcro_1_1Text_1_1Macros =
     [ "FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag" ],
     [ "FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag" ],
     [ "FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag" ],
-    [ "TStringPrintfLiteral", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral" ],
-    [ "AsLocalizable_Advanced", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f", null ],
-    [ "MakePrintfLiteral", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a2502b204a2fc10975de66e32c6cc8c77", null ]
+    [ "AsLocalizable_Advanced", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f", null ]
 ];

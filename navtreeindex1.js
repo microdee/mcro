@@ -243,11 +243,11 @@ var NAVTREEINDEX1 =
 "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html#ae458a97428237b23490dfbc133423701":[8,0,1,24,0,0],
 "d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html#ae458a97428237b23490dfbc133423701":[10,0,0,18,0,0],
 "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html":[8,0,1,28,1],
-"d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f":[8,0,1,28,1,7],
-"d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a2502b204a2fc10975de66e32c6cc8c77":[8,0,1,28,1,8],
+"d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f":[8,0,1,28,1,6],
 "d2/d36/conceptMcro_1_1Concepts_1_1CSharedFromThis.html":[8,0,1,9,47],
 "d2/d36/conceptMcro_1_1Concepts_1_1CSharedFromThis.html":[9,1,1,46],
 "d2/d60/classMcroBuild_1_1RuntimeDependency.html":[8,0,2,5],
 "d2/d60/classMcroBuild_1_1RuntimeDependency.html":[10,0,1,5],
-"d2/d60/classMcroBuild_1_1RuntimeDependency.html#a0ea6b5de5de8c20a2d3f61f0facc32ae":[8,0,2,5,2]
+"d2/d60/classMcroBuild_1_1RuntimeDependency.html#a0ea6b5de5de8c20a2d3f61f0facc32ae":[8,0,2,5,2],
+"d2/d60/classMcroBuild_1_1RuntimeDependency.html#a0ea6b5de5de8c20a2d3f61f0facc32ae":[10,0,1,5,2]
 };

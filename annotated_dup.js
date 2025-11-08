@@ -165,8 +165,7 @@ var annotated_dup =
           [ "FNameFakeLiteralTag", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag.html", "d9/d11/structMcro_1_1Text_1_1Macros_1_1FNameFakeLiteralTag" ],
           [ "FStdStringLiteralTag", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag.html", "da/d31/structMcro_1_1Text_1_1Macros_1_1FStdStringLiteralTag" ],
           [ "FStringFakeLiteralTag", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html", "d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag" ],
-          [ "FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag" ],
-          [ "TStringPrintfLiteral", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html", "d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral" ]
+          [ "FStringViewFakeLiteralTag", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag.html", "d1/d8c/structMcro_1_1Text_1_1Macros_1_1FStringViewFakeLiteralTag" ]
         ] ],
         [ "TAsFormatArgument", "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html", null ],
         [ "TAsFormatArgument< FStdStringView >", "d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4.html", "d9/d9b/structMcro_1_1Text_1_1TAsFormatArgument_3_01FStdStringView_01_4" ],

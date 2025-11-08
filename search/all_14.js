@@ -54,7 +54,7 @@ var searchData=
   ['steallast_51',['StealLast',['../d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html#a44232120e64246ab3b8490a828a9fd06',1,'Mcro::ValueThunk::TValueThunk']]],
   ['stealvalue_52',['StealValue',['../d2/d94/structMcro_1_1Error_1_1TMaybe.html#a92ae2a93f84418aa35ed2e641ea5a0fb',1,'Mcro::Error::TMaybe']]],
   ['stoppie_53',['StopPie',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a349a28c61b3b1d1ea66d9b0e064b1e2e',1,'Mcro::AssertMacros::Detail']]],
-  ['storage_54',['Storage',['../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#a338e80661f087053bc03bdbe7777090f',1,'Mcro::Slate::TAttributeBlockFunctor::Storage'],['../d4/d29/structMcro_1_1Text_1_1Macros_1_1TStringPrintfLiteral.html#a040992947d7e7a54c16e529fa21f727c',1,'Mcro::Text::Macros::TStringPrintfLiteral::Storage']]],
+  ['storage_54',['Storage',['../dc/d99/structMcro_1_1Slate_1_1TAttributeBlockFunctor.html#a338e80661f087053bc03bdbe7777090f',1,'Mcro::Slate::TAttributeBlockFunctor']]],
   ['storagetype_55',['StorageType',['../d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html#a095c8f1bfb43027d3365c02832a2ac4b',1,'Mcro::Modules::TModuleBoundObject']]],
   ['storeprevious_56',['StorePrevious',['../dc/dd1/structMcro_1_1Observable_1_1FStatePolicy.html#a97c4d898e9e77afb3e1ae96f6ca5633f',1,'Mcro::Observable::FStatePolicy']]],
   ['string_20formatting_20literals_57',['String formatting literals',['../index.html#autotoc_md39',1,'']]],
