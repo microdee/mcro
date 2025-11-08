@@ -18,6 +18,11 @@ public static class UseMcroGraph
         .After<IUseYamlCpp>()
         .After<IUseRangeV3>()
     ;
+
+    public static ITargetDefinition McroDependency(this ITargetDefinition target) => target
+        .DependsOn<IUseYamlCpp>()
+        .DependsOn<IUseRangeV3>()
+    ;
 }
 
 [ImplicitBuildInterface]
@@ -34,8 +39,7 @@ public interface IUseMcro : INukeBuild
         });
 
     Target DistributeMcro => _ => _
-        .DependsOn<IUseYamlCpp>()
-        .DependsOn<IUseRangeV3>()
+        .McroDependency()
         .Executes(() =>
         {
             var (_, output) = UnrealPlugin.Get(this.ScriptFolder()).DistributeSource((UnrealBuild)this);
@@ -43,15 +47,10 @@ public interface IUseMcro : INukeBuild
         });
 
     Target BuildMcro => _ => _
-        .DependsOn<IUseYamlCpp>()
-        .DependsOn<IUseRangeV3>()
+        .McroDependency()
         .Executes(() =>
         {
-            var output = UnrealPlugin.Get(this.ScriptFolder())
-                .BuildPlugin(
-                    (UnrealBuild)this,
-                    buildOptions: new() { Method = PluginBuildMethod.UBT }
-                );
+            var output = UnrealPlugin.Get(this.ScriptFolder()).BuildPlugin((UnrealBuild)this);
             Log.Information("Find build in {0}", output);
         });
 }
