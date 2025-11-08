@@ -35,7 +35,7 @@ FTestDelegateWithArray UDynamicDelegateTestClass::GetTestLambda() const
 
 int32 UDynamicDelegateTestClass::MemberFuncTest(TArray<FString>& results, const TCHAR* append) const
 {
-	results.Add(PRINTF_(append) "From member function: %s");
+	results.Add(STRING_"From member function: " + append);
 	return results.Num();
 }
 

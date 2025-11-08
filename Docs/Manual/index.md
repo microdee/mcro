@@ -280,72 +280,7 @@ In code these macros are referred to as fake text/string literals.
 
 ### String formatting literals
 
-There are two groups of macros to express string formatting/interpolation with a "nice" syntax. These are also fake text literals but they can be both leading or trailing after the double quoted text.
-
-Wrapper around `FString::Printf`:
-
-<div class="tabbed">
-
-<ul>
-
-<li>
-
-<b class="tab-title">MCRO trailing:</b>
-
-```Cpp
-auto type = NAME_"Foo"; auto comment = STRING_"Hello!"; int32 count = 42;
-
-FString printf = TEXT_"Given %s with comment '%s' and count %d" _PRINTF(
-    *type.ToString(),
-    *comment,
-    count
-);
-// -> "Given Foo with comment 'Hello!' and count 42"
-```
-
-As a personal opinion this is more readable in majority of cases or with multiple lines, but beauty is in the eye of the beholder.
-
-</li>
-
-<li>
-
-<b class="tab-title">Vanilla:</b>
-
-```Cpp
-FName type(TEXT("Foo")); FString comment(TEXT("Hello!")); int32 count = 42;
-
-FString printf = FString::Printf(TEXT("Given %s with comment '%s' and count %d"),
-    *type.ToString(),
-    *comment,
-    count
-);
-// -> "Given Foo with comment 'Hello!' and count 42"
-```
-
-</li>
-
-<li>
-
-<b class="tab-title">MCRO leading:</b>
-
-```Cpp
-auto type = NAME_"Foo"; auto comment = STRING_"Hello!"; int32 count = 42;
-
-FString printf = PRINTF_(*type.ToString(), *comment, count)
-    "Given %s with comment '%s' and count %d";
-
-// -> "Given Foo with comment 'Hello!' and count 42"
-```
-
-As a personal opinion this is only readable when there's a simple text and maximum of two arguments, but beauty is in the eye of the beholder.
-
-</li>
-
-</ul>
-
-</div>
-
-But for more modern and more automatic text conversion there's also a wrapper around `FString::Format`, but it can handle much more types automatically than `FString::Format`.
+There are the FMT fake text literals. They can be both leading or trailing before/after the double quoted text. This is a wrapper around `FString::Format`, but it can handle much more types automatically.
 
 With ordered arguments:
 
@@ -383,7 +318,7 @@ FStringFormatOrderedArguments fmtArgs;
 fmtArgs.Add(type.ToString());
 fmtArgs.Add(comment.ToString());
 fmtArgs.Add(count);
-FString printf = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
+FString fmt = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
 
 // -> "Given Foo with comment 'Hello!' and count 42"
 // enums aren't supported at all
@@ -453,7 +388,7 @@ FStringFormatNamedArguments fmtArgs;
 fmtArgs.Add(TEXT("Type"),    type.ToString());
 fmtArgs.Add(TEXT("Comment"), comment.ToString());
 fmtArgs.Add(TEXT("Count"),   count);
-FString printf = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
+FString fmt = FString::Format(TEXT("Given {0} with comment '{1}' and count {2}"), fmtArgs);
 
 // -> "Given Foo with comment 'Hello!' and count 42"
 // enums aren't supported at all

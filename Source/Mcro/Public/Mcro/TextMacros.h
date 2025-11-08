@@ -124,50 +124,6 @@ namespace Mcro::Text::Macros
 			return std::basic_string_view<TCHAR>(str, N-1);
 		}
 	};
-
-	template <typename... Args>
-	struct TStringPrintfLiteral
-	{
-		using Arguments = TTuple<Args...>;
-		TStringPrintfLiteral(Args&&... args) : Storage(FWD(args)...) {}
-
-	private:
-		template <size_t CharN, size_t... Sequence>
-		FString Invoke_Impl(const TCHAR(& format)[CharN], std::index_sequence<Sequence...>&&)
-		{
-			return FString::Printf(
-				format,
-				FWD(Storage.template Get<Sequence>())...
-			);
-		}
-		
-	public:
-		template <size_t CharN>
-		FString Invoke(const TCHAR(& format)[CharN])
-		{
-			return Invoke_Impl(format, std::make_index_sequence<sizeof...(Args)>());
-		}
-
-		template <size_t N>
-		friend FString operator % (const TCHAR(& format)[N], TStringPrintfLiteral&& tag)
-		{
-			return tag.Invoke(format);
-		}
-
-		template <size_t N>
-		friend FString operator % (TStringPrintfLiteral&& tag, const TCHAR(& format)[N])
-		{
-			return tag.Invoke(format);
-		}
-
-		Arguments Storage;
-	};
-
-	template <typename... Args>
-	TStringPrintfLiteral<Args...> MakePrintfLiteral(Args&&... args)
-	{
-		return TStringPrintfLiteral<Args...>(FWD(args)...);
-	}
 }
 
 /**
@@ -237,35 +193,3 @@ namespace Mcro::Text::Macros
  *	they're not available for concatenated groups of string literals of mixed encodings.
  */
 #define NAME_ Mcro::Text::Macros::FNameFakeLiteralTag() % TEXT_
-
-/**
- *	@brief
- *	Trailing fake text literal which shortens down the `FString::Printf(TEXT("..."), ...);` expression.
- *
- *	Usage:
- *	@code
- *	int count, FString type;
- *	TEXT_"My format literal with %d and %s" _PRINTF(count, type);
- *	//                                     ^ this space is important
- *	@endcode
- *
- *	This operation runs `FString::Printf` in runtime and allocates a struct which stores the format arguments
- *	(preserving CV-ref qualifiers).
- */
-#define _PRINTF(...) % Mcro::Text::Macros::MakePrintfLiteral(__VA_ARGS__)
-
-/**
- *	@brief
- *	Leading fake text literal which shortens down the `FString::Printf(TEXT("..."), ...);` expression.
- *
- *	Usage:
- *	@code
- *	int count, FString type;
- *	PRINTF_(count, type) "My format literal with %d and %s";
- *	//                  ^ this space is optional
- *	@endcode
- *
- *	This operation runs `FString::Printf` in runtime and allocates a struct which stores the format arguments
- *	(preserving CV-ref qualifiers).
- */
-#define PRINTF_(...) Mcro::Text::Macros::MakePrintfLiteral(__VA_ARGS__) % TEXT_
