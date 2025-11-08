@@ -16,8 +16,8 @@
 #include "boost/preprocessor.hpp"
 #include "Misc/EngineVersionComparison.h"
 
-// These here are back-porting missing macros from UE 5.5 to at least UE 5.3
-#if UE_VERSION_OLDER_THAN(5,5,0)
+// These here are back-porting missing macros from UE 5.4 to at least UE 5.3
+#if UE_VERSION_OLDER_THAN(5,4,0)
 
 // Expands to a number which is the count of variadic arguments passed to it.
 #define UE_VA_ARG_COUNT(...) UE_APPEND_VA_ARG_COUNT(, ##__VA_ARGS__)

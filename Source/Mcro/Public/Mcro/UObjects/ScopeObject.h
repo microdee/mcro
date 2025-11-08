@@ -12,6 +12,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UObject/StrongObjectPtr.h"
 #include "Mcro/UObjects/Init.h"
 
 namespace Mcro::UObjects::Init

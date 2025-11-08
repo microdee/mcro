@@ -12,6 +12,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UObject/StrongObjectPtr.h"
 #include "Async/TaskGraphInterfaces.h"
 #include "Async/Async.h"
 #include "Mcro/FunctionTraits.h"

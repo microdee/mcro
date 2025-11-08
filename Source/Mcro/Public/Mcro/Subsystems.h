@@ -18,6 +18,7 @@
 #include "Subsystems/LocalPlayerSubsystem.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "Engine/Engine.h"
+#include "Engine/LocalPlayer.h"
 #include "Engine/GameInstance.h"
 #include "Mcro/Concepts.h"
 #include "Mcro/AssertMacros.h"
