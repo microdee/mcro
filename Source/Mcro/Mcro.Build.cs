@@ -23,10 +23,20 @@ public class Mcro : ModuleRules
 		bUseUnity = false;
 		CppStandard = CppStandardVersion.Latest;
 
+#if UE_5_6_OR_LATER
+		const string boostVersion = "1.85.0";
+#elif UE_5_4_OR_LATER
+		const string boostVersion = "1_82_0";
+#else
 		const string boostVersion = "1_80_0";
+#endif
 		PublicSystemIncludePaths.AddRange(new []
 		{
+#if UE_5_6_OR_LATER
+			$"{Target.UEThirdPartySourceDirectory}/Boost/Deploy/boost-{boostVersion}/include"
+#else
 			$"{Target.UEThirdPartySourceDirectory}/Boost/boost-{boostVersion}/include"
+#endif
 		});
 		
 		PublicDependencyModuleNames.AddRange(new[]
