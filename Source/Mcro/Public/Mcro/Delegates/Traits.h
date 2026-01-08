@@ -31,9 +31,9 @@ namespace Mcro::Delegates
 	 */
 	template <CFunctionLike Function, typename... Captures>
 	using TInferredDelegate = TDelegate<
-			TFunctionFromTuple<
+			TFunctionFromTypes<
 				TFunction_Return<Function>,
-				TTrimEnd<sizeof...(Captures), TFunction_Arguments<Function>>
+				TTypesTrimEnd<sizeof...(Captures), TFunction_Arguments<Function>>
 			>,
 			FDefaultDelegateUserPolicy
 		>

@@ -26,11 +26,11 @@ namespace Mcro::Inheritance
 	 *	upon base classes of a derived type.
 	 */
 	template <typename T>
-	concept CHasBases = CIsTypeList<typename T::Bases>;
+	concept CHasBases = CTypeList<typename T::Bases>;
 
 	namespace Detail
 	{
-		template <CIsTypeList Bases, typename Function>
+		template <CTypeList Bases, typename Function>
 		constexpr void ForEachExplicitBase(Function&& function);
 
 		template <typename T, typename Function>
@@ -41,13 +41,13 @@ namespace Mcro::Inheritance
 				ForEachExplicitBase<typename T::Bases>(FWD(function));
 		}
 
-		template <CIsTypeList Bases, typename Function, size_t... Indices>
+		template <CTypeList Bases, typename Function, size_t... Indices>
 		constexpr void ForEachExplicitBase_Impl(Function&& function, std::index_sequence<Indices...>&&)
 		{
 			(ForEachExplicitBase_Body<TTypes_Get<Bases, Indices>>(FWD(function)), ...);
 		}
 
-		template <CIsTypeList Bases, typename Function>
+		template <CTypeList Bases, typename Function>
 		constexpr void ForEachExplicitBase(Function&& function)
 		{
 			ForEachExplicitBase_Impl<Bases>(
@@ -79,17 +79,17 @@ namespace Mcro::Inheritance
 	 *	@param  function  Per-base operation
 	 */
 	template <typename T, typename Function>
-	requires (CHasBases<T> || CIsTypeList<T>)
+	requires (CHasBases<T> || CTypeList<T>)
 	constexpr void ForEachExplicitBase(Function&& function)
 	{
 		if constexpr (CHasBases<T>)
 			Detail::ForEachExplicitBase<typename T::Bases>(FWD(function));
-		if constexpr (CIsTypeList<T>)
+		if constexpr (CTypeList<T>)
 			Detail::ForEachExplicitBase<T>(FWD(function));
 	}
 
 	template <typename T, typename Bases>
-	requires (CHasBases<Bases> || CIsTypeList<Bases>)
+	requires (CHasBases<Bases> || CTypeList<Bases>)
 	constexpr bool HasExplicitBase()
 	{
 		bool valid = false;
@@ -102,7 +102,7 @@ namespace Mcro::Inheritance
 	}
 
 	template <typename T, typename Bases>
-	concept CHasExplicitBase = (CHasBases<Bases> || CIsTypeList<Bases>)
+	concept CHasExplicitBase = (CHasBases<Bases> || CTypeList<Bases>)
 		&& HasExplicitBase<T, Bases>()
 	;
 

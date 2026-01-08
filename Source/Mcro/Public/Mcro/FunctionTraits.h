@@ -37,10 +37,16 @@ namespace Mcro::FunctionTraits
 			using ReturnDecay = std::decay_t<ReturnIn>;
 
 			/** The input parameters of the function as a tuple type. Types are not decayed. */
-			using Arguments = TTuple<Args...>;
+			using Arguments = TTypes<Args...>;
 
 			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
-			using ArgumentsDecay = TTuple<std::decay_t<Args>...>;
+			using ArgumentsDecay = TTypes<std::decay_t<Args>...>;
+
+			/** The input parameters of the function as a tuple type. Types are not decayed. */
+			using ArgumentsTuple = TTuple<Args...>;
+
+			/** The input parameters of the function as a tuple type. Types are decayed (useful for storage) */
+			using ArgumentsTupleDecay = TTuple<std::decay_t<Args>...>;
 
 			/** The input parameters of the function as a std::tuple type. Types are not decayed. */
 			using ArgumentsStd = std::tuple<Args...>;
@@ -58,10 +64,10 @@ namespace Mcro::FunctionTraits
 			using Signature = Return(Args...);
 
 			template <int I>
-			using Arg = TTypeAt<I, Arguments>;
+			using Arg = TTypes_Get<Arguments, I>;
 
 			template <int I>
-			using ArgDecay = TTypeAt<I, ArgumentsDecay>;
+			using ArgDecay = TTypes_Get<ArgumentsDecay, I>;
 		};
 	}
 	
@@ -140,13 +146,37 @@ namespace Mcro::FunctionTraits
 		static constexpr bool IsConst = false;
 	};
 
-	/** @brief Shorthand for getting a tuple representing the function arguments. */
+	/** @brief Shorthand for getting a list representing the function arguments. */
 	template <typename T>
 	using TFunction_Arguments = typename TFunctionTraits<std::decay_t<T>>::Arguments;
 
-	/** @brief Shorthand for getting a tuple representing the decayed function arguments. */
+	/** @brief Shorthand for getting a list representing the decayed function arguments. */
 	template <typename T>
 	using TFunction_ArgumentsDecay = typename TFunctionTraits<std::decay_t<T>>::ArgumentsDecay;
+
+	/** @brief Shorthand for getting a list representing the function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsTuple = typename TFunctionTraits<std::decay_t<T>>::ArgumentsTuple;
+
+	/** @brief Shorthand for getting a list representing the decayed function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsTupleDecay = typename TFunctionTraits<std::decay_t<T>>::ArgumentsTupleDecay;
+
+	/** @brief Shorthand for getting a list representing the function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsStd = typename TFunctionTraits<std::decay_t<T>>::ArgumentsStd;
+
+	/** @brief Shorthand for getting a list representing the decayed function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsStdDecay = typename TFunctionTraits<std::decay_t<T>>::ArgumentsStdDecay;
+
+	/** @brief Shorthand for getting a list representing the function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsRangeV3 = typename TFunctionTraits<std::decay_t<T>>::ArgumentsRangeV3;
+
+	/** @brief Shorthand for getting a list representing the decayed function arguments. */
+	template <typename T>
+	using TFunction_ArgumentsRangeV3Decay = typename TFunctionTraits<std::decay_t<T>>::ArgumentsRangeV3Decay;
 
 	/** @brief Shorthand for getting a type of a function argument at given position I. */
 	template <typename T, int I>
@@ -198,32 +228,30 @@ namespace Mcro::FunctionTraits
 
 	namespace Detail
 	{
-		template <typename Return, typename Tuple, size_t... Indices>
-		using TFunctionFromTupleIndices = Return(typename TTupleElement<Indices, Tuple>::Type...);
-
-		template <typename Return, typename Tuple>
-		struct TFunctionFromTuple_Struct
+		template <typename Return, typename>
+		struct TFunctionFromTypes_Struct
 		{
-			template <size_t... Indices>
-			static consteval TFunctionFromTupleIndices<Return, Tuple, Indices...>* Compose(std::index_sequence<Indices...>&&);
+			using Type = void;
+		};
 
-			using Type = std::remove_pointer_t<decltype(
-				Compose(std::make_index_sequence<TTupleArity<Tuple>::Value>{})
-			)>;
+		template <typename Return, typename... Types>
+		struct TFunctionFromTypes_Struct<Return, TTypes<Types...>>
+		{
+			using Type = Return(Types...);
 		};
 	}
 
 	/** @brief Compose a function type from a tuple of arguments and a return type */
-	template <typename Return, typename Tuple>
-	using TFunctionFromTuple = typename Detail::TFunctionFromTuple_Struct<Return, std::decay_t<Tuple>>::Type;
+	template <typename Return, typename TypeList>
+	using TFunctionFromTypes = typename Detail::TFunctionFromTypes_Struct<Return, std::decay_t<TypeList>>::Type;
 
 	/** @brief Override the return type of an input function signature */
 	template <typename Return, typename DstFunction>
-	using TSetReturn = TFunctionFromTuple<Return, TFunction_Arguments<DstFunction>>;
+	using TSetReturn = TFunctionFromTypes<Return, TFunction_Arguments<DstFunction>>;
 
 	/** @brief Override the return type of an input function signature, and discard its qualifiers */
 	template <typename Return, typename DstFunction>
-	using TSetReturnDecay = TFunctionFromTuple<std::decay_t<Return>, TFunction_Arguments<DstFunction>>;
+	using TSetReturnDecay = TFunctionFromTypes<std::decay_t<Return>, TFunction_Arguments<DstFunction>>;
 
 	/** @brief Copy the return type from source function signature to the destination one */
 	template <typename SrcFunction, typename DstFunction>
@@ -264,7 +292,7 @@ namespace Mcro::FunctionTraits
 	concept CTupleCompatibleWithFunction =
 		CTuple<Tuple> && CFunctionLike<Function>
 		&& (
-			CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::Arguments>
+			CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::ArgumentsTuple>
 			|| CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::ArgumentsStd>
 			|| CConvertibleTo<Tuple, typename TFunctionTraits<std::decay_t<Function>>::ArgumentsRangeV3>
 		)
@@ -325,7 +353,7 @@ namespace Mcro::FunctionTraits
 	concept CFunctionCompatible_ArgumentsDecay =
 		CFunctionLike<F>
 		&& CFunctionLike<With>
-		&& CConvertibleToDecayed<
+		&& CTypesConvertibleToDecayed<
 			TFunction_ArgumentsDecay<With>,
 			TFunction_ArgumentsDecay<F>
 		>
@@ -336,7 +364,7 @@ namespace Mcro::FunctionTraits
 	concept CFunctionCompatible_Arguments =
 		CFunctionLike<F>
 		&& CFunctionLike<With>
-		&& CConvertibleTo<
+		&& CTypesConvertibleTo<
 			TFunction_Arguments<With>,
 			TFunction_Arguments<F>
 		>
@@ -368,6 +396,16 @@ namespace Mcro::FunctionTraits
 		&& CFunctionCompatible_Arguments<F, With>
 	;
 
+	/** @brief Accept only functions which has given number of arguments, whatever type they may be */
+	template <typename Function, size_t Count>
+	concept CFunctionWithArgumentCount = CFunctionLike<Function>
+		&& TFunction_ArgCount<Function> == Count
+	;
+
+	/** @brief Accept only functions which has 0 arguments */
+	template <typename Function>
+	concept CNullaryFunction = CFunctionWithArgumentCount<Function, 0>;
+
 	/** @brief Concept matching function types returning void. */
 	template <typename F>
 	concept CFunctionReturnsVoid = CFunctionLike<F> && std::is_void_v<TFunction_Return<F>>;
@@ -380,7 +418,7 @@ namespace Mcro::FunctionTraits
 	template <auto FuncPtr>
 	concept CInstanceMethod = requires(
 		TFunction_Class<decltype(FuncPtr)>* instance,
-		TFunction_Arguments<decltype(FuncPtr)> argsTuple
+		TFunction_ArgumentsTuple<decltype(FuncPtr)> argsTuple
 	) {
 		InvokeWithTuple(instance, FuncPtr, argsTuple);
 	};
@@ -398,7 +436,7 @@ namespace Mcro::FunctionTraits
 	struct TDeferFunctionArguments
 	{
 		using FirstArg = TFunction_Arg<Function, 0>;
-		using ExtraArgs = TSkip<1, TFunction_Arguments<Function>>;
+		using ExtraArgs = TTupleSkip<1, TFunction_ArgumentsTuple<Function>>;
 		using Return = TFunction_Return<Function>;
 
 		template <typename... Args>

@@ -160,14 +160,14 @@ namespace Mcro::Tuples
 	
 	/** @brief Compose one tuple out of the elements of another tuple based on the input index parameter pack */
 	template <typename Tuple, size_t... Indices>
-	using TComposeFrom = TTuple<typename TTupleElement<Indices, Tuple>::Type...>;
+	using TComposeTupleFrom = TTuple<typename TTupleElement<Indices, Tuple>::Type...>;
 
 	template <size_t Count, typename Tuple>
 	requires (TTupleArity<Tuple>::Value >= Count)
-	struct TSkip_Struct
+	struct TTupleSkip_Struct
 	{
 		template <size_t... Indices>
-		static consteval TComposeFrom<Tuple, (Indices + Count)...> Compose(std::index_sequence<Indices...>&&);
+		static consteval TComposeTupleFrom<Tuple, (Indices + Count)...> Compose(std::index_sequence<Indices...>&&);
 
 		using Type = decltype(
 			Compose(std::make_index_sequence<TTupleArity<Tuple>::Value - Count>{})
@@ -176,14 +176,14 @@ namespace Mcro::Tuples
 
 	/** @brief Skip the first `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
-	using TSkip = typename TSkip_Struct<Count, Tuple>::Type;
+	using TTupleSkip = typename TTupleSkip_Struct<Count, Tuple>::Type;
 
 	template <size_t Count, typename Tuple>
 	requires (TTupleArity<Tuple>::Value >= Count)
-	struct TTrimEnd_Struct
+	struct TTupleTrimEnd_Struct
 	{
 		template <size_t... Indices>
-		static consteval TComposeFrom<Tuple, Indices...> Compose(std::index_sequence<Indices...>&&);
+		static consteval TComposeTupleFrom<Tuple, Indices...> Compose(std::index_sequence<Indices...>&&);
 
 		using Type = decltype(
 			Compose(std::make_index_sequence<TTupleArity<Tuple>::Value - Count>{})
@@ -192,14 +192,14 @@ namespace Mcro::Tuples
 
 	/** @brief Disregard the last `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
-	using TTrimEnd = typename TTrimEnd_Struct<Count, Tuple>::Type;
+	using TTupleTrimEnd = typename TTupleTrimEnd_Struct<Count, Tuple>::Type;
 
 	template <size_t Count, typename Tuple>
 	requires (TTupleArity<Tuple>::Value >= Count)
-	struct TTake_Struct
+	struct TTupleTake_Struct
 	{
 		template <size_t... Indices>
-		static consteval TComposeFrom<Tuple, Indices...> Compose(std::index_sequence<Indices...>&&);
+		static consteval TComposeTupleFrom<Tuple, Indices...> Compose(std::index_sequence<Indices...>&&);
 
 		using Type = decltype(
 			Compose(std::make_index_sequence<Count>{})
@@ -208,7 +208,7 @@ namespace Mcro::Tuples
 
 	/** @brief Take only the first `Count` elements of the input tuple */
 	template <size_t Count, typename Tuple>
-	using TTake = typename TTake_Struct<Count, Tuple>::Type;
+	using TTupleTake = typename TTupleTake_Struct<Count, Tuple>::Type;
 
 	namespace Detail
 	{

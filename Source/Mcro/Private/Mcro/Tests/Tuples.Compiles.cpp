@@ -14,20 +14,20 @@
 
 using namespace Mcro::Common;
 
-// TSkip should produce a tuple without the first N arguments of input tuple
+// TTupleSkip should produce a tuple without the first N arguments of input tuple
 static_assert(CSameAs<
-	TSkip<2, TTuple<AActor*, bool, char, FVector, FQuat>>,
+	TTupleSkip<2, TTuple<AActor*, bool, char, FVector, FQuat>>,
 	TTuple<char, FVector, FQuat>
 >);
 
-// TTake should produce a tuple only from the first N arguments of input tuple
+// TTupleTake should produce a tuple only from the first N arguments of input tuple
 static_assert(CSameAs<
-	TTake<2, TTuple<AActor*, bool, char, FVector, FQuat>>,
+	TTupleTake<2, TTuple<AActor*, bool, char, FVector, FQuat>>,
 	TTuple<AActor*, bool>
 >);
 
-// TTrimEnd should produce a tuple without the last N arguments of input tuple
+// TTupleTrimEnd should produce a tuple without the last N arguments of input tuple
 static_assert(CSameAs<
-	TTrimEnd<2, TTuple<AActor*, bool, char, FVector, FQuat>>,
+	TTupleTrimEnd<2, TTuple<AActor*, bool, char, FVector, FQuat>>,
 	TTuple<AActor*, bool, char>
 >);

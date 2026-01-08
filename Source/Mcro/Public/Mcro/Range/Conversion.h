@@ -62,7 +62,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([separator] <CRangeMember Input> (Input&& range)
 		{
-			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			if constexpr (CMatchTemplate<Input, Detail::TRangeWithStringFormat>)
 			{
 				range.Options.Separator = separator;
 				return range;
@@ -76,7 +76,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([=] <CRangeMember Input> (Input&& range)
 		{
-			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			if constexpr (CMatchTemplate<Input, Detail::TRangeWithStringFormat>)
 			{
 				range.Options.Start = start;
 				range.Options.End = end;
@@ -91,7 +91,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([] <CRangeMember Input> (Input&& range)
 		{
-			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			if constexpr (CMatchTemplate<Input, Detail::TRangeWithStringFormat>)
 			{
 				range.Options.Separator = {};
 				return range;
@@ -105,7 +105,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([] <CRangeMember Input> (Input&& range)
 		{
-			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			if constexpr (CMatchTemplate<Input, Detail::TRangeWithStringFormat>)
 			{
 				range.Options.Start = {};
 				range.Options.End = {};
@@ -124,7 +124,7 @@ namespace Mcro::Range
 	{
 		return ranges::make_pipeable([] <CRangeMember Input> (Input&& range)
 		{
-			if constexpr (CIsTemplate<Input, Detail::TRangeWithStringFormat>)
+			if constexpr (CMatchTemplate<Input, Detail::TRangeWithStringFormat>)
 			{
 				range.Options = {{}, {}, {}};
 				return range;
@@ -187,7 +187,7 @@ namespace Mcro::Range
 		int32 position = 0;
 		FRangeStringFormatOptions rangeFormatOptions;
 		
-		if constexpr (CIsTemplate<Range, Detail::TRangeWithStringFormat>)
+		if constexpr (CMatchTemplate<Range, Detail::TRangeWithStringFormat>)
 			rangeFormatOptions = range.Options;
 
 		if constexpr (CChar<ElementType>)
@@ -453,7 +453,7 @@ namespace Mcro::Range
 		}
 
 	public:
-		template <CIsTemplate<TMap> Target>
+		template <CMatchTemplate<TMap> Target>
 		friend class OutputToMap;
 		
 		RenderAsMap() {};
@@ -505,7 +505,7 @@ namespace Mcro::Range
 	 *	
 	 *	@tparam Target  A TMap. Its key-value types will be deduced from the target output map.
 	 */
-	template <CIsTemplate<TMap> Target>
+	template <CMatchTemplate<TMap> Target>
 	class OutputToMap
 	{
 		using KeyType = typename Target::KeyType;

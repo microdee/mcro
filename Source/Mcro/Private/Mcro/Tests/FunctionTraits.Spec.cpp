@@ -63,13 +63,13 @@ static_assert(CFunctionPtr<decltype(&FFunctionTestType::MemberMethod)>); // CFun
 // TFunction_Arguments should produce a tuple from input function's arguments, and preserve qualifiers
 static_assert(CSameAs<
 	TFunction_Arguments<FSomeGlobalFunctionPtr>,
-	TTuple<FFunctionTestType&&, int>
+	TTypes<FFunctionTestType&&, int>
 >);
 
 // TFunction_ArgumentsDecay should produce a tuple from input function's arguments, and discard qualifiers
 static_assert(CSameAs<
 	TFunction_ArgumentsDecay<FSomeGlobalFunctionPtr>,
-	TTuple<FFunctionTestType, int>
+	TTypes<FFunctionTestType, int>
 >);
 
 // TFunction_Arg should select an argument at specified index, and preserve qualifiers
@@ -120,9 +120,9 @@ static_assert(CHasFunction<FDerivedFunctionTestType, decltype(&FFunctionTestType
 // CHasFunction should reject functions not member of any class in the inheritance tree of specified class
 static_assert(!CHasFunction<FDerivedFunctionTestType, FSomeGlobalFunctionPtr>);
 
-// TFunctionFromTuple should produce a function signature from given tuple of arguments and the given return type
+// TFunctionFromTypes should produce a function signature from given tuple of arguments and the given return type
 static_assert(CSameAs<
-	TFunctionFromTuple<void, TTuple<bool, char, int>>,
+	TFunctionFromTypes<void, TTypes<bool, char, int>>,
 	void(bool, char, int)
 >);
 
