@@ -1,5 +1,6 @@
 
 using System;
+using Microsoft.Extensions.Logging;
 using UnrealBuildTool;
 
 public partial class YamlCpp : ModuleRules
@@ -54,10 +55,11 @@ public partial class YamlCpp : ModuleRules
 				
 		if (!PlatformSetup || !IncludesSetup)
 		{
-			throw new Exception(
+			Logger.LogWarning(
 				$"yaml-cpp was not set up for {target.Platform}."
 				+ $"\n Did you install the library for {target.Platform}? Run:"
 				+ $"\n > nuke PrepareYamlCpp --platform {target.Platform}"
+				+  "\n This library may not compile without that."
 			);
 		}
 	}

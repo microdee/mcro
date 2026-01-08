@@ -1,6 +1,7 @@
 // Fill in Copyright info...
 
 using System;
+using Microsoft.Extensions.Logging;
 using UnrealBuildTool;
 
 public partial class RangeV3 : ModuleRules
@@ -58,10 +59,11 @@ public partial class RangeV3 : ModuleRules
 				
 		if (!PlatformSetup || !IncludesSetup)
 		{
-			throw new Exception(
+			Logger.LogWarning(
 				$"range-v3 was not set up for {target.Platform}."
 				+ $"\n Did you install the library for {target.Platform}? Run:"
 				+ $"\n > nuke PrepareRangeV3 --platform {target.Platform}"
+				+  "\n This library may not compile without that."
 			);
 		}
 	}
