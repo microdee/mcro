@@ -117,6 +117,7 @@ $(function(){initNavTree('d7/dd4/Templates_8h.html','../../'); initResizable(tru
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -124,6 +125,7 @@ $(function(){initNavTree('d7/dd4/Templates_8h.html','../../'); initResizable(tru
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d0a/Macros_8h_source.html">Mcro/Macros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d8d/Concepts_8h_source.html">Mcro/Concepts.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d7/dd4/Templates_8h_source.html">Go to the source code of this file.</a></p>
@@ -149,16 +151,23 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html">Mcro::Templates::TIsTypeList_Struct&lt; TTypes&lt; T... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">Mcro::Templates::TTemplate&lt; Template &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base struct containing traits of specified template (which only accepts type parameters)  <a href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/de5/structMcro_1_1Templates_1_1TTypesSkip__Struct.html">Mcro::Templates::TTypesSkip_Struct&lt; Count, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db8/structMcro_1_1Templates_1_1TTemplate_1_1Parameters.html">Mcro::Templates::TTemplate&lt; Template &gt;::Parameters&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d06/structMcro_1_1Templates_1_1TTypesTrimEnd__Struct.html">Mcro::Templates::TTypesTrimEnd_Struct&lt; Count, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d12/structMcro_1_1Templates_1_1TTemplate_1_1Parameters_3_01Template_3_01Params_8_8_8_01_4_01_4.html">Mcro::Templates::TTemplate&lt; Template &gt;::Parameters&lt; Template&lt; Params... &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/df8/structMcro_1_1Templates_1_1TTypesTake__Struct.html">Mcro::Templates::TTypesTake_Struct&lt; Count, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d82/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay.html">Mcro::Templates::TTemplate&lt; Template &gt;::ParametersDecay&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/daf/structMcro_1_1Templates_1_1TTemplate__Match.html">Mcro::Templates::TTemplate_Match&lt; Template &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base struct for matching templates disregarding their arguments.  <a href="../../db/daf/structMcro_1_1Templates_1_1TTemplate__Match.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/structMcro_1_1Templates_1_1TTemplate_1_1ParametersDecay_3_01Template_3_01Params_8_8_8_01_4_01_4.html">Mcro::Templates::TTemplate&lt; Template &gt;::ParametersDecay&lt; Template&lt; Params... &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html">Mcro::Templates::TTemplate_Struct&lt; typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dba/structMcro_1_1Templates_1_1TTemplate__Struct_3_01Template_3_01Params_8_8_8_01_4_01_4.html">Mcro::Templates::TTemplate_Struct&lt; Template&lt; Params... &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base struct containing traits of specified template instance (which only accepts type parameters)  <a href="../../d9/dba/structMcro_1_1Templates_1_1TTemplate__Struct_3_01Template_3_01Params_8_8_8_01_4_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d12/structMcro_1_1Templates_1_1TTemplateMap__Struct.html">Mcro::Templates::TTemplateMap_Struct&lt; typename, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d26/structMcro_1_1Templates_1_1TTemplateMap__Struct_3_01TemplateOut_00_01TemplateIn_3_01Params_8_8_8_01_4_01_4.html">Mcro::Templates::TTemplateMap_Struct&lt; TemplateOut, TemplateIn&lt; Params... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -173,12 +182,50 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/conceptMcro_1_1Templates_1_1CIsTypeList.html">Mcro::Templates::CIsTypeList</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d4b/conceptMcro_1_1Templates_1_1CTypeList.html">Mcro::Templates::CTypeList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining a given type to <code>TTypes</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/conceptMcro_1_1Templates_1_1CIsTemplate.html">Mcro::Templates::CIsTemplate</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d92/conceptMcro_1_1Templates_1_1CTypesConvertibleTo.html">Mcro::Templates::CTypesConvertibleTo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is given type-list contains all types convertible to the types of another type-list. The number and order of types are significant. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d8f/conceptMcro_1_1Templates_1_1CTypesConvertibleToDecayed.html">Mcro::Templates::CTypesConvertibleToDecayed</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is given type-list contains all types convertible to the types of another type-list. The number and order of types are significant. Qualifiers are not taken into account. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d34/conceptMcro_1_1Templates_1_1CTypeOnlyTemplate.html">Mcro::Templates::CTypeOnlyTemplate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if input is a template which only has type parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dca/conceptMcro_1_1Templates_1_1CMatchTemplate.html">Mcro::Templates::CMatchTemplate</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if given type is an instantiation of a given template (which only accepts type parameters) <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a7bf2fcce79ec2dc8e43c3ec2b36faaff" id="r_a7bf2fcce79ec2dc8e43c3ec2b36faaff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bf2fcce79ec2dc8e43c3ec2b36faaff">MCRO_TYPE_LIST_PREDICATE</a>(Function,  TypeList,  OnEmpty, ...)</td></tr>
+<tr class="separator:a7bf2fcce79ec2dc8e43c3ec2b36faaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5862bff2b5bf4699abe9166dd6249f04" id="r_a5862bff2b5bf4699abe9166dd6249f04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5862bff2b5bf4699abe9166dd6249f04">ALL_OF_TYPE_LIST</a>(typeList,  onEmpty, ...)</td></tr>
+<tr class="memdesc:a5862bff2b5bf4699abe9166dd6249f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply an arbitrary predicate to all types in a type-list, All must pass.  <br /></td></tr>
+<tr class="separator:a5862bff2b5bf4699abe9166dd6249f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6cb86bd9e0c324e8a18f13bfca67c3" id="r_a3c6cb86bd9e0c324e8a18f13bfca67c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c6cb86bd9e0c324e8a18f13bfca67c3">C_ALL_OF_TYPE_LIST</a>(typeList,  onEmpty,  conceptIn, ...)</td></tr>
+<tr class="memdesc:a3c6cb86bd9e0c324e8a18f13bfca67c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a concept to all types in a type-list, All must pass. If a concept needs extra template arguments you can provide them as variadic macro arguments.  <br /></td></tr>
+<tr class="separator:a3c6cb86bd9e0c324e8a18f13bfca67c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb8671eff6e79f0c56b01dcbc524222b" id="r_acb8671eff6e79f0c56b01dcbc524222b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb8671eff6e79f0c56b01dcbc524222b">ANY_OF_TYPE_LIST</a>(typeList,  onEmpty, ...)</td></tr>
+<tr class="memdesc:acb8671eff6e79f0c56b01dcbc524222b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply an arbitrary predicate to all types in a type-list, Any of them can pass.  <br /></td></tr>
+<tr class="separator:acb8671eff6e79f0c56b01dcbc524222b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94e2f54c6399eb1ad9f732211da6bfc0" id="r_a94e2f54c6399eb1ad9f732211da6bfc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94e2f54c6399eb1ad9f732211da6bfc0">C_ANY_OF_TYPE_LIST</a>(typeList,  onEmpty,  conceptIn, ...)</td></tr>
+<tr class="memdesc:a94e2f54c6399eb1ad9f732211da6bfc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a concept to all types in a type-list, Any of them can pass. If a concept needs extra template arguments you can provide them as variadic macro arguments.  <br /></td></tr>
+<tr class="separator:a94e2f54c6399eb1ad9f732211da6bfc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730fdefd9c4502f4cab58a132ae78374" id="r_a730fdefd9c4502f4cab58a132ae78374"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a730fdefd9c4502f4cab58a132ae78374">ALL_OF_TYPE_PACK</a>(TypePack,  onEmpty, ...)</td></tr>
+<tr class="memdesc:a730fdefd9c4502f4cab58a132ae78374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply an arbitrary predicate to all types in input type parameter pack, All must pass.  <br /></td></tr>
+<tr class="separator:a730fdefd9c4502f4cab58a132ae78374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a134b9b07acb8b4856b2493dfd7a9257c" id="r_a134b9b07acb8b4856b2493dfd7a9257c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a134b9b07acb8b4856b2493dfd7a9257c">C_ALL_OF_TYPE_PACK</a>(TypePack,  onEmpty,  conceptIn, ...)</td></tr>
+<tr class="memdesc:a134b9b07acb8b4856b2493dfd7a9257c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a concept to all types in input type parameter pack, All must pass. If a concept needs extra template arguments you can provide them as variadic macro arguments.  <br /></td></tr>
+<tr class="separator:a134b9b07acb8b4856b2493dfd7a9257c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a35afbaa6bebd794317bd1019bbbd6" id="r_a38a35afbaa6bebd794317bd1019bbbd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38a35afbaa6bebd794317bd1019bbbd6">ANY_OF_TYPE_PACK</a>(TypePack,  onEmpty, ...)</td></tr>
+<tr class="memdesc:a38a35afbaa6bebd794317bd1019bbbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply an arbitrary predicate to all types in input type parameter pack, Any of them can pass.  <br /></td></tr>
+<tr class="separator:a38a35afbaa6bebd794317bd1019bbbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af067b4e21a5f2688aa826ebae28276c7" id="r_af067b4e21a5f2688aa826ebae28276c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af067b4e21a5f2688aa826ebae28276c7">C_ANY_OF_TYPE_PACK</a>(TypePack,  onEmpty,  conceptIn, ...)</td></tr>
+<tr class="memdesc:af067b4e21a5f2688aa826ebae28276c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a concept to all types in input type parameter pack, Any of them can pass. If a concept needs extra template arguments you can provide them as variadic macro arguments.  <br /></td></tr>
+<tr class="separator:af067b4e21a5f2688aa826ebae28276c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -186,43 +233,77 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a0b1a5c7bf9337bebe63868e96879dcef"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a0b1a5c7bf9337bebe63868e96879dcef">Mcro::Templates::TTypeAtPack</a> = typename <a class="el" href="../../da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html">TTypeAtPack_Struct</a>&lt;I, Rest...&gt;::Type</td></tr>
 <tr class="memdesc:a0b1a5c7bf9337bebe63868e96879dcef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific item from a parameter pack at given index. It is an unspecified compile error to index an empty parameter pack.  <br /></td></tr>
 <tr class="separator:a0b1a5c7bf9337bebe63868e96879dcef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ac154a4e02398095bba0147ce61606f" id="r_a4ac154a4e02398095bba0147ce61606f"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename... Rest&gt; </td></tr>
-<tr class="memitem:a4ac154a4e02398095bba0147ce61606f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4ac154a4e02398095bba0147ce61606f">Mcro::Templates::TLastTypeAtPack</a> = typename <a class="el" href="../../da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html">TTypeAtPack_Struct</a>&lt;sizeof...(Rest) - I, Rest...&gt;::Type</td></tr>
-<tr class="memdesc:a4ac154a4e02398095bba0147ce61606f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific item from the end of a parameter pack at given index (0 == last). It is an unspecified compile error to index an empty parameter pack.  <br /></td></tr>
-<tr class="separator:a4ac154a4e02398095bba0147ce61606f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb314c55da0a6a6dc1164f0fc87c70e" id="r_abcb314c55da0a6a6dc1164f0fc87c70e"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename... Rest&gt; </td></tr>
+<tr class="memitem:abcb314c55da0a6a6dc1164f0fc87c70e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#abcb314c55da0a6a6dc1164f0fc87c70e">Mcro::Templates::TLastTypeAtPack</a> = typename <a class="el" href="../../da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html">TTypeAtPack_Struct</a>&lt;sizeof...(Rest) - I - 1, Rest...&gt;::Type</td></tr>
+<tr class="memdesc:abcb314c55da0a6a6dc1164f0fc87c70e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific item from the end of a parameter pack at given index (0 == last). It is an unspecified compile error to index an empty parameter pack.  <br /></td></tr>
+<tr class="separator:abcb314c55da0a6a6dc1164f0fc87c70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b636318fe641b95615a3270773c6e4a" id="r_a2b636318fe641b95615a3270773c6e4a"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename... Rest&gt; </td></tr>
 <tr class="memitem:a2b636318fe641b95615a3270773c6e4a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a2b636318fe641b95615a3270773c6e4a">Mcro::Templates::TTypeAtPackDecay</a> = std::decay_t&lt;typename <a class="el" href="../../da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html">TTypeAtPack_Struct</a>&lt;I, Rest...&gt;::Type&gt;</td></tr>
 <tr class="memdesc:a2b636318fe641b95615a3270773c6e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific item from a parameter pack at given index disregarding CV-ref qualifiers. It is an unspecified compile error to index an empty parameter pack.  <br /></td></tr>
 <tr class="separator:a2b636318fe641b95615a3270773c6e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a0d919e2f4b7c2b7ba256685c9608be" id="r_a4a0d919e2f4b7c2b7ba256685c9608be"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename... Rest&gt; </td></tr>
-<tr class="memitem:a4a0d919e2f4b7c2b7ba256685c9608be"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4a0d919e2f4b7c2b7ba256685c9608be">Mcro::Templates::TLastTypeAtPackDecay</a> = std::decay_t&lt;typename <a class="el" href="../../da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html">TTypeAtPack_Struct</a>&lt;sizeof...(Rest) - I, Rest...&gt;::Type&gt;</td></tr>
-<tr class="memdesc:a4a0d919e2f4b7c2b7ba256685c9608be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific item from the end of a parameter pack at given index (0 == last) disregarding CV-ref qualifiers. It is an unspecified compile error to index an empty parameter pack.  <br /></td></tr>
-<tr class="separator:a4a0d919e2f4b7c2b7ba256685c9608be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4020fa8d4e43d1e8e1e920ab785ae1c0" id="r_a4020fa8d4e43d1e8e1e920ab785ae1c0"><td class="memTemplParams" colspan="2">template&lt;CIsTypeList T, size_t I&gt; </td></tr>
+<tr class="memitem:a2aae108a28d2653b85009003a725a17e" id="r_a2aae108a28d2653b85009003a725a17e"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename... Rest&gt; </td></tr>
+<tr class="memitem:a2aae108a28d2653b85009003a725a17e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a2aae108a28d2653b85009003a725a17e">Mcro::Templates::TLastTypeAtPackDecay</a> = std::decay_t&lt;typename <a class="el" href="../../da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html">TTypeAtPack_Struct</a>&lt;sizeof...(Rest) - I - 1, Rest...&gt;::Type&gt;</td></tr>
+<tr class="memdesc:a2aae108a28d2653b85009003a725a17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific item from the end of a parameter pack at given index (0 == last) disregarding CV-ref qualifiers. It is an unspecified compile error to index an empty parameter pack.  <br /></td></tr>
+<tr class="separator:a2aae108a28d2653b85009003a725a17e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4020fa8d4e43d1e8e1e920ab785ae1c0" id="r_a4020fa8d4e43d1e8e1e920ab785ae1c0"><td class="memTemplParams" colspan="2">template&lt;CTypeList T, size_t I&gt; </td></tr>
 <tr class="memitem:a4020fa8d4e43d1e8e1e920ab785ae1c0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0">Mcro::Templates::TTypes_Get</a> = T::template Get&lt;I&gt;</td></tr>
 <tr class="separator:a4020fa8d4e43d1e8e1e920ab785ae1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac46d0df04911613c24c21c3bc81c1658" id="r_ac46d0df04911613c24c21c3bc81c1658"><td class="memTemplParams" colspan="2">template&lt;CIsTypeList T, size_t I&gt; </td></tr>
+<tr class="memitem:ac46d0df04911613c24c21c3bc81c1658" id="r_ac46d0df04911613c24c21c3bc81c1658"><td class="memTemplParams" colspan="2">template&lt;CTypeList T, size_t I&gt; </td></tr>
 <tr class="memitem:ac46d0df04911613c24c21c3bc81c1658"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#ac46d0df04911613c24c21c3bc81c1658">Mcro::Templates::TTypes_GetDecay</a> = T::template GetDecay&lt;I&gt;</td></tr>
 <tr class="separator:ac46d0df04911613c24c21c3bc81c1658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a241bd46b03afbda9a1ff974834269279" id="r_a241bd46b03afbda9a1ff974834269279"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </td></tr>
-<tr class="memitem:a241bd46b03afbda9a1ff974834269279"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a241bd46b03afbda9a1ff974834269279">Mcro::Templates::TTemplate_Params</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Parameters&lt;Instance&gt;::Type</td></tr>
-<tr class="memdesc:a241bd46b03afbda9a1ff974834269279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get template type parameters as a tuple.  <br /></td></tr>
-<tr class="separator:a241bd46b03afbda9a1ff974834269279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad770ce9303677735219f73b76e2fac1b" id="r_ad770ce9303677735219f73b76e2fac1b"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </td></tr>
-<tr class="memitem:ad770ce9303677735219f73b76e2fac1b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#ad770ce9303677735219f73b76e2fac1b">Mcro::Templates::TTemplate_ParamsDecay</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParametersDecay&lt;Instance&gt;::Type</td></tr>
-<tr class="memdesc:ad770ce9303677735219f73b76e2fac1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get decayed template type parameters as a tuple.  <br /></td></tr>
-<tr class="separator:ad770ce9303677735219f73b76e2fac1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1e612b094b330fdbd9d4ed73aced275" id="r_ad1e612b094b330fdbd9d4ed73aced275"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance , int I&gt; </td></tr>
-<tr class="memitem:ad1e612b094b330fdbd9d4ed73aced275"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#ad1e612b094b330fdbd9d4ed73aced275">Mcro::Templates::TTemplate_Param</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template Param&lt;Instance, I&gt;</td></tr>
-<tr class="memdesc:ad1e612b094b330fdbd9d4ed73aced275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a type parameter at a specified position of a templated instance.  <br /></td></tr>
-<tr class="separator:ad1e612b094b330fdbd9d4ed73aced275"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbae46b13c3677e544a2cd04a6ebe146" id="r_afbae46b13c3677e544a2cd04a6ebe146"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance , int I&gt; </td></tr>
-<tr class="memitem:afbae46b13c3677e544a2cd04a6ebe146"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#afbae46b13c3677e544a2cd04a6ebe146">Mcro::Templates::TTemplate_ParamDecay</a> = typename <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParamDecay&lt;Instance, I&gt;</td></tr>
-<tr class="memdesc:afbae46b13c3677e544a2cd04a6ebe146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a decayed type parameter at a specified position of a templated instance.  <br /></td></tr>
-<tr class="separator:afbae46b13c3677e544a2cd04a6ebe146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5940ac62457115daa4ebd9880b28ef4a" id="r_a5940ac62457115daa4ebd9880b28ef4a"><td class="memTemplParams" colspan="2">template&lt;CTypeList T, size_t... Indices&gt; </td></tr>
+<tr class="memitem:a5940ac62457115daa4ebd9880b28ef4a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a5940ac62457115daa4ebd9880b28ef4a">Mcro::Templates::TComposeTypeListFrom</a> = <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt;<a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0">TTypes_Get</a>&lt;T, Indices&gt;...&gt;</td></tr>
+<tr class="separator:a5940ac62457115daa4ebd9880b28ef4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab75f59b16a4c63ccf50845c06d2e469a" id="r_ab75f59b16a4c63ccf50845c06d2e469a"><td class="memTemplParams" colspan="2">template&lt;size_t Count, CTypeList T&gt; </td></tr>
+<tr class="memitem:ab75f59b16a4c63ccf50845c06d2e469a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#ab75f59b16a4c63ccf50845c06d2e469a">Mcro::Templates::TTypesSkip</a> = typename <a class="el" href="../../d1/de5/structMcro_1_1Templates_1_1TTypesSkip__Struct.html">TTypesSkip_Struct</a>&lt;Count, T&gt;::Type</td></tr>
+<tr class="separator:ab75f59b16a4c63ccf50845c06d2e469a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade417fed3ef90f6a3c60ee34a45fd903" id="r_ade417fed3ef90f6a3c60ee34a45fd903"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename T &gt; </td></tr>
+<tr class="memitem:ade417fed3ef90f6a3c60ee34a45fd903"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#ade417fed3ef90f6a3c60ee34a45fd903">Mcro::Templates::TTypesTrimEnd</a> = typename <a class="el" href="../../d3/d06/structMcro_1_1Templates_1_1TTypesTrimEnd__Struct.html">TTypesTrimEnd_Struct</a>&lt;Count, T&gt;::Type</td></tr>
+<tr class="separator:ade417fed3ef90f6a3c60ee34a45fd903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdc245a2780f3358c3c10db3e94ddfe7" id="r_afdc245a2780f3358c3c10db3e94ddfe7"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename T &gt; </td></tr>
+<tr class="memitem:afdc245a2780f3358c3c10db3e94ddfe7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#afdc245a2780f3358c3c10db3e94ddfe7">Mcro::Templates::TTypesTake</a> = typename <a class="el" href="../../d6/df8/structMcro_1_1Templates_1_1TTypesTake__Struct.html">TTypesTake_Struct</a>&lt;Count, T&gt;::Type</td></tr>
+<tr class="separator:afdc245a2780f3358c3c10db3e94ddfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa307e8af23366f2f4844ce85650eb495" id="r_aa307e8af23366f2f4844ce85650eb495"><td class="memTemplParams" colspan="2">template&lt;CTypeOnlyTemplate Instance&gt; </td></tr>
+<tr class="memitem:aa307e8af23366f2f4844ce85650eb495"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#aa307e8af23366f2f4844ce85650eb495">Mcro::Templates::TTemplate_Params</a> = typename <a class="el" href="../../d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html">TTemplate_Struct</a>&lt;Instance&gt;::Parameters</td></tr>
+<tr class="memdesc:aa307e8af23366f2f4844ce85650eb495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get template type parameters as a tuple.  <br /></td></tr>
+<tr class="separator:aa307e8af23366f2f4844ce85650eb495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec4fb567ee6710479a4ec7e0573728e2" id="r_aec4fb567ee6710479a4ec7e0573728e2"><td class="memTemplParams" colspan="2">template&lt;CTypeOnlyTemplate Instance&gt; </td></tr>
+<tr class="memitem:aec4fb567ee6710479a4ec7e0573728e2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#aec4fb567ee6710479a4ec7e0573728e2">Mcro::Templates::TTemplate_ParamsDecay</a> = typename <a class="el" href="../../d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html">TTemplate_Struct</a>&lt;Instance&gt;::ParametersDecay</td></tr>
+<tr class="memdesc:aec4fb567ee6710479a4ec7e0573728e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get decayed template type parameters as a tuple.  <br /></td></tr>
+<tr class="separator:aec4fb567ee6710479a4ec7e0573728e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbab9300621116058aa3e589ada38048" id="r_acbab9300621116058aa3e589ada38048"><td class="memTemplParams" colspan="2">template&lt;CTypeOnlyTemplate Instance, int I&gt; </td></tr>
+<tr class="memitem:acbab9300621116058aa3e589ada38048"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#acbab9300621116058aa3e589ada38048">Mcro::Templates::TTemplate_Param</a> = typename <a class="el" href="../../d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html">TTemplate_Struct</a>&lt;Instance&gt;::template Param&lt;I&gt;</td></tr>
+<tr class="memdesc:acbab9300621116058aa3e589ada38048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a type parameter at a specified position of a templated instance.  <br /></td></tr>
+<tr class="separator:acbab9300621116058aa3e589ada38048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85feedfac8b98611031086524cbb3554" id="r_a85feedfac8b98611031086524cbb3554"><td class="memTemplParams" colspan="2">template&lt;CTypeOnlyTemplate Instance, int I&gt; </td></tr>
+<tr class="memitem:a85feedfac8b98611031086524cbb3554"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a85feedfac8b98611031086524cbb3554">Mcro::Templates::TTemplate_ParamDecay</a> = typename <a class="el" href="../../d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html">TTemplate_Struct</a>&lt;Instance&gt;::template ParamDecay&lt;I&gt;</td></tr>
+<tr class="memdesc:a85feedfac8b98611031086524cbb3554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a decayed type parameter at a specified position of a templated instance.  <br /></td></tr>
+<tr class="separator:a85feedfac8b98611031086524cbb3554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45367cfc1978976dcf3bee560a976763" id="r_a45367cfc1978976dcf3bee560a976763"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename TemplateOut, CTypeOnlyTemplate FromInstance&gt; </td></tr>
+<tr class="memitem:a45367cfc1978976dcf3bee560a976763"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a45367cfc1978976dcf3bee560a976763">Mcro::Templates::TTemplateMap</a> = typename <a class="el" href="../../d5/d12/structMcro_1_1Templates_1_1TTemplateMap__Struct.html">TTemplateMap_Struct</a>&lt;TemplateOut, FromInstance&gt;::Type</td></tr>
+<tr class="memdesc:a45367cfc1978976dcf3bee560a976763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer parameters from one template to another. Or in other words replace the template part of the input template instance with <code>TemplateOut</code>.  <br /></td></tr>
+<tr class="separator:a45367cfc1978976dcf3bee560a976763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7aea744c284fca3876a08567da704479" id="r_a7aea744c284fca3876a08567da704479"><td class="memTemplParams" colspan="2">template&lt;CTypeList TypeList, auto Test, size_t... Indices&gt; </td></tr>
+<tr class="memitem:a7aea744c284fca3876a08567da704479"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#a7aea744c284fca3876a08567da704479">Mcro::Templates::Detail::AllOfTypeList</a> (bool onEmpty, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:a7aea744c284fca3876a08567da704479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa25e417a09f8ad07d8d59a8f4819670d" id="r_aa25e417a09f8ad07d8d59a8f4819670d"><td class="memTemplParams" colspan="2">template&lt;CTypeList TypeList, auto Test, size_t... Indices&gt; </td></tr>
+<tr class="memitem:aa25e417a09f8ad07d8d59a8f4819670d"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#aa25e417a09f8ad07d8d59a8f4819670d">Mcro::Templates::Detail::AllOfTypeListDecay</a> (bool onEmpty, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:aa25e417a09f8ad07d8d59a8f4819670d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a214e2cd74772d4c3b15c35feb4e2a90d" id="r_a214e2cd74772d4c3b15c35feb4e2a90d"><td class="memTemplParams" colspan="2">template&lt;CTypeList TypeList, auto Test, size_t... Indices&gt; </td></tr>
+<tr class="memitem:a214e2cd74772d4c3b15c35feb4e2a90d"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#a214e2cd74772d4c3b15c35feb4e2a90d">Mcro::Templates::Detail::AnyOfTypeList</a> (bool onEmpty, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:a214e2cd74772d4c3b15c35feb4e2a90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6768a2a78a6aeb52281edb9c3c4d01e5" id="r_a6768a2a78a6aeb52281edb9c3c4d01e5"><td class="memTemplParams" colspan="2">template&lt;CTypeList TypeList, auto Test, size_t... Indices&gt; </td></tr>
+<tr class="memitem:a6768a2a78a6aeb52281edb9c3c4d01e5"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#a6768a2a78a6aeb52281edb9c3c4d01e5">Mcro::Templates::Detail::AnyOfTypeListDecay</a> (bool onEmpty, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:a6768a2a78a6aeb52281edb9c3c4d01e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49d28ededcba003ca242d51ccdd316c" id="r_af49d28ededcba003ca242d51ccdd316c"><td class="memTemplParams" colspan="2">template&lt;CTypeList From, CTypeList To, size_t... Indices&gt; </td></tr>
+<tr class="memitem:af49d28ededcba003ca242d51ccdd316c"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#af49d28ededcba003ca242d51ccdd316c">Mcro::Templates::Detail::IsTypeListConvertibleTo</a> (bool onEmpty, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:af49d28ededcba003ca242d51ccdd316c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50f58e668df251e0fd7baa01091eca8" id="r_ab50f58e668df251e0fd7baa01091eca8"><td class="memTemplParams" colspan="2">template&lt;CTypeList From, CTypeList To, size_t... Indices&gt; </td></tr>
+<tr class="memitem:ab50f58e668df251e0fd7baa01091eca8"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#ab50f58e668df251e0fd7baa01091eca8">Mcro::Templates::Detail::IsTypeListConvertibleToDecay</a> (bool onEmpty, std::index_sequence&lt; Indices... &gt; &amp;&amp;)</td></tr>
+<tr class="separator:ab50f58e668df251e0fd7baa01091eca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2cc84881dcbbf4ecbfe78f6abe22703" id="r_af2cc84881dcbbf4ecbfe78f6abe22703"><td class="memTemplParams" colspan="2">template&lt;CConstType T&gt; </td></tr>
 <tr class="memitem:af2cc84881dcbbf4ecbfe78f6abe22703"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#af2cc84881dcbbf4ecbfe78f6abe22703">Mcro::Templates::AsConst</a> (T &amp;&amp;input)</td></tr>
 <tr class="memdesc:af2cc84881dcbbf4ecbfe78f6abe22703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tired of typing <code>const_cast&lt;FMyLongUnwieldyTypeName&gt;(...)</code>? use this instead.  <br /></td></tr>
@@ -250,10 +331,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7cb62bfd4f916f3b1b238771f59a2908" id="r_a7cb62bfd4f916f3b1b238771f59a2908"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; typename Template, typename Instance &gt; </td></tr>
-<tr class="memitem:a7cb62bfd4f916f3b1b238771f59a2908"><td class="memTemplItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a7cb62bfd4f916f3b1b238771f59a2908">Mcro::Templates::TTemplate_ParamCount</a> = <a class="el" href="../../da/dde/structMcro_1_1Templates_1_1TTemplate.html">TTemplate</a>&lt;Template&gt;::template ParameterCount&lt;Instance&gt;</td></tr>
-<tr class="memdesc:a7cb62bfd4f916f3b1b238771f59a2908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of template type parameters from a specified templated instance (which only has type parameters)  <br /></td></tr>
-<tr class="separator:a7cb62bfd4f916f3b1b238771f59a2908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e0086896cea0d7d1a03107851ef61bf" id="r_a2e0086896cea0d7d1a03107851ef61bf"><td class="memTemplParams" colspan="2">template&lt;CTypeOnlyTemplate Instance&gt; </td></tr>
+<tr class="memitem:a2e0086896cea0d7d1a03107851ef61bf"><td class="memTemplItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a2e0086896cea0d7d1a03107851ef61bf">Mcro::Templates::TTemplate_ParamCount</a> = <a class="el" href="../../d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html">TTemplate_Struct</a>&lt;Instance&gt;::ParameterCount</td></tr>
+<tr class="memdesc:a2e0086896cea0d7d1a03107851ef61bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of template type parameters from a specified templated instance (which only has type parameters)  <br /></td></tr>
+<tr class="separator:a2e0086896cea0d7d1a03107851ef61bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
@@ -261,7 +342,378 @@ Variables</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a5862bff2b5bf4699abe9166dd6249f04" name="a5862bff2b5bf4699abe9166dd6249f04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5862bff2b5bf4699abe9166dd6249f04">&#9670;&#160;</a></span>ALL_OF_TYPE_LIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ALL_OF_TYPE_LIST</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>typeList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a7bf2fcce79ec2dc8e43c3ec2b36faaff">MCRO_TYPE_LIST_PREDICATE</a>(Detail::AllOfTypeList, typeList, onEmpty, __VA_ARGS__)</div>
+<div class="ttc" id="aTemplates_8h_html_a7bf2fcce79ec2dc8e43c3ec2b36faaff"><div class="ttname"><a href="#a7bf2fcce79ec2dc8e43c3ec2b36faaff">MCRO_TYPE_LIST_PREDICATE</a></div><div class="ttdeci">#define MCRO_TYPE_LIST_PREDICATE(Function, TypeList, OnEmpty,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dd4/Templates_8h_source.html#l00259">Templates.h:259</a></div></div>
+</div><!-- fragment -->
+<p>Apply an arbitrary predicate to all types in a type-list, All must pass. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeList</td><td>Input typelist </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type-list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00272">272</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a730fdefd9c4502f4cab58a132ae78374" name="a730fdefd9c4502f4cab58a132ae78374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730fdefd9c4502f4cab58a132ae78374">&#9670;&#160;</a></span>ALL_OF_TYPE_PACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ALL_OF_TYPE_PACK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>TypePack</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a5862bff2b5bf4699abe9166dd6249f04">ALL_OF_TYPE_LIST</a>(TTypes&lt;TypePack...&gt;, onEmpty, __VA_ARGS__)</div>
+<div class="ttc" id="aTemplates_8h_html_a5862bff2b5bf4699abe9166dd6249f04"><div class="ttname"><a href="#a5862bff2b5bf4699abe9166dd6249f04">ALL_OF_TYPE_LIST</a></div><div class="ttdeci">#define ALL_OF_TYPE_LIST(typeList, onEmpty,...)</div><div class="ttdoc">Apply an arbitrary predicate to all types in a type-list, All must pass.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dd4/Templates_8h_source.html#l00272">Templates.h:272</a></div></div>
+</div><!-- fragment -->
+<p>Apply an arbitrary predicate to all types in input type parameter pack, All must pass. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeList</td><td>input type parameter pack without ... </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type parameter pack is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00312">312</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="acb8671eff6e79f0c56b01dcbc524222b" name="acb8671eff6e79f0c56b01dcbc524222b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb8671eff6e79f0c56b01dcbc524222b">&#9670;&#160;</a></span>ANY_OF_TYPE_LIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ANY_OF_TYPE_LIST</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>typeList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a7bf2fcce79ec2dc8e43c3ec2b36faaff">MCRO_TYPE_LIST_PREDICATE</a>(Detail::AnyOfTypeList, typeList, onEmpty, __VA_ARGS__)</div>
+</div><!-- fragment -->
+<p>Apply an arbitrary predicate to all types in a type-list, Any of them can pass. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeList</td><td>Input typelist </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type-list is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00292">292</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a38a35afbaa6bebd794317bd1019bbbd6" name="a38a35afbaa6bebd794317bd1019bbbd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a35afbaa6bebd794317bd1019bbbd6">&#9670;&#160;</a></span>ANY_OF_TYPE_PACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ANY_OF_TYPE_PACK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>TypePack</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#acb8671eff6e79f0c56b01dcbc524222b">ANY_OF_TYPE_LIST</a>(TTypes&lt;TypePack...&gt;, onEmpty, __VA_ARGS__)</div>
+<div class="ttc" id="aTemplates_8h_html_acb8671eff6e79f0c56b01dcbc524222b"><div class="ttname"><a href="#acb8671eff6e79f0c56b01dcbc524222b">ANY_OF_TYPE_LIST</a></div><div class="ttdeci">#define ANY_OF_TYPE_LIST(typeList, onEmpty,...)</div><div class="ttdoc">Apply an arbitrary predicate to all types in a type-list, Any of them can pass.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dd4/Templates_8h_source.html#l00292">Templates.h:292</a></div></div>
+</div><!-- fragment -->
+<p>Apply an arbitrary predicate to all types in input type parameter pack, Any of them can pass. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeList</td><td>input type parameter pack without ... </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type parameter pack is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00332">332</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a3c6cb86bd9e0c324e8a18f13bfca67c3" name="a3c6cb86bd9e0c324e8a18f13bfca67c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6cb86bd9e0c324e8a18f13bfca67c3">&#9670;&#160;</a></span>C_ALL_OF_TYPE_LIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define C_ALL_OF_TYPE_LIST</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>typeList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>conceptIn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a5862bff2b5bf4699abe9166dd6249f04">ALL_OF_TYPE_LIST</a>(typeList, onEmpty, conceptIn&lt;T __VA_OPT__(,) __VA_ARGS__&gt;)</div>
+</div><!-- fragment -->
+<p>Apply a concept to all types in a type-list, All must pass. If a concept needs extra template arguments you can provide them as variadic macro arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TypeList</td><td>Input typelist </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type-list is empty </td></tr>
+    <tr><td class="paramname">conceptIn</td><td>The given concept to check for all items in the typeList </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00283">283</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a134b9b07acb8b4856b2493dfd7a9257c" name="a134b9b07acb8b4856b2493dfd7a9257c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a134b9b07acb8b4856b2493dfd7a9257c">&#9670;&#160;</a></span>C_ALL_OF_TYPE_PACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define C_ALL_OF_TYPE_PACK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>TypePack</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>conceptIn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a3c6cb86bd9e0c324e8a18f13bfca67c3">C_ALL_OF_TYPE_LIST</a>(TTypes&lt;TypePack...&gt;, onEmpty, conceptIn, __VA_ARGS__)</div>
+<div class="ttc" id="aTemplates_8h_html_a3c6cb86bd9e0c324e8a18f13bfca67c3"><div class="ttname"><a href="#a3c6cb86bd9e0c324e8a18f13bfca67c3">C_ALL_OF_TYPE_LIST</a></div><div class="ttdeci">#define C_ALL_OF_TYPE_LIST(typeList, onEmpty, conceptIn,...)</div><div class="ttdoc">Apply a concept to all types in a type-list, All must pass. If a concept needs extra template argumen...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dd4/Templates_8h_source.html#l00283">Templates.h:283</a></div></div>
+</div><!-- fragment -->
+<p>Apply a concept to all types in input type parameter pack, All must pass. If a concept needs extra template arguments you can provide them as variadic macro arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeList</td><td>input type parameter pack without ... </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type parameter pack is empty </td></tr>
+    <tr><td class="paramname">conceptIn</td><td>The given concept to check for all items in the type parameter pack </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00323">323</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a94e2f54c6399eb1ad9f732211da6bfc0" name="a94e2f54c6399eb1ad9f732211da6bfc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94e2f54c6399eb1ad9f732211da6bfc0">&#9670;&#160;</a></span>C_ANY_OF_TYPE_LIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define C_ANY_OF_TYPE_LIST</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>typeList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>conceptIn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#acb8671eff6e79f0c56b01dcbc524222b">ANY_OF_TYPE_LIST</a>(typeList, onEmpty, conceptIn&lt;T __VA_OPT__(,) __VA_ARGS__&gt;)</div>
+</div><!-- fragment -->
+<p>Apply a concept to all types in a type-list, Any of them can pass. If a concept needs extra template arguments you can provide them as variadic macro arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TypeList</td><td>Input typelist </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type-list is empty </td></tr>
+    <tr><td class="paramname">conceptIn</td><td>The given concept to check for all items in the typeList </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00303">303</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="af067b4e21a5f2688aa826ebae28276c7" name="af067b4e21a5f2688aa826ebae28276c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af067b4e21a5f2688aa826ebae28276c7">&#9670;&#160;</a></span>C_ANY_OF_TYPE_PACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define C_ANY_OF_TYPE_PACK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>TypePack</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>onEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>conceptIn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a94e2f54c6399eb1ad9f732211da6bfc0">C_ANY_OF_TYPE_LIST</a>(TTypes&lt;TypePack...&gt;, onEmpty, conceptIn, __VA_ARGS__)</div>
+<div class="ttc" id="aTemplates_8h_html_a94e2f54c6399eb1ad9f732211da6bfc0"><div class="ttname"><a href="#a94e2f54c6399eb1ad9f732211da6bfc0">C_ANY_OF_TYPE_LIST</a></div><div class="ttdeci">#define C_ANY_OF_TYPE_LIST(typeList, onEmpty, conceptIn,...)</div><div class="ttdoc">Apply a concept to all types in a type-list, Any of them can pass. If a concept needs extra template ...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dd4/Templates_8h_source.html#l00303">Templates.h:303</a></div></div>
+</div><!-- fragment -->
+<p>Apply a concept to all types in input type parameter pack, Any of them can pass. If a concept needs extra template arguments you can provide them as variadic macro arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeList</td><td>input type parameter pack without ... </td></tr>
+    <tr><td class="paramname">onEmpty</td><td>Default value if type parameter pack is empty </td></tr>
+    <tr><td class="paramname">conceptIn</td><td>The given concept to check for all items in the type parameter pack </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00343">343</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+<a id="a7bf2fcce79ec2dc8e43c3ec2b36faaff" name="a7bf2fcce79ec2dc8e43c3ec2b36faaff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf2fcce79ec2dc8e43c3ec2b36faaff">&#9670;&#160;</a></span>MCRO_TYPE_LIST_PREDICATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_TYPE_LIST_PREDICATE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>TypeList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>OnEmpty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    Function&lt; \</div>
+<div class="line">        BOOST_PP_REMOVE_PARENS(TypeList), \</div>
+<div class="line">        [] &lt;<span class="keyword">typename</span> T&gt; (TTypes&lt;T&gt;&amp;&amp;) { <span class="keywordflow">return</span> __VA_ARGS__; } \</div>
+<div class="line">    &gt;(OnEmpty, std::make_index_sequence&lt;BOOST_PP_REMOVE_PARENS(TypeList)::Count&gt;())</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../d7/dd4/Templates_8h_source.html#l00259">259</a> of file <a class="el" href="../../d7/dd4/Templates_8h_source.html">Templates.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

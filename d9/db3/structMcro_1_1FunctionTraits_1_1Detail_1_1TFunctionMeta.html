@@ -128,10 +128,14 @@ Public Types</h2></td></tr>
 <tr class="separator:aad0ee3c73acf497ae4a37f5445a70703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab24959ec5b8f2d36bf4490ebb893b43a" id="r_ab24959ec5b8f2d36bf4490ebb893b43a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab24959ec5b8f2d36bf4490ebb893b43a">ReturnDecay</a> = std::decay_t&lt;ReturnIn&gt;</td></tr>
 <tr class="separator:ab24959ec5b8f2d36bf4490ebb893b43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4bee0d7d471b5a791a6fa17ffd4ae1" id="r_a0f4bee0d7d471b5a791a6fa17ffd4ae1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f4bee0d7d471b5a791a6fa17ffd4ae1">Arguments</a> = TTuple&lt;Args...&gt;</td></tr>
-<tr class="separator:a0f4bee0d7d471b5a791a6fa17ffd4ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a067cc001f8f4aef8dfa021b66a8ba7cf" id="r_a067cc001f8f4aef8dfa021b66a8ba7cf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a067cc001f8f4aef8dfa021b66a8ba7cf">ArgumentsDecay</a> = TTuple&lt;std::decay_t&lt;Args&gt;...&gt;</td></tr>
-<tr class="separator:a067cc001f8f4aef8dfa021b66a8ba7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a9bcef273e045ff926614f049fe89f" id="r_a22a9bcef273e045ff926614f049fe89f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22a9bcef273e045ff926614f049fe89f">Arguments</a> = <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt;Args...&gt;</td></tr>
+<tr class="separator:a22a9bcef273e045ff926614f049fe89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41306d2e209e550e1a2cd902843217d8" id="r_a41306d2e209e550e1a2cd902843217d8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41306d2e209e550e1a2cd902843217d8">ArgumentsDecay</a> = <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt;std::decay_t&lt;Args&gt;...&gt;</td></tr>
+<tr class="separator:a41306d2e209e550e1a2cd902843217d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5842b94ecbd1ab447e8bf6a6b403606c" id="r_a5842b94ecbd1ab447e8bf6a6b403606c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5842b94ecbd1ab447e8bf6a6b403606c">ArgumentsTuple</a> = TTuple&lt;Args...&gt;</td></tr>
+<tr class="separator:a5842b94ecbd1ab447e8bf6a6b403606c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa971a31940b42cc474943e67af3ee5ae" id="r_aa971a31940b42cc474943e67af3ee5ae"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa971a31940b42cc474943e67af3ee5ae">ArgumentsTupleDecay</a> = TTuple&lt;std::decay_t&lt;Args&gt;...&gt;</td></tr>
+<tr class="separator:aa971a31940b42cc474943e67af3ee5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa399f44205c57b938326cb8e4044755" id="r_afa399f44205c57b938326cb8e4044755"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa399f44205c57b938326cb8e4044755">ArgumentsStd</a> = std::tuple&lt;Args...&gt;</td></tr>
 <tr class="separator:afa399f44205c57b938326cb8e4044755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d99e706383564a2bad953fb23f51be3" id="r_a1d99e706383564a2bad953fb23f51be3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d99e706383564a2bad953fb23f51be3">ArgumentsStdDecay</a> = std::tuple&lt;std::decay_t&lt;Args&gt;...&gt;</td></tr>
@@ -142,12 +146,12 @@ Public Types</h2></td></tr>
 <tr class="separator:a4c575f73962703a317cabee669edeb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a7cae2e40a80b8cd2362a7405c41647" id="r_a0a7cae2e40a80b8cd2362a7405c41647"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a7cae2e40a80b8cd2362a7405c41647">Signature</a> = <a class="el" href="#aad0ee3c73acf497ae4a37f5445a70703">Return</a>(Args...)</td></tr>
 <tr class="separator:a0a7cae2e40a80b8cd2362a7405c41647"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a513a948d5e5a5163c4db787cfedcee29" id="r_a513a948d5e5a5163c4db787cfedcee29"><td class="memTemplParams" colspan="2">template&lt;int I&gt; </td></tr>
-<tr class="memitem:a513a948d5e5a5163c4db787cfedcee29"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a513a948d5e5a5163c4db787cfedcee29">Arg</a> = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a8d736d46057410c6d0b58c25fd0a9424">TTypeAt</a>&lt;I, <a class="el" href="#a0f4bee0d7d471b5a791a6fa17ffd4ae1">Arguments</a>&gt;</td></tr>
-<tr class="separator:a513a948d5e5a5163c4db787cfedcee29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab21e4f21c22c6da64f446f2c071fdd3c" id="r_ab21e4f21c22c6da64f446f2c071fdd3c"><td class="memTemplParams" colspan="2">template&lt;int I&gt; </td></tr>
-<tr class="memitem:ab21e4f21c22c6da64f446f2c071fdd3c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab21e4f21c22c6da64f446f2c071fdd3c">ArgDecay</a> = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a8d736d46057410c6d0b58c25fd0a9424">TTypeAt</a>&lt;I, <a class="el" href="#a067cc001f8f4aef8dfa021b66a8ba7cf">ArgumentsDecay</a>&gt;</td></tr>
-<tr class="separator:ab21e4f21c22c6da64f446f2c071fdd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1625374ab87afa0bdc559db95f68850" id="r_aa1625374ab87afa0bdc559db95f68850"><td class="memTemplParams" colspan="2">template&lt;int I&gt; </td></tr>
+<tr class="memitem:aa1625374ab87afa0bdc559db95f68850"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa1625374ab87afa0bdc559db95f68850">Arg</a> = <a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0">TTypes_Get</a>&lt;<a class="el" href="#a22a9bcef273e045ff926614f049fe89f">Arguments</a>, I&gt;</td></tr>
+<tr class="separator:aa1625374ab87afa0bdc559db95f68850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f73d845b3581ad7098fbd323228053" id="r_ab1f73d845b3581ad7098fbd323228053"><td class="memTemplParams" colspan="2">template&lt;int I&gt; </td></tr>
+<tr class="memitem:ab1f73d845b3581ad7098fbd323228053"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab1f73d845b3581ad7098fbd323228053">ArgDecay</a> = <a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0">TTypes_Get</a>&lt;<a class="el" href="#a41306d2e209e550e1a2cd902843217d8">ArgumentsDecay</a>, I&gt;</td></tr>
+<tr class="separator:ab1f73d845b3581ad7098fbd323228053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -159,8 +163,8 @@ Static Public Attributes</h2></td></tr>
 struct Mcro::FunctionTraits::Detail::TFunctionMeta&lt; ReturnIn, Args &gt;</div>
 <p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00032">32</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a513a948d5e5a5163c4db787cfedcee29" name="a513a948d5e5a5163c4db787cfedcee29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a513a948d5e5a5163c4db787cfedcee29">&#9670;&#160;</a></span>Arg</h2>
+<a id="aa1625374ab87afa0bdc559db95f68850" name="aa1625374ab87afa0bdc559db95f68850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1625374ab87afa0bdc559db95f68850">&#9670;&#160;</a></span>Arg</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,17 +174,17 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 template&lt;int I&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::Arg = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a8d736d46057410c6d0b58c25fd0a9424">TTypeAt</a>&lt;I, <a class="el" href="#a0f4bee0d7d471b5a791a6fa17ffd4ae1">Arguments</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::Arg = <a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0">TTypes_Get</a>&lt;<a class="el" href="#a22a9bcef273e045ff926614f049fe89f">Arguments</a>, I&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00061">61</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00067">67</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
-<a id="ab21e4f21c22c6da64f446f2c071fdd3c" name="ab21e4f21c22c6da64f446f2c071fdd3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab21e4f21c22c6da64f446f2c071fdd3c">&#9670;&#160;</a></span>ArgDecay</h2>
+<a id="ab1f73d845b3581ad7098fbd323228053" name="ab1f73d845b3581ad7098fbd323228053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f73d845b3581ad7098fbd323228053">&#9670;&#160;</a></span>ArgDecay</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,17 +194,17 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 template&lt;int I&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgDecay = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a8d736d46057410c6d0b58c25fd0a9424">TTypeAt</a>&lt;I, <a class="el" href="#a067cc001f8f4aef8dfa021b66a8ba7cf">ArgumentsDecay</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgDecay = <a class="el" href="../../d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0">TTypes_Get</a>&lt;<a class="el" href="#a41306d2e209e550e1a2cd902843217d8">ArgumentsDecay</a>, I&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00064">64</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00070">70</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
-<a id="a0f4bee0d7d471b5a791a6fa17ffd4ae1" name="a0f4bee0d7d471b5a791a6fa17ffd4ae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f4bee0d7d471b5a791a6fa17ffd4ae1">&#9670;&#160;</a></span>Arguments</h2>
+<a id="a22a9bcef273e045ff926614f049fe89f" name="a22a9bcef273e045ff926614f049fe89f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a9bcef273e045ff926614f049fe89f">&#9670;&#160;</a></span>Arguments</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +212,7 @@ template&lt;int I&gt; </div>
 template&lt;typename ReturnIn , typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::Arguments = TTuple&lt;Args...&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::Arguments = <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt;Args...&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -218,8 +222,8 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a067cc001f8f4aef8dfa021b66a8ba7cf" name="a067cc001f8f4aef8dfa021b66a8ba7cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a067cc001f8f4aef8dfa021b66a8ba7cf">&#9670;&#160;</a></span>ArgumentsDecay</h2>
+<a id="a41306d2e209e550e1a2cd902843217d8" name="a41306d2e209e550e1a2cd902843217d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41306d2e209e550e1a2cd902843217d8">&#9670;&#160;</a></span>ArgumentsDecay</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +231,7 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 template&lt;typename ReturnIn , typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgumentsDecay = TTuple&lt;std::decay_t&lt;Args&gt;...&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgumentsDecay = <a class="el" href="../../da/da5/structMcro_1_1Templates_1_1TTypes.html">TTypes</a>&lt;std::decay_t&lt;Args&gt;...&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -252,7 +256,7 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 </div><div class="memdoc">
 <p>The input parameters of the function as a std::tuple type. <a class="el" href="../../da/d89/namespaceMcro_1_1Types.html" title="C++ native static reflection utilities, not to be confused with reflection of UObjects.">Types</a> are not decayed. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00052">52</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00058">58</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -271,7 +275,7 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 </div><div class="memdoc">
 <p>The input parameters of the function as a tuple type. <a class="el" href="../../da/d89/namespaceMcro_1_1Types.html" title="C++ native static reflection utilities, not to be confused with reflection of UObjects.">Types</a> are decayed (useful for storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00055">55</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00061">61</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +294,7 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 </div><div class="memdoc">
 <p>The input parameters of the function as a std::tuple type. <a class="el" href="../../da/d89/namespaceMcro_1_1Types.html" title="C++ native static reflection utilities, not to be confused with reflection of UObjects.">Types</a> are not decayed. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00046">46</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00052">52</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -304,6 +308,44 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgumentsStdDecay = std::tuple&lt;std::decay_t&lt;Args&gt;...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The input parameters of the function as a tuple type. <a class="el" href="../../da/d89/namespaceMcro_1_1Types.html" title="C++ native static reflection utilities, not to be confused with reflection of UObjects.">Types</a> are decayed (useful for storage) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00055">55</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="a5842b94ecbd1ab447e8bf6a6b403606c" name="a5842b94ecbd1ab447e8bf6a6b403606c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5842b94ecbd1ab447e8bf6a6b403606c">&#9670;&#160;</a></span>ArgumentsTuple</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ReturnIn , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgumentsTuple = TTuple&lt;Args...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The input parameters of the function as a tuple type. <a class="el" href="../../da/d89/namespaceMcro_1_1Types.html" title="C++ native static reflection utilities, not to be confused with reflection of UObjects.">Types</a> are not decayed. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00046">46</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="aa971a31940b42cc474943e67af3ee5ae" name="aa971a31940b42cc474943e67af3ee5ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa971a31940b42cc474943e67af3ee5ae">&#9670;&#160;</a></span>ArgumentsTupleDecay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ReturnIn , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html">Mcro::FunctionTraits::Detail::TFunctionMeta</a>&lt; ReturnIn, Args &gt;::ArgumentsTupleDecay = TTuple&lt;std::decay_t&lt;Args&gt;...&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -364,7 +406,7 @@ template&lt;typename ReturnIn , typename... Args&gt; </div>
 </div><div class="memdoc">
 <p>The pure function signature with other information stripped from it </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00058">58</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00064">64</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>

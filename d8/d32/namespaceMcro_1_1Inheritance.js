@@ -8,6 +8,6 @@ var namespaceMcro_1_1Inheritance =
     [ "TInherit", "d8/de3/classMcro_1_1Inheritance_1_1TInherit.html", "d8/de3/classMcro_1_1Inheritance_1_1TInherit" ],
     [ "CHasBases", "d9/de7/conceptMcro_1_1Inheritance_1_1CHasBases.html", null ],
     [ "CHasExplicitBase", "da/d2f/conceptMcro_1_1Inheritance_1_1CHasExplicitBase.html", null ],
-    [ "ForEachExplicitBase", "d8/d32/namespaceMcro_1_1Inheritance.html#aca1f73e64d8ecf207098ef963543f550", null ],
-    [ "HasExplicitBase", "d8/d32/namespaceMcro_1_1Inheritance.html#a6c67f690dd7d92d3fc93a435e5003795", null ]
+    [ "ForEachExplicitBase", "d8/d32/namespaceMcro_1_1Inheritance.html#a7a3073c0807aa216b53ea6f12b74f87f", null ],
+    [ "HasExplicitBase", "d8/d32/namespaceMcro_1_1Inheritance.html#a404a5a38d590ecf4aa90a02f6513a164", null ]
 ];

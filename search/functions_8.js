@@ -20,10 +20,12 @@ var searchData=
   ['isrunningpie_17',['IsRunningPIE',['../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a6db6e981d4e2b0f88f6cf581f7108da8',1,'Mcro::AssertMacros::Detail']]],
   ['isset_18',['IsSet',['../d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html#a1544e9485fe857070f748d1aa74004a1',1,'Mcro::ValueThunk::TValueThunk']]],
   ['istriggered_19',['IsTriggered',['../d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e',1,'Mcro::Once::FOnce']]],
-  ['isuncroot_20',['IsUncRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#a70ac10917929d623d92cb62c36d0548b',1,'McroBuild::PathUtils']]],
-  ['isunixroot_21',['IsUnixRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#ae844f17b06b68a5e2a4b1fa30b36f4ba',1,'McroBuild::PathUtils']]],
-  ['isvalid_22',['IsValid',['../df/d32/structMcro_1_1Any_1_1FAny.html#a1f010d88ad1916d4c6552079088ebbfe',1,'Mcro::Any::FAny::IsValid()'],['../da/d0a/structMcro_1_1TypeInfo_1_1FType.html#aec61f3d975000150982e3b470e3e6ef7',1,'Mcro::TypeInfo::FType::IsValid()']]],
-  ['isvisible_23',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]],
-  ['iswinroot_24',['IsWinRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#ae06aca9486bd790013bea9c431c6ccd5',1,'McroBuild::PathUtils']]],
-  ['iteratorequals_25',['IteratorEquals',['../de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6',1,'Mcro::Range']]]
+  ['istypelistconvertibleto_20',['IsTypeListConvertibleTo',['../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#af49d28ededcba003ca242d51ccdd316c',1,'Mcro::Templates::Detail']]],
+  ['istypelistconvertibletodecay_21',['IsTypeListConvertibleToDecay',['../d2/d61/namespaceMcro_1_1Templates_1_1Detail.html#ab50f58e668df251e0fd7baa01091eca8',1,'Mcro::Templates::Detail']]],
+  ['isuncroot_22',['IsUncRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#a70ac10917929d623d92cb62c36d0548b',1,'McroBuild::PathUtils']]],
+  ['isunixroot_23',['IsUnixRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#ae844f17b06b68a5e2a4b1fa30b36f4ba',1,'McroBuild::PathUtils']]],
+  ['isvalid_24',['IsValid',['../df/d32/structMcro_1_1Any_1_1FAny.html#a1f010d88ad1916d4c6552079088ebbfe',1,'Mcro::Any::FAny::IsValid()'],['../da/d0a/structMcro_1_1TypeInfo_1_1FType.html#aec61f3d975000150982e3b470e3e6ef7',1,'Mcro::TypeInfo::FType::IsValid()']]],
+  ['isvisible_25',['IsVisible',['../df/df4/namespaceMcro_1_1Slate.html#a4fa0c2bf1d38dc606f82a421bb902d3e',1,'Mcro::Slate']]],
+  ['iswinroot_26',['IsWinRoot',['../df/dbf/classMcroBuild_1_1PathUtils.html#ae06aca9486bd790013bea9c431c6ccd5',1,'McroBuild::PathUtils']]],
+  ['iteratorequals_27',['IteratorEquals',['../de/d41/namespaceMcro_1_1Range.html#a7f32db7efeb662c1485fdd931156f5e6',1,'Mcro::Range']]]
 ];

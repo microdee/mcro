@@ -126,18 +126,18 @@ $(function(){initNavTree('d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatib
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html">Mcro::FunctionTraits::CTupleCompatibleWithFunction</a> = </div>
 <div class="line">        CTuple&lt;Tuple&gt; &amp;&amp; <a class="code hl_concept" href="../../de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html">CFunctionLike&lt;Function&gt;</a></div>
 <div class="line">        &amp;&amp; (</div>
-<div class="line">            CConvertibleTo&lt;Tuple, typename TFunctionTraits&lt;std::decay_t&lt;Function&gt;&gt;::Arguments&gt;</div>
+<div class="line">            CConvertibleTo&lt;Tuple, typename TFunctionTraits&lt;std::decay_t&lt;Function&gt;&gt;::ArgumentsTuple&gt;</div>
 <div class="line">            || CConvertibleTo&lt;Tuple, typename TFunctionTraits&lt;std::decay_t&lt;Function&gt;&gt;::ArgumentsStd&gt;</div>
 <div class="line">            || CConvertibleTo&lt;Tuple, typename TFunctionTraits&lt;std::decay_t&lt;Function&gt;&gt;::ArgumentsRangeV3&gt;</div>
 <div class="line">        )</div>
 <div class="line">    </div>
-<div class="ttc" id="aconceptMcro_1_1FunctionTraits_1_1CFunctionLike_html"><div class="ttname"><a href="../../de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html">Mcro::FunctionTraits::CFunctionLike</a></div><div class="ttdoc">A concept accepting any function like entity (function pointer or functor object)</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00188">FunctionTraits.h:188</a></div></div>
-<div class="ttc" id="aconceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction_html"><div class="ttname"><a href="../../d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html">Mcro::FunctionTraits::CTupleCompatibleWithFunction</a></div><div class="ttdoc">Is given tuple type compatible with the arguments of the given function?</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00264">FunctionTraits.h:264</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1FunctionTraits_1_1CFunctionLike_html"><div class="ttname"><a href="../../de/d60/conceptMcro_1_1FunctionTraits_1_1CFunctionLike.html">Mcro::FunctionTraits::CFunctionLike</a></div><div class="ttdoc">A concept accepting any function like entity (function pointer or functor object)</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00218">FunctionTraits.h:218</a></div></div>
+<div class="ttc" id="aconceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction_html"><div class="ttname"><a href="../../d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html">Mcro::FunctionTraits::CTupleCompatibleWithFunction</a></div><div class="ttdoc">Is given tuple type compatible with the arguments of the given function?</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00292">FunctionTraits.h:292</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Is given tuple type compatible with the arguments of the given function? </p>
 <p>Works with <code>TTuple</code>, <code>std::tuple</code> and <code>ranges::common_tuple</code> (tuple type of RangeV3 library) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00264">264</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00292">292</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

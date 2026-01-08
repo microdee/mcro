@@ -17,7 +17,7 @@ var namespaceMcro_1_1Delegates =
     [ "TBelatedRetainingEventDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#ab7e15f1661282dffb343fc53e0912d18", null ],
     [ "TDynamicMethodPtr", "d0/dec/namespaceMcro_1_1Delegates.html#ae79c9ec71f5c756d96d75d002b713a43", null ],
     [ "TDynamicSignature", "d0/dec/namespaceMcro_1_1Delegates.html#a46933d598dfed18f71d53768945f7ca1", null ],
-    [ "TInferredDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#a5eb5013a1ba38f60ca21d6850595c204", null ],
+    [ "TInferredDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#abc996fecedf2fe2d3a0aed379348faab", null ],
     [ "TNative", "d0/dec/namespaceMcro_1_1Delegates.html#a2a43b0ef75b82f9104675f810ca8236a", null ],
     [ "TNativeEvent", "d0/dec/namespaceMcro_1_1Delegates.html#a0c599c1abc289ee065a4f38f07321579", null ],
     [ "TOneTimeBelatedEventDelegate", "d0/dec/namespaceMcro_1_1Delegates.html#a84745a0d03f9e163ced9c23c076e0c4f", null ],

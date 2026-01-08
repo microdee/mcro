@@ -199,10 +199,10 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a0c599c1abc289ee065a4f38f07321579"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0c599c1abc289ee065a4f38f07321579">TNativeEvent</a> = typename <a class="el" href="../../d0/d4a/structMcro_1_1Delegates_1_1TNativeEvent__Struct.html">TNativeEvent_Struct</a>&lt;Dynamic, DefaultPolicy&gt;::Type</td></tr>
 <tr class="memdesc:a0c599c1abc289ee065a4f38f07321579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map the input dynamic multicast delegate to a conceptually compatible native event delegate type.  <br /></td></tr>
 <tr class="separator:a0c599c1abc289ee065a4f38f07321579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eb5013a1ba38f60ca21d6850595c204" id="r_a5eb5013a1ba38f60ca21d6850595c204"><td class="memTemplParams" colspan="2">template&lt;CFunctionLike Function, typename... Captures&gt; </td></tr>
-<tr class="memitem:a5eb5013a1ba38f60ca21d6850595c204"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5eb5013a1ba38f60ca21d6850595c204">TInferredDelegate</a></td></tr>
-<tr class="memdesc:a5eb5013a1ba38f60ca21d6850595c204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Infer a delegate type from an input function signature and a list of captures.  <br /></td></tr>
-<tr class="separator:a5eb5013a1ba38f60ca21d6850595c204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc996fecedf2fe2d3a0aed379348faab" id="r_abc996fecedf2fe2d3a0aed379348faab"><td class="memTemplParams" colspan="2">template&lt;CFunctionLike Function, typename... Captures&gt; </td></tr>
+<tr class="memitem:abc996fecedf2fe2d3a0aed379348faab"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abc996fecedf2fe2d3a0aed379348faab">TInferredDelegate</a></td></tr>
+<tr class="memdesc:abc996fecedf2fe2d3a0aed379348faab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Infer a delegate type from an input function signature and a list of captures.  <br /></td></tr>
+<tr class="separator:abc996fecedf2fe2d3a0aed379348faab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae79c9ec71f5c756d96d75d002b713a43" id="r_ae79c9ec71f5c756d96d75d002b713a43"><td class="memTemplParams" colspan="2">template&lt;typename Dynamic &gt; </td></tr>
 <tr class="memitem:ae79c9ec71f5c756d96d75d002b713a43"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae79c9ec71f5c756d96d75d002b713a43">TDynamicMethodPtr</a> = typename <a class="el" href="../../d6/d84/structMcro_1_1Delegates_1_1TDynamicMethodPtr__Struct.html">TDynamicMethodPtr_Struct</a>&lt;std::decay_t&lt;Dynamic&gt;&gt;::Type</td></tr>
 <tr class="memdesc:ae79c9ec71f5c756d96d75d002b713a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the native function pointer type compatible with given dynamic (multicast) delegate.  <br /></td></tr>
@@ -305,8 +305,8 @@ template&lt;typename Dynamic &gt; </div>
 
 </div>
 </div>
-<a id="a5eb5013a1ba38f60ca21d6850595c204" name="a5eb5013a1ba38f60ca21d6850595c204"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eb5013a1ba38f60ca21d6850595c204">&#9670;&#160;</a></span>TInferredDelegate</h2>
+<a id="abc996fecedf2fe2d3a0aed379348faab" name="abc996fecedf2fe2d3a0aed379348faab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc996fecedf2fe2d3a0aed379348faab">&#9670;&#160;</a></span>TInferredDelegate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,19 +314,19 @@ template&lt;typename Dynamic &gt; </div>
 template&lt;CFunctionLike Function, typename... Captures&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a5eb5013a1ba38f60ca21d6850595c204">Mcro::Delegates::TInferredDelegate</a></td>
+          <td class="memname">using <a class="el" href="#abc996fecedf2fe2d3a0aed379348faab">Mcro::Delegates::TInferredDelegate</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> TDelegate&lt;</div>
-<div class="line">            <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a>&lt;</div>
+<div class="line">            <a class="code hl_typedef" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a298e8516dc41d5273c84e24a24b73485">TFunctionFromTypes</a>&lt;</div>
 <div class="line">                TFunction_Return&lt;Function&gt;,</div>
-<div class="line">                <a class="code hl_typedef" href="../../db/d81/namespaceMcro_1_1Tuples.html#a716064a36e27fdc4cff9ba3edb38e6d0">TTrimEnd</a>&lt;<span class="keyword">sizeof</span>...(Captures), TFunction_Arguments&lt;Function&gt;&gt;</div>
+<div class="line">                <a class="code hl_typedef" href="../../d7/d53/namespaceMcro_1_1Templates.html#ade417fed3ef90f6a3c60ee34a45fd903">TTypesTrimEnd</a>&lt;<span class="keyword">sizeof</span>...(Captures), TFunction_Arguments&lt;Function&gt;&gt;</div>
 <div class="line">            &gt;,</div>
 <div class="line">            FDefaultDelegateUserPolicy</div>
 <div class="line">        &gt;</div>
-<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_af19319d3a3e6ffff2cb43b1f5126be41"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#af19319d3a3e6ffff2cb43b1f5126be41">Mcro::FunctionTraits::TFunctionFromTuple</a></div><div class="ttdeci">typename Detail::TFunctionFromTuple_Struct&lt; Return, std::decay_t&lt; Tuple &gt; &gt;::Type TFunctionFromTuple</div><div class="ttdoc">Compose a function type from a tuple of arguments and a return type.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00218">FunctionTraits.h:218</a></div></div>
-<div class="ttc" id="anamespaceMcro_1_1Tuples_html_a716064a36e27fdc4cff9ba3edb38e6d0"><div class="ttname"><a href="../../db/d81/namespaceMcro_1_1Tuples.html#a716064a36e27fdc4cff9ba3edb38e6d0">Mcro::Tuples::TTrimEnd</a></div><div class="ttdeci">typename TTrimEnd_Struct&lt; Count, Tuple &gt;::Type TTrimEnd</div><div class="ttdoc">Disregard the last Count elements of the input tuple.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d07/Tuples_8h_source.html#l00195">Tuples.h:195</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1FunctionTraits_html_a298e8516dc41d5273c84e24a24b73485"><div class="ttname"><a href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a298e8516dc41d5273c84e24a24b73485">Mcro::FunctionTraits::TFunctionFromTypes</a></div><div class="ttdeci">typename Detail::TFunctionFromTypes_Struct&lt; Return, std::decay_t&lt; TypeList &gt; &gt;::Type TFunctionFromTypes</div><div class="ttdoc">Compose a function type from a tuple of arguments and a return type.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d25/FunctionTraits_8h_source.html#l00246">FunctionTraits.h:246</a></div></div>
+<div class="ttc" id="anamespaceMcro_1_1Templates_html_ade417fed3ef90f6a3c60ee34a45fd903"><div class="ttname"><a href="../../d7/d53/namespaceMcro_1_1Templates.html#ade417fed3ef90f6a3c60ee34a45fd903">Mcro::Templates::TTypesTrimEnd</a></div><div class="ttdeci">typename TTypesTrimEnd_Struct&lt; Count, T &gt;::Type TTypesTrimEnd</div><div class="ttdef"><b>Definition</b> <a href="../../d7/dd4/Templates_8h_source.html#l00179">Templates.h:179</a></div></div>
 </div><!-- fragment -->
 <p>Infer a delegate type from an input function signature and a list of captures. </p>
 <p>The resulting delegate signature will trim the "Captures" from the input function signature. This is used in <code>From</code> overloads to allow binding functions with extra arguments to a delegate which has fewer (as the vanilla Unreal delegates API allows to do so) </p>

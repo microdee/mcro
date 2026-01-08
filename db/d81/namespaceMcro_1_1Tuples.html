@@ -134,11 +134,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html">TSkip_Struct</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/structMcro_1_1Tuples_1_1TTupleSkip__Struct.html">TTupleSkip_Struct</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html">TTake_Struct</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0d/structMcro_1_1Tuples_1_1TTupleTake__Struct.html">TTupleTake_Struct</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html">TTrimEnd_Struct</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/da3/structMcro_1_1Tuples_1_1TTupleTrimEnd__Struct.html">TTupleTrimEnd_Struct</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html">TTypeAt_Struct</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,22 +175,22 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a573ca3c791a7cf2c3b5fd07cc0d079b8" id="r_a573ca3c791a7cf2c3b5fd07cc0d079b8"><td class="memTemplParams" colspan="2">template&lt;size_t I, CTuple T&gt; </td></tr>
 <tr class="memitem:a573ca3c791a7cf2c3b5fd07cc0d079b8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a573ca3c791a7cf2c3b5fd07cc0d079b8">TTypeAtDecayed</a> = std::decay_t&lt;typename <a class="el" href="../../d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html">TTypeAt_Struct</a>&lt;I, T&gt;::Type&gt;</td></tr>
 <tr class="separator:a573ca3c791a7cf2c3b5fd07cc0d079b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404a27215bb7054785c41d71ec29e83d" id="r_a404a27215bb7054785c41d71ec29e83d"><td class="memTemplParams" colspan="2">template&lt;typename Tuple , size_t... Indices&gt; </td></tr>
-<tr class="memitem:a404a27215bb7054785c41d71ec29e83d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a404a27215bb7054785c41d71ec29e83d">TComposeFrom</a> = TTuple&lt;typename TTupleElement&lt;Indices, Tuple&gt;::Type...&gt;</td></tr>
-<tr class="memdesc:a404a27215bb7054785c41d71ec29e83d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compose one tuple out of the elements of another tuple based on the input index parameter pack.  <br /></td></tr>
-<tr class="separator:a404a27215bb7054785c41d71ec29e83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bc48eaf8b6b85d42cd906fe71db0e83" id="r_a2bc48eaf8b6b85d42cd906fe71db0e83"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename Tuple &gt; </td></tr>
-<tr class="memitem:a2bc48eaf8b6b85d42cd906fe71db0e83"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2bc48eaf8b6b85d42cd906fe71db0e83">TSkip</a> = typename <a class="el" href="../../db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html">TSkip_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
-<tr class="memdesc:a2bc48eaf8b6b85d42cd906fe71db0e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skip the first <code>Count</code> elements of the input tuple.  <br /></td></tr>
-<tr class="separator:a2bc48eaf8b6b85d42cd906fe71db0e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a716064a36e27fdc4cff9ba3edb38e6d0" id="r_a716064a36e27fdc4cff9ba3edb38e6d0"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename Tuple &gt; </td></tr>
-<tr class="memitem:a716064a36e27fdc4cff9ba3edb38e6d0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a716064a36e27fdc4cff9ba3edb38e6d0">TTrimEnd</a> = typename <a class="el" href="../../dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html">TTrimEnd_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
-<tr class="memdesc:a716064a36e27fdc4cff9ba3edb38e6d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disregard the last <code>Count</code> elements of the input tuple.  <br /></td></tr>
-<tr class="separator:a716064a36e27fdc4cff9ba3edb38e6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26ad914c4d35e206ac5d12cdc185876d" id="r_a26ad914c4d35e206ac5d12cdc185876d"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename Tuple &gt; </td></tr>
-<tr class="memitem:a26ad914c4d35e206ac5d12cdc185876d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a26ad914c4d35e206ac5d12cdc185876d">TTake</a> = typename <a class="el" href="../../d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html">TTake_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
-<tr class="memdesc:a26ad914c4d35e206ac5d12cdc185876d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take only the first <code>Count</code> elements of the input tuple.  <br /></td></tr>
-<tr class="separator:a26ad914c4d35e206ac5d12cdc185876d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b2bb5694b372cc28d7b1a3d169b6a2" id="r_ad1b2bb5694b372cc28d7b1a3d169b6a2"><td class="memTemplParams" colspan="2">template&lt;typename Tuple , size_t... Indices&gt; </td></tr>
+<tr class="memitem:ad1b2bb5694b372cc28d7b1a3d169b6a2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad1b2bb5694b372cc28d7b1a3d169b6a2">TComposeTupleFrom</a> = TTuple&lt;typename TTupleElement&lt;Indices, Tuple&gt;::Type...&gt;</td></tr>
+<tr class="memdesc:ad1b2bb5694b372cc28d7b1a3d169b6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compose one tuple out of the elements of another tuple based on the input index parameter pack.  <br /></td></tr>
+<tr class="separator:ad1b2bb5694b372cc28d7b1a3d169b6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7215a1b4a75b9c3ec4baa4bd738e9752" id="r_a7215a1b4a75b9c3ec4baa4bd738e9752"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename Tuple &gt; </td></tr>
+<tr class="memitem:a7215a1b4a75b9c3ec4baa4bd738e9752"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7215a1b4a75b9c3ec4baa4bd738e9752">TTupleSkip</a> = typename <a class="el" href="../../d9/d9b/structMcro_1_1Tuples_1_1TTupleSkip__Struct.html">TTupleSkip_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
+<tr class="memdesc:a7215a1b4a75b9c3ec4baa4bd738e9752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skip the first <code>Count</code> elements of the input tuple.  <br /></td></tr>
+<tr class="separator:a7215a1b4a75b9c3ec4baa4bd738e9752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2af387127c19f0668533a1e5a047ffe" id="r_ab2af387127c19f0668533a1e5a047ffe"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename Tuple &gt; </td></tr>
+<tr class="memitem:ab2af387127c19f0668533a1e5a047ffe"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab2af387127c19f0668533a1e5a047ffe">TTupleTrimEnd</a> = typename <a class="el" href="../../d8/da3/structMcro_1_1Tuples_1_1TTupleTrimEnd__Struct.html">TTupleTrimEnd_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
+<tr class="memdesc:ab2af387127c19f0668533a1e5a047ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disregard the last <code>Count</code> elements of the input tuple.  <br /></td></tr>
+<tr class="separator:ab2af387127c19f0668533a1e5a047ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdcce82e2d180f50fc9ddd432cd7f103" id="r_abdcce82e2d180f50fc9ddd432cd7f103"><td class="memTemplParams" colspan="2">template&lt;size_t Count, typename Tuple &gt; </td></tr>
+<tr class="memitem:abdcce82e2d180f50fc9ddd432cd7f103"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abdcce82e2d180f50fc9ddd432cd7f103">TTupleTake</a> = typename <a class="el" href="../../d0/d0d/structMcro_1_1Tuples_1_1TTupleTake__Struct.html">TTupleTake_Struct</a>&lt;Count, Tuple&gt;::Type</td></tr>
+<tr class="memdesc:abdcce82e2d180f50fc9ddd432cd7f103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take only the first <code>Count</code> elements of the input tuple.  <br /></td></tr>
+<tr class="separator:abdcce82e2d180f50fc9ddd432cd7f103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -236,8 +236,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Templating utilities for manipulating <code>TTuple</code>s. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a404a27215bb7054785c41d71ec29e83d" name="a404a27215bb7054785c41d71ec29e83d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a404a27215bb7054785c41d71ec29e83d">&#9670;&#160;</a></span>TComposeFrom</h2>
+<a id="ad1b2bb5694b372cc28d7b1a3d169b6a2" name="ad1b2bb5694b372cc28d7b1a3d169b6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b2bb5694b372cc28d7b1a3d169b6a2">&#9670;&#160;</a></span>TComposeTupleFrom</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +245,7 @@ Variables</h2></td></tr>
 template&lt;typename Tuple , size_t... Indices&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a404a27215bb7054785c41d71ec29e83d">Mcro::Tuples::TComposeFrom</a> = TTuple&lt;typename TTupleElement&lt;Indices, Tuple&gt;::Type...&gt;</td>
+          <td class="memname">using <a class="el" href="#ad1b2bb5694b372cc28d7b1a3d169b6a2">Mcro::Tuples::TComposeTupleFrom</a> = TTuple&lt;typename TTupleElement&lt;Indices, Tuple&gt;::Type...&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -274,8 +274,8 @@ template&lt;CTuple T&gt; </div>
 
 </div>
 </div>
-<a id="a2bc48eaf8b6b85d42cd906fe71db0e83" name="a2bc48eaf8b6b85d42cd906fe71db0e83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bc48eaf8b6b85d42cd906fe71db0e83">&#9670;&#160;</a></span>TSkip</h2>
+<a id="a7215a1b4a75b9c3ec4baa4bd738e9752" name="a7215a1b4a75b9c3ec4baa4bd738e9752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7215a1b4a75b9c3ec4baa4bd738e9752">&#9670;&#160;</a></span>TTupleSkip</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,7 +283,7 @@ template&lt;CTuple T&gt; </div>
 template&lt;size_t Count, typename Tuple &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a2bc48eaf8b6b85d42cd906fe71db0e83">Mcro::Tuples::TSkip</a> = typename <a class="el" href="../../db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html">TSkip_Struct</a>&lt;Count, Tuple&gt;::Type</td>
+          <td class="memname">using <a class="el" href="#a7215a1b4a75b9c3ec4baa4bd738e9752">Mcro::Tuples::TTupleSkip</a> = typename <a class="el" href="../../d9/d9b/structMcro_1_1Tuples_1_1TTupleSkip__Struct.html">TTupleSkip_Struct</a>&lt;Count, Tuple&gt;::Type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -294,8 +294,8 @@ template&lt;size_t Count, typename Tuple &gt; </div>
 
 </div>
 </div>
-<a id="a26ad914c4d35e206ac5d12cdc185876d" name="a26ad914c4d35e206ac5d12cdc185876d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26ad914c4d35e206ac5d12cdc185876d">&#9670;&#160;</a></span>TTake</h2>
+<a id="abdcce82e2d180f50fc9ddd432cd7f103" name="abdcce82e2d180f50fc9ddd432cd7f103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdcce82e2d180f50fc9ddd432cd7f103">&#9670;&#160;</a></span>TTupleTake</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +303,7 @@ template&lt;size_t Count, typename Tuple &gt; </div>
 template&lt;size_t Count, typename Tuple &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a26ad914c4d35e206ac5d12cdc185876d">Mcro::Tuples::TTake</a> = typename <a class="el" href="../../d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html">TTake_Struct</a>&lt;Count, Tuple&gt;::Type</td>
+          <td class="memname">using <a class="el" href="#abdcce82e2d180f50fc9ddd432cd7f103">Mcro::Tuples::TTupleTake</a> = typename <a class="el" href="../../d0/d0d/structMcro_1_1Tuples_1_1TTupleTake__Struct.html">TTupleTake_Struct</a>&lt;Count, Tuple&gt;::Type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -314,8 +314,8 @@ template&lt;size_t Count, typename Tuple &gt; </div>
 
 </div>
 </div>
-<a id="a716064a36e27fdc4cff9ba3edb38e6d0" name="a716064a36e27fdc4cff9ba3edb38e6d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a716064a36e27fdc4cff9ba3edb38e6d0">&#9670;&#160;</a></span>TTrimEnd</h2>
+<a id="ab2af387127c19f0668533a1e5a047ffe" name="ab2af387127c19f0668533a1e5a047ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2af387127c19f0668533a1e5a047ffe">&#9670;&#160;</a></span>TTupleTrimEnd</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,7 +323,7 @@ template&lt;size_t Count, typename Tuple &gt; </div>
 template&lt;size_t Count, typename Tuple &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a716064a36e27fdc4cff9ba3edb38e6d0">Mcro::Tuples::TTrimEnd</a> = typename <a class="el" href="../../dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html">TTrimEnd_Struct</a>&lt;Count, Tuple&gt;::Type</td>
+          <td class="memname">using <a class="el" href="#ab2af387127c19f0668533a1e5a047ffe">Mcro::Tuples::TTupleTrimEnd</a> = typename <a class="el" href="../../d8/da3/structMcro_1_1Tuples_1_1TTupleTrimEnd__Struct.html">TTupleTrimEnd_Struct</a>&lt;Count, Tuple&gt;::Type</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -129,8 +129,8 @@ $(function(){initNavTree('d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionA
 Public Types</h2></td></tr>
 <tr class="memitem:ad6c96c3a6dcc33259bda4588740aee9c" id="r_ad6c96c3a6dcc33259bda4588740aee9c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6c96c3a6dcc33259bda4588740aee9c">FirstArg</a> = <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg</a>&lt;Function, 0&gt;</td></tr>
 <tr class="separator:ad6c96c3a6dcc33259bda4588740aee9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7281ebc9613465484ef61a74701cffb1" id="r_a7281ebc9613465484ef61a74701cffb1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7281ebc9613465484ef61a74701cffb1">ExtraArgs</a> = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a2bc48eaf8b6b85d42cd906fe71db0e83">TSkip</a>&lt;1, <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;Function&gt;&gt;</td></tr>
-<tr class="separator:a7281ebc9613465484ef61a74701cffb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2b4a64c46d86a0a555ddaa151b3bff" id="r_a6d2b4a64c46d86a0a555ddaa151b3bff"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d2b4a64c46d86a0a555ddaa151b3bff">ExtraArgs</a> = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a7215a1b4a75b9c3ec4baa4bd738e9752">TTupleSkip</a>&lt;1, <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#afaa5c9f01c6fdfddba377026ff6de887">TFunction_ArgumentsTuple</a>&lt;Function&gt;&gt;</td></tr>
+<tr class="separator:a6d2b4a64c46d86a0a555ddaa151b3bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e40c7757dc97a2e3f615956f611cb73" id="r_a1e40c7757dc97a2e3f615956f611cb73"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e40c7757dc97a2e3f615956f611cb73">Return</a> = <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return</a>&lt;Function&gt;</td></tr>
 <tr class="separator:a1e40c7757dc97a2e3f615956f611cb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -148,10 +148,10 @@ Public Member Functions</h2></td></tr>
 requires ( CFunctionPtr&lt;decltype(FuncPtr)&gt; &amp;&amp; <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#a506fd8e26fa2dc6ef87c855f741a36dc">TFunction_ArgCount</a>&lt;decltype(FuncPtr)&gt; &gt; 0 )<br />
 struct Mcro::FunctionTraits::TDeferFunctionArguments&lt; FuncPtr, Function &gt;</div><p>Defers a set of arguments for a function call later with its first argument. This is useful for developing fluent API operators. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00398">398</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00436">436</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a7281ebc9613465484ef61a74701cffb1" name="a7281ebc9613465484ef61a74701cffb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7281ebc9613465484ef61a74701cffb1">&#9670;&#160;</a></span>ExtraArgs</h2>
+<a id="a6d2b4a64c46d86a0a555ddaa151b3bff" name="a6d2b4a64c46d86a0a555ddaa151b3bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d2b4a64c46d86a0a555ddaa151b3bff">&#9670;&#160;</a></span>ExtraArgs</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,12 +159,12 @@ struct Mcro::FunctionTraits::TDeferFunctionArguments&lt; FuncPtr, Function &gt;<
 template&lt;auto FuncPtr, CFunctionPtr Function = decltype(FuncPtr)&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html">Mcro::FunctionTraits::TDeferFunctionArguments</a>&lt; FuncPtr, Function &gt;::ExtraArgs = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a2bc48eaf8b6b85d42cd906fe71db0e83">TSkip</a>&lt;1, <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;Function&gt;&gt;</td>
+          <td class="memname">using <a class="el" href="../../d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html">Mcro::FunctionTraits::TDeferFunctionArguments</a>&lt; FuncPtr, Function &gt;::ExtraArgs = <a class="el" href="../../db/d81/namespaceMcro_1_1Tuples.html#a7215a1b4a75b9c3ec4baa4bd738e9752">TTupleSkip</a>&lt;1, <a class="el" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html#afaa5c9f01c6fdfddba377026ff6de887">TFunction_ArgumentsTuple</a>&lt;Function&gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00401">401</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00439">439</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -182,7 +182,7 @@ template&lt;auto FuncPtr, CFunctionPtr Function = decltype(FuncPtr)&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00400">400</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00438">438</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -200,7 +200,7 @@ template&lt;auto FuncPtr, CFunctionPtr Function = decltype(FuncPtr)&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00402">402</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00440">440</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -232,7 +232,7 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00405">405</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00443">443</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ template&lt;CConvertibleToDecayed&lt; <a class="el" href="#ad6c96c3a6dcc33259bda
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00410">410</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00448">448</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>

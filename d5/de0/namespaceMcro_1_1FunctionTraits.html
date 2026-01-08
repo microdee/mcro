@@ -192,6 +192,12 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d02/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible.html">CFunctionCompatible</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept constraining a function type to another one which arguments and return types are compatible, preserving CV-ref qualifiers. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dc5/conceptMcro_1_1FunctionTraits_1_1CFunctionWithArgumentCount.html">CFunctionWithArgumentCount</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept only functions which has given number of arguments, whatever type they may be. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d02/conceptMcro_1_1FunctionTraits_1_1CNullaryFunction.html">CNullaryFunction</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept only functions which has 0 arguments. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html">CFunctionReturnsVoid</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept matching function types returning void. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,12 +209,36 @@ Concepts</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:af666b0d3166ba3387e439ec2ceb5ac71" id="r_af666b0d3166ba3387e439ec2ceb5ac71"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af666b0d3166ba3387e439ec2ceb5ac71"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::Arguments</td></tr>
-<tr class="memdesc:af666b0d3166ba3387e439ec2ceb5ac71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a tuple representing the function arguments.  <br /></td></tr>
+<tr class="memdesc:af666b0d3166ba3387e439ec2ceb5ac71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the function arguments.  <br /></td></tr>
 <tr class="separator:af666b0d3166ba3387e439ec2ceb5ac71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68ea1efc57f680e80c0f3ea607dd6731" id="r_a68ea1efc57f680e80c0f3ea607dd6731"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a68ea1efc57f680e80c0f3ea607dd6731"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a68ea1efc57f680e80c0f3ea607dd6731">TFunction_ArgumentsDecay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsDecay</td></tr>
-<tr class="memdesc:a68ea1efc57f680e80c0f3ea607dd6731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a tuple representing the decayed function arguments.  <br /></td></tr>
+<tr class="memdesc:a68ea1efc57f680e80c0f3ea607dd6731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the decayed function arguments.  <br /></td></tr>
 <tr class="separator:a68ea1efc57f680e80c0f3ea607dd6731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa5c9f01c6fdfddba377026ff6de887" id="r_afaa5c9f01c6fdfddba377026ff6de887"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afaa5c9f01c6fdfddba377026ff6de887"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afaa5c9f01c6fdfddba377026ff6de887">TFunction_ArgumentsTuple</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsTuple</td></tr>
+<tr class="memdesc:afaa5c9f01c6fdfddba377026ff6de887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the function arguments.  <br /></td></tr>
+<tr class="separator:afaa5c9f01c6fdfddba377026ff6de887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a189e74a1cb4f23785dc70be95003f30e" id="r_a189e74a1cb4f23785dc70be95003f30e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a189e74a1cb4f23785dc70be95003f30e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a189e74a1cb4f23785dc70be95003f30e">TFunction_ArgumentsTupleDecay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsTupleDecay</td></tr>
+<tr class="memdesc:a189e74a1cb4f23785dc70be95003f30e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the decayed function arguments.  <br /></td></tr>
+<tr class="separator:a189e74a1cb4f23785dc70be95003f30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a175bf082c2f598a16016be52aabf2eb6" id="r_a175bf082c2f598a16016be52aabf2eb6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a175bf082c2f598a16016be52aabf2eb6"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a175bf082c2f598a16016be52aabf2eb6">TFunction_ArgumentsStd</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsStd</td></tr>
+<tr class="memdesc:a175bf082c2f598a16016be52aabf2eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the function arguments.  <br /></td></tr>
+<tr class="separator:a175bf082c2f598a16016be52aabf2eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35d2e74a4fc71751e759debc8132761a" id="r_a35d2e74a4fc71751e759debc8132761a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a35d2e74a4fc71751e759debc8132761a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a35d2e74a4fc71751e759debc8132761a">TFunction_ArgumentsStdDecay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsStdDecay</td></tr>
+<tr class="memdesc:a35d2e74a4fc71751e759debc8132761a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the decayed function arguments.  <br /></td></tr>
+<tr class="separator:a35d2e74a4fc71751e759debc8132761a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612ec75a415a84d2642d88d1f6f62eaa" id="r_a612ec75a415a84d2642d88d1f6f62eaa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a612ec75a415a84d2642d88d1f6f62eaa"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a612ec75a415a84d2642d88d1f6f62eaa">TFunction_ArgumentsRangeV3</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsRangeV3</td></tr>
+<tr class="memdesc:a612ec75a415a84d2642d88d1f6f62eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the function arguments.  <br /></td></tr>
+<tr class="separator:a612ec75a415a84d2642d88d1f6f62eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22fb3148239608c52871e90fe2cef5c" id="r_ae22fb3148239608c52871e90fe2cef5c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae22fb3148239608c52871e90fe2cef5c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae22fb3148239608c52871e90fe2cef5c">TFunction_ArgumentsRangeV3Decay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsRangeV3Decay</td></tr>
+<tr class="memdesc:ae22fb3148239608c52871e90fe2cef5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a list representing the decayed function arguments.  <br /></td></tr>
+<tr class="separator:ae22fb3148239608c52871e90fe2cef5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c6b0c1fd4799038c4fc4add5242f1d" id="r_a03c6b0c1fd4799038c4fc4add5242f1d"><td class="memTemplParams" colspan="2">template&lt;typename T , int I&gt; </td></tr>
 <tr class="memitem:a03c6b0c1fd4799038c4fc4add5242f1d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a03c6b0c1fd4799038c4fc4add5242f1d">TFunction_Arg</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::template Arg&lt;I&gt;</td></tr>
 <tr class="memdesc:a03c6b0c1fd4799038c4fc4add5242f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting a type of a function argument at given position I.  <br /></td></tr>
@@ -233,24 +263,24 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a62ffbf55d4865c8bbdf9dc20b7716c91"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a62ffbf55d4865c8bbdf9dc20b7716c91">TFunction_Class</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::Class</td></tr>
 <tr class="memdesc:a62ffbf55d4865c8bbdf9dc20b7716c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for getting the class of a member function.  <br /></td></tr>
 <tr class="separator:a62ffbf55d4865c8bbdf9dc20b7716c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af19319d3a3e6ffff2cb43b1f5126be41" id="r_af19319d3a3e6ffff2cb43b1f5126be41"><td class="memTemplParams" colspan="2">template&lt;typename Return , typename Tuple &gt; </td></tr>
-<tr class="memitem:af19319d3a3e6ffff2cb43b1f5126be41"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a> = typename <a class="el" href="../../d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html">Detail::TFunctionFromTuple_Struct</a>&lt;Return, std::decay_t&lt;Tuple&gt;&gt;::Type</td></tr>
-<tr class="memdesc:af19319d3a3e6ffff2cb43b1f5126be41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compose a function type from a tuple of arguments and a return type.  <br /></td></tr>
-<tr class="separator:af19319d3a3e6ffff2cb43b1f5126be41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac13948033ac3bb8e6f545762f041cfa6" id="r_ac13948033ac3bb8e6f545762f041cfa6"><td class="memTemplParams" colspan="2">template&lt;typename Return , typename DstFunction &gt; </td></tr>
-<tr class="memitem:ac13948033ac3bb8e6f545762f041cfa6"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac13948033ac3bb8e6f545762f041cfa6">TSetReturn</a> = <a class="el" href="#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a>&lt;Return, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td></tr>
-<tr class="memdesc:ac13948033ac3bb8e6f545762f041cfa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the return type of an input function signature.  <br /></td></tr>
-<tr class="separator:ac13948033ac3bb8e6f545762f041cfa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e76c6d38aa6a511170ddafc3cf12d8" id="r_ab0e76c6d38aa6a511170ddafc3cf12d8"><td class="memTemplParams" colspan="2">template&lt;typename Return , typename DstFunction &gt; </td></tr>
-<tr class="memitem:ab0e76c6d38aa6a511170ddafc3cf12d8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab0e76c6d38aa6a511170ddafc3cf12d8">TSetReturnDecay</a> = <a class="el" href="#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a>&lt;std::decay_t&lt;Return&gt;, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td></tr>
-<tr class="memdesc:ab0e76c6d38aa6a511170ddafc3cf12d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the return type of an input function signature, and discard its qualifiers.  <br /></td></tr>
-<tr class="separator:ab0e76c6d38aa6a511170ddafc3cf12d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298e8516dc41d5273c84e24a24b73485" id="r_a298e8516dc41d5273c84e24a24b73485"><td class="memTemplParams" colspan="2">template&lt;typename Return , typename TypeList &gt; </td></tr>
+<tr class="memitem:a298e8516dc41d5273c84e24a24b73485"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a298e8516dc41d5273c84e24a24b73485">TFunctionFromTypes</a> = typename <a class="el" href="../../d2/d01/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTypes__Struct.html">Detail::TFunctionFromTypes_Struct</a>&lt;Return, std::decay_t&lt;TypeList&gt;&gt;::Type</td></tr>
+<tr class="memdesc:a298e8516dc41d5273c84e24a24b73485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compose a function type from a tuple of arguments and a return type.  <br /></td></tr>
+<tr class="separator:a298e8516dc41d5273c84e24a24b73485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38d6c53be37600a16a2900b26a80cea1" id="r_a38d6c53be37600a16a2900b26a80cea1"><td class="memTemplParams" colspan="2">template&lt;typename Return , typename DstFunction &gt; </td></tr>
+<tr class="memitem:a38d6c53be37600a16a2900b26a80cea1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a38d6c53be37600a16a2900b26a80cea1">TSetReturn</a> = <a class="el" href="#a298e8516dc41d5273c84e24a24b73485">TFunctionFromTypes</a>&lt;Return, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td></tr>
+<tr class="memdesc:a38d6c53be37600a16a2900b26a80cea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the return type of an input function signature.  <br /></td></tr>
+<tr class="separator:a38d6c53be37600a16a2900b26a80cea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01d5df35211796aafe4dfd82ea6f464" id="r_ae01d5df35211796aafe4dfd82ea6f464"><td class="memTemplParams" colspan="2">template&lt;typename Return , typename DstFunction &gt; </td></tr>
+<tr class="memitem:ae01d5df35211796aafe4dfd82ea6f464"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae01d5df35211796aafe4dfd82ea6f464">TSetReturnDecay</a> = <a class="el" href="#a298e8516dc41d5273c84e24a24b73485">TFunctionFromTypes</a>&lt;std::decay_t&lt;Return&gt;, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td></tr>
+<tr class="memdesc:ae01d5df35211796aafe4dfd82ea6f464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the return type of an input function signature, and discard its qualifiers.  <br /></td></tr>
+<tr class="separator:ae01d5df35211796aafe4dfd82ea6f464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaad954199aa11cc03578c516a7922c52" id="r_aaad954199aa11cc03578c516a7922c52"><td class="memTemplParams" colspan="2">template&lt;typename SrcFunction , typename DstFunction &gt; </td></tr>
-<tr class="memitem:aaad954199aa11cc03578c516a7922c52"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aaad954199aa11cc03578c516a7922c52">TCopyReturn</a> = <a class="el" href="#ac13948033ac3bb8e6f545762f041cfa6">TSetReturn</a>&lt;<a class="el" href="#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return</a>&lt;SrcFunction&gt;, DstFunction&gt;</td></tr>
+<tr class="memitem:aaad954199aa11cc03578c516a7922c52"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aaad954199aa11cc03578c516a7922c52">TCopyReturn</a> = <a class="el" href="#a38d6c53be37600a16a2900b26a80cea1">TSetReturn</a>&lt;<a class="el" href="#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return</a>&lt;SrcFunction&gt;, DstFunction&gt;</td></tr>
 <tr class="memdesc:aaad954199aa11cc03578c516a7922c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the return type from source function signature to the destination one.  <br /></td></tr>
 <tr class="separator:aaad954199aa11cc03578c516a7922c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8b6249d6ef92f468bf0df060ac7071a" id="r_ad8b6249d6ef92f468bf0df060ac7071a"><td class="memTemplParams" colspan="2">template&lt;typename SrcFunction , typename DstFunction &gt; </td></tr>
-<tr class="memitem:ad8b6249d6ef92f468bf0df060ac7071a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad8b6249d6ef92f468bf0df060ac7071a">TCopyReturnDecay</a> = <a class="el" href="#ab0e76c6d38aa6a511170ddafc3cf12d8">TSetReturnDecay</a>&lt;<a class="el" href="#a4113c68ecb0a68169d56645942149eca">TFunction_ReturnDecay</a>&lt;SrcFunction&gt;, DstFunction&gt;</td></tr>
+<tr class="memitem:ad8b6249d6ef92f468bf0df060ac7071a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad8b6249d6ef92f468bf0df060ac7071a">TCopyReturnDecay</a> = <a class="el" href="#ae01d5df35211796aafe4dfd82ea6f464">TSetReturnDecay</a>&lt;<a class="el" href="#a4113c68ecb0a68169d56645942149eca">TFunction_ReturnDecay</a>&lt;SrcFunction&gt;, DstFunction&gt;</td></tr>
 <tr class="memdesc:ad8b6249d6ef92f468bf0df060ac7071a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the return type from source function signature to the destination one, and discard its qualifiers.  <br /></td></tr>
 <tr class="separator:ad8b6249d6ef92f468bf0df060ac7071a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -282,14 +312,14 @@ Variables</h2></td></tr>
 template&lt;typename SrcFunction , typename DstFunction &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#aaad954199aa11cc03578c516a7922c52">Mcro::FunctionTraits::TCopyReturn</a> = <a class="el" href="#ac13948033ac3bb8e6f545762f041cfa6">TSetReturn</a>&lt;<a class="el" href="#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return</a>&lt;SrcFunction&gt;, DstFunction&gt;</td>
+          <td class="memname">using <a class="el" href="#aaad954199aa11cc03578c516a7922c52">Mcro::FunctionTraits::TCopyReturn</a> = <a class="el" href="#a38d6c53be37600a16a2900b26a80cea1">TSetReturn</a>&lt;<a class="el" href="#a3d1efdc66989051df52ae194e6a8ab6a">TFunction_Return</a>&lt;SrcFunction&gt;, DstFunction&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Copy the return type from source function signature to the destination one. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00230">230</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00258">258</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -302,14 +332,14 @@ template&lt;typename SrcFunction , typename DstFunction &gt; </div>
 template&lt;typename SrcFunction , typename DstFunction &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ad8b6249d6ef92f468bf0df060ac7071a">Mcro::FunctionTraits::TCopyReturnDecay</a> = <a class="el" href="#ab0e76c6d38aa6a511170ddafc3cf12d8">TSetReturnDecay</a>&lt;<a class="el" href="#a4113c68ecb0a68169d56645942149eca">TFunction_ReturnDecay</a>&lt;SrcFunction&gt;, DstFunction&gt;</td>
+          <td class="memname">using <a class="el" href="#ad8b6249d6ef92f468bf0df060ac7071a">Mcro::FunctionTraits::TCopyReturnDecay</a> = <a class="el" href="#ae01d5df35211796aafe4dfd82ea6f464">TSetReturnDecay</a>&lt;<a class="el" href="#a4113c68ecb0a68169d56645942149eca">TFunction_ReturnDecay</a>&lt;SrcFunction&gt;, DstFunction&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Copy the return type from source function signature to the destination one, and discard its qualifiers. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00234">234</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00262">262</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +359,7 @@ template&lt;typename T , int I&gt; </div>
 
 <p>Shorthand for getting a type of a function argument at given position I. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00153">153</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00183">183</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +379,7 @@ template&lt;typename T , int I&gt; </div>
 
 <p>Shorthand for getting a decayed type of a function argument at given position I. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00157">157</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00187">187</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -367,9 +397,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Shorthand for getting a tuple representing the function arguments. </p>
+<p>Shorthand for getting a list representing the function arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00145">145</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00151">151</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -387,9 +417,129 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Shorthand for getting a tuple representing the decayed function arguments. </p>
+<p>Shorthand for getting a list representing the decayed function arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00149">149</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00155">155</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="a612ec75a415a84d2642d88d1f6f62eaa" name="a612ec75a415a84d2642d88d1f6f62eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612ec75a415a84d2642d88d1f6f62eaa">&#9670;&#160;</a></span>TFunction_ArgumentsRangeV3</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a612ec75a415a84d2642d88d1f6f62eaa">Mcro::FunctionTraits::TFunction_ArgumentsRangeV3</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsRangeV3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for getting a list representing the function arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00175">175</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="ae22fb3148239608c52871e90fe2cef5c" name="ae22fb3148239608c52871e90fe2cef5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22fb3148239608c52871e90fe2cef5c">&#9670;&#160;</a></span>TFunction_ArgumentsRangeV3Decay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ae22fb3148239608c52871e90fe2cef5c">Mcro::FunctionTraits::TFunction_ArgumentsRangeV3Decay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsRangeV3Decay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for getting a list representing the decayed function arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00179">179</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="a175bf082c2f598a16016be52aabf2eb6" name="a175bf082c2f598a16016be52aabf2eb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a175bf082c2f598a16016be52aabf2eb6">&#9670;&#160;</a></span>TFunction_ArgumentsStd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a175bf082c2f598a16016be52aabf2eb6">Mcro::FunctionTraits::TFunction_ArgumentsStd</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsStd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for getting a list representing the function arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00167">167</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="a35d2e74a4fc71751e759debc8132761a" name="a35d2e74a4fc71751e759debc8132761a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d2e74a4fc71751e759debc8132761a">&#9670;&#160;</a></span>TFunction_ArgumentsStdDecay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a35d2e74a4fc71751e759debc8132761a">Mcro::FunctionTraits::TFunction_ArgumentsStdDecay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsStdDecay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for getting a list representing the decayed function arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00171">171</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="afaa5c9f01c6fdfddba377026ff6de887" name="afaa5c9f01c6fdfddba377026ff6de887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa5c9f01c6fdfddba377026ff6de887">&#9670;&#160;</a></span>TFunction_ArgumentsTuple</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#afaa5c9f01c6fdfddba377026ff6de887">Mcro::FunctionTraits::TFunction_ArgumentsTuple</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsTuple</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for getting a list representing the function arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00159">159</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+
+</div>
+</div>
+<a id="a189e74a1cb4f23785dc70be95003f30e" name="a189e74a1cb4f23785dc70be95003f30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a189e74a1cb4f23785dc70be95003f30e">&#9670;&#160;</a></span>TFunction_ArgumentsTupleDecay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a189e74a1cb4f23785dc70be95003f30e">Mcro::FunctionTraits::TFunction_ArgumentsTupleDecay</a> = typename <a class="el" href="../../dc/db3/structMcro_1_1FunctionTraits_1_1TFunctionTraits.html">TFunctionTraits</a>&lt;std::decay_t&lt;T&gt;&gt;::ArgumentsTupleDecay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for getting a list representing the decayed function arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00163">163</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -409,7 +559,7 @@ template&lt;CFunction_IsMember T&gt; </div>
 
 <p>Shorthand for getting the class of a member function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00180">180</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00210">210</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -429,7 +579,7 @@ template&lt;typename T &gt; </div>
 
 <p>Shorthand for getting a function return type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00165">165</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00195">195</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -449,7 +599,7 @@ template&lt;typename T &gt; </div>
 
 <p>Shorthand for getting a function return type discarding qualifiers. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00169">169</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00199">199</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -469,32 +619,32 @@ template&lt;typename T &gt; </div>
 
 <p>Shorthand for getting a pur function signature. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00173">173</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00203">203</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
-<a id="af19319d3a3e6ffff2cb43b1f5126be41" name="af19319d3a3e6ffff2cb43b1f5126be41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af19319d3a3e6ffff2cb43b1f5126be41">&#9670;&#160;</a></span>TFunctionFromTuple</h2>
+<a id="a298e8516dc41d5273c84e24a24b73485" name="a298e8516dc41d5273c84e24a24b73485"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a298e8516dc41d5273c84e24a24b73485">&#9670;&#160;</a></span>TFunctionFromTypes</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Return , typename Tuple &gt; </div>
+template&lt;typename Return , typename TypeList &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#af19319d3a3e6ffff2cb43b1f5126be41">Mcro::FunctionTraits::TFunctionFromTuple</a> = typename <a class="el" href="../../d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html">Detail::TFunctionFromTuple_Struct</a>&lt;Return, std::decay_t&lt;Tuple&gt;&gt;::Type</td>
+          <td class="memname">using <a class="el" href="#a298e8516dc41d5273c84e24a24b73485">Mcro::FunctionTraits::TFunctionFromTypes</a> = typename <a class="el" href="../../d2/d01/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTypes__Struct.html">Detail::TFunctionFromTypes_Struct</a>&lt;Return, std::decay_t&lt;TypeList&gt;&gt;::Type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Compose a function type from a tuple of arguments and a return type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00218">218</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00246">246</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
-<a id="ac13948033ac3bb8e6f545762f041cfa6" name="ac13948033ac3bb8e6f545762f041cfa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac13948033ac3bb8e6f545762f041cfa6">&#9670;&#160;</a></span>TSetReturn</h2>
+<a id="a38d6c53be37600a16a2900b26a80cea1" name="a38d6c53be37600a16a2900b26a80cea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38d6c53be37600a16a2900b26a80cea1">&#9670;&#160;</a></span>TSetReturn</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,19 +652,19 @@ template&lt;typename Return , typename Tuple &gt; </div>
 template&lt;typename Return , typename DstFunction &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ac13948033ac3bb8e6f545762f041cfa6">Mcro::FunctionTraits::TSetReturn</a> = <a class="el" href="#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a>&lt;Return, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td>
+          <td class="memname">using <a class="el" href="#a38d6c53be37600a16a2900b26a80cea1">Mcro::FunctionTraits::TSetReturn</a> = <a class="el" href="#a298e8516dc41d5273c84e24a24b73485">TFunctionFromTypes</a>&lt;Return, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Override the return type of an input function signature. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00222">222</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00250">250</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
-<a id="ab0e76c6d38aa6a511170ddafc3cf12d8" name="ab0e76c6d38aa6a511170ddafc3cf12d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0e76c6d38aa6a511170ddafc3cf12d8">&#9670;&#160;</a></span>TSetReturnDecay</h2>
+<a id="ae01d5df35211796aafe4dfd82ea6f464" name="ae01d5df35211796aafe4dfd82ea6f464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae01d5df35211796aafe4dfd82ea6f464">&#9670;&#160;</a></span>TSetReturnDecay</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,14 +672,14 @@ template&lt;typename Return , typename DstFunction &gt; </div>
 template&lt;typename Return , typename DstFunction &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ab0e76c6d38aa6a511170ddafc3cf12d8">Mcro::FunctionTraits::TSetReturnDecay</a> = <a class="el" href="#af19319d3a3e6ffff2cb43b1f5126be41">TFunctionFromTuple</a>&lt;std::decay_t&lt;Return&gt;, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td>
+          <td class="memname">using <a class="el" href="#ae01d5df35211796aafe4dfd82ea6f464">Mcro::FunctionTraits::TSetReturnDecay</a> = <a class="el" href="#a298e8516dc41d5273c84e24a24b73485">TFunctionFromTypes</a>&lt;std::decay_t&lt;Return&gt;, <a class="el" href="#af666b0d3166ba3387e439ec2ceb5ac71">TFunction_Arguments</a>&lt;DstFunction&gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Override the return type of an input function signature, and discard its qualifiers. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00226">226</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00254">254</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +708,7 @@ template&lt;typename Function , CTupleCompatibleWithFunction&lt; Function &gt; T
 <p>A clone of std::apply for Unreal, STL and RangeV3 tuples which also supports function pointers. </p>
 <p>TL;DR: It calls a function with arguments supplied from a tuple. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00280">280</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00308">308</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -591,7 +741,7 @@ template&lt;CFunctionPtr Function, CHasFunction&lt; Function &gt; Object, CTuple
 <p>A clone of std::apply for Unreal, STL and RangeV3 tuples which also supports function pointers. This overload can bind an object. </p>
 <p>TL;DR: It calls a function with arguments supplied from a tuple. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00300">300</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00328">328</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +770,7 @@ template&lt;typename T &gt; </div>
 
 <p>Shorthand for getting a function argument count. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00161">161</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html#l00191">191</a> of file <a class="el" href="../../d7/d25/FunctionTraits_8h_source.html">FunctionTraits.h</a>.</p>
 
 </div>
 </div>

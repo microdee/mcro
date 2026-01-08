@@ -69,7 +69,8 @@ var annotated_dup =
       ] ],
       [ "FunctionTraits", "d5/de0/namespaceMcro_1_1FunctionTraits.html", [
         [ "Detail", "d3/d3b/namespaceMcro_1_1FunctionTraits_1_1Detail.html", [
-          [ "TFunctionFromTuple_Struct", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct.html", "d1/d16/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTuple__Struct" ],
+          [ "TFunctionFromTypes_Struct", "d2/d01/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTypes__Struct.html", "d2/d01/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTypes__Struct" ],
+          [ "TFunctionFromTypes_Struct< Return, TTypes< Types... > >", "db/d9a/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTypes__Struct_3_01Return_00_01TTypes_3_01Types_8_8_8_01_4_01_4.html", "db/d9a/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionFromTypes__Struct_3_01Return_00_01TTypes_3_01Types_8_8_8_01_4_01_4" ],
           [ "TFunctionMeta", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta.html", "d9/db3/structMcro_1_1FunctionTraits_1_1Detail_1_1TFunctionMeta" ]
         ] ],
         [ "TDeferFunctionArguments", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments.html", "d1/d09/structMcro_1_1FunctionTraits_1_1TDeferFunctionArguments" ],
@@ -151,12 +152,19 @@ var annotated_dup =
         ] ],
         [ "TIsTypeList_Struct", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct.html", "d0/de0/structMcro_1_1Templates_1_1TIsTypeList__Struct" ],
         [ "TIsTypeList_Struct< TTypes< T... > >", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4.html", "db/d96/structMcro_1_1Templates_1_1TIsTypeList__Struct_3_01TTypes_3_01T_8_8_8_01_4_01_4" ],
-        [ "TTemplate", "da/dde/structMcro_1_1Templates_1_1TTemplate.html", "da/dde/structMcro_1_1Templates_1_1TTemplate" ],
+        [ "TTemplate_Match", "db/daf/structMcro_1_1Templates_1_1TTemplate__Match.html", "db/daf/structMcro_1_1Templates_1_1TTemplate__Match" ],
+        [ "TTemplate_Struct", "d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct.html", "d4/d59/structMcro_1_1Templates_1_1TTemplate__Struct" ],
+        [ "TTemplate_Struct< Template< Params... > >", "d9/dba/structMcro_1_1Templates_1_1TTemplate__Struct_3_01Template_3_01Params_8_8_8_01_4_01_4.html", "d9/dba/structMcro_1_1Templates_1_1TTemplate__Struct_3_01Template_3_01Params_8_8_8_01_4_01_4" ],
+        [ "TTemplateMap_Struct", "d5/d12/structMcro_1_1Templates_1_1TTemplateMap__Struct.html", "d5/d12/structMcro_1_1Templates_1_1TTemplateMap__Struct" ],
+        [ "TTemplateMap_Struct< TemplateOut, TemplateIn< Params... > >", "df/d26/structMcro_1_1Templates_1_1TTemplateMap__Struct_3_01TemplateOut_00_01TemplateIn_3_01Params_8_8_8_01_4_01_4.html", "df/d26/structMcro_1_1Templates_1_1TTemplateMap__Struct_3_01TemplateOut_00_01TemplateIn_3_01Params_8_8_8_01_4_01_4" ],
         [ "TTupleSafeElement_Struct", "d0/dfc/structMcro_1_1Templates_1_1TTupleSafeElement__Struct.html", null ],
         [ "TTupleSafeElement_Struct< I, TTuple< T... > >", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4.html", "d6/da1/structMcro_1_1Templates_1_1TTupleSafeElement__Struct_3_01I_00_01TTuple_3_01T_8_8_8_01_4_01_4" ],
         [ "TTypeAtPack_Struct", "da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct.html", "da/dca/structMcro_1_1Templates_1_1TTypeAtPack__Struct" ],
         [ "TTypeAtPack_Struct< I >", "d9/d84/structMcro_1_1Templates_1_1TTypeAtPack__Struct_3_01I_01_4.html", "d9/d84/structMcro_1_1Templates_1_1TTypeAtPack__Struct_3_01I_01_4" ],
-        [ "TTypes", "da/da5/structMcro_1_1Templates_1_1TTypes.html", "da/da5/structMcro_1_1Templates_1_1TTypes" ]
+        [ "TTypes", "da/da5/structMcro_1_1Templates_1_1TTypes.html", "da/da5/structMcro_1_1Templates_1_1TTypes" ],
+        [ "TTypesSkip_Struct", "d1/de5/structMcro_1_1Templates_1_1TTypesSkip__Struct.html", "d1/de5/structMcro_1_1Templates_1_1TTypesSkip__Struct" ],
+        [ "TTypesTake_Struct", "d6/df8/structMcro_1_1Templates_1_1TTypesTake__Struct.html", "d6/df8/structMcro_1_1Templates_1_1TTypesTake__Struct" ],
+        [ "TTypesTrimEnd_Struct", "d3/d06/structMcro_1_1Templates_1_1TTypesTrimEnd__Struct.html", "d3/d06/structMcro_1_1Templates_1_1TTypesTrimEnd__Struct" ]
       ] ],
       [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
         [ "Macros", "d2/d2b/namespaceMcro_1_1Text_1_1Macros.html", [
@@ -173,9 +181,9 @@ var annotated_dup =
         [ "TAsFormatArgument< TStdString< CharType > >", "d4/d53/structMcro_1_1Text_1_1TAsFormatArgument_3_01TStdString_3_01CharType_01_4_01_4.html", "d4/d53/structMcro_1_1Text_1_1TAsFormatArgument_3_01TStdString_3_01CharType_01_4_01_4" ]
       ] ],
       [ "Tuples", "db/d81/namespaceMcro_1_1Tuples.html", [
-        [ "TSkip_Struct", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct.html", "db/dcd/structMcro_1_1Tuples_1_1TSkip__Struct" ],
-        [ "TTake_Struct", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct.html", "d2/dbc/structMcro_1_1Tuples_1_1TTake__Struct" ],
-        [ "TTrimEnd_Struct", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct.html", "dd/d92/structMcro_1_1Tuples_1_1TTrimEnd__Struct" ],
+        [ "TTupleSkip_Struct", "d9/d9b/structMcro_1_1Tuples_1_1TTupleSkip__Struct.html", "d9/d9b/structMcro_1_1Tuples_1_1TTupleSkip__Struct" ],
+        [ "TTupleTake_Struct", "d0/d0d/structMcro_1_1Tuples_1_1TTupleTake__Struct.html", "d0/d0d/structMcro_1_1Tuples_1_1TTupleTake__Struct" ],
+        [ "TTupleTrimEnd_Struct", "d8/da3/structMcro_1_1Tuples_1_1TTupleTrimEnd__Struct.html", "d8/da3/structMcro_1_1Tuples_1_1TTupleTrimEnd__Struct" ],
         [ "TTypeAt_Struct", "d6/dee/structMcro_1_1Tuples_1_1TTypeAt__Struct.html", null ],
         [ "TTypeAt_Struct< I, T >", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4.html", "d7/d63/structMcro_1_1Tuples_1_1TTypeAt__Struct_3_01I_00_01T_01_4" ]
       ] ],

@@ -120,6 +120,8 @@ var concepts =
         [ "CFunctionCompatible_Arguments", "d0/de9/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__Arguments.html", null ],
         [ "CFunctionCompatibleDecay", "dc/d97/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatibleDecay.html", null ],
         [ "CFunctionCompatible", "d8/d02/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible.html", null ],
+        [ "CFunctionWithArgumentCount", "d9/dc5/conceptMcro_1_1FunctionTraits_1_1CFunctionWithArgumentCount.html", null ],
+        [ "CNullaryFunction", "d7/d02/conceptMcro_1_1FunctionTraits_1_1CNullaryFunction.html", null ],
         [ "CFunctionReturnsVoid", "d2/d6a/conceptMcro_1_1FunctionTraits_1_1CFunctionReturnsVoid.html", null ],
         [ "CInstanceMethod", "d3/d38/conceptMcro_1_1FunctionTraits_1_1CInstanceMethod.html", null ]
       ] ],
@@ -188,8 +190,11 @@ var concepts =
         [ "CWorldSubsystem", "d1/dec/conceptMcro_1_1Subsystems_1_1CWorldSubsystem.html", null ]
       ] ],
       [ "Templates", "d7/d53/namespaceMcro_1_1Templates.html", [
-        [ "CIsTypeList", "d6/d44/conceptMcro_1_1Templates_1_1CIsTypeList.html", null ],
-        [ "CIsTemplate", "d0/dc6/conceptMcro_1_1Templates_1_1CIsTemplate.html", null ]
+        [ "CTypeList", "d3/d4b/conceptMcro_1_1Templates_1_1CTypeList.html", null ],
+        [ "CTypesConvertibleTo", "d5/d92/conceptMcro_1_1Templates_1_1CTypesConvertibleTo.html", null ],
+        [ "CTypesConvertibleToDecayed", "dc/d8f/conceptMcro_1_1Templates_1_1CTypesConvertibleToDecayed.html", null ],
+        [ "CTypeOnlyTemplate", "db/d34/conceptMcro_1_1Templates_1_1CTypeOnlyTemplate.html", null ],
+        [ "CMatchTemplate", "df/dca/conceptMcro_1_1Templates_1_1CMatchTemplate.html", null ]
       ] ],
       [ "Text", "d8/d6f/namespaceMcro_1_1Text.html", [
         [ "CStringViewInvariant", "df/ded/conceptMcro_1_1Text_1_1CStringViewInvariant.html", null ],

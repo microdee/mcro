@@ -10,6 +10,6 @@ var Traits_8h =
     [ "Mcro::Delegates::CDynamicMulticastDelegate", "da/d49/conceptMcro_1_1Delegates_1_1CDynamicMulticastDelegate.html", null ],
     [ "TDynamicMethodPtr", "db/d31/Traits_8h.html#ae79c9ec71f5c756d96d75d002b713a43", null ],
     [ "TDynamicSignature", "db/d31/Traits_8h.html#a46933d598dfed18f71d53768945f7ca1", null ],
-    [ "TInferredDelegate", "db/d31/Traits_8h.html#a5eb5013a1ba38f60ca21d6850595c204", null ],
+    [ "TInferredDelegate", "db/d31/Traits_8h.html#abc996fecedf2fe2d3a0aed379348faab", null ],
     [ "TNative", "db/d31/Traits_8h.html#a2a43b0ef75b82f9104675f810ca8236a", null ]
 ];
