@@ -22,6 +22,12 @@ public class Mcro : ModuleRules
 		// C++23
 		bUseUnity = false;
 		CppStandard = CppStandardVersion.Latest;
+
+		const string boostVersion = "1_80_0";
+		PublicSystemIncludePaths.AddRange(new []
+		{
+			$"{Target.UEThirdPartySourceDirectory}/Boost/boost-{boostVersion}/include"
+		});
 		
 		PublicDependencyModuleNames.AddRange(new[]
 		{
@@ -31,14 +37,12 @@ public class Mcro : ModuleRules
 			"Projects",
 			"Slate",
 			"SlateCore",
-			"Boost",
 			
 			"Ctre",
 			"MagicEnum",
 			"YamlCpp",
 			"RangeV3"
 		});
-			
 		
 		PrivateDependencyModuleNames.AddRange(new[]
 		{
