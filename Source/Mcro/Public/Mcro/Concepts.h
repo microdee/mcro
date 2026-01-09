@@ -308,6 +308,23 @@ namespace Mcro::Concepts
 		&& !CSharedFromThis<T>
 	;
 
+	template <typename T>
+	concept CMemberAccessible = CPointer<T>
+		|| requires(T&& t)
+		{
+			{ t.operator->() };
+		}
+	;
+
+	template <typename T>
+	concept COptional = CPointer<T>
+		|| requires(T&& t)
+		{
+			{ !!t } -> CBooleanTestable;
+			{ t.operator->() };
+		}
+	;
+
 	//// Is member pointer
 
 	namespace Detail

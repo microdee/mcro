@@ -337,9 +337,15 @@ namespace Mcro::Observable
 		}
 		
 		template <typename Self>
-		const T* operator -> (this Self&& self)
+		auto&& operator -> (this Self&& self)
 		{
-			return &self.Get();
+			if constexpr (CPointer<T>)
+				return self.Get();
+
+			else if constexpr (CMemberAccessible<T>)
+				return self.Get().operator->();
+
+			else return &self.Get();
 		}
 	};
 
