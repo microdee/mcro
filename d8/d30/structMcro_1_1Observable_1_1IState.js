@@ -25,7 +25,7 @@ var structMcro_1_1Observable_1_1IState =
     [ "OnDown", "d8/d30/structMcro_1_1Observable_1_1IState.html#a410dfd3544aac44ff9216e076e701db9", null ],
     [ "OnUp", "d8/d30/structMcro_1_1Observable_1_1IState.html#aadbc3a9778ef2e2a106d01554b379fe4", null ],
     [ "operator T const &", "d8/d30/structMcro_1_1Observable_1_1IState.html#ada7414fce3532e7c9392e78eeb5a80e7", null ],
-    [ "operator->", "d8/d30/structMcro_1_1Observable_1_1IState.html#aa12689fd2367de0e6efbe1fee8024e46", null ],
+    [ "operator->", "d8/d30/structMcro_1_1Observable_1_1IState.html#afb38b5b0202019caa39475ccac83caec", null ],
     [ "ReadLock", "d8/d30/structMcro_1_1Observable_1_1IState.html#ad73e27a3686249a481cd62149ba8a369", null ],
     [ "Remove", "d8/d30/structMcro_1_1Observable_1_1IState.html#a73e97fe8dfbb593a0eeb90c72f0c276b", null ],
     [ "RemoveAll", "d8/d30/structMcro_1_1Observable_1_1IState.html#a1f5aeab00319fedabeeacf805978e79b", null ],

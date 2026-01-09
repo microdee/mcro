@@ -1,5 +1,9 @@
 var NAVTREEINDEX12 =
 {
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a0ae74250462fad1c14f26a8475d32777":[8,0,1,14,7,24],
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a0ae74250462fad1c14f26a8475d32777":[10,0,0,8,7,24],
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a116833a050d7776f5ccd4f506538cd14":[8,0,1,14,7,55],
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a116833a050d7776f5ccd4f506538cd14":[10,0,0,8,7,55],
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a1af677944c9dfd575f829ac86e942e7d":[8,0,1,14,7,45],
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a1af677944c9dfd575f829ac86e942e7d":[10,0,0,8,7,45],
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a1b010a6a778285dc6c4cde30f7abe789":[8,0,1,14,7,51],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a204259d86087459c29ba8fe0361426dc":[8,0,1,11,7,14],
 "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a204259d86087459c29ba8fe0361426dc":[10,0,0,6,6,14],
 "de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a25bf892b4e6bf957bfd9ee745dac37a8":[8,0,1,11,7,3],
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a25bf892b4e6bf957bfd9ee745dac37a8":[10,0,0,6,6,3],
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a2b49d7b7450cb4afb836acc57fb1efff":[8,0,1,11,7,2],
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a2b49d7b7450cb4afb836acc57fb1efff":[10,0,0,6,6,2],
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a429a5cbb8ace1f02aac3cc415a414de1":[8,0,1,11,7,16],
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a429a5cbb8ace1f02aac3cc415a414de1":[10,0,0,6,6,16]
+"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a25bf892b4e6bf957bfd9ee745dac37a8":[10,0,0,6,6,3]
 };

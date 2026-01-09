@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"db/d81/namespaceMcro_1_1Tuples.html#ab2af387127c19f0668533a1e5a047ffe":[8,0,1,31,18],
+"db/d81/namespaceMcro_1_1Tuples.html#abdcce82e2d180f50fc9ddd432cd7f103":[8,0,1,31,17],
+"db/d81/namespaceMcro_1_1Tuples.html#ad1b2bb5694b372cc28d7b1a3d169b6a2":[8,0,1,31,14],
+"db/d81/namespaceMcro_1_1Tuples.html#ad5fcd3362848f01b3de116b21ca212eb":[8,0,1,31,24],
 "db/d81/namespaceMcro_1_1Tuples.html#af641c24345200c56b23408380cab389a":[8,0,1,31,15],
 "db/d82/conceptMcro_1_1Concepts_1_1CClass.html":[8,0,1,9,67],
 "db/d82/conceptMcro_1_1Concepts_1_1CClass.html":[9,1,1,66],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html":[9,1,1,1],
 "dc/d6c/conceptMcro_1_1Concepts_1_1CCopyable.html":[8,0,1,9,31],
 "dc/d6c/conceptMcro_1_1Concepts_1_1CCopyable.html":[9,1,1,30],
-"dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html":[8,0,1,25,9],
-"dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html":[9,1,11,2],
-"dc/d76/conceptMcro_1_1Text_1_1CStringOrViewInvariant.html":[8,0,1,28,9],
-"dc/d76/conceptMcro_1_1Text_1_1CStringOrViewInvariant.html":[9,1,14,3],
-"dc/d76/structMcro_1_1Range_1_1TIteratorJumpBackward__Struct.html":[8,0,1,22,15]
+"dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html":[8,0,1,25,9]
 };

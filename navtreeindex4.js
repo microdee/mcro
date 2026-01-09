@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c":[8,0,1,15,0,1],
+"d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c":[10,0,0,9,0,1],
 "d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html":[8,0,1,16,15],
 "d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html":[9,1,4,7],
 "d4/d96/conceptMcro_1_1FunctionTraits_1_1CTupleCompatibleWithFunction.html":[8,0,1,16,14],
@@ -124,8 +126,8 @@ var NAVTREEINDEX4 =
 "d5/d44/RuntimeDependencies_8Build_8cs_source.html":[11,0,2,2],
 "d5/d50/Void_8h.html":[11,0,1,1,0,49],
 "d5/d50/Void_8h_source.html":[11,0,1,1,0,49],
-"d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html":[8,0,1,9,73],
-"d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html":[9,1,1,72],
+"d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html":[8,0,1,9,75],
+"d5/d5e/conceptMcro_1_1Concepts_1_1CRefCounted.html":[9,1,1,74],
 "d5/d75/namespaceMcro_1_1Inheritance_1_1Detail.html":[8,0,1,17,0],
 "d5/d75/namespaceMcro_1_1Inheritance_1_1Detail.html#a47100e59ab5473ec8b6bfb8c7be5aeb7":[8,0,1,17,0,1],
 "d5/d75/namespaceMcro_1_1Inheritance_1_1Detail.html#a5ba8499705ccfa416c540713c948cd24":[8,0,1,17,0,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "d6/d35/Text_8h.html#a6a135b9b15337f45329dfcf5f575579b":[11,0,1,1,0,40,47],
 "d6/d35/Text_8h.html#a6b647098f833a5da521c5fb456a46ca1":[11,0,1,1,0,40,24],
 "d6/d35/Text_8h.html#a6eb43872d83e35660d8b1bd981046ef4":[11,0,1,1,0,40,45],
-"d6/d35/Text_8h.html#a75346dd174e50328afc0c0e3691476da":[11,0,1,1,0,40,33],
-"d6/d35/Text_8h.html#a76fcad8142d9b61e55927a4d59df80c7":[11,0,1,1,0,40,37],
-"d6/d35/Text_8h.html#a794d55fa6b7ad418fba0e6f2be9c4baf":[11,0,1,1,0,40,43]
+"d6/d35/Text_8h.html#a75346dd174e50328afc0c0e3691476da":[11,0,1,1,0,40,33]
 };

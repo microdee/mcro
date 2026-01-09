@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"d7/d53/namespaceMcro_1_1Templates.html#a2aae108a28d2653b85009003a725a17e":[8,0,1,27,23],
+"d7/d53/namespaceMcro_1_1Templates.html#a2b636318fe641b95615a3270773c6e4a":[8,0,1,27,30],
 "d7/d53/namespaceMcro_1_1Templates.html#a2e0086896cea0d7d1a03107851ef61bf":[8,0,1,27,42],
 "d7/d53/namespaceMcro_1_1Templates.html#a4020fa8d4e43d1e8e1e920ab785ae1c0":[8,0,1,27,31],
 "d7/d53/namespaceMcro_1_1Templates.html#a45367cfc1978976dcf3bee560a976763":[8,0,1,27,28],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "d8/d19/classMcro_1_1Types_1_1IHaveType.html#afc5c27041110d829e78737f6a1c17651":[8,0,1,34,0,2],
 "d8/d19/classMcro_1_1Types_1_1IHaveType.html#afc5c27041110d829e78737f6a1c17651":[10,0,0,24,0,2],
 "d8/d2e/ReactiveWidget_8h.html":[11,0,1,1,0,6,0],
-"d8/d2e/ReactiveWidget_8h_source.html":[11,0,1,1,0,6,0],
-"d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html":[11,0,4,0,0,2,0],
-"d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#a3b801888f9013a18acc34060750983b5":[11,0,4,0,0,2,0,4]
+"d8/d2e/ReactiveWidget_8h_source.html":[11,0,1,1,0,6,0]
 };

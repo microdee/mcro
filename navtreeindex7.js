@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html":[11,0,4,0,0,2,0],
+"d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#a3b801888f9013a18acc34060750983b5":[11,0,4,0,0,2,0,4],
 "d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#a5da25ff0fbc619625026590077d4f7ca":[11,0,4,0,0,2,0,0],
 "d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#ab1a2963ad1290cae14d4d230dc879da7":[11,0,4,0,0,2,0,1],
 "d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#ab63d9be0971600294037000fcf44b0de":[11,0,4,0,0,2,0,2],
@@ -42,8 +44,6 @@ var NAVTREEINDEX7 =
 "d8/d30/structMcro_1_1Observable_1_1IState.html#a858442436ae53e29c8aad993249f9a99":[10,0,0,14,1,14],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#a9183bd450482cfefc3fd1b0022883851":[8,0,1,20,2,7],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#a9183bd450482cfefc3fd1b0022883851":[10,0,0,14,1,7],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#aa12689fd2367de0e6efbe1fee8024e46":[8,0,1,20,2,25],
-"d8/d30/structMcro_1_1Observable_1_1IState.html#aa12689fd2367de0e6efbe1fee8024e46":[10,0,0,14,1,25],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#aadbc3a9778ef2e2a106d01554b379fe4":[8,0,1,20,2,23],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#aadbc3a9778ef2e2a106d01554b379fe4":[10,0,0,14,1,23],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#ab8c0e79c310ce2cb6c58e1f5469e10b7":[8,0,1,20,2,1],
@@ -74,6 +74,8 @@ var NAVTREEINDEX7 =
 "d8/d30/structMcro_1_1Observable_1_1IState.html#aee37071909ac09f7c8adf3644be838a0":[10,0,0,14,1,32],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#af9f1f2fe73b005ec7a6d10c29349b0bc":[8,0,1,20,2,3],
 "d8/d30/structMcro_1_1Observable_1_1IState.html#af9f1f2fe73b005ec7a6d10c29349b0bc":[10,0,0,14,1,3],
+"d8/d30/structMcro_1_1Observable_1_1IState.html#afb38b5b0202019caa39475ccac83caec":[8,0,1,20,2,25],
+"d8/d30/structMcro_1_1Observable_1_1IState.html#afb38b5b0202019caa39475ccac83caec":[10,0,0,14,1,25],
 "d8/d32/namespaceMcro_1_1Inheritance.html":[8,0,1,17],
 "d8/d32/namespaceMcro_1_1Inheritance.html#a404a5a38d590ecf4aa90a02f6513a164":[8,0,1,17,5],
 "d8/d32/namespaceMcro_1_1Inheritance.html#a7a3073c0807aa216b53ea6f12b74f87f":[8,0,1,17,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e":[10,0,0,15,0,3],
 "d9/d70/structMcro_1_1Once_1_1FOnce.html#a3b7d9c9964e7ff167285e6943e757b04":[8,0,1,21,0,4],
 "d9/d70/structMcro_1_1Once_1_1FOnce.html#a3b7d9c9964e7ff167285e6943e757b04":[10,0,0,15,0,4],
-"d9/d70/structMcro_1_1Once_1_1FOnce.html#a5b4588540d7c89269c94f817fe8b1f21":[8,0,1,21,0,1],
-"d9/d70/structMcro_1_1Once_1_1FOnce.html#a5b4588540d7c89269c94f817fe8b1f21":[10,0,0,15,0,1],
-"d9/d70/structMcro_1_1Once_1_1FOnce.html#a8056ceea26604b5aa3f64d50c58f2a96":[8,0,1,21,0,2]
+"d9/d70/structMcro_1_1Once_1_1FOnce.html#a5b4588540d7c89269c94f817fe8b1f21":[8,0,1,21,0,1]
 };

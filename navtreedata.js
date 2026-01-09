@@ -134,21 +134,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#ad17c8fe60f38649f16d0a52ad4818330",
-"d2/d2b/namespaceMcro_1_1Text_1_1Macros.html",
-"d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html#a34732297689abdfdfe1edb18f982106c",
-"d4/d87/conceptMcro_1_1FunctionTraits_1_1CFunctionCompatible__ReturnDecay.html",
-"d6/d35/Text_8h.html#a7f9e5928b38091d6fcbb94d07b1d9b22",
-"d7/d53/namespaceMcro_1_1Templates.html#a2e0086896cea0d7d1a03107851ef61bf",
-"d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#a5da25ff0fbc619625026590077d4f7ca",
-"d9/d70/structMcro_1_1Once_1_1FOnce.html#a8056ceea26604b5aa3f64d50c58f2a96",
-"d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html#afcfee807c93e87a4bfb98d1acdaca013",
-"db/d81/namespaceMcro_1_1Tuples.html#af641c24345200c56b23408380cab389a",
-"dc/d76/structMcro_1_1Range_1_1TIteratorJumpBackward__Struct.html",
-"dd/d8f/classMcro_1_1Error_1_1IError.html#a1af677944c9dfd575f829ac86e942e7d",
-"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a45958c472a2390c5e49a3f2d41a508af",
-"df/d42/Start_8h.html#a6ec490660c90ed87cffc7d6227b42667",
-"namespacemembers_func_i.html"
+"d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa805f07b108d469a700f2fafaf60e848",
+"d2/d22/structMcro_1_1SharedObjects_1_1TSharedStorage.html#ae458a97428237b23490dfbc133423701",
+"d3/d7b/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07ClassIn_1_1_5_08_07Args_8_8_8_08_4.html#a08992232cf889d47ef35db247bc64665",
+"d4/d80/structMcro_1_1Finally_1_1FFinally.html#a928e4b58f3a3c5b591188b8e69a4736c",
+"d6/d35/Text_8h.html#a76fcad8142d9b61e55927a4d59df80c7",
+"d7/d53/namespaceMcro_1_1Templates.html#a2aae108a28d2653b85009003a725a17e",
+"d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html",
+"d9/d70/structMcro_1_1Once_1_1FOnce.html#a5b4588540d7c89269c94f817fe8b1f21",
+"d9/dbc/structMcro_1_1ValueThunk_1_1TValueThunk.html#afb5a5d230c9e0546830dfce24e566aa8",
+"db/d81/namespaceMcro_1_1Tuples.html#ab2af387127c19f0668533a1e5a047ffe",
+"dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html",
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a0ae74250462fad1c14f26a8475d32777",
+"de/d3e/classMcro_1_1Delegates_1_1TEventDelegate_3_01void_07Args_8_8_8_08_00_01DefaultPolicy_01_4.html#a2b49d7b7450cb4afb836acc57fb1efff",
+"df/d42/Start_8h.html#a2f73d750638a613e3bd9fb6d5bdffa9f",
+"namespacemembers_func_e.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -70,6 +70,8 @@ var Concepts_8h =
     [ "Mcro::Concepts::CClass", "db/d82/conceptMcro_1_1Concepts_1_1CClass.html", null ],
     [ "Mcro::Concepts::CUnion", "d0/d70/conceptMcro_1_1Concepts_1_1CUnion.html", null ],
     [ "Mcro::Concepts::CPlainClass", "db/dde/conceptMcro_1_1Concepts_1_1CPlainClass.html", null ],
+    [ "Mcro::Concepts::CMemberAccessible", "da/d62/conceptMcro_1_1Concepts_1_1CMemberAccessible.html", null ],
+    [ "Mcro::Concepts::COptional", "d1/d20/conceptMcro_1_1Concepts_1_1COptional.html", null ],
     [ "Mcro::Concepts::CMemberPointerOf", "dc/dfd/conceptMcro_1_1Concepts_1_1CMemberPointerOf.html", null ],
     [ "Mcro::Concepts::CVoid", "d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html", null ],
     [ "Mcro::Concepts::CNonVoid", "df/d68/conceptMcro_1_1Concepts_1_1CNonVoid.html", null ],

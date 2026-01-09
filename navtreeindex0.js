@@ -196,6 +196,8 @@ var NAVTREEINDEX0 =
 "d1/d17/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01ReturnIn_07_5_08_07Args_8_8_8_08_4.html#aafb685179c441e0af9d6b2cbd60ba986":[10,0,0,10,3,3],
 "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html":[8,0,1,28,2],
 "d1/d17/structMcro_1_1Text_1_1TAsFormatArgument.html":[10,0,0,21,1],
+"d1/d20/conceptMcro_1_1Concepts_1_1COptional.html":[8,0,1,9,71],
+"d1/d20/conceptMcro_1_1Concepts_1_1COptional.html":[9,1,1,70],
 "d1/d2f/conceptMcro_1_1Range_1_1CJumpForwardIterator.html":[8,0,1,22,25],
 "d1/d2f/conceptMcro_1_1Range_1_1CJumpForwardIterator.html":[9,1,8,6],
 "d1/d43/Yaml_8h.html":[11,0,1,1,0,50],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#a8c069563637fb6aac5139040b6371bc1":[8,0,1,25,0,0,5],
 "d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#a8c069563637fb6aac5139040b6371bc1":[10,0,0,19,0,0,5],
 "d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa14e7ffe2f6d905d842c0b405124133a":[8,0,1,25,0,0,7],
-"d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa14e7ffe2f6d905d842c0b405124133a":[10,0,0,19,0,0,7],
-"d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa805f07b108d469a700f2fafaf60e848":[8,0,1,25,0,0,8],
-"d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa805f07b108d469a700f2fafaf60e848":[10,0,0,19,0,0,8]
+"d1/d7d/classMcro_1_1Slate_1_1Detail_1_1TReactiveWidgetBase.html#aa14e7ffe2f6d905d842c0b405124133a":[10,0,0,19,0,0,7]
 };

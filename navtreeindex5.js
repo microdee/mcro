@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"d6/d35/Text_8h.html#a76fcad8142d9b61e55927a4d59df80c7":[11,0,1,1,0,40,37],
+"d6/d35/Text_8h.html#a794d55fa6b7ad418fba0e6f2be9c4baf":[11,0,1,1,0,40,43],
 "d6/d35/Text_8h.html#a7f9e5928b38091d6fcbb94d07b1d9b22":[11,0,1,1,0,40,46],
 "d6/d35/Text_8h.html#aac43b665274f3e1ea82068d8da0fd577":[11,0,1,1,0,40,41],
 "d6/d35/Text_8h.html#abbdeae2588a0480a21b85a5bdba508df":[11,0,1,1,0,40,23],
@@ -147,8 +149,8 @@ var NAVTREEINDEX5 =
 "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html#ab0378b4c8967d6035a47a713ec88c8d2":[10,0,0,10,7,1],
 "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html#abcd4187174d58aa0f378664bf5927ac5":[8,0,1,16,7,4],
 "d6/da4/structMcro_1_1FunctionTraits_1_1TFunctionTraits_3_01T_01_4.html#abcd4187174d58aa0f378664bf5927ac5":[10,0,0,10,7,4],
-"d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html":[8,0,1,9,76],
-"d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html":[9,1,1,75],
+"d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html":[8,0,1,9,78],
+"d6/da6/conceptMcro_1_1Concepts_1_1CValidableAdl.html":[9,1,1,77],
 "d6/dc7/conceptMcro_1_1Concepts_1_1CSharedPtrOf.html":[8,0,1,9,48],
 "d6/dc7/conceptMcro_1_1Concepts_1_1CSharedPtrOf.html":[9,1,1,47],
 "d6/dcf/namespaceMcro_1_1Dll.html":[8,0,1,12],
@@ -242,12 +244,10 @@ var NAVTREEINDEX5 =
 "d7/d43/IspcParallelism_8h.html#a95a782cf82e45b73343b9ac5322bc03a":[11,0,3,0,0,0,2],
 "d7/d43/IspcParallelism_8h.html#acc38261b0175c38ff4362b471707f72e":[11,0,3,0,0,0,0],
 "d7/d43/IspcParallelism_8h_source.html":[11,0,3,0,0,0],
-"d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html":[8,0,1,9,71],
-"d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html":[9,1,1,70],
+"d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html":[8,0,1,9,73],
+"d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html":[9,1,1,72],
 "d7/d51/TupleAsString_8h.html":[11,0,1,1,0,7,0],
 "d7/d51/TupleAsString_8h_source.html":[11,0,1,1,0,7,0],
 "d7/d53/namespaceMcro_1_1Templates.html":[8,0,1,27],
-"d7/d53/namespaceMcro_1_1Templates.html#a0b1a5c7bf9337bebe63868e96879dcef":[8,0,1,27,29],
-"d7/d53/namespaceMcro_1_1Templates.html#a2aae108a28d2653b85009003a725a17e":[8,0,1,27,23],
-"d7/d53/namespaceMcro_1_1Templates.html#a2b636318fe641b95615a3270773c6e4a":[8,0,1,27,30]
+"d7/d53/namespaceMcro_1_1Templates.html#a0b1a5c7bf9337bebe63868e96879dcef":[8,0,1,27,29]
 };
