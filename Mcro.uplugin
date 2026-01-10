@@ -14,22 +14,36 @@
 	"SupportURL": "https://github.com/microdee/mcro/issues",
 	"CanContainContent": false,
 	"IsBetaVersion": true,
+	"SupportedTargetPlatforms": [
+		"Win64",
+		"Linux"
+	],
 	"Modules": [
 		{
 			"Name": "Mcro",
 			"Type": "Runtime",
-			"LoadingPhase": "PostConfigInit"
+			"LoadingPhase": "PostConfigInit",
+			"PlatformAllowList": [
+				"Linux",
+				"Win64"
+			]
 		},
 		{
 			"Name": "McroWindows",
 			"Type": "Runtime",
 			"LoadingPhase": "PostConfigInit",
-            "PlatformAllowList": ["Win64"]
+            "PlatformAllowList": [
+				"Win64"
+			]
 		},
 		{
 			"Name": "McroISPC",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Linux",
+				"Win64"
+			]
 		}
 	]
 }
