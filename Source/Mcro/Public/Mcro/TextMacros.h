@@ -110,7 +110,7 @@ namespace Mcro::Text::Macros
 	struct FNameFakeLiteralTag
 	{
 		template <size_t N>
-		FName operator % (const TCHAR(& str)[N]) const
+		FName operator % (const char(& str)[N]) const
 		{
 			return FName(N-1, str);
 		}
@@ -192,4 +192,4 @@ namespace Mcro::Text::Macros
  *	This operation allocates FName in runtime and an empty tag struct. This is not a custom string literal because
  *	they're not available for concatenated groups of string literals of mixed encodings.
  */
-#define NAME_ Mcro::Text::Macros::FNameFakeLiteralTag() % TEXT_
+#define NAME_ Mcro::Text::Macros::FNameFakeLiteralTag() %
