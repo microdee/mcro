@@ -6,6 +6,7 @@ var Modules_8h =
     [ "Mcro::Modules::TModuleBoundObject< M, T >", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject.html", "d0/d68/structMcro_1_1Modules_1_1TModuleBoundObject" ],
     [ "Mcro::Modules::TModuleBoundObject< M, T >::FObjectFactory", "dd/dab/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectFactory.html", "dd/dab/structMcro_1_1Modules_1_1TModuleBoundObject_1_1FObjectFactory" ],
     [ "Mcro::Modules::CObservableModule", "db/dfa/conceptMcro_1_1Modules_1_1CObservableModule.html", null ],
+    [ "GetModulePlugin", "dd/dc2/Modules_8h.html#a1dc550d96ebf4d311c53d38bc450fcec", null ],
     [ "GetUnrealModule", "dd/dc2/Modules_8h.html#a5975fa3221d464d3b704872ec3e207bf", null ],
     [ "GetUnrealModulePtr", "dd/dc2/Modules_8h.html#aa031d7585b4e7863a6ed0cec1a0137be", null ],
     [ "InferModuleName", "dd/dc2/Modules_8h.html#a0da427df19c26499591b7cb731b8853e", null ],

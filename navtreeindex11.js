@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html":[8,0,1,25,9],
 "dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html":[9,1,11,2],
 "dc/d76/conceptMcro_1_1Text_1_1CStringOrViewInvariant.html":[8,0,1,28,9],
 "dc/d76/conceptMcro_1_1Text_1_1CStringOrViewInvariant.html":[9,1,14,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a002211e11448f9ccd3d21d9e29028da2":[10,0,0,8,7,33],
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a023e7a66fdbd220b7ab637ce4e51c821":[8,0,1,14,7,18],
 "dd/d8f/classMcro_1_1Error_1_1IError.html#a023e7a66fdbd220b7ab637ce4e51c821":[10,0,0,8,7,18],
-"dd/d8f/classMcro_1_1Error_1_1IError.html#a07017d97b5428e276ffacd8dff5ea655":[8,0,1,14,7,11],
-"dd/d8f/classMcro_1_1Error_1_1IError.html#a07017d97b5428e276ffacd8dff5ea655":[10,0,0,8,7,11]
+"dd/d8f/classMcro_1_1Error_1_1IError.html#a07017d97b5428e276ffacd8dff5ea655":[8,0,1,14,7,11]
 };

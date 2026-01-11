@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"db/d81/namespaceMcro_1_1Tuples.html#aad094ac3c0da922619fdffe4832cba21":[8,0,1,31,31],
 "db/d81/namespaceMcro_1_1Tuples.html#ab2af387127c19f0668533a1e5a047ffe":[8,0,1,31,18],
 "db/d81/namespaceMcro_1_1Tuples.html#abdcce82e2d180f50fc9ddd432cd7f103":[8,0,1,31,17],
 "db/d81/namespaceMcro_1_1Tuples.html#ad1b2bb5694b372cc28d7b1a3d169b6a2":[8,0,1,31,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html":[8,0,1,9,2],
 "dc/d64/conceptMcro_1_1Concepts_1_1CSameAsDecayed.html":[9,1,1,1],
 "dc/d6c/conceptMcro_1_1Concepts_1_1CCopyable.html":[8,0,1,9,31],
-"dc/d6c/conceptMcro_1_1Concepts_1_1CCopyable.html":[9,1,1,30],
-"dc/d6c/conceptMcro_1_1Slate_1_1CWidgetOrSlot.html":[8,0,1,25,9]
+"dc/d6c/conceptMcro_1_1Concepts_1_1CCopyable.html":[9,1,1,30]
 };

@@ -124,6 +124,7 @@ $(function(){initNavTree('dd/dc2/Modules_8h.html','../../'); initResizable(true)
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;Modules/ModuleInterface.h&quot;</code><br />
 <code>#include &quot;Modules/ModuleManager.h&quot;</code><br />
+<code>#include &quot;Interfaces/IPluginManager.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../db/df5/AssertMacros_8h_source.html">Mcro/AssertMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/dde/TextMacros_8h_source.html">Mcro/TextMacros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de3/TypeName_8h_source.html">Mcro/TypeName.h</a>&quot;</code><br />
@@ -185,6 +186,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a5975fa3221d464d3b704872ec3e207bf"><td class="memTemplItemLeft" align="right" valign="top">M &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#a5975fa3221d464d3b704872ec3e207bf">Mcro::Modules::GetUnrealModule</a> ()</td></tr>
 <tr class="memdesc:a5975fa3221d464d3b704872ec3e207bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an already loaded unreal module. If for any reason it's not loaded, crash the app.  <br /></td></tr>
 <tr class="separator:a5975fa3221d464d3b704872ec3e207bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc550d96ebf4d311c53d38bc450fcec" id="r_a1dc550d96ebf4d311c53d38bc450fcec"><td class="memTemplParams" colspan="2">template&lt;CDerivedFrom&lt; IModuleInterface &gt; M&gt; </td></tr>
+<tr class="memitem:a1dc550d96ebf4d311c53d38bc450fcec"><td class="memTemplItemLeft" align="right" valign="top">TSharedPtr&lt; IPlugin &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d1b/namespaceMcro_1_1Modules.html#a1dc550d96ebf4d311c53d38bc450fcec">Mcro::Modules::GetModulePlugin</a> ()</td></tr>
+<tr class="memdesc:a1dc550d96ebf4d311c53d38bc450fcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the owning plugin of a given module.  <br /></td></tr>
+<tr class="separator:a1dc550d96ebf4d311c53d38bc450fcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>This Source Code is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file You can obtain one at <a href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a></dd></dl>
