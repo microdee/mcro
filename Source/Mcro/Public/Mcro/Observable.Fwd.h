@@ -45,7 +45,7 @@ namespace Mcro::Observable
 		 *	If the state value is equality comparable, store the previous value even when that's equal to the new value.
 		 *	This flag doesn't do anything unless StorePrevious is also true.
 		 */
-		bool AlwaysStorePrevious = false;
+		bool AlwaysStorePrevious = true;
 
 		/**
 		 *	@brief
@@ -96,7 +96,7 @@ namespace Mcro::Observable
 			? CCoreEqualityComparable<T>
 				? FStatePolicy {.NotifyOnChangeOnly = true}
 				: FStatePolicy {.AlwaysNotify = true}
-			: FStatePolicy {.NotifyOnChangeOnly = true, .StorePrevious = true}; 
+			: FStatePolicy {.NotifyOnChangeOnly = true, .StorePrevious = true};
 	
 	template <typename T>
 	struct IState;
