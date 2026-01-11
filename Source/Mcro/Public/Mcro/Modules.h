@@ -13,6 +13,7 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleInterface.h"
 #include "Modules/ModuleManager.h"
+#include "Interfaces/IPluginManager.h"
 #include "Mcro/AssertMacros.h"
 #include "Mcro/TextMacros.h"
 #include "Mcro/TypeName.h"
@@ -101,6 +102,13 @@ namespace Mcro::Modules
 			)
 		);
 		return *result;
+	}
+
+	/** @brief Get the owning plugin of a given module */
+	template <CDerivedFrom<IModuleInterface> M>
+	TSharedPtr<IPlugin> GetModulePlugin()
+	{
+		return IPluginManager::Get().GetModuleOwnerPlugin(*InferModuleName<M>());
 	}
 
 	/** @brief Add this interface to your module class if other things can listen to module startup or shutdown */
