@@ -104,13 +104,6 @@ namespace Mcro::Modules
 		return *result;
 	}
 
-	/** @brief Get the owning plugin of a given module */
-	template <CDerivedFrom<IModuleInterface> M>
-	TSharedPtr<IPlugin> GetModulePlugin()
-	{
-		return IPluginManager::Get().GetModuleOwnerPlugin(*InferModuleName<M>());
-	}
-
 	/** @brief Add this interface to your module class if other things can listen to module startup or shutdown */
 	class MCRO_API IObservableModule : public IModuleInterface
 	{
