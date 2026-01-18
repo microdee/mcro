@@ -1,6 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"d6/d35/Text_8h.html#a75346dd174e50328afc0c0e3691476da":[11,0,1,1,0,40,33],
 "d6/d35/Text_8h.html#a76fcad8142d9b61e55927a4d59df80c7":[11,0,1,1,0,40,37],
 "d6/d35/Text_8h.html#a794d55fa6b7ad418fba0e6f2be9c4baf":[11,0,1,1,0,40,43],
 "d6/d35/Text_8h.html#a7f9e5928b38091d6fcbb94d07b1d9b22":[11,0,1,1,0,40,46],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "d7/d43/conceptMcro_1_1Concepts_1_1CVoid.html":[9,1,1,72],
 "d7/d51/TupleAsString_8h.html":[11,0,1,1,0,7,0],
 "d7/d51/TupleAsString_8h_source.html":[11,0,1,1,0,7,0],
-"d7/d53/namespaceMcro_1_1Templates.html":[8,0,1,27]
+"d7/d53/namespaceMcro_1_1Templates.html":[8,0,1,27],
+"d7/d53/namespaceMcro_1_1Templates.html#a0b1a5c7bf9337bebe63868e96879dcef":[8,0,1,27,29]
 };

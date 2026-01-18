@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"d8/d2e/ReactiveWidget_8h_source.html":[11,0,1,1,0,6,0],
 "d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html":[11,0,4,0,0,2,0],
 "d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#a3b801888f9013a18acc34060750983b5":[11,0,4,0,0,2,0,4],
 "d8/d2f/indows_2Public_2McroWindows_2Rendering_2Textures_8h.html#a5da25ff0fbc619625026590077d4f7ca":[11,0,4,0,0,2,0,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e":[8,0,1,21,0,3],
 "d9/d70/structMcro_1_1Once_1_1FOnce.html#a0a7a434b3e4843b4fb3e2a4a66a5413e":[10,0,0,15,0,3],
 "d9/d70/structMcro_1_1Once_1_1FOnce.html#a3b7d9c9964e7ff167285e6943e757b04":[8,0,1,21,0,4],
-"d9/d70/structMcro_1_1Once_1_1FOnce.html#a3b7d9c9964e7ff167285e6943e757b04":[10,0,0,15,0,4]
+"d9/d70/structMcro_1_1Once_1_1FOnce.html#a3b7d9c9964e7ff167285e6943e757b04":[10,0,0,15,0,4],
+"d9/d70/structMcro_1_1Once_1_1FOnce.html#a5b4588540d7c89269c94f817fe8b1f21":[8,0,1,21,0,1]
 };
