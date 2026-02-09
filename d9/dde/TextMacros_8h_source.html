@@ -176,7 +176,7 @@ $(function(){initNavTree('d9/dde/TextMacros_8h_source.html','../../'); initResiz
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/de0/namespaceMcro_1_1FunctionTraits.html">Mcro::FunctionTraits</a>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#if UE_VERSION_OLDER_THAN(5, 5, 0)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#if UNREAL_VERSION(&lt;, 5, 5)</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    FORCEINLINE FText <a class="code hl_function" href="../../d2/d2b/namespaceMcro_1_1Text_1_1Macros.html#a03ea4959ef91faaed251dc12117f8b3f">AsLocalizable_Advanced</a>(<span class="keyword">const</span> TCHAR* Namespace, <span class="keyword">const</span> TCHAR* Key, <span class="keyword">const</span> TCHAR* String)</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> FInternationalization::ForUseOnlyByLocMacroAndGraphNodeTextLiterals_CreateText(String, Namespace, Key);</div>
@@ -234,7 +234,7 @@ $(function(){initNavTree('d9/dde/TextMacros_8h_source.html','../../'); initResiz
 <div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html#aa0918d18fd54721adac712fd78d17049">  100</a></span>        FString <a class="code hl_function" href="../../d4/dee/structMcro_1_1Text_1_1Macros_1_1FStringFakeLiteralTag.html#aa0918d18fd54721adac712fd78d17049">operator % </a>(<span class="keyword">const</span> TCHAR(&amp; str)[N])<span class="keyword"> const</span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#if UE_VERSION_OLDER_THAN(5, 5, 0)</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#if UNREAL_VERSION(&lt;, 5, 5)</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">return</span> FString(N-1, str);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">return</span> FString::ConstructFromPtrSize(str, N-1);</div>

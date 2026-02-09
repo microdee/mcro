@@ -59,5 +59,8 @@ var searchData=
   ['mcro_5fthis_5ftype_56',['MCRO_THIS_TYPE',['../d1/d8d/Concepts_8h.html#a04920a5082611c594b8cce0bd1e55150',1,'Concepts.h']]],
   ['mcro_5ftry_5fwith_5fimpl_57',['MCRO_TRY_WITH_IMPL',['../da/d73/HResultMacros_8h.html#a15873b32ab94142154378975456448f7',1,'HResultMacros.h']]],
   ['mcro_5ftype_5flist_5fpredicate_58',['MCRO_TYPE_LIST_PREDICATE',['../d7/dd4/Templates_8h.html#a7bf2fcce79ec2dc8e43c3ec2b36faaff',1,'Templates.h']]],
-  ['mcro_5funavailable_5f1_59',['MCRO_UNAVAILABLE_1',['../de/dba/Error_8h.html#a83b8a72109eb0392dc7550ccfabedd55',1,'Error.h']]]
+  ['mcro_5funavailable_5f1_59',['MCRO_UNAVAILABLE_1',['../de/dba/Error_8h.html#a83b8a72109eb0392dc7550ccfabedd55',1,'Error.h']]],
+  ['mcro_5fversion_5fnum_5f2_60',['MCRO_VERSION_NUM_2',['../df/d0a/Macros_8h.html#a2eb91294b4af1760cee5f45b67871704',1,'Macros.h']]],
+  ['mcro_5fversion_5fnum_5f3_61',['MCRO_VERSION_NUM_3',['../df/d0a/Macros_8h.html#a05d7cb5cc600b87ff3f3269661d14c78',1,'Macros.h']]],
+  ['mcro_5fversion_5fnum_5f4_62',['MCRO_VERSION_NUM_4',['../df/d0a/Macros_8h.html#aa50b2e303c7cb0bd8186d043b2489223',1,'Macros.h']]]
 ];

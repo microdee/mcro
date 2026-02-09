@@ -135,6 +135,21 @@ Macros</h2></td></tr>
 <tr class="memitem:a57b4b4e970be9519a970b60a7f745bae" id="r_a57b4b4e970be9519a970b60a7f745bae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57b4b4e970be9519a970b60a7f745bae">DEFAULT_ON_EMPTY</a>(value,  default)</td></tr>
 <tr class="memdesc:a57b4b4e970be9519a970b60a7f745bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns given default value when input value is empty.  <br /></td></tr>
 <tr class="separator:a57b4b4e970be9519a970b60a7f745bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb91294b4af1760cee5f45b67871704" id="r_a2eb91294b4af1760cee5f45b67871704"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eb91294b4af1760cee5f45b67871704">MCRO_VERSION_NUM_2</a>(major,  minor)</td></tr>
+<tr class="separator:a2eb91294b4af1760cee5f45b67871704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d7cb5cc600b87ff3f3269661d14c78" id="r_a05d7cb5cc600b87ff3f3269661d14c78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05d7cb5cc600b87ff3f3269661d14c78">MCRO_VERSION_NUM_3</a>(major,  minor,  patch)</td></tr>
+<tr class="separator:a05d7cb5cc600b87ff3f3269661d14c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50b2e303c7cb0bd8186d043b2489223" id="r_aa50b2e303c7cb0bd8186d043b2489223"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa50b2e303c7cb0bd8186d043b2489223">MCRO_VERSION_NUM_4</a>(major,  minor,  patch,  rev)</td></tr>
+<tr class="separator:aa50b2e303c7cb0bd8186d043b2489223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c0b332f789ee60937b2b2c2bd0bf695" id="r_a6c0b332f789ee60937b2b2c2bd0bf695"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c0b332f789ee60937b2b2c2bd0bf695">VERSION_NUM</a>(...)</td></tr>
+<tr class="memdesc:a6c0b332f789ee60937b2b2c2bd0bf695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store a semantic version in an uint64 number.  <br /></td></tr>
+<tr class="separator:a6c0b332f789ee60937b2b2c2bd0bf695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794c494da8e48a3c7a4c1c0b9700801f" id="r_a794c494da8e48a3c7a4c1c0b9700801f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a794c494da8e48a3c7a4c1c0b9700801f">UNREAL_VERSION_NUM</a>&#160;&#160;&#160;<a class="el" href="#a6c0b332f789ee60937b2b2c2bd0bf695">VERSION_NUM</a>(ENGINE_MAJOR_VERSION, ENGINE_MINOR_VERSION, ENGINE_PATCH_VERSION)</td></tr>
+<tr class="memdesc:a794c494da8e48a3c7a4c1c0b9700801f"><td class="mdescLeft">&#160;</td><td class="mdescRight">VERSION_NUM representation of current Engine version.  <br /></td></tr>
+<tr class="separator:a794c494da8e48a3c7a4c1c0b9700801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3044975887f120107a5491808d8a06ef" id="r_a3044975887f120107a5491808d8a06ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3044975887f120107a5491808d8a06ef">UNREAL_VERSION</a>(op, ...)</td></tr>
+<tr class="memdesc:a3044975887f120107a5491808d8a06ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for conveniently comparing unreal version for code compile compatibility cases.  <br /></td></tr>
+<tr class="separator:a3044975887f120107a5491808d8a06ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6951c4fa875816f70e43cc5803e27edc" id="r_a6951c4fa875816f70e43cc5803e27edc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION</a>&#160;&#160;&#160;Forward</td></tr>
 <tr class="separator:a6951c4fa875816f70e43cc5803e27edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dfff7147f0fdff4642a6667a375ae29" id="r_a8dfff7147f0fdff4642a6667a375ae29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dfff7147f0fdff4642a6667a375ae29">FWD</a>(...)</td></tr>
@@ -189,11 +204,11 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION&lt;decltype(__VA_ARGS__)&gt;</a>(__VA_ARGS__)</div>
-<div class="ttc" id="aMacros_8h_html_a6951c4fa875816f70e43cc5803e27edc"><div class="ttname"><a href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION</a></div><div class="ttdeci">#define MCRO_FORWARD_FUNCTION</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00095">Macros.h:95</a></div></div>
+<div class="ttc" id="aMacros_8h_html_a6951c4fa875816f70e43cc5803e27edc"><div class="ttname"><a href="#a6951c4fa875816f70e43cc5803e27edc">MCRO_FORWARD_FUNCTION</a></div><div class="ttdeci">#define MCRO_FORWARD_FUNCTION</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00129">Macros.h:129</a></div></div>
 </div><!-- fragment -->
 <p>Shorten forwarding expression with this macro so one may not need to specify explicit type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00100">100</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00134">134</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +259,103 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00095">95</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00129">129</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a2eb91294b4af1760cee5f45b67871704" name="a2eb91294b4af1760cee5f45b67871704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb91294b4af1760cee5f45b67871704">&#9670;&#160;</a></span>MCRO_VERSION_NUM_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_VERSION_NUM_2</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>major</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>minor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    ( ((0x000000000000FFFFULL &amp; major) &lt;&lt; 48) \</div>
+<div class="line">    | ((0x000000000000FFFFULL &amp; minor) &lt;&lt; 32) \</div>
+<div class="line">    )</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00076">76</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a05d7cb5cc600b87ff3f3269661d14c78" name="a05d7cb5cc600b87ff3f3269661d14c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d7cb5cc600b87ff3f3269661d14c78">&#9670;&#160;</a></span>MCRO_VERSION_NUM_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_VERSION_NUM_3</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>major</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>minor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>patch</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    ( ((0x000000000000FFFFULL &amp; major) &lt;&lt; 48) \</div>
+<div class="line">    | ((0x000000000000FFFFULL &amp; minor) &lt;&lt; 32) \</div>
+<div class="line">    | ((0x000000000000FFFFULL &amp; patch) &lt;&lt; 16) \</div>
+<div class="line">    )</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00081">81</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="aa50b2e303c7cb0bd8186d043b2489223" name="aa50b2e303c7cb0bd8186d043b2489223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50b2e303c7cb0bd8186d043b2489223">&#9670;&#160;</a></span>MCRO_VERSION_NUM_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCRO_VERSION_NUM_4</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>major</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>minor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>patch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>rev</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    ( ((0x000000000000FFFFULL &amp; major) &lt;&lt; 48) \</div>
+<div class="line">    | ((0x000000000000FFFFULL &amp; minor) &lt;&lt; 32) \</div>
+<div class="line">    | ((0x000000000000FFFFULL &amp; patch) &lt;&lt; 16) \</div>
+<div class="line">    | ((0x000000000000FFFFULL &amp; rev)   &lt;&lt; 0) \</div>
+<div class="line">    )</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00087">87</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>
@@ -265,6 +376,85 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">TEXT(PREPROCESSOR_TO_STRING(x))</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00051">51</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a3044975887f120107a5491808d8a06ef" name="a3044975887f120107a5491808d8a06ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3044975887f120107a5491808d8a06ef">&#9670;&#160;</a></span>UNREAL_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNREAL_VERSION</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>op</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">(<a class="code hl_define" href="#a794c494da8e48a3c7a4c1c0b9700801f">UNREAL_VERSION_NUM</a> op <a class="code hl_define" href="#a6c0b332f789ee60937b2b2c2bd0bf695">VERSION_NUM</a>(__VA_ARGS__))</div>
+<div class="ttc" id="aMacros_8h_html_a6c0b332f789ee60937b2b2c2bd0bf695"><div class="ttname"><a href="#a6c0b332f789ee60937b2b2c2bd0bf695">VERSION_NUM</a></div><div class="ttdeci">#define VERSION_NUM(...)</div><div class="ttdoc">Store a semantic version in an uint64 number.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00102">Macros.h:102</a></div></div>
+<div class="ttc" id="aMacros_8h_html_a794c494da8e48a3c7a4c1c0b9700801f"><div class="ttname"><a href="#a794c494da8e48a3c7a4c1c0b9700801f">UNREAL_VERSION_NUM</a></div><div class="ttdeci">#define UNREAL_VERSION_NUM</div><div class="ttdoc">VERSION_NUM representation of current Engine version.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00105">Macros.h:105</a></div></div>
+</div><!-- fragment -->
+<p>Macro for conveniently comparing unreal version for code compile compatibility cases. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00108">108</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a794c494da8e48a3c7a4c1c0b9700801f" name="a794c494da8e48a3c7a4c1c0b9700801f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794c494da8e48a3c7a4c1c0b9700801f">&#9670;&#160;</a></span>UNREAL_VERSION_NUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNREAL_VERSION_NUM&#160;&#160;&#160;<a class="el" href="#a6c0b332f789ee60937b2b2c2bd0bf695">VERSION_NUM</a>(ENGINE_MAJOR_VERSION, ENGINE_MINOR_VERSION, ENGINE_PATCH_VERSION)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>VERSION_NUM representation of current Engine version. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00105">105</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
+
+</div>
+</div>
+<a id="a6c0b332f789ee60937b2b2c2bd0bf695" name="a6c0b332f789ee60937b2b2c2bd0bf695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c0b332f789ee60937b2b2c2bd0bf695">&#9670;&#160;</a></span>VERSION_NUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VERSION_NUM</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a>(MCRO_VERSION_NUM_, __VA_ARGS__)</div>
+<div class="ttc" id="aMacros_8h_html_a048e492c8a4074ec4ce7f5438280b98a"><div class="ttname"><a href="#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a></div><div class="ttdeci">#define MACRO_OVERLOAD(prefix,...)</div><div class="ttdoc">Implement preprocessor function overloading based on argument count for a set of macros following a d...</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00071">Macros.h:71</a></div></div>
+</div><!-- fragment -->
+<p>Store a semantic version in an uint64 number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">major</td><td><code>0xFFFF'0000'0000'0000</code>ULL </td></tr>
+    <tr><td class="paramname">minor</td><td><code>0x0000'FFFF'0000'0000</code>ULL </td></tr>
+    <tr><td class="paramname">patch</td><td><code>0x0000'0000'FFFF'0000</code>ULL </td></tr>
+    <tr><td class="paramname">rev</td><td><code>0x0000'0000'0000'FFFF</code>ULL </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Each component can go up to 65535 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00102">102</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 
 </div>
 </div>
