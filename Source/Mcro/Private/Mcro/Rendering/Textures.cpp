@@ -26,7 +26,7 @@ namespace Mcro::Rendering::Textures
 	{
 		EPixelFormat GetRenderTargetFormat(UTextureRenderTarget* renderTarget)
 		{
-#if UE_VERSION_OLDER_THAN(5,5,0)
+#if UNREAL_VERSION(<, 5, 5)
 			if (auto rt2d = Cast<UTextureRenderTarget2D>(renderTarget))
 			{
 				if (rt2d->OverrideFormat == PF_Unknown)

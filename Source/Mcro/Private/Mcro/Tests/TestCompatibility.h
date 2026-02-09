@@ -17,9 +17,9 @@
  */
 
 #include "CoreMinimal.h"
-#include "Misc/EngineVersionComparison.h"
+#include "Mcro/Macros.h"
 
-#if UE_VERSION_OLDER_THAN(5,5,0)
+#if UNREAL_VERSION(<, 5, 5)
 
 /**
  * @brief

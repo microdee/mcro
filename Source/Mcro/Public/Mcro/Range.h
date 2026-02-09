@@ -189,7 +189,7 @@ template <typename T> auto end  (TBasicArray<T>&       r) ->       T* { return r
 template <typename T> auto end  (TBasicArray<T> const& r) -> const T* { return r.end(); }
 template <typename T> size_t size(TBasicArray<T> const& r) { return static_cast<size_t>(r.Num()); }
 
-#if UE_VERSION_NEWER_THAN(5, 5, -1)
+#if UNREAL_VERSION(>=, 5, 5)
 // TBitArray (GetIndex-able) (only after 5.5)
 template <typename A> auto begin(TBitArray<A>&       r) -> TIteratorExtension<TBitArray<A>> { return r.begin(); }
 template <typename A> auto begin(TBitArray<A> const& r) -> TIteratorExtension<TBitArray<A>> { return r.begin(); }

@@ -66,7 +66,7 @@ namespace Mcro::Text
 	/** @brief Concept constraining given type to a string of any character type */
 	template<typename T>
 	concept CStringInvariant = CSameAsDecayed<T, FString>
-#if UE_VERSION_NEWER_THAN(5, 5, -1)
+#if UNREAL_VERSION(>=, 5, 5)
 		|| CSameAsDecayed<T, FAnsiString>
 		|| CSameAsDecayed<T, FUtf8String>
 #endif
@@ -134,7 +134,7 @@ namespace Mcro::Text
 		
 		FORCEINLINE FString MakeStringFromPtrSize(const TCHAR* ptr, int32 size)
 		{
-#if UE_VERSION_OLDER_THAN(5, 5, 0)
+#if UNREAL_VERSION(<, 5, 5)
 			return FString(size, ptr);
 #else
 			return FString::ConstructFromPtrSize(ptr, size);

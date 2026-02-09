@@ -127,7 +127,7 @@ void FMcroEventDelegate_Spec::Define()
 
 			retainingEvent.Add(From([this](FCopyConstructCounter const& payload)
 			{
-#if UE_VERSION_OLDER_THAN(5,5,0)
+#if UNREAL_VERSION(<, 5, 5)
 				TestTrue(TEXT_"Belated invoke should get copy constructed object", payload.CopyCount > 0);
 #else
 				TestGreaterThan(TEXT_"Belated invoke should get copy constructed object", payload.CopyCount, 0);

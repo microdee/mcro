@@ -17,7 +17,7 @@
 #include "Misc/EngineVersionComparison.h"
 
 // These here are back-porting missing macros from UE 5.4 to at least UE 5.3
-#if UE_VERSION_OLDER_THAN(5,4,0)
+#if UE_VERSION_OLDER_THAN(5, 4, 0)
 
 // Expands to a number which is the count of variadic arguments passed to it.
 #define UE_VA_ARG_COUNT(...) UE_APPEND_VA_ARG_COUNT(, ##__VA_ARGS__)
@@ -73,8 +73,42 @@
 /** @brief Returns given default value when input value is empty */
 #define DEFAULT_ON_EMPTY(value, default) BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), default, value)
 
+#define MCRO_VERSION_NUM_2(major, minor) \
+	( ((0x000000000000FFFFULL & major) << 48) \
+	| ((0x000000000000FFFFULL & minor) << 32) \
+	)
+
+#define MCRO_VERSION_NUM_3(major, minor, patch) \
+	( ((0x000000000000FFFFULL & major) << 48) \
+	| ((0x000000000000FFFFULL & minor) << 32) \
+	| ((0x000000000000FFFFULL & patch) << 16) \
+	)
+
+#define MCRO_VERSION_NUM_4(major, minor, patch, rev) \
+	( ((0x000000000000FFFFULL & major) << 48) \
+	| ((0x000000000000FFFFULL & minor) << 32) \
+	| ((0x000000000000FFFFULL & patch) << 16) \
+	| ((0x000000000000FFFFULL & rev)   << 0) \
+	)
+
+/**
+ * @brief  Store a semantic version in an uint64 number.
+ * @param major  `0xFFFF'0000'0000'0000`ULL
+ * @param minor  `0x0000'FFFF'0000'0000`ULL
+ * @param patch  `0x0000'0000'FFFF'0000`ULL
+ * @param   rev  `0x0000'0000'0000'FFFF`ULL
+ * @remarks  Each component can go up to 65535
+ */
+#define VERSION_NUM(...) MACRO_OVERLOAD(MCRO_VERSION_NUM_, __VA_ARGS__)
+
+/** @brief VERSION_NUM representation of current Engine version */
+#define UNREAL_VERSION_NUM VERSION_NUM(ENGINE_MAJOR_VERSION, ENGINE_MINOR_VERSION, ENGINE_PATCH_VERSION)
+
+/** @brief Macro for conveniently comparing unreal version for code compile compatibility cases. */
+#define UNREAL_VERSION(op, ...) (UNREAL_VERSION_NUM op VERSION_NUM(__VA_ARGS__))
+
 // Forward function of Unreal before UE 5.5 is not constexpr
-#if UE_VERSION_OLDER_THAN(5,5,0)
+#if UNREAL_VERSION(<, 5, 5)
 
 template <typename T>
 FORCEINLINE constexpr T&& ForwardConstExpr(typename TRemoveReference<T>::Type& Obj)

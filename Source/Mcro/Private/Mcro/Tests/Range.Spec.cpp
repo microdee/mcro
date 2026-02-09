@@ -184,7 +184,7 @@ void Test()
 
 	static_assert(CRangeMember<decltype(vi)>);
 
-#if UE_VERSION_NEWER_THAN(5, 5, -1)
+#if UNREAL_VERSION(>=, 5, 5)
 	TBitArray<> bitArrayA;
 	TBitArray<> bitArrayB;
 	[](auto&&){} (ranges::begin(bitArrayA));
