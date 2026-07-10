@@ -23,7 +23,9 @@ public class Mcro : ModuleRules
 		bUseUnity = false;
 		CppStandard = CppStandardVersion.Latest;
 
-#if UE_5_6_OR_LATER
+#if UE_5_8_OR_LATER
+		const string boostVersion = "1.88.0";
+#elif UE_5_6_OR_LATER
 		const string boostVersion = "1.85.0";
 #elif UE_5_4_OR_LATER
 		const string boostVersion = "1_82_0";

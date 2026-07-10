@@ -26,6 +26,24 @@
 #include "range/v3/all.hpp"
 #include "Mcro/LibraryIncludes/End.h"
 
+// --- UE 5.8 TArray <-> range-v3 bridge fix ------------------------------------------------
+// UE 5.8's checked ranged-for iterator (TCheckedPointerIterator, returned by TArray::begin()/
+// end() in non-Shipping builds where TARRAY_RANGED_FOR_CHECKS==1) carries no value_type typedef.
+// range-v3 0.12.0 derives iter_value_t from indirectly_readable_traits<I>::value_type, so it
+// cannot deduce the value type -> indirectly_readable is false -> input_iterator is false ->
+// every view adaptor (transform / filter / concat) and the `array | view` pipe reject TArray.
+// Supply the value type through range-v3's own customization point to restore recognition.
+#if defined(TARRAY_RANGED_FOR_CHECKS) && TARRAY_RANGED_FOR_CHECKS
+namespace ranges
+{
+	template <typename ElementType, typename SizeType, bool bReverse>
+	struct indirectly_readable_traits<::TCheckedPointerIterator<ElementType, SizeType, bReverse>>
+	{
+		using value_type = std::remove_cv_t<ElementType>;
+	};
+}
+#endif
+
 namespace Mcro::Range
 {
 	using namespace Mcro::Templates;

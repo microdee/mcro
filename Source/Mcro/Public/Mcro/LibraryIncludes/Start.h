@@ -267,7 +267,7 @@
 #if defined(_MSC_VER) && defined(__GNUC__)
 
 #if _MSC_VER > 0
-#pragma message ("Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: " PREPROCESSOR_TO_STRING(__GNUC__) ", MSVC: " PREPROCESSOR_TO_STRING(_MSC_VER) ")")
+#pragma message ("Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: " UE_STRINGIZE(__GNUC__) ", MSVC: " UE_STRINGIZE(_MSC_VER) ")")
 #define NUIR_MSVC_GNUC_AVOIDANCE __GNUC__
 #pragma push_macro("__GNUC__")
 #undef __GNUC__

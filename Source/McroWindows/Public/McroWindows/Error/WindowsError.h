@@ -19,7 +19,7 @@ namespace Mcro::Windows::Error
 	using namespace Mcro::Error;
 
 	/** @brief An error wrapping the returned code of GetLastError and attempts to get a string description of it */
-	MCROWINDOWS_API class FLastError : public IError
+	class MCROWINDOWS_API FLastError : public IError
 	{
 	public:
 		FLastError(int32 errorCode);
@@ -35,7 +35,7 @@ namespace Mcro::Windows::Error
 	 *	@brief
 	 *	An error wrapping HRESULT code returned by many Microsoft APIs. It will also collect human readable metadata.
 	 */
-	MCROWINDOWS_API class FHresultError : public  IError
+	class MCROWINDOWS_API FHresultError : public  IError
 	{
 	public:
 		/**

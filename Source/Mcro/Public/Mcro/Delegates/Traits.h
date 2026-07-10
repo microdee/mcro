@@ -12,6 +12,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Misc/EngineVersionComparison.h"
 #include "Mcro/FunctionTraits.h"
 #include "Mcro/Void.h"
 #include "Mcro/Tuples.h"
@@ -59,7 +60,12 @@ namespace Mcro::Delegates
 	template <CDynamicDelegate Dynamic>
 	struct TDynamicMethodPtr_Struct<Dynamic>
 	{
+#if UE_VERSION_OLDER_THAN(5, 8, 0)
 		using Type = typename Dynamic::template TMethodPtrResolver<FDeclareOnly>::FMethodPtr;
+#else
+		// UE 5.8 added a leading `bool bConst` non-type parameter to TMethodPtrResolver.
+		using Type = typename Dynamic::template TMethodPtrResolver<false, FDeclareOnly>::FMethodPtr;
+#endif
 	};
 
 	template <CDynamicMulticastDelegate Dynamic>

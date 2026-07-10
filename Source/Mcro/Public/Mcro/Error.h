@@ -754,7 +754,7 @@ namespace Mcro::Error
 		->WithLocation()                               //
 
 #define MCRO_PROPAGATE_FAIL_2(var, expression) MCRO_PROPAGATE_FAIL_3(auto, var, expression)
-#define MCRO_PROPAGATE_FAIL_1(expression) MCRO_PROPAGATE_FAIL_2(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)
+#define MCRO_PROPAGATE_FAIL_1(expression) MCRO_PROPAGATE_FAIL_2(UE_JOIN(tempResult, __LINE__), expression)
 
 /**
  *	@brief

@@ -35,7 +35,7 @@
 
 /** @brief Use this macro in a function which returns an `Mcro::Error::TMaybe`. */
 #define HR_TRY_WITH(expression, noErrorInfo) \
-	MCRO_TRY_WITH_IMPL(PREPROCESSOR_JOIN(tempHr, __LINE__), expression, noErrorInfo)
+	MCRO_TRY_WITH_IMPL(UE_JOIN(tempHr, __LINE__), expression, noErrorInfo)
 
 /**
  *	@brief
