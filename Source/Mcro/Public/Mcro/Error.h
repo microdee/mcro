@@ -721,7 +721,7 @@ namespace Mcro::Error
 		return Mcro::Error::IError::Make(new error)             \
 			->WithLocation()                                    \
 			->AsRecoverable()                                   \
-			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition)) //
+			->WithCodeContext(UE_TO_TEXT(condition)) //
 
 #define MCRO_ASSERT_RETURN_1(condition) MCRO_ASSERT_RETURN_2(condition, Mcro::Error::FAssertion())
 

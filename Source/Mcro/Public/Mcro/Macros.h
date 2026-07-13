@@ -48,7 +48,7 @@
 
 #endif
 
-#define PREPROCESSOR_TO_TEXT(x) TEXT(UE_STRINGIZE(x))
+#define UE_TO_TEXT(x) TEXT(UE_STRINGIZE(x))
 
 /**
  * @brief
