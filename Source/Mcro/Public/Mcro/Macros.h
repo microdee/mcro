@@ -48,7 +48,7 @@
 
 #endif
 
-#define PREPROCESSOR_TO_TEXT(x) TEXT(PREPROCESSOR_TO_STRING(x))
+#define UE_TO_TEXT(x) TEXT(UE_STRINGIZE(x))
 
 /**
  * @brief
@@ -68,7 +68,7 @@
  * FOO(1, 2, 3) // -> 123
  * @endcode
  */
-#define MACRO_OVERLOAD(prefix, ...) PREPROCESSOR_APPEND_VA_ARG_COUNT(prefix, __VA_ARGS__)(__VA_ARGS__)
+#define MACRO_OVERLOAD(prefix, ...) UE_APPEND_VA_ARG_COUNT(prefix, __VA_ARGS__)(__VA_ARGS__)
 
 /** @brief Returns given default value when input value is empty */
 #define DEFAULT_ON_EMPTY(value, default) BOOST_PP_IF(BOOST_PP_CHECK_EMPTY(value), default, value)

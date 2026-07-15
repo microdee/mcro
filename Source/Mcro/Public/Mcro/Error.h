@@ -721,7 +721,7 @@ namespace Mcro::Error
 		return Mcro::Error::IError::Make(new error)             \
 			->WithLocation()                                    \
 			->AsRecoverable()                                   \
-			->WithCodeContext(PREPROCESSOR_TO_TEXT(condition)) //
+			->WithCodeContext(UE_TO_TEXT(condition)) //
 
 #define MCRO_ASSERT_RETURN_1(condition) MCRO_ASSERT_RETURN_2(condition, Mcro::Error::FAssertion())
 
@@ -754,7 +754,7 @@ namespace Mcro::Error
 		->WithLocation()                               //
 
 #define MCRO_PROPAGATE_FAIL_2(var, expression) MCRO_PROPAGATE_FAIL_3(auto, var, expression)
-#define MCRO_PROPAGATE_FAIL_1(expression) MCRO_PROPAGATE_FAIL_2(PREPROCESSOR_JOIN(tempResult, __LINE__), expression)
+#define MCRO_PROPAGATE_FAIL_1(expression) MCRO_PROPAGATE_FAIL_2(UE_JOIN(tempResult, __LINE__), expression)
 
 /**
  *	@brief

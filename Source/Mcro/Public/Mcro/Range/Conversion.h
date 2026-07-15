@@ -15,6 +15,7 @@
 #include <ranges>
 
 #include "CoreMinimal.h"
+#include "Misc/EngineVersionComparison.h"
 
 #include "Mcro/Concepts.h"
 #include "Mcro/Range/Iterators.h"
@@ -25,6 +26,33 @@
 #include "Mcro/LibraryIncludes/Start.h"
 #include "range/v3/all.hpp"
 #include "Mcro/LibraryIncludes/End.h"
+
+/**
+ *	@brief
+ *	Restore range-v3 compatibility for `TArray` on UE 5.8+.
+ *
+ *	In non-Shipping builds (`TARRAY_RANGED_FOR_CHECKS == 1`) `TArray::begin()`/`end()` return
+ *	`TCheckedPointerIterator`. UE 5.8 reworked this iterator so it no longer exposes a `value_type`
+ *	typedef, therefore range-v3 0.12.0 cannot compute `iter_value_t`, which makes
+ *	`indirectly_readable` (and in turn `input_iterator`) evaluate to `false`. As a result every
+ *	view adaptor (`transform` / `filter` / `concat`) and the `array | view` pipe stop resolving.
+ *	Supplying the value type through range-v3's own `indirectly_readable_traits` customization
+ *	point restores recognition.
+ *
+ *	@remarks
+ *	Only required on UE 5.8+. Earlier engine versions expose the iterator's comparison operators
+ *	directly, so range-v3 deduces the value type on its own.
+ */
+#if !UE_VERSION_OLDER_THAN(5, 8, 0) && defined(TARRAY_RANGED_FOR_CHECKS) && TARRAY_RANGED_FOR_CHECKS
+namespace ranges
+{
+	template <typename ElementType, typename SizeType, bool bReverse>
+	struct indirectly_readable_traits<::TCheckedPointerIterator<ElementType, SizeType, bReverse>>
+	{
+		using value_type = std::remove_cv_t<ElementType>;
+	};
+}
+#endif
 
 namespace Mcro::Range
 {

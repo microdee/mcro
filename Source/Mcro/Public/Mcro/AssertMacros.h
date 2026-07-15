@@ -49,7 +49,7 @@ namespace Mcro::AssertMacros
 #define MCRO_ASSERT_SUBMIT_ERROR(condition, severity, async, important, ...) \
 	Mcro::AssertMacros::Detail::SubmitError(                                 \
 		Mcro::Error::EErrorSeverity::severity,                               \
-		PREPROCESSOR_TO_TEXT(condition),                                     \
+		UE_TO_TEXT(condition),                                     \
 		async, important,                                                    \
 		[&](Mcro::Error::IErrorRef const& error) { (error __VA_ARGS__); }    \
 	);                                                                      //
@@ -57,7 +57,7 @@ namespace Mcro::AssertMacros
 #define MCRO_ASSERT_CRASH_METHOD                                   \
 	UE_LOG(LogTemp, Fatal,                                         \
 		TEXT_"Program cannot continue for the reasons above. (at " \
-		PREPROCESSOR_TO_TEXT(__FILE__:__LINE__) TEXT_")"           \
+		UE_TO_TEXT(__FILE__:__LINE__) TEXT_")"           \
 	)                                                             //
 
 #define MCRO_CRASH_BODY(condition, ...)    \

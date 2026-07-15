@@ -31,11 +31,11 @@
 		return Mcro::Error::IError::Make(new Mcro::Windows::Error::FHresultError(tempVar, noErrorInfo)) \
 			->WithLocation()                                                                            \
 			->AsRecoverable                                                                             \
-			->WithCodeContext(PREPROCESSOR_TO_TEXT(expression))                                        //
+			->WithCodeContext(UE_TO_TEXT(expression))                                        //
 
 /** @brief Use this macro in a function which returns an `Mcro::Error::TMaybe`. */
 #define HR_TRY_WITH(expression, noErrorInfo) \
-	MCRO_TRY_WITH_IMPL(PREPROCESSOR_JOIN(tempHr, __LINE__), expression, noErrorInfo)
+	MCRO_TRY_WITH_IMPL(UE_JOIN(tempHr, __LINE__), expression, noErrorInfo)
 
 /**
  *	@brief
