@@ -411,9 +411,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    UE_LOG(LogTemp, Fatal,                                         \</div>
 <div class="line">        <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;Program cannot continue for the reasons above. (at &quot;</span> \</div>
-<div class="line">        <a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(__FILE__:__LINE__) <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;)&quot;</span>           \</div>
+<div class="line">        <a class="code hl_define" href="../../df/d0a/Macros_8h.html#a922ec1d3f4bbf0f6fbcfa329b7eccbcb">UE_TO_TEXT</a>(__FILE__:__LINE__) <a class="code hl_define" href="../../d9/dde/TextMacros_8h.html#a9e3bd2dc94862c806215d1f46d9d7657">TEXT_</a><span class="stringliteral">&quot;)&quot;</span>           \</div>
 <div class="line">    )</div>
-<div class="ttc" id="aMacros_8h_html_a4bf69615cef105529a52fd1a06f84704"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a></div><div class="ttdeci">#define PREPROCESSOR_TO_TEXT(x)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00051">Macros.h:51</a></div></div>
+<div class="ttc" id="aMacros_8h_html_a922ec1d3f4bbf0f6fbcfa329b7eccbcb"><div class="ttname"><a href="../../df/d0a/Macros_8h.html#a922ec1d3f4bbf0f6fbcfa329b7eccbcb">UE_TO_TEXT</a></div><div class="ttdeci">#define UE_TO_TEXT(x)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Macros_8h_source.html#l00051">Macros.h:51</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../db/df5/AssertMacros_8h_source.html#l00057">57</a> of file <a class="el" href="../../db/df5/AssertMacros_8h_source.html">AssertMacros.h</a>.</p>
 
@@ -486,7 +486,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_function" href="../../d7/d08/namespaceMcro_1_1AssertMacros_1_1Detail.html#a322541ce21c5cdafcdb1c17354d04032">Mcro::AssertMacros::Detail::SubmitError</a>(                                 \</div>
 <div class="line">        Mcro::Error::EErrorSeverity::severity,                               \</div>
-<div class="line">        <a class="code hl_define" href="../../df/d0a/Macros_8h.html#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(condition),                                     \</div>
+<div class="line">        <a class="code hl_define" href="../../df/d0a/Macros_8h.html#a922ec1d3f4bbf0f6fbcfa329b7eccbcb">UE_TO_TEXT</a>(condition),                                     \</div>
 <div class="line">        async, important,                                                    \</div>
 <div class="line">        [&amp;](<a class="code hl_typedef" href="../../dd/d58/namespaceMcro_1_1Error.html#a13dfe513629ee4ddd2dca4b1fdcd78d6">Mcro::Error::IErrorRef</a> <span class="keyword">const</span>&amp; error) { (error __VA_ARGS__); }    \</div>
 <div class="line">    );</div>

@@ -127,8 +127,8 @@ $(function(){initNavTree('df/d0a/Macros_8h.html','../../'); initResizable(true);
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a4bf69615cef105529a52fd1a06f84704" id="r_a4bf69615cef105529a52fd1a06f84704"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bf69615cef105529a52fd1a06f84704">PREPROCESSOR_TO_TEXT</a>(x)</td></tr>
-<tr class="separator:a4bf69615cef105529a52fd1a06f84704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a922ec1d3f4bbf0f6fbcfa329b7eccbcb" id="r_a922ec1d3f4bbf0f6fbcfa329b7eccbcb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a922ec1d3f4bbf0f6fbcfa329b7eccbcb">UE_TO_TEXT</a>(x)</td></tr>
+<tr class="separator:a922ec1d3f4bbf0f6fbcfa329b7eccbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a048e492c8a4074ec4ce7f5438280b98a" id="r_a048e492c8a4074ec4ce7f5438280b98a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a048e492c8a4074ec4ce7f5438280b98a">MACRO_OVERLOAD</a>(prefix, ...)</td></tr>
 <tr class="memdesc:a048e492c8a4074ec4ce7f5438280b98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement preprocessor function overloading based on argument count for a set of macros following a distinct convention. Individual overloads must have a trailing number corresponding to the number of arguments they accept.  <br /></td></tr>
 <tr class="separator:a048e492c8a4074ec4ce7f5438280b98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,7 +230,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">PREPROCESSOR_APPEND_VA_ARG_COUNT(prefix, __VA_ARGS__)(__VA_ARGS__)</div>
+<b>Value:</b><div class="fragment"><div class="line">UE_APPEND_VA_ARG_COUNT(prefix, __VA_ARGS__)(__VA_ARGS__)</div>
 </div><!-- fragment -->
 <p>Implement preprocessor function overloading based on argument count for a set of macros following a distinct convention. Individual overloads must have a trailing number corresponding to the number of arguments they accept. </p>
 <p>For example: </p><div class="fragment"><div class="line"><span class="preprocessor">#define FOO_3(a, b, c) a##b##c</span></div>
@@ -359,21 +359,21 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bf69615cef105529a52fd1a06f84704" name="a4bf69615cef105529a52fd1a06f84704"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bf69615cef105529a52fd1a06f84704">&#9670;&#160;</a></span>PREPROCESSOR_TO_TEXT</h2>
+<a id="a922ec1d3f4bbf0f6fbcfa329b7eccbcb" name="a922ec1d3f4bbf0f6fbcfa329b7eccbcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a922ec1d3f4bbf0f6fbcfa329b7eccbcb">&#9670;&#160;</a></span>UE_TO_TEXT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PREPROCESSOR_TO_TEXT</td>
+          <td class="memname">#define UE_TO_TEXT</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">TEXT(PREPROCESSOR_TO_STRING(x))</div>
+<b>Value:</b><div class="fragment"><div class="line">TEXT(UE_STRINGIZE(x))</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../df/d0a/Macros_8h_source.html#l00051">51</a> of file <a class="el" href="../../df/d0a/Macros_8h_source.html">Macros.h</a>.</p>
 

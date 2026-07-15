@@ -385,7 +385,7 @@ $(function(){initNavTree('df/d42/Start_8h_source.html','../../'); initResizable(
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; defined(__GNUC__)</span></div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="preprocessor">#if _MSC_VER &gt; 0</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="preprocessor">#pragma message (&quot;Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: &quot; PREPROCESSOR_TO_STRING(__GNUC__) &quot;, MSVC: &quot; PREPROCESSOR_TO_STRING(_MSC_VER) &quot;)&quot;)</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="preprocessor">#pragma message (&quot;Non-Unreal include region: _MSC_VER - __GNUC__ macro collision detected, temporarily undefining __GNUC__ (GCC: &quot; UE_STRINGIZE(__GNUC__) &quot;, MSVC: &quot; UE_STRINGIZE(_MSC_VER) &quot;)&quot;)</span></div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">#define NUIR_MSVC_GNUC_AVOIDANCE __GNUC__</span></div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">#pragma push_macro(&quot;__GNUC__&quot;)</span></div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">#undef __GNUC__</span></div>

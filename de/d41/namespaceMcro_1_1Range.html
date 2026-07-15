@@ -124,6 +124,9 @@ $(function(){initNavTree('de/d41/namespaceMcro_1_1Range.html','../../'); initRes
   <div class="headertitle"><div class="title">Mcro::Range Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Restore range-v3 compatibility for <code>TArray</code> on UE 5.8+.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -396,7 +399,11 @@ Variables</h2></td></tr>
 <tr class="memitem:af9b84e8bdf2fc6c7425efe23065c2c67"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d2/df0/structMcro_1_1Range_1_1TIteratorComputeDistance__Struct.html">TIteratorComputeDistance_Struct</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af9b84e8bdf2fc6c7425efe23065c2c67">TIteratorComputeDistance</a></td></tr>
 <tr class="separator:af9b84e8bdf2fc6c7425efe23065c2c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Restore range-v3 compatibility for <code>TArray</code> on UE 5.8+. </p>
+<p>In non-Shipping builds (<code>TARRAY_RANGED_FOR_CHECKS == 1</code>) <code>TArray::begin()</code>/<code><a class="el" href="../../d9/db6/Range_8h.html#a17b1062898202c266c9b803a2a6c5459">end()</a></code> return <code>TCheckedPointerIterator</code>. UE 5.8 reworked this iterator so it no longer exposes a <code>value_type</code> typedef, therefore range-v3 0.12.0 cannot compute <code>iter_value_t</code>, which makes <code>indirectly_readable</code> (and in turn <code>input_iterator</code>) evaluate to <code>false</code>. As a result every view adaptor (<code>transform</code> / <code>filter</code> / <code>concat</code>) and the <code>array | view</code> pipe stop resolving. Supplying the value type through range-v3's own <code>indirectly_readable_traits</code> customization point restores recognition.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Only required on UE 5.8+. Earlier engine versions expose the iterator's comparison operators directly, so range-v3 deduces the value type on its own. </dd></dl>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="af3c41ed01ef982729462f542c44f66b5" name="af3c41ed01ef982729462f542c44f66b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3c41ed01ef982729462f542c44f66b5">&#9670;&#160;</a></span>TIteratorCategory</h2>
 
@@ -640,7 +647,7 @@ template&lt;CRangeMember... Ranges&gt; </div>
 
 <p>Specify a start and an end sequence enclosing this range when converting it to a string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00075">75</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00103">103</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -694,7 +701,7 @@ template&lt;CFunctionLike Predicate, CRangeOfTuplesCompatibleWithFunction&lt; Pr
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html">Range</a> with transformed elements </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html" title="Restore range-v3 compatibility for TArray on UE 5.8+.">Range</a> with transformed elements </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00285">285</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
@@ -741,7 +748,7 @@ template&lt;CFunctionLike Predicate&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html">Range</a> with transformed elements </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html" title="Restore range-v3 compatibility for TArray on UE 5.8+.">Range</a> with transformed elements </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00319">319</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
@@ -1020,7 +1027,7 @@ requires CCoreHalfEqualityComparable&lt;<a class="el" href="#ab447bff66e22242455
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">left</td><td>Input range </td></tr>
-    <tr><td class="paramname">right</td><td><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html">Range</a> to compare with</td></tr>
+    <tr><td class="paramname">right</td><td><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html" title="Restore range-v3 compatibility for TArray on UE 5.8+.">Range</a> to compare with</td></tr>
     <tr><td class="paramname">matchOnlyBeginning</td><td>By default MatchOrdered returns false for ranges with different lengths </td></tr>
   </table>
   </dd>
@@ -1086,7 +1093,7 @@ template&lt;CRangeMember Right&gt; </div>
 <p>This runs in O(N) time when result is true, unless both input ranges are <code><a class="el" href="../../df/d86/conceptMcro_1_1Range_1_1CCountableRange.html">CCountableRange</a></code>, <code>matchOnlyBeginning</code> is false and the two input ranges have different size.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">right</td><td><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html">Range</a> to compare with</td></tr>
+    <tr><td class="paramname">right</td><td><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html" title="Restore range-v3 compatibility for TArray on UE 5.8+.">Range</a> to compare with</td></tr>
     <tr><td class="paramname">matchOnlyBeginning</td><td>By default MatchOrdered returns false for ranges with different lengths </td></tr>
   </table>
   </dd>
@@ -1138,7 +1145,7 @@ template&lt;typename Value &gt; </div>
 
 <p>Don't insert anything else than the contents of the input range when that is rendered as a string just append each item one after the other. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00123">123</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00151">151</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -1159,7 +1166,7 @@ template&lt;typename Value &gt; </div>
 
 <p>Don't enclose this range in anything when it's rendered to a string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00104">104</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00132">132</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1187,7 @@ template&lt;typename Value &gt; </div>
 
 <p>Don't use a separator when this range is rendered to a string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00090">90</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00118">118</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -1199,7 +1206,7 @@ template&lt;typename Value &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00245">245</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00273">273</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -1225,7 +1232,7 @@ template&lt;CRangeMember Range&gt; </div>
 <p>For ranges of strings and string-views individual items will be directly copy-appended to the output separated by <code>,</code> (unless another separator sequence is set via <code>Separator</code>)</p>
 <p>For anything else, <code><a class="el" href="../../d8/d6f/namespaceMcro_1_1Text.html#acbb963ed7aa8378bab5c47fe68e0f3f6" title="Attempt to convert anything to string which can tell via some method how to do so.">Mcro::Text::AsString</a></code> is used. In fact this function serves as the basis for <code>AsString</code> for any range type. Like for strings, any other type is separated by <code>,</code> (unless another separator sequence is set via <code>Separator</code>). For convenience a piped version is also provided of this function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00179">179</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00207">207</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -1288,7 +1295,7 @@ template&lt;size_t ItemIndex, CRangeOfTuples Range&gt; </div>
 
 <p>Specify a separator sequence for a range when converting it to a string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00061">61</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dcf/Conversion_8h_source.html#l00089">89</a> of file <a class="el" href="../../db/dcf/Conversion_8h_source.html">Conversion.h</a>.</p>
 
 </div>
 </div>
@@ -1340,7 +1347,7 @@ template&lt;CFunctionLike Transform, CRangeOfTuplesCompatibleWithFunction&lt; Tr
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html">Range</a> with transformed elements </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html" title="Restore range-v3 compatibility for TArray on UE 5.8+.">Range</a> with transformed elements </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00216">216</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
@@ -1387,7 +1394,7 @@ template&lt;CFunctionLike Transform&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html">Range</a> with transformed elements </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../de/d41/namespaceMcro_1_1Range.html" title="Restore range-v3 compatibility for TArray on UE 5.8+.">Range</a> with transformed elements </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc7/Views_8h_source.html#l00250">250</a> of file <a class="el" href="../../dc/dc7/Views_8h_source.html">Views.h</a>.</p>
 
